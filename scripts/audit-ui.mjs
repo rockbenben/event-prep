@@ -631,6 +631,72 @@ async function runChecks(browser, base) {
         }
       }
 
+      // 5.12 记住读到哪儿了：滚到某节，离开再打开，回到同一节
+      //
+      // ⚠️ 这是**本机个人数据**：不上传、不同步。
+      //    验的是「下次打开还在同一节」——不是「下次打开就没了」。
+      {
+        await page.goto(`${base}/${slug}/`, { waitUntil: 'networkidle' });
+        // 先清掉可能存在的旧记录，从零开始
+        await page.evaluate(`(() => {
+          try {
+            const el = document.querySelector('.event[data-event-slug]');
+            if (el) localStorage.removeItem('eventprep:scroll:' + el.getAttribute('data-event-slug'));
+          } catch (e) {}
+        })()`);
+
+        // 滚到「推荐路线」那一节（往下滚一点，让它停在视口里）
+        const before = await page.evaluate(`(() => {
+          const head = document.getElementById('推荐路线');
+          if (!head) return null;
+          window.scrollTo({ top: head.getBoundingClientRect().top + window.scrollY - 80, behavior: 'instant' });
+          return { id: head.id, top: Math.round(head.getBoundingClientRect().top) };
+        })()`);
+        if (!before) {
+          record('记住位置 · 滚到某节再打开回到同一节', false, '页面里没有「推荐路线」这一节');
+        } else {
+          // 等防抖的 remember 落盘
+          await page.waitForTimeout(700);
+          const stored = await page.evaluate(`(() => {
+            const el = document.querySelector('.event[data-event-slug]');
+            if (!el) return null;
+            const raw = localStorage.getItem('eventprep:scroll:' + el.getAttribute('data-event-slug'));
+            return raw ? JSON.parse(raw) : null;
+          })()`);
+          record('记住位置 · 滚过之后有记录', Boolean(stored && stored.id), stored ? stored.id : '没有记录');
+
+          // 离开页面再打开（重新加载 = 重新走一遍加载流程）
+          await page.reload({ waitUntil: 'networkidle' });
+          await page.waitForTimeout(600);
+          const after = await page.evaluate(`(() => {
+            const head = document.getElementById('推荐路线');
+            return { top: head ? Math.round(head.getBoundingClientRect().top) : null, y: Math.round(window.scrollY) };
+          })()`);
+          record(
+            '记住位置 · 滚到某节再打开回到同一节',
+            after.top !== null && Math.abs(after.top - before.top) <= 40,
+            `离开前该节在视口 top=${before.top}px，回来后 top=${after.top}px（scrollY=${after.y}）`,
+          );
+
+          // 回到顶部 = 这次读完了，记录该清掉
+          await page.evaluate(`window.scrollTo({ top: 0, behavior: 'instant' })`);
+          await page.waitForTimeout(700);
+          const cleared = await page.evaluate(`(() => {
+            const el = document.querySelector('.event[data-event-slug]');
+            if (!el) return true;
+            return !localStorage.getItem('eventprep:scroll:' + el.getAttribute('data-event-slug'));
+          })()`);
+          record('记住位置 · 回到顶部就清掉记录', cleared === true);
+          // 清掉验收数据，别留在读者机器上
+          await page.evaluate(`(() => {
+            try {
+              const el = document.querySelector('.event[data-event-slug]');
+              if (el) localStorage.removeItem('eventprep:scroll:' + el.getAttribute('data-event-slug'));
+            } catch (e) {}
+          })()`);
+        }
+      }
+
       // 6. 键盘能走到目录和复选框
       await page.goto(`${base}/${slug}/`, { waitUntil: 'networkidle' });
       const focusables = await page.evaluate(`(() => {
