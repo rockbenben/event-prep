@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>行程准备站 · Social Preview</title>
+<style>
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    width: 1200px;
+    height: 630px;
+    overflow: hidden;
+    background-color: #f8fafc;
+    background-image: 
+      radial-gradient(at 0% 0%, rgba(37, 99, 235, 0.12) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, rgba(22, 163, 74, 0.08) 0px, transparent 40%),
+      radial-gradient(#cbd5e1 1.2px, transparent 1.2px);
+    background-size: 100% 100%, 100% 100%, 24px 24px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    color: #0f172a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 44px 56px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .card-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    gap: 48px;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  /* 左侧：品牌与核心定位 */
+  .left-col {
+    flex: 1;
+    max-width: 550px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .brand-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+
+  .logo-svg {
+    width: 60px;
+    height: 60px;
+    filter: drop-shadow(0 6px 12px rgba(37, 99, 235, 0.25));
+  }
+
+  .brand-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 12px;
+    background: rgba(37, 99, 235, 0.08);
+    border: 1px solid rgba(37, 99, 235, 0.22);
+    border-radius: 999px;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #2563eb;
+    letter-spacing: 0.02em;
+  }
+  .brand-badge::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #16a34a;
+  }
+
+  h1.brand-title {
+    font-size: 54px;
+    font-weight: 850;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    color: #0f172a;
+    margin-bottom: 6px;
+  }
+
+  .en-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #64748b;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+
+  .tagline {
+    font-size: 18px;
+    line-height: 1.55;
+    color: #334155;
+    font-weight: 500;
+    margin-bottom: 28px;
+  }
+
+  .pills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 14px;
+  }
+
+  .pill-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 13px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #1e293b;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+  }
+
+  .pill-icon {
+    font-size: 15px;
+    flex-shrink: 0;
+  }
+
+  /* 右侧：产品精细切片 Showcase */
+  .right-col {
+    width: 480px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .mockup-card {
+    width: 480px;
+    background: #ffffff;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: 
+      0 20px 40px -15px rgba(15, 23, 42, 0.12),
+      0 0 0 1px rgba(255, 255, 255, 0.8) inset;
+    position: relative;
+    transform: rotate(0.8deg);
+  }
+
+  /* 模拟手机顶部条与活动头 */
+  .mockup-header {
+    border-bottom: 1px solid #f1f5f9;
+    padding-bottom: 14px;
+    margin-bottom: 16px;
+  }
+
+  .mockup-event-title {
+    font-size: 20px;
+    font-weight: 800;
+    color: #0f172a;
+    line-height: 1.3;
+    margin-bottom: 8px;
+  }
+
+  .mockup-meta-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .mockup-badges {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .badge-ongoing {
+    background: #dcfce7;
+    color: #15803d;
+    font-size: 12.5px;
+    font-weight: 700;
+    padding: 3px 9px;
+    border-radius: 6px;
+  }
+
+  .badge-countdown {
+    background: rgba(37, 99, 235, 0.08);
+    color: #2563eb;
+    font-size: 12.5px;
+    font-weight: 700;
+    padding: 3px 9px;
+    border-radius: 6px;
+  }
+
+  .mockup-place {
+    font-size: 12px;
+    color: #64748b;
+    font-weight: 500;
+  }
+
+  /* 最重要的 3 件事 Callout */
+  .callout-box {
+    background: #f8fafc;
+    border: 1.5px solid #e2e8f0;
+    border-left: 4px solid #2563eb;
+    border-radius: 8px;
+    padding: 12px 14px;
+    margin-bottom: 16px;
+  }
+
+  .callout-title {
+    font-size: 13px;
+    font-weight: 750;
+    color: #1e293b;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .callout-item {
+    font-size: 12px;
+    color: #475569;
+    line-height: 1.5;
+    margin-bottom: 3px;
+  }
+  .callout-item:last-child {
+    margin-bottom: 0;
+  }
+
+  /* 议程卡片切片 */
+  .agenda-preview {
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 14px;
+    background: #ffffff;
+  }
+
+  .agenda-time-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 6px;
+  }
+
+  .agenda-time {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 13px;
+    font-weight: 700;
+    color: #2563eb;
+  }
+
+  .agenda-venue {
+    font-size: 11.5px;
+    color: #64748b;
+    background: #f1f5f9;
+    padding: 2px 7px;
+    border-radius: 4px;
+  }
+
+  .agenda-title {
+    font-size: 15px;
+    font-weight: 750;
+    color: #0f172a;
+    line-height: 1.35;
+    margin-bottom: 10px;
+  }
+
+  .speaker-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12.5px;
+  }
+
+  .speaker-avatar {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #60a5fa, #2563eb);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 700;
+  }
+
+  .speaker-name {
+    font-weight: 700;
+    color: #1e293b;
+  }
+
+  .speaker-title {
+    color: #64748b;
+  }
+
+  .tip-icon {
+    width: 17px;
+    height: 17px;
+    border-radius: 50%;
+    background: #f1f5f9;
+    color: #475569;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: 700;
+    margin-left: auto;
+  }
+</style>
+</head>
+<body>
+  <div class="card-container">
+    <!-- 左侧：品牌信息 -->
+    <div class="left-col">
+      <div class="brand-header">
+        <!-- Badge Logo SVG -->
+        <svg class="logo-svg" viewBox="0 0 32 32" fill="none">
+          <defs>
+            <linearGradient id="og-grad" x1="4" y1="4" x2="28" y2="29" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#3b82f6"/>
+              <stop offset="100%" stop-color="#1d4ed8"/>
+            </linearGradient>
+            <filter id="og-shadow" x="13" y="13" width="16" height="16" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+              <feDropShadow dx="0" dy="1.5" stdDeviation="1.5" flood-color="#0f172a" flood-opacity="0.3"/>
+            </filter>
+          </defs>
+          <rect x="12" y="1.5" width="8" height="4" rx="1.5" fill="#94a3b8"/>
+          <rect x="4" y="4.5" width="24" height="25" rx="5" fill="url(#og-grad)"/>
+          <rect x="11.5" y="7" width="9" height="2.5" rx="1.25" fill="#ffffff" fill-opacity="0.95"/>
+          <rect x="8" y="13.5" width="7.5" height="2" rx="1" fill="#ffffff" fill-opacity="0.9"/>
+          <rect x="8" y="17.5" width="5.5" height="2" rx="1" fill="#ffffff" fill-opacity="0.65"/>
+          <rect x="8" y="21.5" width="6.5" height="2" rx="1" fill="#ffffff" fill-opacity="0.65"/>
+          <g filter="url(#og-shadow)">
+            <circle cx="21.5" cy="20.5" r="5.5" fill="#16a34a"/>
+            <path d="M19.2 20.5l1.6 1.6 3-3.2" stroke="#ffffff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </g>
+        </svg>
+        <div class="brand-badge">会场门口实用的准备页</div>
+      </div>
+
+      <h1 class="brand-title">行程准备站</h1>
+      <div class="en-title">Event Prep Station</div>
+
+      <p class="tagline">
+        把各种活动的公开日程，整理成手机上随时能查的准备页。<br>
+        这是给人站在会场门口用的顺序，不是给作者介绍项目用的顺序。
+      </p>
+
+      <div class="pills-grid">
+        <div class="pill-item">
+          <span class="pill-icon">📍</span>
+          <span>现场顺序高效排布</span>
+        </div>
+        <div class="pill-item">
+          <span class="pill-icon">⏱️</span>
+          <span>访问时刻动态倒计时</span>
+        </div>
+        <div class="pill-item">
+          <span class="pill-icon">💡</span>
+          <span>就地展开讲者与备注</span>
+        </div>
+        <div class="pill-item">
+          <span class="pill-icon">✅</span>
+          <span>本地记住打勾行前清单</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 右侧：真实界面切片 -->
+    <div class="right-col">
+      <div class="mockup-card">
+        <div class="mockup-header">
+          <div class="mockup-event-title">2026 AI 工程师大会 · 上海</div>
+          <div class="mockup-meta-row">
+            <div class="mockup-badges">
+              <span class="badge-ongoing">进行中</span>
+              <span class="badge-countdown">0 天 · 今天开始</span>
+            </div>
+            <span class="mockup-place">上海跨国采购会展中心</span>
+          </div>
+        </div>
+
+        <!-- 最重要的 3 件事 -->
+        <div class="callout-box">
+          <div class="callout-title">
+            <span>⚡ 最重要的 3 件事</span>
+          </div>
+          <div class="callout-item">1. 入场先到 1F 登录台出示电子票换取纸质胸卡</div>
+          <div class="callout-item">2. 热门分会场座位有限，提前 10 分钟到场</div>
+        </div>
+
+        <!-- 日程切片 -->
+        <div class="agenda-preview">
+          <div class="agenda-time-row">
+            <span class="agenda-time">09:30 - 10:15</span>
+            <span class="agenda-venue">主会场 · 演讲</span>
+          </div>
+          <div class="agenda-title">下一代 Agent 架构与实际落地工程演进</div>
+          <div class="speaker-row">
+            <div class="speaker-avatar">A</div>
+            <span class="speaker-name">技术总监</span>
+            <span class="speaker-title">前沿架构实验室</span>
+            <span class="tip-icon" title="讲者简介">ℹ</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

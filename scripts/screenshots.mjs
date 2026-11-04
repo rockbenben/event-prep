@@ -114,8 +114,9 @@ if (slug) {
     colorScheme: 'light',
   });
   const ogPage = await ogContext.newPage();
-  await ogPage.goto(`http://localhost:${port}/`, { waitUntil: 'networkidle' });
-  await ogPage.waitForTimeout(400);
+  const ogCardFile = path.join(ROOT, 'scripts', 'og-card.html');
+  await ogPage.goto(`file://${ogCardFile.replace(/\\/g, '/')}`, { waitUntil: 'networkidle' });
+  await ogPage.waitForTimeout(200);
   await ogPage.screenshot({ path: path.join(OUT, 'og-image.png') });
   await ogContext.close();
 }
