@@ -240,17 +240,22 @@ async function runChecks(browser, base) {
           const over = cards.filter((c) => c.getBoundingClientRect().right > docWidth + 1).length;
           const withTip = cards.findIndex((c) => c.querySelector('.agenda-tip-btn'));
           const withAbstract = cards.findIndex((c) => c.querySelector('details.agenda-abstract'));
+          // ⚠️ scrollY **一次读，全部卡片共用**：滚动着的页面里，
+          //    每张卡各读一次 scrollY，量到的位置会互相对不上。
+          //    页面停下来的时候（下面会等它停稳），两种读法一样。
+          const scrollY = window.scrollY;
           return {
             cards: cards.length,
             overflowing: over,
             withTip,
             withAbstract,
+            scrollY: Math.round(scrollY),
             boxes: cards.map((c) => {
               const r = c.getBoundingClientRect();
               return {
                 left: Math.round(r.left),
                 width: Math.round(r.width),
-                top: Math.round(r.top + window.scrollY),
+                top: Math.round(r.top + scrollY),
               };
             }),
           };
@@ -265,24 +270,74 @@ async function runChecks(browser, base) {
           const useTip = before.withTip >= 0;
           const index = useTip ? before.withTip : before.withAbstract;
           if (index >= 0) {
-            const selector = useTip ? '.agenda-tip-btn' : '.agenda-card details.agenda-abstract summary';
-            await page.locator(selector).nth(useTip ? index : 0).click();
-            await page.waitForTimeout(150);
+            // ⚠️ **定位要按卡片来，别按 `.agenda-tip-btn` 的全局序号**：
+            //    提示图标有两类（讲者简介 / 看这一场之前要知道的事），
+            //    一张卡上可能挂两个。全局第 N 个图标跟「第 N 张卡」根本不是一回事——
+            //    实测：卡片 #1 同时有备注图标和简介图标时，
+            //    全局 nth(1) 恰好是它的简介图标，序号对上了纯属运气；
+            //    换个内容就点开**另一张卡**的图标，量出来的位移当然对不上。
+            //    所以：先定位到卡片，再在**这张卡里**找图标。
+            const card = page.locator('.agenda-card').nth(index);
+            const bioBtn = card.locator('.agenda-tip-bio .agenda-tip-btn');
+            const hasBio = (await bioBtn.count()) > 0;
+            const target = hasBio
+              ? bioBtn.first()
+              : useTip
+                ? card.locator('.agenda-tip-btn').first()
+                : card.locator('details.agenda-abstract summary').first();
+            const openSelector = useTip ? '.agenda-tip-toggle[open]' : 'details.agenda-abstract[open]';
+
+            // ⚠️ **先把要点的那张卡滚到可视区，并等滚动停稳**，再量「之前」。
+            //    正文有 scroll-behavior: smooth，Playwright 的 click 会先滚动到元素；
+            //    动画还没停就量位置，量到的是动画中间的一帧——
+            //    探针里 `r.top` 和 `window.scrollY` 是先后读的，动画中两者对不上，
+            //    算出来的文档位置能差好几像素（实测 9px）。
+            //    停稳之后再点，点击就不会再触发滚动，前后两次量的是同一个静止状态。
+            await page.evaluate(`(() => {
+              const cards = [...document.querySelectorAll('.agenda-card')];
+              const el = cards[${index}];
+              if (el) el.scrollIntoView({ block: 'center', behavior: 'instant' });
+            })()`);
+            await page.evaluate(`(() => new Promise((resolve) => {
+              let last = window.scrollY;
+              let stable = 0;
+              const tick = () => {
+                if (window.scrollY === last) stable += 1;
+                else { stable = 0; last = window.scrollY; }
+                if (stable >= 3) resolve(true);
+                else requestAnimationFrame(tick);
+              };
+              requestAnimationFrame(tick);
+            }))()`);
+
+            const settled = await page.evaluate(probeAgenda);
+            await target.click();
+            // 等它真的展开，而不是「睡 150ms 说不定好了」
+            await page.waitForFunction(`(() => {
+              const cards = [...document.querySelectorAll('.agenda-card')];
+              const card = cards[${index}];
+              return !!card && !!card.querySelector(${JSON.stringify(openSelector)});
+            })()`);
             const after = await page.evaluate(probeAgenda);
-            const rowTop = before.boxes[index].top;
+            const rowTop = settled.boxes[index].top;
             const moved = [];
-            for (let i = 0; i < before.boxes.length; i += 1) {
-              const b = before.boxes[i];
+            for (let i = 0; i < settled.boxes.length; i += 1) {
+              const b = settled.boxes[i];
               const a = after.boxes[i];
               const sameRow = b.top === rowTop;
               if (a.left !== b.left || a.width !== b.width || (sameRow && a.top !== b.top)) {
-                moved.push(`#${i} 左${b.left}宽${b.width}上${b.top} → 左${a.left}宽${a.width}上${a.top}`);
+                moved.push(
+                  `#${i} 左${b.left}宽${b.width}上${b.top} → 左${a.left}宽${a.width}上${a.top}` +
+                    `（滚动 ${settled.scrollY} → ${after.scrollY}）`,
+                );
               }
             }
             record(
               `${target.name} · 日程 · 展开简介不改变卡片位置`,
               moved.length === 0,
-              moved.length ? moved.join('；') : `展开第 ${index + 1} 张的${useTip ? '讲者简介' : '摘要'}，其余卡片未动`,
+              moved.length
+                ? moved.join('；')
+                : `展开第 ${index + 1} 张的${useTip ? (hasBio ? '讲者简介' : '备注') : '摘要'}，其余卡片未动`,
             );
           } else {
             // ⚠️ 前提不满足时也要记一条，不能什么都不记：
