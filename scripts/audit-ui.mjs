@@ -1,0 +1,743 @@
+/**
+ * 浏览器验收：把构建产物在真实浏览器里跑一遍。
+ *
+ * 查的是源码看不出来的东西：
+ *   · 整页横向溢出（手机上最常见的问题）
+ *   · 宽表格是不是在自己的盒子里横向滚动（而不是把整页撑开）
+ *   · 行前清单勾选后刷新还在不在
+ *   · 深浅色切换有没有真的换
+ *   · 键盘能不能走到折叠块和复选框
+ *   · 页面引用的资源是不是真的拿到了（4xx/5xx 与请求失败都算没过）
+ *
+ * 用法：node scripts/audit-ui.mjs [--dist dist] [--out .audit] [--engine chromium]
+ *   --dist   要审的产物目录（默认 dist/；`npm run audit:ui` 审的是 dist-examples/）
+ *   --out    截图与 report.json 的落点
+ *   --engine 只跑一个引擎（CI 用矩阵并行跑三个）
+ */
+
+import { createServer } from 'node:http';
+import { readFile, mkdir, writeFile } from 'node:fs/promises';
+import { existsSync } from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { chromium, firefox, webkit } from 'playwright';
+
+const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+
+/**
+ * 三个引擎都跑一遍。
+ * 手写 CSS / 原生 JS 最容易在别的引擎上出问题（细节标记、focus 轮廓、表格滚动），
+ * 只跑 Chromium 等于把风险留到线上。
+ */
+const ENGINES = { chromium, firefox, webkit };
+
+const args = process.argv.slice(2);
+const outIdx = args.indexOf('--out');
+const OUT = path.resolve(ROOT, outIdx >= 0 ? args[outIdx + 1] : '.audit');
+const distIdx = args.indexOf('--dist');
+const DIST = path.resolve(ROOT, distIdx >= 0 ? args[distIdx + 1] : 'dist');
+// 只跑一个引擎（CI 用矩阵并行跑），不传就三个都跑
+const engineIdx = args.indexOf('--engine');
+const ONLY_ENGINE = engineIdx >= 0 ? args[engineIdx + 1] : null;
+const ENGINES_TO_RUN = ONLY_ENGINE
+  ? { [ONLY_ENGINE]: ENGINES[ONLY_ENGINE] }
+  : ENGINES;
+if (ONLY_ENGINE && !ENGINES[ONLY_ENGINE]) {
+  console.error(`没有这个引擎：${ONLY_ENGINE}（可用：${Object.keys(ENGINES).join(', ')}）`);
+  process.exit(1);
+}
+
+const VIEWPORTS = [
+  { name: 'desktop', width: 1280, height: 900 },
+  { name: 'mobile', width: 390, height: 844 },
+];
+
+const MIME = {
+  '.html': 'text/html; charset=utf-8',
+  '.css': 'text/css; charset=utf-8',
+  '.js': 'text/javascript; charset=utf-8',
+  '.json': 'application/json; charset=utf-8',
+  '.svg': 'image/svg+xml',
+  '.png': 'image/png',
+  '.jpg': 'image/jpeg',
+  '.webp': 'image/webp',
+  '.md': 'text/markdown; charset=utf-8',
+};
+
+function startServer(root) {
+  return new Promise((resolve) => {
+    const server = createServer(async (req, res) => {
+      const url = new URL(req.url ?? '/', 'http://localhost');
+      let pathname;
+      try {
+        pathname = decodeURIComponent(url.pathname);
+      } catch {
+        // 畸形 URL 不能把服务器带崩
+        res.writeHead(400).end('bad request');
+        return;
+      }
+      let file = path.join(root, pathname);
+      // 路径守卫用相对路径判断：字符串前缀会放行 …/dist-evil/x（它仍以 …/dist 开头）
+      const relative = path.relative(root, file);
+      if (relative.startsWith('..') || path.isAbsolute(relative)) {
+        res.writeHead(403).end('forbidden');
+        return;
+      }
+      // 目录式路径（无扩展名）补 index.html
+      if (!path.extname(file)) {
+        const indexed = path.join(file, 'index.html');
+        if (existsSync(indexed)) file = indexed;
+      }
+      // 缺就如实 404：以前不管缺什么都回 200 + 首页，
+      // 坏掉的资源链接在验收里看起来是好的（验收自己也量不到 404）
+      if (!existsSync(file)) {
+        res.writeHead(404).end('not found');
+        return;
+      }
+      const body = await readFile(file);
+      res.writeHead(200, { 'content-type': MIME[path.extname(file)] ?? 'application/octet-stream' });
+      res.end(body);
+    });
+    // 只绑回环：默认 listen 会绑所有网卡
+    server.listen(0, '127.0.0.1', () => resolve({ server, port: server.address().port }));
+  });
+}
+
+/**
+ * 找出所有横向溢出视口的元素。
+ * 注意：传给 page.evaluate 的字符串必须是个**求值结果**，所以要写成 IIFE，
+ * 直接写 `() => {...}` 会被当成函数对象，返回 undefined。
+ */
+const OVERFLOW_PROBE = `(() => {
+  const docWidth = document.documentElement.clientWidth;
+  const offenders = [];
+  for (const el of document.querySelectorAll('body *')) {
+    const r = el.getBoundingClientRect();
+    if (r.width === 0 && r.height === 0) continue;
+    // 只看**右边**越界：往左越界的是「跳到正文」这类故意藏在屏幕外的元素，
+    // 不会造成横向滚动条
+    if (r.right > docWidth + 1) {
+      const style = getComputedStyle(el);
+      // 元素自己在滚动的（宽表格）不算整页溢出
+      const scrollable = style.overflowX === 'auto' || style.overflowX === 'scroll';
+      const inScrollable = el.closest('.content table');
+      if (scrollable || inScrollable) continue;
+      offenders.push({
+        tag: el.tagName.toLowerCase(),
+        cls: el.className && String(el.className).slice(0, 60),
+        left: Math.round(r.left),
+        right: Math.round(r.right),
+      });
+    }
+  }
+  return { docWidth, scrollWidth: document.documentElement.scrollWidth, offenders: offenders.slice(0, 10) };
+})()`;
+
+const results = [];
+let failures = 0;
+/** 当前引擎名，写进每条检查的名字里，免得三个引擎的结果混在一起看不懂。 */
+let currentEngine = '';
+
+function record(name, ok, detail) {
+  const label = currentEngine ? `${currentEngine} · ${name}` : name;
+  results.push({ name: label, ok, detail });
+  if (!ok) failures += 1;
+  const mark = ok ? '✓' : '✗';
+  console.log(`  ${mark} ${label}${detail ? ` — ${detail}` : ''}`);
+}
+
+async function main() {
+  if (!existsSync(DIST)) {
+    console.error('没有 dist/，先跑 npm run build。');
+    process.exit(1);
+  }
+  await mkdir(OUT, { recursive: true });
+
+  const { server, port } = await startServer(DIST);
+  const base = `http://localhost:${port}`;
+
+  try {
+    for (const [name, launcher] of Object.entries(ENGINES_TO_RUN)) {
+      console.log(`\n========== ${name} ==========`);
+      currentEngine = name;
+      const browser = await launcher.launch();
+      try {
+        await runChecks(browser, base);
+      } finally {
+        await browser.close();
+      }
+    }
+  } finally {
+    server.close();
+  }
+
+  await writeFile(path.join(OUT, 'report.json'), JSON.stringify(results, null, 2), 'utf8');
+
+  console.log(`\n${results.length - failures}/${results.length} 项通过。截图在 ${OUT}`);
+  if (failures > 0) {
+    console.error(`\n有 ${failures} 项没过。`);
+    process.exit(1);
+  }
+}
+
+/** 一个浏览器引擎上的全部检查。 */
+async function runChecks(browser, base) {
+  // 首页与每个活动页都过一遍
+  const pages = [];
+  pages.push({ name: 'home', path: '/' });
+
+  const homeHtml = await readFile(path.join(DIST, 'index.html'), 'utf8');
+  const slugs = [...homeHtml.matchAll(/data-event-slug="([^"]+)"/g)].map((m) => m[1]);
+  for (const slug of slugs) pages.push({ name: slug, path: `/${slug}/` });
+
+  for (const vp of VIEWPORTS) {
+    console.log(`\n${vp.name} ${vp.width}×${vp.height}`);
+    const context = await browser.newContext({
+      viewport: { width: vp.width, height: vp.height },
+      deviceScaleFactor: 2,
+      colorScheme: 'light',
+    });
+    const page = await context.newPage();
+
+    for (const target of pages) {
+      await page.goto(`${base}${target.path}`, { waitUntil: 'networkidle' });
+
+      // 1. 整页横向溢出
+      const probe = await page.evaluate(OVERFLOW_PROBE);
+      record(
+        `${target.name} · 整页无横向溢出`,
+        probe.scrollWidth <= probe.docWidth + 1 && probe.offenders.length === 0,
+        probe.offenders.length
+          ? `scrollWidth=${probe.scrollWidth} docWidth=${probe.docWidth} 越界元素=${JSON.stringify(probe.offenders)}`
+          : `scrollWidth=${probe.scrollWidth} docWidth=${probe.docWidth}`,
+      );
+
+      // 2. 宽表格在自己的盒子里滚，不撑破整页
+      const tableInfo = await page.evaluate(`(() => {
+        const tables = [...document.querySelectorAll('.content table')];
+        return tables.map((t) => ({
+          scrollW: t.scrollWidth,
+          clientW: t.clientWidth,
+          overflowX: getComputedStyle(t).overflowX,
+        }));
+      })()`);
+      const badTable = tableInfo.find((t) => t.overflowX !== 'auto' && t.overflowX !== 'scroll');
+        record(`${target.name} · 宽表格自带横向滚动`, !badTable, badTable ? JSON.stringify(badTable) : '');
+
+      // 3.5 日程卡片：窄屏不许横向滚；展开简介不能打乱别的卡片
+      //
+      // ⚠️ 「卡片位置」量的是**横向布局**（left/width）与**同一行内**的上下位置，
+      //    不是「下一张卡的 top 一动不动」：
+      //    日程是一列一行，展开必然把下面那张卡往下推——那是内容变高，不是布局被打乱。
+      //    真正要防的是表格时代那个毛病：展开单元格里的 details 让整表内容宽 +112px，
+      //    列宽重新分配，读者刚建立的横向位置失效。
+      //    展开的对象优先选讲者简介的 tip 图标（那是现在唯一的点开式元素）。
+      {
+        const probeAgenda = `(() => {
+          const cards = [...document.querySelectorAll('.agenda-card')];
+          if (!cards.length) return null;
+          const docWidth = document.documentElement.clientWidth;
+          const over = cards.filter((c) => c.getBoundingClientRect().right > docWidth + 1).length;
+          const withTip = cards.findIndex((c) => c.querySelector('.agenda-tip-btn'));
+          const withAbstract = cards.findIndex((c) => c.querySelector('details.agenda-abstract'));
+          return {
+            cards: cards.length,
+            overflowing: over,
+            withTip,
+            withAbstract,
+            boxes: cards.map((c) => {
+              const r = c.getBoundingClientRect();
+              return {
+                left: Math.round(r.left),
+                width: Math.round(r.width),
+                top: Math.round(r.top + window.scrollY),
+              };
+            }),
+          };
+        })()`;
+        const before = await page.evaluate(probeAgenda);
+        if (before) {
+          record(
+            `${target.name} · 日程 · 窄屏无横向溢出`,
+            before.overflowing === 0,
+            `卡片 ${before.cards} 张，越界 ${before.overflowing} 张`,
+          );
+          const useTip = before.withTip >= 0;
+          const index = useTip ? before.withTip : before.withAbstract;
+          if (index >= 0) {
+            const selector = useTip ? '.agenda-tip-btn' : '.agenda-card details.agenda-abstract summary';
+            await page.locator(selector).nth(useTip ? index : 0).click();
+            await page.waitForTimeout(150);
+            const after = await page.evaluate(probeAgenda);
+            const rowTop = before.boxes[index].top;
+            const moved = [];
+            for (let i = 0; i < before.boxes.length; i += 1) {
+              const b = before.boxes[i];
+              const a = after.boxes[i];
+              const sameRow = b.top === rowTop;
+              if (a.left !== b.left || a.width !== b.width || (sameRow && a.top !== b.top)) {
+                moved.push(`#${i} 左${b.left}宽${b.width}上${b.top} → 左${a.left}宽${a.width}上${a.top}`);
+              }
+            }
+            record(
+              `${target.name} · 日程 · 展开简介不改变卡片位置`,
+              moved.length === 0,
+              moved.length ? moved.join('；') : `展开第 ${index + 1} 张的${useTip ? '讲者简介' : '摘要'}，其余卡片未动`,
+            );
+          } else {
+            // ⚠️ 前提不满足时也要记一条，不能什么都不记：
+            //    悄悄不执行 = 闸门是装饰（这条检查要能真的抓住「展开打乱了别的卡片」）。
+            record(
+              `${target.name} · 日程 · 展开简介不改变卡片位置`,
+              false,
+              '没有一张卡片带可展开的简介或摘要，这条检查没法执行（内容要保证至少有一场写了讲者简介或摘要）',
+            );
+          }
+        }
+      }
+
+        // 3. 截图
+        await page.screenshot({
+          path: path.join(OUT, `${target.name}-${vp.name}.png`),
+          fullPage: false,
+        });
+        // 活动页再存一张整页的，方便事后一眼看完一整页的节奏
+        if (target.name !== 'home') {
+          try {
+            await page.screenshot({
+              path: path.join(OUT, `${target.name}-${vp.name}-full.png`),
+              fullPage: true,
+            });
+          } catch (e) {
+            // Firefox 等引擎限制单张位图高度不得超过 32767px，超长页面静默跳过整页大图
+          }
+        }
+      }
+
+      await context.close();
+    }
+
+    // 4. 清单勾选后刷新还在（只在桌面尺寸测一次）
+    console.log('\n交互');
+    {
+      const context = await browser.newContext({ viewport: { width: 1280, height: 900 } });
+      const page = await context.newPage();
+      await page.goto(`${base}/`, { waitUntil: 'networkidle' });
+      const slug = await page.evaluate(
+        `(() => { const el = document.querySelector('[data-event-slug]'); return el ? el.getAttribute('data-event-slug') : null; })()`,
+      );
+      if (slug) {
+        await page.goto(`${base}/${slug}/`, { waitUntil: 'networkidle' });
+        const box = page.locator('input[type="checkbox"][data-check-id]').first();
+        const count = await page.locator('input[type="checkbox"][data-check-id]').count();
+        if (count > 0) {
+          await box.check();
+          await page.reload({ waitUntil: 'networkidle' });
+          const stillChecked = await page
+            .locator('input[type="checkbox"][data-check-id]')
+            .first()
+            .isChecked();
+          record('行前清单 · 刷新后勾选还在', stillChecked);
+
+          // 换个活动不能串号
+          if (slugs.length > 1) {
+            const other = slugs.find((s) => s !== slug);
+            await page.goto(`${base}/${other}/`, { waitUntil: 'networkidle' });
+            const otherChecked = await page
+              .locator('input[type="checkbox"][data-check-id]')
+              .first()
+              .isChecked()
+              .catch(() => false);
+            record('行前清单 · 活动之间互不干扰', !otherChecked);
+          }
+        } else {
+          record('行前清单 · 找到复选框', false, '页面上没有复选框');
+        }
+      }
+
+      // 5. 深浅色切换
+      await page.goto(`${base}/`, { waitUntil: 'networkidle' });
+      const before = await page.evaluate(`(() => document.documentElement.getAttribute('data-theme'))()`);
+      await page.locator('#theme-toggle').click();
+      const after = await page.evaluate(`(() => document.documentElement.getAttribute('data-theme'))()`);
+      record('深浅色 · 手动切换生效', before !== after && Boolean(after), `${before} → ${after}`);
+
+      // 5.5 说明性内容收成点开式条目：默认收起，点一下能展开
+      // 「机构与嘉宾」「前置知识」都取消成独立章节了，现在唯一的点开式元素是
+      // 日程卡片里的提示图标（讲者简介 / 看这场之前要知道的事）。
+      await page.goto(`${base}/${slug}/`, { waitUntil: 'networkidle' });
+      const tipCount = await page.locator('.agenda-tip-btn').count();
+      if (tipCount > 0) {
+        const first = page.locator('.agenda-tip-btn').first();
+        const openBefore = await first.evaluate((el) => el.closest('details')?.open);
+        // 收起时占多高（点开之前量）——正文是按钮的相邻兄弟，取紧跟自己的那个
+        const collapsedHeight = await first.evaluate((el) => {
+          const body = el.closest('.agenda-tip')?.querySelector('.agenda-tip-body');
+          return body ? body.getBoundingClientRect().height : 0;
+        });
+        await first.click();
+        const openAfter = await first.evaluate((el) => el.closest('details')?.open);
+        const expandedHeight = await first.evaluate((el) => {
+          const body = el.closest('.agenda-tip')?.querySelector('.agenda-tip-body');
+          return body ? body.getBoundingClientRect().height : 0;
+        });
+        record('提示图标 · 默认收起且点得开', openBefore === false && openAfter === true, `收起=${openBefore} 展开=${openAfter}`);
+        record('提示图标 · 收起时不占地方', collapsedHeight < expandedHeight, `${Math.round(collapsedHeight)}px → ${Math.round(expandedHeight)}px`);
+        record('提示图标 · 点开后正文出现', expandedHeight > 0, `正文高 ${Math.round(expandedHeight)}px`);
+        // 点一个只开一个：别的提示不该跟着冒出来
+        const openedBodies = await page.locator('.agenda-tip-body:visible').count();
+        const totalTips = await page.locator('.agenda-tip-btn').count();
+        record('提示图标 · 点一个只开一个', openedBodies <= 1, `点开后可见正文 ${openedBodies} 段（全页共 ${totalTips} 个提示）`);
+      } else {
+        record('提示图标 · 页面上有提示图标', false, '没有找到 .agenda-tip-btn');
+      }
+
+      // 5.5b 头像点开放大
+      const avatarCount = await page.locator('.agenda-avatar-btn').count();
+      if (avatarCount > 0) {
+        await page.locator('.agenda-avatar-btn').first().click();
+        await page.waitForTimeout(200);
+        const opened = await page.evaluate(`(() => {
+          const d = document.getElementById('avatar-viewer');
+          const img = document.getElementById('avatar-viewer-img');
+          return { open: Boolean(d && d.open), src: img ? img.getAttribute('src') : '' };
+        })()`);
+        record('头像 · 点开能放大', opened.open && opened.src !== '', JSON.stringify(opened));
+        await page.keyboard.press('Escape');
+        await page.waitForTimeout(150);
+        const closed = await page.evaluate(`(() => Boolean(document.getElementById('avatar-viewer')?.open))()`);
+        record('头像 · Esc 能关掉', closed === false, `open=${closed}`);
+      } else {
+        record('头像 · 点开能放大', false, '没有找到 .agenda-avatar-btn');
+      }
+
+      // 5.6 活动页头部基本信息：桌面摊开，手机收成一行
+      {
+        await page.setViewportSize({ width: 1280, height: 900 });
+        await page.goto(`${base}/${slug}/`, { waitUntil: 'networkidle' });
+        const wideOpen = await page.evaluate(`(() => { const d = document.querySelector('[data-event-meta]'); return d ? d.open : null; })()`);
+        await page.setViewportSize({ width: 390, height: 844 });
+        await page.waitForTimeout(200);
+        const narrowOpen = await page.evaluate(`(() => { const d = document.querySelector('[data-event-meta]'); return d ? d.open : null; })()`);
+        record('头部信息 · 桌面摊开 / 手机收起', wideOpen === true && narrowOpen === false, `宽屏=${wideOpen} 窄屏=${narrowOpen}`);
+        await page.setViewportSize({ width: 1280, height: 900 });
+      }
+
+      // 5.7 导出 Markdown：活动页底部有个下载链接，点开真的能拿到内容源文件
+      //
+      // ⚠️ 这里量的是**文件本身**，不是链接长什么样：
+      //    链接指向的 .md 必须能拿到（200），而且得是能塞回 content/ 的源文件
+      //    （带 front matter、有 title），不然「下载下来改一改」这条闭环是断的。
+      {
+        await page.goto(`${base}/${slug}/`, { waitUntil: 'networkidle' });
+        const links = page.locator('a.export-link');
+        const count = await links.count();
+        if (count === 0) {
+          record('导出 Markdown · 活动页有下载链接', false, '没有找到 a.export-link');
+        } else {
+          const href = await links.first().getAttribute('href');
+          record('导出 Markdown · 活动页有下载链接', href === 'event.md', `href=${href}`);
+          const res = await page.request.get(`${base}/${slug}/${href}`);
+          const text = await res.text();
+          const looksLikeSource = text.startsWith('---') && /(^|\n)title:/.test(text);
+          record(
+            '导出 Markdown · 拿到的就是内容源文件',
+            res.ok() && looksLikeSource,
+            `HTTP ${res.status()}，${text.length} 字节${looksLikeSource ? '' : '，不是带 front matter 的源文件'}`,
+          );
+
+          // 5.8 front matter 里声明了 venue_url，页面上就要能点到那个地址
+          //
+          // ⚠️ 判据取自**源文件自己**（就是刚拿到的 .md）：
+          //    活动没写 venue_url 时不能判失败（那是没有，不是坏），
+          //    写了却点不到才是回归。
+          const declared = text.match(/^venue_url:\s*(\S+)\s*$/m);
+          const pageLinks = await page.evaluate(`(() => {
+            const out = [];
+            const meta = document.querySelector('.meta-row .meta-link');
+            if (meta) out.push(meta.getAttribute('href'));
+            for (const a of document.querySelectorAll('.actions a')) {
+              if (a.textContent.trim() === '场地') out.push(a.getAttribute('href'));
+            }
+            return out;
+          })()`);
+          if (!declared) {
+            record('场地 · 声明了就点得到', true, '这个活动没有 venue_url（不适用）');
+          } else {
+            const url = declared[1];
+            record(
+              '场地 · 声明了就点得到',
+              pageLinks.includes(url),
+              `front matter 写了 ${url}，页面上可点的地址：${pageLinks.join('、') || '（一个都没有）'}`,
+            );
+          }
+        }
+      }
+
+      // 5.9 目录：顶栏按钮点开就是侧边目录，并且标出「现在读到哪一节」
+      //
+      // ⚠️ 目录住在抽屉里，所以「看得见」的前提是**先把抽屉打开**——
+      //    不开就量，量到的是关着的抽屉（尺寸为 0），测出来的是假象。
+      {
+        await page.goto(`${base}/${slug}/`, { waitUntil: 'networkidle' });
+        const tocInfo = await page.evaluate(`(() => {
+          const toc = document.querySelector('.toc');
+          if (!toc) return null;
+          const links = [...toc.querySelectorAll('a[href^="#"]')];
+          return { count: links.length, texts: links.map((a) => a.textContent.trim()) };
+        })()`);
+        const openBtn = page.locator('#toc-open');
+        const hasBtn = (await openBtn.count()) > 0;
+        record('目录 · 顶栏有入口', hasBtn && tocInfo !== null && tocInfo.count > 0, `按钮=${hasBtn} 条目=${tocInfo ? tocInfo.count : 0}`);
+        if (hasBtn && tocInfo && tocInfo.count > 0) {
+          await openBtn.click();
+          await page.waitForTimeout(350);
+          const drawer = await page.evaluate(`(() => {
+            const d = document.getElementById('toc-drawer');
+            if (!d) return null;
+            const r = d.getBoundingClientRect();
+            return {
+              open: d.open,
+              left: Math.round(r.left),
+              width: Math.round(r.width),
+              height: Math.round(r.height),
+              links: d.querySelectorAll('a[href^="#"]').length,
+            };
+          })()`);
+          record(
+            '目录 · 点开是侧边目录',
+            Boolean(drawer && drawer.open && drawer.links > 0 && drawer.left <= 1 && drawer.width > 200),
+            JSON.stringify(drawer),
+          );
+
+          // 挑中间那一节：第一节贴着页顶、最后一节贴着页尾，都测不出粘性
+          const targetText = tocInfo.texts[Math.min(2, tocInfo.texts.length - 1)];
+          await page.evaluate(`(() => {
+            const toc = document.querySelector('.toc');
+            const link = [...toc.querySelectorAll('a[href^="#"]')].find((a) => a.textContent.trim() === ${JSON.stringify(
+              targetText,
+            )});
+            if (!link) return;
+            const el = document.getElementById(decodeURIComponent(link.getAttribute('href').slice(1)));
+            if (!el) return;
+            // ⚠️ 偏移要跟正文的 scroll-margin-top 一致（头部高 + 18）：
+            //    点目录时浏览器就是这样落的，偏移不一致的话
+            //    「当前章节」的判定跟真实使用对不上，测出来的是假象。
+            const header = document.querySelector('.site-header');
+            const offset = (header ? header.getBoundingClientRect().height : 58) + 18;
+            window.scrollTo(0, el.getBoundingClientRect().top + window.scrollY - offset);
+          })()`);
+          await page.waitForTimeout(400);
+          const current = await page.evaluate(`(() => {
+            const cur = document.querySelector('.toc a[aria-current]');
+            return cur ? cur.textContent.trim() : null;
+          })()`);
+          record('目录 · 标出当前章节', current === targetText, `当前=${current} 期望=${targetText}`);
+
+          await page.keyboard.press('Escape');
+          await page.waitForTimeout(250);
+          const closed = await page.evaluate(`(() => { const d = document.getElementById('toc-drawer'); return d ? !d.open : false; })()`);
+          record('目录 · Esc 能关掉', closed);
+        }
+      }
+
+      // 5.10 回到顶部：滚动后出现，点一下真的回到顶部
+      {
+        await page.goto(`${base}/${slug}/`, { waitUntil: 'networkidle' });
+        await page.evaluate('window.scrollTo(0, 1500)');
+        await page.waitForTimeout(300);
+        const btn = page.locator('#back-to-top');
+        const count = await btn.count();
+        if (count === 0) {
+          record('回到顶部 · 滚动后出现', false, '页面上没有回到顶部按钮');
+        } else {
+          const shown = await btn.evaluate(
+            (el) => el.className.includes('visible') && getComputedStyle(el).visibility === 'visible',
+          );
+          record('回到顶部 · 滚动后出现', shown === true);
+          if (shown) {
+            await btn.click();
+            // 平滑滚动要等它走完
+            let y = 1500;
+            for (let i = 0; i < 30 && y >= 40; i += 1) {
+              await page.waitForTimeout(100);
+              y = await page.evaluate('Math.round(window.scrollY)');
+            }
+            record('回到顶部 · 点一下回到顶部', y < 40, `scrollY=${y}`);
+          }
+        }
+      }
+
+      // 5.11 读者自己的笔记：每场都有入口，写进去刷新后还在
+      //
+      // ⚠️ 这是**本机个人数据**：不、不同步、不会被清理。
+      //    所以验收要验的是「刷新后还在」——不是「刷新后没了」。
+      {
+        await page.goto(`${base}/${slug}/`, { waitUntil: 'networkidle' });
+        const count = await page.locator('.agenda-note-btn').count();
+        if (count === 0) {
+          record('笔记 · 每场都有入口', false, '没有找到 .agenda-note-btn');
+        } else {
+          record('笔记 · 每场都有入口', true, `${count} 场`);
+          const marker = `验收笔记 ${Date.now()}`;
+          await page.locator('.agenda-note-btn').first().click();
+          await page.waitForTimeout(150);
+          await page.locator('.agenda-note-input').first().fill(marker);
+          await page.waitForTimeout(500);
+          await page.reload({ waitUntil: 'networkidle' });
+          const kept = await page.evaluate(`(() => {
+            const input = document.querySelector('.agenda-note-input');
+            const block = document.querySelector('.agenda-note');
+            return { value: input ? input.value : '', marked: block ? block.className : '' };
+          })()`);
+          record('笔记 · 写进去刷新后还在', kept.value === marker, kept.value);
+          record('笔记 · 有笔记的场次有标记', kept.marked.includes('has-note'), kept.marked);
+          // 清掉验收数据，别留在读者机器上
+          await page.evaluate(`(() => {
+            const el = document.querySelector('[data-event-slug]');
+            if (!el) return;
+            try { localStorage.removeItem('eventprep:notes:' + el.getAttribute('data-event-slug')); } catch (e) {}
+          })()`);
+        }
+      }
+
+      // 6. 键盘能走到目录和复选框
+      await page.goto(`${base}/${slug}/`, { waitUntil: 'networkidle' });
+      const focusables = await page.evaluate(`(() => {
+        const sel = 'a[href], button, input, summary, [tabindex]:not([tabindex="-1"])';
+        return document.querySelectorAll(sel).length;
+      })()`);
+      record('键盘 · 页面有可聚焦元素', focusables > 0, `${focusables} 个`);
+
+      // 真按 Tab：焦点要真的移动，而且移动到的元素要有可见轮廓
+      await page.evaluate(`(() => { document.body.focus(); window.scrollTo(0, 0); })()`);
+      const tabStops = [];
+      let outlineOk = false;
+      for (let i = 0; i < 6; i += 1) {
+        await page.keyboard.press('Tab');
+        const info = await page.evaluate(`(() => {
+          const el = document.activeElement;
+          if (!el || el === document.body) return null;
+          const s = getComputedStyle(el);
+          return {
+            tag: el.tagName.toLowerCase(),
+            text: (el.textContent || '').trim().slice(0, 24),
+            outlineStyle: s.outlineStyle,
+            outlineWidth: s.outlineWidth,
+            boxShadow: s.boxShadow,
+          };
+        })()`);
+        if (!info) continue;
+        tabStops.push(info);
+        const visible =
+          (info.outlineStyle && info.outlineStyle !== 'none' && parseFloat(info.outlineWidth) > 0) ||
+          (info.boxShadow && info.boxShadow !== 'none');
+        if (visible) outlineOk = true;
+      }
+      record('键盘 · Tab 能逐个走过去', tabStops.length > 0, tabStops.map((t) => t.tag).join(' → '));
+      record('键盘 · 焦点有可见轮廓', outlineOk, JSON.stringify(tabStops[0] ?? {}));
+
+      // 6.1 链接必须 Tab 得到
+      //     ⚠️ Safari 默认不把链接放进 Tab 序列（要手动开「按 Tab 键高亮网页上的每一项」），
+      //        所以站内链接一律带 tabindex="0"（见 templates/layout.ts 的 LINK_TABINDEX）。
+      //        这里守住它——去掉就会静默退化。
+      {
+        const linkStops = tabStops.filter((t) => t.tag === 'a').length;
+        record('键盘 · 链接 Tab 得到', linkStops > 0, `前 6 次 Tab 里有 ${linkStops} 次落在链接上`);
+      }
+
+      // 6.2 「状态在访问时刻算」是整个站点的核心承诺：把访问时刻拨到活动结束之后，
+      //     首页的卡片必须自己挪到「已结束」分组去。
+      //     用页面自己的数据找「有日期的那个活动」，这样正式内容和占位数据都能测。
+      {
+        const page2 = await context.newPage();
+        await page2.clock.install({ time: new Date('2027-01-01T00:00:00.000Z') });
+        await page2.goto(`${base}/`, { waitUntil: 'networkidle' });
+        const placed = await page2.evaluate(`(() => {
+          const data = JSON.parse(document.getElementById('site-data').textContent);
+          const target = data.events.find((e) => e.startISO);
+          if (!target) return null;
+          const card = document.querySelector('[data-event-slug="' + target.slug + '"]');
+          if (!card) return null;
+          const badge = card.querySelector('[data-status-badge]');
+          return {
+            slug: target.slug,
+            group: card.closest('[data-group]') ? card.closest('[data-group]').id : null,
+            badge: badge ? badge.textContent : null,
+          };
+        })()`);
+        record(
+          '首页分组 · 按访问时刻重新分组',
+          placed !== null && placed.group === 'group-ended' && placed.badge === '已结束',
+          JSON.stringify(placed),
+        );
+        await page2.close();
+      }
+
+      // 6.3 深浅色切换要活过刷新（首屏套用那一环）
+      {
+        await page.goto(`${base}/`, { waitUntil: 'networkidle' });
+        await page.locator('#theme-toggle').click();
+        const theme = await page.evaluate(`(() => document.documentElement.getAttribute('data-theme'))()`);
+        await page.reload({ waitUntil: 'networkidle' });
+        const after = await page.evaluate(`(() => document.documentElement.getAttribute('data-theme'))()`);
+        record('深浅色 · 刷新后仍然是选中的那个', theme !== null && theme === after, `${theme} → ${after}`);
+      }
+
+      // 6.4 窄屏上目录入口照样在（抽屉宽度要跟着视口走，不能超出屏幕）
+      {
+        await page.setViewportSize({ width: 390, height: 844 });
+        await page.goto(`${base}/${slug}/`, { waitUntil: 'networkidle' });
+        const narrow = await page.evaluate(`(() => {
+          const btn = document.getElementById('toc-open');
+          const d = document.getElementById('toc-drawer');
+          if (!btn || !d) return null;
+          d.showModal();
+          const r = d.getBoundingClientRect();
+          const out = { width: Math.round(r.width), right: Math.round(r.right), vw: window.innerHeight ? window.innerWidth : 0 };
+          d.close();
+          return out;
+        })()`);
+        record(
+          '目录 · 窄屏也打得开、且不超出屏幕',
+          Boolean(narrow && narrow.width > 200 && narrow.right <= narrow.vw + 1),
+          JSON.stringify(narrow),
+        );
+        await page.setViewportSize({ width: 1280, height: 900 });
+      }
+
+      await context.close();
+    }
+
+    // 7. 控制台没有报错，而且每个请求都真的拿到了东西
+    {
+      const context = await browser.newContext({ viewport: { width: 1280, height: 900 } });
+      const page = await context.newPage();
+      const errors = [];
+      const badResponses = [];
+      // 浏览器会自己去要 favicon.ico / apple-touch-icon，产物里没有是正常的，不算坏请求
+      const isIconProbe = (url) => /\/(favicon\.ico|apple-touch-icon[^/]*)$/.test(url);
+      page.on('pageerror', (e) => errors.push(String(e)));
+      page.on('console', (msg) => {
+        if (msg.type() === 'error') errors.push(msg.text());
+      });
+      page.on('response', (r) => {
+        if (!isIconProbe(r.url()) && r.status() >= 400) badResponses.push(`${r.status()} ${r.url()}`);
+      });
+      page.on('requestfailed', (r) => {
+        if (!isIconProbe(r.url())) badResponses.push(`失败 ${r.url()}`);
+      });
+      for (const target of pages) {
+        await page.goto(`${base}${target.path}`, { waitUntil: 'networkidle' });
+      }
+      record(
+        '网络 · 每个请求都拿到 2xx/3xx',
+        badResponses.length === 0,
+        badResponses.slice(0, 3).join(' | '),
+      );
+      record('控制台 · 没有报错', errors.length === 0, errors.slice(0, 3).join(' | '));
+      await context.close();
+    }
+}
+
+await main();
