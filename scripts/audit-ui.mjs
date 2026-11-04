@@ -296,6 +296,127 @@ async function runChecks(browser, base) {
         }
       }
 
+      // 3.6 开始时刻：倒计时锚在议程第一场，页面上写明几点开始
+      //
+      // ⚠️ 判据是「site-data 里的 startISO 换算到活动时区」==「议程第一场的时间」：
+      //    这两件事以前差着一整个上午——倒计时指向当天 00:00，议程从 09:30 才开始。
+      //    只验其中一个都不够（页面写对了、倒计时没锚过去，照样错）。
+      {
+        const probe = await page.evaluate(`(() => {
+          const dataEl = document.getElementById('site-data');
+          if (!dataEl) return { skipped: '没有 site-data' };
+          let data = null;
+          try { data = JSON.parse(dataEl.textContent || '{}'); } catch (e) { return { skipped: 'site-data 解析失败' }; }
+          const events = data.events || [];
+
+          // startISO 换算到活动时区的 HH:MM
+          const clockOf = (ev) => {
+            const tz = ev.timezone || 'UTC';
+            const parts = new Intl.DateTimeFormat('en-US', {
+              timeZone: tz, hourCycle: 'h23', hour: '2-digit', minute: '2-digit',
+            }).formatToParts(new Date(ev.startISO));
+            const map = {};
+            for (const p of parts) if (p.type !== 'literal') map[p.type] = p.value;
+            return map.hour + ':' + map.minute;
+          };
+
+          const isHome = !!document.querySelector('.home');
+          const findings = [];
+
+          if (isHome) {
+            // 首页：每张卡片都要写对「开始」
+            for (const card of document.querySelectorAll('.event-card[data-event-slug]')) {
+              const slug = card.getAttribute('data-event-slug');
+              const ev = events.find((e) => e.slug === slug);
+              if (!ev || !ev.startISO) { findings.push({ slug, skipped: 'site-data 里没有这个活动' }); continue; }
+              const cell = [...card.querySelectorAll('.card-meta > div')]
+                .filter((d) => (d.querySelector('dt') || {}).textContent === '开始')
+                .map((d) => (d.querySelector('dd') || {}).textContent)[0] || null;
+              findings.push({ slug, hhmm: clockOf(ev), cell, firstSlot: null });
+            }
+          } else {
+            const slugEl = document.querySelector('[data-event-slug]');
+            if (!slugEl) return { skipped: '这一页不是活动页' };
+            const ev = events.find((e) => e.slug === slugEl.getAttribute('data-event-slug'));
+            if (!ev || !ev.startISO) return { skipped: 'site-data 里没有这个活动' };
+            const cell = [...document.querySelectorAll('.meta-row')]
+              .filter((r) => (r.querySelector('dt') || {}).textContent === '开始')
+              .map((r) => (r.querySelector('dd') || {}).textContent)[0] || null;
+            const first = document.querySelector('.agenda-time');
+            findings.push({
+              slug: ev.slug,
+              hhmm: clockOf(ev),
+              cell,
+              firstSlot: first ? first.textContent.trim() : null,
+            });
+          }
+          return { findings };
+        })()`);
+
+        if (probe.skipped) {
+          record(`${target.name} · 开始时刻 · 锚在议程第一场`, true, `不适用：${probe.skipped}`);
+        } else {
+          const problems = [];
+          const notes = [];
+          for (const f of probe.findings) {
+            if (f.skipped) { notes.push(`${f.slug}：${f.skipped}`); continue; }
+            const firstTime = f.firstSlot ? f.firstSlot.split(/[–—]/)[0].trim() : null;
+            if (f.cell === null && f.hhmm === '00:00') {
+              // 没有议程信息 → 按当天 00:00 算，页面上就不该出现「开始」这一行
+              if (firstTime !== null) problems.push(`${f.slug}：议程第一场=${firstTime}，但没有议程时刻可用`);
+              else notes.push(`${f.slug}：没有议程，按 00:00 算，不显示「开始」`);
+              continue;
+            }
+            if (f.cell !== f.hhmm) {
+              problems.push(`${f.slug}：页面「开始」=${f.cell ?? '没有'}，应为 ${f.hhmm}`);
+            } else if (firstTime !== null && firstTime !== f.hhmm) {
+              problems.push(`${f.slug}：议程第一场=${firstTime}，倒计时却锚在 ${f.hhmm}`);
+            }
+          }
+          record(
+            `${target.name} · 开始时刻 · 锚在议程第一场`,
+            problems.length === 0,
+            problems.length ? problems.join('；') : [...notes, ...probe.findings.map((f) => `${f.slug} ${f.hhmm}`)].join('，'),
+          );
+        }
+      }
+
+      // 3.7 整张卡片都能点进活动（首页）
+      //
+      // ⚠️ 用真实的鼠标点击，不用 locator.click()：
+      //    整卡可点靠的是标题链接的 ::after 伪元素撑满整卡，
+      //    Playwright 的可点性检查会把这个伪元素判成「拦截了点击」而报错——
+      //    但读者点得到的恰恰就是它。
+      if (target.name === 'home') {
+        const cardCount = await page.locator('.event-card').count();
+        if (cardCount === 0) {
+          record('首页 · 点卡片任意处都能进活动', true, '这一页没有卡片（不适用）');
+        } else {
+          const card = page.locator('.event-card').first();
+          const slug = await card.getAttribute('data-event-slug');
+          const box = await card.boundingBox();
+          if (!box) {
+            record('首页 · 点卡片任意处都能进活动', false, '量不到卡片的位置');
+          } else {
+            // 点卡片右下角：那里既不是标题链接，也不是任何按钮
+            await page.mouse.click(box.x + box.width - 10, box.y + box.height - 10);
+            let landed = '';
+            try {
+              await page.waitForURL(new RegExp(`/${slug}/?$`), { timeout: 5000 });
+            } catch (e) {
+              /* 没跳过去，下面照实记 */
+            }
+            landed = page.url();
+            record(
+              '首页 · 点卡片任意处都能进活动',
+              new RegExp(`/${slug}/?$`).test(landed),
+              `点到卡片角落 → ${landed}`,
+            );
+            await page.goto(`${base}/`, { waitUntil: 'networkidle' });
+          }
+        }
+      }
+
         // 3. 截图
         await page.screenshot({
           path: path.join(OUT, `${target.name}-${vp.name}.png`),
