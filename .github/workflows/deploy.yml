@@ -25,10 +25,23 @@
 #    所以「加一个活动 / 改一个活动 / 删一个活动」都是一次 main 推送，
 #    构建会重新汇总全部活动再部署。删掉的内容不会残留在分支里（clean: true）。
 #
-# ⚠️ **部署要等浏览器验收跑完**：手写 CSS 和原生 JS 最容易在别的引擎上出问题，
-#    只跑单元测试拦不住布局回归。所以 deploy 这个 job 依赖 audit job——
-#    验收不过就不发布。（CI 里也有同一个验收，那是给 PR 用的闸门；
-#    main 上两条并行跑，各跑各的。）
+# ⚠️ **部署不等浏览器验收**（跟兄弟项目 046-gdp-map 同一个模式）：
+#    浏览器验收是 CI 里的**合并闸门**，不是发布闸门。以前 deploy 也跑一遍三引擎验收，
+#    结果每次推 main 要跑两遍完全相同的验收——三台浏览器各装一次 Playwright，
+#    慢，而且两边都跑并不能多拦住什么（同一个 commit，同一份代码）。
+#    验收留在 CI（PR 合并前跑），发布只留快速闸门：单元测试 + 构建。
+#    这也意味着：布局回归由 CI 报，发布不等它。
+#
+# ⚠️ **不转发 head commit message**：任意提交正文里的 shell 元字符（引号、$、!、反引号）
+#    会破坏动作内部的 git commit -m 调用（exit 129）——025-kuafu / 039 都记了这条。
+#    动作默认的静态提交信息足矣，规范历史保留在 main。
+#
+# ⚠️ **CNAME 要跟着分支走**：EdgeOne 是从分支里的 CNAME 文件认出「这个分支该绑哪个域名」的，
+#    每次部署覆盖分支时如果没带上，绑定就掉了（002-legend-talk 的注释记的就是这件事）。
+#    所以 CNAME 写进构建产物里跟着一起推上去。
+#    没设 CNAME 变量就不写这个文件——空文件会让 EdgeOne 认不出域名。
+# ⚠️ **走 env: 不把变量直接拼进 shell**：${{ vars.CNAME }} 里带引号或 $ 会破坏命令
+#    （同一个坑：025-kuafu / 039 的 commit message）。
 
 name: Deploy
 
@@ -42,52 +55,13 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
-# 推分支要写权限（audit 那个 job 只读，这里要写）
+# 推分支要写权限
 permissions:
   contents: write
 
 jobs:
-  # 部署前的浏览器验收：三个引擎各跑一个（并行，谁挂了一眼就知道是谁）
-  audit:
-    name: 浏览器验收 · ${{ matrix.browser }}
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        browser: [chromium, firefox, webkit]
-    permissions:
-      contents: read
-    steps:
-      - uses: actions/checkout@v7
-
-      - uses: actions/setup-node@v7
-        with:
-          node-version: '24'
-          cache: npm
-
-      - run: npm ci
-
-      - name: Build examples
-        run: npm run build:examples
-
-      - name: Install ${{ matrix.browser }}
-        run: npx playwright install --with-deps ${{ matrix.browser }}
-
-      - name: Audit examples (${{ matrix.browser }})
-        run: node scripts/audit-ui.mjs --dist dist-examples --out .audit --engine ${{ matrix.browser }}
-
-      # 发出去的是 content/，所以发布前也要在它身上跑一遍（content/ 为空时跳过）
-      - name: Build site (content/)
-        if: ${{ hashFiles('content/**/event.md') != '' }}
-        run: npm run build
-
-      - name: Audit real content (${{ matrix.browser }})
-        if: ${{ hashFiles('content/**/event.md') != '' }}
-        run: node scripts/audit-ui.mjs --dist dist --out .audit-real --engine ${{ matrix.browser }}
-
   deploy:
     name: Build & push to gh-pages
-    needs: audit
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
@@ -102,10 +76,9 @@ jobs:
 
       - run: npm ci
 
-      # 部署前先跑测试作为门禁，坏构建不发布
+      # 发布前的快速闸门：坏构建不发布（npm run build 里面已经含 tsc --noEmit）
       - run: npm test
 
-      # npm run build 里面已经含 tsc --noEmit
       - run: npm run build
         env:
           SITE_URL: ${{ vars.SITE_URL }}

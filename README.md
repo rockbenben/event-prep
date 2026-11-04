@@ -132,10 +132,12 @@ npm run export -- 2026-11-ai-engineer-shanghai > event.md
 
 ### 静态托管与部署
 
-推送 `main` 分支会自动触发 GitHub Actions 工作流 [deploy.yml](.github/workflows/deploy.yml)，执行严格测试、完成静态页面渲染，并将全量产物推送到 `gh-pages` 分支：
+推送 `main` 分支会自动触发 GitHub Actions 工作流 [deploy.yml](.github/workflows/deploy.yml)，执行单元测试、完成静态页面渲染，并将全量产物推送到 `gh-pages` 分支：
 
 - **GitHub Pages**：进入仓库 Settings → Pages → Build and deployment → Source 选择 `Deploy from a branch`，分支选择 `gh-pages` / `/ (root)`。
 - **EdgeOne Pages**：新建项目，Git 仓库分支指定 `gh-pages` 即可。
+
+三引擎浏览器验收（Chromium / Firefox / WebKit）由 [ci.yml](.github/workflows/ci.yml) 承担，是**合并闸门**：它跑在 PR 上，布局回归由它报。发布本身不等待它——那会把「每次推 main 跑两遍完全相同的验收」的时间翻倍，却拦不住更多东西（同一个 commit、同一份代码）。
 
 可在仓库 Settings → Secrets and variables → Actions → Variables 配置自定义变量：
 

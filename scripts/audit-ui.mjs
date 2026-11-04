@@ -525,9 +525,26 @@ async function runChecks(browser, base) {
             //    「当前章节」的判定跟真实使用对不上，测出来的是假象。
             const header = document.querySelector('.site-header');
             const offset = (header ? header.getBoundingClientRect().height : 58) + 18;
-            window.scrollTo(0, el.getBoundingClientRect().top + window.scrollY - offset);
+            // ⚠️ 必须用 instant：正文有 scroll-behavior: smooth，scrollTo 是**动画**。
+            //    动画跑到哪儿算哪儿，CI 机器慢时还没滚到位就断言，量到的是上一节
+            //    （实测「当前=日程，期望=推荐路线」）——那测的是动画进度，
+            //    不是「目录标出当前章节」这件事本身。
+            window.scrollTo({
+              top: el.getBoundingClientRect().top + window.scrollY - offset,
+              behavior: 'instant',
+            });
           })()`);
-          await page.waitForTimeout(400);
+          // 目录高亮是在 rAF 里跟出来的：等它落定，别拿固定时长去猜
+          await page
+            .waitForFunction(
+              (want) => {
+                const cur = document.querySelector('.toc a[aria-current]');
+                return Boolean(cur) && cur.textContent.trim() === want;
+              },
+              targetText,
+              { timeout: 5000 },
+            )
+            .catch(() => {});
           const current = await page.evaluate(`(() => {
             const cur = document.querySelector('.toc a[aria-current]');
             return cur ? cur.textContent.trim() : null;
@@ -544,13 +561,26 @@ async function runChecks(browser, base) {
       // 5.10 回到顶部：滚动后出现，点一下真的回到顶部
       {
         await page.goto(`${base}/${slug}/`, { waitUntil: 'networkidle' });
-        await page.evaluate('window.scrollTo(0, 1500)');
-        await page.waitForTimeout(300);
+        // ⚠️ 同样用 instant：按钮的出现取决于 scrollY > 300，
+        //    平滑滚动没走到那儿就量，量到的是动画中途（实测 CI 上时有时无）。
+        await page.evaluate(`window.scrollTo({ top: 1500, behavior: 'instant' })`);
+        await page.waitForTimeout(150);
         const btn = page.locator('#back-to-top');
         const count = await btn.count();
         if (count === 0) {
           record('回到顶部 · 滚动后出现', false, '页面上没有回到顶部按钮');
         } else {
+          // 按钮的显隐在 scroll 事件后的 rAF 里更新：等它真的出现，别猜
+          await page
+            .waitForFunction(
+              () => {
+                const el = document.getElementById('back-to-top');
+                return Boolean(el) && el.className.includes('visible');
+              },
+              undefined,
+              { timeout: 5000 },
+            )
+            .catch(() => {});
           const shown = await btn.evaluate(
             (el) => el.className.includes('visible') && getComputedStyle(el).visibility === 'visible',
           );
@@ -610,7 +640,8 @@ async function runChecks(browser, base) {
       record('键盘 · 页面有可聚焦元素', focusables > 0, `${focusables} 个`);
 
       // 真按 Tab：焦点要真的移动，而且移动到的元素要有可见轮廓
-      await page.evaluate(`(() => { document.body.focus(); window.scrollTo(0, 0); })()`);
+      // ⚠️ 回顶用 instant：这里要的是「回到顶部这个状态」，不是滚动动画好不好看
+      await page.evaluate(`(() => { document.body.focus(); window.scrollTo({ top: 0, behavior: 'instant' }); })()`);
       const tabStops = [];
       let outlineOk = false;
       for (let i = 0; i < 6; i += 1) {
