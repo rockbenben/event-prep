@@ -243,6 +243,15 @@ a:hover {
 .site-name:hover {
   color: var(--accent);
 }
+.site-logo {
+  flex-shrink: 0;
+  color: var(--accent);
+  transition: transform 0.15s ease, color 0.15s ease;
+}
+.site-name:hover .site-logo {
+  color: var(--accent-hover);
+  transform: translateY(-0.5px);
+}
 
 .ghost-btn {
   display: inline-flex;
