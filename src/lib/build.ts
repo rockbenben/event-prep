@@ -148,7 +148,7 @@ export async function buildSite(options: BuildOptions = {}): Promise<BuildResult
   let homeDocument = '';
   try {
     homeDocument = renderLayout({
-      title: '行程准备站',
+      title: 'EventPrep',
       description: '把各种活动的公开日程，整理成手机上随时能查的准备页。',
       rootPrefix: '',
       canonicalPath: '',
@@ -319,7 +319,7 @@ function renderEventPageHtml(
   });
 
   return renderLayout({
-    title: `${ev.meta.title} · 行程准备站`,
+    title: `${ev.meta.title} · EventPrep`,
     description: ev.meta.summary ?? `${ev.meta.title} 的行程与准备信息`,
     rootPrefix: '../',
     canonicalPath: `${ev.slug}/`,

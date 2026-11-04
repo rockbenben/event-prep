@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "行程准备站：把各种活动的公开日程，整理成手机上随时能查的准备页",
+  "description": "EventPrep：把各种活动的公开日程，整理成手机上随时能查的准备页",
   "engines": {
     "node": ">=22.18.0"
   },

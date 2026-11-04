@@ -139,7 +139,7 @@ export function renderHome(options: HomeOptions): string {
 
   return `<div class="wrap home">
   <section class="hero">
-    <h1>行程准备站</h1>
+    <h1>EventPrep</h1>
     <p class="hero-sub">${escapeHtml(sub)}</p>
   </section>
 ${body}

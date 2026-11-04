@@ -124,7 +124,7 @@ ${jsonLd}
         <circle cx="16" cy="15" r="4.2" fill="#16a34a"/>
         <path d="M14.2 15l1.3 1.3 2.5-2.5" stroke="#ffffff" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
-      <span>行程准备站</span>
+      <span>EventPrep</span>
     </a>
     <div class="header-actions">
       ${

@@ -272,7 +272,7 @@ async function cmdPreview(args: Args): Promise<number> {
 }
 
 function cmdHelp(): number {
-  console.log(`行程准备站 · 构建工具
+  console.log(`EventPrep · 构建工具
 
   build        构建静态站点（默认输出到 dist/）
     --out <dir>          输出目录
