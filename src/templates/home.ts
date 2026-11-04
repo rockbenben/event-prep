@@ -1,7 +1,13 @@
 /** 首页：所有活动的索引，按状态分组。 */
 
 import { escapeHtml, escapeJsonForScript } from '../lib/html.ts';
-import { STATUS_LABEL, computeStatus, formatDateRange, type EventStatus } from '../lib/status.ts';
+import {
+  STATUS_LABEL,
+  computeStatus,
+  formatDateRange,
+  formatStartClock,
+  type EventStatus,
+} from '../lib/status.ts';
 import type { LoadedEvent } from '../lib/events.ts';
 import { LINK_TABINDEX } from './layout.ts';
 
@@ -42,6 +48,8 @@ interface CardData {
   summary: string;
   status: EventStatus;
   dateText: string;
+  /** 真实开始时刻（`HH:MM`）；没有议程信息时是 null。 */
+  startClock: string | null;
   placeText: string;
   tags: string[];
 }
@@ -53,6 +61,7 @@ function buildCardData(events: LoadedEvent[]): CardData[] {
     summary: ev.meta.summary ?? '',
     status: computeStatus(ev.timing),
     dateText: formatDateRange(ev.timing),
+    startClock: formatStartClock(ev.timing),
     placeText: placeText(ev),
     tags: ev.meta.tags,
   }));
@@ -145,6 +154,9 @@ function renderCard(card: CardData): string {
     : '';
   const meta: string[] = [];
   if (card.dateText !== '日期待定') meta.push(`<div><dt>时间</dt><dd>${escapeHtml(card.dateText)}</dd></div>`);
+  // 真实开始时刻：读者要的是「几点到场」，光有日期不够。
+  // 没有议程信息时不写这一行——「00:00 开始」是在编造。
+  if (card.startClock) meta.push(`<div><dt>开始</dt><dd>${escapeHtml(card.startClock)}</dd></div>`);
   if (card.placeText) meta.push(`<div><dt>地点</dt><dd>${escapeHtml(card.placeText)}</dd></div>`);
 
   return `<li class="event-card" data-event-slug="${escapeHtml(card.slug)}">

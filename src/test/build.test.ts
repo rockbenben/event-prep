@@ -276,6 +276,52 @@ describe('buildSite', () => {
     expect(event).toContain('日期待定');
   });
 
+  it('议程首场决定开始时刻：页面给出真实时刻，倒计时锚在它上面', async () => {
+    await writeEvent(
+      'a-one',
+      'title: 活动一\nstart: 2026-11-05\nend: 2026-11-06\ntimezone: Asia/Shanghai',
+      `## 日程
+
+### Day 1 · 11 月 5 日
+
+#### 08:30–09:30 · 签到
+- 形式: 签到
+
+#### 09:30–17:50 · 主题演讲
+- 形式: 演讲
+- 会场: 主会场
+
+### Day 2 · 11 月 6 日
+
+#### 09:00–10:00 · 签到
+- 形式: 签到
+
+#### 10:00–17:50 · 主题演讲
+- 形式: 演讲
+- 会场: 主会场
+`,
+    );
+    const result = await buildSite({ contentDir, outDir });
+    expect(result.ok).toBe(true);
+
+    const home = await readFile(path.join(outDir, 'index.html'), 'utf8');
+    // 首页卡片上写明真实开始时刻（读者要的是「几点到场」）
+    expect(home).toContain('<dt>开始</dt><dd>08:30</dd>');
+    // site-data 里的 startISO 是真实开始瞬间（08:30 上海 = 00:30Z），不是当天午夜
+    expect(home).toContain('2026-11-05T00:30:00.000Z');
+
+    const event = await readFile(path.join(outDir, 'a-one', 'index.html'), 'utf8');
+    expect(event).toContain('<dt>开始</dt><dd>08:30</dd>');
+    expect(event).toContain('2026-11-05T00:30:00.000Z');
+  });
+
+  it('没有议程信息就不写开始时刻（不编「00:00 开始」）', async () => {
+    await writeEvent('a-one', 'title: 活动一\nstart: 2026-11-05\ntimezone: Asia/Shanghai');
+    await buildSite({ contentDir, outDir });
+    const home = await readFile(path.join(outDir, 'index.html'), 'utf8');
+    expect(home).not.toContain('<dt>开始</dt>');
+  });
+
   it('构建失败时不碰产出目录（上一次的站点留在原处）', async () => {
     await writeEvent('good', 'title: 好的活动\nstart: 2026-11-05');
     await buildSite({ contentDir, outDir });

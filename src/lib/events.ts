@@ -12,7 +12,12 @@ import path from 'node:path';
 import { parseFrontMatter } from './frontmatter.ts';
 import { validateEvent, type EventMeta } from './schema.ts';
 import { resolveTiming, type EventTiming } from './status.ts';
-import { locateAgendaSection, parseAgenda } from './agenda.ts';
+import {
+  dayEndMinutes as endMinutesOf,
+  dayStartMinutes as startMinutesOf,
+  locateAgendaSection,
+  parseAgenda,
+} from './agenda.ts';
 
 export const EVENT_FILE = 'event.md';
 export const ASSETS_DIR = 'assets';
@@ -152,6 +157,8 @@ export async function loadEvents(provider: EventProvider): Promise<LoadedEvent[]
     // 日程章节的校验放在加载阶段：坏数据要进 errors，
     // 由既有的严格模式拦住（构建失败、不动上一次产物），而不是等渲染时才炸。
     const agenda = locateAgendaSection(parsed.body);
+    let dayStartMinutes: (number | null)[] = [];
+    let dayEndMinutes: (number | null)[] = [];
     if (agenda) {
       const parsedAgenda = parseAgenda(agenda.text, {
         assetExists: (rel) =>
@@ -159,9 +166,14 @@ export async function loadEvents(provider: EventProvider): Promise<LoadedEvent[]
       });
       errors.push(...parsedAgenda.errors);
       warnings.push(...parsedAgenda.warnings);
+      // ⚠️ 议程里的时刻就是活动的真实起止时刻：frontmatter 只有日期，
+      //    锚在 00:00 的话倒计时指向当天午夜，读者看到的「还有 4 小时」
+      //    跟「明早 8 点半签到」毫无关系。
+      dayStartMinutes = startMinutesOf(parsedAgenda.days);
+      dayEndMinutes = endMinutesOf(parsedAgenda.days);
     }
 
-    const timing = resolveTiming(validated.meta);
+    const timing = resolveTiming({ ...validated.meta, dayStartMinutes, dayEndMinutes });
 
     events.push({
       slug: item.slug,

@@ -94,6 +94,7 @@ describe('服务端与浏览器端口径一致', () => {
       days: null,
       start: null,
       end: null,
+      startMinute: null,
     };
     const now = new Date('2026-11-05T12:00:00.000Z');
     expect(computeStatus(broken, now)).toBe('unknown');
@@ -132,6 +133,60 @@ describe('服务端与浏览器端口径一致', () => {
       };
       for (const m of moments) {
         const now = new Date(m);
+        expect(client.countdown(payload, now.getTime()), `${c.timezone} @ ${m}`).toBe(countdownText(timing, now));
+      }
+    }
+  });
+
+  it('议程推出的真实起止时刻，两边也一致', async () => {
+    const client = await loadClient();
+    // ⚠️ 开始时刻锚到议程首场（08:30 签到）之后，两边的「即将开始 / 进行中」
+    //    分界线就跟着挪了——浏览器端只认 startISO，所以这里要盯住
+    //    「分界线前后一秒」这种最容易差一档的时刻。
+    const cases = [
+      {
+        start: '2026-11-05',
+        end: '2026-11-06',
+        timezone: 'Asia/Shanghai',
+        dayStartMinutes: [510, 600],
+        dayEndMinutes: [1070, 1070],
+      },
+      {
+        start: '2026-11-05',
+        timezone: 'Asia/Shanghai',
+        dayStartMinutes: [510],
+        dayEndMinutes: [1070],
+      },
+      {
+        start: '2026-03-08',
+        end: '2026-03-09',
+        timezone: 'America/New_York',
+        dayStartMinutes: [510, 600],
+        dayEndMinutes: [1070, 1070],
+      },
+    ];
+    const moments = [
+      '2026-11-04T12:00:00.000Z',
+      '2026-11-05T00:29:59.000Z',
+      '2026-11-05T00:30:00.000Z',
+      '2026-11-05T12:00:00.000Z',
+      '2026-11-06T09:50:00.000Z',
+      '2026-11-06T09:50:01.000Z',
+      '2026-11-07T16:00:00.000Z',
+    ];
+
+    for (const c of cases) {
+      const timing = resolveTiming(c);
+      const payload = {
+        startISO: timing.startISO,
+        endISO: timing.endISO,
+        timezone: timing.timezone,
+        days: timing.days,
+        start: timing.start,
+      };
+      for (const m of moments) {
+        const now = new Date(m);
+        expect(client.statusOf(payload, now.getTime()), `${c.timezone} @ ${m}`).toBe(computeStatus(timing, now));
         expect(client.countdown(payload, now.getTime()), `${c.timezone} @ ${m}`).toBe(countdownText(timing, now));
       }
     }

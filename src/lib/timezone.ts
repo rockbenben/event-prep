@@ -102,6 +102,30 @@ export function addDays(date: string, days: number): string {
   return t.toISOString().slice(0, 10);
 }
 
+/**
+ * 把「某时区的某个自然日的第 N 分钟」换算成 UTC 瞬间。
+ *
+ * ⚠️ 不能拿「当天 00:00 的瞬间 + N 分钟」糊弄：
+ *    夏令时切换那天，墙上时间 09:30 与 UTC 的偏移不是恒定的
+ *    （比如 Europe/Berlin 冬令时是 +1h、夏令时是 +2h），
+ *    拿 00:00 的偏移去推 09:30 会差一小时。
+ *    这里跟 `zonedDayStart` 一样迭代两轮收敛。
+ *
+ * @param minutes 当天第几分钟（0 = 00:00，570 = 09:30）
+ */
+export function zonedMinuteOfDay(date: string, tz: string, minutes: number): Date {
+  const parts = dateParts(date);
+  if (!parts) throw new Error(`不是合法的日期：${date}`);
+  const wall = Date.UTC(parts.y, parts.m - 1, parts.d, 0, 0, 0, 0) + minutes * 60000;
+  let guess = wall;
+  for (let i = 0; i < 3; i += 1) {
+    const next = wall - zoneOffsetMs(new Date(guess), tz);
+    if (next === guess) break;
+    guess = next;
+  }
+  return new Date(guess);
+}
+
 /** `2026-11-05` 是不是一个真实存在的日历日（挡掉 2026-02-30 这种）。 */
 export function isCalendarDate(date: string): boolean {
   const parts = dateParts(date);

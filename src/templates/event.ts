@@ -1,7 +1,7 @@
 /** 活动页：按现场使用顺序排布的行程与准备页。 */
 
 import { escapeHtml, escapeJsonForScript } from '../lib/html.ts';
-import { STATUS_LABEL, computeStatus, formatDateRange } from '../lib/status.ts';
+import { STATUS_LABEL, computeStatus, formatDateRange, formatStartClock } from '../lib/status.ts';
 import { EXPORT_FILE, type LoadedEvent } from '../lib/events.ts';
 import type { TocEntry } from '../lib/markdown.ts';
 import { LINK_TABINDEX } from './layout.ts';
@@ -28,6 +28,10 @@ export function renderEventPage(options: EventPageOptions): string {
 
   const metaRows: string[] = [];
   metaRows.push(row('日期', formatDateRange(timing)));
+  // 真实开始时刻（议程首场推出来的）：读者要的是「几点到场」。
+  // 没有议程信息就不写这一行——「00:00 开始」是在编造。
+  const startClock = formatStartClock(timing);
+  if (startClock) metaRows.push(row('开始', startClock));
   // 地点：场地名本身可以点（venue_url），别只给一个「地图」按钮——
   // 读者要的是「这地方到底是哪」，地图只回答「怎么过去」。
   const placeParts: string[] = [];
@@ -55,6 +59,7 @@ export function renderEventPage(options: EventPageOptions): string {
 
   // 手机上这五行会占掉大半屏，先收成一行摘要，点开才看全部
   const summaryBits = [formatDateRange(timing)];
+  if (startClock) summaryBits.push(`${startClock} 开始`);
   if (meta.city) summaryBits.push(meta.city);
   if (meta.venue) summaryBits.push(meta.venue);
   const metaSummary = summaryBits.filter((b) => b !== '日期待定').join(' · ');

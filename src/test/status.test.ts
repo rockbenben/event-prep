@@ -6,6 +6,7 @@ import {
   dayCount,
   formatDateRange,
   formatDuration,
+  formatStartClock,
   resolveTiming,
 } from '../lib/status.ts';
 
@@ -53,6 +54,87 @@ describe('resolveTiming', () => {
     const timing = resolveTiming({ start: '2026-11-06', end: '2026-11-05', timezone: 'Asia/Shanghai' });
     expect(timing.end).toBeNull();
     expect(timing.days).toBe(1);
+  });
+});
+
+describe('resolveTiming · 议程推出的真实起止时刻', () => {
+  it('开始时刻取议程首场，不是当天 00:00', () => {
+    const timing = resolveTiming({
+      start: '2026-11-05',
+      end: '2026-11-06',
+      timezone: 'Asia/Shanghai',
+      dayStartMinutes: [510, 600],
+      dayEndMinutes: [1070, 1070],
+    });
+    // 08:30 上海 = 00:30Z
+    expect(timing.startISO).toBe('2026-11-05T00:30:00.000Z');
+    expect(timing.startMinute).toBe(510);
+    // 末场 17:50 上海 = 09:50Z
+    expect(timing.endISO).toBe('2026-11-06T09:50:00.000Z');
+  });
+
+  it('没有议程信息就退回按日期算，并且不编一个时刻出来', () => {
+    const timing = resolveTiming({ start: '2026-11-05', timezone: 'Asia/Shanghai' });
+    expect(timing.startISO).toBe('2026-11-04T16:00:00.000Z');
+    expect(timing.startMinute).toBeNull();
+    expect(formatStartClock(timing)).toBeNull();
+  });
+
+  it('议程没覆盖全部天数时，结束仍按日期算（不采信半截议程）', () => {
+    const timing = resolveTiming({
+      start: '2026-11-05',
+      end: '2026-11-06',
+      timezone: 'Asia/Shanghai',
+      dayStartMinutes: [570],
+      dayEndMinutes: [1070],
+    });
+    // 开始仍然用第一天的首场
+    expect(timing.startISO).toBe('2026-11-05T01:30:00.000Z');
+    // 结束退回「结束日之后那一天的 00:00」
+    expect(timing.endISO).toBe('2026-11-06T16:00:00.000Z');
+  });
+
+  it('议程末场结束早于开始时（数据写错了）退回按日期算，不能让活动一打开就是「已结束」', () => {
+    const timing = resolveTiming({
+      start: '2026-11-05',
+      timezone: 'Asia/Shanghai',
+      dayStartMinutes: [570],
+      dayEndMinutes: [60],
+    });
+    expect(timing.endISO).toBe('2026-11-05T16:00:00.000Z');
+    expect(computeStatus(timing, new Date('2026-11-05T02:00:00.000Z'))).toBe('ongoing');
+  });
+
+  it('倒计时指向真实开场时刻，不是当天午夜', () => {
+    const timing = resolveTiming({
+      start: '2026-11-05',
+      timezone: 'Asia/Shanghai',
+      dayStartMinutes: [510],
+    });
+    // 11-04 20:00 上海 = 12:00Z → 离次日 08:30 还有 12 小时 30 分钟
+    expect(countdownText(timing, new Date('2026-11-04T12:00:00.000Z'))).toBe('还有 12 小时 30 分钟');
+    // 以前锚在 00:00 的话，这里会是「还有 16 小时」
+  });
+
+  it('议程开始之前仍是「即将开始」，开始那一刻转「进行中」', () => {
+    const timing = resolveTiming({
+      start: '2026-11-05',
+      timezone: 'Asia/Shanghai',
+      dayStartMinutes: [510],
+    });
+    expect(computeStatus(timing, new Date('2026-11-04T23:59:59.000Z'))).toBe('upcoming');
+    expect(computeStatus(timing, new Date('2026-11-05T00:30:00.000Z'))).toBe('ongoing');
+  });
+});
+
+describe('formatStartClock', () => {
+  it('有议程信息才给时刻，补零到 HH:MM', () => {
+    const timing = resolveTiming({
+      start: '2026-11-05',
+      timezone: 'Asia/Shanghai',
+      dayStartMinutes: [510],
+    });
+    expect(formatStartClock(timing)).toBe('08:30');
   });
 });
 

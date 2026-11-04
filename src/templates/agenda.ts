@@ -93,7 +93,10 @@ function noteBlock(session: Session): string {
 }
 
 function sessionCard(session: Session, renderInline: InlineRenderer, seen: Set<string>, seenBio: Set<string>): string {
+  // ⚠️ 过滤掉空的会场：签到不要求会场（它发生在入口，不在任何一个会场里），
+  //    不过滤就会渲染出一个空标签。
   const tags = [session.format, session.venue]
+    .filter((value) => value !== '')
     .map((value) => `<span class="tag">${escapeHtml(value)}</span>`)
     .join('');
   const status =
@@ -147,17 +150,31 @@ function sessionCard(session: Session, renderInline: InlineRenderer, seen: Set<s
 ${speakers}${highlight}${abstractBlock}${noteBlock(session)}      </li>\n`;
 }
 
-function breakRow(session: Session, renderInline: InlineRenderer): string {
+/**
+ * 服务性时段：茶歇、午休、签到。
+ *
+ * ⚠️ 它们不是「一场演讲」——没有讲者、没有摘要，摊成一张大卡片
+ *    只会把真正要看的场次挤下去。一行小字就够。
+ * ⚠️ 但**备注要留着**：签到那一行往往是读者唯一需要展开看的地方
+ *    （带什么证件、去哪签到），所以照样挂提示图标。
+ */
+function serviceRow(session: Session, renderInline: InlineRenderer): string {
+  const remarks = session.remarks.length
+    ? tipButton('remark', '看这一场之前要知道的事', tipBody(session.remarks))
+    : '';
   return `      <li class="agenda-break"><span class="agenda-time">${escapeHtml(session.timeText)}</span> ${renderInline(
     session.title,
-  )}</li>\n`;
+  )}${remarks}</li>\n`;
 }
+
+/** 这些形式走「服务行」而不是大卡片。 */
+const SERVICE_FORMATS: readonly string[] = ['茶歇', '签到'];
 
 function slotBlock(slot: AgendaSlot, renderInline: InlineRenderer, seen: Set<string>, seenBio: Set<string>): string {
   const cards = slot.sessions
     .map((session) =>
-      session.format === '茶歇'
-        ? breakRow(session, renderInline)
+      SERVICE_FORMATS.includes(session.format)
+        ? serviceRow(session, renderInline)
         : sessionCard(session, renderInline, seen, seenBio),
     )
     .join('');

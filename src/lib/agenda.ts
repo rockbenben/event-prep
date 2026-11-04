@@ -9,10 +9,10 @@
 import { hashText } from './html.ts';
 
 export type AgendaFormat =
-  | '演讲' | '圆桌' | '快闪' | '开场' | '闭幕' | '茶歇' | '边会' | '行程';
+  | '演讲' | '圆桌' | '快闪' | '开场' | '闭幕' | '茶歇' | '边会' | '行程' | '签到';
 
 export const AGENDA_FORMATS: readonly AgendaFormat[] = [
-  '演讲', '圆桌', '快闪', '开场', '闭幕', '茶歇', '边会', '行程',
+  '演讲', '圆桌', '快闪', '开场', '闭幕', '茶歇', '边会', '行程', '签到',
 ];
 
 const SECTION_HEADING = /^#{2}[ \t]+(日程|议程|agenda|schedule)[ \t]*$/im;
@@ -61,6 +61,51 @@ export interface AgendaParseResult {
   days: AgendaDay[];
   errors: string[];
   warnings: string[];
+}
+
+/**
+ * 每天的**实际开场时刻**（当地「第几分钟」，0 = 00:00）。
+ *
+ * ⚠️ 为什么要有这个：
+ *    活动的第一天几点签到、几点开场，是活动自己的事实，写在议程里；
+ *    而 frontmatter 只有日期（「2026-11-05」），没有时刻。
+ *    锚在 00:00 的话，读者前一天晚上看到的是「还有 4 小时 31 分钟」——
+ *    指向的是当天午夜，跟「明早 9 点半开场」毫无关系。
+ *    所以真实的开始瞬间要从**议程首场**推出来。
+ *
+ * ⚠️ 一天里**最早**的那一场说了算（签到比开场早，签到才是读者要赶的点）。
+ *    一天都没有场次 → null → 退回按日期算（当天 00:00），不假装知道。
+ */
+export function dayStartMinutes(days: AgendaDay[]): (number | null)[] {
+  return days.map((day) => {
+    if (day.slots.length === 0) return null;
+    return Math.min(...day.slots.map((slot) => slot.start));
+  });
+}
+
+/**
+ * 每天的**实际散场时刻**（当地「第几分钟」）。
+ *
+ * ⚠️ 跟 `dayStartMinutes` 是一对：开始时刻锚到真实开场，
+ *    结束时刻也得锚到真实散场——只改一边的话，
+ *    「活动进行中」这个区间会一头去掉活动开始前的几个小时、
+ *    另一头又多算活动结束后的几个小时。
+ *
+ * ⚠️ 取当天**最晚**一场的结束时刻；那一场没写结束时间就用它的开始时刻。
+ *    一天都没有场次 → null（跟「结束在午夜」不是一回事，别混）。
+ */
+export function dayEndMinutes(days: AgendaDay[]): (number | null)[] {
+  return days.map((day) => {
+    if (day.slots.length === 0) return null;
+    let latest: number | null = null;
+    for (const slot of day.slots) {
+      for (const session of slot.sessions) {
+        const end = session.end ?? session.start;
+        if (latest === null || end > latest) latest = end;
+      }
+    }
+    return latest;
+  });
 }
 
 export interface AgendaOptions {
@@ -284,7 +329,10 @@ function buildSession(
   // includes() 不产生类型谓词，闭集校验过了这里才敢当 AgendaFormat 用
   const agendaFormat = format as AgendaFormat;
   const venue = one('会场');
-  if (venue === undefined || venue === '') {
+  // ⚠️ 「签到」不要求会场：签到发生在入口，不在任何一个会场里。
+  //    硬要作者填一个，等于逼着他编一个「大堂」「签到处」——那是假信息。
+  //    其余形式仍然必填（缺了就是作者忘了写，不是没地方签到）。
+  if ((venue === undefined || venue === '') && agendaFormat !== '签到') {
     errors.push(`第 ${raw.line} 行「${head.title}」缺必填字段：会场。`);
     return null;
   }
@@ -313,7 +361,7 @@ function buildSession(
     title: head.title,
     key: hashText(`${head.timeText}|${head.title}`),
     format: agendaFormat,
-    venue,
+    venue: venue ?? '',
     speakers,
     ...(one('时长') !== undefined ? { duration: one('时长') } : {}),
     ...(one('状态') !== undefined ? { status: one('状态') } : {}),

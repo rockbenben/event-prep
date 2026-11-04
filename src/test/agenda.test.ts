@@ -1,5 +1,11 @@
 import { describe, expect, it } from 'vitest';
-import { AGENDA_FORMATS, locateAgendaSection, parseAgenda } from '../lib/agenda.ts';
+import {
+  AGENDA_FORMATS,
+  dayEndMinutes,
+  dayStartMinutes,
+  locateAgendaSection,
+  parseAgenda,
+} from '../lib/agenda.ts';
 import { renderInlineValue } from '../lib/markdown.ts';
 import { renderAgenda } from '../templates/agenda.ts';
 
@@ -15,6 +21,86 @@ const ONE = `## 日程
 ## 行前清单
 - [ ] 买票
 `;
+
+describe('dayStartMinutes / dayEndMinutes', () => {
+  const TWO_DAYS = `### Day 1 · 11 月 5 日（周四）
+
+#### 08:30–09:30 · 签到
+- 形式: 签到
+
+#### 09:30–10:00 · 开场致辞
+- 形式: 开场
+- 会场: 主会场
+
+#### 17:45–17:50 · 收尾
+- 形式: 闭幕
+- 会场: 主会场
+
+### Day 2 · 11 月 6 日（周五）
+
+#### 09:00–10:00 · 签到
+- 形式: 签到
+
+#### 10:00–17:50 · 主题演讲
+- 形式: 演讲
+- 会场: 主会场
+`;
+
+  it('每天取最早一场的开始、最晚一场的结束', () => {
+    const r = parseAgenda(TWO_DAYS);
+    expect(r.errors).toEqual([]);
+    expect(dayStartMinutes(r.days)).toEqual([8 * 60 + 30, 9 * 60]);
+    expect(dayEndMinutes(r.days)).toEqual([17 * 60 + 50, 17 * 60 + 50]);
+  });
+
+  it('一天都没有场次时是 null（跟「结束在午夜」不是一回事）', () => {
+    const r = parseAgenda(`### Day 1
+
+#### 09:00–10:00 · 演讲
+- 形式: 演讲
+- 会场: 主会场
+
+### Day 2
+`);
+    expect(dayStartMinutes(r.days)).toEqual([9 * 60, null]);
+    expect(dayEndMinutes(r.days)).toEqual([10 * 60, null]);
+  });
+
+  it('没写结束时间的那一场，用它的开始时刻当结束', () => {
+    const r = parseAgenda(`### Day 1
+
+#### 09:00 · 演讲
+- 形式: 演讲
+- 会场: 主会场
+`);
+    expect(dayEndMinutes(r.days)).toEqual([9 * 60]);
+  });
+});
+
+describe('签到', () => {
+  it('不要求写会场——签到在入口，不在任何一个会场里', () => {
+    const r = parseAgenda(`### Day 1
+
+#### 08:30–09:30 · 签到
+- 形式: 签到
+`);
+    expect(r.errors).toEqual([]);
+    expect(r.days[0]?.slots[0]?.sessions[0]?.venue).toBe('');
+  });
+
+  it('其它形式缺会场照样报错', () => {
+    const r = parseAgenda(`### Day 1
+
+#### 08:30–09:30 · 演讲
+- 形式: 演讲
+`);
+    expect(r.errors.join()).toContain('会场');
+  });
+
+  it('在闭集里', () => {
+    expect(AGENDA_FORMATS).toContain('签到');
+  });
+});
 
 describe('locateAgendaSection', () => {
   it('认「日程」「议程」两种叫法，范围不含下一个二级标题', () => {
@@ -274,6 +360,18 @@ describe('renderAgenda', () => {
 `), renderInlineValue);
     expect(html).toContain('<li class="agenda-break">');
     expect(html).not.toContain('<li class="agenda-card">');
+  });
+
+  it('签到也是一条分隔行，备注挂在提示图标上', () => {
+    const html = renderAgenda(agendaOf(`#### 08:30–09:30 · 签到
+- 形式: 签到
+- 备注: 签到地点与入场证件要求以主办方通知为准。
+`), renderInlineValue);
+    expect(html).toContain('<li class="agenda-break">');
+    expect(html).not.toContain('<li class="agenda-card">');
+    // 备注不能因为走了分隔行就丢掉——签到那一行往往是读者唯一要展开看的
+    expect(html).toContain('agenda-tip-remark');
+    expect(html).toContain('签到地点与入场证件要求以主办方通知为准。');
   });
 
   it('同时段两场才标「同时段 N 场」', () => {

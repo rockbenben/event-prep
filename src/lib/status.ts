@@ -9,7 +9,14 @@
  * 「未提供时区，按 UTC 计算」——不假装那就是活动所在地的时间。
  */
 
-import { addDays, dateParts, isCalendarDate, isValidTimeZone, zonedDayStart } from './timezone.ts';
+import {
+  addDays,
+  dateParts,
+  isCalendarDate,
+  isValidTimeZone,
+  zonedDayStart,
+  zonedMinuteOfDay,
+} from './timezone.ts';
 
 /** 活动时区缺失时的回退值。页面上会如实标注，不会说这是活动所在地时区。 */
 export const FALLBACK_TIMEZONE = 'UTC';
@@ -30,17 +37,43 @@ export interface EventTiming {
   /** 活动原始日期（`YYYY-MM-DD`），给显示用。 */
   start: string | null;
   end: string | null;
+  /**
+   * 开始时刻在活动时区的「第几分钟」（570 = 09:30）。
+   *
+   * ⚠️ null = **没有议程信息**，按当天 00:00 算。
+   *    有值才说明这个时刻是从议程首场推出来的，可以放心显示给读者。
+   */
+  startMinute: number | null;
 }
 
 export interface TimingInput {
   start?: string;
   end?: string;
   timezone?: string;
+  /**
+   * 每天的实际开场时刻（当地「第几分钟」），按天序，从议程首场推出来。
+   *
+   * ⚠️ 议程里**没有**每一天的首场时间时，这一项是空的——
+   *    那就退回按日期算（00:00），跟以前一样，不假装知道。
+   */
+  dayStartMinutes?: (number | null)[];
+  /**
+   * 每天的实际散场时刻（当地「第几分钟」），按天序，从议程末场推出来。
+   *
+   * ⚠️ 只有议程**覆盖了活动的全部天数**时它才被采信——
+   *    议程缺了几天（作者还没写完）时，按日期算结束更保守。
+   */
+  dayEndMinutes?: (number | null)[];
 }
 
 /**
  * 把「自然日 + 时区」解析成绝对瞬间。
  * `end` 是**含当日**的：活动 11-05 至 11-06，则结束瞬间是 11-07 00:00（活动所在地时区）。
+ *
+ * ⚠️ `dayStartMinutes` 来自议程首场：有它就用**真实开场时刻**当开始瞬间
+ *    （比如第一天 08:30 开始签到，而不是当天 00:00）；没有就退回按日期算。
+ * ⚠️ `dayEndMinutes` 来自议程末场：议程覆盖了全部天数时用它当结束瞬间，
+ *    这样「进行中」这个区间两头都对得上议程。
  */
 export function resolveTiming(input: TimingInput): EventTiming {
   const timezoneKnown = Boolean(input.timezone && isValidTimeZone(input.timezone));
@@ -58,22 +91,40 @@ export function resolveTiming(input: TimingInput): EventTiming {
       days: null,
       start: null,
       end: null,
+      startMinute: null,
     };
   }
 
-  const startInstant = zonedDayStart(start, timezone);
   // `end` 省略时按单日活动处理；结束瞬间统一取「结束日之后那一天的 00:00」
   const lastDay = end && end >= start ? end : start;
-  const endInstant = zonedDayStart(addDays(lastDay, 1), timezone);
+  const totalDays = dayCount(start, lastDay);
+
+  const starts = input.dayStartMinutes ?? [];
+  const ends = input.dayEndMinutes ?? [];
+
+  // 开始瞬间 = 第一天的真实开场时刻（议程首场）；没有议程 → 当天 00:00
+  const startMinute = starts[0] ?? null;
+  const startInstant =
+    startMinute === null ? zonedDayStart(start, timezone) : zonedMinuteOfDay(start, timezone, startMinute);
+
+  // 结束瞬间：议程覆盖了全部天数就用议程末场，否则退回按日期算
+  const lastEndMinute = ends.length >= totalDays ? (ends[totalDays - 1] ?? null) : null;
+  let endInstant = zonedDayStart(addDays(lastDay, 1), timezone);
+  if (lastEndMinute !== null) {
+    const candidate = zonedMinuteOfDay(lastDay, timezone, lastEndMinute);
+    // 结束不能早于开始：否则活动一打开就是「已结束」
+    if (candidate.getTime() > startInstant.getTime()) endInstant = candidate;
+  }
 
   return {
     startISO: startInstant.toISOString(),
     endISO: endInstant.toISOString(),
     timezone,
     timezoneKnown,
-    days: dayCount(start, lastDay),
+    days: totalDays,
     start,
     end: end && end >= start ? end : null,
+    startMinute,
   };
 }
 
@@ -190,4 +241,19 @@ export function formatChineseDate(date: string): string {
   const p = dateParts(date);
   if (!p) return date;
   return `${p.y}年${p.m}月${p.d}日`;
+}
+
+/**
+ * 活动的开始时刻（活动所在地的墙上时间，`HH:MM`）。
+ *
+ * ⚠️ 没有议程信息时返回 null —— **别显示「00:00 开始」**：
+ *    那是「我们不知道」，不是「凌晨零点开场」。
+ *    不知道就不显示时刻，只给日期。
+ */
+export function formatStartClock(timing: EventTiming): string | null {
+  const m = timing.startMinute;
+  if (m === null) return null;
+  const h = Math.floor(m / 60);
+  const mm = m % 60;
+  return `${String(h).padStart(2, '0')}:${String(mm).padStart(2, '0')}`;
 }
