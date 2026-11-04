@@ -278,9 +278,10 @@ a:hover {
   display: block;
 }
 
+/* 横向留白归 `.wrap` 管——理由见 `.home` 那段注释。 */
 .site-footer {
   margin-top: 60px;
-  padding: 28px 0 44px;
+  padding-block: 28px 44px;
   border-top: 1px solid var(--border-soft);
   color: var(--fg-faint);
   font-size: 13px;
@@ -289,8 +290,14 @@ a:hover {
 
 /* ---------- 首页 ---------- */
 
+/* 首页与活动页只管**纵向**间距。
+   ⚠️ 横向留白归 `.wrap` 管（`padding: 0 16px`）——
+      以前这里写的是 `padding: 32px 0 16px` 这种简写，把左右清成了 0，
+      优先级又比 `.wrap` 高，结果手机上正文**完全贴着屏幕边缘**：
+      标题、摘要、卡片都顶到边上，没有一点呼吸的空隙。
+      简写里那个 0 看着是「不要左右内边距」，实际是「把 .wrap 给的清掉」。 */
 .home {
-  padding: 32px 0 16px;
+  padding-block: 32px 16px;
 }
 
 .hero {
@@ -506,11 +513,13 @@ a:hover {
   color: var(--unknown-fg);
 }
 
+/* ⚠️ 上边距别清零：标签紧贴着上面的倒计时（「还有 3 小时 46 分钟」），
+   看起来像一行内容被劈成两半。倒计时与标签是两件事，得隔开。 */
 .tags {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
-  margin: 0;
+  margin: 10px 0 0;
   padding: 0;
   list-style: none;
 }
@@ -551,8 +560,9 @@ a:hover {
 
 /* ---------- 活动页 ---------- */
 
+/* 横向留白归 `.wrap` 管——理由见 `.home` 那段注释。 */
 .event {
-  padding: 22px 0 16px;
+  padding-block: 22px 16px;
 }
 
 .crumbs {
@@ -1830,6 +1840,23 @@ a:hover {
   .export-note code {
     display: block;
     margin-top: 4px;
+  }
+}
+
+/* ---------- 窄屏的留白与按钮 ---------- */
+@media (max-width: 560px) {
+  /* 边距比宽屏略大一点：手机上拇指离屏幕边缘近，
+     16px 贴着边显得局促，20px 读起来更松。 */
+  .wrap {
+    padding-inline: 20px;
+  }
+
+  /* 操作按钮收窄，让「官网/议程/报名/场地/地图」五个排得下一行。
+     ⚠️ 以前是 66px × 5 + 4 × 10px 间距 = 370px > 358px 可用宽度，
+        「地图」被挤到第二行落单，看着像排版出错。
+        横向内边距 18 → 14px 就能省出 40px，五个正好一行。 */
+  .action-btn {
+    padding-inline: 14px;
   }
 }
 
