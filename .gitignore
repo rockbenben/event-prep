@@ -1,0 +1,17 @@
+node_modules/
+dist/
+dist-examples/
+.check-out/
+.audit/
+.audit*/
+.gstack/
+.qoder-credits/
+.work/
+*.log
+.DS_Store
+Thumbs.db
+
+# 本地覆盖的环境变量（不要提交任何凭证）
+.env
+.env.*
+!.env.example

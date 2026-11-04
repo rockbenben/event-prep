@@ -1,0 +1,36 @@
+{
+  "name": "event-prep",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "行程准备站：把各种活动的公开日程，整理成手机上随时能查的准备页",
+  "engines": {
+    "node": ">=22.18.0"
+  },
+  "scripts": {
+    "build": "tsc --noEmit && node src/cli.ts build",
+    "build:examples": "tsc --noEmit && node src/cli.ts build --content examples --out dist-examples",
+    "check": "node src/cli.ts check",
+    "new": "node src/cli.ts new-event",
+    "export": "node src/cli.ts export",
+    "preview": "node src/cli.ts preview",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "audit:ui": "node scripts/audit-ui.mjs --dist dist-examples --out .audit",
+    "audit:real": "node scripts/audit-ui.mjs --dist dist --out .audit-real",
+    "screenshots": "node scripts/screenshots.mjs",
+    "fetch:speakers": "node scripts/fetch-speakers.mjs"
+  },
+  "dependencies": {
+    "marked": "^18.1.2",
+    "sanitize-html": "^2.18.1",
+    "yaml": "^2.9.1"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.1",
+    "@types/sanitize-html": "^2.16.0",
+    "playwright": "^1.64.1",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.5"
+  }
+}
