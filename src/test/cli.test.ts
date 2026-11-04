@@ -8,7 +8,7 @@
 
 import { execFile, spawn } from 'node:child_process';
 import { existsSync } from 'node:fs';
-import { mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
+import { mkdir, mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { promisify } from 'node:util';
@@ -252,9 +252,14 @@ describe('preview', () => {
   }, 30000);
 
   it('缺的资源如实 404，不拿首页冒充（以前坏链接在本地预览里看着是好的）', async () => {
-    const { port, kill } = await startPreview(await buildEmptyDist('dist'));
+    const outDir = await buildEmptyDist('dist');
+    const { port, kill } = await startPreview(outDir);
     try {
-      const css = await fetch(`http://localhost:${port}/assets/site.css`);
+      // 样式名带内容哈希，所以从产物目录里读出真实名字再取
+      const assets = await readdir(path.join(outDir, 'assets'));
+      const cssName = assets.find((f) => f.endsWith('.css'));
+      expect(cssName).toBeTruthy();
+      const css = await fetch(`http://localhost:${port}/assets/${cssName}`);
       expect(css.status).toBe(200);
       expect(css.headers.get('content-type')).toContain('text/css');
 

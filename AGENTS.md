@@ -48,9 +48,12 @@
 │   │   ├── agenda.ts           # 日程章节解析与字段校验
 │   │   ├── events.ts           # 活动发现（provider 可替换）
 │   │   ├── html.ts             # 转义 / slug / 哈希
+│   │   ├── assets.ts           # 站点级资源的内容哈希命名（site.<hash>.css）
 │   │   └── build.ts            # 构建管线
 │   ├── templates/              # layout / home / event / agenda + event-template.md
 │   └── assets/                 # site.css / site.js
+├── public/
+│   └── edgeone.json            # EdgeOne Pages 的缓存与安全响应头（随产物进分支）
 ├── scripts/
 │   ├── audit-ui.mjs            # 浏览器验收（1280 / 390、溢出、清单、键盘、网络）
 │   ├── screenshots.mjs         # 生成 README 截图与分享卡
@@ -166,6 +169,21 @@
     验收——三台浏览器各装一次 Playwright，慢，且两边跑并不能多拦住什么
     （同一个 commit、同一份代码）。发布只留快速闸门：单元测试 + 构建。
     布局回归由 CI 报，发布不等它。
+    ⚠️ **缓存与安全响应头由 `public/edgeone.json` 决定**（构建时随产物进分支根目录）：
+    EdgeOne 是从**分支根目录**读这个文件的，不在分支里就没有那套响应头
+    （页面照样能开，但每个请求都回源，而且没有 nosniff 等安全头）。
+    - 站点级资源（`site.css` / `site.js`）按**内容哈希**命名（`site.6297e662.css`），
+      所以 `/assets/*` 可以给一年 `immutable`：内容变了文件名就变了，缓存自然失效。
+      固定名（`site.css`）配 immutable 会让改了样式的用户一直拿旧的。
+    - ⚠️ **活动自带的资源不改名**（讲者头像等）：内容里按名字引用它们，改名就对不上。
+    - ⚠️ **规则语义是实测出来的，不是猜的**：
+      `source` 是 **URL 路径通配符**（不是文件系统 Glob），官方文档写明「最多包含一个 `*`」——
+      所以「双星」写法**不生效**（兄弟项目 046 就这么写，实测三条多星规则一条都没起作用）。
+      `*` 能跨斜杠（`/assets/*` 也匹配 `/assets/a/b/c.js`）。
+      **后写的规则覆盖先写的**，所以兜底规则写在**前面**、具体规则写在**后面**
+      （兄弟项目 025 把 `/*` 写在最后，结果它的 `/assets/*` 的 immutable 失效了）。
+    - ⚠️ 我们的页面是**目录式路径**（`/`、`/<slug>/`），不是 `.html`——
+      所以「按后缀匹配 html」的规则对首页与活动页都不生效，别照抄兄弟项目那种写法。
 
 16. **依赖只有三个运行时 + 两个开发时**：
     `marked`（Markdown）、`sanitize-html`（消毒）、`yaml`（front matter）；
@@ -358,14 +376,12 @@
 
 ## 4. 下一步
 
-1. **建仓并部署**：仓库定为 `rockbenben/event-prep`；建好后推 main，
-   在仓库 Settings → Pages 把 Source 选成 `gh-pages` 分支；需要自定义域名再设 `CNAME` 变量。
-   （头部那个 GitHub 图标已经指向这个地址，但仓库还没建、链接暂时打不开。）
-2. **加更多真实活动**：`npm run new -- 2026-12-<slug> --title "<活动名>"`，
+1. **加更多真实活动**：`npm run new -- 2026-12-<slug> --title "<活动名>"`，
    然后用调研技能填内容。第一个真实活动（AI Engineer Shanghai 2026）已经在 `content/` 里。
-3. **填 GitHub 元数据**：description（中文单语）、homepage、topics。
-   GitHub 仓库自己的社交预览图仍是 1280×640；**站点内的 og:image 是另一回事**
-   ——那是 1200×630 的 `docs/images/og-image.png`，由 screenshots 生成，见第 3 条第 22 点。
+2. **GitHub 社交预览图**：仓库自己的社交预览图仍是默认的 1280×640；
+   **站点内的 og:image 是另一回事**——那是 1200×630 的 `docs/images/og-image.png`，
+   由 screenshots 生成，见第 3 条第 22 点。GitHub 那边只能手动上传
+   （Settings → Social preview），没有 API。
 
 ---
 
@@ -414,7 +430,9 @@ npm run audit:real  # 浏览器验收 · 正式内容（content/ 非空时必跑
 | 浏览器：每个请求都拿到 2xx/3xx（缺资源如实 404） | ✅ |
 | 安全：脚本注入 / `javascript:` / `data:` 链接（15 个注入向量过一遍） | ✅ 无 XSS |
 | 时区换算：22 个时区 × 12 个日期，拿 `Intl` 自己当基准 | ✅ 全过 |
-| **真实 GitHub 仓库上的自动部署** | ⚠️ **未验证**——仓库还没建 |
+| 构建：页面引用的资源名与产物里真实存在的文件名对得上（哈希命名） | ✅ 单测守着 |
+| **真实 GitHub 仓库上的自动部署** | ✅ `rockbenben/event-prep`，站点 https://event.newzone.top/ |
+| EdgeOne 缓存与安全响应头（`public/edgeone.json` 随产物进分支） | ✅ 线上实测 |
 
 ---
 

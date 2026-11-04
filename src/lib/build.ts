@@ -15,6 +15,7 @@ import { access, cp, mkdir, readdir, readFile, rm, writeFile } from 'node:fs/pro
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { DirectoryProvider, EXPORT_FILE, loadEvents, type LoadedEvent } from './events.ts';
+import { siteAssetNames, type SiteAssetNames } from './assets.ts';
 import { extractCallout, renderInlineMarkdown, renderMarkdown } from './markdown.ts';
 import { renderLayout } from '../templates/layout.ts';
 import { renderHome } from '../templates/home.ts';
@@ -26,6 +27,29 @@ export const PROJECT_ROOT = path.resolve(HERE, '..', '..');
 
 /** 社交分享用的预览图：`docs/images/` 里的原图，构建时跟着产物一起发出去。 */
 const OG_IMAGE_FILE = 'og-image.png';
+
+/**
+ * EdgeOne Pages 的配置：缓存与安全响应头。
+ *
+ * ⚠️ 这个文件**随产物进分支**——EdgeOne 是从分支根目录读它的，
+ *    不在分支里就没有这套响应头（页面照样能开，但每个请求都要回源、
+ *    而且没有 nosniff 等安全头）。
+ *
+ * ⚠️ 它的规则语义（实测，不是猜的）：
+ *    · `source` 是 **URL 路径通配符**，不是文件系统 Glob；
+ *      官方文档写明「最多包含一个 `*`」——
+ *      所以「双星 + 斜杠 + 星」那种写法**不生效**
+ *      （兄弟项目 046 就是这么写的，实测它的三条多星规则一条都没起作用：
+ *        `**` 开头的 html / json 匹配，以及 `/**` 兜底）。
+ *    · `*` 能跨斜杠：`/assets/*` 也匹配 `/assets/a/b/c.js`。
+ *    · **后写的规则覆盖先写的**：所以兜底规则要写在**前面**，
+ *      具体规则写在**后面**，否则具体的会被兜底的吃掉
+ *      （兄弟项目 025 把 `/*` 写在最后，结果它的 `/assets/*` 的 immutable 失效了）。
+ */
+const EDGEONE_CONFIG_FILE = 'edgeone.json';
+
+/** `public/` 目录：原样带进产物根目录的文件（目前只有 edgeone.json）。 */
+const PUBLIC_DIR = path.join(PROJECT_ROOT, 'public');
 
 export interface BuildOptions {
   contentDir?: string;
@@ -88,7 +112,14 @@ export async function buildSite(options: BuildOptions = {}): Promise<BuildResult
 
   const dryRun = options.dryRun === true;
 
-  // 分享卡：图在不在盘上，同时决定「要不要把它复制进产物」和「要不要写 og:image」。
+  // ⚠️ 站点级资源用**内容哈希**命名（site.4f3a2b1c.css）：
+  //    文件名一变就是新文件，CDN 可以放心给一年 immutable；
+  //    固定名的话改了样式还得等缓存过期，用户拿到的还是旧的。
+  //    活动自带的资源不改名——内容里按名字引用它们。
+  const cssSource = await readFile(path.join(PROJECT_ROOT, 'src', 'assets', 'site.css'), 'utf8');
+  const jsSource = await readFile(path.join(PROJECT_ROOT, 'src', 'assets', 'site.js'), 'utf8');
+  const assetNames: SiteAssetNames = siteAssetNames(cssSource, jsSource);
+  // 社交分享用的预览图：图在不在盘上，同时决定「要不要把它复制进产物」和「要不要写 og:image」。
   // ⚠️ 两者必须同一个依据。以前 meta 照写、图缺失就静默不复制，于是部署出去的页面
   //    指着一条 404 —— 而浏览器不会替爬虫去抓 og:image，任何验收都看不见它。
   const ogSource = options.ogImageSource ?? path.join(PROJECT_ROOT, 'docs', 'images', OG_IMAGE_FILE);
@@ -105,7 +136,7 @@ export async function buildSite(options: BuildOptions = {}): Promise<BuildResult
     try {
       pages.push({
         slug: ev.slug,
-        html: renderEventPageHtml(ev, options.siteUrl, ogImage),
+        html: renderEventPageHtml(ev, assetNames, options.siteUrl, ogImage),
         markdown: ev.source,
         assetsDir: ev.assetsDir,
       });
@@ -124,6 +155,7 @@ export async function buildSite(options: BuildOptions = {}): Promise<BuildResult
       siteUrl: options.siteUrl,
       ogImage,
       content: renderHome({ events: usable, siteUrl: options.siteUrl }),
+      assets: assetNames,
     });
   } catch (err) {
     renderErrors.push(`首页渲染失败：${(err as Error).message}`);
@@ -157,9 +189,29 @@ export async function buildSite(options: BuildOptions = {}): Promise<BuildResult
     // 产出目录先清空：删掉的活动不会留下残页
     await rm(outDir, { recursive: true, force: true });
     await mkdir(outDir, { recursive: true });
-    // 站点共享的样式与脚本
-    await cp(path.join(PROJECT_ROOT, 'src', 'assets'), path.join(outDir, 'assets'), { recursive: true });
+    // 站点共享的样式与脚本：按内容哈希命名写出
+    await mkdir(path.join(outDir, 'assets'), { recursive: true });
+    await writeFile(path.join(outDir, 'assets', assetNames.css), cssSource, 'utf8');
+    await writeFile(path.join(outDir, 'assets', assetNames.js), jsSource, 'utf8');
+    // ⚠️ `src/assets/` 里的**其它**文件（favicon.svg 等）照原名带过去：
+    //    只写 css/js 两份的话，新增的图标就凭空消失了（页面少个图标，
+    //    没人会立刻发现）。改名只给 css/js——它们是页面按名字引用的那两个。
+    for (const name of await readdir(path.join(PROJECT_ROOT, 'src', 'assets'))) {
+      if (name === 'site.css' || name === 'site.js') continue;
+      const from = path.join(PROJECT_ROOT, 'src', 'assets', name);
+      if (!(await pathExists(from))) continue;
+      await cp(from, path.join(outDir, 'assets', name), { recursive: true });
+    }
+    const faviconFile = path.join(PROJECT_ROOT, 'src', 'assets', 'favicon.svg');
+    if (await pathExists(faviconFile)) {
+      await cp(faviconFile, path.join(outDir, 'assets', 'favicon.svg'));
+    }
     if (ogBytes) await writeFile(path.join(outDir, OG_IMAGE_FILE), ogBytes);
+    // EdgeOne 的配置随产物进分支（它在分支根目录读这个文件）
+    const edgeoneConfig = path.join(PUBLIC_DIR, EDGEONE_CONFIG_FILE);
+    if (await pathExists(edgeoneConfig)) {
+      await cp(edgeoneConfig, path.join(outDir, EDGEONE_CONFIG_FILE));
+    }
 
     for (const page of pages) {
       const dir = path.join(outDir, page.slug);
@@ -207,8 +259,17 @@ interface RenderedPage {
  *    `npm run build -- --out .` 这种写法以前会把仓库根当产物目录删掉
  *    （实测：指向一个含 package.json 与 content/ 的临时目录，跑完两者都没了）。
  *    活动页目录是 slug 命名的，认不出名字，只认它里面有没有构建写出的 index.html。
+ *
+ * ⚠️ `edgeone.json` 也在名单里：上一次构建已经把它写在这儿了，
+ *    这次不清掉就会当成「别人的东西」拒绝动手——自己写的东西不算外来文件。
  */
-const ARTIFACT_ENTRIES = new Set(['index.html', 'assets', OG_IMAGE_FILE, 'CNAME']);
+const ARTIFACT_ENTRIES = new Set([
+  'index.html',
+  'assets',
+  OG_IMAGE_FILE,
+  'CNAME',
+  EDGEONE_CONFIG_FILE,
+]);
 
 async function disposalProblems(outDir: string, contentDir: string): Promise<string[]> {
   const problems: string[] = [];
@@ -236,7 +297,12 @@ async function disposalProblems(outDir: string, contentDir: string): Promise<str
 }
 
 /** 渲染一个活动页的完整 HTML（不落盘）。 */
-function renderEventPageHtml(ev: LoadedEvent, siteUrl?: string, ogImage: string | null = null): string {
+function renderEventPageHtml(
+  ev: LoadedEvent,
+  assets: SiteAssetNames,
+  siteUrl?: string,
+  ogImage: string | null = null,
+): string {
   const { callout, rest } = extractCallout(ev.body);
   const rendered = renderMarkdown(rest);
   const bodyHtml = makeRootRelative(rendered.html, '../');
@@ -263,6 +329,7 @@ function renderEventPageHtml(ev: LoadedEvent, siteUrl?: string, ogImage: string 
     // 页头的「目录」按钮：有目录才给，没目录就别放一个点开是空的按钮
     showToc: rendered.toc.length > 0,
     content: page,
+    assets,
   });
 }
 

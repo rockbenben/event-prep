@@ -37,6 +37,17 @@ export interface LayoutOptions {
    * 而顶栏这个按钮是文档站的日常习惯——点开就是侧边目录。
    */
   showToc?: boolean;
+  /**
+   * 站点级资源在产物里的文件名（**带内容哈希**，如 `site.4f3a2b1c.css`）。
+   *
+   * ⚠️ 必须与构建实际写出的文件名一致——对不上就是一条 404，
+   *    而且页面会「看起来正常」（只是 CSS 没生效），很难一眼看出。
+   *    由 `build.ts` 统一算好后传进来。
+   */
+  assets: {
+    css: string;
+    js: string;
+  };
 }
 
 /**
@@ -97,14 +108,24 @@ ${pageUrl ? `<link rel="canonical" href="${escapeHtml(pageUrl)}">` : ''}
 ${pageUrl ? `<meta property="og:url" content="${escapeHtml(pageUrl)}">` : ''}
 ${ogImageTags}
 <script>${THEME_BOOTSTRAP}</script>
-<link rel="stylesheet" href="${rootPrefix}assets/site.css">
+<link rel="icon" type="image/svg+xml" href="${rootPrefix}assets/favicon.svg">
+<link rel="stylesheet" href="${rootPrefix}assets/${options.assets.css}">
 ${jsonLd}
 </head>
 <body>
 <a class="skip-link" href="#main"${LINK_TABINDEX}>跳到正文</a>
 <header class="site-header">
   <div class="wrap header-inner">
-    <a class="site-name" href="${rootPrefix}index.html"${LINK_TABINDEX}>行程准备站</a>
+    <a class="site-name" href="${rootPrefix}index.html"${LINK_TABINDEX}>
+      <svg class="site-logo" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+        <rect x="3" y="3.5" width="18" height="18" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.8"/>
+        <rect x="9.5" y="5.5" width="5" height="1.8" rx="0.9" fill="currentColor" fill-opacity="0.4"/>
+        <path d="M6.5 11h5M6.5 14.5h3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        <circle cx="16" cy="15" r="4.2" fill="#16a34a"/>
+        <path d="M14.2 15l1.3 1.3 2.5-2.5" stroke="#ffffff" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span>行程准备站</span>
+    </a>
     <div class="header-actions">
       ${
         options.showToc
@@ -143,7 +164,7 @@ ${options.content}
     <p>页面信息来自各活动公开资料，可能随时变更；出发前请以主办方官方公告为准。</p>
   </div>
 </footer>
-<script src="${rootPrefix}assets/site.js" defer></script>
+<script src="${rootPrefix}assets/${options.assets.js}" defer></script>
 </body>
 </html>
 `;

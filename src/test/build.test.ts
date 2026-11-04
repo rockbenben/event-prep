@@ -1,4 +1,4 @@
-import { mkdtemp, mkdir, readFile, rm, writeFile } from 'node:fs/promises';
+import { mkdtemp, mkdir, readdir, readFile, rm, writeFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
@@ -32,7 +32,13 @@ describe('buildSite', () => {
     expect(result.built).toEqual([]);
     const home = await readFile(path.join(outDir, 'index.html'), 'utf8');
     expect(home).toContain('还没有收录任何活动');
-    expect(existsSync(path.join(outDir, 'assets', 'site.css'))).toBe(true);
+    expect(home).toContain('rel="icon" type="image/svg+xml" href="assets/favicon.svg"');
+    expect(home).toContain('class="site-logo"');
+    // 样式与脚本按内容哈希命名（site.<hash>.css），所以按名字找不到——找带哈希的那个
+    const assets = await readdir(path.join(outDir, 'assets'));
+    expect(assets.some((f) => /^site\.[0-9a-f]{8}\.css$/.test(f))).toBe(true);
+    expect(assets.some((f) => /^site\.[0-9a-f]{8}\.js$/.test(f))).toBe(true);
+    expect(assets.includes('favicon.svg')).toBe(true);
   });
 
   it('多个活动都生成页面，首页能索引到', async () => {
@@ -57,6 +63,34 @@ describe('buildSite', () => {
 
     await buildSite({ contentDir, outDir });
     expect(existsSync(path.join(outDir, 'a-one', 'assets', 'map.png'))).toBe(true);
+  });
+
+  it('页面引用的资源名与产物里真实存在的文件名对得上', async () => {
+    // ⚠️ 这是哈希命名最容易坏的地方：页面写的是 `site.<hash>.css`，
+    //    产物里却叫别的名字 → 一条 404，而页面「看起来正常」（只是没样式）。
+    //    所以拿页面上写的名字去产物里找，必须找得到。
+    await writeEvent('a-one', 'title: 活动一');
+    await buildSite({ contentDir, outDir });
+
+    const event = await readFile(path.join(outDir, 'a-one', 'index.html'), 'utf8');
+    const css = event.match(/href="\.\.\/assets\/([^"]+\.css)"/)?.[1];
+    const js = event.match(/src="\.\.\/assets\/([^"]+\.js)"/)?.[1];
+    expect(css).toBeTruthy();
+    expect(js).toBeTruthy();
+    expect(existsSync(path.join(outDir, 'assets', css!))).toBe(true);
+    expect(existsSync(path.join(outDir, 'assets', js!))).toBe(true);
+  });
+
+  it('EdgeOne 的配置随产物进根目录', async () => {
+    // ⚠️ EdgeOne 是从分支根目录读 edgeone.json 的：
+    //    不在分支里就没有那套缓存与安全响应头（页面照样开，但每个请求都回源）。
+    await writeEvent('a-one', 'title: 活动一');
+    await buildSite({ contentDir, outDir });
+
+    const config = await readFile(path.join(outDir, 'edgeone.json'), 'utf8');
+    expect(config).toContain('"headers"');
+    // 兜底规则必须在**前面**，具体规则在**后面**（后写的覆盖先写的）
+    expect(config.indexOf('"/*"')).toBeLessThan(config.indexOf('"/assets/*"'));
   });
 
   it('活动页旁边放一份内容源文件（Markdown），内容与源文件一致', async () => {
@@ -165,8 +199,9 @@ describe('buildSite', () => {
     await buildSite({ contentDir, outDir });
 
     const event = await readFile(path.join(outDir, 'a-one', 'index.html'), 'utf8');
-    expect(event).toContain('href="../assets/site.css"');
-    expect(event).toContain('src="../assets/site.js"');
+    // 资源名带内容哈希，但**前缀仍是相对的**——挂在子路径下也要走得通
+    expect(event).toMatch(/href="\.\.\/assets\/site\.[0-9a-f]{8}\.css"/);
+    expect(event).toMatch(/src="\.\.\/assets\/site\.[0-9a-f]{8}\.js"/);
     expect(event).toContain('href="../"');
     // 正文里的站内绝对路径要改成相对路径
     expect(event).toContain('href="../files/handbook.pdf"');

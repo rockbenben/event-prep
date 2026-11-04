@@ -139,6 +139,8 @@ npm run export -- 2026-11-ai-engineer-shanghai > event.md
 
 三引擎浏览器验收（Chromium / Firefox / WebKit）由 [ci.yml](.github/workflows/ci.yml) 承担，是**合并闸门**：它跑在 PR 上，布局回归由它报。发布本身不等待它——那会把「每次推 main 跑两遍完全相同的验收」的时间翻倍，却拦不住更多东西（同一个 commit、同一份代码）。
 
+缓存与安全响应头由 [`public/edgeone.json`](public/edgeone.json) 决定，它随产物一起进 `gh-pages` 分支根目录，EdgeOne 从那里读取。样式表与脚本按**内容哈希**命名（`site.6297e662.css`），所以改了样式就是新文件名，可以放心长期缓存而不必担心用户拿到旧版本。
+
 可在仓库 Settings → Secrets and variables → Actions → Variables 配置自定义变量：
 
 | 变量 | 作用说明 |
@@ -167,9 +169,13 @@ src/
 │   ├── markdown.ts     # Markdown 转安全 HTML（段级接管、白名单消毒）
 │   ├── agenda.ts       # 日程章节结构化解析与卡片字段校验
 │   ├── events.ts       # 活动数据发现（可替换的 EventProvider）
+│   ├── assets.ts       # 站点级资源的内容哈希命名（配合 CDN 长缓存）
 │   └── build.ts        # 静态站点全量构建管线
 ├── templates/          # HTML 模板（首页、活动页、日程卡片、骨架）
 └── assets/             # 样式表与轻量客户端脚本（原生 JS）
+
+public/
+└── edgeone.json        # EdgeOne Pages 的缓存与安全响应头（随产物进分支根目录）
 
 scripts/
 ├── audit-ui.mjs        # Playwright 浏览器自动化验收（跨引擎、双分辨率、无损守卫）
