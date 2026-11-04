@@ -1,0 +1,124 @@
+# 部署：构建产物推到 gh-pages 分支
+#
+# 跟兄弟项目同一个模式（022-onepage / 002-legend-talk / 025-kuafu / 039-text2handwriting / 046-gdp-map）：
+#   · 构建产物推到 gh-pages 分支
+#   · 同一份产物既能当 GitHub Pages 的分支源，也能给 EdgeOne Pages 用
+#   · 自定义域名在 EdgeOne 那侧绑，DNS 加一条 CNAME 指过去
+#
+# ⚠️ **为什么是 gh-pages 分支而不是 actions/deploy-pages**：
+#    actions/deploy-pages 要求把仓库设置的「发布来源」切成「GitHub Actions」，
+#    那样这个分支就不能再给别的静态托管用。推到 gh-pages 的话，
+#    GitHub Pages（分支源）和 EdgeOne 可以同时用同一份产物，两边都指向一个地方。
+#
+# ⚠️ **CNAME 要跟着分支走**：EdgeOne 是从分支里的 CNAME 文件认出「这个分支该绑哪个域名」的，
+#    每次部署覆盖分支时如果没带上，绑定就掉了（002-legend-talk 的注释记的就是这件事）。
+#    所以 CNAME 写进构建产物里跟着一起推上去。
+#    没设 CNAME 变量就不写这个文件——空文件会让 EdgeOne 认不出域名。
+# ⚠️ **走 env: 不把变量直接拼进 shell**：${{ vars.CNAME }} 里带引号或 $ 会破坏命令
+#    （同一个坑：025-kuafu / 039 的 commit message）。
+#
+# ⚠️ **不转发 head commit message**：任意提交正文里的 shell 元字符（引号、$、!、反引号）
+#    会破坏动作内部的 git commit -m 调用（exit 129）——025-kuafu / 039 都记了这条。
+#    动作默认的静态提交信息足矣，规范历史保留在 main。
+#
+# ⚠️ **活动内容改动都会触发重新汇总**：内容都在 main 的 content/ 目录里，
+#    所以「加一个活动 / 改一个活动 / 删一个活动」都是一次 main 推送，
+#    构建会重新汇总全部活动再部署。删掉的内容不会残留在分支里（clean: true）。
+#
+# ⚠️ **部署要等浏览器验收跑完**：手写 CSS 和原生 JS 最容易在别的引擎上出问题，
+#    只跑单元测试拦不住布局回归。所以 deploy 这个 job 依赖 audit job——
+#    验收不过就不发布。（CI 里也有同一个验收，那是给 PR 用的闸门；
+#    main 上两条并行跑，各跑各的。）
+
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# 同一分支连推两次时取消上一次
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+# 推分支要写权限（audit 那个 job 只读，这里要写）
+permissions:
+  contents: write
+
+jobs:
+  # 部署前的浏览器验收：三个引擎各跑一个（并行，谁挂了一眼就知道是谁）
+  audit:
+    name: 浏览器验收 · ${{ matrix.browser }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        browser: [chromium, firefox, webkit]
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+          cache: npm
+
+      - run: npm ci
+
+      - name: Build examples
+        run: npm run build:examples
+
+      - name: Install ${{ matrix.browser }}
+        run: npx playwright install --with-deps ${{ matrix.browser }}
+
+      - name: Audit examples (${{ matrix.browser }})
+        run: node scripts/audit-ui.mjs --dist dist-examples --out .audit --engine ${{ matrix.browser }}
+
+      # 发出去的是 content/，所以发布前也要在它身上跑一遍（content/ 为空时跳过）
+      - name: Build site (content/)
+        if: ${{ hashFiles('content/**/event.md') != '' }}
+        run: npm run build
+
+      - name: Audit real content (${{ matrix.browser }})
+        if: ${{ hashFiles('content/**/event.md') != '' }}
+        run: node scripts/audit-ui.mjs --dist dist --out .audit-real --engine ${{ matrix.browser }}
+
+  deploy:
+    name: Build & push to gh-pages
+    needs: audit
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          # 获取完整历史，供部署动作生成稳定提交
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+          cache: npm
+
+      - run: npm ci
+
+      # 部署前先跑测试作为门禁，坏构建不发布
+      - run: npm test
+
+      # npm run build 里面已经含 tsc --noEmit
+      - run: npm run build
+        env:
+          SITE_URL: ${{ vars.SITE_URL }}
+
+      - name: Write CNAME
+        if: ${{ vars.CNAME != '' }}
+        env:
+          CNAME: ${{ vars.CNAME }}
+        run: printf '%s' "$CNAME" > dist/CNAME
+
+      - name: Push to gh-pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages
+          folder: dist
+          clean: true # 每次先清空分支，别让旧文件留在上面

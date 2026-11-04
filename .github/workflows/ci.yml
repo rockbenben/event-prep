@@ -1,0 +1,105 @@
+# CI：类型检查 · 单元测试 · 构建 · 浏览器验收
+#
+# 这是合并前的闸门。坏构建不往 main 上合。
+
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+# 同一分支连推两次时取消上一次
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  ci:
+    name: Typecheck · Test · Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+          cache: npm
+
+      - run: npm ci
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Test
+        run: npm test
+
+      # 正式内容（content/）的构建：数据有错必须在这里失败
+      - name: Build
+        run: npm run build
+
+      - name: Upload site artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: site
+          path: dist
+          retention-days: 7
+
+  # 浏览器验收：三个引擎各跑一个 job（并行，谁挂了一眼就知道是谁）
+  #
+  # ⚠️ 手写 CSS 和原生 JS 最容易在别的引擎上出问题（细节标记、focus 轮廓、表格滚动）。
+  #    只跑 Chromium 等于把风险留到线上——三个都跑。
+  #    示例内容（examples/）那一趟永远跑：仓库里的 content/ 可能还是空的，
+  #    空站点跑不出「宽表格横向滚动」「清单持久化」这些检查。
+  #    content/ 非空时再跑一趟正式内容——线上发的是它。
+  audit:
+    name: 浏览器验收 · ${{ matrix.browser }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        browser: [chromium, firefox, webkit]
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+          cache: npm
+
+      - run: npm ci
+
+      - name: Build examples
+        run: npm run build:examples
+
+      - name: Install ${{ matrix.browser }}
+        run: npx playwright install --with-deps ${{ matrix.browser }}
+
+      - name: Audit examples (${{ matrix.browser }})
+        run: node scripts/audit-ui.mjs --dist dist-examples --out .audit --engine ${{ matrix.browser }}
+
+      # 正式内容也审一遍。占位数据只有一张小表；真实活动的宽表、点开式术语、
+      # 就地注记只有 content/ 里才有——只审 examples 的话，内容 PR 上那句「布局已过」是假信号。
+      # content/ 为空时跳过：空站点跑不出「宽表格横向滚动」「清单持久化」这些检查。
+      - name: Build site (content/)
+        if: ${{ hashFiles('content/**/event.md') != '' }}
+        run: npm run build
+
+      - name: Audit real content (${{ matrix.browser }})
+        if: ${{ hashFiles('content/**/event.md') != '' }}
+        run: node scripts/audit-ui.mjs --dist dist --out .audit-real --engine ${{ matrix.browser }}
+
+      - name: Upload audit screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: audit-screenshots-${{ matrix.browser }}
+          path: |
+            .audit
+            .audit-real
+          retention-days: 7
