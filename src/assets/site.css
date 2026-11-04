@@ -419,6 +419,28 @@ a:hover {
   color: var(--accent);
 }
 
+/* 整张卡片都能点进活动。
+   ⚠️ 做法是给标题链接加一个**撑满整卡**的伪元素，而不是给卡片绑 click：
+ *    · 那样 DOM 里仍然只有**一个**真链接——键盘 Tab 到一次、
+ *      屏幕阅读器读作「链接，AI Engineer Shanghai 2026」，
+ *      而不是「卡片」里套一个链接；
+ *    · 卡片里的其它文字（时间、地点）**不能**各自再套链接，
+ *      那样嵌套交互元素在键盘上是走不通的。
+ *    · 伪元素盖在卡片内容上，所以卡片里的文字选不中——
+ *      这是「整卡可点」的代价：读者要复制时间得先自己选中。
+ *      要能选就别让伪元素盖住（去掉这条），但那样就点不到整卡了。
+ */
+.event-card .card-title a::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius);
+}
+/* 指针落在卡片上时，标题也跟着变蓝——读者才知道整卡是链接 */
+.event-card:hover .card-title a {
+  color: var(--accent);
+}
+
 .card-summary {
   margin: 5px 0 0;
   color: var(--fg-muted);
