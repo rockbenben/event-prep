@@ -34,6 +34,9 @@
   // 不上传、不同步、不会被清理（换设备就是换一份，没有「同步」这回事）。
   var NOTE_PREFIX = 'eventprep:notes:';
   var THEME_KEY = 'eventprep:theme';
+  // 读到哪儿了：也是**本机个人数据**（跟行前清单、笔记同一类）。
+  // 记的是「哪个章节 + 章节内偏移」，不是纯像素——内容一改，像素就指错地方了。
+  var SCROLL_PREFIX = 'eventprep:scroll:';
 
   /* ---------- 小工具 ---------- */
 
@@ -681,6 +684,153 @@
     });
   }
 
+  /* ---------- 记住读到哪儿了（本机存储，按活动分开） ---------- */
+
+  /**
+   * 记住「上次读到哪儿」，下次打开直接回到那节。
+   *
+   * 为什么记「章节 + 节内偏移」而不是纯像素：
+   *   纯像素只在页面一个字没变时才对。内容一改（加一场、改摘要），
+   *   同一个像素就指到别的内容上了——读者以为回到原处，其实已经错位。
+   *   记章节就稳得多：内容改了，那一节还在，回到的还是那一节。
+   *
+   * ⚠️ 这是**本机个人数据**：不上传、不同步、不会被清理。
+   *    换设备就是换一份，没有「同步」这回事——页面上别暗示有同步。
+   */
+  function scrollKey(slug) {
+    return SCROLL_PREFIX + slug;
+  }
+
+  /**
+   * 当前读者正在读的那一节。
+   *
+   * ⚠️ 判据是「**第一个还在视口下沿之下**的标题」——不是最后一个过了上沿的。
+   *    读者停在一节的中部时，那一节的标题恰好落在视口**上方** 80px 处
+   *    （实测 headTop=80），而上一节的标题早就翻上去了：
+   *    - 用「最后一个过了上沿的」→ 退到上一节，记下的位置就错了；
+   *    - 用「第一个还在下面的」→ 正是读者眼前这一节，对的。
+   */
+  function currentSection() {
+    var heads = document.querySelectorAll('.content h2[id], .content h3[id]');
+    for (var i = 0; i < heads.length; i += 1) {
+      if (heads[i].getBoundingClientRect().top > 0) return heads[i];
+    }
+    // 全都过了上沿 = 已经读到最后一节了
+    return heads.length ? heads[heads.length - 1] : null;
+  }
+
+  function loadScroll(slug) {
+    try {
+      var raw = localStorage.getItem(scrollKey(slug));
+      var parsed = raw ? JSON.parse(raw) : null;
+      if (!parsed || typeof parsed !== 'object') return null;
+      return parsed;
+    } catch (err) {
+      return null;
+    }
+  }
+
+  function saveScroll(slug, data) {
+    try {
+      localStorage.setItem(scrollKey(slug), JSON.stringify(data));
+    } catch (err) {
+      /* 无痕模式等场景写不进去，忽略 */
+    }
+  }
+
+  function initScrollMemory() {
+    // ⚠️ 只认活动页的容器（`.event[data-event-slug]`）：
+    //    首页的活动**卡片**也带 data-event-slug，用宽泛选择器会拿到第一张卡片，
+    //    把首页的滚动位置记到某个活动名下——下次打开那个活动莫名其妙停在中间。
+    var container = document.querySelector('.event[data-event-slug]');
+    if (!container) return;
+    var slug = container.getAttribute('data-event-slug');
+    if (!slug) return;
+
+    // ⚠️ 锚点跳转（点目录里的某一项）优先于「记住的位置」：
+    //    读者明确说了要去哪一节，就别把他拽回上次读的地方。
+    var hasHash = !!(window.location && window.location.hash);
+    var saved = hasHash ? null : loadScroll(slug);
+
+    var pending = null;
+    var remember = function () {
+      if (pending) return;
+      pending = setTimeout(function () {
+        pending = null;
+        var y = window.pageYOffset || (document.documentElement && document.documentElement.scrollTop) || 0;
+        if (y < 40) {
+          // 回到顶部了 = 这次读完了，清掉记录
+          try {
+            localStorage.removeItem(scrollKey(slug));
+          } catch (err) {
+            /* 忽略 */
+          }
+          return;
+        }
+        var head = currentSection();
+        var data = { y: Math.round(y) };
+        if (head) {
+          data.id = head.id;
+          data.offset = Math.round(head.getBoundingClientRect().top);
+        }
+        saveScroll(slug, data);
+      }, 400);
+    };
+
+    // 滚动时记（防抖）；切走或关页面前也记一次——
+    // ⚠️ `pagehide` 比 `beforeunload` 可靠（后者在移动端经常不触发）。
+    if (window.addEventListener) {
+      window.addEventListener('scroll', remember, { passive: true });
+      window.addEventListener('pagehide', function () {
+        if (pending) {
+          clearTimeout(pending);
+          pending = null;
+        }
+        remember();
+      });
+      document.addEventListener('visibilitychange', function () {
+        if (document.visibilityState === 'hidden') remember();
+      });
+    }
+
+    // 恢复位置
+    if (!saved) return;
+    var restore = function () {
+      var target = saved.y;
+      if (saved.id) {
+        var head = document.getElementById(saved.id);
+        // 那一节还在，就回到它在原来的位置
+        if (head) target = Math.round(head.getBoundingClientRect().top + window.pageYOffset - (saved.offset || 0));
+      }
+      if (typeof target !== 'number' || isNaN(target) || target < 0) return;
+      // 别滚过头：页面可能比上次短了
+      var max = Math.max(0, (document.documentElement.scrollHeight || 0) - (window.innerHeight || 0));
+      target = Math.min(target, max);
+      if (target < 40) return;
+      // ⚠️ 必须是**瞬时**跳转，不能让它滑过去：
+      //    正文有 `scroll-behavior: smooth`，滑过去的话读者会看着页面
+      //    从顶部一路滚到上次的位置——那不是「回到原处」，是「重播一遍」。
+      try {
+        window.scrollTo({ top: target, behavior: 'instant' });
+      } catch (err) {
+        // 老浏览器不认 'instant'：临时把平滑关掉再滚
+        var root = document.documentElement;
+        var prev = root.style.scrollBehavior;
+        root.style.scrollBehavior = 'auto';
+        window.scrollTo(0, target);
+        root.style.scrollBehavior = prev;
+      }
+    };
+
+    // ⚠️ 等内容排完再恢复：图片没加载完时页面高度不对，
+    //    这时候恢复会停在偏上的地方。
+    if (document.readyState === 'complete') {
+      restore();
+    } else {
+      window.addEventListener('load', restore);
+    }
+  }
+
   function boot() {
     initTheme();
     initChecklist();
@@ -691,6 +841,7 @@
     initEventMeta();
     initBackToTop();
     initAvatarViewer();
+    initScrollMemory();
   }
 
   if (document.readyState === 'loading') {
