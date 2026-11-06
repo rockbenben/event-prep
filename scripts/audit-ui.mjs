@@ -234,7 +234,15 @@ async function runChecks(browser, base) {
       //    展开的对象优先选讲者简介的 tip 图标（那是现在唯一的点开式元素）。
       {
         const probeAgenda = `(() => {
-          const cards = [...document.querySelectorAll('.agenda-card')];
+          // ⚠️ **只量展开着的那几天里的卡片**：过了的日程会自动收起，
+          //    收起那天的卡片在 DOM 里但不可见（高宽为 0），
+          //    点它会超时（实测「element is not visible」）。
+          //    所以先按「所在的 <details> 是开着的」过滤。
+          const all = [...document.querySelectorAll('.agenda-card')];
+          const cards = all.filter((c) => {
+            const day = c.closest('.agenda-day-block');
+            return !day || day.open;
+          });
           if (!cards.length) return null;
           const docWidth = document.documentElement.clientWidth;
           const over = cards.filter((c) => c.getBoundingClientRect().right > docWidth + 1).length;
@@ -246,6 +254,7 @@ async function runChecks(browser, base) {
           const scrollY = window.scrollY;
           return {
             cards: cards.length,
+            total: all.length,
             overflowing: over,
             withTip,
             withAbstract,
@@ -277,7 +286,10 @@ async function runChecks(browser, base) {
             //    全局 nth(1) 恰好是它的简介图标，序号对上了纯属运气；
             //    换个内容就点开**另一张卡**的图标，量出来的位移当然对不上。
             //    所以：先定位到卡片，再在**这张卡里**找图标。
-            const card = page.locator('.agenda-card').nth(index);
+            // ⚠️ 卡片要按「展开着的那几天」过滤后的集合数——
+            //    过了的日程自动收起了，`.agenda-card` 的全局序号会数到看不见的卡。
+            const VISIBLE_CARDS = '.agenda-day-block[open] .agenda-card';
+            const card = page.locator(VISIBLE_CARDS).nth(index);
             const bioBtn = card.locator('.agenda-tip-bio .agenda-tip-btn');
             const hasBio = (await bioBtn.count()) > 0;
             const target = hasBio
@@ -294,7 +306,7 @@ async function runChecks(browser, base) {
             //    算出来的文档位置能差好几像素（实测 9px）。
             //    停稳之后再点，点击就不会再触发滚动，前后两次量的是同一个静止状态。
             await page.evaluate(`(() => {
-              const cards = [...document.querySelectorAll('.agenda-card')];
+              const cards = [...document.querySelectorAll('.agenda-day-block[open] .agenda-card')];
               const el = cards[${index}];
               if (el) el.scrollIntoView({ block: 'center', behavior: 'instant' });
             })()`);
@@ -314,7 +326,7 @@ async function runChecks(browser, base) {
             await target.click();
             // 等它真的展开，而不是「睡 150ms 说不定好了」
             await page.waitForFunction(`(() => {
-              const cards = [...document.querySelectorAll('.agenda-card')];
+              const cards = [...document.querySelectorAll('.agenda-day-block[open] .agenda-card')];
               const card = cards[${index}];
               return !!card && !!card.querySelector(${JSON.stringify(openSelector)});
             })()`);
@@ -504,6 +516,13 @@ async function runChecks(browser, base) {
       );
       if (slug) {
         await page.goto(`${base}/${slug}/`, { waitUntil: 'networkidle' });
+        // ⚠️ 行前清单现在默认收在 <details class="checklist-fold"> 里：
+        //    收起时复选框不可见，Playwright 的 .check() 会判成「元素被隐藏」而超时。
+        //    先展开再勾（这一步也顺带验了「点得开」）。
+        await page.evaluate(`(() => {
+          const f = document.querySelector('.checklist-fold');
+          if (f) f.open = true;
+        })()`);
         const box = page.locator('input[type="checkbox"][data-check-id]').first();
         const count = await page.locator('input[type="checkbox"][data-check-id]').count();
         if (count > 0) {
@@ -542,9 +561,12 @@ async function runChecks(browser, base) {
       // 「机构与嘉宾」「前置知识」都取消成独立章节了，现在唯一的点开式元素是
       // 日程卡片里的提示图标（讲者简介 / 看这场之前要知道的事）。
       await page.goto(`${base}/${slug}/`, { waitUntil: 'networkidle' });
-      const tipCount = await page.locator('.agenda-tip-btn').count();
+      // ⚠️ **只认展开着的那几天里的提示图标**：过了的日程自动收起，
+      //    收起那天的图标在 DOM 里但不可见（点它会超时）。
+      const VISIBLE_TIP = '.agenda-day-block[open] .agenda-tip-btn';
+      const tipCount = await page.locator(VISIBLE_TIP).count();
       if (tipCount > 0) {
-        const first = page.locator('.agenda-tip-btn').first();
+        const first = page.locator(VISIBLE_TIP).first();
         const openBefore = await first.evaluate((el) => el.closest('details')?.open);
         // 收起时占多高（点开之前量）——正文是按钮的相邻兄弟，取紧跟自己的那个
         const collapsedHeight = await first.evaluate((el) => {
@@ -561,17 +583,21 @@ async function runChecks(browser, base) {
         record('提示图标 · 收起时不占地方', collapsedHeight < expandedHeight, `${Math.round(collapsedHeight)}px → ${Math.round(expandedHeight)}px`);
         record('提示图标 · 点开后正文出现', expandedHeight > 0, `正文高 ${Math.round(expandedHeight)}px`);
         // 点一个只开一个：别的提示不该跟着冒出来
-        const openedBodies = await page.locator('.agenda-tip-body:visible').count();
-        const totalTips = await page.locator('.agenda-tip-btn').count();
-        record('提示图标 · 点一个只开一个', openedBodies <= 1, `点开后可见正文 ${openedBodies} 段（全页共 ${totalTips} 个提示）`);
+        // ⚠️ 只数**展开着的那几天**里的正文：收起那天的正文本来就看不见，
+        //    数进去会把「本来就收着」误判成「跟着冒出来了」。
+        const openedBodies = await page.locator('.agenda-day-block[open] .agenda-tip-body:visible').count();
+        const totalTips = await page.locator(VISIBLE_TIP).count();
+        record('提示图标 · 点一个只开一个', openedBodies <= 1, `点开后可见正文 ${openedBodies} 段（展开的日程里共 ${totalTips} 个提示）`);
       } else {
         record('提示图标 · 页面上有提示图标', false, '没有找到 .agenda-tip-btn');
       }
 
       // 5.5b 头像点开放大
-      const avatarCount = await page.locator('.agenda-avatar-btn').count();
+      // ⚠️ 同样只认展开着的那几天里的头像（收起那天的不可见，点它会超时）
+      const VISIBLE_AVATAR = '.agenda-day-block[open] .agenda-avatar-btn';
+      const avatarCount = await page.locator(VISIBLE_AVATAR).count();
       if (avatarCount > 0) {
-        await page.locator('.agenda-avatar-btn').first().click();
+        await page.locator(VISIBLE_AVATAR).first().click();
         await page.waitForTimeout(200);
         const opened = await page.evaluate(`(() => {
           const d = document.getElementById('avatar-viewer');
@@ -780,20 +806,22 @@ async function runChecks(browser, base) {
       //    所以验收要验的是「刷新后还在」——不是「刷新后没了」。
       {
         await page.goto(`${base}/${slug}/`, { waitUntil: 'networkidle' });
-        const count = await page.locator('.agenda-note-btn').count();
+        // ⚠️ 只认展开着的那几天里的入口（收起那天的按钮不可见，点它会超时）
+        const VISIBLE_NOTE = '.agenda-day-block[open] .agenda-note-btn';
+        const count = await page.locator(VISIBLE_NOTE).count();
         if (count === 0) {
           record('笔记 · 每场都有入口', false, '没有找到 .agenda-note-btn');
         } else {
           record('笔记 · 每场都有入口', true, `${count} 场`);
           const marker = `验收笔记 ${Date.now()}`;
-          await page.locator('.agenda-note-btn').first().click();
+          await page.locator(VISIBLE_NOTE).first().click();
           await page.waitForTimeout(150);
-          await page.locator('.agenda-note-input').first().fill(marker);
+          await page.locator('.agenda-day-block[open] .agenda-note-input').first().fill(marker);
           await page.waitForTimeout(500);
           await page.reload({ waitUntil: 'networkidle' });
           const kept = await page.evaluate(`(() => {
-            const input = document.querySelector('.agenda-note-input');
-            const block = document.querySelector('.agenda-note');
+            const input = document.querySelector('.agenda-day-block[open] .agenda-note-input');
+            const block = input ? input.closest('.agenda-note') : null;
             return { value: input ? input.value : '', marked: block ? block.className : '' };
           })()`);
           record('笔记 · 写进去刷新后还在', kept.value === marker, kept.value);
@@ -804,6 +832,153 @@ async function runChecks(browser, base) {
             if (!el) return;
             try { localStorage.removeItem('eventprep:notes:' + el.getAttribute('data-event-slug')); } catch (e) {}
           })()`);
+        }
+      }
+
+      // 5.11b 行前清单默认折叠，折叠状态本机记住
+      {
+        await page.goto(`${base}/${slug}/`, { waitUntil: 'networkidle' });
+        const fold = page.locator('.checklist-fold');
+        if ((await fold.count()) === 0) {
+          record('行前清单折叠 · 有折叠块', false, '页面上没有 .checklist-fold');
+        } else {
+          // 先清掉可能存在的旧记录，从默认状态开始
+          await page.evaluate(`(() => {
+            const el = document.querySelector('.event[data-event-slug]');
+            if (el) { try { localStorage.removeItem('eventprep:fold:' + el.getAttribute('data-event-slug') + ':checklist'); } catch (e) {} }
+          })()`);
+          await page.reload({ waitUntil: 'networkidle' });
+          const closedDefault = await fold.evaluate((el) => el.open === false);
+          record('行前清单折叠 · 默认收起', closedDefault);
+
+          await fold.evaluate((el) => { el.open = true; });
+          await page.waitForTimeout(150);
+          await page.reload({ waitUntil: 'networkidle' });
+          const keptOpen = await fold.evaluate((el) => el.open === true);
+          record('行前清单折叠 · 展开状态刷新后还在（按活动存本机）', keptOpen);
+
+          // 收回去，刷新后仍然是收着的
+          await fold.evaluate((el) => { el.open = false; });
+          await page.waitForTimeout(150);
+          await page.reload({ waitUntil: 'networkidle' });
+          const backClosed = await fold.evaluate((el) => el.open === false);
+          record('行前清单折叠 · 收起状态刷新后还在', backClosed === true);
+
+          // 清掉验收数据，别留在读者机器上
+          await page.evaluate(`(() => {
+            const el = document.querySelector('.event[data-event-slug]');
+            if (el) { try { localStorage.removeItem('eventprep:fold:' + el.getAttribute('data-event-slug') + ':checklist'); } catch (e) {} }
+          })()`);
+        }
+      }
+
+      // 5.11c 日程各天进目录：点「Day N」能跳过去，而且那一块是展开的
+      {
+        await page.goto(`${base}/${slug}/`, { waitUntil: 'networkidle' });
+        const dayLinks = await page.evaluate(`(() => {
+          const toc = document.querySelector('.toc');
+          if (!toc) return [];
+          return [...toc.querySelectorAll('a[href^="#"]')]
+            .map((a) => ({ href: a.getAttribute('href'), text: a.textContent.trim(), cls: a.closest('li') ? a.closest('li').className : '' }))
+            .filter((x) => x.cls.includes('toc-agenda-day'));
+        })()`);
+        if (dayLinks.length === 0) {
+          record('日程进目录 · 各天都在目录里', true, '这个活动没有多天日程（不适用）');
+        } else {
+          record('日程进目录 · 各天都在目录里', true, `${dayLinks.length} 天：${dayLinks.map((d) => d.text).join('、')}`);
+          const href = dayLinks[0].href.slice(1);
+          // 把目录抽屉打开再点（真实用法），点完检查目标 details 是展开的
+          await page.locator('#toc-open').click();
+          await page.waitForTimeout(200);
+          await page.locator(`.toc a[href="${dayLinks[0].href}"]`).first().click();
+          await page.waitForTimeout(200);
+          const opened = await page.evaluate(`(() => {
+            const el = document.getElementById(${JSON.stringify(href)});
+            return { exists: !!el, tag: el ? el.tagName : null, open: el ? el.open : null };
+          })()`);
+          record(
+            '日程进目录 · 点某天后那一块是展开的',
+            Boolean(opened.exists && opened.tag === 'DETAILS' && opened.open === true),
+            JSON.stringify(opened),
+          );
+        }
+      }
+
+      // 5.11d 过了的日程自动收缩：把访问时刻拨到活动第二天，
+      //     第一天应该自己收起来，今天那天的保持展开
+      //
+      // ⚠️ 用页面自己的数据算「活动所在地的今天」：
+      //     判据跟浏览器端一致（按活动时区，不是本机时区）。
+      // ⚠️ **先清掉本机记的折叠状态**：读者手动改过的日子以读者为准，
+      //     不再走自动规则（见 site.js 的 initAgendaDays）。
+      //     而上一条 5.11c 正好点过目录里的「Day 1」——那一跳把它展开了，
+      //     于是本机记着「展开」，自动收缩就不会生效了。
+      //     这不是产品缺陷（读者点目录就是想看那天），是验收各条之间会互相污染。
+      {
+        await page.goto(`${base}/${slug}/`, { waitUntil: 'networkidle' });
+        await page.evaluate(`(() => {
+          const el = document.querySelector('.event[data-event-slug]');
+          const slug = el ? el.getAttribute('data-event-slug') : '';
+          try {
+            for (const k of Object.keys(localStorage)) {
+              if (k.startsWith('eventprep:fold:' + slug + ':day-')) localStorage.removeItem(k);
+            }
+          } catch (e) {}
+        })()`);
+        const info = await page.evaluate(`(() => {
+          const data = JSON.parse(document.getElementById('site-data').textContent);
+          const el = document.querySelector('.event[data-event-slug]');
+          const ev = data.events.find((e) => e.slug === el.getAttribute('data-event-slug'));
+          const blocks = [...document.querySelectorAll('.agenda-day-block[data-day-date]')];
+          return {
+            start: ev ? ev.start : null,
+            timezone: ev ? ev.timezone : 'UTC',
+            days: blocks.map((b) => ({ date: b.getAttribute('data-day-date'), open: b.open })),
+          };
+        })()`);
+
+        if (!info.days.length || !info.start) {
+          record('日程自动收缩 · 活动有可判的日程', true, '这个活动的日程判不出日期（不适用）');
+        } else {
+          // 活动所在地的「第二天」= 起始日 + 1 天
+          const p = info.start.split('-');
+          const nextDay = new Date(Date.UTC(Number(p[0]), Number(p[1]) - 1, Number(p[2]) + 1));
+          const m = String(nextDay.getUTCMonth() + 1).padStart(2, '0');
+          const d = String(nextDay.getUTCDate()).padStart(2, '0');
+          const target = `${nextDay.getUTCFullYear()}-${m}-${d}`;
+          const pastDay = info.days.find((x) => x.date && x.date < target);
+          const todayDay = info.days.find((x) => x.date === target);
+
+          if (!pastDay) {
+            record('日程自动收缩 · 过了的自动收起', true, '没有早于第二天的日程（不适用）');
+          } else {
+            // 拨快时钟：活动第二天的上午（上海时间）
+            const clock = await page.evaluate(`(() => {
+              const d = new Date(${JSON.stringify(target)} + 'T01:00:00Z');
+              return d.getTime();
+            })()`);
+            const page2 = await context.newPage();
+            await page2.clock.install({ time: new Date(clock) });
+            await page2.goto(`${base}/${slug}/`, { waitUntil: 'networkidle' });
+            await page2.waitForTimeout(200);
+            const after = await page2.evaluate(`(() => {
+              const blocks = [...document.querySelectorAll('.agenda-day-block[data-day-date]')];
+              return blocks.map((b) => ({ date: b.getAttribute('data-day-date'), open: b.open }));
+            })()`);
+            const pastAfter = after.find((x) => x.date === pastDay.date);
+            const todayAfter = after.find((x) => x.date === target);
+            record(
+              '日程自动收缩 · 过了的自动收起',
+              Boolean(pastAfter) && pastAfter.open === false,
+              `${pastDay.date} 在活动第二天应收起，实测 open=${pastAfter ? pastAfter.open : '没有这一天'}`,
+            );
+            record(
+              '日程自动收缩 · 今天那天的保持展开',
+              !todayAfter || todayAfter.open === true,
+              todayAfter ? `${todayAfter.date} open=${todayAfter.open}` : '今天没有日程（不适用）',
+            );
+            await page2.close();
+          }
         }
       }
 
@@ -840,6 +1015,191 @@ async function runChecks(browser, base) {
           }))()`);
           record('打印版 · Esc 退出后回到正常版', after.mode === false);
           record('打印版 · 退出后原本收着的仍是收着的', after.closed === before, `退出前正文收着 ${before} 个，退出后 ${after.closed} 个`);
+        }
+      }
+
+      // 5.11f 折叠状态本机记住：日程的每一天、推荐路线的每一条
+      //
+      // ⚠️ 折叠状态是**本机个人数据**：不上传、不同步、不会被清理。
+      //    验的是「刷新后还在」——不是「刷新后没了」。
+      {
+        await page.goto(`${base}/${slug}/`, { waitUntil: 'networkidle' });
+
+        // ---- 日程的每一天 ----
+        const days = await page.evaluate(`(() => {
+          const el = document.querySelector('.event[data-event-slug]');
+          const slug = el ? el.getAttribute('data-event-slug') : '';
+          // 清掉旧记录，从默认状态开始
+          try {
+            for (const k of Object.keys(localStorage)) {
+              if (k.startsWith('eventprep:fold:' + slug + ':day-')) localStorage.removeItem(k);
+            }
+          } catch (e) {}
+          return [...document.querySelectorAll('.agenda-day-block[data-fold-key]')].map((d) => ({
+            key: d.getAttribute('data-fold-key'),
+            open: d.open,
+          }));
+        })()`);
+
+        if (days.length === 0) {
+          record('日程折叠状态 · 有可记的日程天', true, '这个活动没有多天日程（不适用）');
+        } else {
+          // 手动收起第一天（点 summary 是真实读者的动作）
+          const first = days[0];
+          await page.evaluate(`(() => {
+            const d = document.querySelector('.agenda-day-block[data-fold-key="' + ${JSON.stringify(first.key)} + '"]');
+            if (d) d.open = false;
+          })()`);
+          await page.waitForTimeout(150);
+          await page.reload({ waitUntil: 'networkidle' });
+          const keptClosed = await page.evaluate(`(() => {
+            const d = document.querySelector('.agenda-day-block[data-fold-key="' + ${JSON.stringify(first.key)} + '"]');
+            return d ? d.open : null;
+          })()`);
+          record(
+            '日程折叠状态 · 收起某一天后刷新仍是收着的',
+            keptClosed === false,
+            `${first.key} 收起后刷新 open=${keptClosed}`,
+          );
+
+          // 再展开回来，同样要记住
+          await page.evaluate(`(() => {
+            const d = document.querySelector('.agenda-day-block[data-fold-key="' + ${JSON.stringify(first.key)} + '"]');
+            if (d) d.open = true;
+          })()`);
+          await page.waitForTimeout(150);
+          await page.reload({ waitUntil: 'networkidle' });
+          const keptOpen = await page.evaluate(`(() => {
+            const d = document.querySelector('.agenda-day-block[data-fold-key="' + ${JSON.stringify(first.key)} + '"]');
+            return d ? d.open : null;
+          })()`);
+          record(
+            '日程折叠状态 · 展开某一天后刷新仍是展开的',
+            keptOpen === true,
+            `${first.key} 展开后刷新 open=${keptOpen}`,
+          );
+
+          // 清掉验收数据
+          await page.evaluate(`(() => {
+            const el = document.querySelector('.event[data-event-slug]');
+            const slug = el ? el.getAttribute('data-event-slug') : '';
+            try {
+              for (const k of Object.keys(localStorage)) {
+                if (k.startsWith('eventprep:fold:' + slug + ':day-')) localStorage.removeItem(k);
+              }
+            } catch (e) {}
+          })()`);
+        }
+
+        // ---- 推荐路线的每一条 ----
+        const routes = await page.evaluate(`(() => {
+          const el = document.querySelector('.event[data-event-slug]');
+          const slug = el ? el.getAttribute('data-event-slug') : '';
+          try {
+            for (const k of Object.keys(localStorage)) {
+              if (k.startsWith('eventprep:fold:' + slug + ':route-')) localStorage.removeItem(k);
+            }
+          } catch (e) {}
+          return [...document.querySelectorAll('.collapse.route[data-fold-key]')].map((d) => ({
+            key: d.getAttribute('data-fold-key'),
+            open: d.open,
+          }));
+        })()`);
+
+        if (routes.length === 0) {
+          record('推荐路线折叠 · 有可折叠的路线', true, '这个活动没有推荐路线小节（不适用）');
+        } else {
+          const first = routes[0];
+          // 默认展开（推荐路线是全篇的产出）
+          record(
+            '推荐路线折叠 · 默认展开',
+            first.open === true,
+            `${first.key} 默认 open=${first.open}`,
+          );
+          // 手动收起 → 刷新后仍是收着的
+          await page.evaluate(`(() => {
+            const d = document.querySelector('.collapse.route[data-fold-key="' + ${JSON.stringify(first.key)} + '"]');
+            if (d) d.open = false;
+          })()`);
+          await page.waitForTimeout(150);
+          await page.reload({ waitUntil: 'networkidle' });
+          const keptClosed = await page.evaluate(`(() => {
+            const d = document.querySelector('.collapse.route[data-fold-key="' + ${JSON.stringify(first.key)} + '"]');
+            return d ? d.open : null;
+          })()`);
+          record(
+            '推荐路线折叠 · 收起某条后刷新仍是收着的',
+            keptClosed === false,
+            `${first.key} 收起后刷新 open=${keptClosed}`,
+          );
+
+          // 清掉验收数据
+          await page.evaluate(`(() => {
+            const el = document.querySelector('.event[data-event-slug]');
+            const slug = el ? el.getAttribute('data-event-slug') : '';
+            try {
+              for (const k of Object.keys(localStorage)) {
+                if (k.startsWith('eventprep:fold:' + slug + ':route-')) localStorage.removeItem(k);
+              }
+            } catch (e) {}
+          })()`);
+        }
+      }
+
+      // 5.11g 打印版是**临时模式**：进出一遍不能改掉本机记的折叠状态
+      //
+      // ⚠️ 打印版会把所有 details 展开——那会触发一堆 toggle 事件。
+      //    如果不管，读者只是打印了一次，他手动收起的日程天就被记成「展开了」。
+      {
+        await page.goto(`${base}/${slug}/`, { waitUntil: 'networkidle' });
+        const target = await page.evaluate(`(() => {
+          const el = document.querySelector('.event[data-event-slug]');
+          const slug = el ? el.getAttribute('data-event-slug') : '';
+          try {
+            for (const k of Object.keys(localStorage)) {
+              if (k.startsWith('eventprep:fold:' + slug + ':')) localStorage.removeItem(k);
+            }
+          } catch (e) {}
+          const d = document.querySelector('.agenda-day-block[data-fold-key]');
+          return d ? d.getAttribute('data-fold-key') : null;
+        })()`);
+
+        if (!target) {
+          record('打印版 · 不改本机记的折叠状态', true, '没有多天日程（不适用）');
+        } else {
+          // 先手动收起某一天
+          await page.evaluate(`(() => {
+            const d = document.querySelector('.agenda-day-block[data-fold-key="' + ${JSON.stringify(target)} + '"]');
+            if (d) d.open = false;
+          })()`);
+          await page.waitForTimeout(150);
+          // 进打印版 → 退出
+          await page.locator('#print-open').click();
+          await page.waitForTimeout(150);
+          await page.keyboard.press('Escape');
+          await page.waitForTimeout(150);
+          // 刷新后仍然是收着的（打印版没把它记成「展开了」）
+          await page.reload({ waitUntil: 'networkidle' });
+          const after = await page.evaluate(`(() => {
+            const d = document.querySelector('.agenda-day-block[data-fold-key="' + ${JSON.stringify(target)} + '"]');
+            return d ? d.open : null;
+          })()`);
+          record(
+            '打印版 · 不改本机记的折叠状态',
+            after === false,
+            `${target} 打印前后刷新 open=${after}`,
+          );
+
+          // 清掉验收数据
+          await page.evaluate(`(() => {
+            const el = document.querySelector('.event[data-event-slug]');
+            const slug = el ? el.getAttribute('data-event-slug') : '';
+            try {
+              for (const k of Object.keys(localStorage)) {
+                if (k.startsWith('eventprep:fold:' + slug + ':')) localStorage.removeItem(k);
+              }
+            } catch (e) {}
+          })()`);
         }
       }
 

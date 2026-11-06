@@ -3,6 +3,7 @@ import {
   AGENDA_FORMATS,
   dayEndMinutes,
   dayStartMinutes,
+  extractDayDate,
   locateAgendaSection,
   parseAgenda,
 } from '../lib/agenda.ts';
@@ -265,6 +266,40 @@ describe('parseAgenda · 坏数据要当场报错', () => {
   });
 });
 
+describe('extractDayDate · 从当天标题里抠出日期', () => {
+  it('认无歧义的 YYYY-MM-DD', () => {
+    expect(extractDayDate('Day 1 · 2026-11-05（周四）开放模型')).toBe('2026-11-05');
+    expect(extractDayDate('2026-12-31')).toBe('2026-12-31');
+  });
+
+  it('没有年份的中文日期不认（跨年会算错一天，宁可不知道）', () => {
+    expect(extractDayDate('Day 1 · 11 月 5 日（周四）')).toBeNull();
+    expect(extractDayDate('Day 1 · 12 月 31 日')).toBeNull();
+  });
+
+  it('不存在的日期不认', () => {
+    expect(extractDayDate('Day 1 · 2026-02-30')).toBeNull();
+    expect(extractDayDate('Day 1 · 2026-13-01')).toBeNull();
+  });
+
+  it('认不出就是 null', () => {
+    expect(extractDayDate('Day 1')).toBeNull();
+    expect(extractDayDate('')).toBeNull();
+  });
+});
+
+describe('parseAgenda · 每天的日期', () => {
+  it('标题里写了日期就记下来', () => {
+    const days = agendaOf('### Day 1 · 2026-11-05（周四）\n\n#### 09:45 · 甲\n- 形式: 演讲\n- 会场: 主会场\n');
+    expect(days[0]?.date).toBe('2026-11-05');
+  });
+
+  it('没写日期就是 null（判不出来就不猜）', () => {
+    const days = agendaOf('### Day 1 · 11 月 5 日\n\n#### 09:45 · 甲\n- 形式: 演讲\n- 会场: 主会场\n');
+    expect(days[0]?.date).toBeNull();
+  });
+});
+
 function agendaOf(section: string) {
   return parseAgenda(section).days;
 }
@@ -284,9 +319,56 @@ describe('renderAgenda', () => {
 - 会场: 主会场
 `), renderInlineValue);
     expect(html.match(/<details class="agenda-day-block"/g)).toHaveLength(2);
-    expect(html).toContain('<details class="agenda-day-block" open>');
+    expect(html).toMatch(/<details class="agenda-day-block"[^>]*open>/);
     expect(html.match(/open>/g)).toHaveLength(1);
     expect(html).toContain('Day 2 · 11 月 6 日');
+  });
+
+  it('传了 dayIds 时，每一天的 <details> 带上对应锚点 id', () => {
+    const html = renderAgenda(
+      agendaOf('### Day 1\n\n#### 09:45 · 甲场\n- 形式: 演讲\n- 会场: 主会场\n\n### Day 2\n\n#### 10:00 · 乙场\n- 形式: 演讲\n- 会场: 主会场\n'),
+      renderInlineValue,
+      ['day-1', 'day-2'],
+    );
+    expect(html).toContain('<details class="agenda-day-block" id="day-1" data-fold-key="day-1" open>');
+    expect(html).toContain('<details class="agenda-day-block" id="day-2" data-fold-key="day-2">');
+  });
+
+  it('每一天带稳定的折叠键（浏览器端靠它记住展开/收起）', () => {
+    const html = renderAgenda(
+      agendaOf('### Day 1 · 2026-11-05（周四）\n\n#### 09:45 · 甲场\n- 形式: 演讲\n- 会场: 主会场\n\n### Day 2 · 2026-11-06（周五）\n\n#### 10:00 · 乙场\n- 形式: 演讲\n- 会场: 主会场\n'),
+      renderInlineValue,
+    );
+    // ⚠️ 键用**序号**：作者改个标题措辞、或活动改期，键都不变，
+    //    读者记的「第一天收着」还在
+    expect(html).toContain('data-fold-key="day-1"');
+    expect(html).toContain('data-fold-key="day-2"');
+  });
+
+  it('判不出日期的天也有折叠键（不参与自动收缩，但读者手动收起要记住）', () => {
+    const html = renderAgenda(
+      agendaOf('### Day 1 · 11 月 5 日（周四）\n\n#### 09:45 · 甲场\n- 形式: 演讲\n- 会场: 主会场\n'),
+      renderInlineValue,
+    );
+    expect(html).not.toContain('data-day-date');
+    expect(html).toContain('data-fold-key="day-1"');
+  });
+
+  it('当天的日期写进 data-day-date（浏览器按访问时刻判「过没过」）', () => {
+    const html = renderAgenda(
+      agendaOf('### Day 1 · 2026-11-05（周四）\n\n#### 09:45 · 甲场\n- 形式: 演讲\n- 会场: 主会场\n\n### Day 2 · 2026-11-06（周五）\n\n#### 10:00 · 乙场\n- 形式: 演讲\n- 会场: 主会场\n'),
+      renderInlineValue,
+    );
+    expect(html).toContain('data-day-date="2026-11-05"');
+    expect(html).toContain('data-day-date="2026-11-06"');
+  });
+
+  it('判不出日期的天不写这个属性（浏览器就当「不收缩」）', () => {
+    const html = renderAgenda(
+      agendaOf('### Day 1 · 11 月 5 日\n\n#### 09:45 · 甲场\n- 形式: 演讲\n- 会场: 主会场\n'),
+      renderInlineValue,
+    );
+    expect(html).not.toContain('data-day-date');
   });
 
   it('卡片带时间、标签、标题、讲者（头像 alt 是讲者名）', () => {

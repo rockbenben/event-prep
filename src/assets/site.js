@@ -236,6 +236,241 @@
     updateProgress();
   }
 
+  /* ---------- 折叠状态（本机存储，按活动分开） ----------
+     ⚠️ 跟「哪些条目打了勾」是两回事：勾选存 eventprep:checklist:<slug>，
+        这里只存「哪些折叠块是展开的」。
+        跟笔记、滚动位置一样是**本机个人数据**：不上传、不同步、不会被清理。
+
+     一套机制管三类折叠块：
+       · 行前清单      —— 键 `checklist`
+       · 日程的每一天  —— 键 `day-<序号>`
+       · 推荐路线的每条 —— 键 `route-<锚点 id>`
+     键是**稳定标识**，不是显示文字：内容改了标题，旧记录照样对得上。 */
+  var FOLD_PREFIX = 'eventprep:fold:';
+
+  /**
+   * 读某个折叠块的记录：返回 'open' / 'closed' / null（没记过）。
+   *
+   * ⚠️ null 表示「没记过」——那就用服务端给的默认（构建时定死的那个样子）。
+   *    这一层区分很重要：日程各天的默认是「按访问时刻自动收放」，
+   *    读者手动改过一次之后就该听读者的，不能每次刷新都改回去。
+   */
+  function readFold(slug, key) {
+    try {
+      return localStorage.getItem(FOLD_PREFIX + slug + ':' + key);
+    } catch (err) {
+      return null;
+    }
+  }
+
+  /** 记下某个折叠块的状态。 */
+  function writeFold(slug, key, state) {
+    try {
+      localStorage.setItem(FOLD_PREFIX + slug + ':' + key, state);
+    } catch (err) {
+      /* 无痕模式等场景写不进去，忽略 */
+    }
+  }
+
+  /**
+   * 让一个折叠块记住自己的展开/收起状态。
+   *
+   * ⚠️ **`toggle` 事件是异步触发的**：我们程序化地改 `open` 也会触发一次。
+   *    所以不能一接到事件就写盘——否则「过期自动收缩」会被记成
+   *    「读者手动收的」，下次就再也不会按日期自动收放了；
+   *    打印版把全部展开也一样会被误记。
+   *    做法：记住「我们刚设的状态」，事件里如果状态跟它一样，
+   *    说明这只是我们自己的改动在回声，不写盘；不一样才是读者动的手。
+   * ⚠️ 打印版是**临时模式**：它在展开所有 details 之前会置一个全局标记，
+   *    让所有折叠块在这期间都不写盘——否则读者只是打印了一次，
+   *    他手动收起的日程天就被记成「展开了」。
+   */
+  var programmatic = false;
+  /** 解除「程序化改动」标记：toggle 事件是异步的，得等它跑完。 */
+  function endProgrammatic() {
+    setTimeout(function () {
+      programmatic = false;
+    }, 0);
+  }
+
+  function bindFoldState(el, slug, key) {
+    var applied = el.open;
+    el.addEventListener('toggle', function () {
+      if (programmatic) return;
+      if (el.open === applied) return; // 只是我们自己的改动在回声
+      applied = el.open;
+      writeFold(slug, key, applied ? 'open' : 'closed');
+    });
+  }
+
+  /* ---------- 行前清单的折叠状态（本机存储，按活动分开） ----------
+     ⚠️ 默认收起（清单在手机上会占掉大半屏），读者展开过一次就记住。 */
+  function initChecklistFold() {
+    var container = document.querySelector('.event[data-event-slug]');
+    if (!container) return;
+    var fold = container.querySelector('.checklist-fold');
+    if (!fold) return;
+    var slug = container.getAttribute('data-event-slug');
+    if (!slug) return;
+
+    var saved = readFold(slug, 'checklist');
+    // 存过「展开」就还原成展开；没存过 / 存的是收起 → 保持服务端默认的收起
+    if (saved === 'open') fold.open = true;
+    else if (saved === 'closed') fold.open = false;
+
+    bindFoldState(fold, slug, 'checklist');
+  }
+
+  /* ---------- 议程各天：过了的自动收缩 ----------
+     活动页的日程按天折叠。读者在活动第二天打开时，第一天已经过去了，
+     那一块应该自己收起来——「现在该看的是今天」。
+     ⚠️ 判定在**浏览器里**做（跟状态 / 倒计时同一口径）：站点可能是昨天构建的，
+        到了第二天再看时，收不收得按**访问时刻**算，不能在构建时定死。
+     ⚠️ 判据是**活动所在地的今天**（按活动时区算），不是读者本机的今天：
+        上海的活动，纽约的读者凌晨打开，看到的也该是上海的 11 月 6 日。 */
+
+  /**
+   * 活动所在地的今天（`YYYY-MM-DD`）。
+   *
+   * ⚠️ 必须按活动时区格式化——直接拿本机日期的话，
+   *    上海晚上 8 点 / 纽约当天早上 8 点，差着一天，
+   *    「今天该看哪一天」就会判错。
+   */
+  function todayInZone(tz) {
+    var parts;
+    try {
+      parts = new Intl.DateTimeFormat('en-US', {
+        timeZone: tz || 'UTC',
+        hourCycle: 'h23',
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+      }).formatToParts(new Date());
+    } catch (err) {
+      return '';
+    }
+    var map = {};
+    for (var i = 0; i < parts.length; i += 1) {
+      if (parts[i].type !== 'literal') map[parts[i].type] = parts[i].value;
+    }
+    return map.year + '-' + map.month + '-' + map.day;
+  }
+
+  /**
+   * 议程某一天相对于「活动所在地的今天」的状态。
+   *
+   * ⚠️ 两个都是 `YYYY-MM-DD`，按字符串比就是按日历比——
+   *    同格式的 ISO 日期字典序等于时间序，不用转成瞬间再比（那样会引入时区坑）。
+   */
+  function agendaDayState(dayDate, today) {
+    if (!dayDate || !today) return 'future';
+    if (dayDate < today) return 'past';
+    if (dayDate === today) return 'today';
+    return 'future';
+  }
+
+  /**
+   * 过了的日程自动收缩，今天（及将来）的展开；**读者手动改过的听读者的**。
+   *
+   * ⚠️ **只收「已经过去了」的那几天**：
+   *    今天和将来的天保持展开——读者现在要看的正是今天。
+   *    活动还没开始的话，所有天都展开着，跟以前一样。
+   * ⚠️ **服务端只给第一天加 `open`**（那是「活动还没开始」时的默认）。
+   *    到了第二天，光把过去那天收起来还不够——**今天那天得是展开的**，
+   *    否则整个日程全收着，读者打开页面看到的是一排收起的标题。
+   *    所以这里同时负责「展开今天（和将来）」。
+   * ⚠️ 判不出日期的天（标题里没写 `2026-11-05` 这种无歧义日期）
+   *    一律**不动**：宁可摊着，也不要让读者看不到该看的内容。
+   * ⚠️ **读者手动改过的那一天，以读者为准**：本机存了状态就不再用自动规则覆盖。
+   *    否则他特意展开昨天（要补看一场）的话，一刷新又被收回去——跟他抢。
+   * ⚠️ 只在载入时跑一次：读者随后手动展开某一天，不会再被收回去。
+   *    打印版 / Ctrl+P 时全部展开——那正是「一次看全」的意思。
+   */
+  function initAgendaDays() {
+    var container = document.querySelector('.event[data-event-slug]');
+    if (!container) return;
+    var slug = container.getAttribute('data-event-slug');
+    if (!slug) return;
+    // ⚠️ 选**所有**日程天，不是只选判得出日期的那些：
+    //    判不出日期的天只是不参与「过了就自动收缩」，
+    //    但读者手动收起它照样要记住（那是他的意思，不是自动规则）。
+    var blocks = container.querySelectorAll('.agenda-day-block');
+    if (!blocks.length) return;
+
+    var data = readJson('site-data');
+    var ev = null;
+    if (data && Array.isArray(data.events)) {
+      for (var i = 0; i < data.events.length; i += 1) {
+        if (data.events[i].slug === slug) {
+          ev = data.events[i];
+          break;
+        }
+      }
+    }
+    var tz = ev ? ev.timezone : 'UTC';
+    var today = todayInZone(tz);
+
+    Array.prototype.forEach.call(blocks, function (block) {
+      var date = block.getAttribute('data-day-date');
+      var state = agendaDayState(date, today);
+      var foldKey = block.getAttribute('data-fold-key');
+
+      // ⚠️ 读者手动改过：以他为准，自动规则不再插手
+      var saved = foldKey ? readFold(slug, foldKey) : null;
+      if (saved === 'open') {
+        block.open = true;
+        if (foldKey) bindFoldState(block, slug, foldKey);
+        return;
+      }
+      if (saved === 'closed') {
+        block.open = false;
+        if (foldKey) bindFoldState(block, slug, foldKey);
+        return;
+      }
+
+      // 判不出日期的天**不动**：宁可摊着，也不要让读者看不到该看的内容
+      if (!date || !today) {
+        if (foldKey) bindFoldState(block, slug, foldKey);
+        return;
+      }
+
+      // 过去的收起来
+      if (state === 'past') {
+        block.open = false;
+      } else if (state === 'today') {
+        // 今天的那天展开着（服务端只开了第一天；到了第二天得换成今天）
+        block.open = true;
+      }
+      // 将来的天**不动**：保持服务端的默认（只有第一天展开），
+      // 不然一个还没开始的活动会把几天日程全摊开，又长又乱
+
+      if (foldKey) bindFoldState(block, slug, foldKey);
+    });
+  }
+
+  /* ---------- 推荐路线的每一条：折叠状态本机记住 ----------
+     ⚠️ 服务端默认展开（推荐路线是全篇的产出，读者多半要读），
+        但读者手动收起某一条之后，刷新仍然是收着的。
+     ⚠️ 键用**锚点 id**（route-<id>），不是显示文字：
+        「路线一：……」的标题改了，旧记录照样对得上同一个位置。 */
+  function initRouteCollapse() {
+    var container = document.querySelector('.event[data-event-slug]');
+    if (!container) return;
+    var slug = container.getAttribute('data-event-slug');
+    if (!slug) return;
+    var routes = container.querySelectorAll('.collapse.route[data-fold-key]');
+    if (!routes.length) return;
+
+    Array.prototype.forEach.call(routes, function (el) {
+      var key = el.getAttribute('data-fold-key');
+      if (!key) return;
+      var saved = readFold(slug, key);
+      if (saved === 'open') el.open = true;
+      else if (saved === 'closed') el.open = false;
+      bindFoldState(el, slug, key);
+    });
+  }
+
   /* ---------- 状态刷新 + 首页分组 ---------- */
 
   function initSite() {
@@ -468,7 +703,20 @@
     // 点目录里的条目 → 跳过去，顺手把抽屉收起来
     drawer.addEventListener('click', function (e) {
       var link = e.target && e.target.closest ? e.target.closest('a[href^="#"]') : null;
-      if (link) drawer.close();
+      if (!link) return;
+      // 日程里的「Day N」锚点落在 <details class="agenda-day-block"> 上：
+      // 跳过去之前先把它展开，否则读者落到一个收着的区块，等于没跳。
+      var href = link.getAttribute('href') || '';
+      if (href.length > 1) {
+        var target = null;
+        try {
+          target = document.getElementById(decodeURIComponent(href.slice(1)));
+        } catch (err) {
+          target = null;
+        }
+        if (target && target.tagName === 'DETAILS') target.open = true;
+      }
+      drawer.close();
     });
   }
 
@@ -684,7 +932,6 @@
     });
   }
 
-
   /* ---------- 打印版（临时模式） ----------
      点页头那枚「打印版」→ 给 <html> 挂 print-mode 标记（干净的屏幕视图由 CSS 负责），
      同时展开所有 <details>，记住原本是关着的那些，退出时只还原这些
@@ -725,21 +972,27 @@
       if (closedBefore) return; // 已经展开过了，别把「原本关闭」的名单冲掉
       closedBefore = [];
       var all = document.querySelectorAll('details');
+      // ⚠️ 打印版是临时模式：展开/还原都不该被记成「读者手动改的」，
+      //    否则读者只是打印了一次，他手动收起的日程天就变成展开的了。
+      programmatic = true;
       for (var i = 0; i < all.length; i += 1) {
         if (!all[i].open) {
           closedBefore.push(all[i]);
           all[i].open = true;
         }
       }
+      endProgrammatic();
       prepNotes();
     }
 
     function restoreAll() {
       if (!closedBefore) return;
+      programmatic = true;
       for (var i = 0; i < closedBefore.length; i += 1) {
         // 期间被读者手动改过的就不强行关回去：只在它仍然开着时还原成关
         if (closedBefore[i].open) closedBefore[i].open = false;
       }
+      endProgrammatic();
       closedBefore = null;
       restoreNotes();
     }
@@ -760,14 +1013,20 @@
     if (exitBtn) exitBtn.addEventListener('click', exit);
     if (doBtn) {
       doBtn.addEventListener('click', function () {
+        // 打印前再展开一次（保险）：工具条上的按钮本来就在模式里，
+        // 但键盘/脚本直接触发时也能兜住
         expandAll();
         if (typeof window.print === 'function') window.print();
       });
     }
+    // Esc 退出（抽屉、头像放大都靠 Esc 关，打印版跟它们一致）
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape' && root.classList.contains('print-mode')) exit();
     });
 
+    // Ctrl+P / 系统打印：beforeprint 展开，afterprint 若不是手动进的模式就还原。
+    // ⚠️ 手动进的打印版在 window.print() 之后不该被 afterprint 收回去——
+    //    读者还在看这个视图，所以下面判断「有没有 print-mode 标记」。
     if (window.addEventListener) {
       window.addEventListener('beforeprint', expandAll);
       window.addEventListener('afterprint', function () {
@@ -926,7 +1185,10 @@
   function boot() {
     initTheme();
     initChecklist();
+    initChecklistFold();
     initPrintMode();
+    initAgendaDays();
+    initRouteCollapse();
     initSite();
     initTocDrawer();
     initTocSpy();

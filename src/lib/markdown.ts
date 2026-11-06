@@ -29,6 +29,13 @@ export interface TocEntry {
   id: string;
   text: string;
   depth: number;
+  /**
+   * 目录条目的种类：
+   * · `agenda-day` —— 日程里的一天：目录里略微缩进，跟页面级章节分开。
+   * · `route`      —— 推荐路线里的一条：收成折叠条目，但目录里仍列出来
+   *                  （读者是按自己的角色找路线的）。
+   */
+  kind?: 'agenda-day' | 'route';
 }
 
 export interface RenderedMarkdown {
@@ -48,13 +55,16 @@ interface Segment {
  * ⚠️ 日程排在最前：章节名里同时出现「日程」和「讲者」时，议程优先
  *    （议程章节整体由议程渲染器接管，里面的 `###` 不该被收成机构条目）。
  */
-export type SectionVariant = 'entity' | 'term' | 'agenda';
+export type SectionVariant = 'entity' | 'term' | 'agenda' | 'route';
 
 const SECTION_VARIANTS: Array<{ match: RegExp; variant: SectionVariant }> = [
   { match: /日程|议程|^agenda$|^schedule$/i, variant: 'agenda' },
   // 关键词覆盖会议之外的场合（演出、赛事、展览），它们同样有「一帮人和机构要认」
   { match: /机构|嘉宾|讲者|讲师|演讲者|艺术家|演员|选手/, variant: 'entity' },
   { match: /前置知识|术语|背景知识/, variant: 'term' },
+  // 「推荐路线」下面通常挂着五六条路线：每条是一整个角色视角，
+  // 读者多半只关心跟自己相关的那一条，所以收成可折叠的条目（默认展开）。
+  { match: /推荐路线|^路线$|推荐路径/, variant: 'route' },
 ];
 
 /** 这个章节怎么处理。 */
@@ -83,7 +93,7 @@ const SANITIZE_OPTIONS: sanitizeHtml.IOptions = {
     img: ['src', 'alt', 'title', 'width', 'height', 'loading', 'class'],
     td: ['colspan', 'rowspan'],
     th: ['colspan', 'rowspan', 'scope'],
-    details: ['open', 'id', 'class'],
+    details: ['open', 'id', 'class', 'data-day-date', 'data-fold-key'],
     summary: ['class', 'title', 'aria-label'],
     // 标题要带 id，目录里的锚点才指得到
     h2: ['id'],
@@ -123,6 +133,8 @@ const SANITIZE_OPTIONS: sanitizeHtml.IOptions = {
       'agenda-tip-bio', 'agenda-tip-remark',
       // 读者自己写的笔记（存在本机浏览器里）
       'agenda-note', 'agenda-note-editor',
+      // 行前清单默认折叠的容器
+      'checklist-fold-body',
     ],
     span: [
       'tag', 'note', 'note-warn', 'collapse-icon', 'collapse-text', 'collapse-name',
@@ -138,8 +150,8 @@ const SANITIZE_OPTIONS: sanitizeHtml.IOptions = {
     img: ['agenda-avatar'],
     button: ['agenda-avatar-btn', 'agenda-note-btn'],
     textarea: ['agenda-note-input'],
-    details: ['collapse', 'entity', 'term', 'agenda-day-block', 'agenda-abstract', 'agenda-tip-toggle'],
-    summary: ['agenda-day-summary', 'agenda-tip-btn'],
+    details: ['collapse', 'entity', 'term', 'route', 'agenda-day-block', 'agenda-abstract', 'agenda-tip-toggle', 'checklist-fold'],
+    summary: ['agenda-day-summary', 'agenda-tip-btn', 'checklist-fold-summary'],
   },
   transformTags: {
     /**
@@ -299,7 +311,8 @@ function renderSegments(segments: Segment[], ctx: RenderContext): string {
     }
     if (seg.type === 'agenda') {
       // ⚠️ 议程章节整段接管：产出的 HTML 直接进输出流，最后统一过一道消毒。
-      out.push(renderAgendaSection(seg.content));
+      //    日程各天的目录条目由 renderAgendaSection 追加，标题本身没走 heading 渲染器。
+      out.push(renderAgendaSection(seg.content, ctx));
       continue;
     }
     // 折叠块内部的标题不进目录（这是原定的行为：目录只列页面级章节）
@@ -322,12 +335,22 @@ function renderSegments(segments: Segment[], ctx: RenderContext): string {
  * ⚠️ 解析出错就抛出去：走既有的「页面渲染失败」路径（构建失败且不动产出目录），
  *    而不是渲染出一段空白。
  */
-function renderAgendaSection(content: string): string {
+function renderAgendaSection(content: string, ctx: RenderContext): string {
   const parsed = parseAgenda(content);
   if (parsed.errors.length > 0) {
     throw new Error(`日程章节解析失败：${parsed.errors.join('；')}`);
   }
-  return renderAgenda(parsed.days, renderInlineValue);
+  // 议程每一天进目录：用跟正文标题同一套去重表生成稳定锚点 id，
+  // 再把 id 传给渲染器，让每一天的 <details> 自己带上它（点目录能跳过去）。
+  const dayIds = parsed.days.map((day) => uniqueId(ctx.seen, slugify(day.title)));
+  if (ctx.toc) {
+    for (let i = 0; i < parsed.days.length; i += 1) {
+      const day = parsed.days[i];
+      if (!day) continue;
+      ctx.toc.push({ id: dayIds[i] ?? slugify(day.title), text: day.title, depth: 3, kind: 'agenda-day' });
+    }
+  }
+  return renderAgenda(parsed.days, renderInlineValue, dayIds);
 }
 
 /**
@@ -382,7 +405,7 @@ function carveAgendaSections(source: string): Segment[] {
  */
 function renderText(text: string, marked: Marked, ctx: RenderContext): string {
   const tokens = marked.lexer(text) as TokensList;
-  const parts: Array<{ variant: 'plain' | 'entity' | 'term'; tokens: Token[] }> = [];
+  const parts: Array<{ variant: 'plain' | 'entity' | 'term' | 'route' | 'checklist'; tokens: Token[] }> = [];
   let buf: Token[] = [];
 
   const flush = (): void => {
@@ -404,11 +427,31 @@ function renderText(text: string, marked: Marked, ctx: RenderContext): string {
       continue;
     }
 
+    // 「行前清单」这一节：把标题之后的**整节正文**收进一个原生 <details>。
+    // ⚠️ 到下一个二级标题就停（h2 本身不进折叠块，目录要收得到「行前清单」）；
+    //    节里若有 ### 小标题也一起收进去，不漏掉。
+    if (ctx.section === '行前清单') {
+      const run: Token[] = [];
+      let j = i;
+      while (j < tokens.length) {
+        const t = tokens[j] as Token;
+        if (t.type === 'heading' && (t as Token & { depth: number }).depth <= 2) break;
+        run.push(t);
+        j += 1;
+      }
+      if (run.length > 0) {
+        flush();
+        parts.push({ variant: 'checklist', tokens: run });
+        i = j;
+        continue;
+      }
+    }
+
     if (token.type === 'heading' && token.depth === 3) {
       const variant = variantForSection(ctx.section);
       // ⚠️ 只有「说明性章节」才收成点开式条目。议程章节（agenda）在切段那一步
       //    就被整个接管了，正常走不到这里；留着这个判断是为了防御。
-      if (variant === 'entity' || variant === 'term') {
+      if (variant === 'entity' || variant === 'term' || variant === 'route') {
         flush();
         // 这个标题 + 它下面直到下一个同级标题之间的内容 = 一个条目
         const group: Token[] = [token];
@@ -435,9 +478,31 @@ function renderText(text: string, marked: Marked, ctx: RenderContext): string {
       if (part.variant === 'plain') {
         return marked.parser(withLinks(part.tokens, tokens.links)) as string;
       }
+      if (part.variant === 'checklist') {
+        return renderChecklistFold(part.tokens, marked, tokens.links);
+      }
       return renderCollapse(part.tokens, marked, part.variant, tokens.links, ctx);
     })
     .join('');
+}
+
+/**
+ * 行前清单默认折叠：把这一节的正文收进一个原生 <details>。
+ *
+ * ⚠️ 折叠状态由浏览器端按活动存（eventprep:fold:<slug>:checklist），
+ *    构建产出的 HTML 一律不带 open——刷新不闪，也不把「收起」写死在服务端。
+ *    <summary> 里写清「展开清单」，读者一眼知道下面还有东西。
+ */
+function renderChecklistFold(
+  group: Token[],
+  marked: Marked,
+  links: TokensList['links'],
+): string {
+  const body = marked.parser(withLinks(group, links)) as string;
+  return `<details class="checklist-fold">
+  <summary class="checklist-fold-summary">展开行前清单</summary>
+  <div class="checklist-fold-body">${body}</div>
+</details>`;
 }
 
 /**
@@ -445,11 +510,16 @@ function renderText(text: string, marked: Marked, ctx: RenderContext): string {
  *
  * 图标默认取名称的第一个字（中文名取首字，英文名取首字母）；
  * 名称以 emoji 开头时用那个 emoji 当图标（`### 🏢 某某科技`）。
+ *
+ * ⚠️ **「推荐路线」（route）默认展开**，而且是**服务端就写死 `open`**：
+ *    推荐路线是全篇的产出，读者多半要读；而且折叠状态按活动存在本机
+ *    （见 site.js 的 initRouteCollapse），读者手动收起后刷新仍然收着。
+ *    与之相对，机构 / 术语条目默认收起——那些是「用到才看」的背景资料。
  */
 function renderCollapse(
   group: Token[],
   marked: Marked,
-  variant: 'entity' | 'term',
+  variant: 'entity' | 'term' | 'route',
   links: TokensList['links'],
   ctx: RenderContext,
 ): string {
@@ -471,7 +541,16 @@ function renderCollapse(
 
   // id 要走同一套去重表：两个同名实体的 id 撞了，目录锚点会跳错、HTML 也不合法
   const id = uniqueId(ctx.seen, slugify(plain));
-  return `<details class="collapse ${variant}" id="${escapeHtml(id)}">
+  // ⚠️ **推荐路线的每一条要进目录**：读者是按自己的角色找路线的
+  //    （「我是做基建的，该看哪条？」），目录里没有就只剩整页滚。
+  //    机构 / 术语条目不进目录——目录不该列一串嘉宾名。
+  if (variant === 'route' && ctx.toc) {
+    ctx.toc.push({ id, text: plain, depth: 3, kind: 'route' });
+  }
+  const open = variant === 'route' ? ' open' : '';
+  // ⚠️ data-fold-key 是**稳定标识**：浏览器端用它记住这条是展开还是收起
+  //    （存在本机，刷新后照旧）。别用显示文字当键——改了标题就读不到旧记录了。
+  return `<details class="collapse ${variant}" id="${escapeHtml(id)}" data-fold-key="route-${escapeHtml(id)}"${open}>
   <summary>
     <span class="collapse-icon" aria-hidden="true">${escapeHtml(icon)}</span>
     <span class="collapse-text">

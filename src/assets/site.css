@@ -278,6 +278,42 @@ a:hover {
   display: block;
 }
 
+/* ---------- 打印版工具条 ----------
+   平时不出现，进了打印模式（<html class="print-mode">）才显示。
+   它是屏幕上的控件，打印到纸上时由 @media print 藏掉。 */
+.print-bar {
+  display: none;
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-inset);
+  color: var(--fg);
+  font-size: 13.5px;
+}
+.print-bar-title {
+  font-weight: 700;
+}
+.print-bar-actions {
+  display: inline-flex;
+  gap: 8px;
+}
+.print-mode .print-bar {
+  display: flex;
+}
+/* 工具条里的按钮要跟页头那批 ghost-btn 一样，但字更清楚一点 */
+.print-bar .ghost-btn {
+  min-height: 34px;
+  font-size: 13px;
+  font-weight: 600;
+  padding-inline: 14px;
+}
+
 /* 横向留白归 `.wrap` 管——理由见 `.home` 那段注释。 */
 .site-footer {
   margin-top: 60px;
@@ -923,6 +959,23 @@ a:hover {
   padding-left: 14px;
   font-size: 13px;
 }
+/* 日程里的各天：比普通三级条目再退一点，一眼看得出是「日程下面的天」 */
+.toc-agenda-day {
+  padding-left: 22px;
+}
+.toc-agenda-day a {
+  font-variant-numeric: tabular-nums;
+}
+/* 推荐路线的每条：同样摊开在目录里，缩进跟日程各天一致 */
+.toc-route {
+  padding-left: 22px;
+}
+/* 摊开的子项（日程各天、推荐路线的每条）：靠一条竖线表明它们挂在上面那节下面 */
+.toc-flat-list {
+  margin: 4px 0 0;
+  padding-left: 8px;
+  border-left: 1px solid var(--border-soft);
+}
 /* 三级标题收在二级标题下面，点「展开 N 项」才看见 */
 .toc-sub {
   margin: 2px 0 4px;
@@ -1143,7 +1196,7 @@ a:hover {
 }
 
 /* 普通 details 折叠块（如日程天数） */
-.content details:not(.collapse):not(.agenda-day-block):not(.agenda-abstract):not(.agenda-tip-toggle) {
+.content details:not(.collapse):not(.agenda-day-block):not(.agenda-abstract):not(.agenda-tip-toggle):not(.checklist-fold) {
   margin: 0 0 16px;
   padding: 0;
   border: 1px solid var(--border-soft);
@@ -1152,7 +1205,7 @@ a:hover {
   box-shadow: var(--shadow-sm);
   overflow: hidden;
 }
-.content details:not(.collapse):not(.agenda-day-block):not(.agenda-abstract):not(.agenda-tip-toggle) > summary {
+.content details:not(.collapse):not(.agenda-day-block):not(.agenda-abstract):not(.agenda-tip-toggle):not(.checklist-fold) > summary {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -1165,24 +1218,24 @@ a:hover {
   user-select: none;
   transition: background 0.15s ease;
 }
-.content details:not(.collapse):not(.agenda-day-block):not(.agenda-abstract):not(.agenda-tip-toggle) > summary:hover {
+.content details:not(.collapse):not(.agenda-day-block):not(.agenda-abstract):not(.agenda-tip-toggle):not(.checklist-fold) > summary:hover {
   background: var(--border-soft);
 }
-.content details:not(.collapse):not(.agenda-day-block):not(.agenda-abstract):not(.agenda-tip-toggle)[open] > summary {
+.content details:not(.collapse):not(.agenda-day-block):not(.agenda-abstract):not(.agenda-tip-toggle):not(.checklist-fold)[open] > summary {
   border-bottom: 1px solid var(--border-soft);
   margin-bottom: 0;
 }
-.content details:not(.collapse):not(.agenda-day-block):not(.agenda-abstract):not(.agenda-tip-toggle) > summary::-webkit-details-marker {
+.content details:not(.collapse):not(.agenda-day-block):not(.agenda-abstract):not(.agenda-tip-toggle):not(.checklist-fold) > summary::-webkit-details-marker {
   display: none;
 }
-.content details:not(.collapse):not(.agenda-day-block):not(.agenda-abstract):not(.agenda-tip-toggle) > *:not(summary) {
+.content details:not(.collapse):not(.agenda-day-block):not(.agenda-abstract):not(.agenda-tip-toggle):not(.checklist-fold) > *:not(summary) {
   margin-left: 18px;
   margin-right: 18px;
 }
-.content details:not(.collapse):not(.agenda-day-block):not(.agenda-abstract):not(.agenda-tip-toggle) > summary + * {
+.content details:not(.collapse):not(.agenda-day-block):not(.agenda-abstract):not(.agenda-tip-toggle):not(.checklist-fold) > summary + * {
   margin-top: 16px;
 }
-.content details:not(.collapse):not(.agenda-day-block):not(.agenda-abstract):not(.agenda-tip-toggle) > *:last-child {
+.content details:not(.collapse):not(.agenda-day-block):not(.agenda-abstract):not(.agenda-tip-toggle):not(.checklist-fold) > *:last-child {
   margin-bottom: 16px;
 }
 
@@ -1252,6 +1305,55 @@ a:hover {
   text-decoration: line-through;
   opacity: 0.6;
   transition: opacity 0.2s ease;
+}
+
+/* 行前清单默认折叠：h2 留在外面（目录要它），正文收进这个 details。
+   折叠状态由 site.js 按活动存本机，服务端一律不带 open。 */
+.content .checklist-fold {
+  margin: 0 0 16px;
+}
+.content .checklist-fold-summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border: 1px dashed var(--border);
+  border-radius: var(--radius-pill);
+  background: var(--bg-card);
+  color: var(--fg-muted);
+  font-size: 13.5px;
+  font-weight: 600;
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+  transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
+}
+.content .checklist-fold-summary::-webkit-details-marker {
+  display: none;
+}
+.content .checklist-fold-summary::marker {
+  content: '';
+}
+.content .checklist-fold-summary::before {
+  content: '▸';
+  color: var(--accent);
+  font-size: 12px;
+  transition: transform 0.15s ease;
+}
+.content .checklist-fold[open] > .checklist-fold-summary::before {
+  transform: rotate(90deg);
+}
+.content .checklist-fold-summary:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-soft);
+}
+.content .checklist-fold-body {
+  margin-top: 12px;
+}
+/* 进度条由脚本插到清单 <ul> 前面：折叠时它也在里面，一起收起 */
+.content .checklist-fold-body > .checklist-progress:first-child {
+  margin-top: 0;
 }
 
 /* ---------- 点开式条目（机构 / 嘉宾 / 前置知识） ---------- */
@@ -1381,6 +1483,23 @@ a:hover {
 }
 .collapse.term .collapse-body {
   font-size: 14px;
+}
+
+/* 推荐路线：一条一个角色视角，默认展开（读者多半要读），但可以自己收起。
+   图标比术语条目大一点——它是这一节的骨架，不是背景资料。 */
+.collapse.route > summary {
+  padding: 14px 16px;
+}
+.collapse.route .collapse-icon {
+  width: 34px;
+  height: 34px;
+  font-size: 15px;
+}
+.collapse.route .collapse-name {
+  font-size: 15.5px;
+}
+.collapse.route .collapse-body {
+  font-size: 14.5px;
 }
 
 /* ---------- 回到顶部浮动按钮 ----------
@@ -1898,20 +2017,6 @@ a:hover {
   }
 }
 
-@media print {
-  .site-header,
-  .site-footer,
-  .toc,
-  .crumbs,
-  .back-to-top,
-  .actions {
-    display: none !important;
-  }
-  .event-body {
-    display: block;
-  }
-}
-
 /* ==========================================================================
    打印版 / 纸面
    两处共用同一套「隐藏清单」与配色：
@@ -2113,6 +2218,7 @@ html.print-mode .agenda-day-block {
   .event-meta-summary,
   .agenda-abstract > summary,
   .collapse-chevron,
+  .checklist-fold-summary,
   .skip-link,
   .avatar-viewer {
     display: none !important;

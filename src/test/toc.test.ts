@@ -9,8 +9,8 @@ import { describe, expect, it } from 'vitest';
 import { renderToc } from '../templates/event.ts';
 import type { TocEntry } from '../lib/markdown.ts';
 
-function entry(id: string, text: string, depth: number): TocEntry {
-  return { id, text, depth };
+function entry(id: string, text: string, depth: number, kind?: 'agenda-day' | 'route'): TocEntry {
+  return { id, text, depth, ...(kind ? { kind } : {}) };
 }
 
 describe('renderToc', () => {
@@ -62,5 +62,54 @@ describe('renderToc', () => {
     ]);
     expect(html).toContain('展开 1 项');
     expect(html).toContain('展开 2 项');
+  });
+
+  it('日程各天直接摊开在「日程」下面（不用先点「展开 N 项」），带可点的锚点', () => {
+    const html = renderToc([
+      entry('s', '速览', 2),
+      entry('agenda', '日程', 2),
+      entry('day-1', 'Day 1 · 11 月 5 日', 3, 'agenda-day'),
+      entry('day-2', 'Day 2 · 11 月 6 日', 3, 'agenda-day'),
+      entry('c', '行前清单', 2),
+    ]);
+    expect(html).toContain('href="#day-1"');
+    expect(html).toContain('href="#day-2"');
+    expect(html).toContain('toc-agenda-day');
+    // ⚠️ 各天**不能**藏在折叠的「展开 N 项」里：用户要的就是「看到日期 → 点一下跳过去」
+    expect(html).not.toContain('展开 2 项');
+    expect(html).not.toContain('toc-sub');
+    // 顶层章节仍在
+    expect(html).toContain('href="#s"');
+    expect(html).toContain('href="#c"');
+  });
+
+  it('日程各天与普通三级标题混在一起时：各天摊开，其它照旧收着', () => {
+    const html = renderToc([
+      entry('agenda', '日程', 2),
+      entry('day-1', 'Day 1 · 11 月 5 日', 3, 'agenda-day'),
+      entry('r', '推荐路线', 2),
+      entry('r1', '路线一', 3),
+      entry('r2', '路线二', 3),
+    ]);
+    // 各天在常开的列表里
+    expect(html).toContain('toc-flat-list');
+    expect(html).toContain('href="#day-1"');
+    // 别的三级标题仍然收着
+    expect(html).toContain('展开 2 项');
+    expect(html).toContain('toc-sub');
+    expect(html).toContain('href="#r1"');
+  });
+
+  it('推荐路线的每条也摊开（读者按角色找路，不用先点「展开 N 项」）', () => {
+    const html = renderToc([
+      entry('r', '推荐路线', 2),
+      entry('r1', '路线一', 3, 'route'),
+      entry('r2', '路线二', 3, 'route'),
+    ]);
+    expect(html).toContain('href="#r1"');
+    expect(html).toContain('href="#r2"');
+    expect(html).toContain('toc-route');
+    expect(html).not.toContain('展开 2 项');
+    expect(html).not.toContain('toc-sub');
   });
 });

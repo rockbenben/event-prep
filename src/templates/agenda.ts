@@ -186,7 +186,11 @@ ${cards}      </ul>
     </li>\n`;
 }
 
-export function renderAgenda(days: AgendaDay[], renderInline: InlineRenderer): string {
+export function renderAgenda(
+  days: AgendaDay[],
+  renderInline: InlineRenderer,
+  dayIds: readonly string[] = [],
+): string {
   // 「首次出现」要跨整篇日程判断，所以用两张单独的表记谁已经出现过
   const seen = new Set<string>();
   const seenBio = new Set<string>();
@@ -194,8 +198,20 @@ export function renderAgenda(days: AgendaDay[], renderInline: InlineRenderer): s
     .map((day, index) => {
       const slots = day.slots.map((slot) => slotBlock(slot, renderInline, seen, seenBio)).join('');
       const open = index === 0 ? ' open' : '';
+      const id = dayIds[index];
+      const idAttr = id ? ` id="${escapeHtml(id)}"` : '';
+      // ⚠️ 当天的日期（`2026-11-05`）写进 data 属性：
+      //    「这一天过没过」要按**访问时刻**在浏览器里判（见 site.js 的 initAgendaDays），
+      //    构建时定死的话，站点是昨天构建的，今天再看就过期了。
+      const dateAttr = day.date ? ` data-day-date="${escapeHtml(day.date)}"` : '';
+      // ⚠️ data-fold-key 是**稳定标识**：浏览器端用它记住这一天是展开还是收起
+      //    （存在本机，刷新后照旧；读者手动改过就不再被「过了就收」覆盖）。
+      //    键用**当天的序号**而不是标题或日期：
+      //    标题改了（作者改个措辞）键不变，读者记的「第一天收着」还在；
+      //    日期改了（活动改期）键也不变——位置没变，读者记的还是那一块。
+      const foldKey = `day-${index + 1}`;
       return `<section class="agenda-day">
-  <details class="agenda-day-block"${open}>
+  <details class="agenda-day-block"${idAttr}${dateAttr} data-fold-key="${escapeHtml(foldKey)}"${open}>
     <summary class="agenda-day-summary">${escapeHtml(day.title)}</summary>
     <ol class="agenda-slots">
 ${slots}    </ol>

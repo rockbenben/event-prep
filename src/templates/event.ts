@@ -180,14 +180,33 @@ export function renderToc(toc: TocEntry[]): string {
     if (children.length === 0) {
       items.push(tocItem(entry));
     } else {
-      items.push(
-        `      <li class="toc-item toc-depth-2 toc-has-children">${tocLink(entry)}
+      // ⚠️ **日程的各天与推荐路线的每条直接摊开，不收进「展开 N 项」**：
+      //    用户要的就是「在目录里看到日期、点一下跳过去」，
+      //    藏进折叠块里等于多绕一道弯（实测点它要先展开子列表）。
+      //    而且日程的天数通常只有两三天、路线通常四五条，摊开不占地方；
+      //    「推荐路线」下面挂五六条**普通**三级标题才需要收起来。
+      const days = children.filter((child) => child.kind === 'agenda-day' || child.kind === 'route');
+      const others = children.filter((child) => child.kind !== 'agenda-day' && child.kind !== 'route');
+      // 各天用一个**常开的** <ul> 装着：<li> 不能直接挂在 <li> 里（非法嵌套）
+      const daysHtml =
+        days.length === 0
+          ? ''
+          : `
+        <ul class="toc-list toc-flat-list">
+${days.map((child) => tocItem(child)).join('\n')}
+        </ul>`;
+      const othersHtml =
+        others.length === 0
+          ? ''
+          : `
         <details class="toc-sub">
-          <summary class="toc-sub-summary">展开 ${children.length} 项</summary>
+          <summary class="toc-sub-summary">展开 ${others.length} 项</summary>
           <ul class="toc-list toc-sub-list">
-${children.map((child) => tocItem(child)).join('\n')}
+${others.map((child) => tocItem(child)).join('\n')}
           </ul>
-        </details>
+        </details>`;
+      items.push(
+        `      <li class="toc-item toc-depth-2 toc-has-children">${tocLink(entry)}${daysHtml}${othersHtml}
       </li>`,
       );
     }
@@ -206,7 +225,10 @@ function tocLink(entry: TocEntry): string {
 }
 
 function tocItem(entry: TocEntry): string {
-  return `      <li class="toc-item toc-depth-${entry.depth}">${tocLink(entry)}</li>`;
+  const cls = `toc-item toc-depth-${entry.depth}${
+    entry.kind === 'agenda-day' ? ' toc-agenda-day' : entry.kind === 'route' ? ' toc-route' : ''
+  }`;
+  return `      <li class="${cls}">${tocLink(entry)}</li>`;
 }
 
 /**

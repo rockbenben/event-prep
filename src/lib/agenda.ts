@@ -7,6 +7,7 @@
  */
 
 import { hashText } from './html.ts';
+import { isCalendarDate } from './timezone.ts';
 
 export type AgendaFormat =
   | '演讲' | '圆桌' | '快闪' | '开场' | '闭幕' | '茶歇' | '边会' | '行程' | '签到';
@@ -55,7 +56,37 @@ export interface Session {
 }
 
 export interface AgendaSlot { start: number; timeText: string; sessions: Session[] }
-export interface AgendaDay { title: string; slots: AgendaSlot[] }
+export interface AgendaDay {
+  title: string;
+  slots: AgendaSlot[];
+  /**
+   * 当天的日期（`2026-11-05`），从标题里抠出来的。
+   *
+   * ⚠️ null = 标题里没写无歧义的日期（「11 月 5 日」这种没有年份）。
+   *    浏览器端据此判断「这一天过没过」；判不出来就按「不收缩」处理，
+   *    不猜——猜错就是让读者看不到该看的内容。
+   */
+  date: string | null;
+}
+
+/**
+ * 从当天的标题里抠出**作者写明的日期**（`2026-11-05`）。
+ *
+ * ⚠️ 为什么要抠：读者判断「这一天过没过」要按日历日算。
+ *    只靠「第几天」推（活动起始日 + 第 N 天）是个**推断**——
+ *    万一议程不是从活动第一天开始写，推出来的日期就是错的。
+ *    作者在标题里写明的日期（Day 1 · 2026-11-05（周四）…）是**事实**，优先用它。
+ *
+ * ⚠️ 只认 `YYYY-MM-DD` 这种**无歧义**的写法：
+ *    「11 月 5 日」这种中文日期没有年份（活动跨年时年份从哪来？猜的），
+ *    不认——认了反而会把跨年的活动算错一天。
+ */
+export function extractDayDate(title: string): string | null {
+  const m = /(\d{4})-(\d{2})-(\d{2})/.exec(title);
+  if (!m) return null;
+  const date = `${m[1]}-${m[2]}-${m[3]}`;
+  return isCalendarDate(date) ? date : null;
+}
 
 export interface AgendaParseResult {
   days: AgendaDay[];
@@ -204,7 +235,7 @@ export function parseAgenda(section: string, options: AgendaOptions = {}): Agend
 
   const ensureDay = (): AgendaDay => {
     if (!currentDay) {
-      currentDay = { title: '日程', slots: [] };
+      currentDay = { title: '日程', slots: [], date: null };
       days.push(currentDay);
     }
     return currentDay;
@@ -226,7 +257,8 @@ export function parseAgenda(section: string, options: AgendaOptions = {}): Agend
     const dayMatch = DAY_HEADING.exec(line);
     if (dayMatch?.[1] !== undefined && !SESSION_HEADING.test(line)) {
       pushSession();
-      currentDay = { title: dayMatch[1].trim(), slots: [] };
+      const title = dayMatch[1].trim();
+      currentDay = { title, slots: [], date: extractDayDate(title) };
       days.push(currentDay);
       return;
     }

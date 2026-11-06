@@ -93,12 +93,47 @@ describe('renderMarkdown · 日程章节（段级接管）', () => {
     expect(toc.some((t) => t.text === '日程')).toBe(true);
   });
 
+  it('当天的日期属性活过消毒（浏览器要靠它判「过没过」）', () => {
+    // ⚠️ 白名单要成对：allowedAttributes 放行 data-day-date **属性本身**，
+    //    只在 allowedClasses 里放值是不管用的。
+    const html = renderMarkdown(
+      '## 日程\n\n### Day 1 · 2026-11-05（周四）\n\n#### 09:45 · 一场\n- 形式: 演讲\n- 会场: 主会场\n',
+    ).html;
+    expect(html).toContain('data-day-date="2026-11-05"');
+  });
+
+  it('日程各天作为三级条目进目录，且锚点落在那一天的 <details> 上', () => {
+    const twoDays = `## 日程
+
+### Day 1 · 11 月 5 日
+
+#### 09:45 · 甲场
+- 形式: 演讲
+- 会场: 主会场
+
+### Day 2 · 11 月 6 日
+
+#### 10:00 · 乙场
+- 形式: 演讲
+- 会场: 主会场
+`;
+    const { html, toc } = renderMarkdown(twoDays);
+    expect(toc.map((t) => t.text)).toEqual(['日程', 'Day 1 · 11 月 5 日', 'Day 2 · 11 月 6 日']);
+    expect(toc.filter((t) => t.kind === 'agenda-day')).toHaveLength(2);
+    // 点目录能跳过去：每一天的 <details> 带着同样的 id
+    for (const t of toc.filter((x) => x.kind === 'agenda-day')) {
+      expect(html).toContain(`<details class="agenda-day-block" id="${t.id}"`);
+    }
+  });
+
   it('日程章节里的 `###`/`####` 不再当普通标题渲染', () => {
     const { html, toc } = renderMarkdown(AGENDA);
-    expect(html).not.toContain('id="day-1');
+    // 各天的 id 落在 <details class="agenda-day-block"> 上（目录锚点），
+    // 不再是 <h3>/<h4> 标题——这正是「段级接管」要保证的。
     expect(html).not.toContain('<h3');
     expect(html).not.toContain('<h4 id=');
-    expect(toc.map((t) => t.text)).toEqual(['日程']);
+    expect(html).toContain('<details class="agenda-day-block" id="day-1');
+    expect(toc.map((t) => t.text)).toEqual(['日程', 'Day 1 · 11 月 5 日']);
   });
 
   it('别的章节照旧：一个 `###` 子节仍然是普通小标题', () => {
@@ -239,6 +274,90 @@ describe('renderMarkdown · 清单', () => {
     const { html } = renderMarkdown('- 普通项\n');
     expect(html).toContain('<li>普通项</li>');
     expect(html).not.toContain('checkbox');
+  });
+
+  it('「行前清单」这一节默认收进折叠块，h2 仍在外面（目录要它）', () => {
+    const { html, toc } = renderMarkdown('## 行前清单\n\n- [ ] 买票\n- [ ] 订酒店\n');
+    expect(html).toContain('<h2 id="行前清单">行前清单</h2>');
+    expect(html).toContain('<details class="checklist-fold">');
+    // 默认不带 open：折叠状态由浏览器按活动记住，服务端不写死
+    expect(html).not.toMatch(/<details class="checklist-fold" open/);
+    expect(html).toContain('data-check-id=');
+    expect(html).toContain('checklist-fold-body');
+    expect(toc.map((t) => t.text)).toEqual(['行前清单']);
+  });
+
+  it('清单折叠块到下一个二级标题就收住，不吞掉后面的章节', () => {
+    const { html, toc } = renderMarkdown(
+      '## 行前清单\n\n- [ ] 买票\n\n## 信息来源与待确认\n\n- 官方页\n',
+    );
+    expect(html).toContain('<details class="checklist-fold">');
+    expect(html).toContain('<h2 id="信息来源与待确认">信息来源与待确认</h2>');
+    expect(html).toContain('<li>官方页</li>');
+    expect(toc.map((t) => t.text)).toEqual(['行前清单', '信息来源与待确认']);
+  });
+
+  it('别的章节里有复选框也不被误折叠', () => {
+    const { html } = renderMarkdown('## 速览\n\n- [ ] 带个勾\n');
+    expect(html).toContain('type="checkbox"');
+    expect(html).not.toContain('checklist-fold');
+  });
+});
+
+describe('renderMarkdown · 推荐路线收成可折叠条目', () => {
+  const ROUTES = `## 推荐路线
+
+### 路线一：Agent 框架与底层基础设施
+
+适合 Infra 工程师、平台架构师：
+
+- **11/5 10:10 主会场**《构建Agent》
+- **11/5 11:10 主会场**《开源模型推理的全栈工程》
+
+### 路线二：AI 原生应用与企业工程落地
+
+适合应用层开发者、全栈工程师：
+
+- **11/5 14:05 分会场**《Harvey内部的上万次Agent PR》
+`;
+
+  it('每条路线收成折叠条目，默认展开（推荐路线是全篇的产出）', () => {
+    const { html } = renderMarkdown(ROUTES);
+    expect(html).toContain('<details class="collapse route"');
+    expect(html).toContain('路线一');
+    expect(html).toContain('路线二');
+    // ⚠️ 默认是展开的：读者多半要读这一节，收起来等于多一次点击
+    expect(html).toMatch(/<details class="collapse route"[^>]*open>/);
+    // 原标题不再以 h3 的样子摊开
+    expect(html).not.toContain('<h3 id="路线一');
+  });
+
+  it('每条路线带稳定的折叠键（浏览器端靠它记住展开/收起）', () => {
+    const { html } = renderMarkdown(ROUTES);
+    expect(html).toContain('data-fold-key="route-路线一agent-框架与底层基础设施"');
+    // ⚠️ 键在消毒白名单里，否则属性会被整个剥掉，状态就记不住了
+    expect(html).toContain('data-fold-key="route-路线二ai-原生应用与企业工程落地"');
+  });
+
+  it('每条路线都进目录（读者按自己的角色找路）', () => {
+    const { toc } = renderMarkdown(ROUTES);
+    expect(toc.map((t) => t.text)).toEqual(['推荐路线', '路线一：Agent 框架与底层基础设施', '路线二：AI 原生应用与企业工程落地']);
+    expect(toc.filter((t) => t.kind === 'route')).toHaveLength(2);
+    expect(toc[0]?.depth).toBe(2);
+    expect(toc[1]?.depth).toBe(3);
+  });
+
+  it('路线条目的锚点 id 跟目录里的一致（点目录能跳过去）', () => {
+    const { html, toc } = renderMarkdown(ROUTES);
+    const route = toc.find((t) => t.kind === 'route');
+    expect(route).toBeTruthy();
+    expect(html).toContain(`id="${route?.id}"`);
+  });
+
+  it('别的章节的三级标题不受影响', () => {
+    const { html } = renderMarkdown('## 社交与提问\n\n### 展台位置\n\n在展区右侧。\n');
+    expect(html).not.toContain('collapse route');
+    expect(html).toContain('<h3 id="展台位置">');
   });
 });
 
