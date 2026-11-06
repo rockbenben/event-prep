@@ -807,6 +807,42 @@ async function runChecks(browser, base) {
         }
       }
 
+      // 5.11e 打印版：展开全部折叠内容、藏掉交互组件、退出后还原
+      {
+        await page.goto(`${base}/${slug}/`, { waitUntil: 'networkidle' });
+        const openBtn = page.locator('#print-open');
+        if ((await openBtn.count()) === 0) {
+          record('打印版 · 活动页有入口', false, '没有 #print-open');
+        } else {
+          // ⚠️ 「原本收着的」只量正文里的 details：抽屉里的 toc-sub 会被 scrollspy
+          //    顺手展开、event-meta-wrap 由 initEventMeta 管，它们不在这次对比范围里。
+          const contentClosed = `(() => [...document.querySelectorAll('.content details')].filter((d) => !d.open).length)()`;
+          const before = await page.evaluate(contentClosed);
+          await openBtn.click();
+          await page.waitForTimeout(150);
+          const inMode = await page.evaluate(`(() => ({
+            mode: document.documentElement.classList.contains('print-mode'),
+            closedAfter: [...document.querySelectorAll('details')].filter((d) => !d.open).length,
+            barVisible: (() => { const b = document.getElementById('print-bar'); return b ? getComputedStyle(b).display !== 'none' : false; })(),
+            noteHidden: (() => { const b = document.querySelector('.agenda-note-btn'); return b ? getComputedStyle(b).display === 'none' : true; })(),
+            tipHidden: (() => { const b = document.querySelector('.agenda-tip-btn'); return b ? getComputedStyle(b).display === 'none' : true; })(),
+          }))()`);
+          record('打印版 · 进入后挂上 print-mode 标记', inMode.mode === true);
+          record('打印版 · 所有折叠内容都展开', inMode.closedAfter === 0, `进入前正文收着 ${before} 个，进入后全页 ${inMode.closedAfter} 个还收着`);
+          record('打印版 · 工具条可见', inMode.barVisible === true);
+          record('打印版 · 交互组件（笔记/提示入口）藏掉', inMode.noteHidden && inMode.tipHidden, JSON.stringify(inMode));
+
+          await page.keyboard.press('Escape');
+          await page.waitForTimeout(150);
+          const after = await page.evaluate(`(() => ({
+            mode: document.documentElement.classList.contains('print-mode'),
+            closed: [...document.querySelectorAll('.content details')].filter((d) => !d.open).length,
+          }))()`);
+          record('打印版 · Esc 退出后回到正常版', after.mode === false);
+          record('打印版 · 退出后原本收着的仍是收着的', after.closed === before, `退出前正文收着 ${before} 个，退出后 ${after.closed} 个`);
+        }
+      }
+
       // 5.12 记住读到哪儿了：滚到某节，离开再打开，回到同一节
       //
       // ⚠️ 这是**本机个人数据**：不上传、不同步。

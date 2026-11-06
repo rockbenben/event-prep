@@ -1911,3 +1911,297 @@ a:hover {
     display: block;
   }
 }
+
+/* ==========================================================================
+   打印版 / 纸面
+   两处共用同一套「隐藏清单」与配色：
+     · html.print-mode —— 页面上点「打印版」进入的干净视图
+     · @media print    —— 直接 Ctrl+P 或打印成 PDF
+   ⚠️ 改这里要两处同步。展开 <details> 不能只靠 CSS（浏览器内部会藏住未展开的
+      内容），由 site.js 的 initPrintMode / beforeprint 负责设 open。
+   ⚠️ 不能一刀切隐藏所有 summary：.agenda-day-summary（第几天）和
+      .collapse > summary（条目名称）是有用信息，要留；只藏动作性的那些。
+   ========================================================================== */
+
+/* ---------- 屏幕上的「打印版」视图 ----------
+   主题变量一次性压成纸面配色：深色模式下那些写死的 --fg / --bg 值
+   也在这一层被盖掉，嵌套的文字、链接、卡片不用逐个去改颜色。 */
+:root.print-mode,
+:root.print-mode[data-theme],
+:root.print-mode[data-theme='dark'],
+:root.print-mode[data-theme='light'] {
+  color-scheme: light;
+  --bg: #ffffff;
+  --bg-card: #ffffff;
+  --bg-inset: #f4f4f4;
+  --bg-soft: #ffffff;
+  --fg: #111111;
+  --fg-muted: #444444;
+  --fg-faint: #666666;
+  --border: #cccccc;
+  --border-soft: #dddddd;
+  --accent: #111111;
+  --accent-hover: #111111;
+  --accent-soft: #f4f4f4;
+  --hover-bg: transparent;
+  --unknown-bg: #fff8e6;
+  --unknown-fg: #7a4b00;
+  --shadow: none;
+  --shadow-sm: none;
+  --shadow-hover: none;
+}
+html.print-mode body {
+  background: #fff;
+  color: #111;
+}
+/* 页头的主题 / GitHub / 目录入口、面包屑、操作按钮、进度条、
+   「记一笔」入口、提示小圆图标、头像放大按钮、导出说明、工具条上的入口……
+   这些在纸面上都是多余的交互控件 */
+html.print-mode .site-header,
+html.print-mode .site-footer,
+html.print-mode .crumbs,
+html.print-mode .actions,
+html.print-mode .back-to-top,
+html.print-mode .checklist-progress,
+html.print-mode .agenda-note-btn,
+html.print-mode .agenda-tip-btn,
+html.print-mode .agenda-avatar-btn,
+html.print-mode .agenda-source,
+html.print-mode .export-note,
+html.print-mode .countdown,
+html.print-mode .toc-sub-summary,
+html.print-mode .event-meta-summary,
+html.print-mode .agenda-abstract > summary,
+html.print-mode .collapse-chevron,
+html.print-mode .checklist-fold-summary {
+  display: none !important;
+}
+/* 工具条本身是屏幕控件：打印到纸上时藏，但屏幕上的打印版里要留着
+   （「打印 / 存 PDF」「退出」都靠它），所以只在 @media print 里藏 */
+html.print-mode .print-bar {
+  position: static;
+}
+/* 头部信息在手机上收成一行：打印版里强制摊开全部字段 */
+html.print-mode .event-meta {
+  display: grid !important;
+  padding: 16px 18px !important;
+}
+/* 正文限宽放开，纸面别留一大条空白 */
+html.print-mode .event {
+  max-width: none;
+}
+html.print-mode .event-body {
+  display: block;
+}
+/* 折叠块展开了：把「点开才看」的summary 压成普通小标题的样子 */
+html.print-mode .collapse > summary {
+  border-bottom: 1px solid #ddd;
+  padding: 8px 0;
+}
+html.print-mode .agenda-day-summary {
+  background: #f4f4f4;
+  border-bottom: 1px solid #ccc;
+}
+html.print-mode details.agenda-abstract > summary {
+  display: none;
+}
+/* 去掉阴影、悬浮位移、圆点底色；链接加下划线（纸上认不出颜色） */
+html.print-mode .callout,
+html.print-mode .event-card,
+html.print-mode .agenda-card,
+html.print-mode .agenda-day-block,
+html.print-mode .collapse,
+html.print-mode .checklist-fold,
+html.print-mode .badge,
+html.print-mode .tag,
+html.print-mode .note {
+  box-shadow: none;
+  background: #fff;
+  color: #111;
+  border-color: #ccc;
+}
+html.print-mode a {
+  color: #111;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+html.print-mode .content .note.note-warn {
+  color: #7a4b00;
+  border-color: #d9a441;
+  background: #fff8e6;
+}
+html.print-mode .agenda-tip-body {
+  border-left-color: #bbb;
+  background: #fff;
+  color: #333;
+}
+/* 读者自己写的笔记：去掉输入框的边框，长文由脚本撑高，印出来像一段批注 */
+html.print-mode .content .agenda-note-editor {
+  display: block;
+}
+html.print-mode .content .agenda-note-input {
+  border: none;
+  background: #fff;
+  color: #333;
+  resize: none;
+  overflow: hidden;
+}
+html.print-mode .content .agenda-note-hint {
+  display: none;
+}
+html.print-mode .agenda-note.has-note .agenda-note-btn {
+  display: none;
+}
+/* 避免卡片被分页从中间切断 */
+html.print-mode .agenda-card,
+html.print-mode .collapse,
+html.print-mode .agenda-day-block {
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+/* ---------- 纸面（直接 Ctrl+P / 存 PDF） ---------- */
+@media print {
+  @page {
+    margin: 14mm 12mm;
+  }
+  :root,
+  :root[data-theme],
+  :root[data-theme='dark'],
+  :root[data-theme='light'] {
+    color-scheme: light;
+    --bg: #ffffff;
+    --bg-card: #ffffff;
+    --bg-inset: #f4f4f4;
+    --bg-soft: #ffffff;
+    --fg: #111111;
+    --fg-muted: #444444;
+    --fg-faint: #666666;
+    --border: #cccccc;
+    --border-soft: #dddddd;
+    --accent: #111111;
+    --accent-hover: #111111;
+    --accent-soft: #f4f4f4;
+    --hover-bg: transparent;
+    --unknown-bg: #fff8e6;
+    --unknown-fg: #7a4b00;
+    --shadow: none;
+    --shadow-sm: none;
+    --shadow-hover: none;
+  }
+  body {
+    background: #fff;
+    color: #111;
+  }
+  /* 隐藏清单：跟上面 html.print-mode 那份一致，改一处要两处同步 */
+  .site-header,
+  .site-footer,
+  .toc,
+  .toc-drawer,
+  .crumbs,
+  .actions,
+  .back-to-top,
+  .print-bar,
+  .checklist-progress,
+  .agenda-note-btn,
+  .agenda-tip-btn,
+  .agenda-avatar-btn,
+  .agenda-source,
+  .export-note,
+  .countdown,
+  .toc-sub-summary,
+  .event-meta-summary,
+  .agenda-abstract > summary,
+  .collapse-chevron,
+  .skip-link,
+  .avatar-viewer {
+    display: none !important;
+  }
+  .event {
+    max-width: none;
+  }
+  .event-body {
+    display: block;
+  }
+  /* 手机上收起的头部信息：纸上摊开 */
+  .event-meta {
+    display: grid !important;
+    padding: 16px 18px !important;
+  }
+  .collapse > summary {
+    border-bottom: 1px solid #ddd;
+    padding: 8px 0;
+  }
+  .agenda-day-summary {
+    background: #f4f4f4;
+    border-bottom: 1px solid #ccc;
+  }
+  details.agenda-abstract > summary {
+    display: none;
+  }
+  /* 去阴影、去悬浮位移、去圆点底色 */
+  .callout,
+  .event-card,
+  .agenda-card,
+  .agenda-day-block,
+  .collapse,
+  .checklist-fold,
+  .badge,
+  .tag,
+  .note {
+    box-shadow: none;
+    background: #fff;
+    color: #111;
+    border-color: #ccc;
+  }
+  .event-card:hover,
+  .action-btn:hover,
+  .collapse:hover {
+    transform: none;
+    box-shadow: none;
+  }
+  a {
+    color: #111;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .content .note.note-warn {
+    color: #7a4b00;
+    border-color: #d9a441;
+    background: #fff8e6;
+  }
+  .agenda-tip-body {
+    border-left-color: #bbb;
+    background: #fff;
+    color: #333;
+  }
+  /* 读者笔记照常印出（本机数据），只是去掉输入框的样子。
+     ⚠️ 要带 .content 前缀：原规则 `.content .agenda-note-editor{display:none}`
+        是两层类，裸选择器盖不过它。 */
+  .content .agenda-note-editor {
+    display: block;
+  }
+  .content .agenda-note-input {
+    border: none;
+    background: #fff;
+    color: #333;
+    resize: none;
+    overflow: hidden;
+  }
+  .content .agenda-note-hint {
+    display: none;
+  }
+  .agenda-card,
+  .collapse,
+  .agenda-day-block {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  /* 页眉里那些 h2 的小蓝条在纸上省掉 */
+  .content h2 {
+    border-bottom-color: #ddd;
+  }
+  .content h2::before {
+    background: #888;
+  }
+}

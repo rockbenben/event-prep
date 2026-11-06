@@ -113,6 +113,15 @@ ${ogImageTags}
 ${jsonLd}
 </head>
 <body>
+<!-- 打印版工具条：平时 display:none，进入打印模式（<html class="print-mode">）才出现。
+     打印到纸上时这条工具条自身要藏掉（见 site.css 的 @media print）——它是屏幕上的控件。 -->
+<div class="print-bar" id="print-bar" role="toolbar" aria-label="打印版工具条">
+  <span class="print-bar-title">EventPrep · 打印版 · 全部内容已展开</span>
+  <div class="print-bar-actions">
+    <button type="button" id="print-do" class="ghost-btn">打印 / 存 PDF</button>
+    <button type="button" id="print-exit" class="ghost-btn">退出打印版</button>
+  </div>
+</div>
 <a class="skip-link" href="#main"${LINK_TABINDEX}>跳到正文</a>
 <header class="site-header">
   <div class="wrap header-inner">
@@ -135,6 +144,18 @@ ${jsonLd}
           <circle cx="4.5" cy="6" r="1.1" fill="currentColor" stroke="none"></circle>
           <circle cx="4.5" cy="12" r="1.1" fill="currentColor" stroke="none"></circle>
           <circle cx="4.5" cy="18" r="1.1" fill="currentColor" stroke="none"></circle>
+        </svg>
+      </button>`
+          : ''
+      }
+      ${
+        options.showToc
+          ? `<button type="button" id="print-open" class="ghost-btn" aria-label="打印版" title="打印版（展开全部内容）">
+        <svg class="theme-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+          <path d="M6 9V3h12v6"></path>
+          <rect x="6" y="14" width="12" height="8" rx="1"></rect>
+          <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+          <circle cx="18" cy="12" r="0.8" fill="currentColor" stroke="none"></circle>
         </svg>
       </button>`
           : ''

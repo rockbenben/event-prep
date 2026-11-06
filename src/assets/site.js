@@ -684,6 +684,98 @@
     });
   }
 
+
+  /* ---------- 打印版（临时模式） ----------
+     点页头那枚「打印版」→ 给 <html> 挂 print-mode 标记（干净的屏幕视图由 CSS 负责），
+     同时展开所有 <details>，记住原本是关着的那些，退出时只还原这些
+     （读者自己手动开过的不动）。
+     ⚠️ 不写 localStorage：刷新就回正常版，这是「临时模式」。
+     ⚠️ 纸面样式由 site.css 的 @media print 独立负责（不依赖这个标记）；
+        CSS 盖不过浏览器对未展开 details 的内部隐藏，所以 beforeprint 在这里兜底展开，
+        afterprint 在「没手动进模式」时还原。三个引擎都支持这两个事件。 */
+  function initPrintMode() {
+    var root = document.documentElement;
+    if (!root) return;
+    var openBtn = document.getElementById('print-open');
+    var exitBtn = document.getElementById('print-exit');
+    var doBtn = document.getElementById('print-do');
+
+    /** 进入一次展开时，把原本关闭的 details 记下来。 */
+    var closedBefore = null;
+    /** 读者自己写的笔记：打印时把 textarea 撑到内容高度，别印出一个带滚动条的小框。 */
+    var resizedNotes = [];
+
+    function prepNotes() {
+      if (resizedNotes.length) return;
+      var tas = document.querySelectorAll('.agenda-note-input');
+      for (var i = 0; i < tas.length; i += 1) {
+        var ta = tas[i];
+        resizedNotes.push(ta);
+        ta.style.height = 'auto';
+        ta.style.height = ta.scrollHeight + 'px';
+      }
+    }
+
+    function restoreNotes() {
+      for (var i = 0; i < resizedNotes.length; i += 1) resizedNotes[i].style.height = '';
+      resizedNotes = [];
+    }
+
+    function expandAll() {
+      if (closedBefore) return; // 已经展开过了，别把「原本关闭」的名单冲掉
+      closedBefore = [];
+      var all = document.querySelectorAll('details');
+      for (var i = 0; i < all.length; i += 1) {
+        if (!all[i].open) {
+          closedBefore.push(all[i]);
+          all[i].open = true;
+        }
+      }
+      prepNotes();
+    }
+
+    function restoreAll() {
+      if (!closedBefore) return;
+      for (var i = 0; i < closedBefore.length; i += 1) {
+        // 期间被读者手动改过的就不强行关回去：只在它仍然开着时还原成关
+        if (closedBefore[i].open) closedBefore[i].open = false;
+      }
+      closedBefore = null;
+      restoreNotes();
+    }
+
+    function enter() {
+      root.classList.add('print-mode');
+      expandAll();
+      if (exitBtn) exitBtn.focus();
+    }
+
+    function exit() {
+      root.classList.remove('print-mode');
+      restoreAll();
+      if (openBtn) openBtn.focus();
+    }
+
+    if (openBtn) openBtn.addEventListener('click', enter);
+    if (exitBtn) exitBtn.addEventListener('click', exit);
+    if (doBtn) {
+      doBtn.addEventListener('click', function () {
+        expandAll();
+        if (typeof window.print === 'function') window.print();
+      });
+    }
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && root.classList.contains('print-mode')) exit();
+    });
+
+    if (window.addEventListener) {
+      window.addEventListener('beforeprint', expandAll);
+      window.addEventListener('afterprint', function () {
+        if (!root.classList.contains('print-mode')) restoreAll();
+      });
+    }
+  }
+
   /* ---------- 记住读到哪儿了（本机存储，按活动分开） ---------- */
 
   /**
@@ -834,6 +926,7 @@
   function boot() {
     initTheme();
     initChecklist();
+    initPrintMode();
     initSite();
     initTocDrawer();
     initTocSpy();
