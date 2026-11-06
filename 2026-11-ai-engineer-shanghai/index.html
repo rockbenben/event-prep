@@ -23,10 +23,19 @@
 <meta property="og:image:alt" content="AI Engineer Shanghai 2026 · EventPrep">
 <script>(function(){try{var t=localStorage.getItem('eventprep:theme');if(t==='light'||t==='dark'){document.documentElement.setAttribute('data-theme',t);}}catch(e){}})();</script>
 <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
-<link rel="stylesheet" href="../assets/site.7f9b84c1.css">
+<link rel="stylesheet" href="../assets/site.d18acc20.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Event","name":"AI Engineer Shanghai 2026","description":"中国第一届 AI Engineer 大会，两天讲开放模型、Agent 基础设施与 Physical AI","startDate":"2026-11-05T00:30:00.000Z","endDate":"2026-11-06T09:50:00.000Z","url":"https://ai.engineer/shanghai/2026","organizer":{"@type":"Organization","name":"AI Engineer（Software 3.0 Inc.）"},"location":{"@type":"Place","name":"上海虹桥希尔顿酒店（Hilton Shanghai Hongqiao）","address":{"@type":"PostalAddress","streetAddress":"上海市闵行区红松东路 1116 号","addressLocality":"上海"}}}</script>
 </head>
 <body>
+<!-- 打印版工具条：平时 display:none，进入打印模式（<html class="print-mode">）才出现。
+     打印到纸上时这条工具条自身要藏掉（见 site.css 的 @media print）——它是屏幕上的控件。 -->
+<div class="print-bar" id="print-bar" role="toolbar" aria-label="打印版工具条">
+  <span class="print-bar-title">EventPrep · 打印版 · 全部内容已展开</span>
+  <div class="print-bar-actions">
+    <button type="button" id="print-do" class="ghost-btn">打印 / 存 PDF</button>
+    <button type="button" id="print-exit" class="ghost-btn">退出打印版</button>
+  </div>
+</div>
 <a class="skip-link" href="#main" tabindex="0">跳到正文</a>
 <header class="site-header">
   <div class="wrap header-inner">
@@ -47,6 +56,14 @@
           <circle cx="4.5" cy="6" r="1.1" fill="currentColor" stroke="none"></circle>
           <circle cx="4.5" cy="12" r="1.1" fill="currentColor" stroke="none"></circle>
           <circle cx="4.5" cy="18" r="1.1" fill="currentColor" stroke="none"></circle>
+        </svg>
+      </button>
+      <button type="button" id="print-open" class="ghost-btn" aria-label="打印版" title="打印版（展开全部内容）">
+        <svg class="theme-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+          <path d="M6 9V3h12v6"></path>
+          <rect x="6" y="14" width="12" height="8" rx="1"></rect>
+          <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+          <circle cx="18" cy="12" r="0.8" fill="currentColor" stroke="none"></circle>
         </svg>
       </button>
       <a class="ghost-btn" href="https://github.com/rockbenben/event-prep" target="_blank" rel="noopener noreferrer" aria-label="GitHub 仓库" title="GitHub 仓库">
@@ -73,7 +90,7 @@
   </nav>
 
   <header class="event-head">
-    <span class="badge badge-upcoming" data-status-badge>即将开始</span>
+    <span class="badge badge-ended" data-status-badge>已结束</span>
     <h1 class="event-title">AI Engineer Shanghai 2026</h1>
     <p class="event-summary">中国第一届 AI Engineer 大会，两天讲开放模型、Agent 基础设施与 Physical AI</p>
     <details class="event-meta-wrap" data-event-meta open>
@@ -129,7 +146,7 @@
 </ul>
 <h2 id="日程">日程</h2>
 <section class="agenda-day">
-  <details class="agenda-day-block" open>
+  <details class="agenda-day-block" id="day-1-2026-11-05周四开放模型agent-与基础设施" data-day-date="2026-11-05" data-fold-key="day-1" open>
     <summary class="agenda-day-summary">Day 1 · 2026-11-05（周四）开放模型、Agent 与基础设施</summary>
     <ol class="agenda-slots">
     <li class="agenda-slot">
@@ -919,7 +936,7 @@
   </details>
 </section>
 <section class="agenda-day">
-  <details class="agenda-day-block">
+  <details class="agenda-day-block" id="day-2-2026-11-06周五世界模型physical-ai-与-ai-原生产品" data-day-date="2026-11-06" data-fold-key="day-2">
     <summary class="agenda-day-summary">Day 2 · 2026-11-06（周五）世界模型、Physical AI 与 AI 原生产品</summary>
     <ol class="agenda-slots">
     <li class="agenda-slot">
@@ -1425,8 +1442,15 @@
   </details>
 </section>
 <h2 id="推荐路线">推荐路线</h2>
-<h3 id="路线一agent-框架与底层基础设施harness沙箱调度与网关">路线一：Agent 框架与底层基础设施（Harness、沙箱、调度与网关）</h3>
-<p>适合 Infra 工程师、平台架构师、LLM 平台负责人与 DevOps 专家：</p>
+<details class="collapse route" id="路线一agent-框架与底层基础设施harness沙箱调度与网关" data-fold-key="route-路线一agent-框架与底层基础设施harness沙箱调度与网关" open>
+  <summary>
+    <span class="collapse-icon" aria-hidden="true">路</span>
+    <span class="collapse-text">
+      <span class="collapse-name">路线一：Agent 框架与底层基础设施（Harness、沙箱、调度与网关）</span><span class="collapse-teaser">适合 Infra 工程师、平台架构师、LLM 平台负责人与 DevOps 专家： 11/5 …</span>
+    </span>
+    <span class="collapse-chevron" aria-hidden="true"></span>
+  </summary>
+  <div class="collapse-body"><p>适合 Infra 工程师、平台架构师、LLM 平台负责人与 DevOps 专家：</p>
 <ul>
 <li><strong>11/5 10:10 主会场</strong>《构建Agent：昨天、今天与明天》（Langfuse by ClickHouse · Clemens Rawert）：从单次 Prompt 追踪到复杂 Agent 状态树观测的演进史与评测实践。</li>
 <li><strong>11/5 11:10 主会场</strong>《开源模型推理的全栈工程：延迟、吞吐与成本》（Baseten · Chen Wang）：模型推理加速、投机采样、KV Cache 调度与高并发批处理架构。</li>
@@ -1436,8 +1460,16 @@
 <li><strong>11/5 17:25 主会场</strong>《百万沙箱背后的Agent强化学习基础设施》（Google · Tinsley Shi）：大规模并行 Rollout 环境调度与自动化数据采集流水线。</li>
 <li><strong>11/6 13:55 主会场</strong>《模型越来越强，Harness该管什么，又该放手什么？》（MiniMax · 何涛）：当模型推理能力持续跃升，外围框架控制权重新划分的工程思考。</li>
 </ul>
-<h3 id="路线二ai-原生应用与企业工程落地工作流自动化企业级治理移动端验收">路线二：AI 原生应用与企业工程落地（工作流自动化、企业级治理、移动端验收）</h3>
-<p>适合应用层开发者、企业数字化架构师、全栈工程师与技术产品经理：</p>
+</div>
+</details><details class="collapse route" id="路线二ai-原生应用与企业工程落地工作流自动化企业级治理移动端验收" data-fold-key="route-路线二ai-原生应用与企业工程落地工作流自动化企业级治理移动端验收" open>
+  <summary>
+    <span class="collapse-icon" aria-hidden="true">路</span>
+    <span class="collapse-text">
+      <span class="collapse-name">路线二：AI 原生应用与企业工程落地（工作流自动化、企业级治理、移动端验收）</span><span class="collapse-teaser">适合应用层开发者、企业数字化架构师、全栈工程师与技术产品经理： 11/5 09:45 主会场…</span>
+    </span>
+    <span class="collapse-chevron" aria-hidden="true"></span>
+  </summary>
+  <div class="collapse-body"><p>适合应用层开发者、企业数字化架构师、全栈工程师与技术产品经理：</p>
 <ul>
 <li><strong>11/5 09:45 主会场</strong>《从模型到企业工作流：Agent真正落地需要什么》（微软 · Marco Casalaina）：从实验室 Demo 跨越到企业业务系统集成的关键瓶颈。</li>
 <li><strong>11/5 14:05 分会场</strong>《Harvey内部的上万次Agent PR》（Harvey · Joey Wang）：<strong>分会场重磅</strong>！解析法律独角兽如何利用 Agent 自动化提交并验证上万个代码 PR，构建真实生产级 Evals。</li>
@@ -1446,8 +1478,16 @@
 <li><strong>11/5 14:55 分会场</strong>《写代码变快以后，移动端验收怎么办？》（Meta / Instagram · Peng Gong）：端到端 UI 探索 Agent 与真实设备自动化回归验证体系。</li>
 <li><strong>11/6 10:25 主会场</strong>《HTML就是Agent的视觉上下文》（HeyGen · Bin Liu）：超越截图像素，将 DOM 结构与语义信息作为多模态 Agent 的高效上下文。</li>
 </ul>
-<h3 id="路线三具身智能机器人与-physical-ai世界模型vlasim2real硬件">路线三：具身智能、机器人与 Physical AI（世界模型、VLA、Sim2Real、硬件）</h3>
-<p>适合机器人算法工程师、具身智能团队、3D 视觉研究员与硬件系统专家（<strong>11/6 全天单一主会场，无撞场顾虑</strong>）：</p>
+</div>
+</details><details class="collapse route" id="路线三具身智能机器人与-physical-ai世界模型vlasim2real硬件" data-fold-key="route-路线三具身智能机器人与-physical-ai世界模型vlasim2real硬件" open>
+  <summary>
+    <span class="collapse-icon" aria-hidden="true">路</span>
+    <span class="collapse-text">
+      <span class="collapse-name">路线三：具身智能、机器人与 Physical AI（世界模型、VLA、Sim2Real、硬件）</span><span class="collapse-teaser">适合机器人算法工程师、具身智能团队、3D 视觉研究员与硬件系统专家（11/6 全天单一主会场…</span>
+    </span>
+    <span class="collapse-chevron" aria-hidden="true"></span>
+  </summary>
+  <div class="collapse-body"><p>适合机器人算法工程师、具身智能团队、3D 视觉研究员与硬件系统专家（<strong>11/6 全天单一主会场，无撞场顾虑</strong>）：</p>
 <ul>
 <li><strong>11/6 10:05 主会场</strong>《世界模型的分类》（World Labs · Christoph Lassner）：李飞飞创办团队核心成员全面梳理空间智能、三维几何生成与物理规律预测模型范式。</li>
 <li><strong>11/6 14:15 主会场</strong>《Physical AI为什么还需要超越VLA？》（AiMoga Robotics · Xinghua Jia）：具身动作生成不仅是端到端像素映射，高层因果推理与底层动力学解耦。</li>
@@ -1456,8 +1496,16 @@
 <li><strong>11/6 16:05 主会场</strong>《为快速演进的模型设计机器人硬件》（DYNA · Zhong Shen）：硬件迭代周期如何追赶 AI 算法爆发。</li>
 <li><strong>11/6 17:00 主会场</strong>《机器人数据为什么需要一个构建系统？》（LanceDB · 丁皓 / Xuanwo）：OpenDAL 作者剖析多模态具身数据湖仓与高效向量检索架构。</li>
 </ul>
-<h3 id="路线四模型后训练高性能推理与上下文数据工程">路线四：模型后训练、高性能推理与上下文数据工程</h3>
-<p>适合算法工程师、训练平台架构师与数据基础设施团队：</p>
+</div>
+</details><details class="collapse route" id="路线四模型后训练高性能推理与上下文数据工程" data-fold-key="route-路线四模型后训练高性能推理与上下文数据工程" open>
+  <summary>
+    <span class="collapse-icon" aria-hidden="true">路</span>
+    <span class="collapse-text">
+      <span class="collapse-name">路线四：模型后训练、高性能推理与上下文数据工程</span><span class="collapse-teaser">适合算法工程师、训练平台架构师与数据基础设施团队： 11/5 10:50 主会场《前沿模型后…</span>
+    </span>
+    <span class="collapse-chevron" aria-hidden="true"></span>
+  </summary>
+  <div class="collapse-body"><p>适合算法工程师、训练平台架构师与数据基础设施团队：</p>
 <ul>
 <li><strong>11/5 10:50 主会场</strong>《前沿模型后训练：教开放模型搜索和浏览网页》（You.com · 李正楠、Alex Triplett）：RLVR、工具调用奖励建模与网页导航多轮轨迹训练。</li>
 <li><strong>11/5 11:30 主会场</strong>《怎样衡量模型在真实使用中的表现》（Arena · Chen Peng）：Chatbot Arena 盲测机制、真实场景 Hard Prompts 分流与人类偏好建模。</li>
@@ -1465,8 +1513,16 @@
 <li><strong>11/5 15:55 主会场</strong>《Agent的记忆，也是下一轮训练数据》（Zilliz · Charles Xie）：长期向量记忆存储与交互轨迹转化为微调数据飞轮。</li>
 <li><strong>11/6 17:20 主会场</strong>《给大模型读网页：Jina Reader的实践与思考》（Jina AI · 王彦龙）：HTML 降噪、结构化 Markdown 转换与 Token 经济学。</li>
 </ul>
-<h3 id="路线五ai-创业者独立开发者与商业化生态">路线五：AI 创业者、独立开发者与商业化生态</h3>
-<p>适合创业团队创始人、AI 产品独立开发者、风险投资人与社区活跃者：</p>
+</div>
+</details><details class="collapse route" id="路线五ai-创业者独立开发者与商业化生态" data-fold-key="route-路线五ai-创业者独立开发者与商业化生态" open>
+  <summary>
+    <span class="collapse-icon" aria-hidden="true">路</span>
+    <span class="collapse-text">
+      <span class="collapse-name">路线五：AI 创业者、独立开发者与商业化生态</span><span class="collapse-teaser">适合创业团队创始人、AI 产品独立开发者、风险投资人与社区活跃者： 11/5 10:25 主…</span>
+    </span>
+    <span class="collapse-chevron" aria-hidden="true"></span>
+  </summary>
+  <div class="collapse-body"><p>适合创业团队创始人、AI 产品独立开发者、风险投资人与社区活跃者：</p>
 <ul>
 <li><strong>11/5 10:25 主会场</strong>《当我们什么都能做，还知道自己想做什么吗？》（前 Cursor · Ryo Lu）：AI 时代的人机协作体验与产品心智边界。</li>
 <li><strong>11/5 13:00 主会场</strong>《AI时代的社区》（圆桌 · WaytoAGI / 十字路口 / 42章经）：全球与本土 AI 开发者生态演变。</li>
@@ -1476,8 +1532,16 @@
 <li><strong>11/6 13:15 主会场</strong>《AI创业：产品、市场与下一步》（圆桌 · 真格基金 / 线性资本 / TaoZ Capital，小声比比主持）：从资本视角拆解 2026 AI 商业化护城河与 PMF。</li>
 </ul>
 <hr />
-<h3 id="11-月-5-日下午双会场并行时怎么选13451700">11 月 5 日下午双会场并行时怎么选（13:45–17:00）</h3>
-<p>13:45 起主会场与 AI 应用分会场完全并行，以下按关注点给出取舍：</p>
+</div>
+</details><details class="collapse route" id="11-月-5-日下午双会场并行时怎么选13451700" data-fold-key="route-11-月-5-日下午双会场并行时怎么选13451700" open>
+  <summary>
+    <span class="collapse-icon" aria-hidden="true">1</span>
+    <span class="collapse-text">
+      <span class="collapse-name">11 月 5 日下午双会场并行时怎么选（13:45–17:00）</span><span class="collapse-teaser">13:45 起主会场与 AI 应用分会场完全并行，以下按关注点给出取舍： 13:45–14…</span>
+    </span>
+    <span class="collapse-chevron" aria-hidden="true"></span>
+  </summary>
+  <div class="collapse-body"><p>13:45 起主会场与 AI 应用分会场完全并行，以下按关注点给出取舍：</p>
 <ul>
 <li><strong>13:45–14:05</strong>：做底层系统与 Agent Harness 的选<strong>主会场</strong>（阶跃星辰）；关注个人知识与产品交互的选<strong>分会场</strong>（YouMind）。</li>
 <li><strong>14:05–14:25</strong>：做企业工程落地与评测的，<strong>分会场</strong>（Harvey）更值得去。</li>
@@ -1486,8 +1550,11 @@
 <li><strong>15:30–16:15</strong>：做数据治理与企业评估的选<strong>分会场</strong>（Agoda、DataHub、Data4Life）；做向量数据库与外脑检索的选<strong>主会场</strong>（Exa、Zilliz）。</li>
 <li><strong>16:15–17:00</strong>：偏后端基础架构的选<strong>主会场</strong>（Optiver、TiDB）；做独立开发与垂直场景产品的选<strong>分会场</strong>（DatusAI、Interact AI、Sac、AhaCreator）。</li>
 </ul>
-<h2 id="行前清单">行前清单</h2>
-<ul>
+</div>
+</details><h2 id="行前清单">行前清单</h2>
+<details class="checklist-fold">
+  <summary class="checklist-fold-summary">展开行前清单</summary>
+  <div class="checklist-fold-body"><ul>
 <li class="task-item"><label><input type="checkbox" id="chk-12imdvl" data-check-id="12imdvl" /> <strong>完成购票</strong>：国内参会者走微信／支付宝通道（支持增值税专票），海外参会者走 Luma 美元信用卡通道；出发前在结账凭证中确认入场二维码或邮件确认函</label></li>
 <li class="task-item"><label><input type="checkbox" id="chk-1wc9v4f" data-check-id="1wc9v4f" /> <strong>报名 11月4日会前边会</strong>：Daytona AI Builders 官方边会（11月4日 18:00–20:30），免费但席位有限，需在 Luma 上单独提交审核，通过后主办方将发送私密场地地址</label></li>
 <li class="task-item"><label><input type="checkbox" id="chk-14d1164" data-check-id="14d1164" /> <strong>核验出入境证件与签证</strong>：<ul>
@@ -1501,7 +1568,8 @@
 <li class="task-item"><label><input type="checkbox" id="chk-1yufiqx" data-check-id="1yufiqx" /> <strong>准备交流名片与即时通讯账号</strong>：现场设有白金赞助（Exa、Optiver、You.com）与金赞助（Daytona、Manus、StepFun、Zilliz 等）专属展位，提前锁定想交流的技术专家</label></li>
 <li class="task-item"><label><input type="checkbox" id="chk-126mrxg" data-check-id="126mrxg" /> <strong>现场同传接收</strong>：准备好降噪耳机及手机电量，同传音频流通常支持手机扫码收听或现场领取传统接收机（需押金或证件）</label></li>
 </ul>
-<h2 id="社交与提问">社交与提问</h2>
+</div>
+</details><h2 id="社交与提问">社交与提问</h2>
 <ul>
 <li><strong>最佳破冰交流场次</strong>：大会特设两场官方重磅圆桌，是提问与结识同行的最佳契机：<ul>
 <li>11/5 13:00 主会场《AI时代的社区》（AJ、杨远骋、曲凯）</li>
@@ -1552,19 +1620,21 @@
   <div class="toc-drawer-body"><nav class="toc" aria-label="本页目录">
     <ul class="toc-list">
       <li class="toc-item toc-depth-2"><a href="#速览" tabindex="0">速览</a></li>
-      <li class="toc-item toc-depth-2"><a href="#日程" tabindex="0">日程</a></li>
+      <li class="toc-item toc-depth-2 toc-has-children"><a href="#日程" tabindex="0">日程</a>
+        <ul class="toc-list toc-flat-list">
+      <li class="toc-item toc-depth-3 toc-agenda-day"><a href="#day-1-2026-11-05周四开放模型agent-与基础设施" tabindex="0">Day 1 · 2026-11-05（周四）开放模型、Agent 与基础设施</a></li>
+      <li class="toc-item toc-depth-3 toc-agenda-day"><a href="#day-2-2026-11-06周五世界模型physical-ai-与-ai-原生产品" tabindex="0">Day 2 · 2026-11-06（周五）世界模型、Physical AI 与 AI 原生产品</a></li>
+        </ul>
+      </li>
       <li class="toc-item toc-depth-2 toc-has-children"><a href="#推荐路线" tabindex="0">推荐路线</a>
-        <details class="toc-sub">
-          <summary class="toc-sub-summary">展开 6 项</summary>
-          <ul class="toc-list toc-sub-list">
-      <li class="toc-item toc-depth-3"><a href="#路线一agent-框架与底层基础设施harness沙箱调度与网关" tabindex="0">路线一：Agent 框架与底层基础设施（Harness、沙箱、调度与网关）</a></li>
-      <li class="toc-item toc-depth-3"><a href="#路线二ai-原生应用与企业工程落地工作流自动化企业级治理移动端验收" tabindex="0">路线二：AI 原生应用与企业工程落地（工作流自动化、企业级治理、移动端验收）</a></li>
-      <li class="toc-item toc-depth-3"><a href="#路线三具身智能机器人与-physical-ai世界模型vlasim2real硬件" tabindex="0">路线三：具身智能、机器人与 Physical AI（世界模型、VLA、Sim2Real、硬件）</a></li>
-      <li class="toc-item toc-depth-3"><a href="#路线四模型后训练高性能推理与上下文数据工程" tabindex="0">路线四：模型后训练、高性能推理与上下文数据工程</a></li>
-      <li class="toc-item toc-depth-3"><a href="#路线五ai-创业者独立开发者与商业化生态" tabindex="0">路线五：AI 创业者、独立开发者与商业化生态</a></li>
-      <li class="toc-item toc-depth-3"><a href="#11-月-5-日下午双会场并行时怎么选13451700" tabindex="0">11 月 5 日下午双会场并行时怎么选（13:45–17:00）</a></li>
-          </ul>
-        </details>
+        <ul class="toc-list toc-flat-list">
+      <li class="toc-item toc-depth-3 toc-route"><a href="#路线一agent-框架与底层基础设施harness沙箱调度与网关" tabindex="0">路线一：Agent 框架与底层基础设施（Harness、沙箱、调度与网关）</a></li>
+      <li class="toc-item toc-depth-3 toc-route"><a href="#路线二ai-原生应用与企业工程落地工作流自动化企业级治理移动端验收" tabindex="0">路线二：AI 原生应用与企业工程落地（工作流自动化、企业级治理、移动端验收）</a></li>
+      <li class="toc-item toc-depth-3 toc-route"><a href="#路线三具身智能机器人与-physical-ai世界模型vlasim2real硬件" tabindex="0">路线三：具身智能、机器人与 Physical AI（世界模型、VLA、Sim2Real、硬件）</a></li>
+      <li class="toc-item toc-depth-3 toc-route"><a href="#路线四模型后训练高性能推理与上下文数据工程" tabindex="0">路线四：模型后训练、高性能推理与上下文数据工程</a></li>
+      <li class="toc-item toc-depth-3 toc-route"><a href="#路线五ai-创业者独立开发者与商业化生态" tabindex="0">路线五：AI 创业者、独立开发者与商业化生态</a></li>
+      <li class="toc-item toc-depth-3 toc-route"><a href="#11-月-5-日下午双会场并行时怎么选13451700" tabindex="0">11 月 5 日下午双会场并行时怎么选（13:45–17:00）</a></li>
+        </ul>
       </li>
       <li class="toc-item toc-depth-2"><a href="#行前清单" tabindex="0">行前清单</a></li>
       <li class="toc-item toc-depth-2"><a href="#社交与提问" tabindex="0">社交与提问</a></li>
@@ -1580,6 +1650,6 @@
     <p>页面信息来自各活动公开资料，可能随时变更；出发前请以主办方官方公告为准。</p>
   </div>
 </footer>
-<script src="../assets/site.92732bc1.js" defer></script>
+<script src="../assets/site.17848532.js" defer></script>
 </body>
 </html>

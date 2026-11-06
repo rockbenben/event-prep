@@ -23,10 +23,19 @@
 <meta property="og:image:alt" content="EventPrep">
 <script>(function(){try{var t=localStorage.getItem('eventprep:theme');if(t==='light'||t==='dark'){document.documentElement.setAttribute('data-theme',t);}}catch(e){}})();</script>
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-<link rel="stylesheet" href="assets/site.7f9b84c1.css">
+<link rel="stylesheet" href="assets/site.d18acc20.css">
 
 </head>
 <body>
+<!-- 打印版工具条：平时 display:none，进入打印模式（<html class="print-mode">）才出现。
+     打印到纸上时这条工具条自身要藏掉（见 site.css 的 @media print）——它是屏幕上的控件。 -->
+<div class="print-bar" id="print-bar" role="toolbar" aria-label="打印版工具条">
+  <span class="print-bar-title">EventPrep · 打印版 · 全部内容已展开</span>
+  <div class="print-bar-actions">
+    <button type="button" id="print-do" class="ghost-btn">打印 / 存 PDF</button>
+    <button type="button" id="print-exit" class="ghost-btn">退出打印版</button>
+  </div>
+</div>
 <a class="skip-link" href="#main" tabindex="0">跳到正文</a>
 <header class="site-header">
   <div class="wrap header-inner">
@@ -41,6 +50,7 @@
       <span>EventPrep</span>
     </a>
     <div class="header-actions">
+      
       
       <a class="ghost-btn" href="https://github.com/rockbenben/event-prep" target="_blank" rel="noopener noreferrer" aria-label="GitHub 仓库" title="GitHub 仓库">
         <svg class="theme-icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
@@ -65,8 +75,16 @@
     <h1>EventPrep</h1>
     <p class="hero-sub">共收录 1 个活动 · 把各种活动的公开日程，整理成手机上随时能查的准备页</p>
   </section>
-<section class="group" id="group-active" data-group="group-active">
-  <h2 class="group-title">即将开始 / 进行中<span class="group-count" data-group-count>1</span></h2>
+<section class="group" id="group-active" data-group="group-active" hidden>
+  <h2 class="group-title">即将开始 / 进行中<span class="group-count" data-group-count>0</span></h2>
+  <ul class="cards" data-cards></ul>
+</section>
+<section class="group" id="group-unknown" data-group="group-unknown" hidden>
+  <h2 class="group-title">日期待定<span class="group-count" data-group-count>0</span></h2>
+  <ul class="cards" data-cards></ul>
+</section>
+<section class="group" id="group-ended" data-group="group-ended">
+  <h2 class="group-title">已结束<span class="group-count" data-group-count>1</span></h2>
   <ul class="cards" data-cards><li class="event-card" data-event-slug="2026-11-ai-engineer-shanghai">
   <div class="card-head">
     <h3 class="card-title"><a href="2026-11-ai-engineer-shanghai/" tabindex="0">AI Engineer Shanghai 2026</a></h3>
@@ -75,20 +93,12 @@
   <dl class="card-meta"><div><dt>时间</dt><dd>2026年11月5日 – 11月6日</dd></div><div><dt>开始</dt><dd>08:30</dd></div><div><dt>地点</dt><dd>上海 · 上海虹桥希尔顿酒店（Hilton Shanghai Hongqiao）</dd></div></dl>
   <ul class="tags"><li class="tag">AI</li><li class="tag">Agent</li><li class="tag">基础设施</li><li class="tag">Physical AI</li><li class="tag">开源模型</li></ul>
   <div class="card-side">
-    <span class="badge badge-upcoming" data-status-badge>即将开始</span>
+    <span class="badge badge-ended" data-status-badge>已结束</span>
     <!-- 倒计时初始留空：状态徽章已经说了「即将开始」，再写一遍是同一句话说两遍。
          浏览器端按访问时刻填真倒计时，空着的时候 .countdown:empty 把这行收起。 -->
     <p class="countdown" data-countdown></p>
   </div>
 </li></ul>
-</section>
-<section class="group" id="group-unknown" data-group="group-unknown" hidden>
-  <h2 class="group-title">日期待定<span class="group-count" data-group-count>0</span></h2>
-  <ul class="cards" data-cards></ul>
-</section>
-<section class="group" id="group-ended" data-group="group-ended" hidden>
-  <h2 class="group-title">已结束<span class="group-count" data-group-count>0</span></h2>
-  <ul class="cards" data-cards></ul>
 </section>
 </div>
 <script type="application/json" id="site-data">{"events":[{"slug":"2026-11-ai-engineer-shanghai","startISO":"2026-11-05T00:30:00.000Z","endISO":"2026-11-06T09:50:00.000Z","timezone":"Asia/Shanghai","days":2,"start":"2026-11-05"}]}</script>
@@ -99,6 +109,6 @@
     <p>页面信息来自各活动公开资料，可能随时变更；出发前请以主办方官方公告为准。</p>
   </div>
 </footer>
-<script src="assets/site.92732bc1.js" defer></script>
+<script src="assets/site.17848532.js" defer></script>
 </body>
 </html>
