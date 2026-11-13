@@ -57,6 +57,7 @@ tags: [AI, Agent, 基础设施, Physical AI, 开源模型]
 - 会场: 主会场
 - 讲者: swyx（Shawn Wang） | AI Engineer / Latent Space |  | AI Engineer 创始人 · Latent Space 联创 | AI Engineer Foundation 创始人，知名播客 Latent Space 联合主持人，前 Temporal / Netlify 开发者倡导者。长期定义并引领全球 AI Engineer 开发者生态。
 - 摘要: AI Engineer 与 Latent Space 联合创始人 swyx 用一段十分钟的视频为大会开场，向上海现场观众问候。
+- 看点: [现场总结与原文](summary/#session-1)
 
 #### 09:45–10:10 · 从模型到企业工作流：Agent真正落地需要什么
 - 形式: 演讲
@@ -66,6 +67,7 @@ tags: [AI, Agent, 基础设施, Physical AI, 开源模型]
 - 状态: 主题待嘉宾最终确认
 - 摘要: 深入探讨企业从试水单个 LLM 调用走向大规模 Agent 工作流编排时，在身份权限、确定性约束与旧有系统对接上的核心瓶颈。
 - 出处: https://ai.engineer/shanghai/2026/speakers/marco-casalaina?lang=cn
+- 看点: [现场总结与原文](summary/#session-2)
 
 #### 10:10–10:25 · 构建Agent：昨天、今天与明天
 - 形式: 演讲
@@ -74,6 +76,7 @@ tags: [AI, Agent, 基础设施, Physical AI, 开源模型]
 - 时长: 15 分钟
 - 摘要: Agent 的造法换得太快：昨天是链条加 RAG，靠肉眼看提示词调试；今天是长循环的工具调用，靠链路追踪、生产失败攒出的数据集和评测守住质量；明天最好的团队已经在做——遥测数据本身变成 Agent 的接口。讲哪些信号该暴露给 Agent、人现在还该把住哪一道闸，以及当 Agent 成为链路数据最重的读者时会发生什么。
 - 出处: https://ai.engineer/shanghai/2026/speakers/clemens-rawert?lang=cn
+- 看点: [现场总结与原文](summary/#session-3)
 
 #### 10:25–10:45 · 当我们什么都能做，还知道自己想做什么吗？
 - 形式: 演讲
@@ -82,6 +85,7 @@ tags: [AI, Agent, 基础设施, Physical AI, 开源模型]
 - 时长: 20 分钟
 - 摘要: 执行越来越容易，「做得更多更快」就成了默认选项：忙着生产、评审、追赶，却挤掉了形成自己想法的时间。Ryo 结合在 Notion 与 Cursor 做工具、创造 ryOS、以及离开旧金山到台北的经历，谈 AI 时代的创造力、判断与自主——不是反对快，而是重新想清楚什么值得加速、什么需要时间，工具该把人从流水线上解放出来，而不是变成另一条流水线。
 - 出处: https://ai.engineer/shanghai/2026/speakers/ryo-lu?lang=cn
+- 看点: [现场总结与原文](summary/#session-4)
 
 #### 10:45–10:50 · 茶歇休息
 - 形式: 茶歇
@@ -96,6 +100,7 @@ tags: [AI, Agent, 基础设施, Physical AI, 开源模型]
 - 时长: 20 分钟
 - 摘要: 分享 You.com 如何通过多轮强化学习（RLVR）、轨迹奖励模型与工具调用策略，训练开源权重模型自主浏览网页并获取高保真事实信息。
 - 出处: https://ai.engineer/shanghai/2026/speakers/david-li-alex-triplett?lang=cn
+- 看点: [现场总结与原文](summary/#session-5)
 
 #### 11:10–11:25 · 开源模型推理的全栈工程：延迟、吞吐与成本
 - 形式: 演讲
@@ -104,6 +109,7 @@ tags: [AI, Agent, 基础设施, Physical AI, 开源模型]
 - 时长: 15 分钟
 - 摘要: 开源模型推理正在成为企业的现实选择，尤其是做 AI 原生应用的团队。要交付快、稳、省的推理，就得从 CUDA kernel、Kubernetes 编排一路做到量化、缓存与读写分离。讲塑造生产推理系统的关键设计决策与新技术，以及延迟、吞吐、成本、可靠性之间怎么取舍。
 - 出处: https://ai.engineer/shanghai/2026/speakers/chen-wang?lang=cn
+- 看点: [现场总结与原文](summary/#session-6)
 
 #### 11:25–11:30 · 茶歇休息
 - 形式: 茶歇
@@ -117,6 +123,7 @@ tags: [AI, Agent, 基础设施, Physical AI, 开源模型]
 - 时长: 15 分钟
 - 摘要: 介绍 Arena 提供的 AI 评测产品与服务，帮助前沿模型实验室与新兴实验室在真实场景里衡量并改进模型的表现。
 - 出处: https://ai.engineer/shanghai/2026/speakers/chen-peng?lang=cn
+- 看点: [现场总结与原文](summary/#session-7)
 
 #### 11:45–13:00 · 午休 · 自行用餐
 - 形式: 茶歇
@@ -129,6 +136,7 @@ tags: [AI, Agent, 基础设施, Physical AI, 开源模型]
 - 讲者: 杨远骋（Koji） | 十字路口 | assets/speakers/koji.webp | 创始人；真格基金投资合伙人 | 十字路口创始人、真格基金投资合伙人。以内容与社区连接 AI 创业者。
 - 讲者: 曲凯 | 42章经 | assets/speakers/kai-qu.webp | 创始人兼 CEO | 42章经创始人及其播客主理人，播客以与创始人、投资人和技术从业者的对谈为特色。
 - 讲者: 高宁 | Linkloud | assets/speakers/gao-ning.webp | 联合创始人兼 CMO；本场主持 | Linkloud 联合创始人兼 CMO，通过活动、工作坊与国际市场项目连接中文 AI 与 SaaS 创业者；本场由他主持。
+- 看点: [现场总结与原文](summary/#session-8)
 
 #### 13:40–13:45 · 茶歇休息
 - 形式: 茶歇
@@ -142,6 +150,7 @@ tags: [AI, Agent, 基础设施, Physical AI, 开源模型]
 - 时长: 20 分钟
 - 摘要: Agent 承担的任务越长越复杂，怎么让它不掉链子就成了核心工程问题。结合阶跃星辰最新的旗舰基座模型 Step 5 Preview 与开源 Agent harness Step Code，讲模型与 harness 如何配合，让 Agent 在真实应用里保持方向、交付可靠结果。
 - 出处: https://ai.engineer/shanghai/2026/speakers/ailing-teng?lang=cn
+- 看点: [现场总结与原文](summary/#session-9)
 
 #### 14:05–14:25 · 从Dark Factory到Lobsterville：持续运行的多人协作Agent的意图工程
 - 形式: 演讲
@@ -150,6 +159,7 @@ tags: [AI, Agent, 基础设施, Physical AI, 开源模型]
 - 时长: 20 分钟
 - 摘要: 2026 年初我们造了「Dark Factory」来交付 OpenClaw：Agent 整夜并行、几千个提交，纯粹拼吞吐。直到产出不再是我们真正想要的——瓶颈是意图。分享 OpenClaw 正在建造的「Lobsterville」系统之城：肉食代理、多人协作驾驶、意图交接与意图工程的基本功。
 - 出处: https://ai.engineer/shanghai/2026/speakers/vincent-koc?lang=cn
+- 看点: [现场总结与原文](summary/#session-10)
 
 #### 14:25–14:30 · 茶歇休息
 - 形式: 茶歇
@@ -162,6 +172,7 @@ tags: [AI, Agent, 基础设施, Physical AI, 开源模型]
 - 时长: 20 分钟
 - 摘要: 有用的 AI 能不能直接跑在手机、PC 和其他个人设备上，而不依赖云？讲端侧模型的内存瓶颈，用早期专家路由与流式加载压低常驻内存；以及如何把毫秒级的本地判断与更大的端侧模型结合起来，附耳机、机器人、智能眼镜等例子。
 - 出处: https://ai.engineer/shanghai/2026/speakers/zhou-you?lang=cn
+- 看点: [现场总结与原文](summary/#session-11)
 
 #### 14:50–15:10 · Kubernetes不等于Agent沙箱
 - 形式: 演讲
@@ -171,6 +182,7 @@ tags: [AI, Agent, 基础设施, Physical AI, 开源模型]
 - 时长: 20 分钟
 - 摘要: 现场展示权威跑分：同一段 50 步真实代码修复轨迹在不同运行时上的启动开销与执行速度，剖析通用 K8s 容器在 Agent 沙箱隔离上的延迟短板。
 - 出处: https://ai.engineer/shanghai/2026/speakers/ivan-burazin?lang=cn
+- 看点: [现场总结与原文](summary/#session-12)
 
 #### 15:10–15:30 · Manus 的 AI 原生工作方式：一个 Monorepo，任务全公开
 - 形式: 演讲
@@ -179,6 +191,7 @@ tags: [AI, Agent, 基础设施, Physical AI, 开源模型]
 - 时长: 20 分钟
 - 摘要: 多数团队是把 AI 工具塞进旧流程，Manus 则围着 Agent 重搭了一遍：所有仓库、团队规则与 Agent 技能都放进一个共享工作区 Manus mono，它连着公司几乎所有服务，Agent 在一个地方写代码、跑测试、查日志、动数据库、发到生产。于是公司里任何人都能开 PR——工程师、产品、设计、运营都在修自己发现的 bug。团队里每个任务对所有人可见，任务与发起人解耦：需要信息就把链接发给知道的人，同事不在也有人接手。分享这套工作方式是怎么建起来的、走过哪些弯路，以及它如何改变了团队的协作方式。
 - 出处: https://ai.engineer/shanghai/2026/speakers/fan-bin?lang=cn
+- 看点: [现场总结与原文](summary/#session-13)
 
 #### 15:30–15:35 · 茶歇休息
 - 形式: 茶歇
@@ -191,6 +204,7 @@ tags: [AI, Agent, 基础设施, Physical AI, 开源模型]
 - 时长: 20 分钟
 - 摘要: 用 Exa 的实时网页搜索、地点、天气与研究能力，通过一个 API 就能给开源个人 Agent 装上实时信息。
 - 出处: https://ai.engineer/shanghai/2026/speakers/jakub-hojsan?lang=cn
+- 看点: [现场总结与原文](summary/#session-14)
 
 #### 15:55–16:15 · Agent的记忆，也是下一轮训练数据
 - 形式: 演讲
@@ -200,6 +214,7 @@ tags: [AI, Agent, 基础设施, Physical AI, 开源模型]
 - 时长: 20 分钟
 - 摘要: 跑二十步的 Agent 会发起几十次检索，写下的和读到的差不多多。它留下的轨迹写多、按时间排序，且按步、跨段、整条轨迹三种粒度被查询——这和强化学习的 rollout 存储是同一种形状，不是相似，是相同。模型实验室两年前就以别的名字碰到过同一批算子：语义去重、去污染、难负样本挖掘。Agent 记忆与训练数据正在收敛到同一套算子上，这就是 Milvus 从向量数据库走向 Vector Lakebase 的原因。
 - 出处: https://ai.engineer/shanghai/2026/speakers/rentong-guo?lang=cn
+- 看点: [现场总结与原文](summary/#session-15)
 
 #### 16:15–16:35 · 搭建可靠的多区域LLM网关
 - 形式: 演讲
@@ -209,6 +224,7 @@ tags: [AI, Agent, 基础设施, Physical AI, 开源模型]
 - 时长: 20 分钟
 - 摘要: LLM 网关成了 Optiver 的关键基础设施：工程师、研究员和 Agent 每天都在用，从海量市场新闻分析到跑自动化流程；网关一挂，代价立刻显现。要让 LLM 流量在多个区域与多家供应商之间稳定运行并不容易，很多故障不在自己手里。分享搭建与扩展多区域 LLM 网关的经验：协议转换、扩容、供应商故障切换、可观测性与多区域高可用，以及一路上踩到的坑。
 - 出处: https://ai.engineer/shanghai/2026/speakers/xinghong-fang?lang=cn
+- 看点: [现场总结与原文](summary/#session-16)
 
 #### 16:35–16:40 · 茶歇休息
 - 形式: 茶歇
@@ -221,6 +237,7 @@ tags: [AI, Agent, 基础设施, Physical AI, 开源模型]
 - 时长: 20 分钟
 - 摘要: AI 开发者要的数据库能力一次次越过它原本的边界：一个 Agent 一个库、跨会话的记忆、能活过一次性沙箱的状态。分享这些生产需求如何推动改变，以及在隔离、一致性、恢复与可观测性上做出的选择。
 - 出处: https://ai.engineer/shanghai/2026/speakers/lux-li?lang=cn
+- 看点: [现场总结与原文](summary/#session-17)
 
 #### 17:00–17:10 · 休息整理
 - 形式: 茶歇
@@ -234,6 +251,7 @@ tags: [AI, Agent, 基础设施, Physical AI, 开源模型]
 - 时长: 15 分钟
 - 摘要: 企业买 LLM 推理有三种结构完全不同的计价方式：按额度订阅、按 Token 的 API、自建 GPU 容量，但很少有人说得清在什么量级该选哪个。分享「效率曲线」：每个量级下最便宜采购方式的单 Token 成本，以及各条曲线的交叉点。基于 2026 年 7 月的价格快照得出一个反直觉结论——订阅与 API 的交叉点往往在经济上根本不出现，真正卡住转换的是服务条款里的席位上限，而不是价格；自建的交叉则是实打实的价格交叉，落在每月约 3.6 亿至 8.99 亿 Token 之间，并随输出 Token 占比移动。附一套把每个指标对应到采购决策的监控框架，来自在受监管银行里跑 AI 基础设施的实践。
 - 出处: https://ai.engineer/shanghai/2026/speakers/do-tuan-anh?lang=cn
+- 看点: [现场总结与原文](summary/#session-18)
 
 #### 17:25–17:35 · 百万沙箱背后的Agent强化学习基础设施
 - 形式: 快闪
@@ -243,6 +261,7 @@ tags: [AI, Agent, 基础设施, Physical AI, 开源模型]
 - 时长: 10 分钟
 - 摘要: 编码与 Agent 模型的强化学习后训练，把每一次 rollout 都变成一个沙箱：全新环境、任务镜像、几条命令、一份奖励，然后销毁。单次训练可能每小时需要几百万个，横跨数千种镜像，启动成百上千地涌来、寿命以秒计。分享用开源的 Kubernetes 上 harness Substrate 跑 100 万沙箱学到的东西：温池复用、镜像加速、低延迟可扩展存储、microVM、gVisor、黄金快照等整条技术栈，以及支撑这些的编排层、基准与延迟评估。
 - 出处: https://ai.engineer/shanghai/2026/speakers/tinsley-shi?lang=cn
+- 看点: [现场总结与原文](summary/#session-19)
 
 #### 17:35–17:45 · AI时代，游戏开发者的工作如何改变
 - 形式: 快闪
@@ -251,6 +270,7 @@ tags: [AI, Agent, 基础设施, Physical AI, 开源模型]
 - 时长: 10 分钟
 - 摘要: AI 正在系统性地吞掉游戏开发的技术核心：代码生成工具从自然语言提示直接产出玩法脚本、shader 与引擎插件，AI 结对程序员自主处理调试、重构与单元测试；生成模型驱动的程序化内容管线不用手写脚本就能造出整关、NPC 行为与任务逻辑；自动化 QA 机器人全天候试玩，比人工测 bug 更快；连内存分析、性能调优、跨平台移植这些优化工作也越来越交给 Agent。开发者的角色从写代码转向评审、编排与验证机器产出。分享哪些工程任务已经被 AI 取代、哪些能力仍然非人不可。
 - 出处: https://ai.engineer/shanghai/2026/speakers/tang-feihu?lang=cn
+- 看点: [现场总结与原文](summary/#session-20)
 
 #### 17:45–17:50 · 首日议程总结
 - 形式: 闭幕
@@ -264,6 +284,7 @@ tags: [AI, Agent, 基础设施, Physical AI, 开源模型]
 - 时长: 20 分钟
 - 摘要: 玉伯分享如何用 YouMind 搭建一个服务于个人成长的 Personal Agent。
 - 出处: https://ai.engineer/shanghai/2026/speakers/baoping-wang?lang=cn
+- 看点: [现场总结与原文](summary/#session-21)
 
 #### 14:05–14:20 · Harvey内部的上万次Agent PR
 - 形式: 演讲
@@ -273,6 +294,7 @@ tags: [AI, Agent, 基础设施, Physical AI, 开源模型]
 - 时长: 15 分钟
 - 摘要: 分享全球估值最高的法律 AI 独角兽如何让 Agent 自主处理上万次代码变更、建立严格确定性评估基准并与工程团队协同。
 - 出处: https://ai.engineer/shanghai/2026/speakers/joey-wang?lang=cn
+- 看点: [现场总结与原文](summary/#session-22)
 
 #### 14:20–14:35 · 走出试点：如何管理第500个AI Agent
 - 形式: 演讲
@@ -281,6 +303,7 @@ tags: [AI, Agent, 基础设施, Physical AI, 开源模型]
 - 时长: 15 分钟
 - 摘要: 第一个 AI 应用上线很难，每场 AI 会议都在讲这个。但当你要管第 50、第 100 甚至第 500 个 Agent 时呢？企业规模上问题根本变了：不再只是把 Agent 做出来，而是跨团队、跨业务流程、跨系统地管好几百个 Agent，同时保住可靠性、治理、可观测与控制。谁负责每个 Agent？怎么监控质量与表现？怎么避免重复劳动、共享知识，并让不断扩张的 AI 劳动力保持可信？基于 Dify 的 AI Agent 管理平台上的真实企业落地，讲 Agent 成功上线之后才出现、试点期几乎没人谈的问题：架构决策、运维挑战与组织经验。企业 AI 的下一个前沿不是多快做出第一个 Agent，而是多有效地管好接下来的 500 个。
 - 出处: https://ai.engineer/shanghai/2026/speakers/andy-dify?lang=cn
+- 看点: [现场总结与原文](summary/#session-23)
 
 #### 14:35–14:40 · 茶歇休息
 - 形式: 茶歇
@@ -293,6 +316,7 @@ tags: [AI, Agent, 基础设施, Physical AI, 开源模型]
 - 时长: 15 分钟
 - 摘要: AI Agent 正从推理与生成走向代表用户采取真实行动。这需要一层新的基础设施：身份、授权、信任、凭据与执行。结合 Visa 在 Visa Intelligent Commerce（VIC）上的工作，讲这些基础能力如何为自主 Agent 设计——Agent 怎么证明自己是谁、怎么表明用户意图、怎么安全地取用凭据、怎么与外部系统安全交互，以及把 Agent 从助手变成可信执行者所需要的新兴基础设施栈。
 - 出处: https://ai.engineer/shanghai/2026/speakers/robert-pei?lang=cn
+- 看点: [现场总结与原文](summary/#session-24)
 
 #### 14:55–15:10 · 写代码变快以后，移动端验收怎么办？
 - 形式: 演讲
@@ -301,6 +325,7 @@ tags: [AI, Agent, 基础设施, Physical AI, 开源模型]
 - 时长: 15 分钟
 - 摘要: 作为 Instagram Edits 的首批 Android 工程师，分享把这款 App 做成 agentic 的一手经验。Agentic 编码极大提升了开发产出，但人工验收跟不上节奏，于是他们建了 agentic 验证来补这个缺口：如今 Agent 每周跑 2000 多条验证流程，覆盖 agentic QA、开发者反馈闭环、压力测试与调试。讲怎么让一个复杂移动 App 对 Agent 可发现、可控、可验证，以及这如何支撑起更完整的 agentic 移动开发闭环。
 - 出处: https://ai.engineer/shanghai/2026/speakers/peng-gong?lang=cn
+- 看点: [现场总结与原文](summary/#session-25)
 
 #### 15:10–15:20 · Agentic Harness: 实时音视频 AI 访谈
 - 形式: 演讲
@@ -309,6 +334,7 @@ tags: [AI, Agent, 基础设施, Physical AI, 开源模型]
 - 时长: 10 分钟
 - 状态: 主题待嘉宾确认
 - 出处: https://ai.engineer/shanghai/2026/speakers/davin-dong?lang=cn
+- 看点: [现场总结与原文](summary/#session-26)
 
 #### 15:20–15:30 · 茶歇休息
 - 形式: 茶歇
@@ -322,6 +348,7 @@ tags: [AI, Agent, 基础设施, Physical AI, 开源模型]
 - 时长: 10 分钟
 - 摘要: 把公司里成百上千个合并请求变成基准，用来改进你的编码 Agent harness。
 - 出处: https://ai.engineer/shanghai/2026/speakers/roman-shirochenko?lang=cn
+- 看点: [现场总结与原文](summary/#session-27)
 
 #### 15:40–15:50 · 可信上下文：企业数据与Agent之间缺的一层
 - 形式: 演讲
@@ -330,6 +357,7 @@ tags: [AI, Agent, 基础设施, Physical AI, 开源模型]
 - 时长: 10 分钟
 - 摘要: 企业里 Agent 的失败大多不像模型失败——模型没问题，它只是不知道财务实际用的是哪四张收入表中的哪一张、那张表归谁、昨晚的流水线跑没跑、某列是不是三月就废弃了。这些知识就在组织内部，散落在技术 schema、流水线遥测、业务定义与组织架构图里，却几乎没传到 Agent 手上。讲如何把这四类元数据汇成一个与模型无关、Agent 可查询的上下文层，以及在大型企业里真做下来要付出什么：架构只是开场，难的是判断哪些上下文可信到可以对外提供、如何保持新鲜、通过 MCP 暴露给 Agent，以及怎么让团队维护自己都看不到的上下文。
 - 出处: https://ai.engineer/shanghai/2026/speakers/alyssa-lee?lang=cn
+- 看点: [现场总结与原文](summary/#session-33)
 
 #### 15:50–16:10 · Harness是第一轮Reviewer
 - 形式: 演讲
@@ -338,6 +366,7 @@ tags: [AI, Agent, 基础设施, Physical AI, 开源模型]
 - 时长: 20 分钟
 - 摘要: 过去一年他们把 OHDSI 医疗研究网络用了十余年的队列设计工作台 ATLAS 从后端到前端整体现代化：Java 后端从 Java 8 升到 Java 21 与 Spring Boot 3，1600 多个文件净删 6.5 万行；前端用 Vue 3 与 TypeScript 从零重写，11 万行源码，每次 PR 都由覆盖率强制的单元测试与对整个 OHDSI 表型库的端到端保真校验把关，公开运行在 atlas-preview.ohdsi.org/atlas。绝大部分代码由编码 Agent 写出，量大到没人能逐行读完。前端重写由他主导、评审与验收；当验收不可能等于逐行阅读时，验证就得换个地方住——harness 成了第一道评审。讲它由什么构成：以规格作为委派单位、以旧实现作为行为基准、E2E 用例与类型门禁作为合并判据、用截图驱动迭代替代对像素的争论；并走完一个真实功能，看 harness 抓到了什么、漏掉了什么、今天会怎么改。
 - 出处: https://ai.engineer/shanghai/2026/speakers/peter-hoffmann?lang=cn
+- 看点: [现场总结与原文](summary/#session-29)
 
 #### 16:10–16:15 · 茶歇休息
 - 形式: 茶歇
@@ -350,6 +379,7 @@ tags: [AI, Agent, 基础设施, Physical AI, 开源模型]
 - 时长: 10 分钟
 - 摘要: 以语义层作为数据 Agent 的基础设施：从指标交换出发谈 Apache Ossie，走一遍从规范到实现；什么样的语义层才算 AI 原生；在语义模型之上搭本体；Datus 与 Dosi 如何从企业上下文构建语义层与本体；以及面向 Agent 数据栈的开放语义层。
 - 出处: https://ai.engineer/shanghai/2026/speakers/harrison-zhao?lang=cn
+- 看点: [现场总结与原文](summary/#session-30)
 
 #### 16:25–16:35 · 让网页成为能实时交互的Agent
 - 形式: 演讲
@@ -366,6 +396,7 @@ tags: [AI, Agent, 基础设施, Physical AI, 开源模型]
 - 时长: 10 分钟
 - 摘要: 《小王子：星际穿越》是一款一个人借助 AI 做出来的 3D 叙事游戏。分享项目从把熟悉的故事改编成可探索场景，到反复迭代代码、3D 资产与视觉打磨，再到公开发布的全过程；哪些做法有效、哪些没有，以及这个过程对用 AI 创作的人意味着什么。
 - 出处: https://ai.engineer/shanghai/2026/speakers/sac?lang=cn
+- 看点: [现场总结与原文](summary/#session-31)
 
 #### 16:45–16:55 · 从匹配到交付：用AI规模化开展创作者合作
 - 形式: 演讲
@@ -374,6 +405,7 @@ tags: [AI, Agent, 基础设施, Physical AI, 开源模型]
 - 时长: 10 分钟
 - 摘要: 通过 AhaCreator 的品牌方与创作者界面演示，看 AI 如何把合作从需求单推进到内容交付。案例包括某客户单月合作支出超过 50 万美元，以及若干由趋势驱动的项目在 3 到 5 天内从想法走到发布。讲 AI 与人的职责如何划分，以及实际的价格、响应速度与交付记录如何反过来影响后续的创作者筛选与合作选择。
 - 出处: https://ai.engineer/shanghai/2026/speakers/susan-peng?lang=cn
+- 看点: [现场总结与原文](summary/#session-32)
 
 #### 16:55–17:00 · 分会场闭幕整理
 - 形式: 闭幕
@@ -400,6 +432,7 @@ tags: [AI, Agent, 基础设施, Physical AI, 开源模型]
 - 时长: 20 分钟
 - 摘要: 李飞飞联合创办的世界模型领军企业核心成员，系统拆解生成式世界模型在三维表征、空间智能物理预测与动态交互仿真上的理论分类与工程实践。
 - 出处: https://ai.engineer/shanghai/2026/speakers/christoph-lassner?lang=cn
+- 看点: [现场总结与原文](summary/#session-34)
 
 #### 10:25–10:45 · HTML就是Agent的视觉上下文
 - 形式: 演讲
@@ -409,6 +442,7 @@ tags: [AI, Agent, 基础设施, Physical AI, 开源模型]
 - 时长: 20 分钟
 - 摘要: 大多数 Agent 的产出最后还是文本，这浪费了渲染引擎。把 HTML 当作 Agent 的主要输出格式，模型回应就能直接变成视频、幻灯片与业务产物——不需要专用渲染器、不需要私有格式，用的就是被训练得最多的标记语言。讲围绕 HTML 作为可视化层搭起来的 agentic 系统架构、规模化时哪里会崩、生产落地学到了什么；并介绍开源免费的 HyperFrames 框架。另有一段面向技术听众的版本：多模态 Agent 会以纯文本 Agent 不会的方式失败——模型看不见自己做的、没法在画面里稳定定位、也没法在工作记忆里保持长时间视觉编辑；讲 HeyGen 为补这个缺口做的上下文工程：用承载语义的素材命名约定、给 VLM 评审用的接触印相与拼贴提示、用帧编号与网格叠加做空间定位，以及把 HTML 当中间表示，让生成留在模型的训练分布内。核心主张：别跟分布硬碰，把问题重构成模型已经会解的形式。
 - 出处: https://ai.engineer/shanghai/2026/speakers/bin-liu?lang=cn
+- 看点: [现场总结与原文](summary/#session-35)
 
 #### 10:45–11:05 · AGI 是解码能力，编码能力是壁垒
 - 形式: 演讲
@@ -417,6 +451,7 @@ tags: [AI, Agent, 基础设施, Physical AI, 开源模型]
 - 时长: 20 分钟
 - 摘要: AGI 越来越强，垂直 AI 产品还能在哪里建立长期优势？结合她在美妆行业的工作，区分通用模型的「解码能力」与「编码」——把行业里隐性知识、专家判断与消费者需求编码成可用的规则与数据。讲一条自下而上的产品路径：从消费者决策辅助，到小品牌、大品牌，再到上游供应链，看 AI 怎么降低交易成本、把真实需求变成增长。
 - 出处: https://ai.engineer/shanghai/2026/speakers/ying-yang?lang=cn
+- 看点: [现场总结与原文](summary/#session-36)
 
 #### 11:05–11:10 · 茶歇休息
 - 形式: 茶歇
@@ -429,6 +464,7 @@ tags: [AI, Agent, 基础设施, Physical AI, 开源模型]
 - 时长: 15 分钟
 - 摘要: AI 现在能写报告、审合同、发代码，演示前所未有地容易。但走进工厂，它要面对几十年的老设备、技能结构完全不同的一线员工、活在纸质表格和 Excel 里的判断力，以及每笔投入都要问回报的负责人。HICAP 这家酒类瓶盖制造商用两年时间把 AI 放进自己的交付、质量、计划与营销。分享制造企业如何按业务影响挑 AI 项目、如何用具体 Agent 切进去，以及怎样把 AI 带进日常流程的执行、监控与反馈——制造 AI 的最后一公里，走完九十里也才到一半。
 - 出处: https://ai.engineer/shanghai/2026/speakers/shihui-zhu?lang=cn
+- 看点: [现场总结与原文](summary/#session-37)
 
 #### 11:25–11:40 · 读不懂的评测，如何信任？
 - 形式: 演讲
@@ -437,6 +473,7 @@ tags: [AI, Agent, 基础设施, Physical AI, 开源模型]
 - 时长: 15 分钟
 - 摘要: AI 写出来的东西已经多到看不完：代码、测试、客服回复、翻译。过去我们信任产出，因为有人读过；现在没人能全读，却还是照发。他自己就撞上了这件事——做一款用中英文接珍珠奶茶订单的语音 Agent，他每天说中文，却读不了中文，于是自己评测的一半都读不了。看一个坏评审的代价：少糖变全糖，评审判「通过」，有人喝到坏饮料；诊所里「十四」听起来像「四十」，机器人听错剂量、评审判「通过」，有人受伤。乘以每一通没人听的电话。所以他把信任做成一个闭环：一台笔记本上用 Pipecat Evals 与开放模型，LLM 用两种语言写评测、模拟顾客下单并中途改主意、本地评审打分，再反过来检查这个评审——用他读得懂的通过/失败规则、埋进评测里必须抓到的 bug、换一个模型家族的第二评审来标记分歧，重要的通话再请母语者听。带走这个闭环，以及对任何评测都该问的一句：要让这个测试出错需要什么，谁会发现？
 - 出处: https://ai.engineer/shanghai/2026/speakers/james-hush?lang=cn
+- 看点: [现场总结与原文](summary/#session-38)
 
 #### 11:40–11:50 · 3,000场真实会话：流式语音转写的经验与教训
 - 形式: 快闪
@@ -445,6 +482,7 @@ tags: [AI, Agent, 基础设施, Physical AI, 开源模型]
 - 时长: 10 分钟
 - 摘要: 语音转写看起来像是个已解决的问题，但复查自己的普通话实战课时，他们发现每四通里约有一通转写里出现了根本没被说出的词——流式模型往普通话答案里插进了韩语、希伯来语和泰语。同一段录音在课后（非流式）跑一遍，转写几乎完美；在流式音频上表现差的模型，公开发布上的分数却很好。为了弄清原因，他们搭了一套回放装置，用四个模型跑真实会话，换掉了生产用的模型却仍未解释清楚，于是继续查。分享逐步排查的结果，包括对流式转写影响最大的两个设置，以及它们能在你的用户音频上带来多大改善。
 - 出处: https://ai.engineer/shanghai/2026/speakers/satvik-sinha?lang=cn
+- 看点: [现场总结与原文](summary/#session-39)
 
 #### 11:50–13:15 · 午休 · 自行用餐
 - 形式: 茶歇
@@ -459,6 +497,7 @@ tags: [AI, Agent, 基础设施, Physical AI, 开源模型]
 - 讲者: 比比 | 小声比比／第二次用火 | assets/speakers/bibi-provided.webp | 主持人 | 小声比比主笔、第二次用火 AI 播客主理人。公众号文章单篇常破 10 万阅读，全平台粉丝 500 万以上。
 - 状态: 对话主题待最终确认
 - 出处: https://ai.engineer/shanghai/2026/speakers/bibi?lang=cn
+- 看点: [现场总结与原文](summary/#session-40)
 
 #### 13:55–14:15 · 模型越来越强，Harness该管什么，又该放手什么？
 - 形式: 演讲
@@ -468,6 +507,7 @@ tags: [AI, Agent, 基础设施, Physical AI, 开源模型]
 - 时长: 20 分钟
 - 摘要: 探讨当基座模型的推理泛化能力不断外溢，传统工程 Harness 框架中的提示词注入、状态机与验证逻辑哪些应该瘦身，哪些必须坚守底线。
 - 出处: https://ai.engineer/shanghai/2026/speakers/ronny-he?lang=cn
+- 看点: [现场总结与原文](summary/#session-41)
 
 #### 14:15–14:30 · Physical AI为什么还需要超越VLA？
 - 形式: 演讲
@@ -477,6 +517,7 @@ tags: [AI, Agent, 基础设施, Physical AI, 开源模型]
 - 时长: 15 分钟
 - 摘要: 在视觉-语言-动作（VLA）之后，下一代 Physical AI 需要一种根本不同的智能理解。VLA 最近的进展显著提升了高层语义推理与机器人策略学习，但与真实世界的物理交互仍受限于有限的感知模态与对具身的简化假设。分享从第一性原理重新审视具身 AI：借鉴生物认知与人类感知-运动系统，讨论未来的 Physical AI 为什么必须走出视觉与语言，走向包含力觉、触觉、本体感觉、接触动力学与持续交互的丰富多模态感知。提出一套分层框架，涵盖感知、认知、世界模型、机器人基础模型、动作生成、数据引擎、仿真与终身学习，主张这些部分不该各管各的，而应组成能通过交互持续适应的闭环具身智能系统；并讨论在今天的工业环境里落地 Physical AI 的务实工程原则，给出从专用机器人应用逐步走向通用具身智能的路线图。
 - 出处: https://ai.engineer/shanghai/2026/speakers/xinghua-jia?lang=cn
+- 看点: [现场总结与原文](summary/#session-42)
 
 #### 14:30–14:35 · 茶歇休息
 - 形式: 茶歇
@@ -490,6 +531,7 @@ tags: [AI, Agent, 基础设施, Physical AI, 开源模型]
 - 时长: 15 分钟
 - 摘要: AI 在语言与 2D 视觉生成上进展很快，但 Physical AI 需要更底层的能力：表示一个持续存在的 3D 世界、理解世界在动作下如何变化、并与之长期交互。分享 VAST 从 3D 基础模型到世界模型的技术演进：3D 生成如何从高保真视觉素材走向原生、可入管线的空间表示，又如何进一步演化成持续可交互的世界。重点讲一种把世界状态、状态转移与生成式渲染分开的世界模型架构——不再只预测下一帧视频，而是维护与相机无关的 3D 状态并学习它如何演化，从而带来长期一致性、可控交互、多视角复用与实时体验；以及如何把互联网视频与引擎原生合成数据转成对齐的 3D 状态与动作数据，为 Physical AI 的仿真与训练基础设施提供可扩展路径。
 - 出处: https://ai.engineer/shanghai/2026/speakers/gavin-luo?lang=cn
+- 看点: [现场总结与原文](summary/#session-43)
 
 #### 14:50–15:05 · 我们如何构建面向端侧Agent的开放决策模型
 - 形式: 演讲
@@ -499,6 +541,7 @@ tags: [AI, Agent, 基础设施, Physical AI, 开源模型]
 - 时长: 15 分钟
 - 摘要: 九月中旬 Jev 的发布开创了 AI 模型的一个新品类：决策模型。它不生成文本，而是回答有界的问题（该调哪个工具、走哪条路、某个动作是否安全），并返回一个带校准置信度的类型化答案。讲决策模型是什么、大家为什么兴奋、它怎么工作；再讲如何在 LFM 架构之上构建面向端侧的开放多模态决策模型，最后现场演示完全跑在设备上的多模态决策模型。
 - 出处: https://ai.engineer/shanghai/2026/speakers/leonie-monigatti?lang=cn
+- 看点: [现场总结与原文](summary/#session-44)
 
 #### 15:05–15:25 · 主权Agent之间的通信：Agent经济的基础
 - 形式: 演讲
@@ -507,6 +550,7 @@ tags: [AI, Agent, 基础设施, Physical AI, 开源模型]
 - 时长: 20 分钟
 - 摘要: 十年前他关掉了自己的个人 Agent 公司，卡在三个瓶颈上：语言、推理与履约。大模型基本解决了前两个，履约还在，而它不是技术问题，是经济问题——这也解释了为什么 A2A 等一堆协议至今没有带来 Agent 经济。缺的是一种结构：许多主权 Agent，通过一层与「Agent 归谁、跑什么模型或 harness、能采取什么动作」都无关的通信层连在一起。只有当 Agent 能跨彼此边界传播动作，价值才能在规模上流动。
 - 出处: https://ai.engineer/shanghai/2026/speakers/mingke-luo?lang=cn
+- 看点: [现场总结与原文](summary/#session-45)
 
 #### 15:25–15:30 · 茶歇休息
 - 形式: 茶歇
@@ -520,6 +564,7 @@ tags: [AI, Agent, 基础设施, Physical AI, 开源模型]
 - 时长: 20 分钟
 - 摘要: 探索 Real2Real 范式与量子玻尔兹曼机，为真实世界中的具身智能 Agent 采样最优行为。
 - 出处: https://ai.engineer/shanghai/2026/speakers/dicong-qiu?lang=cn
+- 看点: [现场总结与原文](summary/#session-46)
 
 #### 15:50–16:05 · Noe-0：从真实人类经验构建World Action Model
 - 形式: 演讲
@@ -529,6 +574,7 @@ tags: [AI, Agent, 基础设施, Physical AI, 开源模型]
 - 时长: 15 分钟
 - 摘要: 介绍 Noematrix 的具身智能预训练模型 Noe-0：它的 World Action Model 联合预测未来视频与机器人动作，把世界理解与物理执行连起来。分享「全链路零遥操作」方案——用 RoboPocket 采集真实人类操作数据，同时用于预训练与任务后训练；并讲关键模型设计原则、代表性机器人演示，以及通往能完成更多日常任务的机器人的开放研究问题。
 - 出处: https://ai.engineer/shanghai/2026/speakers/jun-lv?lang=cn
+- 看点: [现场总结与原文](summary/#session-47)
 
 #### 16:05–16:20 · 为快速演进的模型设计机器人硬件
 - 形式: 演讲
@@ -538,6 +584,7 @@ tags: [AI, Agent, 基础设施, Physical AI, 开源模型]
 - 时长: 15 分钟
 - 摘要: 机器人硬件历来关注速度、负载、精度与执行器性能。但随着机器人智能快速演进——从模仿学习到 VLA 模型、世界模型与端到端方法——硬件必须跟着变化的软件架构调整，同时在多年部署中保持可靠。通过 Taku 的开发，从三个角度谈这个挑战：可靠的基础、稳健的接口、加速的迭代。
 - 出处: https://ai.engineer/shanghai/2026/speakers/zhong-shen?lang=cn
+- 看点: [现场总结与原文](summary/#session-48)
 
 #### 16:20–16:25 · 茶歇休息
 - 形式: 茶歇
@@ -550,6 +597,7 @@ tags: [AI, Agent, 基础设施, Physical AI, 开源模型]
 - 时长: 15 分钟
 - 状态: 讲题待公布
 - 出处: https://ai.engineer/shanghai/2026/speakers/grace-li?lang=cn
+- 看点: [现场总结与原文](summary/#session-49)
 
 #### 16:40–16:50 · 从硬件到大脑：家庭服务机器人的全栈进化与真实落地
 - 形式: 快闪
@@ -559,6 +607,7 @@ tags: [AI, Agent, 基础设施, Physical AI, 开源模型]
 - 时长: 10 分钟
 - 摘要: 家庭服务机器人要在复杂、动态、高度非结构化的家里可靠工作，机械本体、感知、运动控制、任务规划、AI 模型、数据反馈闭环与工程平台必须协同。从关节、末端执行器、传感器与力控，到导航、实时控制、任务调度与云服务，每个环节都影响机器人能否完成任务。真实家庭里，通信延迟、运动精度、软硬件集成、数据质量、模型泛化、长任务稳定性、失败恢复与远程操作会同时成为问题。实验室里跑通的能力，需要持续测试、系统调优与工程迭代，才能适应不同的户型、家具、物品与习惯。分享这些实际问题与经验，追一遍从硬件到智能的完整链条，以及把算法变成稳定、可维护、能持续改进的产品所需的工作。
 - 出处: https://ai.engineer/shanghai/2026/speakers/zheng-hao?lang=cn
+- 看点: [现场总结与原文](summary/#session-50)
 
 #### 16:50–17:00 · 休息整理
 - 形式: 茶歇
@@ -571,6 +620,7 @@ tags: [AI, Agent, 基础设施, Physical AI, 开源模型]
 - 时长: 10 分钟
 - 摘要: 机器人数据集不只靠新增片段增长，也会随着新模型出现而累积派生的列——嵌入、标签、奖励。传统做法往往要重写整个数据集，还依赖脆弱的任务编排。分享如何把构建系统的思路用到机器人数据上：精确追踪尚未计算的工作、增量处理缺失区间、断点续跑、原子化发布结果、锁定数据版本以保证训练可复现。有了 LanceDB，团队可以持续更新机器人对历史数据的理解，而不必反复重写原始数据。
 - 出处: https://ai.engineer/shanghai/2026/speakers/xuanwo?lang=cn
+- 看点: [现场总结与原文](summary/#session-51)
 
 #### 17:10–17:20 · 团队同时驱动一群Agent，记忆与判断怎么分工？
 - 形式: 快闪
@@ -579,6 +629,7 @@ tags: [AI, Agent, 基础设施, Physical AI, 开源模型]
 - 时长: 10 分钟
 - 摘要: 过去一年他们团队的工作方式，正是很多团队即将采用的方式：每位工程师同时驱动一群编码 Agent，底下垫一层共享记忆层。这是那一年的工程报告，围绕一个问题展开：你的判断有多少能形式化成环境与验证器？剩下的那部分，就必须有人留在环里。这个问题在三个尺度上展开——个人：哪 90% 的对话不该记住，以及遗忘为何是特性而非 bug；循环：自我改进的瓶颈是验证而非生成，验证器确定时闭环成立（DeepMind 在 Borg 调度上用 AlphaEvolve 发现的启发式算法，在生产中运行一年多，持续挽回 Google 全队 0.7% 的算力），验证器是品味时由人持有合并权（Meta 的 TestGen-LLM：先过三道机械过滤，再由工程师接受剩下的 73%）；组织：夜里人的评审带宽为零，所以 Agent 夜里能安全做什么，恰好等于你已形式化的那部分判断——那才是上限。智能可以租，记忆必须自有。
 - 出处: https://ai.engineer/shanghai/2026/speakers/siwei-gu?lang=cn
+- 看点: [现场总结与原文](summary/#session-52)
 
 #### 17:20–17:30 · 给大模型读网页：Jina Reader的实践与思考
 - 形式: 快闪
@@ -587,12 +638,13 @@ tags: [AI, Agent, 基础设施, Physical AI, 开源模型]
 - 时长: 10 分钟
 - 摘要: Jina Reader 怎么把网页变成模型的上下文？讲它的浏览器渲染、快照与清洗流水线，再用真实请求分布说明少数超长页面如何吃掉 token 成本；并讨论 Agent 大规模浏览时反爬策略、匿名 API 滥用与付费访问之间的张力，以及面向 Agent 的广告、可验证任务等替代方向。
 - 出处: https://ai.engineer/shanghai/2026/speakers/yanlong-wang?lang=cn
+- 看点: [现场总结与原文](summary/#session-53)
 
 #### 17:30–17:50 · 大会闭幕式与致谢
 - 形式: 闭幕
 - 会场: 主会场
 - 讲者: 全体主办方与嘉宾 | AI Engineer
-
+- 看点: [现场总结与原文](summary/#session-54)
 
 ## 推荐路线
 

@@ -6,6 +6,28 @@
    · 正文不产生整页横向溢出；宽表格在自己的盒子里横向滚动
    ========================================================================== */
 
+/* 会后资料：保持准备页的阅读宽度，原始记录逐行换行。 */
+.materials-links { display: flex; flex-wrap: wrap; gap: 8px; margin-block: 20px 0; padding-block-start: 16px; border-top: 1px solid var(--border); }
+.materials-links a { display: inline-flex; align-items: center; min-height: 44px; padding: 8px 14px; border-radius: var(--radius-sm); background: var(--accent-soft); font-size: 14px; font-weight: 600; }
+.materials-links a, .material-crumbs a { text-decoration: underline; text-underline-offset: 3px; }
+.material-crumbs ol { display: flex; flex-wrap: wrap; gap: 6px 10px; padding: 0; list-style: none; }
+.material-crumbs li + li::before { content: "/" / ""; margin-inline-end: 10px; color: var(--fg-muted); }
+.material-crumbs [aria-current="page"] { font-weight: 700; }
+.material-crumbs a:focus-visible { position: relative; z-index: 1; }
+.material-page .content h4 { scroll-margin-top: 90px; }
+.toc .toc-depth-4 { padding-inline-start: 20px; }
+.raw-dates li { margin-block: 16px; }
+.raw-transcript { margin-block: 24px; font-size: 15px; line-height: 1.7; }
+.raw-line { display: grid; grid-template-columns: 5ch minmax(0, 1fr); gap: 12px; min-height: 1.7em; scroll-margin-top: 90px; }
+.raw-line > span { white-space: pre-wrap; overflow-wrap: anywhere; min-width: 0; }
+.raw-line-number { color: var(--fg-muted); text-align: end; font-variant-numeric: tabular-nums; }
+.raw-line:target { background: var(--unknown-bg); color: var(--unknown-fg); outline: 1px solid currentColor; }
+@media print {
+  .material-page .materials-links, .material-crumbs { display: none; }
+  .raw-line { break-inside: avoid; }
+}
+html.print-mode .material-page .materials-links, html.print-mode .material-crumbs { display: none; }
+
 :root {
   color-scheme: light dark;
 
@@ -23,8 +45,8 @@
   --fg: light-dark(#0f172a, #f1f5f9);
   --fg-muted: #475569;
   --fg-muted: light-dark(#475569, #94a3b8);
-  --fg-faint: #94a3b8;
-  --fg-faint: light-dark(#94a3b8, #64748b);
+  --fg-faint: #64748b;
+  --fg-faint: light-dark(#64748b, #94a3b8);
 
   --border: #e2e8f0;
   --border: light-dark(#e2e8f0, #222f3e);
@@ -90,7 +112,7 @@
   --bg-soft: #f8fafc;
   --fg: #0f172a;
   --fg-muted: #475569;
-  --fg-faint: #94a3b8;
+  --fg-faint: #64748b;
   --border: #e2e8f0;
   --border-soft: #edf2f7;
   --accent: #2563eb;
@@ -117,7 +139,7 @@
   --bg-soft: #0e1420;
   --fg: #f1f5f9;
   --fg-muted: #94a3b8;
-  --fg-faint: #64748b;
+  --fg-faint: #94a3b8;
   --border: #222f3e;
   --border-soft: #182333;
   --accent: #3b82f6;
@@ -257,8 +279,8 @@ a:hover {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 36px;
-  min-height: 36px;
+  min-width: 40px;
+  min-height: 40px;
   padding: 0 8px;
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
@@ -268,6 +290,8 @@ a:hover {
   cursor: pointer;
   transition: all 0.15s ease;
 }
+.toc-button-label { margin-inline-start: 6px; font-size: 13px; font-weight: 600; }
+#toc-open { color: var(--accent); background: var(--accent-soft); border-color: transparent; }
 .ghost-btn:hover {
   background: var(--bg-inset);
   color: var(--fg);
@@ -277,6 +301,7 @@ a:hover {
 .theme-icon {
   display: block;
 }
+.header-actions { display: flex; align-items: center; gap: 6px; }
 
 /* ---------- 打印版工具条 ----------
    平时不出现，进了打印模式（<html class="print-mode">）才显示。
@@ -333,15 +358,18 @@ a:hover {
       标题、摘要、卡片都顶到边上，没有一点呼吸的空隙。
       简写里那个 0 看着是「不要左右内边距」，实际是「把 .wrap 给的清掉」。 */
 .home {
-  padding-block: 32px 16px;
+  padding-block: 52px 32px;
 }
 
 .hero {
-  margin-bottom: 32px;
+  margin-bottom: 42px;
+  padding-block: 0 32px;
+  border-bottom: 2px solid var(--fg);
 }
 .hero h1 {
-  margin: 0 0 8px;
-  font-size: clamp(26px, 5vw, 36px);
+  margin: 0 0 20px;
+  font-size: clamp(32px, 5vw, 50px);
+  line-height: 1.25;
   font-weight: 800;
   letter-spacing: -0.02em;
 }
@@ -350,6 +378,7 @@ a:hover {
   color: var(--fg-muted);
   font-size: 15.5px;
   line-height: 1.5;
+  max-width: 42em;
 }
 
 .group {
@@ -376,7 +405,7 @@ a:hover {
   border-radius: 999px;
   background: var(--bg-inset);
   border: 1px solid var(--border-soft);
-  color: var(--fg-faint);
+  color: var(--fg-muted);
   font-size: 12px;
   font-weight: 600;
   text-align: center;
@@ -407,18 +436,19 @@ a:hover {
   align-items: start;
   column-gap: 20px;
   row-gap: 8px;
-  padding: 18px 20px;
+  padding: 24px;
   border: 1px solid var(--border);
   border-radius: var(--radius);
   background: var(--bg-card);
-  box-shadow: var(--shadow-sm);
-  transition: border-color 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+  box-shadow: none;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease;
 }
 .event-card:hover {
   border-color: var(--accent);
   box-shadow: var(--shadow);
-  transform: translateY(-1px);
 }
+.event-card:focus-within { outline: 2px solid var(--accent); outline-offset: 3px; }
+.card-material { font-size: 12px; color: var(--accent); font-weight: 600; }
 
 .card-head {
   grid-area: head;
@@ -442,7 +472,7 @@ a:hover {
 
 .card-title {
   margin: 0;
-  font-size: 18px;
+  font-size: 21px;
   line-height: 1.38;
   font-weight: 700;
   letter-spacing: -0.01em;
@@ -690,9 +720,8 @@ a:hover {
 .event-meta-summary-text {
   flex: 1;
   min-width: 0;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  white-space: normal;
+  line-height: 1.6;
   color: var(--fg);
   font-size: 14px;
   font-weight: 500;
@@ -704,6 +733,7 @@ a:hover {
   font-size: 13px;
   font-weight: 600;
 }
+.event-meta-summary-text > span { display: inline-block; margin-inline-end: 6px; }
 
 .event-meta {
   display: grid;
@@ -776,6 +806,7 @@ a:hover {
   justify-content: center;
   gap: 6px;
   padding: 8px 18px;
+  min-height: 44px;
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
   background: var(--bg-card);
@@ -809,7 +840,8 @@ a:hover {
 .callout {
   margin: 0 0 32px;
   padding: 18px 22px;
-  border: 1px solid var(--accent);
+  border: 1px solid var(--border);
+  border-left-color: var(--accent);
   border-left-width: 4px;
   border-radius: var(--radius);
   background: var(--accent-soft);
@@ -826,8 +858,7 @@ a:hover {
   letter-spacing: 0.02em;
 }
 .callout h2::before {
-  content: '⚡';
-  font-size: 15px;
+  content: none;
 }
 .callout-body {
   font-size: 15px;
@@ -1575,6 +1606,10 @@ a:hover {
   overflow: hidden;
 }
 .content .agenda-day-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
   cursor: pointer;
   padding: 12px 16px;
   font-weight: 600;
@@ -1582,6 +1617,17 @@ a:hover {
   list-style: none;
   background: var(--bg-inset);
 }
+.content .agenda-day-summary::after {
+  content: '';
+  flex: 0 0 8px;
+  height: 8px;
+  margin-inline-end: 3px;
+  border-right: 2px solid var(--fg-muted);
+  border-bottom: 2px solid var(--fg-muted);
+  transform: rotate(45deg);
+}
+.content .agenda-day-block[open] > .agenda-day-summary::after { transform: rotate(225deg); }
+.content .agenda-day-summary:hover { color: var(--accent); }
 .content .agenda-day-summary::-webkit-details-marker {
   display: none;
 }
@@ -1605,8 +1651,11 @@ a:hover {
   color: var(--fg-muted);
   font-weight: 600;
 }
+.content .agenda-slot { position: relative; padding-inline-start: 18px; border-inline-start: 2px solid var(--border); }
+.content .agenda-slot-head::before { content: ''; position: absolute; inset-inline-start: -5px; margin-block-start: 9px; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 3px var(--bg-card); }
 .content .agenda-time {
   font-size: 15px;
+  color: var(--accent);
 }
 .content .slot-count {
   font-size: 12.5px;
@@ -1626,8 +1675,8 @@ a:hover {
 .content .agenda-card {
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
-  background: var(--bg);
-  padding: 12px 14px;
+  background: var(--bg-card);
+  padding: 16px;
   min-width: 0;
 }
 .content .agenda-title-row {
@@ -1900,10 +1949,11 @@ a:hover {
   margin: 10px 0 0;
 }
 .content .agenda-note-btn {
-  padding: 0;
+  padding: 4px 8px;
+  min-height: 32px;
   border: none;
   background: none;
-  color: var(--fg-faint);
+  color: var(--fg-muted);
   font-family: inherit;
   font-size: 12.5px;
   line-height: 1.5;
@@ -1940,7 +1990,7 @@ a:hover {
   background: var(--bg-inset);
   color: var(--fg);
   font-family: inherit;
-  font-size: 13.5px;
+  font-size: 16px;
   line-height: 1.6;
   resize: vertical;
 }
@@ -1999,6 +2049,28 @@ a:hover {
   .action-btn {
     padding-inline: 14px;
   }
+  .home { padding-block-start: 32px; }
+  .hero { margin-bottom: 28px; padding-block-end: 24px; }
+  .hero-sub { font-size: 14px; line-height: 1.8; }
+  .site-name { gap: 5px; font-size: 15px; }
+  .header-inner { gap: 8px; }
+  .header-actions { gap: 4px; }
+  .ghost-btn { min-width: 44px; min-height: 44px; padding-inline: 8px; }
+  .event-title { line-height: 1.4; }
+  .event-head > .tags { gap: 5px; }
+  .actions { gap: 8px; }
+  .actions > li { flex: 1 0 52px; }
+  .actions .action-btn { width: 100%; padding-inline: 8px; }
+  .callout { padding: 16px; }
+  .content .agenda-slots { padding-inline: 12px; }
+  .content .agenda-card { padding: 12px; }
+  .content .agenda-note-btn { min-height: 44px; }
+  .materials-links a { flex: 1 1 auto; justify-content: center; }
+}
+
+@media (max-width: 360px) {
+  .site-name .site-logo { display: none; }
+  .toc-button-label { display: none; }
 }
 
 @media (max-width: 420px) {
@@ -2107,6 +2179,7 @@ html.print-mode .agenda-day-summary {
   background: #f4f4f4;
   border-bottom: 1px solid #ccc;
 }
+html.print-mode .agenda-day-summary::after { content: none; }
 html.print-mode details.agenda-abstract > summary {
   display: none;
 }
@@ -2167,6 +2240,7 @@ html.print-mode .agenda-day-block {
 
 /* ---------- 纸面（直接 Ctrl+P / 存 PDF） ---------- */
 @media print {
+  .agenda-day-summary::after { content: none !important; }
   @page {
     margin: 14mm 12mm;
   }

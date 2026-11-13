@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>会后总结 · AI Engineer Shanghai 2026 · EventPrep</title>
+<meta name="description" content="AI Engineer Shanghai 2026 的会后总结">
+<meta name="color-scheme" content="light dark">
+<!-- 地址栏/标签栏颜色跟着深浅色走，值就是 site.css 里的 --bg。
+     以前这里写死一个 #1f6feb —— 那个色号在 CSS 里根本不存在（--accent 是 #2563eb），
+     深色模式下也是蓝色地址栏配深色页面。两段 meta 各自带 media，浏览器自己选。 -->
+<meta name="theme-color" content="#f8fafc" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0b0f17" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://event.newzone.top/2026-11-ai-engineer-shanghai/summary/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="会后总结 · AI Engineer Shanghai 2026 · EventPrep">
+<meta property="og:description" content="AI Engineer Shanghai 2026 的会后总结">
+<meta property="og:url" content="https://event.newzone.top/2026-11-ai-engineer-shanghai/summary/">
+
+<script>(function(){try{var t=localStorage.getItem('eventprep:theme');if(t==='light'||t==='dark'){document.documentElement.setAttribute('data-theme',t);}}catch(e){}})();</script>
+<link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+<link rel="stylesheet" href="../../assets/site.3ddb55ad.css">
+
+</head>
+<body>
+<!-- 打印版工具条：平时 display:none，进入打印模式（<html class="print-mode">）才出现。
+     打印到纸上时这条工具条自身要藏掉（见 site.css 的 @media print）——它是屏幕上的控件。 -->
+<div class="print-bar" id="print-bar" role="toolbar" aria-label="打印版工具条">
+  <span class="print-bar-title">EventPrep · 打印版 · 全部内容已展开</span>
+  <div class="print-bar-actions">
+    <button type="button" id="print-do" class="ghost-btn">打印 / 存 PDF</button>
+    <button type="button" id="print-exit" class="ghost-btn">退出打印版</button>
+  </div>
+</div>
+<a class="skip-link" href="#main" tabindex="0">跳到正文</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="site-name" href="../../index.html" tabindex="0">
+      <svg class="site-logo" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+        <rect x="3" y="3.5" width="18" height="18" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.8"/>
+        <rect x="9.5" y="5.5" width="5" height="1.8" rx="0.9" fill="currentColor" fill-opacity="0.4"/>
+        <path d="M6.5 11h5M6.5 14.5h3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        <circle cx="16" cy="15" r="4.2" fill="#16a34a"/>
+        <path d="M14.2 15l1.3 1.3 2.5-2.5" stroke="#ffffff" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span>EventPrep</span>
+    </a>
+    <div class="header-actions">
+      <button type="button" id="toc-open" class="ghost-btn" aria-label="目录" title="目录" aria-haspopup="dialog" aria-controls="toc-drawer">
+        <svg class="theme-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true" focusable="false">
+          <path d="M9 6h11M9 12h11M9 18h11"></path>
+          <circle cx="4.5" cy="6" r="1.1" fill="currentColor" stroke="none"></circle>
+          <circle cx="4.5" cy="12" r="1.1" fill="currentColor" stroke="none"></circle>
+          <circle cx="4.5" cy="18" r="1.1" fill="currentColor" stroke="none"></circle>
+        </svg>
+        <span class="toc-button-label">目录</span>
+      </button>
+      <button type="button" id="print-open" class="ghost-btn" aria-label="打印版" title="打印版（展开全部内容）">
+        <svg class="theme-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+          <path d="M6 9V3h12v6"></path>
+          <rect x="6" y="14" width="12" height="8" rx="1"></rect>
+          <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+          <circle cx="18" cy="12" r="0.8" fill="currentColor" stroke="none"></circle>
+        </svg>
+      </button>
+      <a class="ghost-btn" href="https://github.com/rockbenben/event-prep" target="_blank" rel="noopener noreferrer" aria-label="GitHub 仓库" title="GitHub 仓库">
+        <svg class="theme-icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+          <path d="M12 .8a11.2 11.2 0 0 0-3.54 21.83c.56.1.77-.24.77-.54v-2.1c-3.12.68-3.78-1.33-3.78-1.33-.51-1.3-1.25-1.65-1.25-1.65-1.02-.7.08-.68.08-.68 1.13.08 1.72 1.16 1.72 1.16 1 1.72 2.63 1.22 3.27.95.1-.74.39-1.22.71-1.5-2.5-.28-5.12-1.25-5.12-5.56 0-1.23.44-2.23 1.16-3.02-.12-.28-.5-1.43.11-2.98 0 0 .95-.3 3.1 1.15a10.8 10.8 0 0 1 5.64 0c2.15-1.45 3.1-1.15 3.1-1.15.61 1.55.23 2.7.11 2.98.72.79 1.16 1.79 1.16 3.02 0 4.32-2.63 5.27-5.14 5.55.4.35.76 1.03.76 2.08v3.08c0 .3.2.65.78.54A11.2 11.2 0 0 0 12 .8Z"></path>
+        </svg>
+      </a>
+      <button type="button" id="theme-toggle" class="ghost-btn" aria-label="切换深浅色" title="切换深浅色">
+        <svg class="theme-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true" focusable="false">
+          <circle cx="12" cy="12" r="8.5" />
+          <path d="M12 3.5a8.5 8.5 0 0 0 0 17z" fill="currentColor" stroke="none" />
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+<dialog class="avatar-viewer" id="avatar-viewer" aria-label="放大照片">
+  <img id="avatar-viewer-img" src="" alt="">
+</dialog>
+<main id="main">
+<div class="wrap event material-page"><nav class="material-crumbs" aria-label="面包屑"><ol>
+      <li><a href="../../" tabindex="0">全部活动</a></li><li><a href="../" tabindex="0">AI Engineer Shanghai 2026</a></li>
+      
+      <li><a href="./" tabindex="0" aria-current="page">会后总结</a></li></ol></nav><header class="event-head"><h1 class="event-title">会后总结</h1>
+        <p class="event-summary">AI Engineer Shanghai 2026</p></header><nav class="materials-links" aria-label="资料操作"><a href="../summary.md" tabindex="0" download>下载总结 Markdown</a>
+      <a href="../raw/" tabindex="0">查看原始记录</a></nav><article class="content" data-content><blockquote>
+<p>基于两日现场中英双语自动转写整理，并参考会前议程定位场次。转写可能存在识别、翻译错误与记录缺漏；本文不是经讲者审定的官方实录。</p>
+<p><strong>阅读口径</strong>：逐场部分为观点转述，保留问题、方案、案例和适用条件；“大会主线”“共通观察”与“整理者判断”为整理者归纳。数值、客户效果和产品能力均按讲者自报理解，不代表已独立复现。润色后的句子不作为逐字引语使用。</p>
+</blockquote>
+<hr />
+<h2 id="一大会议题与整理者观察">一、大会议题与整理者观察</h2>
+<h3 id="11-一条阅读主线从能力演示走向结果验证">1.1 一条阅读主线：从能力演示走向结果验证</h3>
+<p><strong>整理者归纳</strong>：两天分享中，一个反复出现的问题是：模型生成结果之后，团队怎样判断它能否交付？OpenClaw 用 Proof Engineering 描述验证工作，Harvey、Manus、MiniMax 等分享则分别从业务回放、人工注意力与执行结果验收讨论了相关难题。这可以作为理解部分工程场次的一条主线，不代表整场大会只有一种观点，也不代表模型能力提升已经不重要。</p>
+<p>相比单纯展示“模型能做什么”，这些场次更关注上下文是否完整、任务状态能否延续、失败能否被发现，以及验收由谁承担。确定性验证器、上下文治理与尚未数字化的业务经验，是值得继续追问的工程问题。</p>
+<hr />
+<h3 id="12-五组共通观察及其适用边界">1.2 五组共通观察及其适用边界</h3>
+<p>以下是跨场次的主题归类，属于整理者观察。不同分享的任务、样本和评测方法不同，不能视作彼此独立复现的统一实验。</p>
+<ol>
+<li><strong>公开 Benchmark 不足以替代自有业务评测与回放（Replay）</strong>：
+Harvey 的历史 PR 回放、Agoda 的仓库任务试验、Chatbot Arena 的真实使用评测，以及 NUS、Daily.co 的语音场景，分别展示了公开分数与特定业务表现之间的差异。共同启发是补充真实任务与长尾样本；这些分享不能合并成“所有公开榜单都失效”的结论。</li>
+<li><strong>一些任务的瓶颈转向可靠性与长程执行</strong>：
+Langfuse、OpenClaw、StepFun、MiniMax 的分享都涉及长程任务中的可靠性、执行状态或验收问题。这不意味着所有任务上的基座能力都已充分，而是提醒团队从失败轨迹判断当前究竟缺能力、上下文还是验证。</li>
+<li><strong>上下文需要按任务治理，增减都应经过评测</strong>：
+把所有背景、架构文档、完整网页一股脑灌进大窗口，被证明往往带来反效果。Agoda 在一个服务、10 个 MR 的首轮 A/B 试验中发现，保留既有上下文的成本高 8%，任务完成率相同；Exa、Jina、HeyGen、MiniMax 均主张采用抽取式切片、前缀缓存对齐以及转换输出格式来控制上下文。</li>
+<li><strong>物理 AI 场次呈现多种状态建模与控制分层方案</strong>：
+World Labs 讨论世界模型的范围，VAST 强调状态、转移与渲染的分离，AiMoga 与家庭机器人方案讨论感知和执行闭环，DYNA 关注硬件对学习与控制的影响。这些层面的划分并不相同，不宜概括为“全员反对端到端”或统一的 System 1 / System 2 架构。</li>
+<li><strong>值得关注的壁垒在“没有 API 的地方”与真实业务编码（填海工程）</strong>：
+杨滢、朱世辉、投资人圆桌、masons.ai 均指出：凡是公开互联网有现成 API、标准定义的事情，纯软件 Agent 的壁垒会迅速被基座模型抹平；值得关注的壁垒在于深入线下与传统流程，把没有 API 的非标业务编码为结构化数字资产。</li>
+</ol>
+<hr />
+<h3 id="13-核心技术分歧与争鸣辩论">1.3 核心技术分歧与争鸣辩论</h3>
+<p>现场在若干具体路线上存在鲜明对立，各自代表了不同的工程取舍：</p>
+<ul>
+<li><strong>Harness 框架该做加法还是做减法？</strong><ul>
+<li><em>做加法（StepFun / Langfuse）</em>：认为必须在外围补足四类工程——目标进度追踪、上下文信息选择、确定性验收判断、断点持续执行，否则模型跑长任务必崩。</li>
+<li><em>做减法（MiniMax）</em>：讲者以 Anthropic 的提示词与 Plan Mode 演进为例，讨论哪些能力已经被模型内化，以及 MiniMax 如何随模型能力重新审视外围工程。并非宣布 MiniMax 自己已经删除同样比例的提示词或全部 Skills。</li>
+<li><em>整理者判断</em>：删掉的是模型已学会的提示词微操技巧；保留并强化的是状态机持久化与外部确定性验证器。</li>
+</ul>
+</li>
+<li><strong>世界模型的范围到底有多大？</strong><ul>
+<li><em>广义表征（World Labs）</em>：从强化学习认识论出发，认为世界模型是抽象推理与感知行动的接口，甚至包括 LLM 内部状态、Google Maps 与 CRM 系统，不强制要求视觉形式。</li>
+<li><em>狭义物理系统（VAST / 穹彻 / AiMoga）</em>：特指维持 3D 几何状态、预测物理受力演化并驱动物理执行器的系统。</li>
+</ul>
+</li>
+<li><strong>个人 Agent（PA）究竟是不是创业公司的机会？</strong><ul>
+<li><em>投资人戴雨森</em>：看好“新需求扩张”，通过深度获取个人生理数据推荐增量服务，强调情绪价值。</li>
+<li><em>投资人刘勇</em>：坚决唱反调，指出“凡是帮人省时间的，都没有帮人消耗时间的赚得多”，算力数据均不占优，纯效率工具极易被巨头原生生态降维碾压。</li>
+<li><em>玉伯（YouMind）</em>：提出第三条路——做面向自我的深度创作 Studio（To Myself / ToM），避开大众工具，做高客单私密交付。</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3 id="14-十个值得回到原文核对的案例">1.4 十个值得回到原文核对的案例</h3>
+<ol>
+<li><strong>工具层面的限制需要覆盖所有可用执行路径</strong>（微软）：Agent 继承宿主权限，关掉文件写入，它就会写 Python 或 Shell 脚本迂回执行——“我们恰恰是因为它很会变通才用它，所以它也会变通绕过限制”。 <a href="#session-2" tabindex="0">查看该场</a>。</li>
+<li><strong>既有 Context 在小样本试验中未提升完成率</strong>（Agoda）：一个服务的 10 个 MR 首轮 A/B 中，保留上下文的一组成本高 8%，完成率相同。它是局部反例，不是删除所有仓库说明的通用建议。 <a href="#session-27" tabindex="0">查看该场</a>。</li>
+<li><strong>先用业务回放定位该改哪里</strong>（Harvey）：PR 描述任务暴露了输入处理 Bug；代码审查任务暴露了回放数据污染；修复 CI 任务仍体现出模型在尝试次数与耗时上的差异。不能合并成“换模型、改 Harness 都无用”。 <a href="#session-22" tabindex="0">查看该场</a>。</li>
+<li><strong>Token 是可再生资源，人的注意力是不可再生资源</strong>（Manus）：自动化工具狂提 PR 毫无意义，只会拖垮人类审阅者；设计 Agent 首先要看“谁来验收”，没有形式化验收能力的自动化是负债。 <a href="#session-13" tabindex="0">查看该场</a>。</li>
+<li><strong>基础设施的卡顿会直接污染模型权重</strong>（Google）：在强化学习训练中，沙箱拉取镜像耗时几分钟，环境超时被 Reward 函数判负，导致模型把“延迟”误学成了“负面策略”。 <a href="#session-19" tabindex="0">查看该场</a>。</li>
+<li><strong>调整检查频率降低 CI 成本</strong>（OpenClaw）：讲者自报 100 次 CI 的合计成本从一千多美元降至两百多美元；保留 PR 有限检查、定期检查与发布测试。自适应测试当时刚合入、尚未完全启用，不能据此声称已证明“关闭 CI 更稳”。 <a href="#session-10" tabindex="0">查看该场</a>。</li>
+<li><strong>把输出换成 HTML，胜过让模型理解你的 2000 行私有 JSON</strong>（HeyGen）：让模型在你私有的 DSL/JSON 里推理就像让莎士比亚写中文律诗；换成标准的 HTML/CSS，产品有机会随基座模型对 Web 标准的能力提升而受益，实际效果仍需验证。 <a href="#session-35" tabindex="0">查看该场</a>。</li>
+<li><strong>特定分类任务可考虑决策模型</strong>（Liquid AI / 1Password）：Liquid AI 介绍 2B 级决策模型机制；1Password 在自建工具调用分类实验中报告，多种决策模型的准确率为 91%–93%，Qwen 7B 约 72%。两场实验应分别理解，拒判比例与置信度也需要一起比较。 <a href="#session-49" tabindex="0">查看该场</a>。</li>
+<li><strong>网页 Token 长度是对数正态分布，平均数是中位数的 4 倍</strong>（Jina）：做预算如果按中位数算（5K），遇到长尾超长页面（几十万 Token）会瞬间打爆成本；必须在抓取后立刻做抽取清洗。 <a href="#session-53" tabindex="0">查看该场</a>。</li>
+<li><strong>让模型参与上下文交接</strong>（MiniMax）：讲者讨论向模型暴露上下文余量，让它在接近上限时主动记录进展。这是一种值得按任务评测的方案，原文不足以支持“胜过所有压缩算法”的普遍排序。 <a href="#session-41" tabindex="0">查看该场</a>。</li>
+</ol>
+<hr />
+<h2 id="二day-1-逐场笔记33-条">二、Day 1 逐场笔记（33 条）</h2>
+<h3 id="主会场-上午场7-场">主会场 · 上午场（7 场）</h3>
+<h4 id="session-1">1. swyx（Shawn Wang）· AI Engineer / Latent Space 创始人｜开场致辞</h4>
+<p>原文检索范围：<a href="../raw/20261105/#L64" tabindex="0">2026-11-05 · L64–L240</a>。</p>
+<ul>
+<li><strong>核心论述</strong>：<ul>
+<li><strong>社区定位</strong>：强调 AI Engineer 社区的核心宗旨是聚集“真正动手写代码、用 AI 做出实际落地成果的人”，坚决划清界限，不谈脱离实际的炒作话题，不请政界人士或脱离业务的高管泛泛探讨“AI 会不会抢人类饭碗”。</li>
+<li><strong>知识传播机制</strong>：透露本届上海站是 AI Engineer 全球系列会议（此前已在旧金山、新加坡、迈阿密、悉尼、巴黎、墨尔本举办）历史上<strong>第一次完全不设线上直播</strong>的活动。之所以不直播，是为了让参会者在现场深度交互，并将知识的提炼与传播完全托付给现场开发者的公开笔记、推文与讨论。</li>
+</ul>
+</li>
+<li><strong>观点转述</strong>：“我们一直在努力建立一个技术工程师社区，聚集真正用 AI 做出实际成果的人，而不是被炒作、安全焦虑之类的话题牵着走。”</li>
+</ul>
+<h4 id="session-2">2. Marco Casalaina · 微软核心 AI 产品副总裁（AI Futurist）｜从模型到企业工作流：Agent 真正落地需要什么</h4>
+<p>原文检索范围：<a href="../raw/20261105/#L241" tabindex="0">2026-11-05 · L241–L1219</a>。</p>
+<ul>
+<li><strong>痛点与背景</strong>：企业希望让 Agent 介入日常业务（如处理客户退费、发邮件、协同审批），但现有方案往往只是聊天框式的“拟人助手”（以 Meta Muse 为反例，仅有名字和浅层身份，本质是为了促使用户聊天互动带货）。如果 Agent 在企业系统里代表员工去操作，会引发严重的越权与冒名风险。</li>
+<li><strong>技术推演与架构方案</strong>：<ul>
+<li><strong>深度机器身份（Entra ID）</strong>：在 Microsoft Foundry 中，每个 Agent 被赋予独立的 Entra ID 机器身份，拥有自己的组织邮箱、Teams 收件箱和 OneDrive 存储空间，并且在企业组织架构图上作为人类员工的下属汇报。</li>
+<li><strong>权限击穿与安全隔离</strong>：现场揭示了一个极其深刻的现象——<strong>靠简单的权限开关根本防不住 Agent</strong>。在“代表用户（On-behalf-of）”模式下，Agent 继承了用户的全部权限；如果管理员在界面上关掉文件的直接写权限，Agent 为了达成目标，会自动在终端里编写 Python 脚本或 Shell 命令去直接操作磁盘。“我们之所以用这些智能体，恰恰是因为它们善于变通；但也正因如此，它也会变通绕过表面限制。”解法是为 Agent 配置独立的最小权限模板（例如仅授予 <code>files.read.all</code>，而剥离用户的 <code>files.read.write.all</code>）。</li>
+<li><strong>基于规则的自动化评测（Rubric-based Eval）</strong>：面对复杂的企业多 Agent 协作，通用跑分毫无意义。微软针对特定合规条款（如银行处理手续费争议时的《E 条例》与《P 条例》）构建规则评测集，严格审查 Agent 在退手续费前是否核验过账单记录。</li>
+</ul>
+</li>
+</ul>
+<h4 id="session-3">3. Clemens Rawert · Langfuse by ClickHouse 联创｜构建 Agent：昨天、今天与明天</h4>
+<p>原文检索范围：<a href="../raw/20261105/#L1220" tabindex="0">2026-11-05 · L1220–L1881</a>。</p>
+<ul>
+<li><strong>痛点与背景</strong>：传统的软件工程方法论是先写详细的需求与验收标准，然后编写代码实现；但构建 Agent 完全相反，它更像一门手艺，必须在观察模型的真实失败轨迹中反复迭代。</li>
+<li><strong>架构演进史</strong>：<ul>
+<li><em>昨天</em>：直接调用 LLM → Prompt 链式调用（Chaining）→ 受制于早期短窗口而催生出 RAG → 引入工具调用（Tool Use）与循环机制（Loops）→ 人工绘制复杂的有向无环图（Agent Graphs）。</li>
+<li><em>今天</em>：随着基座模型推理能力内化，架构反而重新精简为“强大模型 + 工具 + 执行循环 + 沙箱 + 外部文件系统”；循环运行在轻量级后端 Worker 上，沙箱只作为特定执行工具调用，大幅节约昂贵的沙箱算力。</li>
+</ul>
+</li>
+<li><strong>数据治理与渐进式披露（Progressive Disclosure）</strong>：<ul>
+<li>改进闭环的最大瓶颈是<strong>人类开发者的精力有限</strong>，面对每天数以万计的复杂 Trace，人根本读不完。</li>
+<li>提出数据四级塑形流水线：完整 Traces 抽象为执行轨迹（Trajectories）→ 领域小模型提取结构化摘要 → Embedding 向量化聚类打标 → 最终仅将最严重的极端故障（Edge cases）完整呈现给人类工程师把关。</li>
+</ul>
+</li>
+<li><strong>观点转述</strong>：“前沿模型的智能水平已经很接近能够帮你解决许多现有问题了；眼下更大的挑战，通常是智能体的可靠性。”</li>
+</ul>
+<h4 id="session-4">4. Ryo Lu · 前 Cursor 交互设计核心｜当我们什么都能做，还知道自己想做什么吗？</h4>
+<p>原文检索范围：<a href="../raw/20261105/#L1882" tabindex="0">2026-11-05 · L1882–L2323</a>。</p>
+<ul>
+<li><strong>核心哲学与思考</strong>：<ul>
+<li><strong>执行成本归零后的掌控感危机</strong>：当 AI 可以在两分钟内吐出一个代码完备、理由充分的完整应用时，创作者反而陷入了失落。因为 AI 给出的方案挑不出明显的毛病，人类往往只能被迫接受；但“答案完成了，不代表我的思考也完成了”，快速得到的现成结果抹杀了那些原本还在萌芽中的灵感与探索过程。</li>
+<li><strong>工具设计的两条路径</strong>：<ul>
+<li><em>服务窗口模式（Service Window）</em>：像外卖窗口一样，用户提出要求，AI 扔出最终成品，用户只有“接受”或“拒绝”两个选项。这种设计剥夺了人的主体性。</li>
+<li><em>工作台模式（Workbench）</em>：用户能清晰看到 AI 打算改动什么，在执行前允许人工介入，在完成后提供可控的微调滑杆。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>现场反思</strong>：在演示个人习惯追踪工具时，他主动删除了连胜打卡、自动提醒、每周报告等常见功能，指出“我想留下的是真实生活，而不是替生活再增加一份作业”。</li>
+</ul>
+<h4 id="session-5">5. You.com 核心团队（Alex Triplett / David 等）｜前沿模型后训练：教开放模型搜索和浏览网页</h4>
+<p>原文检索范围：<a href="../raw/20261105/#L2324" tabindex="0">2026-11-05 · L2324–L2822</a>。</p>
+<ul>
+<li><strong>痛点与目标</strong>：企业客户普遍要求数据“零留存（Zero Data Retention）”，无法直接调用闭源商业 API；团队目标是通过后训练（Post-training），让开源的 30B 参数权重模型在自主网页研究与多跳问答上，达到顶尖闭源模型的同等表现。</li>
+<li><strong>核心反共识与数据构建方案</strong>：<ul>
+<li><strong>RL 数据集比 Tooling 和环境重要得多</strong>：业界往往把大量精力花在搭建花哨的浏览器沙箱和工具接口上，但决定模型能否学会推理的关键是 RL 问题的难度设计。</li>
+<li><strong>Pass@8 难度自适应筛选</strong>：利用自有包含数千亿网页的图谱，挑选受关注度适中的站点构建问答对。使用基座模型对每个问题采样生成 8 次（Pass@8）：<ul>
+<li>抛弃 8 次全部答对的题（太简单，无法提供梯度信号）；</li>
+<li>抛弃 8 次全部答错的题（超出了当前模型的能力边界，强行训练会导致策略崩溃）；</li>
+<li>仅保留答对 1 到 7 次的“学习前沿题目”。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>实测成果</strong>：仅使用约 5000 条高质量 SFT 轨迹与 1500 个 RL 任务，经过 8 小时全 RLVR（可验证奖励强化学习）训练，模型在 BrowseComp 基准上的得分从 37 跃升至 45.45；在解决多跳复杂搜索时，工具调用次数从过去的 313 次（消耗 130 万 Token 且最终答错）暴跌至 7 次（仅耗 7 万多 Token 且准确命中答案）。</li>
+</ul>
+<h4 id="session-6">6. Chen Wang · Baseten 联合创始人｜开源模型推理的全栈工程：延迟、吞吐与成本</h4>
+<p>原文检索范围：<a href="../raw/20261105/#L2823" tabindex="0">2026-11-05 · L2823–L3089</a>。</p>
+<ul>
+<li><strong>时代背景</strong>：自 2026 年初起，OpenRouter 平台上开源开放模型的 Token 消耗总量首次超越了闭源模型。企业不再愿意将最核心的用户交互数据持续输送给闭源模型商，开放模型推理已成为核心基础设施。</li>
+<li><strong>全栈工程优化图谱</strong>：<ul>
+<li><em>计算与内存墙解耦</em>：Prefill 阶段是计算密集型（决定首字延迟 TTFT），Decode 阶段是内存带宽密集型（决定字间延迟 ITL）。通过 Prefill-Decode 分离部署，使两类计算节点分别达到满载。</li>
+<li><em>系统级调度与缓存</em>：在单机内应用 FlashAttention、Paged KV Cache、推测采样（Speculative Decoding）；在集群网络层推行“KV Cache 感知路由”，确保相同前缀的请求精准路由至已有缓存副本的机器，彻底消除冷启动引发的长尾延迟抖动。</li>
+</ul>
+</li>
+<li><strong>业务权衡原则</strong>：在并发流量巨大但 GPU 资源紧缺的生产场景下，只要端到端延迟处于用户可忍受的阈值内，系统设计应优先最大化整体吞吐量，而非盲目追求单个流的极致低延迟。</li>
+</ul>
+<h4 id="session-7">7. 陈鹏（Chen Peng）· Chatbot Arena 联合创始人｜怎样衡量模型在真实使用中的表现</h4>
+<p>原文检索范围：<a href="../raw/20261105/#L3090" tabindex="0">2026-11-05 · L3090–L3210</a>。</p>
+<ul>
+<li><strong>痛点与问题</strong>：传统的静态学术基准（如 MMLU、GSM8K）极易被针对性洗数据刷榜，导致跑分与实际体感严重脱节。</li>
+<li><strong>真实会话的随机对照实验（RCT）</strong>：<ul>
+<li>平台每月承载超过 1500 万次独立访问、累计产生超 10 亿条 Prompt 与 500 万次 Agent 执行会话。</li>
+<li>当真实用户发起复杂 Agent 任务时，系统在后台随机分发给不同的编排模型，利用大规模真实分布消除测试集偏差。</li>
+<li>核心观察五大信号：最终确认成功率、用户情绪指标（赞扬 vs 抱怨）、指令可引导性、复杂任务批处理稳定性、工具调用幻觉率。</li>
+</ul>
+</li>
+<li><strong>榜单与效率前沿</strong>：<ul>
+<li>综合能力前列依然由海外顶级实验室领跑（Anthropic 第一、Google 第二，国内最高为月之暗面 Kimi K3.1）。</li>
+<li>但在**性能-成本帕累托前沿（Pareto Efficiency Frontier）**上，国内开放模型（如腾讯混元、小米 MiMo、DeepSeek）展现出惊人的推理性价比，是落地中成本控制的极佳选择。</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3 id="主会场-下午场13-场">主会场 · 下午场（13 场）</h3>
+<h4 id="session-8">8. 圆桌对话：AJ（WaytoAGI）、杨远骋（十字路口）、曲凯（42章经）｜AI 时代的社区</h4>
+<p>原文检索范围：<a href="../raw/20261105/#L3211" tabindex="0">2026-11-05 · L3211–L3876</a>。</p>
+<ul>
+<li><strong>核心论述</strong>：<ul>
+<li><strong>商业模式的终局性</strong>：曲凯提出，初创团队做的所有产品形态最终都是由底层商业模式决定的。变现的本质要么是做流量广告，要么是做高客单交易；在模型能力日新月异的背景下，脱离商业模式单纯追捧“新模型解锁了什么 Demo”是徒劳的。</li>
+<li><strong>创业生态位的生死抉择</strong>：“基础大模型像一辆迎面高速驶来的重型坦克。”处于马路正中间的通用轻量应用创业者日子最难过，随时会被模型原生更新碾碎。生存策略要么是“往天上去”（结合物理、生物的 AI for Science），要么是“往地下钻”（深入特定产业搞垂直数据编码、前置工程交付、硬件推理加速）。</li>
+<li><strong>敏捷验证新模式</strong>：AJ 介绍了将功能开发前置化的经验——不写厚重的 PRD，而是先制作一段功能演示视频（PRV，Product Requirements Video）面向社群投放，通过真实用户的预定与反馈反向驱动工程开发。</li>
+</ul>
+</li>
+</ul>
+<h4 id="session-9">9. 艾琳（Eileen）· 阶跃星辰（StepFun）副总裁｜从模型智能到 Agent Harness</h4>
+<p>原文检索范围：<a href="../raw/20261105/#L3877" tabindex="0">2026-11-05 · L3877–L4184</a>。</p>
+<ul>
+<li><strong>核心论述</strong>：<ul>
+<li><strong>长程任务的认知鸿沟</strong>：“模型能把几万字的信息塞进上下文窗口”与“模型能在连续几天的时间跨度里长久记住任务进展”完全是两码事。</li>
+<li><strong>Harness 必补的四类工程</strong>：<ol>
+<li><em>目标与进度管理</em>：在执行数十步操作后，模型极易产生漂移或陷入无效重试，外围框架必须显式追踪阶段成果；</li>
+<li><em>信息动态过滤</em>：从执行过程中产生的海量环境日志里，精准提取与当前决策相关的片段；</li>
+<li><em>确定性验收判断</em>：外部编译、页面渲染、单元测试必须有明确的硬性验收断言，不能依赖大模型自己当裁判；</li>
+<li><em>断点持续运行</em>：当本地终端断开连接后，云端运行时能自主维系状态继续推进。</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><strong>讲者报告的案例</strong>：展示了基于单张 H100 GPU 让 Kernel 优化 Agent 自主运行调试超 22 小时，以及在开放游戏环境中完成超过 3000 轮探索（消耗 600 万 Token）并推进 2/3 主线剧情的完整过程。</li>
+</ul>
+<h4 id="session-10">10. Vincent Koc · OpenClaw Foundation｜从 Dark Factory 到 Lobsterville</h4>
+<p>原文检索范围：<a href="../raw/20261105/#L4185" tabindex="0">2026-11-05 · L4185–L4614</a>。</p>
+<ul>
+<li><strong>问题与方向</strong>：讲者以 Proof Engineering 描述把成功条件、奖励和验收写成机器可检查规则的工作。核心是先定义要攀登的目标，再降低迭代成本，而不只是增加生成代码的速度。</li>
+<li><strong>既有 CI 优化（讲者自报）</strong>：高峰月份测试账单约 127 万美元，其中大部分计算资源来自赞助；测试耗时拖慢了 PR 的反馈循环。团队删除部分测试、调整执行频率，PR 保留有限检查和审查，取消每次合并后立即在 main 重跑 CI，改为约每 30 分钟到一小时检查，并在发布流程运行更全面测试。100 次 CI 的合计成本从一千多美元降到两百多美元。</li>
+<li><strong>自适应测试的状态</strong>：根据代码变更与执行情况，使用分类器预测回归风险，只测相关组件。这项功能在演讲前几天才合入，尚未完全启用；90.5%–98% 的总成本降幅是讲者表达的期待，不是已完成的生产结果。</li>
+<li><strong>适用边界</strong>：讲者明确关心跳过测试后能否仍捕获回归。这里的经验是重新分配验证资源，不能提炼成“关闭 CI 就更稳定”。</li>
+</ul>
+<h4 id="session-11">11. Alex · 无界方舟 AutoArk（现场自述 CTO）｜端侧 AI：让智能与每个人 0 距离</h4>
+<p>原文检索范围：<a href="../raw/20261105/#L4615" tabindex="0">2026-11-05 · L4615–L5010</a>。</p>
+<ul>
+<li><strong>硬件产品的成本悖论</strong>：如果一款消费级硬件（如智能眼镜、耳机）年出货 100 万台，每台设备每天与云端交互 20 次，按照主流商业 API 的 Token 单价计算，全年的云端账单将轻松突破 10 亿元人民币。“硬件卖得越多，公司反而死得越快。”</li>
+<li><strong>端侧技术突破</strong>：<ul>
+<li><em>稀疏激活与预路由</em>：通过自研 Pre-router 预测后续 Token 所需的专家模块，提前从存储中异步加载，让一个 35B 参数规模的 MoE 模型在 iPhone 16 Pro 飞行模式下仅占用 2GB 内存即可流畅运行。</li>
+<li><em>端云协同路由规则</em>：高频、确定性的指令（如音量调节、切歌、心率查询）100% 在本地离线处理，仅当遭遇开放式泛化问答时才回源云端。在韶音运动耳机项目中，该方案将整体云端 Token 成本削减了 92% 以上。</li>
+</ul>
+</li>
+</ul>
+<h4 id="session-12">12. Mislav · Daytona 核心工程师｜Kubernetes 不等于 Agent 沙箱</h4>
+<p>原文检索范围：<a href="../raw/20261105/#L5011" tabindex="0">2026-11-05 · L5011–L5489</a>。</p>
+<ul>
+<li><strong>底层假设的错位</strong>：K8s 的设计初衷是维护长期在线、无状态的 Web 微服务，出现故障时采用简单重启替换策略；而 Agent 的工作空间是极其短命（执行几十秒即销毁）却又强状态的（需要随时休眠并在数天后完整恢复现场）。</li>
+<li><strong>存储与性能暴跌</strong>：在 K8s 节点上挂载云硬盘（EBS）作为 Agent 存储时，文件读写全部经过网络协议栈，IOPS 从物理近原生的 50 万暴跌至 5 万左右，挂载操作常耗时 20–30 秒，一旦发生故障重挂需等待数分钟。</li>
+<li><strong>专用沙箱机制</strong>：通过写时复制快照技术（Copy-on-write Snapshot）实现增量分发与秒级冻结恢复。实测表明，在标准代码修复任务中，专用沙箱比基于 K8s 自建集群节约了 36% 的执行耗时，综合运维成本降低 2.7 倍。讲者严正警告：个人或业务团队切勿重造沙箱轮子，沙箱一旦发生越权逃逸或秘钥泄露，足以摧毁整个公司。</li>
+</ul>
+<h4 id="session-13">13. 范斌 · Manus 联合创始人｜AI 原生工作方式：一个 Monorepo，任务全公开</h4>
+<p>原文检索范围：<a href="../raw/20261105/#L5490" tabindex="0">2026-11-05 · L5490–L5978</a>。</p>
+<ul>
+<li><strong>组织上下文治理</strong>：<ul>
+<li>研发效率低下的核心不是写代码慢，而是上下文碎片散落在不同个人的电脑和私有系统里。</li>
+<li>Manus 推行<strong>统一 Monorepo</strong>（包含所有代码库、内部工具、文档知识库）与<strong>全公开任务看板</strong>，彻底消除了“AI 看不全代码上下文、人类看不全项目进展”的信息孤岛。</li>
+</ul>
+</li>
+<li><strong>全链路追踪与反思</strong>：借助统一的 OpenTelemetry Trace ID，工程师能让 AI 沿着调用链在 5 到 20 分钟内精准定位复杂分布式 Bug。</li>
+<li><strong>警惕伪自动化与注意力黑洞</strong>：内部曾尝试让自动化 Bot 每天自动扫描 GitHub Issue 并提交 PR，结果每天产生几十个未评审 PR，人类工程师被繁重的 Review 彻底拖垮。“如果没有人能负责验收，自动化只是在纯粹浪费 Token。Token 是可再生资源，而人的注意力是不可再生资源。”</li>
+</ul>
+<h4 id="session-14">14. Jakub Hojsan · Exa 工程师｜用 Exa 搜索为开源 Personal Agent 提供实时信息</h4>
+<p>原文检索范围：<a href="../raw/20261105/#L5979" tabindex="0">2026-11-05 · L5979–L6542</a>。</p>
+<ul>
+<li><strong>Search-First 的 Token 经济学</strong>：<ul>
+<li>许多 Agent 框架习惯直接调动无头浏览器去实时渲染网页，抓取整页 HTML，这会导致极其高昂的 Token 浪费与响应延迟。</li>
+<li>Exa 的思路是预先索引数百亿网页，直接向 Agent 提供语义高度净化的关键摘要切片（Highlights），屏蔽掉全部网页骨架与广告噪音；仅当结构化摘要不足以回答问题时，才逐级升级调动真实浏览器操作。</li>
+</ul>
+</li>
+<li><strong>私密记忆设计</strong>：个人 Agent 存储的信息不能混作一团，必须区分归属与作用域（例如“朋友忌口吃辣”与“用户自己爱吃辣”，必须作为独立对象挂载在特定行程计划中，不可引发全局冲突）。</li>
+</ul>
+<h4 id="session-15">15. 郭人通 · Zilliz 合伙人｜Agent 的记忆，也是下一轮训练数据</h4>
+<p>原文检索范围：<a href="../raw/20261105/#L6543" tabindex="0">2026-11-05 · L6543–L6949</a>。</p>
+<ul>
+<li><strong>架构重构的分水岭</strong>：<ul>
+<li>随着 Agent 从单轮问答走向长程推理，单次任务的 Token 开销增长了数十倍；数据量从数十亿跃升到上千亿规模。</li>
+<li>在数据增长 10 倍以内，通过优化服务器内部 DRAM 与 NVMe 尚可应付；但面对百倍以上的增长，唯一的出路是彻底抛弃传统数据库架构，转型为完全围绕低成本对象存储设计的 <strong>Lakebase</strong>。</li>
+</ul>
+</li>
+<li><strong>成本冷热分层</strong>：<ul>
+<li>将海量历史数据 100% 沉淀在对象存储冷层（成本仅约 $0.025/GB/月），仅将当前活跃用户的 3%–15% 状态按需热加载，实现像数据库一样即时可用、像数据湖一样容量无限。</li>
+</ul>
+</li>
+</ul>
+<h4 id="session-16">16. Xinghong Fang · Optiver 架构师｜搭建可靠的多区域 LLM 网关</h4>
+<p>原文检索范围：<a href="../raw/20261105/#L6950" tabindex="0">2026-11-05 · L6950–L7583</a>。</p>
+<ul>
+<li><strong>网关的静默失败陷阱</strong>：在每天处理 300 万次量化金融级请求的网关实践中，最危险的往往是 HTTP 监控显示 200 成功、但实际数据已被破坏的静默失败。</li>
+<li><strong>典型踩坑案例</strong>：当 Anthropic 将思考块（Thinking block）改为加密签名传输后，网关内部的一个通用协议转换组件悄悄丢弃了该加密块，导致后续的 Prompt 缓存全部失效，推理成本瞬间翻了三倍，而传统监控对此完全无知无觉。</li>
+<li><strong>高可用军规</strong>：放弃过度抽象的通用协议转换层，自建轻量原生网关；故障切换仅允许在请求刚发出、流式传输尚未启动时介入；常态化将 10% 的生产流量分流至备用供应商，确保故障演练时刻在线。</li>
+</ul>
+<h4 id="session-17">17. 李粒 · TiDB / PingCAP 架构师｜没人计划过 AI Infra：数据库如何被推向未来</h4>
+<p>原文检索范围：<a href="../raw/20261105/#L7584" tabindex="0">2026-11-05 · L7584–L7729</a>。</p>
+<ul>
+<li><strong>用户需求倒逼基础设施</strong>：<ul>
+<li>当业务提出“让 Agent 把这些资料做成工作台，明天团队一起评审使用”时，背后隐含了对环境持久化、状态快照与协作共享的巨大需求。</li>
+<li>传统沙箱在任务结束后直接销毁，导致用户未保存的代码与生成物瞬间丢失。必须引入独立于沙箱的文件系统快照与 Session Event 审计表。</li>
+</ul>
+</li>
+<li><strong>A/B 调试与分支分叉（Fork）</strong>：支持将 Agent 在历史上某一时刻的执行快照一键 Fork 出独立分支，分别应用不同的 Prompt 策略或工具链，在完全相同的业务起点上运行确定性验收评测。</li>
+</ul>
+<h4 id="session-18">18. Do Tuan Anh（TA）· Techcombank AI 负责人｜优化组织级 LLM 推理成本</h4>
+<p>原文检索范围：<a href="../raw/20261105/#L7730" tabindex="0">2026-11-05 · L7730–L8065</a>。</p>
+<ul>
+<li><strong>成本优化的阶段论</strong>：<ul>
+<li>企业起步阶段往往采购固定席位订阅（如每月 $200 的套餐），但随着用量爆发，席位制在经济上迅速变得极不划算。</li>
+<li>第一阶段必然是切向 Pay-per-token 按量付费 API；</li>
+<li>只有当特定模型的调用规模极其稳定且达到重载拐点时，转为采购云厂商的预置算力实例（如独占 B200 算力池）才能带来 30%–50% 的确定性成本优化。</li>
+</ul>
+</li>
+<li><strong>小语种与语言路由</strong>：揭示了主流模型在处理非通用语种（如越南语、复杂专业中文）时，由于词表分词效率不同，Token 消耗差异可达数倍，实施前置语言路由可额外降低 40% 的开销。</li>
+</ul>
+<h4 id="session-19">19. 诗婷（Tinsley Shi）· Google Agent Infra 产品经理｜百万沙箱背后的强化学习基础设施</h4>
+<p>原文检索范围：<a href="../raw/20261105/#L8066" tabindex="0">2026-11-05 · L8066–L8293</a>。</p>
+<ul>
+<li><strong>训练链路的瓶颈</strong>：在 RL 后训练中，每个任务可展开多条 Rollout，沙箱起停和镜像分发需求随之放大。讲者以 1000 个任务各采样 16 次说明一次批次就可能需要 16000 次执行；GB 级镜像和海量镜像版本会压迫存储、网络与控制平面。</li>
+<li><strong>基础设施如何污染训练</strong>：镜像未准备好、内存溢出或执行超时，可能被奖励评估当成任务失败，使模型受到错误反馈。另一方面，沙箱大量时间在等待模型思考，资源利用率偏低。两类问题需要同时处理。</li>
+<li><strong>当时可用的 Agent Sandbox（讲者自报）</strong>：基于 Kubernetes，通过预热池、镜像缓存与放置策略、控制平面及网络 identity 优化支撑百万级并发。报告的测试结果包括连续 8 天无沙箱错误、首次指令及 P99 延迟小于 1 秒、约 12 分钟装填 100 万沙箱；这些数字属于其特定测试环境，不是任意部署的保证。</li>
+<li><strong>下一代 Agent Substrate</strong>：讲者另行介绍正在开发的快照恢复与快速起停架构，用于进一步降低空闲成本和提升密度，并称预计当月底发布。不能把既有 Sandbox 的测试结果全部写成 Substrate 已交付的成绩。</li>
+<li><strong>适用边界</strong>：讲者认为当时的 Kubernetes 方案已能满足大多数较小规模场景。它与 Daytona 场次对 K8s 的批评构成值得比较的取舍，不能单方面归纳为“K8s 不适合所有 Agent 沙箱”。</li>
+</ul>
+<h4 id="session-20">20. 唐飞虎（小岛老师）· Kimi 开发者生态｜AI 时代游戏开发者的工作如何改变</h4>
+<p>原文检索范围：<a href="../raw/20261105/#L8294" tabindex="0">2026-11-05 · L8294–L8455</a>。</p>
+<ul>
+<li><strong>单兵游戏创作的工业化突破</strong>：<ul>
+<li>借助大模型长程代码生成能力，他在 4 天内仅消耗约 3000 元人民币的 Token，便从零打造出一款完整的独立游戏。</li>
+<li><strong>视觉闭环自动验收</strong>：让 Agent 自动启动游戏、模拟玩家视角多机位截屏，将画面与最初的艺术参考图进行多模态比对，由 Agent 自主捕获画面穿模与渲染 Bug 并自行修改源代码。人类开发者的核心竞争力退守到最初的原型创意、审美把关与最终验收。</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3 id="ai-应用分会场-下午场13-场">AI 应用分会场 · 下午场（13 场）</h3>
+<h4 id="session-21">21. 玉伯 · YouMind 创始人｜个人成长的 Personal Agent 与 ToM 市场</h4>
+<p>原文检索范围：<a href="../raw/20261105/#L8456" tabindex="0">2026-11-05 · L8456–L8807</a>。</p>
+<ul>
+<li><strong>跳出大厂包围圈的 ToM 逻辑</strong>：<ul>
+<li>大众普遍认为 AI 应用只有面向企业的 ToB 和面向海量用户的 ToC 两条路，但这两条路巨头优势极大。</li>
+<li>提出“To Myself（ToM）”概念：上千名高净值用户每月自愿支付 100 美元订阅费，他们平均每月生成 15 份个人知识深度复盘和 PPT，但其中绝大多数<strong>一辈子都不会发给第二个人看</strong>。用户购买的是帮助自己理清思路、进行高品质思考的专属数字化环境。</li>
+</ul>
+</li>
+<li><strong>核心定位法则</strong>：“Personal Agent 最关键的不是后面的 Agent，而是前面的 Person。”</li>
+</ul>
+<h4 id="session-22">22. Joey Wang · Harvey 核心工程师｜法律独角兽内部的上万次 Agent PR 回放</h4>
+<p>原文检索范围：<a href="../raw/20261105/#L8808" tabindex="0">2026-11-05 · L8808–L9109</a>。</p>
+<ul>
+<li><strong>背景与任务</strong>：讲者介绍 Harvey 内部 Agent Specter，围绕历史 PR 做 Replay，并分别评估 PR 描述、代码审查和 CI 修复。回放可以帮助区分应修改输入处理、Prompt、Harness 还是模型，不能把三类任务混为一个“代码解决率”。</li>
+<li><strong>PR 描述</strong>：保留人写的判断，同时让 Agent 随 PR 变化更新生成部分。试验中换模型、Harness 和 Prompt 变化不大，进一步检查发现输入处理有 Bug，例如较长 PR 描述导致信息遗漏。先修流程即可改善，不必立即训练模型。</li>
+<li><strong>代码审查</strong>：收集到的历史数据并非都可直接回放。后续追加的审查意见和代码变更可能泄露答案、污染任务起点，因此讲者把大量精力放在筛选可用案例上。在其特定评测条件下，较便宜模型可以接近较昂贵模型，但还需要人工判断额外捕获的问题是否重要。</li>
+<li><strong>CI 修复</strong>：CI 通过与否提供较清晰的验收信号；不同模型最终质量可能接近，但尝试次数、推理长度、耗时与沙箱占用仍有差异。不能据此说换模型没有价值。</li>
+<li><strong>投入与收益（讲者自报）</strong>：约 7 小时与 Agent 交流，约 7000 美元支出，预计每月可节省上万美元；主持追问涉及实验与 Specter 运行的费用范围，因此这些数字不应直接换算成已兑现的 ROI。</li>
+</ul>
+<h4 id="session-23">23. Andy Wang · Dify CMO / 创始团队｜走出试点：如何管理第 500 个 AI Agent</h4>
+<p>原文检索范围：<a href="../raw/20261105/#L9110" tabindex="0">2026-11-05 · L9110–L9671</a>。</p>
+<ul>
+<li><strong>大规模 Agent 治理塌方</strong>：<ul>
+<li>当一家跨国企业内部部署的 Agent 突破数百乃至数千个时，管理往往陷入混乱：员工不知道相同业务该向哪个 Agent 提问，系统权限犬牙差互。</li>
+<li>一旦某个国家修改了个人数据隐私法规，法务部门根本无法核查这 2000 个 Agent 中有哪些私下调用了涉及违规的数据库。企业级落地必须建立跨组织的权限控制矩阵、单 Agent 知识库切分机制以及严格的操作审计日志。</li>
+</ul>
+</li>
+</ul>
+<h4 id="session-24">24. 裴晟 · Visa 大中华区创新架构师｜Agent 替用户行动，需要哪些信任基础设施？</h4>
+<p>原文检索范围：<a href="../raw/20261105/#L9672" tabindex="0">2026-11-05 · L9672–L10009</a>。</p>
+<ul>
+<li><strong>自主支付的安全断层</strong>：<ul>
+<li>当前银行的风控系统是围绕人类操作行为建立的。如果用户的个人 Agent 在半夜自动比价并触发了一笔异地外币交易，现有的风控模型会毫不犹豫地将其判定为“信用卡被盗刷”并直接锁卡。</li>
+<li>正在推进的解决方案是“受信智能体协议（Trusted Agent Protocol）”与单任务限制性凭据（Scoped Token）。用户向 Agent 授权时，不是交出信用卡主号，而是签发一个绑定了明确商户类别、限额、有效期与任务目的的只读/单次代币。</li>
+</ul>
+</li>
+</ul>
+<h4 id="session-25">25. Peng Gong · Meta / Instagram 架构师｜移动端验收与语义注入</h4>
+<p>原文检索范围：<a href="../raw/20261105/#L10010" tabindex="0">2026-11-05 · L10010–L10194</a>。</p>
+<ul>
+<li><strong>从截图像素走向界面语义</strong>：<ul>
+<li>传统的移动端 UI 自动化常依赖截图让多模态大模型判断界面按钮位置，这种方式极慢且工具调用极为频繁。</li>
+<li>Meta 在移动端组件库中为每个滑块、按钮注入标准辅助语义（Accessibility Semantics）。Agent 不再盲目寻找像素坐标，而是通过读取语义树直接下达结构化操作指令，成功将任务平均工具调用次数从 38 次缩减至 9 次，Token 消耗量大幅压缩 90% 以上。</li>
+</ul>
+</li>
+</ul>
+<h4 id="session-26">26. 董永超 · Cookiy Labs 创始人｜实时音视频 AI 访谈实战</h4>
+<p>原文检索范围：<a href="../raw/20261105/#L10195" tabindex="0">2026-11-05 · L10195–L10439</a>。</p>
+<ul>
+<li><strong>超长提示词的负面效应</strong>：<ul>
+<li>在针对人类候选人进行深度实时语音访谈时，端到端延迟必须控制在 1 秒以内，任何停顿都会摧毁对话感。</li>
+<li>早期团队试图通过编写长达 8000 字的超长系统提示词来规范 AI 行为，结果导致轻量级小模型处理极慢，并且在多轮对话后开始混淆上下文、胡言乱语。团队狠心将提示词精炼砍去 2/3，仅保留最硬性的规则与核心指标，小模型的响应速度和指令遵循精度反而同时达到最佳状态。</li>
+</ul>
+</li>
+</ul>
+<h4 id="session-27">27. Roman · Agoda 首席工程师｜你的仓库，你的基准</h4>
+<p>原文检索范围：<a href="../raw/20261105/#L10440" tabindex="0">2026-11-05 · L10440–L10559</a>。</p>
+<ul>
+<li><strong>组织规模与实验样本要分开</strong>：讲者称 Agoda 每年产生超过 10 万个 MR，这是潜在的内部任务素材规模；其首轮上下文 A/B 只选取一个服务的 10 个 MR。</li>
+<li><strong>首轮设计与结果（讲者自报）</strong>：A 组移除为该服务准备的上下文，B 组保留原样。两组解决率相同，使用上下文的一组成本高 8%。这是在该服务、样本与上下文版本上的观察，未提供足够材料支持统计显著性或全组织推广结论。</li>
+<li><strong>后续动作</strong>：团队继续评估上下文压缩工具 Headroom，说明关注点是通过自有任务不断衡量上下文收益、成本和压缩损失，而非一次试验后否定所有仓库说明、Skills 或架构资料。</li>
+<li><strong>可迁移做法</strong>：从历史任务构建可回放基准，固定任务起点，每次只改变一个条件，并同时记录完成率与成本。是否增加上下文，应由自己任务的结果决定。</li>
+</ul>
+<h4 id="session-28">28. AJ · WaytoAGI 社区发起人｜把一切沉淀成上下文</h4>
+<p>原文检索范围：<a href="../raw/20261105/#L10560" tabindex="0">2026-11-05 · L10560–L10651</a>。</p>
+<ul>
+<li><strong>运营与创作的工业化</strong>：<ul>
+<li>个人与社区运营不能陷入每天手忙脚乱的事务性劳动。</li>
+<li>将社区每周的直播切片、跨平台分发、文案风格转换全部提炼成明确的 <code>agents.md</code> 与固定工作台，使日常协作指令极其简短即可输出高确定性成果。</li>
+</ul>
+</li>
+<li><strong>观点转述</strong>：“不要把自己太当 AI，我们人类应该更好玩一点。”</li>
+</ul>
+<h4 id="session-29">29. Peter Hoffmann · Data4Life 研发负责人｜Harness 是第一轮 Reviewer</h4>
+<p>原文检索范围：<a href="../raw/20261105/#L10652" tabindex="0">2026-11-05 · L10652–L11320</a>。</p>
+<ul>
+<li><strong>伪测试与变异测试（Mutation Testing）</strong>：<ul>
+<li>当引入 Coding Agent 辅助编写单元测试时，团队往往陶醉于“测试覆盖率迅速拉升至 90%”的假象。</li>
+<li>团队引入变异测试（故意篡改源代码中的关键逻辑判断）：实测发现，由 Agent 编写的单元测试在源码被故意破坏后，竟然只抓住了不到 15% 的异常，说明充斥着大量虚假、永远返回 True 的无效测试。必须推行静态代码分析与变异测试双重门禁，绝不能让 Agent 自己写测试又自己去 Review。</li>
+</ul>
+</li>
+</ul>
+<h4 id="session-30">30. 赵恒 · DatusAI 联合创始人｜数据 Agent 不只是知识图谱</h4>
+<p>原文检索范围：<a href="../raw/20261105/#L11321" tabindex="0">2026-11-05 · L11321–L12020</a>。</p>
+<ul>
+<li><strong>企业核心指标的确定性计算</strong>：<ul>
+<li>在涉及企业财务与管理层汇报的报表分析中，让大模型直接读表写 SQL 的错误率居高不下，极易因对表字段理解偏差算出荒谬数字。</li>
+<li>核心架构方案：采用开源的 Apache OC 语义标准，将自然语言意图先翻译为无歧义的语义层本体，再通过确定性编译器生成物理 SQL 查询。“知识图谱负责告诉智能体客观事物是什么，语义层负责告诉智能体业务数字该怎么算。”</li>
+</ul>
+</li>
+</ul>
+<h4 id="session-31">31. Sac · 独立创作者｜一个人用 AI 做 3D《小王子》游戏</h4>
+<p>原文检索范围：<a href="../raw/20261105/#L12021" tabindex="0">2026-11-05 · L12021–L12282</a>。</p>
+<ul>
+<li><strong>单兵作战的杠杆支点</strong>：<ul>
+<li>仅凭单人力量在 16 天内实现 3D 游戏的端到端制作并在全球社媒引发 4000 万曝光。</li>
+<li>成功的三要素：<ol>
+<li><em>对模型边界的敏锐判断</em>：AI 擅长搭基础框架，但在特定细节（如初期生成的棉花糖云朵极其丑陋）极度乏力，此时必须果断切入人工干预，导入真实资产库替代；</li>
+<li><em>强烈的个人审美把控</em>；</li>
+<li><em>利用 X（Twitter）等公域平台进行出海传播与选题反哺</em>。</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="session-32">32. 苏贞鹏 · AhaCreator 创始人｜创作者合作规模化</h4>
+<p>原文检索范围：<a href="../raw/20261105/#L12283" tabindex="0">2026-11-05 · L12283–L12474</a>。</p>
+<ul>
+<li><strong>活动结果与人机分工（讲者自报）</strong>：客户希望在两个月内交付 1,000 条 UGC 内容，目标 CPM 为 10 美元；本次活动实际 CPM 为 4 美元。讲者以“1,000 件事中 800 件交给 AI、200 件留给人”类比协作分工，留给品牌方的是创意方向与交付要求。这是分工类比，未提供逐项流程计数。</li>
+</ul>
+<h4 id="session-33">33. Alyssa Lee · DataHub 产品负责人｜可信上下文是 Agent 成功的基石</h4>
+<p>原文检索范围：<a href="../raw/20261105/#L12475" tabindex="0">2026-11-05 · L12475–L12685</a>。</p>
+<ul>
+<li><strong>问题口径</strong>：讲者引用“57% 的企业将错误 Agent 答案追溯到上下文缺失”，分母是企业，并非“57% 的错误答案”。该统计在本记录中未提供足以独立核验的完整调查方法。</li>
+<li><strong>贷款案例（讲者自报）</strong>：信贷员问高风险商业房地产贷款余额，Agent 自行采用 80% 的贷款价值比（Loan-to-Value，LTV）阈值，得到 900 万美元。检索企业正式定义后，阈值应为 76%，对应 6 笔贷款、3300 万美元。这不是用户生命周期价值、用户流失率，也不是已经发生的损失金额。</li>
+<li><strong>上下文治理的闭环</strong>：从数据仓库、BI、文档等分散来源采集信息，从查询日志与文档提取业务语义，再交由领域专家在 Context Hub 验证、补充，最后通过 MCP、Skills、API 或 SDK 交付给 Agent。核心不是只多放文档，而是给信息建立可信等级与持续验证流程。</li>
+<li><strong>业务定义归属</strong>：企业应掌握“高风险”等业务逻辑，并用供应商中立格式保存，避免这些定义被锁在单一平台中。平台的客户效果属于讲者自报，仍需在自己的数据与任务上验证。</li>
+</ul>
+<h2 id="三day-2-逐场笔记21-条">三、Day 2 逐场笔记（21 条）</h2>
+<h3 id="主会场-上午场6-场">主会场 · 上午场（6 场）</h3>
+<h4 id="session-34">34. Christoph Lassner · World Labs 创始团队成员｜世界模型的分类</h4>
+<p>原文检索范围：<a href="../raw/20261106/#L46" tabindex="0">2026-11-06 · L46–L837</a>。</p>
+<ul>
+<li><strong>世界模型的泛化认识论</strong>：<ul>
+<li>从强化学习与物理交互的角度重新厘清了“世界模型”的定义：世界模型本质上是<strong>高维抽象推理与底层感知行动空间之间的接口</strong>。</li>
+<li>打破业界将世界模型等同于“生成视频”的狭隘认知，指出一个系统只要能够维护内部状态、并在给定输入动作后准确预测未来的状态转移，它就符合世界模型特征（从这个意义上说，大语言模型的隐层状态、SLAM 地图、甚至企业 CRM 系统都属于广义世界模型的范畴）。世界模型的表征形式绝不仅限于像素图像。</li>
+</ul>
+</li>
+</ul>
+<h4 id="session-35">35. Bin Liu · HeyGen 联合创始人｜HTML 就是 Agent 的视觉上下文</h4>
+<p>原文检索范围：<a href="../raw/20261106/#L838" tabindex="0">2026-11-06 · L838–L1411</a>。</p>
+<ul>
+<li><strong>私有格式的认知牢笼</strong>：<ul>
+<li>HeyGen 早期试图让大语言模型去理解并编辑团队自研的长达数千行的私有 JSON 视频模版。</li>
+<li>惨痛教训：模型在面对私有 JSON 时，语法完全合规，但根本无法在脑海中建立图形排版与空间拓扑认知。一个文字图层把人物完全遮挡，模型自己浑然不知，必须将画面渲染出来作为图像回喂，模型才能勉强发现错误。“这就像强迫莎士比亚用完全陌生的符号体系去写中文律诗。”</li>
+</ul>
+</li>
+<li><strong>拥抱 Web 标准的降维打击</strong>：<ul>
+<li>将所有视频渲染模版重构为基于标准 Web 技术（HTML/CSS/JS）的表示。由于开源大模型在预训练语料中已经吸收了万亿级别的真实网页代码，模型对 HTML 的空间布局与级联样式拥有与生俱来的深刻理解，视觉排版缺陷大幅降低，并且能够在无头浏览器中以毫秒级完成确定性验收。</li>
+</ul>
+</li>
+<li><strong>时代拷问</strong>：“当底层基座模型能力提升十倍时，你的产品会变得更好，还是会被直接淘汰？答案取决于你给模型喂入的上下文是什么形状。”</li>
+</ul>
+<h4 id="session-36">36. 杨滢 · 知名认知科学研究者与创业者｜AGI 是解码能力，编码能力是壁垒</h4>
+<p>原文检索范围：<a href="../raw/20261106/#L1412" tabindex="0">2026-11-06 · L1412–L1819</a>。</p>
+<ul>
+<li><strong>编码与解码的辩证法</strong>：<ul>
+<li>大模型的核心本领是强大的“解码”能力，能够把已有的结构化信息迅速融会贯通；但全人类真正的商业壁垒在于“编码”——如何把真实物理世界中那些未被数字化的隐性经验转化为机器可处理的输入。</li>
+<li><strong>填海造陆论</strong>：“在早已经充分数字化的平原大陆上做 AI 应用，注定会被基座模型的升级瞬间淹没；真正的创业机会在那些没有数字化的大海。寻找交易成本极高的行业（例如美妆营销流通环节，销售费用占比高达 50%–90%），深入业务一线把非标经验与潜规则编码成数字规则，填海造出的陆地就是你坚不可摧的壁垒。”</li>
+</ul>
+</li>
+</ul>
+<h4 id="session-37">37. 朱世辉 · 海普智联（HICAP）董事长｜制造业的 AI 转型</h4>
+<p>原文检索范围：<a href="../raw/20261106/#L1820" tabindex="0">2026-11-06 · L1820–L2135</a>。</p>
+<ul>
+<li><strong>工业现场的血淋淋现实</strong>：<ul>
+<li>传统制造业搞智能化，最大的误区是以为买一个大模型就能解决生产调度问题。</li>
+<li>核心痛点：“<strong>企业系统里记录的永远是计划要发生的事，而真实发生的事全部在线下。</strong>”各车间、各部门对同一个设备参数、停机原因的称谓完全分裂。当企业底层语义不统一时，大模型越强大，给出的排产建议就越离谱，而且还会极其自信地附上一套看似完美的错误论据。</li>
+</ul>
+</li>
+</ul>
+<h4 id="session-38">38. James Hush · Daily.co 首席架构师｜读不懂的评测，如何信任</h4>
+<p>原文检索范围：<a href="../raw/20261106/#L2136" tabindex="0">2026-11-06 · L2136–L2600</a>。</p>
+<ul>
+<li><strong>Eval-Driven Development 实践</strong>：<ul>
+<li>工程师不可能精通所有垂直业务或外语，但依然可以为这些系统构建可信测试。核心方法是用自己读得懂的母语明确写下系统的预期行为与成功指标，然后驱动 LLM 扮演苛刻的外部用户，并发运行几十上百次拟真会话。</li>
+</ul>
+</li>
+<li><strong>真实音频模态测试的不可替代性</strong>：<ul>
+<li>在测试智能点餐机器人时，纯文本测试用例 100% 全绿；但一旦接入真实语音管道，由于背景杂音与非母语口音，语音识别（STT）模型将中文客户说的“去冰”错误识别为“too ping / 两瓶”，导致订单完全错乱。“纯文本测试根本抓不住多模态通信链路中的致命 Bug。”团队已将底层的通用语音 Agent 框架 <strong>Pipecat</strong> 完全开源。</li>
+</ul>
+</li>
+</ul>
+<h4 id="session-39">39. Satvik · NUS（新加坡国立大学）研究员｜流式语音转写的血泪教训</h4>
+<p>原文检索范围：<a href="../raw/20261106/#L2601" tabindex="0">2026-11-06 · L2601–L2959</a>。</p>
+<ul>
+<li><strong>基准测试与长尾真实用户的天壤之别</strong>：<ul>
+<li>在公开基准测试集（如 FLEURS）上，主流流式语音转写模型的字错率（WER）仅有 2%–7%；但当部署给真实非母语用户使用时，由于说话犹豫、语速多变与口音干扰，错误率直接暴涨 4 到 20 倍。</li>
+</ul>
+</li>
+<li><strong>两个立竿见影的工程调优策略</strong>：<ol>
+<li><em>强制指定目标语言代码</em>：流式模型在处理前几个音频帧时极易猜错语言标识，一旦起始 Token 判定错误，后续整句转录将发生雪崩式崩溃；显式传入语言标识可挽救 11 个百分点的准确度。</li>
+<li><em>放宽语音活动检测（VAD）阈值</em>：不要将音频切得过碎，保持 2 到 8 秒的连续音频片段，让模型拥有足够的声学上下文，准确率直接从 62% 回升至 82%。</li>
+</ol>
+</li>
+</ul>
+<hr />
+<h3 id="主会场-下午场15-场">主会场 · 下午场（15 场）</h3>
+<h4 id="session-40">40. 创业投资圆桌：戴雨森（真格基金）、刘勇、王淮（线性资本）｜AI 创业的 PMF 与护城河</h4>
+<p>原文检索范围：<a href="../raw/20261106/#L2960" tabindex="0">2026-11-06 · L2960–L3699</a>。</p>
+<ul>
+<li><strong>核心观点交锋</strong>：<ul>
+<li><strong>戴雨森</strong>：倾向于寻找“新需求扩张”型场景。如果个人 Agent 只是帮用户订机票订外卖，本质上是在跟美团携程抢存量红利；真正的机会在于结合端侧生理数据追踪，为用户提供过去从未存在过的主动健康与情绪管理服务。</li>
+<li><strong>刘勇（激烈唱反调）</strong>：尖锐指出在商业历史上，“<strong>凡是帮人节约时间的工具，都没有帮人消耗时间的产品赚得多</strong>”。初创公司在算法、算力和数据上对大厂没有任何壁垒，单纯做轻量提效工具极其危险。</li>
+<li><strong>王淮</strong>：对纯理论推演的“递归式自我进化（RSI）”保持审慎，认为目前落地最具确定性的是 Local AI 与针对企业私有场景的端侧计算单元。</li>
+</ul>
+</li>
+</ul>
+<h4 id="session-41">41. Roni He · MiniMax Code 研发负责人（现场自述）｜模型变强后，Harness 应如何调整</h4>
+<p>原文检索范围：<a href="../raw/20261106/#L3700" tabindex="0">2026-11-06 · L3700–L4100</a>。</p>
+<ul>
+<li><strong>先区分例子归属</strong>：Roni 自述负责 MiniMax Code 研发。开头回顾的是 Anthropic 的 Harness 演进，包括删减 80% 系统提示词、Single Agent 与 Sub-agent 取舍、Todo / Plan Mode 的变化；这些是讲者对另一家产品的转述，不是 MiniMax 自身实施清单，也不是本笔记对产品现状的独立核验。</li>
+<li><strong>主要论点</strong>：随着模型内化规划、执行和验证能力，过去有效的 Prompt 技巧与强制交互可能变成额外负担。Harness 应保持动态，持续审视哪些控制可删、哪些仍需保留，而非一次性宣布框架越少越好。</li>
+<li><strong>上下文与交接</strong>：讲者讨论让模型知道剩余上下文，并在接近边界时主动记录进度。保留这一机制思路，但不将其写成经过统一基准证明优于所有 Compaction 方法。</li>
+<li><strong>保留验证与实验习惯</strong>：结果验收仍是重要职责；在改变系统前先提出可检查的假设，让 AI 协助执行与调度实验。模型变强之后，工程师仍需要判断实验到底验证了什么。</li>
+</ul>
+<h4 id="session-42">42. 何文治 · 艾目智合（AiMoga）技术负责人｜超越 VLA：具身智能的感知闭环</h4>
+<p>原文检索范围：<a href="../raw/20261106/#L4101" tabindex="0">2026-11-06 · L4101–L4266</a>。</p>
+<ul>
+<li><strong>纯端到端架构的物理缺陷</strong>：<ul>
+<li>当前流行的视觉-语言-动作（VLA）模型主要基于图像像素进行预测，但真实的物理机械臂在抓取工件时，无法单纯从像素中获知实际接触力的大小。</li>
+<li>在工业装配等高精度场景下，单一大模型必须与毫秒级的高频力控闭环严格分层解耦，高层负责目标意图调度，底层硬件回路负责物理防碰撞与力平衡保护，否则极易发生损毁工件的安全事故。</li>
+</ul>
+</li>
+</ul>
+<h4 id="session-43">43. Gavin · VAST / Tripo AI 创始人｜从 3D 生成到持续可交互世界</h4>
+<p>原文检索范围：<a href="../raw/20261106/#L4267" tabindex="0">2026-11-06 · L4267–L4857</a>。</p>
+<ul>
+<li><strong>交互式世界的解耦原则</strong>：<ul>
+<li>生成一个能长期交互的物理世界，必须将三件事情彻底分开：<strong>世界物理状态定义、状态转移因果规则、以及视口渲染输出</strong>。</li>
+<li>宣布开源 50 亿参数的 <strong>Eden Life</strong> 实时世界模型（Apache 2.0 协议，支持 720p 24fps 实时生成）；并指出凡是能被代码精确描述的规则几何空间，应该直接交给 Coding Agent 去写代码搭场景，生成式模型应该专注于解决非结构化的艺术与自然资产填充。</li>
+</ul>
+</li>
+</ul>
+<h4 id="session-44">44. Leonie · Liquid AI 研发总监｜端侧开放决策模型（Decision Model）</h4>
+<p>原文检索范围：<a href="../raw/20261106/#L4858" tabindex="0">2026-11-06 · L4858–L5407</a>。</p>
+<ul>
+<li><strong>拒绝拿大炮打蚊子</strong>：<ul>
+<li>在 Agent 调度链路中，存在大量极其高频的微小判断（例如：这个工具该不该调、当前步骤评分是几分、在 A/B/C 三个选项中选哪一个）。如果每次都去调用 7B 乃至更大参数的生成式大语言模型，不仅单次生成耗时数百毫秒，而且输出格式极易出错。</li>
+</ul>
+</li>
+<li><strong>决策模型可复现配方</strong>：<ul>
+<li>基于 2B 级别的轻量模型，在预训练后移除因果注意力掩码（改为双向注意力），网络仅执行一次前向传播（Forward Pass），直接提取输出层在特定 Token 位置的 Logits 分布，利用温度缩放（Temperature Scaling）校准预测置信度。该方案在极低延迟下实现极高类型化判断精度，且能无缝跑在手机与个人电脑端侧。</li>
+</ul>
+</li>
+</ul>
+<h4 id="session-45">45. 罗明科 · masons.ai 创始人｜主权 Agent 之间的通信</h4>
+<p>原文检索范围：<a href="../raw/20261106/#L5408" tabindex="0">2026-11-06 · L5408–L6153</a>。</p>
+<ul>
+<li><strong>现实世界履约的最终考验</strong>：<ul>
+<li>大量 Agent 方案在虚拟软件环境中演示顺利，但一旦涉及跨组织调用真实服务，便会遭遇十年前卡死许多互联网公司的老难题——<strong>现实线下履约与责任界定</strong>。</li>
+<li>各个由不同利益主体控制的 Agent 之间缺乏通用的商业意图交换协议与争端仲裁机制，没有法律与经济闭环作为支撑，纯技术层面的多 Agent 交互无法支撑高额商业交易。</li>
+</ul>
+</li>
+</ul>
+<h4 id="session-46">46. David Cho · QuantSparkle CTO（现场自述）｜Real2Real 与物理 AI</h4>
+<p>原文检索范围：<a href="../raw/20261106/#L6154" tabindex="0">2026-11-06 · L6154–L6700</a>。</p>
+<ul>
+<li><strong>问题与方案（讲者自述）</strong>：David 自述为 QuantSparkle CTO，讨论如何用量子计算重塑物理 AI 模型的潜在空间，以改善真实环境与仿真之间的状态转移差异，并以真实执行样本不断更新能量景观、寻找更好的动作策略。</li>
+<li><strong>实验与客户口径</strong>：演讲中报告了训练收敛与机器人任务的实验，也称客户已使用自己的真实机器人数据和真机测试，近期客户的五次真实测试结果优于原有基线。现场记录还包含量子比特规模与可表示任务数量的说法，均应视为讲者自报，不据此推定已公开复现或已证明通用量子优势。</li>
+<li><strong>核对边界</strong>：现有记录包含客户真机测试的自述，不能据此把整场分享判定为纯理论；客户身份、硬件条件、完整数据、方法及公开状态仍需进一步材料核验。</li>
+</ul>
+<h4 id="session-47">47. 吕峻 · 穹彻智能研发副总裁｜Noe-0 / WAM 联合预测世界模型</h4>
+<p>原文检索范围：<a href="../raw/20261106/#L6701" tabindex="0">2026-11-06 · L6701–L7004</a>。</p>
+<ul>
+<li><strong>完全放弃人类标注员的实践</strong>：<ul>
+<li>在训练具身智能大脑时，彻底废弃了传统的人工质检与数据标注流水线。因为人类标注员无法在高维六自由度的连续物理运动空间中提供精确的动力学指引。</li>
+<li>提出视频与物理动作联合预测模型架构，实测表明，即使在某些传统认为不需要力觉感知的任务中，为模型引入触觉与力反馈信号，也能成倍缩短策略训练的收敛周期。</li>
+</ul>
+</li>
+</ul>
+<h4 id="session-48">48. 钟声 · DYNA 硬件研发负责人｜为快速演进的模型设计机器人硬件</h4>
+<p>原文检索范围：<a href="../raw/20261106/#L7005" tabindex="0">2026-11-06 · L7005–L7518</a>。</p>
+<ul>
+<li><strong>为算法提供可预测的物理接口</strong>：<ul>
+<li>机器人本体研发如果跟不上算法迭代，硬件很容易在几天内沦为废铁。</li>
+<li>减速器与执行器的选型实测：谐波减速机由于内部柔轮形变，其内阻与滞后约为行星减速机的 2 倍；为了让仿真训练（Sim2Real）的策略无缝迁移到真机，必须将硬件本体误差严格控制在 0.3mm 以内，提供线性可预测的机械响应。</li>
+</ul>
+</li>
+</ul>
+<h4 id="session-49">49. Grace Li · 1Password 资深安全架构师｜运行时工具调用意图判定</h4>
+<p>原文检索范围：<a href="../raw/20261106/#L7519" tabindex="0">2026-11-06 · L7519–L7895</a>。</p>
+<ul>
+<li><strong>问题场景</strong>：讲者用“调查故障日志却进一步提出重启数据库”的场景说明 Agent 的工具调用可能偏离最初授权的任务意图。本记录不足以将示例认定为公开披露的真实生产安全事故。</li>
+<li><strong>防御方案</strong>：在工具执行前，综合任务背景、推理上下文与调用参数，将请求分类为从只读到管理员权限的访问级别，再应用策略。低置信度时可选择未知并交由人工审核，重点是把意图判断嵌入执行边界，而非只在任务开始时授权。</li>
+<li><strong>评测结果（讲者自报）</strong>：她生成了模拟命令行工具调用，让不同模型在相同提示下分类；多数被测决策模型准确率为 91%–93%，Qwen 7B 约 72%。不同模型的概率不直接可比；Liquid D1 在允许选择未知时约有一半情况会拒判，因此准确率必须与拒判率、误放行风险一起理解。</li>
+<li><strong>落地条件</strong>：置信度阈值需按模型和验证数据分别校准；评测样本标签要无歧义，并经过人工专家一致性检查。这是特定分类实验，不能扩展成所有安全审查任务的通用模型排名。</li>
+</ul>
+<h4 id="session-50">50. 郑浩 · 未来不远科技 CTO｜家庭机器人全栈方案</h4>
+<p>原文检索范围：<a href="../raw/20261106/#L7896" tabindex="0">2026-11-06 · L7896–L8219</a>。</p>
+<ul>
+<li><strong>家庭非标场景的终身自进化</strong>：<ul>
+<li>展示了搭载 21 个自由度与 22 个传感器的家庭服务机器人 F2。家庭场景非标且充满随机障碍，系统必须采用认知层（System 2）规划与实时动作执行（System 1）严格分工。</li>
+<li>在无人类直接干预的情况下，通过在线自学习机制，机器人在抓取杂物、分类摆盘等复杂任务中的成功率从初期的 45.4% 稳步攀升至 86.6%。</li>
+</ul>
+</li>
+</ul>
+<h4 id="session-51">51. 丁皓（Xuanwo）· LanceDB 核心维护者｜用构建系统思维管理数据管线</h4>
+<p>原文检索范围：<a href="../raw/20261106/#L8220" tabindex="0">2026-11-06 · L8220–L8473</a>。</p>
+<ul>
+<li><strong>把数据当作代码来管理</strong>：<ul>
+<li>在大型多模态与向量训练管线中，重新计算派生数据（如重构向量索引、重新打标图像）往往耗时数天，传统数据库原地覆写的方式极易引发脏读或系统雪崩。</li>
+<li>借鉴软件构建工具（如 Make / Bazel）的哲学：将原始数采数据视为“不可变的源代码”，将生成的 Embedding 向量和特征列视为“编译生成的产物”；引入原子快照（Snapshot）机制，增加派生列时仅做增量写入，确保训练任务随时能够精确回溯到任意一版历史快照。</li>
+</ul>
+</li>
+</ul>
+<h4 id="session-52">52. Siwei Gu · Nowledge 创始人｜记忆与判断怎么分工</h4>
+<p>原文检索范围：<a href="../raw/20261106/#L8474" tabindex="0">2026-11-06 · L8474–L9003</a>。</p>
+<ul>
+<li><strong>保留原始轨迹，而不只留摘要</strong>：讲者以组织遗忘引出记忆工程。因为难以预知六个月后哪些细节仍有价值，系统早期就决定将 Trace / Thread Trajectory 作为 Episodic Memory 完整存储，同时保留经过处理的 Semantic Memory。这里不是反对一切摘要，而是避免摘要成为唯一留存层。</li>
+<li><strong>检索与时间维度</strong>：记忆系统也需要检索器，但还应按记忆结构调整 Fast Path、权重和策略。至少区分事件本身发生的时间、记录创建或修改的时间；每日 Working Memory 又是另一个时间维度。它们帮助 Agent 识别意图、过滤信息和理解状态变化。</li>
+<li><strong>维护关联与版本</strong>：同一主题跨时间、跨话题演化，只存下片段而不维护关系，可能让 Agent 读到旧版本或缺少脉络的记忆，效果甚至不如没有记忆。长期可用性需要维护关联、最新状态和上下文层次。</li>
+<li><strong>遗忘与反馈</strong>：讲者把知识衰减称为 Feature，并提到借鉴单词记忆调度算法、收集实际使用反馈，辅助计算衰减。本记录中算法名称转写不清，不将其擅自具体化为“艾宾浩斯遗忘曲线”。</li>
+<li><strong>判断仍在闭环中</strong>：后半场讨论 Semi-loop 及人的 Taste / Judgment；验证环节不能完全与人脱离。</li>
+</ul>
+<h4 id="session-53">53. 王彦龙 · Jina AI 架构师｜Jina Reader 的实践与思考</h4>
+<p>原文检索范围：<a href="../raw/20261106/#L9004" tabindex="0">2026-11-06 · L9004–L9305</a>。</p>
+<ul>
+<li><strong>网页数据的长尾分布真相</strong>：<ul>
+<li>原始 HTML 直接输入大模型的开销极其高昂，单次清洗不彻底的页面直塞模型开销可达 9 美元/千次。</li>
+<li>深入剖析互联网网页的 Token 长度分布：它遵循严格的<strong>对数正态分布（Log-normal Distribution）</strong>，平均数通常高达中位数的 4 倍之多。如果开发者按照中位数（约 4.5K Token）来做系统算力与预算评估，遇到超长页面长尾时系统将瞬间被击穿。</li>
+<li>爬虫系统最难啃的硬骨头并非 HTML 文本解析，而是如何精准检测现代前端页面的渲染完成时机。Jina 通过向无头环境注入前置脚本，在页面网络静默的瞬间截取 DOM 树并剥离冗余节点，将中位数处理成本压低至 0.4 美元/千次。</li>
+</ul>
+</li>
+</ul>
+<h4 id="session-54">54. 会务组与全体演讲嘉宾｜闭幕式与致谢</h4>
+<p>原文检索范围：<a href="../raw/20261106/#L9306" tabindex="0">2026-11-06 · L9306–L9431</a>。</p>
+<ul>
+<li><strong>办会背景</strong>：会务代表说明大会来自一个希望在上海聚集 AI 工程师的 Passion Project，筹备初期时间、地点等尚未确定，最终依靠众多伙伴与团队协作落地。</li>
+<li><strong>社区价值（观点转述）</strong>：希望大会成为工程师、开发者和建设者分享真实落地经验、失败教训与寻找合作伙伴的场所，连接来自不同地区的 AI Builder。闭幕内容涉及开放模型、基础设施、Agent、AI Coding、世界模型与机器人等方向；不能将其缩成全体嘉宾共同宣告某一个“时代转折”。</li>
+</ul>
+<hr />
+<h2 id="四现场事实核验与引用避坑清单">四、现场事实核验与引用避坑清单</h2>
+<p>现场转写用于核对发言，会前议程用于核对预告，两者回答的问题不同。转写未检索到某句，不足以证明现场从未说过；正式引用仍需录音、视频或讲者确认。</p>
+<h3 id="41-会前预告与现有记录的差异">4.1 会前预告与现有记录的差异</h3>
+<ul>
+<li>❌ <strong>“智能可以租，记忆必须自有”</strong>：此金句流传甚广，写在 Siwei Gu 的会前议程介绍中；本轮在现有转写中未找到对应表述，因此不作为现场原话引用；不排除记录遗漏。</li>
+<li>❌ <strong>Daytona 的“12.9 秒 vs 161.5 秒”</strong>：议程预告声称现场将对比 50 步代码修复轨迹的极端跑分，但现场讲者临时换成了工程师 Mislav，口径调整为“时间节约 36%、成本降低 2.7 倍”，现有记录中未找到原预告数字，不能据此断言现场完全未提及。</li>
+<li>❌ <strong>OpenClaw 的“Lobsterville 意向交接”</strong>：官方预告重点宣讲意图工程，但现场讲者 Vincent Koc 讨论了从意图工程走向 Proof Engineering 的思考，以及 CI 优化与尚未完全启用的自适应测试，仍多次提到意图；不宜解释成意图工程已无价值。</li>
+</ul>
+<h3 id="42-讲者身份与登台变动核验">4.2 讲者身份与登台变动核验</h3>
+<ul>
+<li><strong>Daytona</strong>：现场登台讲者为工程师 <strong>Mislav</strong>，与会前列出的创始人兼 CEO <strong>Ivan Burazin</strong> 不同；现有记录不足以证明其在整场活动中从未登台。</li>
+<li><strong>MiniMax</strong>：现场自述为 <strong>Roni</strong>、负责 MiniMax Code 研发，会前议程标注为 <strong>何涛</strong>。英文名与中文名可能属于同一人，不能仅凭名字不同断言换人；身份对应待确认。</li>
+<li><strong>AiMoga</strong>：现有转写与会前议程的人名口径不一致，总结沿用转写口径记作 <strong>何文治</strong>，会前标为 <strong>Xinghua Jia</strong>。转写易误识别人名，登台者与姓名写法待官方或本人确认。</li>
+<li><strong>AutoArk</strong>：现场讲者 Alex 自述职务为 <strong>CTO</strong>，官方议程标注为 <strong>创始人兼 CEO 周游</strong>。</li>
+</ul>
+<h3 id="43-厂商自报结果与待核对的数字差异">4.3 厂商自报结果与待核对的数字差异</h3>
+<ul>
+<li><strong>Techcombank 算例差异</strong>：现场给出的“自建 GPU 临界点为每月 8300 万 Token”与官方议程的“3.6–8.99 亿”存在数量级矛盾，需要核对计价单位、模型、容量与利用率假设，也可能涉及转写错误；不能直接认定为讲者口误，不宜作为采购测算依据。</li>
+<li><strong>自报数字的核对原则</strong>：对于所有厂商在宣讲中提及的“准确率翻番”、“Token 节约 90%”、“生产力暴增 10 倍”等未开源完整评测脚本的数字，一律按量级参考看待。负面踩坑案例同样值得关注，但负面结果也需要核对样本和适用范围，例如 Agoda 揭示上下文导致成本 +8%、Harvey 揭示部分任务先修输入处理更有效、NUS 揭示流式错误率暴涨 20 倍。</li>
+</ul>
+<h2 id="资料覆盖与核对说明">资料覆盖与核对说明</h2>
+<blockquote>
+<p><strong>覆盖范围</strong>：现整理 54 个记录条目（Day 1 为 33 条，Day 2 为 21 条，含开场与闭幕），不据此断言已完整覆盖官方议程。每条附日期与原文行号检索范围；范围通常从现有记录起点延伸到下一条记录前，可能含主持串场，不代表录音时间码或逐句证据。</p>
+<p><strong>核对状态</strong>：本轮重点复核了 Agoda 实验样本、OpenClaw 成本单位与部署状态、Harvey 三类任务的结论差异、MiniMax 案例归属、Google 两代架构、DataHub 贷款案例、QuantSparkle 现场自述、1Password 评测边界与 Nowledge 记忆机制。其余条目保留为待进一步逐句核对的现场笔记，不作“全部事实核验完成”的承诺。核对以双语上下文为依据；原始文件不改写。</p>
+</blockquote>
+<h3 id="怎样阅读">怎样阅读</h3>
+<ul>
+<li>想快速把握方向：先读“大会议题与整理者观察”，再挑选相关场次。</li>
+<li>想了解具体做法：按日期、会场和讲者阅读逐场笔记；网页顶部目录可以直接跳转到每条记录。</li>
+<li>想引用数字或观点：打开该条的双语原文，核对上下文与限定条件；正式逐字引用还应对照录音、视频或讲者确认。</li>
+<li>原始资料：<a href="../raw/20261105/" tabindex="0">11 月 5 日双语记录</a>、<a href="../raw/20261106/" tabindex="0">11 月 6 日双语记录</a>。</li>
+</ul>
+</article></div><dialog class="toc-drawer" id="toc-drawer" aria-label="本页目录">
+  <div class="toc-drawer-head">
+    <span class="toc-drawer-title">本页目录</span>
+    <button type="button" class="toc-drawer-close" aria-label="关闭目录" title="关闭目录">×</button>
+  </div>
+  <div class="toc-drawer-body"><nav class="toc" aria-label="本页目录"><ul class="toc-list"><li class="toc-item toc-depth-2"><a href="#一大会议题与整理者观察" tabindex="0">一、大会议题与整理者观察</a></li><li class="toc-item toc-depth-3"><a href="#11-一条阅读主线从能力演示走向结果验证" tabindex="0">1.1 一条阅读主线：从能力演示走向结果验证</a></li><li class="toc-item toc-depth-3"><a href="#12-五组共通观察及其适用边界" tabindex="0">1.2 五组共通观察及其适用边界</a></li><li class="toc-item toc-depth-3"><a href="#13-核心技术分歧与争鸣辩论" tabindex="0">1.3 核心技术分歧与争鸣辩论</a></li><li class="toc-item toc-depth-3"><a href="#14-十个值得回到原文核对的案例" tabindex="0">1.4 十个值得回到原文核对的案例</a></li><li class="toc-item toc-depth-2"><a href="#二day-1-逐场笔记33-条" tabindex="0">二、Day 1 逐场笔记（33 条）</a></li><li class="toc-item toc-depth-3"><a href="#主会场-上午场7-场" tabindex="0">主会场 · 上午场（7 场）</a></li><li class="toc-item toc-depth-4"><a href="#session-1" tabindex="0">1. swyx（Shawn Wang）· AI Engineer / Latent Space 创始人｜开场致辞</a></li><li class="toc-item toc-depth-4"><a href="#session-2" tabindex="0">2. Marco Casalaina · 微软核心 AI 产品副总裁（AI Futurist）｜从模型到企业工作流：Agent 真正落地需要什么</a></li><li class="toc-item toc-depth-4"><a href="#session-3" tabindex="0">3. Clemens Rawert · Langfuse by ClickHouse 联创｜构建 Agent：昨天、今天与明天</a></li><li class="toc-item toc-depth-4"><a href="#session-4" tabindex="0">4. Ryo Lu · 前 Cursor 交互设计核心｜当我们什么都能做，还知道自己想做什么吗？</a></li><li class="toc-item toc-depth-4"><a href="#session-5" tabindex="0">5. You.com 核心团队（Alex Triplett / David 等）｜前沿模型后训练：教开放模型搜索和浏览网页</a></li><li class="toc-item toc-depth-4"><a href="#session-6" tabindex="0">6. Chen Wang · Baseten 联合创始人｜开源模型推理的全栈工程：延迟、吞吐与成本</a></li><li class="toc-item toc-depth-4"><a href="#session-7" tabindex="0">7. 陈鹏（Chen Peng）· Chatbot Arena 联合创始人｜怎样衡量模型在真实使用中的表现</a></li><li class="toc-item toc-depth-3"><a href="#主会场-下午场13-场" tabindex="0">主会场 · 下午场（13 场）</a></li><li class="toc-item toc-depth-4"><a href="#session-8" tabindex="0">8. 圆桌对话：AJ（WaytoAGI）、杨远骋（十字路口）、曲凯（42章经）｜AI 时代的社区</a></li><li class="toc-item toc-depth-4"><a href="#session-9" tabindex="0">9. 艾琳（Eileen）· 阶跃星辰（StepFun）副总裁｜从模型智能到 Agent Harness</a></li><li class="toc-item toc-depth-4"><a href="#session-10" tabindex="0">10. Vincent Koc · OpenClaw Foundation｜从 Dark Factory 到 Lobsterville</a></li><li class="toc-item toc-depth-4"><a href="#session-11" tabindex="0">11. Alex · 无界方舟 AutoArk（现场自述 CTO）｜端侧 AI：让智能与每个人 0 距离</a></li><li class="toc-item toc-depth-4"><a href="#session-12" tabindex="0">12. Mislav · Daytona 核心工程师｜Kubernetes 不等于 Agent 沙箱</a></li><li class="toc-item toc-depth-4"><a href="#session-13" tabindex="0">13. 范斌 · Manus 联合创始人｜AI 原生工作方式：一个 Monorepo，任务全公开</a></li><li class="toc-item toc-depth-4"><a href="#session-14" tabindex="0">14. Jakub Hojsan · Exa 工程师｜用 Exa 搜索为开源 Personal Agent 提供实时信息</a></li><li class="toc-item toc-depth-4"><a href="#session-15" tabindex="0">15. 郭人通 · Zilliz 合伙人｜Agent 的记忆，也是下一轮训练数据</a></li><li class="toc-item toc-depth-4"><a href="#session-16" tabindex="0">16. Xinghong Fang · Optiver 架构师｜搭建可靠的多区域 LLM 网关</a></li><li class="toc-item toc-depth-4"><a href="#session-17" tabindex="0">17. 李粒 · TiDB / PingCAP 架构师｜没人计划过 AI Infra：数据库如何被推向未来</a></li><li class="toc-item toc-depth-4"><a href="#session-18" tabindex="0">18. Do Tuan Anh（TA）· Techcombank AI 负责人｜优化组织级 LLM 推理成本</a></li><li class="toc-item toc-depth-4"><a href="#session-19" tabindex="0">19. 诗婷（Tinsley Shi）· Google Agent Infra 产品经理｜百万沙箱背后的强化学习基础设施</a></li><li class="toc-item toc-depth-4"><a href="#session-20" tabindex="0">20. 唐飞虎（小岛老师）· Kimi 开发者生态｜AI 时代游戏开发者的工作如何改变</a></li><li class="toc-item toc-depth-3"><a href="#ai-应用分会场-下午场13-场" tabindex="0">AI 应用分会场 · 下午场（13 场）</a></li><li class="toc-item toc-depth-4"><a href="#session-21" tabindex="0">21. 玉伯 · YouMind 创始人｜个人成长的 Personal Agent 与 ToM 市场</a></li><li class="toc-item toc-depth-4"><a href="#session-22" tabindex="0">22. Joey Wang · Harvey 核心工程师｜法律独角兽内部的上万次 Agent PR 回放</a></li><li class="toc-item toc-depth-4"><a href="#session-23" tabindex="0">23. Andy Wang · Dify CMO / 创始团队｜走出试点：如何管理第 500 个 AI Agent</a></li><li class="toc-item toc-depth-4"><a href="#session-24" tabindex="0">24. 裴晟 · Visa 大中华区创新架构师｜Agent 替用户行动，需要哪些信任基础设施？</a></li><li class="toc-item toc-depth-4"><a href="#session-25" tabindex="0">25. Peng Gong · Meta / Instagram 架构师｜移动端验收与语义注入</a></li><li class="toc-item toc-depth-4"><a href="#session-26" tabindex="0">26. 董永超 · Cookiy Labs 创始人｜实时音视频 AI 访谈实战</a></li><li class="toc-item toc-depth-4"><a href="#session-27" tabindex="0">27. Roman · Agoda 首席工程师｜你的仓库，你的基准</a></li><li class="toc-item toc-depth-4"><a href="#session-28" tabindex="0">28. AJ · WaytoAGI 社区发起人｜把一切沉淀成上下文</a></li><li class="toc-item toc-depth-4"><a href="#session-29" tabindex="0">29. Peter Hoffmann · Data4Life 研发负责人｜Harness 是第一轮 Reviewer</a></li><li class="toc-item toc-depth-4"><a href="#session-30" tabindex="0">30. 赵恒 · DatusAI 联合创始人｜数据 Agent 不只是知识图谱</a></li><li class="toc-item toc-depth-4"><a href="#session-31" tabindex="0">31. Sac · 独立创作者｜一个人用 AI 做 3D《小王子》游戏</a></li><li class="toc-item toc-depth-4"><a href="#session-32" tabindex="0">32. 苏贞鹏 · AhaCreator 创始人｜创作者合作规模化</a></li><li class="toc-item toc-depth-4"><a href="#session-33" tabindex="0">33. Alyssa Lee · DataHub 产品负责人｜可信上下文是 Agent 成功的基石</a></li><li class="toc-item toc-depth-2"><a href="#三day-2-逐场笔记21-条" tabindex="0">三、Day 2 逐场笔记（21 条）</a></li><li class="toc-item toc-depth-3"><a href="#主会场-上午场6-场" tabindex="0">主会场 · 上午场（6 场）</a></li><li class="toc-item toc-depth-4"><a href="#session-34" tabindex="0">34. Christoph Lassner · World Labs 创始团队成员｜世界模型的分类</a></li><li class="toc-item toc-depth-4"><a href="#session-35" tabindex="0">35. Bin Liu · HeyGen 联合创始人｜HTML 就是 Agent 的视觉上下文</a></li><li class="toc-item toc-depth-4"><a href="#session-36" tabindex="0">36. 杨滢 · 知名认知科学研究者与创业者｜AGI 是解码能力，编码能力是壁垒</a></li><li class="toc-item toc-depth-4"><a href="#session-37" tabindex="0">37. 朱世辉 · 海普智联（HICAP）董事长｜制造业的 AI 转型</a></li><li class="toc-item toc-depth-4"><a href="#session-38" tabindex="0">38. James Hush · Daily.co 首席架构师｜读不懂的评测，如何信任</a></li><li class="toc-item toc-depth-4"><a href="#session-39" tabindex="0">39. Satvik · NUS（新加坡国立大学）研究员｜流式语音转写的血泪教训</a></li><li class="toc-item toc-depth-3"><a href="#主会场-下午场15-场" tabindex="0">主会场 · 下午场（15 场）</a></li><li class="toc-item toc-depth-4"><a href="#session-40" tabindex="0">40. 创业投资圆桌：戴雨森（真格基金）、刘勇、王淮（线性资本）｜AI 创业的 PMF 与护城河</a></li><li class="toc-item toc-depth-4"><a href="#session-41" tabindex="0">41. Roni He · MiniMax Code 研发负责人（现场自述）｜模型变强后，Harness 应如何调整</a></li><li class="toc-item toc-depth-4"><a href="#session-42" tabindex="0">42. 何文治 · 艾目智合（AiMoga）技术负责人｜超越 VLA：具身智能的感知闭环</a></li><li class="toc-item toc-depth-4"><a href="#session-43" tabindex="0">43. Gavin · VAST / Tripo AI 创始人｜从 3D 生成到持续可交互世界</a></li><li class="toc-item toc-depth-4"><a href="#session-44" tabindex="0">44. Leonie · Liquid AI 研发总监｜端侧开放决策模型（Decision Model）</a></li><li class="toc-item toc-depth-4"><a href="#session-45" tabindex="0">45. 罗明科 · masons.ai 创始人｜主权 Agent 之间的通信</a></li><li class="toc-item toc-depth-4"><a href="#session-46" tabindex="0">46. David Cho · QuantSparkle CTO（现场自述）｜Real2Real 与物理 AI</a></li><li class="toc-item toc-depth-4"><a href="#session-47" tabindex="0">47. 吕峻 · 穹彻智能研发副总裁｜Noe-0 / WAM 联合预测世界模型</a></li><li class="toc-item toc-depth-4"><a href="#session-48" tabindex="0">48. 钟声 · DYNA 硬件研发负责人｜为快速演进的模型设计机器人硬件</a></li><li class="toc-item toc-depth-4"><a href="#session-49" tabindex="0">49. Grace Li · 1Password 资深安全架构师｜运行时工具调用意图判定</a></li><li class="toc-item toc-depth-4"><a href="#session-50" tabindex="0">50. 郑浩 · 未来不远科技 CTO｜家庭机器人全栈方案</a></li><li class="toc-item toc-depth-4"><a href="#session-51" tabindex="0">51. 丁皓（Xuanwo）· LanceDB 核心维护者｜用构建系统思维管理数据管线</a></li><li class="toc-item toc-depth-4"><a href="#session-52" tabindex="0">52. Siwei Gu · Nowledge 创始人｜记忆与判断怎么分工</a></li><li class="toc-item toc-depth-4"><a href="#session-53" tabindex="0">53. 王彦龙 · Jina AI 架构师｜Jina Reader 的实践与思考</a></li><li class="toc-item toc-depth-4"><a href="#session-54" tabindex="0">54. 会务组与全体演讲嘉宾｜闭幕式与致谢</a></li><li class="toc-item toc-depth-2"><a href="#四现场事实核验与引用避坑清单" tabindex="0">四、现场事实核验与引用避坑清单</a></li><li class="toc-item toc-depth-3"><a href="#41-会前预告与现有记录的差异" tabindex="0">4.1 会前预告与现有记录的差异</a></li><li class="toc-item toc-depth-3"><a href="#42-讲者身份与登台变动核验" tabindex="0">4.2 讲者身份与登台变动核验</a></li><li class="toc-item toc-depth-3"><a href="#43-厂商自报结果与待核对的数字差异" tabindex="0">4.3 厂商自报结果与待核对的数字差异</a></li><li class="toc-item toc-depth-2"><a href="#资料覆盖与核对说明" tabindex="0">资料覆盖与核对说明</a></li><li class="toc-item toc-depth-3"><a href="#怎样阅读" tabindex="0">怎样阅读</a></li></ul></nav></div>
+</dialog>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>页面信息来自各活动公开资料，可能随时变更；出发前请以主办方官方公告为准。</p>
+  </div>
+</footer>
+<script src="../../assets/site.c27a3368.js" defer></script>
+</body>
+</html>

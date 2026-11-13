@@ -163,7 +163,8 @@
     try {
       var raw = localStorage.getItem(checklistKey(slug));
       var parsed = raw ? JSON.parse(raw) : [];
-      return Array.isArray(parsed) ? parsed : [];
+      var overrides = localStorage.getItem(checklistKey(slug) + ':overrides');
+      return overrides ? JSON.parse(overrides) : (Array.isArray(parsed) ? parsed : []);
     } catch (err) {
       return [];
     }
@@ -171,7 +172,8 @@
 
   function saveChecks(slug, list) {
     try {
-      localStorage.setItem(checklistKey(slug), JSON.stringify(list));
+      localStorage.setItem(checklistKey(slug) + ':overrides', JSON.stringify(list));
+      localStorage.setItem(checklistKey(slug), JSON.stringify(Object.keys(list).filter(function (key) { return list[key]; })));
     } catch (err) {
       /* 忽略 */
     }
@@ -186,7 +188,9 @@
 
     var saved = loadChecks(slug);
     var set = {};
-    for (var i = 0; i < saved.length; i += 1) set[saved[i]] = true;
+    if (Array.isArray(saved)) {
+      for (var i = 0; i < saved.length; i += 1) set[saved[i]] = true;
+    } else set = saved;
 
     function updateProgress() {
       var total = boxes.length;
@@ -221,14 +225,11 @@
     var current = {};
     Array.prototype.forEach.call(boxes, function (box) {
       var id = box.getAttribute('data-check-id');
+      if (Object.prototype.hasOwnProperty.call(set, id)) box.checked = !!set[id];
       current[id] = !!box.checked;
-      if (set[id]) box.checked = true;
       box.addEventListener('change', function () {
         current[id] = box.checked;
-        var list = Object.keys(current).filter(function (k) {
-          return current[k];
-        });
-        saveChecks(slug, list);
+        saveChecks(slug, current);
         updateProgress();
       });
     });
@@ -736,14 +737,6 @@
     }
   }
 
-  function saveNotes(slug, map) {
-    try {
-      localStorage.setItem(notesKey(slug), JSON.stringify(map));
-    } catch (err) {
-      /* 无痕模式等场景写不进去，忽略 */
-    }
-  }
-
   function initNotes() {
     var container = document.querySelector('[data-event-slug]');
     if (!container) return;
@@ -752,7 +745,12 @@
     if (!buttons.length) return;
 
     var notes = loadNotes(slug);
-    var dirty = false;
+    var flushers = [];
+    var legacyCounts = {};
+    Array.prototype.forEach.call(buttons, function (btn) {
+      var old = btn.getAttribute('data-legacy-note-key');
+      legacyCounts[old] = (legacyCounts[old] || 0) + 1;
+    });
 
     Array.prototype.forEach.call(buttons, function (btn) {
       var key = btn.getAttribute('data-note-key');
@@ -761,7 +759,23 @@
       var input = block ? block.querySelector('.agenda-note-input') : null;
       if (!block || !input) return;
 
-      var text = notes[key] || '';
+      var legacyKey = btn.getAttribute('data-legacy-note-key') || key;
+      var storageKey = notesKey(slug) + ':v2:' + key;
+      var text = null;
+      try { text = localStorage.getItem(storageKey); } catch (err) { /* 本机存储不可用 */ }
+      var legacy = notes[legacyKey];
+      if (text === null && typeof legacy === 'string' && legacyCounts[legacyKey] <= 1) text = legacy;
+      if (text === null && typeof legacy === 'string' && legacyCounts[legacyKey] > 1) {
+        var oldNote = document.createElement('details');
+        var label = document.createElement('summary');
+        label.textContent = '旧笔记（对应多个同名场次，请自行核对）';
+        var body = document.createElement('p');
+        body.textContent = legacy;
+        oldNote.appendChild(label);
+        oldNote.appendChild(body);
+        block.appendChild(oldNote);
+      }
+      var dirty = false;
       if (text) {
         input.value = text;
         block.classList.add('has-note');
@@ -782,13 +796,12 @@
       var save = function () {
         var value = input.value;
         if (value.trim()) {
-          notes[key] = value;
           block.classList.add('has-note');
         } else {
-          delete notes[key];
           block.classList.remove('has-note');
         }
-        saveNotes(slug, notes);
+        if (!dirty) return;
+        try { localStorage.setItem(storageKey, value); } catch (err) { return; }
         dirty = false;
       };
 
@@ -800,26 +813,14 @@
         if (timer) clearTimeout(timer);
         timer = setTimeout(save, 250);
       });
+      flushers.push(save);
       input.addEventListener('blur', function () {
         if (timer) clearTimeout(timer);
         save();
       });
     });
 
-    // 切走或关页面前把还没落盘的存掉——正在输入的内容不该丢
-    var flush = function () {
-      if (!dirty) return;
-      Array.prototype.forEach.call(container.querySelectorAll('.agenda-note-input'), function (input) {
-        var block = input.closest ? input.closest('.agenda-note') : null;
-        var btn = block ? block.querySelector('.agenda-note-btn') : null;
-        var key = btn ? btn.getAttribute('data-note-key') : null;
-        if (!key) return;
-        if (input.value.trim()) notes[key] = input.value;
-        else delete notes[key];
-      });
-      saveNotes(slug, notes);
-      dirty = false;
-    };
+    var flush = function () { flushers.forEach(function (save) { save(); }); };
     if (window.addEventListener) {
       window.addEventListener('pagehide', flush);
       document.addEventListener('visibilitychange', function () {
@@ -1104,9 +1105,7 @@
     var saved = hasHash ? null : loadScroll(slug);
 
     var pending = null;
-    var remember = function () {
-      if (pending) return;
-      pending = setTimeout(function () {
+    var persist = function () {
         pending = null;
         var y = window.pageYOffset || (document.documentElement && document.documentElement.scrollTop) || 0;
         if (y < 40) {
@@ -1125,7 +1124,9 @@
           data.offset = Math.round(head.getBoundingClientRect().top);
         }
         saveScroll(slug, data);
-      }, 400);
+    };
+    var remember = function () {
+      if (!pending) pending = setTimeout(persist, 400);
     };
 
     // 滚动时记（防抖）；切走或关页面前也记一次——
@@ -1137,10 +1138,13 @@
           clearTimeout(pending);
           pending = null;
         }
-        remember();
+        persist();
       });
       document.addEventListener('visibilitychange', function () {
-        if (document.visibilityState === 'hidden') remember();
+        if (document.visibilityState === 'hidden') {
+          if (pending) clearTimeout(pending);
+          persist();
+        }
       });
     }
 
