@@ -102,6 +102,42 @@ describe('buildSite', () => {
     expect(existsSync(path.join(base, 'private.md'))).toBe(false);
   });
 
+  it('原文分段保留全局行号，总结引用在边界处直达正确段，全文与下载完整', async () => {
+    await writeEvent('long-raw', 'title: 长原文');
+    const dir = path.join(contentDir, 'long-raw');
+    const raw = Buffer.from('\uFEFF' + Array.from({ length: 1001 }, (_, i) => i === 500 ? '<script>原文</script>' : `原文 ${i + 1}`).join('\r\n'));
+    await writeFile(path.join(dir, '20261105-raw.md'), raw);
+    await writeFile(path.join(dir, 'summary.md'), '#### 7. 场次回顾\n\n' + [1, 500, 501, 1000, 1001].map(n => `[L${n}](20261105-raw.md#L${n})`).join('\n\n'));
+    expect((await buildSite({ contentDir, outDir })).ok).toBe(true);
+    const base = path.join(outDir, 'long-raw');
+    const summary = await readFile(path.join(base, 'summary/index.html'), 'utf8');
+    for (const [n, part] of [[1, ''], [500, ''], [501, 'part-2/'], [1000, 'part-2/'], [1001, 'part-3/']] as const) {
+      expect(summary).toContain(`href="../raw/20261105/${part}#L${n}"`);
+    }
+    const first = await readFile(path.join(base, 'raw/20261105/index.html'), 'utf8');
+    const second = await readFile(path.join(base, 'raw/20261105/part-2/index.html'), 'utf8');
+    const last = await readFile(path.join(base, 'raw/20261105/part-3/index.html'), 'utf8');
+    expect((first.match(/class="raw-line"/g) ?? []).length).toBe(500);
+    expect(first).toContain('id="L500"');
+    expect(first).not.toContain('id="L501"');
+    expect(second).toContain('id="L501"');
+    expect(second).toContain('id="L1000"');
+    expect(second).toContain('&lt;script&gt;原文&lt;/script&gt;');
+    expect(second).toContain('href="../part-3/" tabindex="0" rel="next"');
+    expect(second).toContain('href="../all/"');
+    expect(second).toContain('href="../../../../assets/');
+    expect(second).toContain('href="../../../summary/#session-7"');
+    expect(last).toContain('id="L1001"');
+    expect(last).not.toContain('rel="next"');
+    const full = await readFile(path.join(base, 'raw/20261105/all/index.html'), 'utf8');
+    expect((full.match(/class="raw-line"/g) ?? []).length).toBe(1001);
+    expect(full).not.toContain('data-raw-page-size');
+    expect((full.match(/class="raw-chunk"/g) ?? []).length).toBe(11);
+    expect(full).toContain('href="../../../summary/#session-7"');
+    expect(first).not.toContain('raw-chunk');
+    expect(await readFile(path.join(base, '20261105-raw.md'))).toEqual(raw);
+  });
+
   it('缺少总结所引用的原文时失败，保留上一次产物', async () => {
     await writeEvent('with-notes', 'title: 活动一');
     await buildSite({ contentDir, outDir });

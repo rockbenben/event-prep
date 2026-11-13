@@ -224,6 +224,14 @@ async function auditMaterials(browser, base) {
             // 锚点存在只说明文档已解析；等资源完成再返回，避免取消仍在加载的 favicon。
             await page.waitForLoadState('networkidle');
             record(`${vp.name} · 总结引用可定位原文行`, true);
+            const related = page.locator('nav[aria-label="相关总结"] a').first();
+            if (await related.count()) {
+              await related.locator('xpath=ancestor::details').evaluate(el => { el.open = true; });
+              await related.click();
+              await page.waitForFunction(() => !!location.hash && !!document.getElementById(decodeURIComponent(location.hash.slice(1))));
+              await page.waitForLoadState('networkidle');
+              record(`${vp.name} · 原文可返回对应总结章节`, page.url().includes('/summary/#'));
+            }
             await page.goto(`${base}${target}`, { waitUntil: 'networkidle' });
           }
         }
@@ -237,6 +245,61 @@ async function auditMaterials(browser, base) {
             return r.top >= 0 && r.top < innerHeight;
           });
           record(`${vp.name} · 原文深链接自动滚到指定行`, true);
+          const total = Number(await page.locator('[data-raw-total]').getAttribute('data-raw-total'));
+          if (total > 500) {
+            record(`${vp.name} · 原文默认最多加载 500 行`, await page.locator('.raw-line').count() === 500);
+            await page.locator('.raw-pagination a[rel="next"]').first().click();
+            await page.waitForURL('**/part-2/');
+            await page.waitForLoadState('networkidle');
+            record(`${vp.name} · 下一段保留全局行号`, await page.locator('#L501').count() === 1 && await page.locator('#L1').count() === 0);
+            const overflow = await page.evaluate(OVERFLOW_PROBE);
+            record(`${vp.name} · 原文分段无横向溢出`, overflow.scrollWidth <= overflow.docWidth + 1 && overflow.offenders.length === 0);
+            // 直接打开末段的行号引用，不依赖客户端跳转。
+            const lastPart = Math.ceil(total / 500);
+            const lastPath = lastPart === 1 ? '' : `part-${lastPart}/`;
+            await page.goto(`${base}${target}${lastPath}#L${total}`, { waitUntil: 'networkidle' });
+            await page.waitForFunction(() => !!document.getElementById(location.hash.slice(1)));
+            await page.waitForLoadState('networkidle');
+            await page.waitForFunction(() => {
+              const r = document.getElementById(location.hash.slice(1)).getBoundingClientRect();
+              return r.top >= 0 && r.top < innerHeight;
+            });
+            record(`${vp.name} · 原文引用直达末段末行`, true);
+            await page.locator('.raw-pagination a').filter({ hasText: '查看全文' }).first().click();
+            await page.waitForURL('**/all/');
+            await page.waitForLoadState('networkidle');
+            record(`${vp.name} · 查看全文包含全部稳定行号`, await page.locator('.raw-line').count() === total && await page.locator(`#L${total}`).count() === 1);
+            const fullUrl = page.url();
+            await page.goto(`${fullUrl}#L${total}`, { waitUntil: 'networkidle' });
+            await page.waitForFunction(() => {
+              const r = document.getElementById(location.hash.slice(1)).getBoundingClientRect();
+              return r.top >= 0 && r.top < innerHeight;
+            });
+            record(`${vp.name} · 全文可直接定位屏幕外的原文行`, true);
+            await page.goto(fullUrl, { waitUntil: 'networkidle' });
+            await page.locator('#L100 a').focus();
+            await page.keyboard.press('Tab');
+            record(`${vp.name} · 全文键盘可跨越延后排版区块`, await page.evaluate(() => document.activeElement?.getAttribute('href') === '#L101'));
+            const found = await page.evaluate(() => {
+              const spans = document.querySelectorAll('.raw-line > span');
+              let needle = '';
+              for (let i = spans.length - 1; i >= 0; i--) {
+                if (spans[i].textContent.trim().length >= 10) { needle = spans[i].textContent.trim(); break; }
+              }
+              window.getSelection().removeAllRanges();
+              return { needle, matched: !!needle && window.find(needle, false, true, true) };
+            });
+            // Firefox 找到后会在后续绘制中选中文本并滚动，等待实际结果。
+            if (found.matched) await page.waitForFunction(needle => window.getSelection().toString() === needle, found.needle);
+            record(`${vp.name} · 全文原生搜索可找到后部内容`, found.matched);
+            await page.emulateMedia({ media: 'print' });
+            record(`${vp.name} · 打印全文不延后排版`, await page.locator('.raw-chunk').last().evaluate(el => getComputedStyle(el).contentVisibility === 'visible'));
+            await page.emulateMedia({ media: 'screen' });
+            await page.locator('.raw-pagination a').filter({ hasText: '分段阅读' }).first().click();
+            await page.waitForURL(`**${target}`);
+            await page.waitForLoadState('networkidle');
+            record(`${vp.name} · 全文可返回分段阅读`, await page.locator('.raw-line').count() === 500);
+          }
         }
         await page.screenshot({ path: path.join(OUT, `${currentEngine}-${vp.name}-${target.split('/').filter(Boolean).join('-')}.png`) });
       }
