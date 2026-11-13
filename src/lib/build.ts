@@ -11,8 +11,9 @@
  *   适合本地预览，不适合发布。
  */
 
-import { access, cp, mkdir, readdir, readFile, rm, writeFile } from 'node:fs/promises';
+import { access, cp, mkdir, readdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
+import { replaceOutput } from './output.ts';
 import { fileURLToPath } from 'node:url';
 import { DirectoryProvider, EXPORT_FILE, loadEvents, type LoadedEvent } from './events.ts';
 import { siteAssetNames, type SiteAssetNames } from './assets.ts';
@@ -20,6 +21,7 @@ import { extractCallout, renderInlineMarkdown, renderMarkdown } from './markdown
 import { renderLayout } from '../templates/layout.ts';
 import { renderHome } from '../templates/home.ts';
 import { renderEventPage, buildJsonLd } from '../templates/event.ts';
+import { renderMaterials, type MaterialFile } from './materials.ts';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 /** `src/lib` → `src` → 仓库根 */
@@ -83,7 +85,12 @@ export async function buildSite(options: BuildOptions = {}): Promise<BuildResult
   const tolerant = options.tolerant === true;
 
   const provider = new DirectoryProvider(contentDir);
-  const events = await loadEvents(provider);
+  let events: LoadedEvent[];
+  try {
+    events = await loadEvents(provider);
+  } catch (error) {
+    return { ok: false, built: [], skipped: [], errors: [(error as Error).message], warnings: [], outDir };
+  }
 
   const errors: string[] = [];
   const warnings: string[] = [];
@@ -134,14 +141,22 @@ export async function buildSite(options: BuildOptions = {}): Promise<BuildResult
   const renderErrors: string[] = [];
   for (const ev of usable) {
     try {
+      const materials = renderMaterials(ev, assetNames, options.siteUrl);
+      const html = renderEventPageHtml(ev, assetNames, options.siteUrl, ogImage);
+      for (const match of html.matchAll(/href="summary\/#(session-\d+)"/g)) {
+        const summary = materials.find(file => file.relativePath === 'summary/index.html');
+        if (!summary || !String(summary.content).includes(`id="${match[1]}"`)) throw new Error(`总结场次不存在：${match[1]}`);
+      }
       pages.push({
         slug: ev.slug,
-        html: renderEventPageHtml(ev, assetNames, options.siteUrl, ogImage),
+        html,
         markdown: ev.source,
         assetsDir: ev.assetsDir,
+        materials,
       });
     } catch (err) {
       renderErrors.push(`${ev.slug}: 页面渲染失败：${(err as Error).message}`);
+      if (tolerant) broken.push(ev);
     }
   }
 
@@ -154,14 +169,14 @@ export async function buildSite(options: BuildOptions = {}): Promise<BuildResult
       canonicalPath: '',
       siteUrl: options.siteUrl,
       ogImage,
-      content: renderHome({ events: usable, siteUrl: options.siteUrl }),
+      content: renderHome({ events: usable.filter(ev => pages.some(page => page.slug === ev.slug)), siteUrl: options.siteUrl }),
       assets: assetNames,
     });
   } catch (err) {
-    renderErrors.push(`首页渲染失败：${(err as Error).message}`);
+    return { ok: false, built: [], skipped: broken.map(ev => ev.slug), errors: [...errors, ...renderErrors, `首页渲染失败：${(err as Error).message}`], warnings, outDir };
   }
 
-  if (renderErrors.length > 0) {
+  if (renderErrors.length > 0 && !tolerant) {
     return {
       ok: false,
       built: [],
@@ -173,64 +188,60 @@ export async function buildSite(options: BuildOptions = {}): Promise<BuildResult
   }
 
   if (!dryRun) {
-    // 清空产出目录之前先问一遍它是不是「只装构建产物」的目录（见 disposalProblems）
-    const problems = await disposalProblems(outDir, contentDir);
-    if (problems.length > 0) {
-      return {
-        ok: false,
-        built: [],
-        skipped: broken.map((ev) => ev.slug),
-        errors: [...errors, ...problems],
-        warnings,
-        outDir,
-      };
-    }
+    try {
+      await replaceOutput(outDir, contentDir, PROJECT_ROOT, async (stage) => {
+        // 站点共享的样式与脚本：按内容哈希命名写出
+        await mkdir(path.join(stage, 'assets'), { recursive: true });
+        await writeFile(path.join(stage, 'assets', assetNames.css), cssSource, 'utf8');
+        await writeFile(path.join(stage, 'assets', assetNames.js), jsSource, 'utf8');
+        // ⚠️ `src/assets/` 里的**其它**文件（favicon.svg 等）照原名带过去：
+        //    只写 css/js 两份的话，新增的图标就凭空消失了（页面少个图标，
+        //    没人会立刻发现）。改名只给 css/js——它们是页面按名字引用的那两个。
+        for (const name of await readdir(path.join(PROJECT_ROOT, 'src', 'assets'))) {
+          if (name === 'site.css' || name === 'site.js') continue;
+          const from = path.join(PROJECT_ROOT, 'src', 'assets', name);
+          if (!(await pathExists(from))) continue;
+          await cp(from, path.join(stage, 'assets', name), { recursive: true });
+        }
+        const faviconFile = path.join(PROJECT_ROOT, 'src', 'assets', 'favicon.svg');
+        if (await pathExists(faviconFile)) {
+          await cp(faviconFile, path.join(stage, 'assets', 'favicon.svg'));
+        }
+        if (ogBytes) await writeFile(path.join(stage, OG_IMAGE_FILE), ogBytes);
+        // EdgeOne 的配置随产物进分支（它在分支根目录读这个文件）
+        const edgeoneConfig = path.join(PUBLIC_DIR, EDGEONE_CONFIG_FILE);
+        if (await pathExists(edgeoneConfig)) {
+          await cp(edgeoneConfig, path.join(stage, EDGEONE_CONFIG_FILE));
+        }
 
-    // 产出目录先清空：删掉的活动不会留下残页
-    await rm(outDir, { recursive: true, force: true });
-    await mkdir(outDir, { recursive: true });
-    // 站点共享的样式与脚本：按内容哈希命名写出
-    await mkdir(path.join(outDir, 'assets'), { recursive: true });
-    await writeFile(path.join(outDir, 'assets', assetNames.css), cssSource, 'utf8');
-    await writeFile(path.join(outDir, 'assets', assetNames.js), jsSource, 'utf8');
-    // ⚠️ `src/assets/` 里的**其它**文件（favicon.svg 等）照原名带过去：
-    //    只写 css/js 两份的话，新增的图标就凭空消失了（页面少个图标，
-    //    没人会立刻发现）。改名只给 css/js——它们是页面按名字引用的那两个。
-    for (const name of await readdir(path.join(PROJECT_ROOT, 'src', 'assets'))) {
-      if (name === 'site.css' || name === 'site.js') continue;
-      const from = path.join(PROJECT_ROOT, 'src', 'assets', name);
-      if (!(await pathExists(from))) continue;
-      await cp(from, path.join(outDir, 'assets', name), { recursive: true });
-    }
-    const faviconFile = path.join(PROJECT_ROOT, 'src', 'assets', 'favicon.svg');
-    if (await pathExists(faviconFile)) {
-      await cp(faviconFile, path.join(outDir, 'assets', 'favicon.svg'));
-    }
-    if (ogBytes) await writeFile(path.join(outDir, OG_IMAGE_FILE), ogBytes);
-    // EdgeOne 的配置随产物进分支（它在分支根目录读这个文件）
-    const edgeoneConfig = path.join(PUBLIC_DIR, EDGEONE_CONFIG_FILE);
-    if (await pathExists(edgeoneConfig)) {
-      await cp(edgeoneConfig, path.join(outDir, EDGEONE_CONFIG_FILE));
-    }
+        for (const page of pages) {
+          const dir = path.join(stage, page.slug);
+          await mkdir(dir, { recursive: true });
+          await writeFile(path.join(dir, 'index.html'), page.html, 'utf8');
+          // ⚠️ 活动页旁边再放一份内容源文件（Markdown）：
+          //    页面底部有个下载链接，AI / 编辑器拿走它改完塞回 content/ 就能更新页面。
+          //    放的是**源文件原文**，不是渲染出来的东西——倒过来写还原不回去。
+          await writeFile(path.join(dir, EXPORT_FILE), page.markdown, 'utf8');
+          for (const material of page.materials) {
+            const target = path.join(dir, material.relativePath);
+            await mkdir(path.dirname(target), { recursive: true });
+            await writeFile(target, material.content);
+          }
+          // 活动自带的资源（地图、场地照片……）原样带过去
+          if (page.assetsDir) {
+            await cp(page.assetsDir, path.join(dir, 'assets'), { recursive: true });
+          }
+        }
 
-    for (const page of pages) {
-      const dir = path.join(outDir, page.slug);
-      await mkdir(dir, { recursive: true });
-      await writeFile(path.join(dir, 'index.html'), page.html, 'utf8');
-      // ⚠️ 活动页旁边再放一份内容源文件（Markdown）：
-      //    页面底部有个下载链接，AI / 编辑器拿走它改完塞回 content/ 就能更新页面。
-      //    放的是**源文件原文**，不是渲染出来的东西——倒过来写还原不回去。
-      await writeFile(path.join(dir, EXPORT_FILE), page.markdown, 'utf8');
-      // 活动自带的资源（地图、场地照片……）原样带过去
-      if (page.assetsDir) {
-        await cp(page.assetsDir, path.join(dir, 'assets'), { recursive: true });
-      }
+        await writeFile(path.join(stage, 'index.html'), homeDocument, 'utf8');
+      });
+    } catch (error) {
+      return { ok: false, built: [], skipped: broken.map(ev => ev.slug), errors: [...errors, (error as Error).message], warnings, outDir };
     }
-
-    await writeFile(path.join(outDir, 'index.html'), homeDocument, 'utf8');
   }
 
-  const built = usable.map((ev) => ev.slug);
+  errors.push(...renderErrors);
+  const built = pages.map((ev) => ev.slug);
   const skipped = broken.map((ev) => ev.slug);
 
   return {
@@ -245,55 +256,12 @@ export async function buildSite(options: BuildOptions = {}): Promise<BuildResult
 
 /** 一个已经渲染好的活动页（还没落盘）。 */
 interface RenderedPage {
+  materials: MaterialFile[];
   slug: string;
   html: string;
   /** 随页一起发布的 Markdown 源文件内容。 */
   markdown: string;
   assetsDir?: string;
-}
-
-/**
- * 产出目录顶层允许出现的东西。
- *
- * ⚠️ 构建会 `rm(outDir, {recursive:true})`，所以清空前必须确认它**只装本工具的产物**。
- *    `npm run build -- --out .` 这种写法以前会把仓库根当产物目录删掉
- *    （实测：指向一个含 package.json 与 content/ 的临时目录，跑完两者都没了）。
- *    活动页目录是 slug 命名的，认不出名字，只认它里面有没有构建写出的 index.html。
- *
- * ⚠️ `edgeone.json` 也在名单里：上一次构建已经把它写在这儿了，
- *    这次不清掉就会当成「别人的东西」拒绝动手——自己写的东西不算外来文件。
- */
-const ARTIFACT_ENTRIES = new Set([
-  'index.html',
-  'assets',
-  OG_IMAGE_FILE,
-  'CNAME',
-  EDGEONE_CONFIG_FILE,
-]);
-
-async function disposalProblems(outDir: string, contentDir: string): Promise<string[]> {
-  const problems: string[] = [];
-  if (outDir === PROJECT_ROOT) {
-    problems.push(`产出目录不能是仓库根（${PROJECT_ROOT}）：构建会清空它，那等于删掉整个项目。`);
-  }
-  if (contentDir === outDir || contentDir.startsWith(outDir + path.sep)) {
-    problems.push(`内容目录（${contentDir}）在产出目录里面：清空产出目录等于删掉内容。`);
-  }
-
-  const entries = await readdir(outDir, { withFileTypes: true }).catch(() => []);
-  const foreign: string[] = [];
-  for (const entry of entries) {
-    if (ARTIFACT_ENTRIES.has(entry.name)) continue;
-    if (entry.isDirectory() && (await pathExists(path.join(outDir, entry.name, 'index.html')))) continue;
-    foreign.push(entry.name);
-  }
-  if (foreign.length > 0) {
-    problems.push(
-      `产出目录（${outDir}）里有不属于构建产物的东西：${foreign.join('、')}。` +
-        '构建会先清空产出目录，所以拒绝动手——换一个目录（默认 dist/），或把那些文件挪走。',
-    );
-  }
-  return problems;
 }
 
 /** 渲染一个活动页的完整 HTML（不落盘）。 */
@@ -304,7 +272,7 @@ function renderEventPageHtml(
   ogImage: string | null = null,
 ): string {
   const { callout, rest } = extractCallout(ev.body);
-  const rendered = renderMarkdown(rest);
+  const rendered = renderMarkdown(rest, ev.agenda);
   const bodyHtml = makeRootRelative(rendered.html, '../');
   const calloutHtml = callout
     ? makeRootRelative(renderInlineMarkdown(callout, { breaks: true }), '../')

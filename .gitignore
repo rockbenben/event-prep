@@ -15,3 +15,8 @@ Thumbs.db
 .env
 .env.*
 !.env.example
+
+# 构建切换与故障恢复的本机产物
+*.eventprep-backup/
+*.eventprep-stage-*/
+*.eventprep-lock

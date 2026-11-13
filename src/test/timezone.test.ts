@@ -92,3 +92,8 @@ describe('dateParts', () => {
     expect(dateParts('nope')).toBeNull();
   });
 });
+
+it('固定偏移字符串不作为 IANA 时区接受', () => {
+  expect(isValidTimeZone('+08:00')).toBe(false);
+  expect(isValidTimeZone('UTC')).toBe(true);
+});

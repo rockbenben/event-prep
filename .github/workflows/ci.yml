@@ -80,6 +80,9 @@ jobs:
       - name: Install ${{ matrix.browser }}
         run: npx playwright install --with-deps ${{ matrix.browser }}
 
+      - name: Storage regressions
+        run: node scripts/audit-regressions.mjs ${{ matrix.browser }}
+
       - name: Audit examples (${{ matrix.browser }})
         run: node scripts/audit-ui.mjs --dist dist-examples --out .audit --engine ${{ matrix.browser }}
 
@@ -98,6 +101,8 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
+          include-hidden-files: true
+          if-no-files-found: error
           name: audit-screenshots-${{ matrix.browser }}
           path: |
             .audit

@@ -14,7 +14,9 @@ import { fileURLToPath } from 'node:url';
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SOURCE = process.argv[2] ?? 'https://ai.engineer/shanghai/2026/program';
 
-const html = await (await fetch(SOURCE, { headers: { 'user-agent': 'Mozilla/5.0 (event-prep research)' } })).text();
+const response = await fetch(SOURCE, { headers: { 'user-agent': 'Mozilla/5.0 (event-prep research)' } });
+if (!response.ok) throw new Error(`抓取失败 ${response.status}`);
+const html = await response.text();
 const origin = new URL(SOURCE).origin;
 
 /**
@@ -139,6 +141,7 @@ function decodeEntities(value) {
     .replace(/&nbsp;/g, ' ');
 }
 
+if (!sessions.length) throw new Error('未解析出场次，保留上次素材。');
 const outDir = path.join(ROOT, '.work');
 await mkdir(outDir, { recursive: true });
 await writeFile(path.join(outDir, 'program.json'), JSON.stringify(sessions, null, 2), 'utf8');

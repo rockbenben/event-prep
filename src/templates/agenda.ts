@@ -84,7 +84,7 @@ function noteBlock(session: Session): string {
   return `<div class="agenda-note">
       <button type="button" class="agenda-note-btn" data-note-key="${escapeHtml(
         session.key,
-      )}" aria-label="给这一场写笔记" aria-expanded="false">＋ 记一笔</button>
+      )}" data-legacy-note-key="${escapeHtml(session.legacyKey ?? session.key)}" aria-label="给这一场写笔记" aria-expanded="false">＋ 记一笔</button>
       <div class="agenda-note-editor">
         <textarea class="agenda-note-input" rows="3" placeholder="给这一场记点什么" aria-label="这一场的笔记"></textarea>
         <p class="agenda-note-hint">存在本机浏览器里，不同步、不会清理。</p>
@@ -171,16 +171,17 @@ function serviceRow(session: Session, renderInline: InlineRenderer): string {
 const SERVICE_FORMATS: readonly string[] = ['茶歇', '签到'];
 
 function slotBlock(slot: AgendaSlot, renderInline: InlineRenderer, seen: Set<string>, seenBio: Set<string>): string {
+  const mixed = new Set(slot.sessions.map(session => session.timeText)).size > 1;
   const cards = slot.sessions
     .map((session) =>
       SERVICE_FORMATS.includes(session.format)
         ? serviceRow(session, renderInline)
-        : sessionCard(session, renderInline, seen, seenBio),
+        : sessionCard(mixed ? { ...session, title: `${session.timeText} · ${session.title}` } : session, renderInline, seen, seenBio),
     )
     .join('');
   const count = slot.sessions.length > 1 ? `<span class="slot-count">同时段 ${slot.sessions.length} 场</span>` : '';
   return `    <li class="agenda-slot">
-      <p class="agenda-slot-head"><span class="agenda-time">${escapeHtml(slot.timeText)}</span>${count}</p>
+      <p class="agenda-slot-head"><span class="agenda-time">${escapeHtml(mixed ? slot.timeText.split(/[–—-]/)[0]! : slot.timeText)}</span>${count}</p>
       <ul class="agenda-cards">
 ${cards}      </ul>
     </li>\n`;

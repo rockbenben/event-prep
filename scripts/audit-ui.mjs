@@ -16,7 +16,7 @@
  */
 
 import { createServer } from 'node:http';
-import { readFile, mkdir, writeFile } from 'node:fs/promises';
+import { readFile, readdir, mkdir, writeFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -163,6 +163,7 @@ async function main() {
       const browser = await launcher.launch();
       try {
         await runChecks(browser, base);
+        await auditMaterials(browser, base);
       } finally {
         await browser.close();
       }
@@ -177,6 +178,72 @@ async function main() {
   if (failures > 0) {
     console.error(`\n有 ${failures} 项没过。`);
     process.exit(1);
+  }
+}
+
+/** 可选资料页也必须经过三引擎、两种宽度的验收，不能只审活动准备页。 */
+async function auditMaterials(browser, base) {
+  const targets = [];
+  for (const entry of await readdir(DIST, { withFileTypes: true })) {
+    if (!entry.isDirectory()) continue;
+    const root = path.join(DIST, entry.name);
+    if (existsSync(path.join(root, 'summary/index.html'))) targets.push(`/${entry.name}/summary/`);
+    if (!existsSync(path.join(root, 'raw/index.html'))) continue;
+    targets.push(`/${entry.name}/raw/`);
+    for (const day of await readdir(path.join(root, 'raw'))) {
+      if (/^\d{8}$/.test(day)) targets.push(`/${entry.name}/raw/${day}/`);
+    }
+  }
+  if (!targets.length) return;
+  for (const vp of VIEWPORTS) {
+    const context = await browser.newContext({ viewport: { width: vp.width, height: vp.height } });
+    const page = await context.newPage();
+    const errors = [];
+    page.on('pageerror', (error) => errors.push(error.message));
+    page.on('response', (response) => { if (response.status() >= 400) errors.push(`${response.status()} ${response.url()}`); });
+    page.on('requestfailed', (request) => errors.push(request.url()));
+    try {
+      for (const target of targets) {
+        await page.goto(`${base}${target}`, { waitUntil: 'networkidle' });
+        const probe = await page.evaluate(OVERFLOW_PROBE);
+        record(`${vp.name} · 资料页 ${target} 无横向溢出`, probe.scrollWidth <= probe.docWidth + 1 && probe.offenders.length === 0, JSON.stringify(probe.offenders));
+        const download = page.locator('a[download]').first();
+        if (await download.count()) {
+          const response = await context.request.get(await download.getAttribute('href').then((href) => new URL(href, page.url()).href));
+          record(`${vp.name} · 资料 Markdown 可下载`, response.ok() && response.headers()['content-type']?.includes('text/markdown'));
+        }
+        if (target.endsWith('/summary/') && await page.locator('#toc-open').count() && await page.locator('.toc a[href^="#session-"]').count()) {
+          await page.locator('#toc-open').click();
+          await page.locator('.toc a[href^="#session-"]').first().click();
+          await page.waitForFunction(() => location.hash.startsWith('#session-') && !document.querySelector('#toc-drawer').open);
+          record(`${vp.name} · 总结目录可跳转到场次`, true);
+          const citation = page.locator('.content a[href*="/raw/"][href*="#L"]').first();
+          if (await citation.count()) {
+            await citation.click();
+            await page.waitForFunction(() => /^#L\d+$/.test(location.hash) && !!document.getElementById(location.hash.slice(1)));
+            // 锚点存在只说明文档已解析；等资源完成再返回，避免取消仍在加载的 favicon。
+            await page.waitForLoadState('networkidle');
+            record(`${vp.name} · 总结引用可定位原文行`, true);
+            await page.goto(`${base}${target}`, { waitUntil: 'networkidle' });
+          }
+        }
+        if (target.includes('/raw/') && /\/\d{8}\/$/.test(target)) {
+          const line = await page.locator('#L20').count() ? 'L20' : 'L1';
+          // 从新文档打开深链接；同文档只改 hash 不会重新产生 networkidle。
+          await page.goto('about:blank');
+          await page.goto(`${base}${target}#${line}`, { waitUntil: 'networkidle' });
+          await page.waitForFunction(() => {
+            const r = document.getElementById(location.hash.slice(1)).getBoundingClientRect();
+            return r.top >= 0 && r.top < innerHeight;
+          });
+          record(`${vp.name} · 原文深链接自动滚到指定行`, true);
+        }
+        await page.screenshot({ path: path.join(OUT, `${currentEngine}-${vp.name}-${target.split('/').filter(Boolean).join('-')}.png`) });
+      }
+      record(`${vp.name} · 资料页无控制台或网络错误`, errors.length === 0, errors.slice(0, 3).join(' | '));
+    } finally {
+      await context.close();
+    }
   }
 }
 
@@ -201,6 +268,8 @@ async function runChecks(browser, base) {
 
     for (const target of pages) {
       await page.goto(`${base}${target.path}`, { waitUntil: 'networkidle' });
+      // 布局应测到全部卡片；访问已结束活动时各天默认收起，不能因此漏测。
+      await page.evaluate(() => document.querySelectorAll('.agenda-day-block').forEach((day) => { day.open = true; }));
 
       // 1. 整页横向溢出
       const probe = await page.evaluate(OVERFLOW_PROBE);
@@ -466,10 +535,12 @@ async function runChecks(browser, base) {
             record('首页 · 点卡片任意处都能进活动', false, '量不到卡片的位置');
           } else {
             // 点卡片右下角：那里既不是标题链接，也不是任何按钮
-            await page.mouse.click(box.x + box.width - 10, box.y + box.height - 10);
             let landed = '';
             try {
-              await page.waitForURL(new RegExp(`/${slug}/?$`), { timeout: 5000 });
+              await Promise.all([
+                page.waitForURL(new RegExp(`/${slug}/?$`)),
+                page.mouse.click(box.x + box.width - 10, box.y + box.height - 10),
+              ]);
             } catch (e) {
               /* 没跳过去，下面照实记 */
             }
@@ -511,9 +582,15 @@ async function runChecks(browser, base) {
       const context = await browser.newContext({ viewport: { width: 1280, height: 900 } });
       const page = await context.newPage();
       await page.goto(`${base}/`, { waitUntil: 'networkidle' });
-      const slug = await page.evaluate(
-        `(() => { const el = document.querySelector('[data-event-slug]'); return el ? el.getAttribute('data-event-slug') : null; })()`,
-      );
+      // 首页按日期重分组，第一张可能是不含日程/清单的「日期待定」。
+      // 交互检查按组件覆盖选择活动，不依赖访问当天与首页顺序。
+      const candidates = await Promise.all(slugs.map(async (slug) => {
+        const html = await readFile(path.join(DIST, slug, 'index.html'), 'utf8');
+        const hooks = ['checklist-fold', 'agenda-tip-btn', 'agenda-avatar-btn', 'agenda-note-btn', 'route'];
+        return { slug, score: hooks.filter((hook) => html.includes(hook)).length, size: html.length };
+      }));
+      candidates.sort((a, b) => b.score - a.score || b.size - a.size);
+      const slug = candidates[0]?.slug;
       if (slug) {
         await page.goto(`${base}/${slug}/`, { waitUntil: 'networkidle' });
         // ⚠️ 行前清单现在默认收在 <details class="checklist-fold"> 里：
@@ -561,6 +638,8 @@ async function runChecks(browser, base) {
       // 「机构与嘉宾」「前置知识」都取消成独立章节了，现在唯一的点开式元素是
       // 日程卡片里的提示图标（讲者简介 / 看这场之前要知道的事）。
       await page.goto(`${base}/${slug}/`, { waitUntil: 'networkidle' });
+      const firstDay = page.locator('.agenda-day-block').first();
+      if (await firstDay.count() && !await firstDay.evaluate((day) => day.open)) await firstDay.locator(':scope > summary').click();
       // ⚠️ **只认展开着的那几天里的提示图标**：过了的日程自动收起，
       //    收起那天的图标在 DOM 里但不可见（点它会超时）。
       const VISIBLE_TIP = '.agenda-day-block[open] .agenda-tip-btn';
@@ -806,6 +885,8 @@ async function runChecks(browser, base) {
       //    所以验收要验的是「刷新后还在」——不是「刷新后没了」。
       {
         await page.goto(`${base}/${slug}/`, { waitUntil: 'networkidle' });
+        const firstDay = page.locator('.agenda-day-block').first();
+        if (await firstDay.count() && !await firstDay.evaluate((day) => day.open)) await firstDay.locator(':scope > summary').click();
         // ⚠️ 只认展开着的那几天里的入口（收起那天的按钮不可见，点它会超时）
         const VISIBLE_NOTE = '.agenda-day-block[open] .agenda-note-btn';
         const count = await page.locator(VISIBLE_NOTE).count();

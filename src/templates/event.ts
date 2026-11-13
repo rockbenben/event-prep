@@ -61,8 +61,9 @@ export function renderEventPage(options: EventPageOptions): string {
   const summaryBits = [formatDateRange(timing)];
   if (startClock) summaryBits.push(`${startClock} 开始`);
   if (meta.city) summaryBits.push(meta.city);
-  if (meta.venue) summaryBits.push(meta.venue);
-  const metaSummary = summaryBits.filter((b) => b !== '日期待定').join(' · ');
+  // 手机摘要保留日期、到场时刻与城市；完整场地名在展开详情和「场地」入口查看。
+  const metaSummary = summaryBits.filter((b) => b !== '日期待定')
+    .map((bit) => `<span>${escapeHtml(bit)}</span>`).join(' ');
 
   const actions: string[] = [];
   if (meta.website) actions.push(action(meta.website, '官网', true));
@@ -79,17 +80,7 @@ export function renderEventPage(options: EventPageOptions): string {
 
   const tocHtml = renderToc(toc);
   // 目录住在顶栏按钮点开的抽屉里，不占正文版面。
-  const tocDrawer = toc.length
-    ? `<dialog class="toc-drawer" id="toc-drawer" aria-label="本页目录">
-  <div class="toc-drawer-head">
-    <span class="toc-drawer-title">本页目录</span>
-    <button type="button" class="toc-drawer-close" aria-label="关闭目录" title="关闭目录">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18"></path></svg>
-    </button>
-  </div>
-  <div class="toc-drawer-body">${tocHtml}</div>
-</dialog>`
-    : '';
+  const tocDrawer = renderTocDrawer(tocHtml);
 
   // site-data 的构造只有一处（home.ts 的 buildSitePayload）——活动页复用它，
   // 两边就不会各有一份手抄的字段清单，改了一边另一边不会悄悄漏掉
@@ -106,7 +97,7 @@ export function renderEventPage(options: EventPageOptions): string {
     ${meta.summary ? `<p class="event-summary">${escapeHtml(meta.summary)}</p>` : ''}
     <details class="event-meta-wrap" data-event-meta open>
       <summary class="event-meta-summary">
-        <span class="event-meta-summary-text">${escapeHtml(metaSummary)}</span>
+        <span class="event-meta-summary-text">${metaSummary}</span>
         <span class="event-meta-summary-action">详情</span>
         <span class="collapse-chevron" aria-hidden="true"></span>
       </summary>
@@ -117,6 +108,10 @@ ${metaRows.join('\n')}
     ${countdownSlot()}
     ${tags}
     ${actions.length ? `<ul class="actions">${actions.join('')}</ul>` : ''}
+    ${event.materials?.summary?.trim() || event.materials?.raw.length ? `<nav class="materials-links" aria-label="会后资料">
+      ${event.materials.summary?.trim() ? `<a href="summary/"${LINK_TABINDEX}>阅读会后总结</a>` : ''}
+      ${event.materials.raw.length ? `<a href="raw/"${LINK_TABINDEX}>查看原始记录（${event.materials.raw.length} 天）</a>` : ''}
+    </nav>` : ''}
     ${
       timing.timezoneKnown
         ? ''
@@ -140,6 +135,18 @@ ${bodyHtml}
 ${tocDrawer}
 <script type="application/json" id="site-data">${dataJson}</script>
 `;
+}
+
+/** 准备页与资料页共用目录抽屉，开关行为由 site.js 统一管理。 */
+export function renderTocDrawer(tocHtml: string): string {
+  if (!tocHtml) return '';
+  return `<dialog class="toc-drawer" id="toc-drawer" aria-label="本页目录">
+  <div class="toc-drawer-head">
+    <span class="toc-drawer-title">本页目录</span>
+    <button type="button" class="toc-drawer-close" aria-label="关闭目录" title="关闭目录">×</button>
+  </div>
+  <div class="toc-drawer-body">${tocHtml}</div>
+</dialog>`;
 }
 
 /**

@@ -237,6 +237,14 @@ async function buildEmptyDist(name: string): Promise<string> {
 }
 
 describe('preview', () => {
+  it('资源目录无索引返回 404，服务器继续服务首页', async () => {
+    const { port, kill } = await startPreview(await buildEmptyDist('directory'));
+    try {
+      expect((await fetch(`http://localhost:${port}/assets/`)).status).toBe(404);
+      expect((await fetch(`http://localhost:${port}/`)).status).toBe(200);
+    } finally { kill(); }
+  });
+
   it('畸形 URL 打不挂服务器（以前 decodeURIComponent 抛错会让整个进程退出）', async () => {
     const { port, kill } = await startPreview(await buildEmptyDist('dist'));
     try {

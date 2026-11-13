@@ -30,7 +30,7 @@ function zoneFormatter(tz: string): Intl.DateTimeFormat {
 
 /** 该字符串是不是 Intl 认识的 IANA 时区名。 */
 export function isValidTimeZone(tz: string): boolean {
-  if (!tz || tz.trim() !== tz) return false;
+  if (!tz || tz.trim() !== tz || /^[+-]/.test(tz)) return false;
   try {
     new Intl.DateTimeFormat('en-US', { timeZone: tz });
     return true;

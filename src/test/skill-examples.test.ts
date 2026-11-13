@@ -16,6 +16,8 @@
 import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { describe, expect, it } from 'vitest';
+import { extractCallout } from '../lib/markdown.ts';
+import { parseFrontMatter } from '../lib/frontmatter.ts';
 import { parseAgenda } from '../lib/agenda.ts';
 
 const ROOT = path.resolve(import.meta.dirname, '..', '..');
@@ -85,4 +87,9 @@ describe('调研技能与骨架模板里的示例', () => {
     expect(skill).not.toContain('EVENT-RESEARCH.md');
     expect(template).not.toContain('EVENT-RESEARCH.md');
   });
+});
+
+it('新活动骨架的首个引用块可提取为醒目框', async () => {
+  const source = await readFile(TEMPLATE, 'utf8');
+  expect(extractCallout(parseFrontMatter(source).body).callout).toContain('写不超过');
 });

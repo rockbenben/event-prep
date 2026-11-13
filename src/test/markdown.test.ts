@@ -500,3 +500,14 @@ describe('renderMarkdown · 说明性内容收成点开式条目', () => {
     expect(links[0]).toContain('rel="noopener noreferrer"');
   });
 });
+
+ it('跨天同名同时场次笔记键不同，保留旧键；并行卡片显示各自终点', () => {
+  const session = '#### 09:00–10:00 · Workshop\n- 形式: 演讲\n- 会场: Main\n';
+  const html = renderMarkdown('## 日程\n### Day 1\n' + session + '#### 09:00–09:30 · Short\n- 形式: 演讲\n- 会场: Side\n### Day 2\n' + session).html;
+  const keys = [...html.matchAll(/data-note-key="([^"]+)"/g)].map(match => match[1]);
+  expect(new Set(keys).size).toBe(3);
+  const old = [...html.matchAll(/data-legacy-note-key="([^"]+)"/g)].map(match => match[1]);
+  expect(old[0]).toBe(old[2]);
+  expect(html).toContain('09:00–09:30 · Short');
+  expect(html).toContain('09:00–10:00 · Workshop');
+ });

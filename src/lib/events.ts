@@ -6,21 +6,29 @@
  *   · 将来要支持「每个活动一个分支」，只需再加一个 provider，不用动构建管线。
  */
 
-import { readdir, readFile, stat } from 'node:fs/promises';
+import { readdir, readFile, stat, lstat, realpath } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import path from 'node:path';
+import { inventory } from './output.ts';
 import { parseFrontMatter } from './frontmatter.ts';
 import { validateEvent, type EventMeta } from './schema.ts';
+import { addDays } from './timezone.ts';
 import { resolveTiming, type EventTiming } from './status.ts';
 import {
   dayEndMinutes as endMinutesOf,
   dayStartMinutes as startMinutesOf,
-  locateAgendaSection,
+  locateAgendaSections,
   parseAgenda,
 } from './agenda.ts';
 
 export const EVENT_FILE = 'event.md';
 export const ASSETS_DIR = 'assets';
+
+export interface EventMaterials {
+  summary?: string;
+  /** 原始字节用于下载，渲染时另行解码，避免更改 BOM/换行。 */
+  raw: { file: string; bytes: Buffer }[];
+}
 
 /**
  * 活动页旁边那份可编辑 Markdown 副本的文件名。
@@ -32,6 +40,8 @@ export const ASSETS_DIR = 'assets';
 export const EXPORT_FILE = 'event.md';
 
 export interface LoadedEvent {
+  materials?: EventMaterials;
+  agenda?: Map<string, ReturnType<typeof parseAgenda>>;
   /** URL 里的路径片段，同时也是内容目录名。 */
   slug: string;
   /** 内容来源的人类可读说明（本地路径 / 分支名），报错时用。 */
@@ -59,6 +69,7 @@ export interface EventProvider {
 }
 
 export interface DiscoveredEvent {
+  readMaterials?(): Promise<EventMaterials>;
   slug: string;
   origin: string;
   /** 读取 event.md 原文。 */
@@ -86,27 +97,53 @@ export class DirectoryProvider implements EventProvider {
     let entries: string[];
     try {
       entries = await readdir(this.contentDir);
-    } catch {
+    } catch (error) {
+      if ((error as NodeJS.ErrnoException).code !== 'ENOENT') throw error;
       return [];
     }
 
     const found: DiscoveredEvent[] = [];
     for (const entry of entries.sort()) {
       const dir = path.join(this.contentDir, entry);
-      const info = await stat(dir).catch(() => null);
+      const info = await lstat(dir);
+      if (info.isSymbolicLink()) throw new Error(`拒绝活动目录链接：${dir}`);
       if (!info || !info.isDirectory()) continue;
 
       const file = path.join(dir, EVENT_FILE);
-      const fileInfo = await stat(file).catch(() => null);
+      const fileInfo = await optionalStat(file);
       if (!fileInfo || !fileInfo.isFile()) continue;
 
       const assetsDir = path.join(dir, ASSETS_DIR);
-      const assetsInfo = await stat(assetsDir).catch(() => null);
+      const assetsInfo = await optionalStat(assetsDir);
 
       found.push({
         slug: entry,
         origin: path.relative(process.cwd(), file) || file,
-        read: () => readFile(file, 'utf8'),
+        read: async () => {
+          if ((await lstat(file)).isSymbolicLink()) throw new Error(`拒绝内容文件链接：${file}`);
+          if (assetsInfo) {
+            if ((await lstat(assetsDir)).isSymbolicLink()) throw new Error(`拒绝资源目录链接：${assetsDir}`);
+            const names = await inventory(assetsDir);
+            const allowed = new Set(['.webp', '.png', '.jpg', '.jpeg', '.gif', '.ico', '.pdf', '.woff2']);
+            for (const name of names.filter(name => !name.endsWith('/'))) {
+              if (!allowed.has(path.extname(name).toLowerCase())) throw new Error(`不支持的活动资源：${name}`);
+              const relative = path.relative(await realpath(dir), await realpath(path.join(assetsDir, name)));
+              if (relative.startsWith('..') || path.isAbsolute(relative)) throw new Error(`资源越界：${name}`);
+            }
+          }
+          return readFile(file, 'utf8');
+        },
+        readMaterials: async () => {
+          const names = await readdir(dir);
+          for (const name of names.filter(name => name === 'summary.md' || /^\d{8}-raw\.md$/.test(name))) {
+            if ((await lstat(path.join(dir, name))).isSymbolicLink()) throw new Error(`拒绝资料文件链接：${name}`);
+          }
+          const summary = names.includes('summary.md') ? await readFile(path.join(dir, 'summary.md'), 'utf8') : undefined;
+          const raw = await Promise.all(names.filter((name) => /^\d{8}-raw\.md$/.test(name)).sort().map(async (name) => ({
+            file: name, bytes: await readFile(path.join(dir, name)),
+          })));
+          return { summary, raw };
+        },
         assetsDir: assetsInfo?.isDirectory() ? assetsDir : undefined,
       });
     }
@@ -156,16 +193,20 @@ export async function loadEvents(provider: EventProvider): Promise<LoadedEvent[]
 
     // 日程章节的校验放在加载阶段：坏数据要进 errors，
     // 由既有的严格模式拦住（构建失败、不动上一次产物），而不是等渲染时才炸。
-    const agenda = locateAgendaSection(parsed.body);
+    const sections = locateAgendaSections(parsed.body);
+    const agenda = new Map<string, ReturnType<typeof parseAgenda>>();
     let dayStartMinutes: (number | null)[] = [];
     let dayEndMinutes: (number | null)[] = [];
-    if (agenda) {
-      const parsedAgenda = parseAgenda(agenda.text, {
+    let parsedAgenda: ReturnType<typeof parseAgenda> | undefined;
+    for (const section of sections) {
+      const result = parseAgenda(section.text, {
         assetExists: (rel) =>
           item.assetsDir !== undefined && existsSync(path.join(item.assetsDir, rel.slice('assets/'.length))),
       });
-      errors.push(...parsedAgenda.errors);
-      warnings.push(...parsedAgenda.warnings);
+      agenda.set(section.text.trim(), result);
+      errors.push(...result.errors);
+      warnings.push(...result.warnings);
+      parsedAgenda = { days: [...(parsedAgenda?.days ?? []), ...result.days], errors: [], warnings: [] };
       // ⚠️ 议程里的时刻就是活动的真实起止时刻：frontmatter 只有日期，
       //    锚在 00:00 的话倒计时指向当天午夜，读者看到的「还有 4 小时」
       //    跟「明早 8 点半签到」毫无关系。
@@ -173,7 +214,31 @@ export async function loadEvents(provider: EventProvider): Promise<LoadedEvent[]
       dayEndMinutes = endMinutesOf(parsedAgenda.days);
     }
 
+    if (parsedAgenda && parsedAgenda.days.some(day => day.date !== null)) {
+      const dates = parsedAgenda.days.map(day => day.date);
+      const count = validated.meta.start ? resolveTiming(validated.meta).days ?? 0 : 0;
+      const starts = dayStartMinutes;
+      const ends = dayEndMinutes;
+      dayStartMinutes = [];
+      dayEndMinutes = [];
+      for (let i = 0; i < count; i++) {
+        const date = addDays(validated.meta.start!, i);
+        const indices = dates.flatMap((value, index) => value === date ? [index] : []);
+        const dayStarts = indices.map(index => starts[index]).filter((value): value is number => value != null);
+        const dayEnds = indices.map(index => ends[index]).filter((value): value is number => value != null);
+        dayStartMinutes.push(dayStarts.length ? Math.min(...dayStarts) : null);
+        dayEndMinutes.push(dayEnds.length ? Math.max(...dayEnds) : null);
+      }
+      if (dayEndMinutes.some(value => value === null)) dayEndMinutes = [];
+    }
     const timing = resolveTiming({ ...validated.meta, dayStartMinutes, dayEndMinutes });
+
+    let materials: EventMaterials | undefined;
+    try {
+      materials = await item.readMaterials?.();
+    } catch (err) {
+      errors.push(`读取会后资料失败：${(err as Error).message}`);
+    }
 
     events.push({
       slug: item.slug,
@@ -181,6 +246,8 @@ export async function loadEvents(provider: EventProvider): Promise<LoadedEvent[]
       meta: validated.meta,
       body: parsed.body,
       source: normalizeSource(raw),
+      materials,
+      agenda,
       timing,
       assetsDir: item.assetsDir,
       errors,
@@ -199,4 +266,12 @@ export async function loadEvents(provider: EventProvider): Promise<LoadedEvent[]
  */
 function normalizeSource(raw: string): string {
   return raw.replace(/^﻿/, '').replace(/\r\n/g, '\n');
+}
+
+async function optionalStat(file: string) {
+  try { return await stat(file); }
+  catch (error) {
+    if ((error as NodeJS.ErrnoException).code === 'ENOENT') return null;
+    throw error;
+  }
 }

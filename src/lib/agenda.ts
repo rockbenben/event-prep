@@ -16,7 +16,6 @@ export const AGENDA_FORMATS: readonly AgendaFormat[] = [
   '演讲', '圆桌', '快闪', '开场', '闭幕', '茶歇', '边会', '行程', '签到',
 ];
 
-const SECTION_HEADING = /^#{2}[ \t]+(日程|议程|agenda|schedule)[ \t]*$/im;
 const FIELD_KEYS = [
   '形式', '会场', '讲者', '时长', '状态', '看点', '摘要', '备注', '出处',
 ] as const;
@@ -36,12 +35,13 @@ export interface Session {
   timeText: string;
   title: string;
   /**
-   * 稳定标识：时间 + 标题的哈希。
+   * 稳定标识：日标识 + 会场 + 时间 + 标题的哈希。
    *
    * 读者自己写的笔记按它存——所以标题或时间改了，笔记就挂不上去了
    * （宁可挂不上，也不要挂到另一场去）。
    */
   key: string;
+  legacyKey?: string;
   format: AgendaFormat;
   venue: string;
   speakers: SessionSpeaker[];
@@ -150,16 +150,23 @@ export interface LocatedSection { text: string; start: number; end: number }
  * 找到日程章节。
  * start 落在 `## 日程` 那一行**之后**——标题留给 Markdown，目录才收得到它。
  */
+export function locateAgendaSections(body: string): LocatedSection[] {
+  const sections: LocatedSection[] = [];
+  const heading = /^(#{1,2})[ \t]+(.+?)[ \t]*$/gm;
+  let match: RegExpExecArray | null;
+  while ((match = heading.exec(body)) !== null) {
+    if (!/日程|议程|^agenda$|^schedule$/i.test(match[2] ?? '')) continue;
+    const lineEnd = body.indexOf('\n', match.index);
+    const start = lineEnd < 0 ? body.length : lineEnd + 1;
+    const next = /^#{1,2}[ \t]/m.exec(body.slice(start));
+    const end = next ? start + next.index : body.length;
+    sections.push({ text: body.slice(start, end), start, end });
+    heading.lastIndex = end;
+  }
+  return sections;
+}
 export function locateAgendaSection(body: string): LocatedSection | null {
-  const match = SECTION_HEADING.exec(body);
-  if (!match || match.index === undefined) return null;
-  const lineEnd = body.indexOf('\n', match.index);
-  if (lineEnd === -1) return { text: '', start: body.length, end: body.length };
-  const start = lineEnd + 1;
-  const rest = body.slice(start);
-  const next = /^#{1,2}[ \t]/m.exec(rest);
-  const end = start + (next ? next.index : rest.length);
-  return { text: body.slice(start, end), start, end };
+  return locateAgendaSections(body)[0] ?? null;
 }
 
 function toMinutes(hhmm: string): number {
@@ -324,6 +331,12 @@ export function parseAgenda(section: string, options: AgendaOptions = {}): Agend
     );
   }
 
+  for (const [index, day] of days.entries()) {
+    for (const slot of day.slots) for (const session of slot.sessions) {
+      session.legacyKey = session.key;
+      session.key = hashText(`${day.date ?? index + 1}|${session.venue}|${session.timeText}|${session.title}`);
+    }
+  }
   return { days: groupSlots(days, warnings), errors, warnings };
 }
 

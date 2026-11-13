@@ -1,4 +1,4 @@
-import { mkdtemp, mkdir, readdir, readFile, rm, writeFile } from 'node:fs/promises';
+import { mkdtemp, mkdir, readdir, readFile, rm, writeFile, symlink } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
@@ -26,6 +26,123 @@ async function writeEvent(slug: string, front: string, body = '## 速览\n\n正�
 }
 
 describe('buildSite', () => {
+  it('普通静态站和受管目录内新增文件均不会被删除', async () => {
+    await mkdir(path.join(outDir, 'assets'), { recursive: true });
+    await writeFile(path.join(outDir, 'index.html'), 'manual');
+    await writeFile(path.join(outDir, 'assets', 'proof.txt'), 'keep');
+    expect((await buildSite({ contentDir, outDir })).ok).toBe(false);
+    expect(await readFile(path.join(outDir, 'assets', 'proof.txt'), 'utf8')).toBe('keep');
+    await rm(outDir, { recursive: true });
+    await buildSite({ contentDir, outDir });
+    await writeFile(path.join(outDir, 'assets', 'proof.txt'), 'keep');
+    expect((await buildSite({ contentDir, outDir })).ok).toBe(false);
+    expect(await readFile(path.join(outDir, 'assets', 'proof.txt'), 'utf8')).toBe('keep');
+  });
+  it('非法附件与内容目录类型错误均保留完整旧站', async () => {
+    await writeEvent('a', 'title: A');
+    await buildSite({ contentDir, outDir });
+    const previous = await readFile(path.join(outDir, 'index.html'));
+    await mkdir(path.join(contentDir, 'a/assets'));
+    await writeFile(path.join(contentDir, 'a/assets/map.html'), '<script>alert(1)</script>');
+    expect((await buildSite({ contentDir, outDir })).ok).toBe(false);
+    expect(await readFile(path.join(outDir, 'index.html'))).toEqual(previous);
+    expect((await buildSite({ contentDir: path.join(contentDir, 'a/event.md'), outDir })).ok).toBe(false);
+    expect(await readFile(path.join(outDir, 'index.html'))).toEqual(previous);
+  });
+  it('宽容模式跳过渲染失败活动，首页仅列成功活动', async () => {
+    await writeEvent('bad', 'title: Bad');
+    await writeEvent('good', 'title: Good');
+    await writeFile(path.join(contentDir, 'bad/summary.md'), '[raw](20261105-raw.md#L1)');
+    const result = await buildSite({ contentDir, outDir, tolerant: true });
+    expect(result.ok).toBe(true);
+    expect(result.built).toEqual(['good']);
+    expect(result.skipped).toContain('bad');
+    expect(await readFile(path.join(outDir, 'index.html'), 'utf8')).not.toContain('href="bad/"');
+  });
+  it('缺失总结场次锚点时严格失败', async () => {
+    await writeEvent('a', 'title: A', '[summary](summary/#session-999)');
+    expect((await buildSite({ contentDir, outDir })).ok).toBe(false);
+  });
+  it('第二天议程不会提供第一天开场时刻，非精确章节名也校验', async () => {
+    await writeEvent('a', 'title: A\nstart: 2026-11-05\nend: 2026-11-06', '## 活动日程\n### 2026-11-06\n#### 14:00–15:00 · Talk\n- 形式: 演讲\n- 会场: Main');
+    expect((await buildSite({ contentDir, outDir })).ok).toBe(true);
+    const html = await readFile(path.join(outDir, 'a/index.html'), 'utf8');
+    expect(html).toContain('2026-11-05T00:00:00.000Z');
+    expect(html).not.toContain('<dt>开始</dt>');
+    await writeEvent('a', 'title: A', '## 活动日程\n### Day 1\n#### 09:00 · Talk\n- 形式: 演讲\n- 会场: Main\n- 讲者: A | B | assets/missing.webp');
+    expect((await buildSite({ contentDir, outDir })).ok).toBe(false);
+  });
+
+  it('可选会后资料独立发布，逐场目录与原文行号可追溯，下载保留原字节', async () => {
+    await writeEvent('with-notes', 'title: 活动一');
+    const dir = path.join(contentDir, 'with-notes');
+    const raw = Buffer.from('\uFEFFHello\r\n<script>alert(1)</script>\r\n中文原文\r\n');
+    await writeFile(path.join(dir, '20261105-raw.md'), raw);
+    await writeFile(path.join(dir, 'private.md'), '不应被发布');
+    await writeFile(path.join(dir, 'summary.md'), '# 总结\n\n## 嘉宾议程回顾\n\n#### 1. 讲者\n\n保留**细节**。\n\n[原文](20261105-raw.md#L3)\n');
+    const result = await buildSite({ contentDir, outDir, siteUrl: 'https://example.org/project/' });
+    expect(result.ok).toBe(true);
+    const base = path.join(outDir, 'with-notes');
+    const event = await readFile(path.join(base, 'index.html'), 'utf8');
+    expect(event).toContain('href="summary/"');
+    const summary = await readFile(path.join(base, 'summary/index.html'), 'utf8');
+    expect(summary).toContain('id="session-1"');
+    expect(summary).toContain('href="#session-1"');
+    expect(summary).toContain('<strong>细节</strong>');
+    expect(summary).not.toContain('agenda-card');
+    expect(summary).toContain('href="../raw/20261105/#L3"');
+    expect(summary).toContain('href="../../assets/');
+    expect(summary).toContain('https://example.org/project/with-notes/summary/');
+    const transcript = await readFile(path.join(base, 'raw/20261105/index.html'), 'utf8');
+    expect(transcript).toContain('id="L3"');
+    expect(transcript).toContain('&lt;script&gt;alert(1)&lt;/script&gt;');
+    expect(transcript).not.toContain('<script>alert(1)</script>');
+    expect(transcript).toContain('href="../../../assets/');
+    expect(await readFile(path.join(base, '20261105-raw.md'))).toEqual(raw);
+    expect(existsSync(path.join(base, 'private.md'))).toBe(false);
+  });
+
+  it('缺少总结所引用的原文时失败，保留上一次产物', async () => {
+    await writeEvent('with-notes', 'title: 活动一');
+    await buildSite({ contentDir, outDir });
+    const previous = await readFile(path.join(outDir, 'index.html'), 'utf8');
+    await writeFile(path.join(contentDir, 'with-notes', 'summary.md'), '[原文](20261105-raw.md#L1)');
+    const result = await buildSite({ contentDir, outDir });
+    expect(result.ok).toBe(false);
+    expect(result.errors.join()).toContain('总结引用的原始记录不存在');
+    expect(await readFile(path.join(outDir, 'index.html'), 'utf8')).toBe(previous);
+  });
+
+  it('参考式原文链接也解析行号，代码示例不误当引用，拒绝越界行号', async () => {
+    await writeEvent('with-notes', 'title: 活动一');
+    const dir = path.join(contentDir, 'with-notes');
+    await writeFile(path.join(dir, '20261105-raw.md'), '第一行\n第二行');
+    await writeFile(path.join(dir, 'summary.md'), '代码示例：`[原文](20261106-raw.md#L1)`\n\n[原文][ref]\n\n[ref]: 20261105-raw.md#L2');
+    expect((await buildSite({ contentDir, outDir })).ok).toBe(true);
+    const page = await readFile(path.join(outDir, 'with-notes/summary/index.html'), 'utf8');
+    expect(page).toContain('href="../raw/20261105/#L2"');
+    expect(page).toContain('<code>[原文](20261106-raw.md#L1)</code>');
+    expect(page).not.toContain('id="toc-open"');
+    await writeFile(path.join(dir, 'summary.md'), '[原文](20261105-raw.md#L3)');
+    const result = await buildSite({ contentDir, outDir });
+    expect(result.ok).toBe(false);
+    expect(result.errors.join()).toContain('原文行号越界');
+  });
+
+  it('只有原文也有入口；移除资料后不留下旧页面或空入口', async () => {
+    await writeEvent('with-notes', 'title: 活动一');
+    const file = path.join(contentDir, 'with-notes', '20261105-raw.md');
+    await writeFile(file, '原文');
+    await buildSite({ contentDir, outDir });
+    let event = await readFile(path.join(outDir, 'with-notes/index.html'), 'utf8');
+    expect(event).toContain('href="raw/"');
+    expect(event).not.toContain('href="summary/"');
+    await rm(file);
+    await buildSite({ contentDir, outDir });
+    event = await readFile(path.join(outDir, 'with-notes/index.html'), 'utf8');
+    expect(event).not.toContain('materials-links');
+    expect(existsSync(path.join(outDir, 'with-notes/raw'))).toBe(false);
+  });
   it('空站点也能构建，给出友好的空状态', async () => {
     const result = await buildSite({ contentDir, outDir });
     expect(result.ok).toBe(true);
@@ -454,4 +571,17 @@ describe('makeRootRelative', () => {
   it('协议相对地址不当成站内路径', () => {
     expect(makeRootRelative('<a href="//example.org/x">x</a>', '../')).toBe('<a href="//example.org/x">x</a>');
   });
+});
+
+it('活动附件中的外部目录联接不能发布', async () => {
+  await writeEvent('demo', 'title: Demo');
+  const outside = path.join(path.dirname(contentDir), 'private');
+  await mkdir(outside);
+  await writeFile(path.join(outside, 'proof.png'), 'external marker');
+  await mkdir(path.join(contentDir, 'demo/assets'));
+  await symlink(outside, path.join(contentDir, 'demo/assets/link'), process.platform === 'win32' ? 'junction' : 'dir');
+  const result = await buildSite({ contentDir, outDir });
+  expect(result.ok).toBe(false);
+  expect(result.errors.join()).toContain('联接');
+  expect(existsSync(path.join(outDir, 'demo/assets/link/proof.png'))).toBe(false);
 });

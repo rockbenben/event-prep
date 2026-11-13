@@ -22,7 +22,7 @@
 import { Marked, type Token, type TokensList } from 'marked';
 import sanitizeHtml from 'sanitize-html';
 import { escapeHtml, hashText, htmlToPlain, slugify } from './html.ts';
-import { parseAgenda } from './agenda.ts';
+import { parseAgenda, locateAgendaSections, type AgendaParseResult } from './agenda.ts';
 import { renderAgenda } from '../templates/agenda.ts';
 
 export interface TocEntry {
@@ -113,7 +113,7 @@ const SANITIZE_OPTIONS: sanitizeHtml.IOptions = {
     p: ['class'],
     section: ['class'],
     button: [
-      'type', 'class', 'data-avatar', 'data-avatar-alt', 'data-note-key', 'aria-label', 'title', 'aria-expanded',
+      'type', 'class', 'data-avatar', 'data-avatar-alt', 'data-note-key', 'data-legacy-note-key', 'aria-label', 'title', 'aria-expanded',
     ],
     textarea: ['class', 'placeholder', 'rows', 'aria-label'],
     input: ['type', 'id', 'checked', 'data-check-id'],
@@ -199,14 +199,16 @@ interface RenderContext {
    * 那里每一行就是一件独立的事，折成一坨等于把编号写进同一段里。
    */
   breaks: boolean;
+  agenda?: Map<string, AgendaParseResult>;
 
 }
 
 /** 渲染 Markdown 正文，返回安全 HTML 与目录。 */
-export function renderMarkdown(source: string): RenderedMarkdown {
+export function renderMarkdown(source: string, agenda?: Map<string, AgendaParseResult>): RenderedMarkdown {
   const toc: TocEntry[] = [];
   const ctx: RenderContext = {
     toc,
+    agenda,
     section: '',
     seen: new Map(),
     checkIds: new Map(),
@@ -214,6 +216,30 @@ export function renderMarkdown(source: string): RenderedMarkdown {
   };
   const raw = renderSegments(splitSegments(source), ctx);
   return { html: sanitize(raw), toc };
+}
+
+/** 会后长文：保留普通标题结构，不触发议程/嘉宾等准备页专用转换。 */
+export function renderDocumentMarkdown(source: string, resolveLink: (href: string) => string = (href) => href): RenderedMarkdown {
+  const toc: TocEntry[] = [];
+  const seen = new Map<string, number>();
+  const marked = new Marked({
+    gfm: true,
+    renderer: {
+      link(token) {
+        const title = token.title ? ` title="${escapeHtml(token.title)}"` : '';
+        return `<a href="${escapeHtml(resolveLink(token.href))}"${title}>${this.parser.parseInline(token.tokens)}</a>`;
+      },
+      heading(token) {
+        const inner = this.parser.parseInline(token.tokens);
+        const plain = htmlToPlain(inner);
+        const session = token.depth === 4 ? /^(\d+)\.\s/.exec(plain) : null;
+        const id = uniqueId(seen, session ? `session-${session[1]}` : slugify(plain));
+        if (token.depth >= 2 && token.depth <= 4) toc.push({ id, text: plain, depth: token.depth });
+        return `<h${token.depth} id="${escapeHtml(id)}">${inner}</h${token.depth}>\n`;
+      },
+    },
+  });
+  return { html: sanitize(marked.parse(source) as string), toc };
 }
 
 /**
@@ -336,7 +362,7 @@ function renderSegments(segments: Segment[], ctx: RenderContext): string {
  *    而不是渲染出一段空白。
  */
 function renderAgendaSection(content: string, ctx: RenderContext): string {
-  const parsed = parseAgenda(content);
+  const parsed = ctx.agenda?.get(content.trim()) ?? parseAgenda(content);
   if (parsed.errors.length > 0) {
     throw new Error(`日程章节解析失败：${parsed.errors.join('；')}`);
   }
@@ -378,19 +404,11 @@ function splitSegments(source: string): Segment[] {
  */
 function carveAgendaSections(source: string): Segment[] {
   const out: Segment[] = [];
-  const heading = /^#{1,2}[ \t]+(.+?)[ \t]*$/gm;
   let cursor = 0;
-  let match: RegExpExecArray | null;
-  while ((match = heading.exec(source)) !== null) {
-    if (variantForSection(match[1] ?? '') !== 'agenda') continue;
-    const start = match.index + match[0].length;
-    const rest = source.slice(start);
-    const next = /^#{1,2}[ \t]/m.exec(rest);
-    const end = start + (next ? next.index : rest.length);
-    if (start > cursor) out.push({ type: 'text', content: source.slice(cursor, start) });
-    out.push({ type: 'agenda', content: source.slice(start, end) });
-    cursor = end;
-    heading.lastIndex = end;
+  for (const section of locateAgendaSections(source)) {
+    if (section.start > cursor) out.push({ type: 'text', content: source.slice(cursor, section.start) });
+    out.push({ type: 'agenda', content: section.text });
+    cursor = section.end;
   }
   if (cursor < source.length) out.push({ type: 'text', content: source.slice(cursor) });
   return out;

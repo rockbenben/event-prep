@@ -124,12 +124,24 @@ tags: [AI, 工程实践]
 - 查阅完整调研流程：[skills/event-research/SKILL.md](skills/event-research/SKILL.md)
 - 查证与写作手册：[skills/event-research/references/writing-guide.md](skills/event-research/references/writing-guide.md)
 
+### 会后总结与原始记录
+
+活动目录可按需增加 `summary.md` 和按天命名的 `YYYYMMDD-raw.md`。重新构建后，活动页会显示对应入口：
+
+- `/<slug>/summary/`：会后总结，目录支持逐场跳转，提供总结 Markdown 下载。
+- `/<slug>/raw/`：原始记录日期列表；`raw/YYYYMMDD/#L123` 可直接定位原文件第 123 行。
+- `/<slug>/YYYYMMDD-raw.md`：原始文件下载，保留原始字节、双语内容与换行。其他 Markdown 草稿不发布。
+
+`event.md` 继续用作现场准备页，不放长篇复盘。在场次的 `看点` 字段中可以加 `[现场总结与原文](summary/#session-1)`；总结中对应标题写成 `#### 1. 讲者与主题`，网页会生成稳定的 `session-1` 锚点。编号用于引用，已有条目不随插入或排序重新编号。
+
+总结引用原始记录时写 `[2026-11-05 · L123–L180](20261105-raw.md#L123)`，构建器会转换为原文阅读页的行号链接。每条保留问题、推导、方案、案例与边界；区分观点转述、整理者归纳和讲者自报数据。自动转写中未检索到一句话，不等于现场没有说过。
+
 ### 双向编辑与导出
 
 每个活动页右下角均提供原始 Markdown 下载链接。亦可使用命令行直接导出源文件：
 
 ```bash
-npm run export -- 2026-11-ai-engineer-shanghai > event.md
+node src/cli.ts export 2026-11-ai-engineer-shanghai > event.md
 ```
 
 导出的内容是完整的 Markdown 源文件（含 YAML front matter）。交给 AI 工具修改润色后，放回 `content/<slug>/event.md` 重新构建即可直接生效。

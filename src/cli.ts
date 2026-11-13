@@ -148,7 +148,7 @@ async function cmdNewEvent(args: Args): Promise<number> {
   //  1. 用函数形式替换——字符串替换会把标题里的 $& / $` 当成反向引用。
   //  2. 用 JSON 字符串写进 YAML——活动名里有 ": " 或以 "#" 开头时，
   //     裸写会让 YAML 解析失败或把标题整行当注释（CLI 却报「已创建」）。
-  const content = template.replace(/^title:.*$/m, () => `title: ${JSON.stringify(title)}`);
+  const content = template.replace(/\r\n/g, '\n').replace(/^title:.*$/m, () => `title: ${JSON.stringify(title)}`);
 
   await writeFile(file, content, 'utf8');
   console.log(`已创建 ${path.relative(process.cwd(), file)}`);
@@ -168,7 +168,7 @@ async function cmdExport(args: Args): Promise<number> {
   if (!slug) {
     console.error('用法：node src/cli.ts export <slug>');
     console.error('把活动的内容导成 Markdown 打到标准输出（给 AI 或编辑器改）。');
-    console.error('例：npm run export -- 2026-11-ai-engineer-shanghai > event.md');
+    console.error('例：node src/cli.ts export 2026-11-ai-engineer-shanghai > event.md');
     return 1;
   }
 
@@ -253,9 +253,11 @@ async function cmdPreview(args: Args): Promise<number> {
       res.writeHead(404).end('not found');
       return;
     }
-    const body = await readFile(filePath);
-    res.writeHead(200, { 'content-type': MIME[path.extname(filePath)] ?? 'application/octet-stream' });
-    res.end(body);
+    try {
+      const body = await readFile(filePath);
+      res.writeHead(200, { 'content-type': MIME[path.extname(filePath)] ?? 'application/octet-stream' });
+      res.end(body);
+    } catch { res.writeHead(404).end('not found'); }
   });
 
   // 只绑本机回环：默认 listen 会绑所有网卡，等于把本地预览暴露给同网段的人。

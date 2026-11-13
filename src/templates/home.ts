@@ -52,6 +52,7 @@ interface CardData {
   startClock: string | null;
   placeText: string;
   tags: string[];
+  hasSummary: boolean;
 }
 
 function buildCardData(events: LoadedEvent[]): CardData[] {
@@ -64,6 +65,7 @@ function buildCardData(events: LoadedEvent[]): CardData[] {
     startClock: formatStartClock(ev.timing),
     placeText: placeText(ev),
     tags: ev.meta.tags,
+    hasSummary: Boolean(ev.materials?.summary?.trim()),
   }));
 }
 
@@ -139,7 +141,7 @@ export function renderHome(options: HomeOptions): string {
 
   return `<div class="wrap home">
   <section class="hero">
-    <h1>EventPrep</h1>
+    <h1>把行程理清，<br>带着准备出发。</h1>
     <p class="hero-sub">${escapeHtml(sub)}</p>
   </section>
 ${body}
@@ -168,6 +170,7 @@ function renderCard(card: CardData): string {
   ${tags}
   <div class="card-side">
     <span class="badge badge-${card.status}" data-status-badge>${escapeHtml(STATUS_LABEL[card.status])}</span>
+    ${card.hasSummary ? '<span class="card-material">含会后总结</span>' : ''}
     <!-- 倒计时初始留空：状态徽章已经说了「即将开始」，再写一遍是同一句话说两遍。
          浏览器端按访问时刻填真倒计时，空着的时候 .countdown:empty 把这行收起。 -->
     <p class="countdown" data-countdown></p>

@@ -9,3 +9,6 @@
 *.gif binary
 *.ico binary
 *.woff2 binary
+
+# 现场原件保留字节与换行
+*-raw.md -text

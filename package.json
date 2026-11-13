@@ -16,6 +16,7 @@
     "preview": "node src/cli.ts preview",
     "test": "vitest run",
     "typecheck": "tsc --noEmit",
+    "audit:regressions": "node scripts/audit-regressions.mjs",
     "audit:ui": "node scripts/audit-ui.mjs --dist dist-examples --out .audit",
     "audit:real": "node scripts/audit-ui.mjs --dist dist --out .audit-real",
     "screenshots": "node scripts/screenshots.mjs",

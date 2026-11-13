@@ -145,6 +145,7 @@ ${jsonLd}
           <circle cx="4.5" cy="12" r="1.1" fill="currentColor" stroke="none"></circle>
           <circle cx="4.5" cy="18" r="1.1" fill="currentColor" stroke="none"></circle>
         </svg>
+        <span class="toc-button-label">目录</span>
       </button>`
           : ''
       }
