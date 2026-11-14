@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2026-11-05 原始记录 · AI Engineer Shanghai 2026 · EventPrep</title>
+<meta name="description" content="AI Engineer Shanghai 2026 的2026-11-05 原始记录">
+<meta name="color-scheme" content="light dark">
+<!-- 地址栏/标签栏颜色跟着深浅色走，值就是 site.css 里的 --bg。
+     以前这里写死一个 #1f6feb —— 那个色号在 CSS 里根本不存在（--accent 是 #2563eb），
+     深色模式下也是蓝色地址栏配深色页面。两段 meta 各自带 media，浏览器自己选。 -->
+<meta name="theme-color" content="#f8fafc" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0b0f17" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://event.newzone.top/2026-11-ai-engineer-shanghai/raw/20261105/part-16/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="2026-11-05 原始记录 · AI Engineer Shanghai 2026 · EventPrep">
+<meta property="og:description" content="AI Engineer Shanghai 2026 的2026-11-05 原始记录">
+<meta property="og:url" content="https://event.newzone.top/2026-11-ai-engineer-shanghai/raw/20261105/part-16/">
+
+<script>(function(){try{var t=localStorage.getItem('eventprep:theme');if(t==='light'||t==='dark'){document.documentElement.setAttribute('data-theme',t);}}catch(e){}})();</script>
+<link rel="icon" type="image/svg+xml" href="../../../../assets/favicon.svg">
+<link rel="stylesheet" href="../../../../assets/site.9afe22e1.css">
+
+</head>
+<body>
+<!-- 打印版工具条：平时 display:none，进入打印模式（<html class="print-mode">）才出现。
+     打印到纸上时这条工具条自身要藏掉（见 site.css 的 @media print）——它是屏幕上的控件。 -->
+<div class="print-bar" id="print-bar" role="toolbar" aria-label="打印版工具条">
+  <span class="print-bar-title">EventPrep · 打印版 · 全部内容已展开</span>
+  <div class="print-bar-actions">
+    <button type="button" id="print-do" class="ghost-btn">打印 / 存 PDF</button>
+    <button type="button" id="print-exit" class="ghost-btn">退出打印版</button>
+  </div>
+</div>
+<a class="skip-link" href="#main" tabindex="0">跳到正文</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="site-name" href="../../../../index.html" tabindex="0">
+      <svg class="site-logo" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+        <rect x="3" y="3.5" width="18" height="18" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.8"/>
+        <rect x="9.5" y="5.5" width="5" height="1.8" rx="0.9" fill="currentColor" fill-opacity="0.4"/>
+        <path d="M6.5 11h5M6.5 14.5h3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        <circle cx="16" cy="15" r="4.2" fill="#16a34a"/>
+        <path d="M14.2 15l1.3 1.3 2.5-2.5" stroke="#ffffff" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span>EventPrep</span>
+    </a>
+    <div class="header-actions">
+      
+      
+      <a class="ghost-btn" href="https://github.com/rockbenben/event-prep" target="_blank" rel="noopener noreferrer" aria-label="GitHub 仓库" title="GitHub 仓库">
+        <svg class="theme-icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+          <path d="M12 .8a11.2 11.2 0 0 0-3.54 21.83c.56.1.77-.24.77-.54v-2.1c-3.12.68-3.78-1.33-3.78-1.33-.51-1.3-1.25-1.65-1.25-1.65-1.02-.7.08-.68.08-.68 1.13.08 1.72 1.16 1.72 1.16 1 1.72 2.63 1.22 3.27.95.1-.74.39-1.22.71-1.5-2.5-.28-5.12-1.25-5.12-5.56 0-1.23.44-2.23 1.16-3.02-.12-.28-.5-1.43.11-2.98 0 0 .95-.3 3.1 1.15a10.8 10.8 0 0 1 5.64 0c2.15-1.45 3.1-1.15 3.1-1.15.61 1.55.23 2.7.11 2.98.72.79 1.16 1.79 1.16 3.02 0 4.32-2.63 5.27-5.14 5.55.4.35.76 1.03.76 2.08v3.08c0 .3.2.65.78.54A11.2 11.2 0 0 0 12 .8Z"></path>
+        </svg>
+      </a>
+      <button type="button" id="theme-toggle" class="ghost-btn" aria-label="切换深浅色" title="切换深浅色">
+        <svg class="theme-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true" focusable="false">
+          <circle cx="12" cy="12" r="8.5" />
+          <path d="M12 3.5a8.5 8.5 0 0 0 0 17z" fill="currentColor" stroke="none" />
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+<dialog class="avatar-viewer" id="avatar-viewer" aria-label="放大照片">
+  <img id="avatar-viewer-img" src="" alt="">
+</dialog>
+<main id="main">
+<div class="wrap event material-page"><nav class="material-crumbs" aria-label="面包屑"><ol>
+      <li><a href="../../../../" tabindex="0">全部活动</a></li><li><a href="../../../" tabindex="0">AI Engineer Shanghai 2026</a></li>
+      <li><a href="../../" tabindex="0">原始记录</a></li>
+      <li><a href="./" tabindex="0" aria-current="page">2026-11-05 原始记录</a></li></ol></nav><header class="event-head"><h1 class="event-title">2026-11-05 原始记录</h1>
+        <p class="event-summary">AI Engineer Shanghai 2026</p></header><p class="notice">自动转写可能有误。以下内容保留双语原文，行号以原文件为准；下载文件保留原始字节。当前仅加载本段；搜索全部记录或打印全文请先选择「查看全文」。</p>
+          <nav class="materials-links" aria-label="资料操作"><a href="../../" tabindex="0">全部日期</a><a href="../../../summary/" tabindex="0">会后总结</a><a href="../../../20261105-raw.md" tabindex="0" download>下载原始 Markdown</a></nav>
+          <nav class="materials-links raw-pagination" aria-label="原文分段">
+          <a href="../part-15/" tabindex="0" rel="prev">上一段</a>
+          <span aria-current="page">第 16 / 26 段 · L7501–L8000</span>
+          <a href="../part-17/" tabindex="0" rel="next">下一段</a>
+          <a href="../all/" tabindex="0">查看全文</a>
+        </nav><details class="raw-sections"><summary>选择行号范围</summary><nav class="materials-links" aria-label="选择原文段落"><a href="../" tabindex="0">L1–L500</a><a href="../part-2/" tabindex="0">L501–L1000</a><a href="../part-3/" tabindex="0">L1001–L1500</a><a href="../part-4/" tabindex="0">L1501–L2000</a><a href="../part-5/" tabindex="0">L2001–L2500</a><a href="../part-6/" tabindex="0">L2501–L3000</a><a href="../part-7/" tabindex="0">L3001–L3500</a><a href="../part-8/" tabindex="0">L3501–L4000</a><a href="../part-9/" tabindex="0">L4001–L4500</a><a href="../part-10/" tabindex="0">L4501–L5000</a><a href="../part-11/" tabindex="0">L5001–L5500</a><a href="../part-12/" tabindex="0">L5501–L6000</a><a href="../part-13/" tabindex="0">L6001–L6500</a><a href="../part-14/" tabindex="0">L6501–L7000</a><a href="../part-15/" tabindex="0">L7001–L7500</a><a href="../part-16/" tabindex="0" aria-current="page">L7501–L8000</a><a href="../part-17/" tabindex="0">L8001–L8500</a><a href="../part-18/" tabindex="0">L8501–L9000</a><a href="../part-19/" tabindex="0">L9001–L9500</a><a href="../part-20/" tabindex="0">L9501–L10000</a><a href="../part-21/" tabindex="0">L10001–L10500</a><a href="../part-22/" tabindex="0">L10501–L11000</a><a href="../part-23/" tabindex="0">L11001–L11500</a><a href="../part-24/" tabindex="0">L11501–L12000</a><a href="../part-25/" tabindex="0">L12001–L12500</a><a href="../part-26/" tabindex="0">L12501–L12685</a></nav></details><details class="raw-sections"><summary>相关总结 · 2 节</summary><nav class="materials-links" aria-label="相关总结"><a href="../../../summary/#session-17" tabindex="0">17. 李粒 · TiDB / PingCAP 架构师｜没人计划过 AI Infra：数据库如何被推向未来</a><a href="../../../summary/#session-18" tabindex="0">18. Do Tuan Anh（TA）· Techcombank AI 负责人｜优化组织级 LLM 推理成本</a></nav></details>
+          <div class="raw-transcript" data-raw-total="12685"><div class="raw-line" id="L7501"><a href="#L7501" tabindex="0" class="raw-line-number" aria-label="第 7501 行">7501</a><span>细节并不重要。</span></div>
+<div class="raw-line" id="L7502"><a href="#L7502" tabindex="0" class="raw-line-number" aria-label="第 7502 行">7502</a><span></span></div>
+<div class="raw-line" id="L7503"><a href="#L7503" tabindex="0" class="raw-line-number" aria-label="第 7503 行">7503</a><span>This is the trace from the user who complained that it&#39;s slow.</span></div>
+<div class="raw-line" id="L7504"><a href="#L7504" tabindex="0" class="raw-line-number" aria-label="第 7504 行">7504</a><span>这是那位抱怨响应慢的用户的链路追踪记录。</span></div>
+<div class="raw-line" id="L7505"><a href="#L7505" tabindex="0" class="raw-line-number" aria-label="第 7505 行">7505</a><span></span></div>
+<div class="raw-line" id="L7506"><a href="#L7506" tabindex="0" class="raw-line-number" aria-label="第 7506 行">7506</a><span>I don&#39;t know if you can read from I don&#39;t know if you can read from here.</span></div>
+<div class="raw-line" id="L7507"><a href="#L7507" tabindex="0" class="raw-line-number" aria-label="第 7507 行">7507</a><span>不知道你们从这个位置能不能看清。</span></div>
+<div class="raw-line" id="L7508"><a href="#L7508" tabindex="0" class="raw-line-number" aria-label="第 7508 行">7508</a><span></span></div>
+<div class="raw-line" id="L7509"><a href="#L7509" tabindex="0" class="raw-line-number" aria-label="第 7509 行">7509</a><span>But the actual inference time is 17 seconds. Probably not too bad.</span></div>
+<div class="raw-line" id="L7510"><a href="#L7510" tabindex="0" class="raw-line-number" aria-label="第 7510 行">7510</a><span>但实际推理只用了 17 秒，可能也不算太慢。</span></div>
+<div class="raw-line" id="L7511"><a href="#L7511" tabindex="0" class="raw-line-number" aria-label="第 7511 行">7511</a><span></span></div>
+<div class="raw-line" id="L7512"><a href="#L7512" tabindex="0" class="raw-line-number" aria-label="第 7512 行">7512</a><span>But we have a p95 of one minute.</span></div>
+<div class="raw-line" id="L7513"><a href="#L7513" tabindex="0" class="raw-line-number" aria-label="第 7513 行">7513</a><span>但我们的第 95 百分位延迟达到了 1 分钟。</span></div>
+<div class="raw-line" id="L7514"><a href="#L7514" tabindex="0" class="raw-line-number" aria-label="第 7514 行">7514</a><span></span></div>
+<div class="raw-line" id="L7515"><a href="#L7515" tabindex="0" class="raw-line-number" aria-label="第 7515 行">7515</a><span>So 17 seconds is not too bad.</span></div>
+<div class="raw-line" id="L7516"><a href="#L7516" tabindex="0" class="raw-line-number" aria-label="第 7516 行">7516</a><span>所以，17 秒还不算太慢。</span></div>
+<div class="raw-line" id="L7517"><a href="#L7517" tabindex="0" class="raw-line-number" aria-label="第 7517 行">7517</a><span></span></div>
+<div class="raw-line" id="L7518"><a href="#L7518" tabindex="0" class="raw-line-number" aria-label="第 7518 行">7518</a><span>But we did find from this trace that once tool core is taking more than three minutes so this is why the prompt is slow.</span></div>
+<div class="raw-line" id="L7519"><a href="#L7519" tabindex="0" class="raw-line-number" aria-label="第 7519 行">7519</a><span>但我们从这条追踪记录中发现，单是一次工具调用就花了三分多钟，这才是这次响应慢的原因。</span></div>
+<div class="raw-line" id="L7520"><a href="#L7520" tabindex="0" class="raw-line-number" aria-label="第 7520 行">7520</a><span></span></div>
+<div class="raw-line" id="L7521"><a href="#L7521" tabindex="0" class="raw-line-number" aria-label="第 7521 行">7521</a><span>Without the trace it would be very difficult for us to tell that.</span></div>
+<div class="raw-line" id="L7522"><a href="#L7522" tabindex="0" class="raw-line-number" aria-label="第 7522 行">7522</a><span>如果没有这条链路追踪记录，我们很难发现这一点。</span></div>
+<div class="raw-line" id="L7523"><a href="#L7523" tabindex="0" class="raw-line-number" aria-label="第 7523 行">7523</a><span></span></div>
+<div class="raw-line" id="L7524"><a href="#L7524" tabindex="0" class="raw-line-number" aria-label="第 7524 行">7524</a><span>So in the end we have done a lot.</span></div>
+<div class="raw-line" id="L7525"><a href="#L7525" tabindex="0" class="raw-line-number" aria-label="第 7525 行">7525</a><span>所以到头来，我们做了很多工作。</span></div>
+<div class="raw-line" id="L7526"><a href="#L7526" tabindex="0" class="raw-line-number" aria-label="第 7526 行">7526</a><span></span></div>
+<div class="raw-line" id="L7527"><a href="#L7527" tabindex="0" class="raw-line-number" aria-label="第 7527 行">7527</a><span>We decoupled our spending pipeline spending calculation.</span></div>
+<div class="raw-line" id="L7528"><a href="#L7528" tabindex="0" class="raw-line-number" aria-label="第 7528 行">7528</a><span>我们把支出计算从支出处理流程中解耦了。</span></div>
+<div class="raw-line" id="L7529"><a href="#L7529" tabindex="0" class="raw-line-number" aria-label="第 7529 行">7529</a><span></span></div>
+<div class="raw-line" id="L7530"><a href="#L7530" tabindex="0" class="raw-line-number" aria-label="第 7530 行">7530</a><span>We have done our own cost control and so on.</span></div>
+<div class="raw-line" id="L7531"><a href="#L7531" tabindex="0" class="raw-line-number" aria-label="第 7531 行">7531</a><span>我们也做了自己的成本控制等工作。</span></div>
+<div class="raw-line" id="L7532"><a href="#L7532" tabindex="0" class="raw-line-number" aria-label="第 7532 行">7532</a><span></span></div>
+<div class="raw-line" id="L7533"><a href="#L7533" tabindex="0" class="raw-line-number" aria-label="第 7533 行">7533</a><span>And we learned that protocol translation is not something that we want because it breaks things.</span></div>
+<div class="raw-line" id="L7534"><a href="#L7534" tabindex="0" class="raw-line-number" aria-label="第 7534 行">7534</a><span>我们还发现，协议转换不是我们想要的，因为它会把一些东西搞坏。</span></div>
+<div class="raw-line" id="L7535"><a href="#L7535" tabindex="0" class="raw-line-number" aria-label="第 7535 行">7535</a><span></span></div>
+<div class="raw-line" id="L7536"><a href="#L7536" tabindex="0" class="raw-line-number" aria-label="第 7536 行">7536</a><span>So in the end we decided to build our own gateway.</span></div>
+<div class="raw-line" id="L7537"><a href="#L7537" tabindex="0" class="raw-line-number" aria-label="第 7537 行">7537</a><span>所以最终，我们决定自己搭建网关。</span></div>
+<div class="raw-line" id="L7538"><a href="#L7538" tabindex="0" class="raw-line-number" aria-label="第 7538 行">7538</a><span></span></div>
+<div class="raw-line" id="L7539"><a href="#L7539" tabindex="0" class="raw-line-number" aria-label="第 7539 行">7539</a><span>Based on a much leaner feature sets that we relies on.</span></div>
+<div class="raw-line" id="L7540"><a href="#L7540" tabindex="0" class="raw-line-number" aria-label="第 7540 行">7540</a><span>只实现我们实际依赖的那一小部分功能。</span></div>
+<div class="raw-line" id="L7541"><a href="#L7541" tabindex="0" class="raw-line-number" aria-label="第 7541 行">7541</a><span></span></div>
+<div class="raw-line" id="L7542"><a href="#L7542" tabindex="0" class="raw-line-number" aria-label="第 7542 行">7542</a><span>And it gave us better control on how we want to make inference.</span></div>
+<div class="raw-line" id="L7543"><a href="#L7543" tabindex="0" class="raw-line-number" aria-label="第 7543 行">7543</a><span>这也让我们能更好地掌控推理服务的实现方式。</span></div>
+<div class="raw-line" id="L7544"><a href="#L7544" tabindex="0" class="raw-line-number" aria-label="第 7544 行">7544</a><span></span></div>
+<div class="raw-line" id="L7545"><a href="#L7545" tabindex="0" class="raw-line-number" aria-label="第 7545 行">7545</a><span>And monitoring. Okay?</span></div>
+<div class="raw-line" id="L7546"><a href="#L7546" tabindex="0" class="raw-line-number" aria-label="第 7546 行">7546</a><span>以及监控。明白吗？</span></div>
+<div class="raw-line" id="L7547"><a href="#L7547" tabindex="0" class="raw-line-number" aria-label="第 7547 行">7547</a><span></span></div>
+<div class="raw-line" id="L7548"><a href="#L7548" tabindex="0" class="raw-line-number" aria-label="第 7548 行">7548</a><span>It&#39;s not something that everyone should do.</span></div>
+<div class="raw-line" id="L7549"><a href="#L7549" tabindex="0" class="raw-line-number" aria-label="第 7549 行">7549</a><span>这并不是人人都应该做的事。</span></div>
+<div class="raw-line" id="L7550"><a href="#L7550" tabindex="0" class="raw-line-number" aria-label="第 7550 行">7550</a><span></span></div>
+<div class="raw-line" id="L7551"><a href="#L7551" tabindex="0" class="raw-line-number" aria-label="第 7551 行">7551</a><span>I think this one is based on our today&#39;s understanding of what we need.</span></div>
+<div class="raw-line" id="L7552"><a href="#L7552" tabindex="0" class="raw-line-number" aria-label="第 7552 行">7552</a><span>我觉得，这是基于我们目前对自身需求的理解。</span></div>
+<div class="raw-line" id="L7553"><a href="#L7553" tabindex="0" class="raw-line-number" aria-label="第 7553 行">7553</a><span></span></div>
+<div class="raw-line" id="L7554"><a href="#L7554" tabindex="0" class="raw-line-number" aria-label="第 7554 行">7554</a><span>But it doesn&#39;t mean that in the future we&#39;ll stick with it if there&#39;s an open source gateway does these things better.</span></div>
+<div class="raw-line" id="L7555"><a href="#L7555" tabindex="0" class="raw-line-number" aria-label="第 7555 行">7555</a><span>但这并不意味着我们以后会一直沿用自建网关。如果有开源网关能把这些事做得更好，我们也会考虑换用。</span></div>
+<div class="raw-line" id="L7556"><a href="#L7556" tabindex="0" class="raw-line-number" aria-label="第 7556 行">7556</a><span></span></div>
+<div class="raw-line" id="L7557"><a href="#L7557" tabindex="0" class="raw-line-number" aria-label="第 7557 行">7557</a><span>We&#39;ll not hesitate to turn back to open source options. Okay?</span></div>
+<div class="raw-line" id="L7558"><a href="#L7558" tabindex="0" class="raw-line-number" aria-label="第 7558 行">7558</a><span>我们会毫不犹豫地重新采用开源方案。明白吗？</span></div>
+<div class="raw-line" id="L7559"><a href="#L7559" tabindex="0" class="raw-line-number" aria-label="第 7559 行">7559</a><span></span></div>
+<div class="raw-line" id="L7560"><a href="#L7560" tabindex="0" class="raw-line-number" aria-label="第 7560 行">7560</a><span>So to wrap up I would say protocol translation is hard.</span></div>
+<div class="raw-line" id="L7561"><a href="#L7561" tabindex="0" class="raw-line-number" aria-label="第 7561 行">7561</a><span>最后总结一下，我想说，协议转换并不容易。</span></div>
+<div class="raw-line" id="L7562"><a href="#L7562" tabindex="0" class="raw-line-number" aria-label="第 7562 行">7562</a><span></span></div>
+<div class="raw-line" id="L7563"><a href="#L7563" tabindex="0" class="raw-line-number" aria-label="第 7563 行">7563</a><span>I would we were leaning more towards protocol independent harness. That&#39;s a harness that can speak multiple protocols over translating them.</span></div>
+<div class="raw-line" id="L7564"><a href="#L7564" tabindex="0" class="raw-line-number" aria-label="第 7564 行">7564</a><span>我想说，我们更倾向于采用不依赖特定协议的测试框架，也就是能直接支持多种协议，而不是在协议之间做转换的框架。</span></div>
+<div class="raw-line" id="L7565"><a href="#L7565" tabindex="0" class="raw-line-number" aria-label="第 7565 行">7565</a><span></span></div>
+<div class="raw-line" id="L7566"><a href="#L7566" tabindex="0" class="raw-line-number" aria-label="第 7566 行">7566</a><span>We learned that failover can break cache and other things.</span></div>
+<div class="raw-line" id="L7567"><a href="#L7567" tabindex="0" class="raw-line-number" aria-label="第 7567 行">7567</a><span>我们发现，故障切换可能会破坏缓存机制，还会影响其他功能。</span></div>
+<div class="raw-line" id="L7568"><a href="#L7568" tabindex="0" class="raw-line-number" aria-label="第 7568 行">7568</a><span></span></div>
+<div class="raw-line" id="L7569"><a href="#L7569" tabindex="0" class="raw-line-number" aria-label="第 7569 行">7569</a><span>And also the request paths of a gateway should be isolated, cross regions, and we need to enable tracing everywhere.</span></div>
+<div class="raw-line" id="L7570"><a href="#L7570" tabindex="0" class="raw-line-number" aria-label="第 7570 行">7570</a><span>此外，网关的请求路径应当相互隔离，并实现跨区域隔离；我们还需要在所有环节启用链路追踪。</span></div>
+<div class="raw-line" id="L7571"><a href="#L7571" tabindex="0" class="raw-line-number" aria-label="第 7571 行">7571</a><span></span></div>
+<div class="raw-line" id="L7572"><a href="#L7572" tabindex="0" class="raw-line-number" aria-label="第 7572 行">7572</a><span>So this is our story of building an inference gateway.</span></div>
+<div class="raw-line" id="L7573"><a href="#L7573" tabindex="0" class="raw-line-number" aria-label="第 7573 行">7573</a><span>以上就是我们构建推理网关的历程。</span></div>
+<div class="raw-line" id="L7574"><a href="#L7574" tabindex="0" class="raw-line-number" aria-label="第 7574 行">7574</a><span></span></div>
+<div class="raw-line" id="L7575"><a href="#L7575" tabindex="0" class="raw-line-number" aria-label="第 7575 行">7575</a><span>If this is something that you&#39;re also interested in and welcome to visit the Optiverse stands. Over there. I&#39;m Xinghong from Optiverse. Thanks a lot.</span></div>
+<div class="raw-line" id="L7576"><a href="#L7576" tabindex="0" class="raw-line-number" aria-label="第 7576 行">7576</a><span>如果你也对这个话题感兴趣，欢迎来那边的 Optiverse 展台交流。我是来自 Optiverse 的星宏。非常感谢大家！</span></div>
+<div class="raw-line" id="L7577"><a href="#L7577" tabindex="0" class="raw-line-number" aria-label="第 7577 行">7577</a><span></span></div>
+<div class="raw-line" id="L7578"><a href="#L7578" tabindex="0" class="raw-line-number" aria-label="第 7578 行">7578</a><span>Thank you Xinghong from Optiverse.</span></div>
+<div class="raw-line" id="L7579"><a href="#L7579" tabindex="0" class="raw-line-number" aria-label="第 7579 行">7579</a><span>感谢来自 Optiverse 的星宏。</span></div>
+<div class="raw-line" id="L7580"><a href="#L7580" tabindex="0" class="raw-line-number" aria-label="第 7580 行">7580</a><span></span></div>
+<div class="raw-line" id="L7581"><a href="#L7581" tabindex="0" class="raw-line-number" aria-label="第 7581 行">7581</a><span>谢谢Xinghong然后下一位是来自TideDB的Luxley。</span></div>
+<div class="raw-line" id="L7582"><a href="#L7582" tabindex="0" class="raw-line-number" aria-label="第 7582 行">7582</a><span></span></div>
+<div class="raw-line" id="L7583"><a href="#L7583" tabindex="0" class="raw-line-number" aria-label="第 7583 行">7583</a><span>So next our speaker is Luxley from TideDB and PingCap. Let&#39;s welcome.</span></div>
+<div class="raw-line" id="L7584"><a href="#L7584" tabindex="0" class="raw-line-number" aria-label="第 7584 行">7584</a><span>接下来有请来自 TiDB 和 PingCAP 的 Luxley。大家欢迎！</span></div>
+<div class="raw-line" id="L7585"><a href="#L7585" tabindex="0" class="raw-line-number" aria-label="第 7585 行">7585</a><span></span></div>
+<div class="raw-line" id="L7586"><a href="#L7586" tabindex="0" class="raw-line-number" aria-label="第 7586 行">7586</a><span>哈喽大家好。</span></div>
+<div class="raw-line" id="L7587"><a href="#L7587" tabindex="0" class="raw-line-number" aria-label="第 7587 行">7587</a><span></span></div>
+<div class="raw-line" id="L7588"><a href="#L7588" tabindex="0" class="raw-line-number" aria-label="第 7588 行">7588</a><span>我叫我是TideDB的李立然后负责TideDB的AI业务。</span></div>
+<div class="raw-line" id="L7589"><a href="#L7589" tabindex="0" class="raw-line-number" aria-label="第 7589 行">7589</a><span></span></div>
+<div class="raw-line" id="L7590"><a href="#L7590" tabindex="0" class="raw-line-number" aria-label="第 7590 行">7590</a><span>然后今天的话我们我主要在这里要想讲一个故事就是我们TideDB作为一家数据库公司是怎么一步一步被AI agent的公司推动出来一个完整的agent data infra的一个故事。对。</span></div>
+<div class="raw-line" id="L7591"><a href="#L7591" tabindex="0" class="raw-line-number" aria-label="第 7591 行">7591</a><span></span></div>
+<div class="raw-line" id="L7592"><a href="#L7592" tabindex="0" class="raw-line-number" aria-label="第 7592 行">7592</a><span>这其实是一个我们客户里面非常常见在用户调里面非常常见的一个问题就是就像我们其实服务了非常多的公司包括线上的agent公司以及线下的agent公司就这些客户他们会问就经常会问如果如何把这些资料做成一个评审工作台然后然后说明天团队一起用而且后面还要去修改这句话里面其实已经包含了非常重的承诺就意味着客户其实他是不会一直守在我们电脑旁边的然后并且就是agent要把自己把事情推动下去然后同事明天会接手然后这个代码和资料得在而且我们的工作台要上线并且还要持续服务。对。</span></div>
+<div class="raw-line" id="L7593"><a href="#L7593" tabindex="0" class="raw-line-number" aria-label="第 7593 行">7593</a><span></span></div>
+<div class="raw-line" id="L7594"><a href="#L7594" tabindex="0" class="raw-line-number" aria-label="第 7594 行">7594</a><span>那我们就顺着这个情景往下看就是一项任务是怎么把数据库一步一步推向一个新要求的。</span></div>
+<div class="raw-line" id="L7595"><a href="#L7595" tabindex="0" class="raw-line-number" aria-label="第 7595 行">7595</a><span></span></div>
+<div class="raw-line" id="L7596"><a href="#L7596" tabindex="0" class="raw-line-number" aria-label="第 7596 行">7596</a><span>首先首先agent中断了就是如因为一些原因不管是我们的服务内部服务原因internal error还是刚才说的我们可能会有LM provider的一些情况但是agent中断了但那我们做的事情还在不在以及如果在的话我们是存在哪里就是对于数据库来说这意味着什么。</span></div>
+<div class="raw-line" id="L7597"><a href="#L7597" tabindex="0" class="raw-line-number" aria-label="第 7597 行">7597</a><span></span></div>
+<div class="raw-line" id="L7598"><a href="#L7598" tabindex="0" class="raw-line-number" aria-label="第 7598 行">7598</a><span>对于数据库来说我们其实常见的对agent的一些存储其实第一个就是要存储它的元数据就是我们每一行去在agent里面去打下的所有东西其实都会被存在它的一个叫做agent session record snapshot和agent session event这两张表里面就是像session session snapshot它其实核心是要存储每一个agent它的上下文计划以及工具调用的痕迹这个的话非常大像40到80道是很常见的然后agent的events的话它就会更大了它会把事物据系所有所有的信息数据层都会存下来然后这样的话就会整个meta就会从几TB到几百TB甚至到PB级别这都是很常见的。对。</span></div>
+<div class="raw-line" id="L7599"><a href="#L7599" tabindex="0" class="raw-line-number" aria-label="第 7599 行">7599</a><span></span></div>
+<div class="raw-line" id="L7600"><a href="#L7600" tabindex="0" class="raw-line-number" aria-label="第 7600 行">7600</a><span>所以我们看这个整个agent它其实在前面我们在用其实后面的数据层是非常重的一个工作工作量然后并且我们要想要去评估我们到底需要什么样的agent数据层不能只看前面有多少用户还要看每个用户让用户让agent做多少事情并且这个历史要有多久。</span></div>
+<div class="raw-line" id="L7601"><a href="#L7601" tabindex="0" class="raw-line-number" aria-label="第 7601 行">7601</a><span></span></div>
+<div class="raw-line" id="L7602"><a href="#L7602" tabindex="0" class="raw-line-number" aria-label="第 7602 行">7602</a><span>其实把结构拆开这个事情就比较很清楚了。正常的话就刚才说的snapshot。</span></div>
+<div class="raw-line" id="L7603"><a href="#L7603" tabindex="0" class="raw-line-number" aria-label="第 7603 行">7603</a><span></span></div>
+<div class="raw-line" id="L7604"><a href="#L7604" tabindex="0" class="raw-line-number" aria-label="第 7604 行">7604</a><span>要说session这样就是刚才说的那个session event。对。</span></div>
+<div class="raw-line" id="L7605"><a href="#L7605" tabindex="0" class="raw-line-number" aria-label="第 7605 行">7605</a><span></span></div>
+<div class="raw-line" id="L7606"><a href="#L7606" tabindex="0" class="raw-line-number" aria-label="第 7606 行">7606</a><span>然后session event的话其实这张表的话其实就是我们会把所有agent的session的event的信息都存下来。</span></div>
+<div class="raw-line" id="L7607"><a href="#L7607" tabindex="0" class="raw-line-number" aria-label="第 7607 行">7607</a><span></span></div>
+<div class="raw-line" id="L7608"><a href="#L7608" tabindex="0" class="raw-line-number" aria-label="第 7608 行">7608</a><span>而这张表的话会事物据系会把都把它存下来并且对执行的事件逐步叠加。</span></div>
+<div class="raw-line" id="L7609"><a href="#L7609" tabindex="0" class="raw-line-number" aria-label="第 7609 行">7609</a><span></span></div>
+<div class="raw-line" id="L7610"><a href="#L7610" tabindex="0" class="raw-line-number" aria-label="第 7610 行">7610</a><span>然后对于一个操作用户我们会用一个事物进行更新然后插入然后把对季度进度和季度对齐然后外部工具的调用然后就是这些东西都会存下来。对。</span></div>
+<div class="raw-line" id="L7611"><a href="#L7611" tabindex="0" class="raw-line-number" aria-label="第 7611 行">7611</a><span></span></div>
+<div class="raw-line" id="L7612"><a href="#L7612" tabindex="0" class="raw-line-number" aria-label="第 7612 行">7612</a><span>然后并且这也是在线事件和后面trace的衔接就是我们先留下更可靠的执行的依据然后再由后面运用把需要分析的历史数据汇入我们一些分析系统然后并且存下来接着上我们后面才有机会对agent做整体的优化。</span></div>
+<div class="raw-line" id="L7613"><a href="#L7613" tabindex="0" class="raw-line-number" aria-label="第 7613 行">7613</a><span></span></div>
+<div class="raw-line" id="L7614"><a href="#L7614" tabindex="0" class="raw-line-number" aria-label="第 7614 行">7614</a><span>那数据增长之后我们而且我们应用还会遇到另外一个在数据库里面非常常见的问题那就是分片。对。</span></div>
+<div class="raw-line" id="L7615"><a href="#L7615" tabindex="0" class="raw-line-number" aria-label="第 7615 行">7615</a><span></span></div>
+<div class="raw-line" id="L7616"><a href="#L7616" tabindex="0" class="raw-line-number" aria-label="第 7616 行">7616</a><span>我们其实也曾经见到过很多客户举个例子就是他们可能过去已经有非常多的数据库了可能有20多个DB那这种的话整个维护运维分片的路由以及跨库的协调就会非常复杂而且容量在长我们的那个应用管理数据库分布的这个代码也在增长这个代码就变得非常难以运维。</span></div>
+<div class="raw-line" id="L7617"><a href="#L7617" tabindex="0" class="raw-line-number" aria-label="第 7617 行">7617</a><span></span></div>
+<div class="raw-line" id="L7618"><a href="#L7618" tabindex="0" class="raw-line-number" aria-label="第 7618 行">7618</a><span>那像他们最后用了TideDB就是会有统一的一个circle入口数据分布和分布式事物都是TideDB自己就能handle了然后这样子的话就整个业务就能够更好去增长所以说有了这种我们的agent存储元数据的session meta和session events我们刚才就算agent中断之后它也能快速的从这种元数据里面拉起来然后再去使用。</span></div>
+<div class="raw-line" id="L7619"><a href="#L7619" tabindex="0" class="raw-line-number" aria-label="第 7619 行">7619</a><span></span></div>
+<div class="raw-line" id="L7620"><a href="#L7620" tabindex="0" class="raw-line-number" aria-label="第 7620 行">7620</a><span>那中断之后我们找回了刚才进度但进度找回来了我们的meta对上了我们的文件怎么办。对。</span></div>
+<div class="raw-line" id="L7621"><a href="#L7621" tabindex="0" class="raw-line-number" aria-label="第 7621 行">7621</a><span></span></div>
+<div class="raw-line" id="L7622"><a href="#L7622" tabindex="0" class="raw-line-number" aria-label="第 7622 行">7622</a><span>那这种就要看我们的agent的文件到底是怎么存储的就是agent我们在sandbox里写代码然后我们的sandbox又挂载EBS然后这种任务一般任务结束后我们就会回收我们的sandbox然后同时清理策略也会把对应的EBS也会清理掉。对。</span></div>
+<div class="raw-line" id="L7623"><a href="#L7623" tabindex="0" class="raw-line-number" aria-label="第 7623 行">7623</a><span></span></div>
+<div class="raw-line" id="L7624"><a href="#L7624" tabindex="0" class="raw-line-number" aria-label="第 7624 行">7624</a><span>这个这个这种情况下的话虽然我们meta记住了很多东西但是我们的文件都丢了这个其实也是以前在去年或者更更往前之前agent比较常见的一个问题就是我们的短期的这种中间产物其实很容易被很容易被损毁的。对。</span></div>
+<div class="raw-line" id="L7625"><a href="#L7625" tabindex="0" class="raw-line-number" aria-label="第 7625 行">7625</a><span></span></div>
+<div class="raw-line" id="L7626"><a href="#L7626" tabindex="0" class="raw-line-number" aria-label="第 7626 行">7626</a><span>那所以说为了示范算力我们所有的用户的工作都删了吗。这个从用户视角来说就非常难以接受。</span></div>
+<div class="raw-line" id="L7627"><a href="#L7627" tabindex="0" class="raw-line-number" aria-label="第 7627 行">7627</a><span></span></div>
+<div class="raw-line" id="L7628"><a href="#L7628" tabindex="0" class="raw-line-number" aria-label="第 7628 行">7628</a><span>那我们其实很容易想到一个事情那我们就做备份。对。</span></div>
+<div class="raw-line" id="L7629"><a href="#L7629" tabindex="0" class="raw-line-number" aria-label="第 7629 行">7629</a><span></span></div>
+<div class="raw-line" id="L7630"><a href="#L7630" tabindex="0" class="raw-line-number" aria-label="第 7630 行">7630</a><span>这个方向虽然是对的但是这个工作明显还没有完成就备份的时候我们要协调写入要创建快照登记项目然后我们还要恢复时候还要找到正在正确的快照我们的创建卷挂载要把文件和meta对齐大家听了这个过程就非常的非常繁琐。对。</span></div>
+<div class="raw-line" id="L7631"><a href="#L7631" tabindex="0" class="raw-line-number" aria-label="第 7631 行">7631</a><span></span></div>
+<div class="raw-line" id="L7632"><a href="#L7632" tabindex="0" class="raw-line-number" aria-label="第 7632 行">7632</a><span>所以每一步都可能需要重试校验和清理留下快照还有留下快照这种事情所以平台最终要维护一整套非常复杂可靠的项目备份和恢复流程然后并且承担它的存储运维和代码成本这个其实也是非常恐怖的一个事情。</span></div>
+<div class="raw-line" id="L7633"><a href="#L7633" tabindex="0" class="raw-line-number" aria-label="第 7633 行">7633</a><span></span></div>
+<div class="raw-line" id="L7634"><a href="#L7634" tabindex="0" class="raw-line-number" aria-label="第 7634 行">7634</a><span>那那所以我们其实真正想说什么我们的我们其实平台真正要想要的是什么是一个能够持续跨sandbox的一个真正的一个持久存储层。对。</span></div>
+<div class="raw-line" id="L7635"><a href="#L7635" tabindex="0" class="raw-line-number" aria-label="第 7635 行">7635</a><span></span></div>
+<div class="raw-line" id="L7636"><a href="#L7636" tabindex="0" class="raw-line-number" aria-label="第 7636 行">7636</a><span>然后所以说我们为了摒弃我们比较复杂的一个逻辑其实我们右边就TideDB这边也提供一个file system能够把工作区能够独立于当前的sandbox持久存储并且就是能够session A写完之后就可以把session就是把sandbox示范掉session B可以慢的但同样的文件系统然后直接直接去用这样的话我们平台就不用再去维护一整套的备份恢复的一个代码系统文件就很容易。对。</span></div>
+<div class="raw-line" id="L7637"><a href="#L7637" tabindex="0" class="raw-line-number" aria-label="第 7637 行">7637</a><span></span></div>
+<div class="raw-line" id="L7638"><a href="#L7638" tabindex="0" class="raw-line-number" aria-label="第 7638 行">7638</a><span>然后并且其实大家也发现一个问题哎那这种情况下我可能不同用户会有很多的很多的project很多的项目要去做那我的切割怎么办。对。</span></div>
+<div class="raw-line" id="L7639"><a href="#L7639" tabindex="0" class="raw-line-number" aria-label="第 7639 行">7639</a><span></span></div>
+<div class="raw-line" id="L7640"><a href="#L7640" tabindex="0" class="raw-line-number" aria-label="第 7640 行">7640</a><span>这也是之前常见的一些我们的文件系统或者NAS方案遗留的问题就是TideDB其实是解决这个问题我们的文件系统其实能扩展到数数百万数千万然后这种一个级别然后并且我们可以做到一个project就是一个完全独立的空间这种情况下的话就是能够让agent在不同的sandbox里面快速流转并且通过很好的小最小权限去做去做健全然后并且可以根据每一个项目每一个project去做各种quota的管理和设置这样的话整个平台就会把这整个的这种海量的FS管理这个成duty给承担掉而我们的agent就只agent以agent planform就只需要去正确的使用就没问题了。对。</span></div>
+<div class="raw-line" id="L7641"><a href="#L7641" tabindex="0" class="raw-line-number" aria-label="第 7641 行">7641</a><span></span></div>
+<div class="raw-line" id="L7642"><a href="#L7642" tabindex="0" class="raw-line-number" aria-label="第 7642 行">7642</a><span>所以这一段的话就很简单就记住一句话就够了就是sandbox删了但我们的项目依然可以保存并且是很优雅的很简单的就能把保存下来。对。</span></div>
+<div class="raw-line" id="L7643"><a href="#L7643" tabindex="0" class="raw-line-number" aria-label="第 7643 行">7643</a><span></span></div>
+<div class="raw-line" id="L7644"><a href="#L7644" tabindex="0" class="raw-line-number" aria-label="第 7644 行">7644</a><span>然后接下来我们刚才说了就我那任务是我需要写个代码然后并且创建一个工作台那我的代码完成了但是我的真正的服务才开始我要怎么创建这个工作台就是我们的开发任务结束了我们项目文件也留下来了但是我们现在下我们可能要上线一个完整的工作台那这时候并且明天让其他的其他的同事接着去用那么并且他要可以明天要可以登录填写资料更新状态新的数据还要保存还要存在。</span></div>
+<div class="raw-line" id="L7645"><a href="#L7645" tabindex="0" class="raw-line-number" aria-label="第 7645 行">7645</a><span></span></div>
+<div class="raw-line" id="L7646"><a href="#L7646" tabindex="0" class="raw-line-number" aria-label="第 7646 行">7646</a><span>所以说这个三个生命周期就可以就就发现就平台就面临一个更大的问题那就是agent不断交付新应用后面的是要持续能够保存不同应用的数据库这个长期管理也是来管理这其实也是我们传统的agent都会有个建站服务这个建站服务其一个比较痛苦的点。</span></div>
+<div class="raw-line" id="L7647"><a href="#L7647" tabindex="0" class="raw-line-number" aria-label="第 7647 行">7647</a><span></span></div>
+<div class="raw-line" id="L7648"><a href="#L7648" tabindex="0" class="raw-line-number" aria-label="第 7648 行">7648</a><span>就传统来说的话如果平台自己去做这个维护这个实力是很快就会碰到很多问题因为这个并不是说只是你需要创建一两个应用的事情而是我们想我们上面所有的客户几十万几百万上千万的用户他每人平均创建一到两个甚至10个应用这个时候数量级的问题那我们整个的所有的这种这样的话就海量应用的这个维护的事情就会就会遇到这个情况就是创建起就超时了数据库到底有没有建成然后重试会不会再重建一份回收的话又没有又没有丢掉资源这些都是长期背后都是些放置扩容备份升级对战故障补偿所有一些的责任都是需要这个去维护这种海量应用的一个海量数据库的一个平台去去那个去承担这个责任所以我们代码生成越快我们平台越需要一套能够跟上交付速度的数据库的服务方式。对。</span></div>
+<div class="raw-line" id="L7649"><a href="#L7649" tabindex="0" class="raw-line-number" aria-label="第 7649 行">7649</a><span></span></div>
+<div class="raw-line" id="L7650"><a href="#L7650" tabindex="0" class="raw-line-number" aria-label="第 7650 行">7650</a><span>就所以说我们其实也提就像刚才说的我们可以提供上千万个隔离的文件系统一样其实of course TideDB其实这边也提供了上千万个隔离的数据库然后这样子的话我们就能承托管整个实力和底层就是去共享它的存储设施然后平台就是我们的agent planform只需要创建数据库然后去把数据库给对应的客户的应用给关联起来然后最后的权限用量以及就是那些所有的 一些底层的计算资源的调度都是会由TideDB cloud这边来处理。对。</span></div>
+<div class="raw-line" id="L7651"><a href="#L7651" tabindex="0" class="raw-line-number" aria-label="第 7651 行">7651</a><span></span></div>
+<div class="raw-line" id="L7652"><a href="#L7652" tabindex="0" class="raw-line-number" aria-label="第 7652 行">7652</a><span>所以数百万到数千万就是这这种的一个量级是非常容易就能够支撑到的。</span></div>
+<div class="raw-line" id="L7653"><a href="#L7653" tabindex="0" class="raw-line-number" aria-label="第 7653 行">7653</a><span></span></div>
+<div class="raw-line" id="L7654"><a href="#L7654" tabindex="0" class="raw-line-number" aria-label="第 7654 行">7654</a><span>能够让平台能够持续的交付应用同时能够减少我们底层实力池的一些运维负担。对。</span></div>
+<div class="raw-line" id="L7655"><a href="#L7655" tabindex="0" class="raw-line-number" aria-label="第 7655 行">7655</a><span></span></div>
+<div class="raw-line" id="L7656"><a href="#L7656" tabindex="0" class="raw-line-number" aria-label="第 7656 行">7656</a><span>好。好。</span></div>
+<div class="raw-line" id="L7657"><a href="#L7657" tabindex="0" class="raw-line-number" aria-label="第 7657 行">7657</a><span></span></div>
+<div class="raw-line" id="L7658"><a href="#L7658" tabindex="0" class="raw-line-number" aria-label="第 7658 行">7658</a><span>agent收工了。对。好。</span></div>
+<div class="raw-line" id="L7659"><a href="#L7659" tabindex="0" class="raw-line-number" aria-label="第 7659 行">7659</a><span></span></div>
+<div class="raw-line" id="L7660"><a href="#L7660" tabindex="0" class="raw-line-number" aria-label="第 7660 行">7660</a><span>终于把应用创建出来了。</span></div>
+<div class="raw-line" id="L7661"><a href="#L7661" tabindex="0" class="raw-line-number" aria-label="第 7661 行">7661</a><span></span></div>
+<div class="raw-line" id="L7662"><a href="#L7662" tabindex="0" class="raw-line-number" aria-label="第 7662 行">7662</a><span>那我们那我们交出去的成果也开始拥有自己的用户了。</span></div>
+<div class="raw-line" id="L7663"><a href="#L7663" tabindex="0" class="raw-line-number" aria-label="第 7663 行">7663</a><span></span></div>
+<div class="raw-line" id="L7664"><a href="#L7664" tabindex="0" class="raw-line-number" aria-label="第 7664 行">7664</a><span>那我们怎么看自己怎么也要开始自己的基本业业务数据了。</span></div>
+<div class="raw-line" id="L7665"><a href="#L7665" tabindex="0" class="raw-line-number" aria-label="第 7665 行">7665</a><span></span></div>
+<div class="raw-line" id="L7666"><a href="#L7666" tabindex="0" class="raw-line-number" aria-label="第 7666 行">7666</a><span>那我们怎么去分析呢我们的效果和成本是怎么说得清。对。</span></div>
+<div class="raw-line" id="L7667"><a href="#L7667" tabindex="0" class="raw-line-number" aria-label="第 7667 行">7667</a><span></span></div>
+<div class="raw-line" id="L7668"><a href="#L7668" tabindex="0" class="raw-line-number" aria-label="第 7668 行">7668</a><span>所以说就是我们一旦交付功能上来之后我们就必须要说清一个问题agent的效果怎么样每个工具的表现是如何的然后每个工具到成功交付了多少。对。</span></div>
+<div class="raw-line" id="L7669"><a href="#L7669" tabindex="0" class="raw-line-number" aria-label="第 7669 行">7669</a><span></span></div>
+<div class="raw-line" id="L7670"><a href="#L7670" tabindex="0" class="raw-line-number" aria-label="第 7670 行">7670</a><span>这就这时候就需要trace。嗯。</span></div>
+<div class="raw-line" id="L7671"><a href="#L7671" tabindex="0" class="raw-line-number" aria-label="第 7671 行">7671</a><span></span></div>
+<div class="raw-line" id="L7672"><a href="#L7672" tabindex="0" class="raw-line-number" aria-label="第 7672 行">7672</a><span>of course。</span></div>
+<div class="raw-line" id="L7673"><a href="#L7673" tabindex="0" class="raw-line-number" aria-label="第 7673 行">7673</a><span></span></div>
+<div class="raw-line" id="L7674"><a href="#L7674" tabindex="0" class="raw-line-number" aria-label="第 7674 行">7674</a><span>所以说其实在agent的领域tracing是非常重要一个事情就是大家把对就是非常严肃的对待它也不过分就它就是我们就是我们的客户常见用到的tracing方法他们都是把一次长任务拆解成能够关联和查询模型的用调用工具调用和返回就是我们这里就这既能看到过程和错误也能关联耗时模型用量以及最终我们客户自己的业务的验收这样的运行标识和spend的关系就是就由客户的应用给串联起来。对。</span></div>
+<div class="raw-line" id="L7675"><a href="#L7675" tabindex="0" class="raw-line-number" aria-label="第 7675 行">7675</a><span></span></div>
+<div class="raw-line" id="L7676"><a href="#L7676" tabindex="0" class="raw-line-number" aria-label="第 7676 行">7676</a><span>就像我们客户使用的它的复杂的tracing一个trace就可以达到上百上百的兆B然后并且有非常强的一个十万级别步骤步骤因为它我们会非常容易就常看到超长时间两三个小时甚至十几个小时的一个次的agent一次agent的任务。对。</span></div>
+<div class="raw-line" id="L7677"><a href="#L7677" tabindex="0" class="raw-line-number" aria-label="第 7677 行">7677</a><span></span></div>
+<div class="raw-line" id="L7678"><a href="#L7678" tabindex="0" class="raw-line-number" aria-label="第 7678 行">7678</a><span>就是所有的平台每天写入数百TB这都是比较常见的。对。</span></div>
+<div class="raw-line" id="L7679"><a href="#L7679" tabindex="0" class="raw-line-number" aria-label="第 7679 行">7679</a><span></span></div>
+<div class="raw-line" id="L7680"><a href="#L7680" tabindex="0" class="raw-line-number" aria-label="第 7680 行">7680</a><span>所以长任务产生的这种非常历史非常值得单独建立分析链路如果我们只看最后这个任务成功或失败这个解释不了我们的成本花在哪里因为我们的agent可能不断的重试去回答这个成本。</span></div>
+<div class="raw-line" id="L7681"><a href="#L7681" tabindex="0" class="raw-line-number" aria-label="第 7681 行">7681</a><span></span></div>
+<div class="raw-line" id="L7682"><a href="#L7682" tabindex="0" class="raw-line-number" aria-label="第 7682 行">7682</a><span>所以一条trace一条trace能够帮助我们查找一次查清楚一次运行但是只有我们要一批trace才能帮助去团队决定我们后面的优化方向。对。</span></div>
+<div class="raw-line" id="L7683"><a href="#L7683" tabindex="0" class="raw-line-number" aria-label="第 7683 行">7683</a><span></span></div>
+<div class="raw-line" id="L7684"><a href="#L7684" tabindex="0" class="raw-line-number" aria-label="第 7684 行">7684</a><span>我们可以按工具按任务类型来区分看我们重试耗时的调用量再关联我们的验收成果算我们的成功率以及包含失败重试的单位的成本最后我们可以筛选代表任务然后评测样本。对。</span></div>
+<div class="raw-line" id="L7685"><a href="#L7685" tabindex="0" class="raw-line-number" aria-label="第 7685 行">7685</a><span></span></div>
+<div class="raw-line" id="L7686"><a href="#L7686" tabindex="0" class="raw-line-number" aria-label="第 7686 行">7686</a><span>这些这些分析给我们的收益非常多的就是某个工具调用多不代表它的价值更高也有可能是因为它其实盗版是效果不好。对。就改动有没有收益我们都需要去进一步评估。</span></div>
+<div class="raw-line" id="L7687"><a href="#L7687" tabindex="0" class="raw-line-number" aria-label="第 7687 行">7687</a><span></span></div>
+<div class="raw-line" id="L7688"><a href="#L7688" tabindex="0" class="raw-line-number" aria-label="第 7688 行">7688</a><span>就是历史上我们记得历史我们记得历史从数百TB到数十TB的tracing因为这个在大型的agent的厂商里面非常常见我们的最核心的关键就变成了我们整个数据的运维和我们持续查核算的能力。对。</span></div>
+<div class="raw-line" id="L7689"><a href="#L7689" tabindex="0" class="raw-line-number" aria-label="第 7689 行">7689</a><span></span></div>
+<div class="raw-line" id="L7690"><a href="#L7690" tabindex="0" class="raw-line-number" aria-label="第 7690 行">7690</a><span>就是原始的trace我们就可以去加载我们的持续加载然后我们可以用circle去展开json提取字段然后形成我们自己客户所需要自己的一些这种检索聚合然后最后在我们的TideDB cloud上就lake这个产品上去做对象存储上做就是做保存然后最后去就是下面的话就会两条分析链路一条的话就是排站时快速的去定位具体运行到什么地方然后后面或者在批量分析的时候能够快速的准备我们质量和成本的一些合并测数据并按负载量计算我们的配置。</span></div>
+<div class="raw-line" id="L7691"><a href="#L7691" tabindex="0" class="raw-line-number" aria-label="第 7691 行">7691</a><span></span></div>
+<div class="raw-line" id="L7692"><a href="#L7692" tabindex="0" class="raw-line-number" aria-label="第 7692 行">7692</a><span>因此团队团队就可以在这里去一套用一套的方法去维护整个轨迹加工检索聚合的链路。对。</span></div>
+<div class="raw-line" id="L7693"><a href="#L7693" tabindex="0" class="raw-line-number" aria-label="第 7693 行">7693</a><span></span></div>
+<div class="raw-line" id="L7694"><a href="#L7694" tabindex="0" class="raw-line-number" aria-label="第 7694 行">7694</a><span>来就是采集度新鲜度这些东西就都可以用一套路路方法去做就非常的方便和好用。</span></div>
+<div class="raw-line" id="L7695"><a href="#L7695" tabindex="0" class="raw-line-number" aria-label="第 7695 行">7695</a><span></span></div>
+<div class="raw-line" id="L7696"><a href="#L7696" tabindex="0" class="raw-line-number" aria-label="第 7696 行">7696</a><span>然后那分析到了值得改进的地方就是如果我们分析到值得改进的地方那么接下来我们如果换了模型prompt或工具那我们怎么说这次到底是不是变好了那其实如果我们每次都从头跑重新跑这个可能就是输入工具返回文件就发生变化这样结果就会有差距差异那这个到这里的变化到底来自于策略还是来自现场变化就很难解释了所以说我们都要需要干什么我们要需要保留一个共同的起点就是当时的meta当时的文件当时的必要输入的配置然后这些都要保存下来然后再创建独立的分支用同一个标准来验收然后trace它只能告诉我们就是发生过什么但是我们要尝试保存一些checkpoint或者一些就是当时的snapshot然后去做当这真正的去做优化以及还原当时的现场。</span></div>
+<div class="raw-line" id="L7697"><a href="#L7697" tabindex="0" class="raw-line-number" aria-label="第 7697 行">7697</a><span></span></div>
+<div class="raw-line" id="L7698"><a href="#L7698" tabindex="0" class="raw-line-number" aria-label="第 7698 行">7698</a><span>这种情况下的话其实在我们这里的话就可我们的客户就会用TideDB和我们的文件系统的checkpoint去来去做联合的去解决就是我们把已经保存的这种meta的快照和events以和文件系统file system保存文件的checkpoint的绑定然后这样的话就可以在我们当发现要还原到某一个agent的某一个状态的时候就可以通过我们整个checkpoint和就是events给去进行恢复并且可以从文件系统里面去fog出来一个当时一模一样的文件的内容这样的话就可以去进行做优化。对。</span></div>
+<div class="raw-line" id="L7699"><a href="#L7699" tabindex="0" class="raw-line-number" aria-label="第 7699 行">7699</a><span></span></div>
+<div class="raw-line" id="L7700"><a href="#L7700" tabindex="0" class="raw-line-number" aria-label="第 7700 行">7700</a><span>然后比如从一个checkpoint就是出发我们一个分支然后去连续的调用一次工具然后另一个分支分支然后去调整工具的选择策略然后两个分支分别独立写入然后最后整体验收比较我们的正确性直径耗时总耗时。对。</span></div>
+<div class="raw-line" id="L7701"><a href="#L7701" tabindex="0" class="raw-line-number" aria-label="第 7701 行">7701</a><span></span></div>
+<div class="raw-line" id="L7702"><a href="#L7702" tabindex="0" class="raw-line-number" aria-label="第 7702 行">7702</a><span>然后这种只有这种情况下我们才能得到一个真正哪一种改法下真正比较靠谱的结果我们才得到真正的值得保保留的一个条件。</span></div>
+<div class="raw-line" id="L7703"><a href="#L7703" tabindex="0" class="raw-line-number" aria-label="第 7703 行">7703</a><span></span></div>
+<div class="raw-line" id="L7704"><a href="#L7704" tabindex="0" class="raw-line-number" aria-label="第 7704 行">7704</a><span>但一个任务做好了我不代表整个agent都做好了所以说我们基本上就是我们客户的做法就是我们要先验证代表任务然后再看收益是否能覆盖同类的任务最后回归那些原本能成成就是成功的任务就是并且去做各种重复实验然后处理模型的随机性只有我们质量成本还有延迟的整体收益整体变化能够被新版本被我们的评就是评评就是评测机机制接受我们才有理由推进上线去观察真实的生产的运行所以说这就是一套完整的由agent就是系统里面去做的一个完整的事情。</span></div>
+<div class="raw-line" id="L7705"><a href="#L7705" tabindex="0" class="raw-line-number" aria-label="第 7705 行">7705</a><span></span></div>
+<div class="raw-line" id="L7706"><a href="#L7706" tabindex="0" class="raw-line-number" aria-label="第 7706 行">7706</a><span>所以说先保住做对的部分就刚才说的我们有各种文件系统checkpoint把做已经做对部分保留然后发现用户反馈的错误的部分然后再验证另外一种做法就是每一次运行我们都应该是在exactly same的配置上去去同时再重新运行去重新去评估去去看我们到底效果好不好。</span></div>
+<div class="raw-line" id="L7707"><a href="#L7707" tabindex="0" class="raw-line-number" aria-label="第 7707 行">7707</a><span></span></div>
+<div class="raw-line" id="L7708"><a href="#L7708" tabindex="0" class="raw-line-number" aria-label="第 7708 行">7708</a><span>所以把它连起来就是叫闭环就是像历史的trace提出问题然后回然后以保存的checkpoint提供现场然后最后fog出来一个产生一个新的验收证据再到资料里面去分析所以这种像我们整个TideDB cloud这个给agent提供的data layer的这种lake meta file system我们就各自承担自己的分析状态和文件的责任然后执行验收和关联就是这样的话就能去把它做到。对。</span></div>
+<div class="raw-line" id="L7709"><a href="#L7709" tabindex="0" class="raw-line-number" aria-label="第 7709 行">7709</a><span></span></div>
+<div class="raw-line" id="L7710"><a href="#L7710" tabindex="0" class="raw-line-number" aria-label="第 7710 行">7710</a><span>回到开场我们第二天我们用户回来了说昨天那工具工作台我们要接着改。对。</span></div>
+<div class="raw-line" id="L7711"><a href="#L7711" tabindex="0" class="raw-line-number" aria-label="第 7711 行">7711</a><span></span></div>
+<div class="raw-line" id="L7712"><a href="#L7712" tabindex="0" class="raw-line-number" aria-label="第 7712 行">7712</a><span>那我们现在有我们的有很好的meta存储所以说我们的进度能接上我们有很好的文件系统的持续保存所以我们下面也能跟上并且我们的应用它提供服务我们也知道这应用是好坏坏团队我们的后后台的agent platform团队也能看清楚运行效果我们验证下次改造然后这时候用户说一声巨细就是用户只是说我说了一个要求但是这个要求背后是整套agent platform所对应的后面的data layer的一整套的完成基建措施我们才能持续的把这个服务持续的迭代和运维下去。对。</span></div>
+<div class="raw-line" id="L7713"><a href="#L7713" tabindex="0" class="raw-line-number" aria-label="第 7713 行">7713</a><span></span></div>
+<div class="raw-line" id="L7714"><a href="#L7714" tabindex="0" class="raw-line-number" aria-label="第 7714 行">7714</a><span>所以这里我们为什么我们就是就是我们的客户很多会选择TideDB其实就是就其就是有这个来回答的就是meta增站就是我们可以用Tide用分用分布式circle和事物减少我们的分片然后项目增站我们就可以提供海量的持有工作区然后去持续的去在这个工作区上去维护然后如果我们应用增站我们可以用TideDB cloud start这个feature然后把这种提供海量的数据独立的说服能力然后去给客户然后如果是我们的tracing有增站我们可以用lake这种型的处理清洗检索聚合然后并且按负载配置计算。对。</span></div>
+<div class="raw-line" id="L7715"><a href="#L7715" tabindex="0" class="raw-line-number" aria-label="第 7715 行">7715</a><span></span></div>
+<div class="raw-line" id="L7716"><a href="#L7716" tabindex="0" class="raw-line-number" aria-label="第 7716 行">7716</a><span>这些能力共同承担就是都说就是共同承担一个结果就是我们其实希望团队更少的去维护我们的底层的infrar layer和支撑系统更好的精力去交付我们的业务任务以及agent的迭代。对。</span></div>
+<div class="raw-line" id="L7717"><a href="#L7717" tabindex="0" class="raw-line-number" aria-label="第 7717 行">7717</a><span></span></div>
+<div class="raw-line" id="L7718"><a href="#L7718" tabindex="0" class="raw-line-number" aria-label="第 7718 行">7718</a><span>所以如果今天大家有三个take away我希望这样就是我们其实就能够解决核心是海量数据的问题然后海量项目的问题以及就是如果我们agent要改进也可以参考我们这个方案然后去做改进。对。</span></div>
+<div class="raw-line" id="L7719"><a href="#L7719" tabindex="0" class="raw-line-number" aria-label="第 7719 行">7719</a><span></span></div>
+<div class="raw-line" id="L7720"><a href="#L7720" tabindex="0" class="raw-line-number" aria-label="第 7720 行">7720</a><span>然后TideDB的价值其实就在不断扩大这几个工程的职责上然后所以没人我就是最后就是没有人一开始我们就计划建设这么多的AI infra就是其实是用户的一个诉求我们用户诉求把数据库推到这里然后我们认为AI时代我们创业者的注意力是非常稀缺的而我们TideDB要做的事情就是把协助创业者把这个稀缺的稀缺的资源放给agent下次迭代这就是TideDB的产品方向。好。谢谢大家。</span></div>
+<div class="raw-line" id="L7721"><a href="#L7721" tabindex="0" class="raw-line-number" aria-label="第 7721 行">7721</a><span></span></div>
+<div class="raw-line" id="L7722"><a href="#L7722" tabindex="0" class="raw-line-number" aria-label="第 7722 行">7722</a><span>喂。</span></div>
+<div class="raw-line" id="L7723"><a href="#L7723" tabindex="0" class="raw-line-number" aria-label="第 7723 行">7723</a><span></span></div>
+<div class="raw-line" id="L7724"><a href="#L7724" tabindex="0" class="raw-line-number" aria-label="第 7724 行">7724</a><span>Thanks Luke from TideDB。</span></div>
+<div class="raw-line" id="L7725"><a href="#L7725" tabindex="0" class="raw-line-number" aria-label="第 7725 行">7725</a><span></span></div>
+<div class="raw-line" id="L7726"><a href="#L7726" tabindex="0" class="raw-line-number" aria-label="第 7726 行">7726</a><span>谢谢TideDB的Luke。</span></div>
+<div class="raw-line" id="L7727"><a href="#L7727" tabindex="0" class="raw-line-number" aria-label="第 7727 行">7727</a><span></span></div>
+<div class="raw-line" id="L7728"><a href="#L7728" tabindex="0" class="raw-line-number" aria-label="第 7728 行">7728</a><span>然后下一位我们欢迎这个TA在Techcom Bank。So next let&#39;s welcome TA from Techcom Bank。</span></div>
+<div class="raw-line" id="L7729"><a href="#L7729" tabindex="0" class="raw-line-number" aria-label="第 7729 行">7729</a><span></span></div>
+<div class="raw-line" id="L7730"><a href="#L7730" tabindex="0" class="raw-line-number" aria-label="第 7730 行">7730</a><span>Good afternoon everyone.</span></div>
+<div class="raw-line" id="L7731"><a href="#L7731" tabindex="0" class="raw-line-number" aria-label="第 7731 行">7731</a><span></span></div>
+<div class="raw-line" id="L7732"><a href="#L7732" tabindex="0" class="raw-line-number" aria-label="第 7732 行">7732</a><span>I think it&#39;s such an amazing day in Shanghai the weather is quite lovely but it&#39;s quite late in the day so I will try to make it short in the next 10 or 15 minutes probably you guys have heard a lot about AI models infrastructure a lot about。</span></div>
+<div class="raw-line" id="L7733"><a href="#L7733" tabindex="0" class="raw-line-number" aria-label="第 7733 行">7733</a><span></span></div>
+<div class="raw-line" id="L7734"><a href="#L7734" tabindex="0" class="raw-line-number" aria-label="第 7734 行">7734</a><span>In the next 10 to 15 minutes, we&#39;ll walk through with you guys about our recent research,</span></div>
+<div class="raw-line" id="L7735"><a href="#L7735" tabindex="0" class="raw-line-number" aria-label="第 7735 行">7735</a><span>接下来的 10 到 15 分钟，我们会和大家分享近期的研究成果。</span></div>
+<div class="raw-line" id="L7736"><a href="#L7736" tabindex="0" class="raw-line-number" aria-label="第 7736 行">7736</a><span></span></div>
+<div class="raw-line" id="L7737"><a href="#L7737" tabindex="0" class="raw-line-number" aria-label="第 7737 行">7737</a><span>and one of the top 2 methods that we actively have been researching and adopting to cut down the cost of AI inferencing.</span></div>
+<div class="raw-line" id="L7738"><a href="#L7738" tabindex="0" class="raw-line-number" aria-label="第 7738 行">7738</a><span>以及我们一直在积极研究和采用的、降低 AI 推理成本的两大方法之一。</span></div>
+<div class="raw-line" id="L7739"><a href="#L7739" tabindex="0" class="raw-line-number" aria-label="第 7739 行">7739</a><span></span></div>
+<div class="raw-line" id="L7740"><a href="#L7740" tabindex="0" class="raw-line-number" aria-label="第 7740 行">7740</a><span>So a little bit about myself: people call me TA,</span></div>
+<div class="raw-line" id="L7741"><a href="#L7741" tabindex="0" class="raw-line-number" aria-label="第 7741 行">7741</a><span>先简单介绍一下自己：大家都叫我 TA。</span></div>
+<div class="raw-line" id="L7742"><a href="#L7742" tabindex="0" class="raw-line-number" aria-label="第 7742 行">7742</a><span></span></div>
+<div class="raw-line" id="L7743"><a href="#L7743" tabindex="0" class="raw-line-number" aria-label="第 7743 行">7743</a><span>I&#39;m now currently owning and running the data and AI platform and the agentic platform of one of the biggest commercial banks in Vietnam.</span></div>
+<div class="raw-line" id="L7744"><a href="#L7744" tabindex="0" class="raw-line-number" aria-label="第 7744 行">7744</a><span>我目前负责运营越南一家大型商业银行的数据与 AI 平台，以及智能体平台。</span></div>
+<div class="raw-line" id="L7745"><a href="#L7745" tabindex="0" class="raw-line-number" aria-label="第 7745 行">7745</a><span></span></div>
+<div class="raw-line" id="L7746"><a href="#L7746" tabindex="0" class="raw-line-number" aria-label="第 7746 行">7746</a><span>So this basically this next chart, it&#39;s not working, it&#39;s not working.</span></div>
+<div class="raw-line" id="L7747"><a href="#L7747" tabindex="0" class="raw-line-number" aria-label="第 7747 行">7747</a><span>接下来这张图……咦，没反应，没反应。</span></div>
+<div class="raw-line" id="L7748"><a href="#L7748" tabindex="0" class="raw-line-number" aria-label="第 7748 行">7748</a><span></span></div>
+<div class="raw-line" id="L7749"><a href="#L7749" tabindex="0" class="raw-line-number" aria-label="第 7749 行">7749</a><span>Okay, it&#39;s not working.</span></div>
+<div class="raw-line" id="L7750"><a href="#L7750" tabindex="0" class="raw-line-number" aria-label="第 7750 行">7750</a><span>好吧，还是没反应。</span></div>
+<div class="raw-line" id="L7751"><a href="#L7751" tabindex="0" class="raw-line-number" aria-label="第 7751 行">7751</a><span></span></div>
+<div class="raw-line" id="L7752"><a href="#L7752" tabindex="0" class="raw-line-number" aria-label="第 7752 行">7752</a><span>So this chart basically kind of resonates with everyone,</span></div>
+<div class="raw-line" id="L7753"><a href="#L7753" tabindex="0" class="raw-line-number" aria-label="第 7753 行">7753</a><span>这张图应该能引起大家的共鸣。</span></div>
+<div class="raw-line" id="L7754"><a href="#L7754" tabindex="0" class="raw-line-number" aria-label="第 7754 行">7754</a><span></span></div>
+<div class="raw-line" id="L7755"><a href="#L7755" tabindex="0" class="raw-line-number" aria-label="第 7755 行">7755</a><span>This is the adoption chart.</span></div>
+<div class="raw-line" id="L7756"><a href="#L7756" tabindex="0" class="raw-line-number" aria-label="第 7756 行">7756</a><span>这是一张采用率趋势图。</span></div>
+<div class="raw-line" id="L7757"><a href="#L7757" tabindex="0" class="raw-line-number" aria-label="第 7757 行">7757</a><span></span></div>
+<div class="raw-line" id="L7758"><a href="#L7758" tabindex="0" class="raw-line-number" aria-label="第 7758 行">7758</a><span>Basically everyone goes, every organization goes to this chart.</span></div>
+<div class="raw-line" id="L7759"><a href="#L7759" tabindex="0" class="raw-line-number" aria-label="第 7759 行">7759</a><span>基本上每个人、每家机构都会经历图上这个过程。</span></div>
+<div class="raw-line" id="L7760"><a href="#L7760" tabindex="0" class="raw-line-number" aria-label="第 7760 行">7760</a><span></span></div>
+<div class="raw-line" id="L7761"><a href="#L7761" tabindex="0" class="raw-line-number" aria-label="第 7761 行">7761</a><span>We have basically 3 phases: the pilot phase,</span></div>
+<div class="raw-line" id="L7762"><a href="#L7762" tabindex="0" class="raw-line-number" aria-label="第 7762 行">7762</a><span>我们基本上会经历三个阶段：首先是试点阶段，</span></div>
+<div class="raw-line" id="L7763"><a href="#L7763" tabindex="0" class="raw-line-number" aria-label="第 7763 行">7763</a><span></span></div>
+<div class="raw-line" id="L7764"><a href="#L7764" tabindex="0" class="raw-line-number" aria-label="第 7764 行">7764</a><span>the adoption phase a little bit, and then scale.</span></div>
+<div class="raw-line" id="L7765"><a href="#L7765" tabindex="0" class="raw-line-number" aria-label="第 7765 行">7765</a><span>然后是初步推广阶段，最后是规模化阶段。</span></div>
+<div class="raw-line" id="L7766"><a href="#L7766" tabindex="0" class="raw-line-number" aria-label="第 7766 行">7766</a><span></span></div>
+<div class="raw-line" id="L7767"><a href="#L7767" tabindex="0" class="raw-line-number" aria-label="第 7767 行">7767</a><span>So at the scaling phase, you start seeing massive consumption of tokens.</span></div>
+<div class="raw-line" id="L7768"><a href="#L7768" tabindex="0" class="raw-line-number" aria-label="第 7768 行">7768</a><span>到了规模化阶段，Token 消耗量就会开始大幅增长。</span></div>
+<div class="raw-line" id="L7769"><a href="#L7769" tabindex="0" class="raw-line-number" aria-label="第 7769 行">7769</a><span></span></div>
+<div class="raw-line" id="L7770"><a href="#L7770" tabindex="0" class="raw-line-number" aria-label="第 7770 行">7770</a><span>Your AI TCO, right, basically your cost is growing also off the chart.</span></div>
+<div class="raw-line" id="L7771"><a href="#L7771" tabindex="0" class="raw-line-number" aria-label="第 7771 行">7771</a><span>你的 AI 总拥有成本，也就是整体成本，也会一路飙升，甚至超出这张图的范围。</span></div>
+<div class="raw-line" id="L7772"><a href="#L7772" tabindex="0" class="raw-line-number" aria-label="第 7772 行">7772</a><span></span></div>
+<div class="raw-line" id="L7773"><a href="#L7773" tabindex="0" class="raw-line-number" aria-label="第 7773 行">7773</a><span>So during our last year, we had spent a lot of time actively researching and figuring out what we should do about this cost.</span></div>
+<div class="raw-line" id="L7774"><a href="#L7774" tabindex="0" class="raw-line-number" aria-label="第 7774 行">7774</a><span>所以在过去一年里，我们花了大量时间积极研究，思考该如何应对这笔成本。</span></div>
+<div class="raw-line" id="L7775"><a href="#L7775" tabindex="0" class="raw-line-number" aria-label="第 7775 行">7775</a><span></span></div>
+<div class="raw-line" id="L7776"><a href="#L7776" tabindex="0" class="raw-line-number" aria-label="第 7776 行">7776</a><span>And it&#39;s all boiled down to one single metric that we have been trying to find a way to bring it down.</span></div>
+<div class="raw-line" id="L7777"><a href="#L7777" tabindex="0" class="raw-line-number" aria-label="第 7777 行">7777</a><span>最后，这一切都归结为一个指标，而我们一直在想办法把它降下来。</span></div>
+<div class="raw-line" id="L7778"><a href="#L7778" tabindex="0" class="raw-line-number" aria-label="第 7778 行">7778</a><span></span></div>
+<div class="raw-line" id="L7779"><a href="#L7779" tabindex="0" class="raw-line-number" aria-label="第 7779 行">7779</a><span>There&#39;s a lot of other good metrics, like caching, increasing the rate of caching, optimizing the rate of input to output ratio,</span></div>
+<div class="raw-line" id="L7780"><a href="#L7780" tabindex="0" class="raw-line-number" aria-label="第 7780 行">7780</a><span>当然，还有很多其他有用的指标，比如提高缓存命中率、优化输入与输出的比例，</span></div>
+<div class="raw-line" id="L7781"><a href="#L7781" tabindex="0" class="raw-line-number" aria-label="第 7781 行">7781</a><span></span></div>
+<div class="raw-line" id="L7782"><a href="#L7782" tabindex="0" class="raw-line-number" aria-label="第 7782 行">7782</a><span>but this is basically the metric that we spend a lot of our energy effort and time into bringing it really down, right?</span></div>
+<div class="raw-line" id="L7783"><a href="#L7783" tabindex="0" class="raw-line-number" aria-label="第 7783 行">7783</a><span>但这个指标才是我们投入大量精力和时间，着力降低的关键，对吧？</span></div>
+<div class="raw-line" id="L7784"><a href="#L7784" tabindex="0" class="raw-line-number" aria-label="第 7784 行">7784</a><span></span></div>
+<div class="raw-line" id="L7785"><a href="#L7785" tabindex="0" class="raw-line-number" aria-label="第 7785 行">7785</a><span>This effective blended cost per million token is basically the cost of input and output of the whole organization,</span></div>
+<div class="raw-line" id="L7786"><a href="#L7786" tabindex="0" class="raw-line-number" aria-label="第 7786 行">7786</a><span>这个每百万 Token 的综合实际成本，基本上涵盖了整个组织的输入和输出成本，</span></div>
+<div class="raw-line" id="L7787"><a href="#L7787" tabindex="0" class="raw-line-number" aria-label="第 7787 行">7787</a><span></span></div>
+<div class="raw-line" id="L7788"><a href="#L7788" tabindex="0" class="raw-line-number" aria-label="第 7788 行">7788</a><span>and after the caching rate, right,</span></div>
+<div class="raw-line" id="L7789"><a href="#L7789" tabindex="0" class="raw-line-number" aria-label="第 7789 行">7789</a><span>并且已经考虑了缓存命中率，对吧？</span></div>
+<div class="raw-line" id="L7790"><a href="#L7790" tabindex="0" class="raw-line-number" aria-label="第 7790 行">7790</a><span></span></div>
+<div class="raw-line" id="L7791"><a href="#L7791" tabindex="0" class="raw-line-number" aria-label="第 7791 行">7791</a><span>for most organizations, as with ourselves, we&#39;ve seen this cost slightly going down,</span></div>
+<div class="raw-line" id="L7792"><a href="#L7792" tabindex="0" class="raw-line-number" aria-label="第 7792 行">7792</a><span>对大多数组织来说，我们自己也是如此，这项成本已经略有下降，</span></div>
+<div class="raw-line" id="L7793"><a href="#L7793" tabindex="0" class="raw-line-number" aria-label="第 7793 行">7793</a><span></span></div>
+<div class="raw-line" id="L7794"><a href="#L7794" tabindex="0" class="raw-line-number" aria-label="第 7794 行">7794</a><span>but from time to time it&#39;s actually going up quite exponentially because user behavior we tend to want to use the best model out there, such as Opus.</span></div>
+<div class="raw-line" id="L7795"><a href="#L7795" tabindex="0" class="raw-line-number" aria-label="第 7795 行">7795</a><span>但这项成本有时也会呈指数级上升，因为用户往往倾向于使用市面上最好的模型，比如 Opus。</span></div>
+<div class="raw-line" id="L7796"><a href="#L7796" tabindex="0" class="raw-line-number" aria-label="第 7796 行">7796</a><span></span></div>
+<div class="raw-line" id="L7797"><a href="#L7797" tabindex="0" class="raw-line-number" aria-label="第 7797 行">7797</a><span>We opt to not use Sonnet or Haiku that much anymore.</span></div>
+<div class="raw-line" id="L7798"><a href="#L7798" tabindex="0" class="raw-line-number" aria-label="第 7798 行">7798</a><span>我们现在尽量少用 Sonnet 和 Haiku 了。</span></div>
+<div class="raw-line" id="L7799"><a href="#L7799" tabindex="0" class="raw-line-number" aria-label="第 7799 行">7799</a><span></span></div>
+<div class="raw-line" id="L7800"><a href="#L7800" tabindex="0" class="raw-line-number" aria-label="第 7800 行">7800</a><span>So that cost is actually going up.</span></div>
+<div class="raw-line" id="L7801"><a href="#L7801" tabindex="0" class="raw-line-number" aria-label="第 7801 行">7801</a><span>所以，这项成本实际上在上升。</span></div>
+<div class="raw-line" id="L7802"><a href="#L7802" tabindex="0" class="raw-line-number" aria-label="第 7802 行">7802</a><span></span></div>
+<div class="raw-line" id="L7803"><a href="#L7803" tabindex="0" class="raw-line-number" aria-label="第 7803 行">7803</a><span>Just to give you guys a better perspective, on all the available methods to pay the bill out there, there is subscription-based,</span></div>
+<div class="raw-line" id="L7804"><a href="#L7804" tabindex="0" class="raw-line-number" aria-label="第 7804 行">7804</a><span>为了让大家更全面地了解目前各种付费方式，首先有订阅制，</span></div>
+<div class="raw-line" id="L7805"><a href="#L7805" tabindex="0" class="raw-line-number" aria-label="第 7805 行">7805</a><span></span></div>
+<div class="raw-line" id="L7806"><a href="#L7806" tabindex="0" class="raw-line-number" aria-label="第 7806 行">7806</a><span>basically paying for Claude Code, Kiro from AWS, or Ollama as an AI inference, and there&#39;s a paper token, which basically most companies use nowadays,</span></div>
+<div class="raw-line" id="L7807"><a href="#L7807" tabindex="0" class="raw-line-number" aria-label="第 7807 行">7807</a><span>比如付费使用 Claude Code、AWS 的 Kiro，或者 Ollama 这类 AI 推理服务；还有按 Token 计费的方式，如今大多数公司基本都采用这种方式，</span></div>
+<div class="raw-line" id="L7808"><a href="#L7808" tabindex="0" class="raw-line-number" aria-label="第 7808 行">7808</a><span></span></div>
+<div class="raw-line" id="L7809"><a href="#L7809" tabindex="0" class="raw-line-number" aria-label="第 7809 行">7809</a><span>And then there&#39;s provisioning.</span></div>
+<div class="raw-line" id="L7810"><a href="#L7810" tabindex="0" class="raw-line-number" aria-label="第 7810 行">7810</a><span>另外还有预置容量的计费方式。</span></div>
+<div class="raw-line" id="L7811"><a href="#L7811" tabindex="0" class="raw-line-number" aria-label="第 7811 行">7811</a><span></span></div>
+<div class="raw-line" id="L7812"><a href="#L7812" tabindex="0" class="raw-line-number" aria-label="第 7812 行">7812</a><span>Provisioning basically you own or rent the GPU from hyperscalers such as AWS.</span></div>
+<div class="raw-line" id="L7813"><a href="#L7813" tabindex="0" class="raw-line-number" aria-label="第 7813 行">7813</a><span>预置容量模式下，你基本上是从 AWS 这类超大规模云服务商那里购买或租用 GPU。</span></div>
+<div class="raw-line" id="L7814"><a href="#L7814" tabindex="0" class="raw-line-number" aria-label="第 7814 行">7814</a><span></span></div>
+<div class="raw-line" id="L7815"><a href="#L7815" tabindex="0" class="raw-line-number" aria-label="第 7815 行">7815</a><span>And during the last year, we have published a research paper called &quot;The Efficiency Point,&quot; and with the efficiency point,</span></div>
+<div class="raw-line" id="L7816"><a href="#L7816" tabindex="0" class="raw-line-number" aria-label="第 7816 行">7816</a><span>去年，我们发表了一篇题为《效率拐点》的研究论文。在这篇论文中，</span></div>
+<div class="raw-line" id="L7817"><a href="#L7817" tabindex="0" class="raw-line-number" aria-label="第 7817 行">7817</a><span></span></div>
+<div class="raw-line" id="L7818"><a href="#L7818" tabindex="0" class="raw-line-number" aria-label="第 7818 行">7818</a><span>this is just to save you guys time from reading a very long research paper, this is the math behind it.</span></div>
+<div class="raw-line" id="L7819"><a href="#L7819" tabindex="0" class="raw-line-number" aria-label="第 7819 行">7819</a><span>为了省去大家阅读长篇研究论文的时间，这里直接给大家看背后的计算公式。</span></div>
+<div class="raw-line" id="L7820"><a href="#L7820" tabindex="0" class="raw-line-number" aria-label="第 7820 行">7820</a><span></span></div>
+<div class="raw-line" id="L7821"><a href="#L7821" tabindex="0" class="raw-line-number" aria-label="第 7821 行">7821</a><span>The numerator is basically the cost for running provisioning a GPU, and the denominator is basically cost for paper token.</span></div>
+<div class="raw-line" id="L7822"><a href="#L7822" tabindex="0" class="raw-line-number" aria-label="第 7822 行">7822</a><span>分子是预置 GPU 算力的成本，分母则是按 Token 计费的成本。</span></div>
+<div class="raw-line" id="L7823"><a href="#L7823" tabindex="0" class="raw-line-number" aria-label="第 7823 行">7823</a><span></span></div>
+<div class="raw-line" id="L7824"><a href="#L7824" tabindex="0" class="raw-line-number" aria-label="第 7824 行">7824</a><span>And to give you guys a perspective and a real example of how we apply this math, this is basically the biggest question nowadays, right?</span></div>
+<div class="raw-line" id="L7825"><a href="#L7825" tabindex="0" class="raw-line-number" aria-label="第 7825 行">7825</a><span>为了让大家更直观地理解我们如何运用这个公式，我来举个真实的例子。这基本上也是当下大家最关心的问题，对吧？</span></div>
+<div class="raw-line" id="L7826"><a href="#L7826" tabindex="0" class="raw-line-number" aria-label="第 7826 行">7826</a><span></span></div>
+<div class="raw-line" id="L7827"><a href="#L7827" tabindex="0" class="raw-line-number" aria-label="第 7827 行">7827</a><span>Should we now host GLM 5.3?</span></div>
+<div class="raw-line" id="L7828"><a href="#L7828" tabindex="0" class="raw-line-number" aria-label="第 7828 行">7828</a><span>我们现在应该自行部署 GLM 5.3 吗？</span></div>
+<div class="raw-line" id="L7829"><a href="#L7829" tabindex="0" class="raw-line-number" aria-label="第 7829 行">7829</a><span></span></div>
+<div class="raw-line" id="L7830"><a href="#L7830" tabindex="0" class="raw-line-number" aria-label="第 7830 行">7830</a><span>We have run a lot of experiments set up, such as running with B200 on AWS, or even H200, but B200 nowadays provides the best cost efficiency, and maximum token output.</span></div>
+<div class="raw-line" id="L7831"><a href="#L7831" tabindex="0" class="raw-line-number" aria-label="第 7831 行">7831</a><span>我们做了大量实验，测试过在 AWS 上用 B200、H200 等 GPU 运行模型。就目前来看，B200 的成本效益最高，Token 输出量也最大。</span></div>
+<div class="raw-line" id="L7832"><a href="#L7832" tabindex="0" class="raw-line-number" aria-label="第 7832 行">7832</a><span></span></div>
+<div class="raw-line" id="L7833"><a href="#L7833" tabindex="0" class="raw-line-number" aria-label="第 7833 行">7833</a><span>And if you guys have a chance to grab your hand on B300, that would be awesome, but it&#39;s quite not there yet, right?</span></div>
+<div class="raw-line" id="L7834"><a href="#L7834" tabindex="0" class="raw-line-number" aria-label="第 7834 行">7834</a><span>如果大家有机会用上 B300，那当然更好，不过目前还不太容易拿到，对吧？</span></div>
+<div class="raw-line" id="L7835"><a href="#L7835" tabindex="0" class="raw-line-number" aria-label="第 7835 行">7835</a><span></span></div>
+<div class="raw-line" id="L7836"><a href="#L7836" tabindex="0" class="raw-line-number" aria-label="第 7836 行">7836</a><span>It&#39;s not available for most people.</span></div>
+<div class="raw-line" id="L7837"><a href="#L7837" tabindex="0" class="raw-line-number" aria-label="第 7837 行">7837</a><span>大多数人还用不上。</span></div>
+<div class="raw-line" id="L7838"><a href="#L7838" tabindex="0" class="raw-line-number" aria-label="第 7838 行">7838</a><span></span></div>
+<div class="raw-line" id="L7839"><a href="#L7839" tabindex="0" class="raw-line-number" aria-label="第 7839 行">7839</a><span>So with B200, the AWS flat price is roughly $140 per hour, and with this setup, we&#39;ll now go into a real example, right?</span></div>
+<div class="raw-line" id="L7840"><a href="#L7840" tabindex="0" class="raw-line-number" aria-label="第 7840 行">7840</a><span>使用 B200 时，AWS 的固定费用大约是每小时 140 美元。接下来，我们就用这个配置来看一个实际案例，好吗？</span></div>
+<div class="raw-line" id="L7841"><a href="#L7841" tabindex="0" class="raw-line-number" aria-label="第 7841 行">7841</a><span></span></div>
+<div class="raw-line" id="L7842"><a href="#L7842" tabindex="0" class="raw-line-number" aria-label="第 7842 行">7842</a><span>If your company runs 67 billion tokens per month,</span></div>
+<div class="raw-line" id="L7843"><a href="#L7843" tabindex="0" class="raw-line-number" aria-label="第 7843 行">7843</a><span>如果你们公司每个月处理 670 亿个 Token，</span></div>
+<div class="raw-line" id="L7844"><a href="#L7844" tabindex="0" class="raw-line-number" aria-label="第 7844 行">7844</a><span></span></div>
+<div class="raw-line" id="L7845"><a href="#L7845" tabindex="0" class="raw-line-number" aria-label="第 7845 行">7845</a><span>should I be switching?</span></div>
+<div class="raw-line" id="L7846"><a href="#L7846" tabindex="0" class="raw-line-number" aria-label="第 7846 行">7846</a><span>我该换吗？</span></div>
+<div class="raw-line" id="L7847"><a href="#L7847" tabindex="0" class="raw-line-number" aria-label="第 7847 行">7847</a><span></span></div>
+<div class="raw-line" id="L7848"><a href="#L7848" tabindex="0" class="raw-line-number" aria-label="第 7848 行">7848</a><span>On the right-hand side, you see the cost for running paper token, basically the effective blended cost is $2.</span></div>
+<div class="raw-line" id="L7849"><a href="#L7849" tabindex="0" class="raw-line-number" aria-label="第 7849 行">7849</a><span>右边显示的是每百万 Token 的运行成本，综合算下来大约是 2 美元。</span></div>
+<div class="raw-line" id="L7850"><a href="#L7850" tabindex="0" class="raw-line-number" aria-label="第 7850 行">7850</a><span></span></div>
+<div class="raw-line" id="L7851"><a href="#L7851" tabindex="0" class="raw-line-number" aria-label="第 7851 行">7851</a><span>To break it down, $2 means GLM 5.3 nowadays charges around $1 per million input, and $5 per million output, right?</span></div>
+<div class="raw-line" id="L7852"><a href="#L7852" tabindex="0" class="raw-line-number" aria-label="第 7852 行">7852</a><span>具体来说，这 2 美元是综合成本：目前 GLM 5.3 的价格大约是每百万输入 Token 1 美元、每百万输出 Token 5 美元，对吧？</span></div>
+<div class="raw-line" id="L7853"><a href="#L7853" tabindex="0" class="raw-line-number" aria-label="第 7853 行">7853</a><span></span></div>
+<div class="raw-line" id="L7854"><a href="#L7854" tabindex="0" class="raw-line-number" aria-label="第 7854 行">7854</a><span>And normally your organization input and output ratio should be around 4 to 1 for general purpose, and for heavy use case like tool calling, MCP,</span></div>
+<div class="raw-line" id="L7855"><a href="#L7855" tabindex="0" class="raw-line-number" aria-label="第 7855 行">7855</a><span>一般来说，通用场景下，你们公司的输入与输出 Token 比例大约是 4 比 1；而对于工具调用、MCP 这类高负载场景，</span></div>
+<div class="raw-line" id="L7856"><a href="#L7856" tabindex="0" class="raw-line-number" aria-label="第 7856 行">7856</a><span></span></div>
+<div class="raw-line" id="L7857"><a href="#L7857" tabindex="0" class="raw-line-number" aria-label="第 7857 行">7857</a><span>RAG agent, the ratio can range from 10 to 1 to 15 to 1.</span></div>
+<div class="raw-line" id="L7858"><a href="#L7858" tabindex="0" class="raw-line-number" aria-label="第 7858 行">7858</a><span>RAG 智能体的输入与输出 Token 比例可能在 10 比 1 到 15 比 1 之间。</span></div>
+<div class="raw-line" id="L7859"><a href="#L7859" tabindex="0" class="raw-line-number" aria-label="第 7859 行">7859</a><span></span></div>
+<div class="raw-line" id="L7860"><a href="#L7860" tabindex="0" class="raw-line-number" aria-label="第 7860 行">7860</a><span>50 to 1.</span></div>
+<div class="raw-line" id="L7861"><a href="#L7861" tabindex="0" class="raw-line-number" aria-label="第 7861 行">7861</a><span>50 比 1。</span></div>
+<div class="raw-line" id="L7862"><a href="#L7862" tabindex="0" class="raw-line-number" aria-label="第 7862 行">7862</a><span></span></div>
+<div class="raw-line" id="L7863"><a href="#L7863" tabindex="0" class="raw-line-number" aria-label="第 7863 行">7863</a><span>So the left-hand side is basically the cost for paper token on an organization level.</span></div>
+<div class="raw-line" id="L7864"><a href="#L7864" tabindex="0" class="raw-line-number" aria-label="第 7864 行">7864</a><span>左边显示的，基本上是企业层面每个 Token 的成本。</span></div>
+<div class="raw-line" id="L7865"><a href="#L7865" tabindex="0" class="raw-line-number" aria-label="第 7865 行">7865</a><span></span></div>
+<div class="raw-line" id="L7866"><a href="#L7866" tabindex="0" class="raw-line-number" aria-label="第 7866 行">7866</a><span>And the right-hand side is the cost for provisioning.</span></div>
+<div class="raw-line" id="L7867"><a href="#L7867" tabindex="0" class="raw-line-number" aria-label="第 7867 行">7867</a><span>右边则是资源配置成本。</span></div>
+<div class="raw-line" id="L7868"><a href="#L7868" tabindex="0" class="raw-line-number" aria-label="第 7868 行">7868</a><span></span></div>
+<div class="raw-line" id="L7869"><a href="#L7869" tabindex="0" class="raw-line-number" aria-label="第 7869 行">7869</a><span>So we will provision 2 nodes of AWS 8B200 GPUs, basically 16 B200 GPUs, and that will cost around $166K per month.</span></div>
+<div class="raw-line" id="L7870"><a href="#L7870" tabindex="0" class="raw-line-number" aria-label="第 7870 行">7870</a><span>所以我们会部署两个 AWS 节点，每个节点配备 8 张 B200 GPU，总共 16 张，每月费用约为 16.6 万美元。</span></div>
+<div class="raw-line" id="L7871"><a href="#L7871" tabindex="0" class="raw-line-number" aria-label="第 7871 行">7871</a><span></span></div>
+<div class="raw-line" id="L7872"><a href="#L7872" tabindex="0" class="raw-line-number" aria-label="第 7872 行">7872</a><span>So with this number, it&#39;s very evident that you should not be switching, right?</span></div>
+<div class="raw-line" id="L7873"><a href="#L7873" tabindex="0" class="raw-line-number" aria-label="第 7873 行">7873</a><span>从这些数字来看，很明显，你们不该切换，对吧？</span></div>
+<div class="raw-line" id="L7874"><a href="#L7874" tabindex="0" class="raw-line-number" aria-label="第 7874 行">7874</a><span></span></div>
+<div class="raw-line" id="L7875"><a href="#L7875" tabindex="0" class="raw-line-number" aria-label="第 7875 行">7875</a><span>Because you are running a 3K deficit for your organization.</span></div>
+<div class="raw-line" id="L7876"><a href="#L7876" tabindex="0" class="raw-line-number" aria-label="第 7876 行">7876</a><span>因为这样一来，你们公司每月会亏损约 3000 美元。</span></div>
+<div class="raw-line" id="L7877"><a href="#L7877" tabindex="0" class="raw-line-number" aria-label="第 7877 行">7877</a><span></span></div>
+<div class="raw-line" id="L7878"><a href="#L7878" tabindex="0" class="raw-line-number" aria-label="第 7878 行">7878</a><span>So now begs the question, when should I be switching?</span></div>
+<div class="raw-line" id="L7879"><a href="#L7879" tabindex="0" class="raw-line-number" aria-label="第 7879 行">7879</a><span>那么问题来了：我应该什么时候切换？</span></div>
+<div class="raw-line" id="L7880"><a href="#L7880" tabindex="0" class="raw-line-number" aria-label="第 7880 行">7880</a><span></span></div>
+<div class="raw-line" id="L7881"><a href="#L7881" tabindex="0" class="raw-line-number" aria-label="第 7881 行">7881</a><span>Basically now you have all the number, the ingredient to calculate.</span></div>
+<div class="raw-line" id="L7882"><a href="#L7882" tabindex="0" class="raw-line-number" aria-label="第 7882 行">7882</a><span>现在，你基本上已经掌握了计算所需的所有数据。</span></div>
+<div class="raw-line" id="L7883"><a href="#L7883" tabindex="0" class="raw-line-number" aria-label="第 7883 行">7883</a><span></span></div>
+<div class="raw-line" id="L7884"><a href="#L7884" tabindex="0" class="raw-line-number" aria-label="第 7884 行">7884</a><span>$166K to provision the model,</span></div>
+<div class="raw-line" id="L7885"><a href="#L7885" tabindex="0" class="raw-line-number" aria-label="第 7885 行">7885</a><span>部署这个模型需要 16.6 万美元，</span></div>
+<div class="raw-line" id="L7886"><a href="#L7886" tabindex="0" class="raw-line-number" aria-label="第 7886 行">7886</a><span></span></div>
+<div class="raw-line" id="L7887"><a href="#L7887" tabindex="0" class="raw-line-number" aria-label="第 7887 行">7887</a><span>$2 effective cost per million token, so you can calculate the token point that you should be switching, which we call it the efficiency point.</span></div>
+<div class="raw-line" id="L7888"><a href="#L7888" tabindex="0" class="raw-line-number" aria-label="第 7888 行">7888</a><span>每百万个 Token 的实际成本是 2 美元，因此你可以算出应该切换的 Token 用量临界点，我们称之为“效率临界点”。</span></div>
+<div class="raw-line" id="L7889"><a href="#L7889" tabindex="0" class="raw-line-number" aria-label="第 7889 行">7889</a><span></span></div>
+<div class="raw-line" id="L7890"><a href="#L7890" tabindex="0" class="raw-line-number" aria-label="第 7890 行">7890</a><span>So the efficiency point is around 83 million.</span></div>
+<div class="raw-line" id="L7891"><a href="#L7891" tabindex="0" class="raw-line-number" aria-label="第 7891 行">7891</a><span>所以，效率临界点大约是 8300 万个 Token。</span></div>
+<div class="raw-line" id="L7892"><a href="#L7892" tabindex="0" class="raw-line-number" aria-label="第 7892 行">7892</a><span></span></div>
+<div class="raw-line" id="L7893"><a href="#L7893" tabindex="0" class="raw-line-number" aria-label="第 7893 行">7893</a><span>What does this mean?</span></div>
+<div class="raw-line" id="L7894"><a href="#L7894" tabindex="0" class="raw-line-number" aria-label="第 7894 行">7894</a><span>这意味着什么？</span></div>
+<div class="raw-line" id="L7895"><a href="#L7895" tabindex="0" class="raw-line-number" aria-label="第 7895 行">7895</a><span></span></div>
+<div class="raw-line" id="L7896"><a href="#L7896" tabindex="0" class="raw-line-number" aria-label="第 7896 行">7896</a><span>So if your organization consumes more than 83 million tokens per month, you should consider switching, and that is the point where you start gaining efficiency.</span></div>
+<div class="raw-line" id="L7897"><a href="#L7897" tabindex="0" class="raw-line-number" aria-label="第 7897 行">7897</a><span>也就是说，如果你们机构每月使用超过 8300 万个 Token，就可以考虑切换；从这个用量开始，切换才会更划算。</span></div>
+<div class="raw-line" id="L7898"><a href="#L7898" tabindex="0" class="raw-line-number" aria-label="第 7898 行">7898</a><span></span></div>
+<div class="raw-line" id="L7899"><a href="#L7899" tabindex="0" class="raw-line-number" aria-label="第 7899 行">7899</a><span>Below this point, you actually run a deficit because your GPU is not at the efficient consumption rate, and you actually pay for the full price of the GPU because you basically are renting it, right?</span></div>
+<div class="raw-line" id="L7900"><a href="#L7900" tabindex="0" class="raw-line-number" aria-label="第 7900 行">7900</a><span>低于这个用量，你实际上会亏钱，因为 GPU 的利用率还没达到经济高效的水平，但你仍要支付它的全部费用——毕竟你相当于是在租用它，对吧？</span></div>
+<div class="raw-line" id="L7901"><a href="#L7901" tabindex="0" class="raw-line-number" aria-label="第 7901 行">7901</a><span></span></div>
+<div class="raw-line" id="L7902"><a href="#L7902" tabindex="0" class="raw-line-number" aria-label="第 7902 行">7902</a><span>One.</span></div>
+<div class="raw-line" id="L7903"><a href="#L7903" tabindex="0" class="raw-line-number" aria-label="第 7903 行">7903</a><span>一。</span></div>
+<div class="raw-line" id="L7904"><a href="#L7904" tabindex="0" class="raw-line-number" aria-label="第 7904 行">7904</a><span></span></div>
+<div class="raw-line" id="L7905"><a href="#L7905" tabindex="0" class="raw-line-number" aria-label="第 7905 行">7905</a><span>Problem that we see in real practice is that provisioning the model is limited by the concurrency unit,</span></div>
+<div class="raw-line" id="L7906"><a href="#L7906" tabindex="0" class="raw-line-number" aria-label="第 7906 行">7906</a><span>我们在实际应用中遇到的问题是，模型部署受到并发能力的限制，</span></div>
+<div class="raw-line" id="L7907"><a href="#L7907" tabindex="0" class="raw-line-number" aria-label="第 7907 行">7907</a><span></span></div>
+<div class="raw-line" id="L7908"><a href="#L7908" tabindex="0" class="raw-line-number" aria-label="第 7908 行">7908</a><span>CCU.</span></div>
+<div class="raw-line" id="L7909"><a href="#L7909" tabindex="0" class="raw-line-number" aria-label="第 7909 行">7909</a><span>并发用户数（CCU）。</span></div>
+<div class="raw-line" id="L7910"><a href="#L7910" tabindex="0" class="raw-line-number" aria-label="第 7910 行">7910</a><span></span></div>
+<div class="raw-line" id="L7911"><a href="#L7911" tabindex="0" class="raw-line-number" aria-label="第 7911 行">7911</a><span>So there&#39;s a lot of CCU setup that we have tried, for now we still strongly believe that GLM 5.3 at 8 at one node with 8 B200 is the best setup.</span></div>
+<div class="raw-line" id="L7912"><a href="#L7912" tabindex="0" class="raw-line-number" aria-label="第 7912 行">7912</a><span>我们尝试过很多种 CCU 配置。目前我们仍然坚信，在一台配备 8 张 B200 的服务器上部署 GLM 5.3，支持 8 个并发用户，是最合适的方案。</span></div>
+<div class="raw-line" id="L7913"><a href="#L7913" tabindex="0" class="raw-line-number" aria-label="第 7913 行">7913</a><span></span></div>
+<div class="raw-line" id="L7914"><a href="#L7914" tabindex="0" class="raw-line-number" aria-label="第 7914 行">7914</a><span>And this is basically the whole presentation in just one slide, with the chart is quite clear.</span></div>
+<div class="raw-line" id="L7915"><a href="#L7915" tabindex="0" class="raw-line-number" aria-label="第 7915 行">7915</a><span>这一页基本概括了整场演示，图表也很清楚。</span></div>
+<div class="raw-line" id="L7916"><a href="#L7916" tabindex="0" class="raw-line-number" aria-label="第 7916 行">7916</a><span></span></div>
+<div class="raw-line" id="L7917"><a href="#L7917" tabindex="0" class="raw-line-number" aria-label="第 7917 行">7917</a><span>Below the efficiency point, you run a very big deficit, and above the efficiency point, you will gain a lot of efficiency in cost quite dramatically.</span></div>
+<div class="raw-line" id="L7918"><a href="#L7918" tabindex="0" class="raw-line-number" aria-label="第 7918 行">7918</a><span>低于这个用量门槛，成本会高出很多；一旦超过，成本效率就会显著提升。</span></div>
+<div class="raw-line" id="L7919"><a href="#L7919" tabindex="0" class="raw-line-number" aria-label="第 7919 行">7919</a><span></span></div>
+<div class="raw-line" id="L7920"><a href="#L7920" tabindex="0" class="raw-line-number" aria-label="第 7920 行">7920</a><span>And during our practice, we found that this is basically the path to gain best efficiency in cost.</span></div>
+<div class="raw-line" id="L7921"><a href="#L7921" tabindex="0" class="raw-line-number" aria-label="第 7921 行">7921</a><span>在实际应用中，我们发现这基本上是实现最佳成本效益的路径。</span></div>
+<div class="raw-line" id="L7922"><a href="#L7922" tabindex="0" class="raw-line-number" aria-label="第 7922 行">7922</a><span></span></div>
+<div class="raw-line" id="L7923"><a href="#L7923" tabindex="0" class="raw-line-number" aria-label="第 7923 行">7923</a><span>It&#39;s quite a no-brainer for you to switch from credit-based to paper token, right?</span></div>
+<div class="raw-line" id="L7924"><a href="#L7924" tabindex="0" class="raw-line-number" aria-label="第 7924 行">7924</a><span>所以，从按额度计费切换到按 Token 计费，对你们来说是个显而易见的选择，对吧？</span></div>
+<div class="raw-line" id="L7925"><a href="#L7925" tabindex="0" class="raw-line-number" aria-label="第 7925 行">7925</a><span></span></div>
+<div class="raw-line" id="L7926"><a href="#L7926" tabindex="0" class="raw-line-number" aria-label="第 7926 行">7926</a><span>Because most of us, we run Claude Code with 200 credit plans, and it&#39;s just not enough, and we run into overage.</span></div>
+<div class="raw-line" id="L7927"><a href="#L7927" tabindex="0" class="raw-line-number" aria-label="第 7927 行">7927</a><span>因为我们大多数人用 Claude Code 的 200 美元套餐，额度根本不够，经常会超额。</span></div>
+<div class="raw-line" id="L7928"><a href="#L7928" tabindex="0" class="raw-line-number" aria-label="第 7928 行">7928</a><span></span></div>
+<div class="raw-line" id="L7929"><a href="#L7929" tabindex="0" class="raw-line-number" aria-label="第 7929 行">7929</a><span>And overage cost is quite high, and just switching to paper token using GLM is much more efficient.</span></div>
+<div class="raw-line" id="L7930"><a href="#L7930" tabindex="0" class="raw-line-number" aria-label="第 7930 行">7930</a><span>超额使用的费用很高，改用 GLM 按 Token 计费，成本效益要高得多。</span></div>
+<div class="raw-line" id="L7931"><a href="#L7931" tabindex="0" class="raw-line-number" aria-label="第 7931 行">7931</a><span></span></div>
+<div class="raw-line" id="L7932"><a href="#L7932" tabindex="0" class="raw-line-number" aria-label="第 7932 行">7932</a><span>And when you should consider for to switch from paper token to provisioning is when you reach the efficiency point.</span></div>
+<div class="raw-line" id="L7933"><a href="#L7933" tabindex="0" class="raw-line-number" aria-label="第 7933 行">7933</a><span>当使用量达到这个成本效益门槛时，就该考虑从按 Token 计费切换到预置容量了。</span></div>
+<div class="raw-line" id="L7934"><a href="#L7934" tabindex="0" class="raw-line-number" aria-label="第 7934 行">7934</a><span></span></div>
+<div class="raw-line" id="L7935"><a href="#L7935" tabindex="0" class="raw-line-number" aria-label="第 7935 行">7935</a><span>And when you start in the provisioning mode, you should really consider when you should be scaling up.</span></div>
+<div class="raw-line" id="L7936"><a href="#L7936" tabindex="0" class="raw-line-number" aria-label="第 7936 行">7936</a><span>进入预置容量模式后，就要认真考虑什么时候该扩容。</span></div>
+<div class="raw-line" id="L7937"><a href="#L7937" tabindex="0" class="raw-line-number" aria-label="第 7937 行">7937</a><span></span></div>
+<div class="raw-line" id="L7938"><a href="#L7938" tabindex="0" class="raw-line-number" aria-label="第 7938 行">7938</a><span>If you reach maximum concurrency,</span></div>
+<div class="raw-line" id="L7939"><a href="#L7939" tabindex="0" class="raw-line-number" aria-label="第 7939 行">7939</a><span>如果达到最大并发数，</span></div>
+<div class="raw-line" id="L7940"><a href="#L7940" tabindex="0" class="raw-line-number" aria-label="第 7940 行">7940</a><span></span></div>
+<div class="raw-line" id="L7941"><a href="#L7941" tabindex="0" class="raw-line-number" aria-label="第 7941 行">7941</a><span>So at the end of the day, how much money are you expecting to save?</span></div>
+<div class="raw-line" id="L7942"><a href="#L7942" tabindex="0" class="raw-line-number" aria-label="第 7942 行">7942</a><span>那么说到底，你们预计能省多少钱？</span></div>
+<div class="raw-line" id="L7943"><a href="#L7943" tabindex="0" class="raw-line-number" aria-label="第 7943 行">7943</a><span></span></div>
+<div class="raw-line" id="L7944"><a href="#L7944" tabindex="0" class="raw-line-number" aria-label="第 7944 行">7944</a><span>We expected and we strongly believe that a 30 to 50 percent cost efficiency is quite achievable, and this is an example math.</span></div>
+<div class="raw-line" id="L7945"><a href="#L7945" tabindex="0" class="raw-line-number" aria-label="第 7945 行">7945</a><span>我们预计，而且坚信，降低 30% 到 50% 的成本是完全可以实现的。这里举个例子算一下。</span></div>
+<div class="raw-line" id="L7946"><a href="#L7946" tabindex="0" class="raw-line-number" aria-label="第 7946 行">7946</a><span></span></div>
+<div class="raw-line" id="L7947"><a href="#L7947" tabindex="0" class="raw-line-number" aria-label="第 7947 行">7947</a><span>If your company runs 300 billion tokens per month,</span></div>
+<div class="raw-line" id="L7948"><a href="#L7948" tabindex="0" class="raw-line-number" aria-label="第 7948 行">7948</a><span>如果贵公司每月使用 3000 亿个 Token，</span></div>
+<div class="raw-line" id="L7949"><a href="#L7949" tabindex="0" class="raw-line-number" aria-label="第 7949 行">7949</a><span></span></div>
+<div class="raw-line" id="L7950"><a href="#L7950" tabindex="0" class="raw-line-number" aria-label="第 7950 行">7950</a><span>if you run paper tokens, you are spending 500K.</span></div>
+<div class="raw-line" id="L7951"><a href="#L7951" tabindex="0" class="raw-line-number" aria-label="第 7951 行">7951</a><span>如果按 Token 计费，你们每月要花 50 万美元。</span></div>
+<div class="raw-line" id="L7952"><a href="#L7952" tabindex="0" class="raw-line-number" aria-label="第 7952 行">7952</a><span></span></div>
+<div class="raw-line" id="L7953"><a href="#L7953" tabindex="0" class="raw-line-number" aria-label="第 7953 行">7953</a><span>If you run provisioning, you should be spending 200K.</span></div>
+<div class="raw-line" id="L7954"><a href="#L7954" tabindex="0" class="raw-line-number" aria-label="第 7954 行">7954</a><span>如果采用预置容量模式，费用应该是 20 万美元。</span></div>
+<div class="raw-line" id="L7955"><a href="#L7955" tabindex="0" class="raw-line-number" aria-label="第 7955 行">7955</a><span></span></div>
+<div class="raw-line" id="L7956"><a href="#L7956" tabindex="0" class="raw-line-number" aria-label="第 7956 行">7956</a><span>So that is 58 percent cost efficiency.</span></div>
+<div class="raw-line" id="L7957"><a href="#L7957" tabindex="0" class="raw-line-number" aria-label="第 7957 行">7957</a><span>这样就能节省 58% 的成本。</span></div>
+<div class="raw-line" id="L7958"><a href="#L7958" tabindex="0" class="raw-line-number" aria-label="第 7958 行">7958</a><span></span></div>
+<div class="raw-line" id="L7959"><a href="#L7959" tabindex="0" class="raw-line-number" aria-label="第 7959 行">7959</a><span>And more on top of that, we have seen that the cost efficiency can be more than just 50 percent due to the enterprise nature.</span></div>
+<div class="raw-line" id="L7960"><a href="#L7960" tabindex="0" class="raw-line-number" aria-label="第 7960 行">7960</a><span>不仅如此，我们还发现，由于企业级业务的特点，成本节省幅度甚至可以超过 50%。</span></div>
+<div class="raw-line" id="L7961"><a href="#L7961" tabindex="0" class="raw-line-number" aria-label="第 7961 行">7961</a><span></span></div>
+<div class="raw-line" id="L7962"><a href="#L7962" tabindex="0" class="raw-line-number" aria-label="第 7962 行">7962</a><span>Because this is influenced a lot due to the saving plans that you guys have, because you guys rent EC2 from hyperscalers such as AWS, GCP,</span></div>
+<div class="raw-line" id="L7963"><a href="#L7963" tabindex="0" class="raw-line-number" aria-label="第 7963 行">7963</a><span>这很大程度上取决于你们现有的节省计划，因为你们是从 AWS、GCP 等大型云服务商那里租用 EC2 实例的，</span></div>
+<div class="raw-line" id="L7964"><a href="#L7964" tabindex="0" class="raw-line-number" aria-label="第 7964 行">7964</a><span></span></div>
+<div class="raw-line" id="L7965"><a href="#L7965" tabindex="0" class="raw-line-number" aria-label="第 7965 行">7965</a><span>or Azure, so it contains multi-year saving plans, and then there&#39;s an enterprise discount that your company has negotiated.</span></div>
+<div class="raw-line" id="L7966"><a href="#L7966" tabindex="0" class="raw-line-number" aria-label="第 7966 行">7966</a><span>或者 Azure。这其中包括多年期的费用节省计划，以及贵公司谈下来的企业折扣。</span></div>
+<div class="raw-line" id="L7967"><a href="#L7967" tabindex="0" class="raw-line-number" aria-label="第 7967 行">7967</a><span></span></div>
+<div class="raw-line" id="L7968"><a href="#L7968" tabindex="0" class="raw-line-number" aria-label="第 7968 行">7968</a><span>So that can influence the price quite a lot.</span></div>
+<div class="raw-line" id="L7969"><a href="#L7969" tabindex="0" class="raw-line-number" aria-label="第 7969 行">7969</a><span>所以，这些因素会对价格产生很大影响。</span></div>
+<div class="raw-line" id="L7970"><a href="#L7970" tabindex="0" class="raw-line-number" aria-label="第 7970 行">7970</a><span></span></div>
+<div class="raw-line" id="L7971"><a href="#L7971" tabindex="0" class="raw-line-number" aria-label="第 7971 行">7971</a><span>But on the left-hand right-hand side, the operational staff cost, the cost to maintain auto scaling is also worth considering.</span></div>
+<div class="raw-line" id="L7972"><a href="#L7972" tabindex="0" class="raw-line-number" aria-label="第 7972 行">7972</a><span>但另一方面，运维人员的成本，以及维护自动扩缩容的成本，也值得考虑。</span></div>
+<div class="raw-line" id="L7973"><a href="#L7973" tabindex="0" class="raw-line-number" aria-label="第 7973 行">7973</a><span></span></div>
+<div class="raw-line" id="L7974"><a href="#L7974" tabindex="0" class="raw-line-number" aria-label="第 7974 行">7974</a><span>So three problem statements before you guys can consider switching between this model, paper token to provisioning.</span></div>
+<div class="raw-line" id="L7975"><a href="#L7975" tabindex="0" class="raw-line-number" aria-label="第 7975 行">7975</a><span>所以，在考虑从按 Token 计费模式切换到预置容量模式之前，你们需要先解决三个问题。</span></div>
+<div class="raw-line" id="L7976"><a href="#L7976" tabindex="0" class="raw-line-number" aria-label="第 7976 行">7976</a><span></span></div>
+<div class="raw-line" id="L7977"><a href="#L7977" tabindex="0" class="raw-line-number" aria-label="第 7977 行">7977</a><span>GPU is actually quite scarce, right?</span></div>
+<div class="raw-line" id="L7978"><a href="#L7978" tabindex="0" class="raw-line-number" aria-label="第 7978 行">7978</a><span>GPU 资源其实相当紧缺，对吧？</span></div>
+<div class="raw-line" id="L7979"><a href="#L7979" tabindex="0" class="raw-line-number" aria-label="第 7979 行">7979</a><span></span></div>
+<div class="raw-line" id="L7980"><a href="#L7980" tabindex="0" class="raw-line-number" aria-label="第 7980 行">7980</a><span>You for some company is quite hard for you to get your hand on GPUs.</span></div>
+<div class="raw-line" id="L7981"><a href="#L7981" tabindex="0" class="raw-line-number" aria-label="第 7981 行">7981</a><span>对一些公司来说，想要拿到 GPU 资源相当困难。</span></div>
+<div class="raw-line" id="L7982"><a href="#L7982" tabindex="0" class="raw-line-number" aria-label="第 7982 行">7982</a><span></span></div>
+<div class="raw-line" id="L7983"><a href="#L7983" tabindex="0" class="raw-line-number" aria-label="第 7983 行">7983</a><span>So it you need to plan ahead and deal with the hyperscaler to get the GPUs.</span></div>
+<div class="raw-line" id="L7984"><a href="#L7984" tabindex="0" class="raw-line-number" aria-label="第 7984 行">7984</a><span>所以你们需要提前规划，并与大型云服务商协调，确保拿到所需的 GPU 资源。</span></div>
+<div class="raw-line" id="L7985"><a href="#L7985" tabindex="0" class="raw-line-number" aria-label="第 7985 行">7985</a><span></span></div>
+<div class="raw-line" id="L7986"><a href="#L7986" tabindex="0" class="raw-line-number" aria-label="第 7986 行">7986</a><span>So basically that is the biggest blocker now.</span></div>
+<div class="raw-line" id="L7987"><a href="#L7987" tabindex="0" class="raw-line-number" aria-label="第 7987 行">7987</a><span>所以，这基本上是目前最大的障碍。</span></div>
+<div class="raw-line" id="L7988"><a href="#L7988" tabindex="0" class="raw-line-number" aria-label="第 7988 行">7988</a><span></span></div>
+<div class="raw-line" id="L7989"><a href="#L7989" tabindex="0" class="raw-line-number" aria-label="第 7989 行">7989</a><span>Secondly, because if we set up auto scaling for us, we have seen that cases we need to grow from 12 GPUs to 15 GPUs due to peak time traffic.</span></div>
+<div class="raw-line" id="L7990"><a href="#L7990" tabindex="0" class="raw-line-number" aria-label="第 7990 行">7990</a><span>第二，我们发现，如果启用自动扩缩容，高峰时段的流量可能会让 GPU 需求从 12 块增加到 15 块。</span></div>
+<div class="raw-line" id="L7991"><a href="#L7991" tabindex="0" class="raw-line-number" aria-label="第 7991 行">7991</a><span></span></div>
+<div class="raw-line" id="L7992"><a href="#L7992" tabindex="0" class="raw-line-number" aria-label="第 7992 行">7992</a><span>So we best to keep the paper token as a fallback rather than removing it completely.</span></div>
+<div class="raw-line" id="L7993"><a href="#L7993" tabindex="0" class="raw-line-number" aria-label="第 7993 行">7993</a><span>所以，最好保留按 Token 计费的模式作为备用方案，而不是完全取消它。</span></div>
+<div class="raw-line" id="L7994"><a href="#L7994" tabindex="0" class="raw-line-number" aria-label="第 7994 行">7994</a><span></span></div>
+<div class="raw-line" id="L7995"><a href="#L7995" tabindex="0" class="raw-line-number" aria-label="第 7995 行">7995</a><span>So usually in our setup,</span></div>
+<div class="raw-line" id="L7996"><a href="#L7996" tabindex="0" class="raw-line-number" aria-label="第 7996 行">7996</a><span>所以，通常在我们的配置中，</span></div>
+<div class="raw-line" id="L7997"><a href="#L7997" tabindex="0" class="raw-line-number" aria-label="第 7997 行">7997</a><span></span></div>
+<div class="raw-line" id="L7998"><a href="#L7998" tabindex="0" class="raw-line-number" aria-label="第 7998 行">7998</a><span>Databricks provide Unity AI Gateway, so it is quite achieved like as a platform, right?</span></div>
+<div class="raw-line" id="L7999"><a href="#L7999" tabindex="0" class="raw-line-number" aria-label="第 7999 行">7999</a><span>Databricks 提供了 Unity AI Gateway，所以它作为一个平台已经相当成熟了，对吧？</span></div>
+<div class="raw-line" id="L8000"><a href="#L8000" tabindex="0" class="raw-line-number" aria-label="第 8000 行">8000</a><span></span></div></div><nav class="materials-links raw-pagination" aria-label="原文分段">
+          <a href="../part-15/" tabindex="0" rel="prev">上一段</a>
+          <span aria-current="page">第 16 / 26 段 · L7501–L8000</span>
+          <a href="../part-17/" tabindex="0" rel="next">下一段</a>
+          <a href="../all/" tabindex="0">查看全文</a>
+        </nav></div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>页面信息来自各活动公开资料，可能随时变更；出发前请以主办方官方公告为准。</p>
+  </div>
+</footer>
+<script src="../../../../assets/site.4c7b854f.js" defer></script>
+</body>
+</html>

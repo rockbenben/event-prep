@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2026-11-06 原始记录 · AI Engineer Shanghai 2026 · EventPrep</title>
+<meta name="description" content="AI Engineer Shanghai 2026 的2026-11-06 原始记录">
+<meta name="color-scheme" content="light dark">
+<!-- 地址栏/标签栏颜色跟着深浅色走，值就是 site.css 里的 --bg。
+     以前这里写死一个 #1f6feb —— 那个色号在 CSS 里根本不存在（--accent 是 #2563eb），
+     深色模式下也是蓝色地址栏配深色页面。两段 meta 各自带 media，浏览器自己选。 -->
+<meta name="theme-color" content="#f8fafc" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0b0f17" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://event.newzone.top/2026-11-ai-engineer-shanghai/raw/20261106/part-15/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="2026-11-06 原始记录 · AI Engineer Shanghai 2026 · EventPrep">
+<meta property="og:description" content="AI Engineer Shanghai 2026 的2026-11-06 原始记录">
+<meta property="og:url" content="https://event.newzone.top/2026-11-ai-engineer-shanghai/raw/20261106/part-15/">
+
+<script>(function(){try{var t=localStorage.getItem('eventprep:theme');if(t==='light'||t==='dark'){document.documentElement.setAttribute('data-theme',t);}}catch(e){}})();</script>
+<link rel="icon" type="image/svg+xml" href="../../../../assets/favicon.svg">
+<link rel="stylesheet" href="../../../../assets/site.9afe22e1.css">
+
+</head>
+<body>
+<!-- 打印版工具条：平时 display:none，进入打印模式（<html class="print-mode">）才出现。
+     打印到纸上时这条工具条自身要藏掉（见 site.css 的 @media print）——它是屏幕上的控件。 -->
+<div class="print-bar" id="print-bar" role="toolbar" aria-label="打印版工具条">
+  <span class="print-bar-title">EventPrep · 打印版 · 全部内容已展开</span>
+  <div class="print-bar-actions">
+    <button type="button" id="print-do" class="ghost-btn">打印 / 存 PDF</button>
+    <button type="button" id="print-exit" class="ghost-btn">退出打印版</button>
+  </div>
+</div>
+<a class="skip-link" href="#main" tabindex="0">跳到正文</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="site-name" href="../../../../index.html" tabindex="0">
+      <svg class="site-logo" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+        <rect x="3" y="3.5" width="18" height="18" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.8"/>
+        <rect x="9.5" y="5.5" width="5" height="1.8" rx="0.9" fill="currentColor" fill-opacity="0.4"/>
+        <path d="M6.5 11h5M6.5 14.5h3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        <circle cx="16" cy="15" r="4.2" fill="#16a34a"/>
+        <path d="M14.2 15l1.3 1.3 2.5-2.5" stroke="#ffffff" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span>EventPrep</span>
+    </a>
+    <div class="header-actions">
+      
+      
+      <a class="ghost-btn" href="https://github.com/rockbenben/event-prep" target="_blank" rel="noopener noreferrer" aria-label="GitHub 仓库" title="GitHub 仓库">
+        <svg class="theme-icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+          <path d="M12 .8a11.2 11.2 0 0 0-3.54 21.83c.56.1.77-.24.77-.54v-2.1c-3.12.68-3.78-1.33-3.78-1.33-.51-1.3-1.25-1.65-1.25-1.65-1.02-.7.08-.68.08-.68 1.13.08 1.72 1.16 1.72 1.16 1 1.72 2.63 1.22 3.27.95.1-.74.39-1.22.71-1.5-2.5-.28-5.12-1.25-5.12-5.56 0-1.23.44-2.23 1.16-3.02-.12-.28-.5-1.43.11-2.98 0 0 .95-.3 3.1 1.15a10.8 10.8 0 0 1 5.64 0c2.15-1.45 3.1-1.15 3.1-1.15.61 1.55.23 2.7.11 2.98.72.79 1.16 1.79 1.16 3.02 0 4.32-2.63 5.27-5.14 5.55.4.35.76 1.03.76 2.08v3.08c0 .3.2.65.78.54A11.2 11.2 0 0 0 12 .8Z"></path>
+        </svg>
+      </a>
+      <button type="button" id="theme-toggle" class="ghost-btn" aria-label="切换深浅色" title="切换深浅色">
+        <svg class="theme-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true" focusable="false">
+          <circle cx="12" cy="12" r="8.5" />
+          <path d="M12 3.5a8.5 8.5 0 0 0 0 17z" fill="currentColor" stroke="none" />
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+<dialog class="avatar-viewer" id="avatar-viewer" aria-label="放大照片">
+  <img id="avatar-viewer-img" src="" alt="">
+</dialog>
+<main id="main">
+<div class="wrap event material-page"><nav class="material-crumbs" aria-label="面包屑"><ol>
+      <li><a href="../../../../" tabindex="0">全部活动</a></li><li><a href="../../../" tabindex="0">AI Engineer Shanghai 2026</a></li>
+      <li><a href="../../" tabindex="0">原始记录</a></li>
+      <li><a href="./" tabindex="0" aria-current="page">2026-11-06 原始记录</a></li></ol></nav><header class="event-head"><h1 class="event-title">2026-11-06 原始记录</h1>
+        <p class="event-summary">AI Engineer Shanghai 2026</p></header><p class="notice">自动转写可能有误。以下内容保留双语原文，行号以原文件为准；下载文件保留原始字节。当前仅加载本段；搜索全部记录或打印全文请先选择「查看全文」。</p>
+          <nav class="materials-links" aria-label="资料操作"><a href="../../" tabindex="0">全部日期</a><a href="../../../summary/" tabindex="0">会后总结</a><a href="../../../20261106-raw.md" tabindex="0" download>下载原始 Markdown</a></nav>
+          <nav class="materials-links raw-pagination" aria-label="原文分段">
+          <a href="../part-14/" tabindex="0" rel="prev">上一段</a>
+          <span aria-current="page">第 15 / 19 段 · L7001–L7500</span>
+          <a href="../part-16/" tabindex="0" rel="next">下一段</a>
+          <a href="../all/" tabindex="0">查看全文</a>
+        </nav><details class="raw-sections"><summary>选择行号范围</summary><nav class="materials-links" aria-label="选择原文段落"><a href="../" tabindex="0">L1–L500</a><a href="../part-2/" tabindex="0">L501–L1000</a><a href="../part-3/" tabindex="0">L1001–L1500</a><a href="../part-4/" tabindex="0">L1501–L2000</a><a href="../part-5/" tabindex="0">L2001–L2500</a><a href="../part-6/" tabindex="0">L2501–L3000</a><a href="../part-7/" tabindex="0">L3001–L3500</a><a href="../part-8/" tabindex="0">L3501–L4000</a><a href="../part-9/" tabindex="0">L4001–L4500</a><a href="../part-10/" tabindex="0">L4501–L5000</a><a href="../part-11/" tabindex="0">L5001–L5500</a><a href="../part-12/" tabindex="0">L5501–L6000</a><a href="../part-13/" tabindex="0">L6001–L6500</a><a href="../part-14/" tabindex="0">L6501–L7000</a><a href="../part-15/" tabindex="0" aria-current="page">L7001–L7500</a><a href="../part-16/" tabindex="0">L7501–L8000</a><a href="../part-17/" tabindex="0">L8001–L8500</a><a href="../part-18/" tabindex="0">L8501–L9000</a><a href="../part-19/" tabindex="0">L9001–L9432</a></nav></details><details class="raw-sections"><summary>相关总结 · 1 节</summary><nav class="materials-links" aria-label="相关总结"><a href="../../../summary/#session-48" tabindex="0">48. 钟声 · DYNA 硬件研发负责人｜为快速演进的模型设计机器人硬件</a></nav></details>
+          <div class="raw-transcript" data-raw-total="9432"><div class="raw-line" id="L7001"><a href="#L7001" tabindex="0" class="raw-line-number" aria-label="第 7001 行">7001</a><span>好，谢谢，谢谢吕俊的分享啊。</span></div>
+<div class="raw-line" id="L7002"><a href="#L7002" tabindex="0" class="raw-line-number" aria-label="第 7002 行">7002</a><span></span></div>
+<div class="raw-line" id="L7003"><a href="#L7003" tabindex="0" class="raw-line-number" aria-label="第 7003 行">7003</a><span>呃，吕俊介绍了很多怎么样让模型快速迭代的，呃，新方式，那下面我们就邀请，</span></div>
+<div class="raw-line" id="L7004"><a href="#L7004" tabindex="0" class="raw-line-number" aria-label="第 7004 行">7004</a><span></span></div>
+<div class="raw-line" id="L7005"><a href="#L7005" tabindex="0" class="raw-line-number" aria-label="第 7005 行">7005</a><span>呃，硬件负责人钟声来给我们介绍，呃，DYNA 的硬件负责人钟声来给我们介绍怎么样让硬件机器人能够接住这些模型的迭代。</span></div>
+<div class="raw-line" id="L7006"><a href="#L7006" tabindex="0" class="raw-line-number" aria-label="第 7006 行">7006</a><span></span></div>
+<div class="raw-line" id="L7007"><a href="#L7007" tabindex="0" class="raw-line-number" aria-label="第 7007 行">7007</a><span></span></div>
+<div class="raw-line" id="L7008"><a href="#L7008" tabindex="0" class="raw-line-number" aria-label="第 7008 行">7008</a><span>对，呃， Okay, thank you.</span></div>
+<div class="raw-line" id="L7009"><a href="#L7009" tabindex="0" class="raw-line-number" aria-label="第 7009 行">7009</a><span>对，呃，好的，谢谢。</span></div>
+<div class="raw-line" id="L7010"><a href="#L7010" tabindex="0" class="raw-line-number" aria-label="第 7010 行">7010</a><span></span></div>
+<div class="raw-line" id="L7011"><a href="#L7011" tabindex="0" class="raw-line-number" aria-label="第 7011 行">7011</a><span>呃， So, uh,</span></div>
+<div class="raw-line" id="L7012"><a href="#L7012" tabindex="0" class="raw-line-number" aria-label="第 7012 行">7012</a><span>呃，所以……</span></div>
+<div class="raw-line" id="L7013"><a href="#L7013" tabindex="0" class="raw-line-number" aria-label="第 7013 行">7013</a><span></span></div>
+<div class="raw-line" id="L7014"><a href="#L7014" tabindex="0" class="raw-line-number" aria-label="第 7014 行">7014</a><span>my name is Zhong Sheng, I&#39;m from Dyna Robotics.</span></div>
+<div class="raw-line" id="L7015"><a href="#L7015" tabindex="0" class="raw-line-number" aria-label="第 7015 行">7015</a><span>我叫钟声，来自 Dyna Robotics。</span></div>
+<div class="raw-line" id="L7016"><a href="#L7016" tabindex="0" class="raw-line-number" aria-label="第 7016 行">7016</a><span></span></div>
+<div class="raw-line" id="L7017"><a href="#L7017" tabindex="0" class="raw-line-number" aria-label="第 7017 行">7017</a><span>Uh, it&#39;s great, great pleasure to be here and present and share some ideas we, uh, we, we have internally about hardware development.</span></div>
+<div class="raw-line" id="L7018"><a href="#L7018" tabindex="0" class="raw-line-number" aria-label="第 7018 行">7018</a><span>呃，很高兴来到这里，和大家分享我们内部关于硬件开发的一些想法。</span></div>
+<div class="raw-line" id="L7019"><a href="#L7019" tabindex="0" class="raw-line-number" aria-label="第 7019 行">7019</a><span></span></div>
+<div class="raw-line" id="L7020"><a href="#L7020" tabindex="0" class="raw-line-number" aria-label="第 7020 行">7020</a><span>So today my, uh,</span></div>
+<div class="raw-line" id="L7021"><a href="#L7021" tabindex="0" class="raw-line-number" aria-label="第 7021 行">7021</a><span>那么今天，我……</span></div>
+<div class="raw-line" id="L7022"><a href="#L7022" tabindex="0" class="raw-line-number" aria-label="第 7022 行">7022</a><span></span></div>
+<div class="raw-line" id="L7023"><a href="#L7023" tabindex="0" class="raw-line-number" aria-label="第 7023 行">7023</a><span>my topic will be building robot hardware for rapid evolving models.</span></div>
+<div class="raw-line" id="L7024"><a href="#L7024" tabindex="0" class="raw-line-number" aria-label="第 7024 行">7024</a><span>我今天的主题是：如何为快速迭代的模型打造机器人硬件。</span></div>
+<div class="raw-line" id="L7025"><a href="#L7025" tabindex="0" class="raw-line-number" aria-label="第 7025 行">7025</a><span></span></div>
+<div class="raw-line" id="L7026"><a href="#L7026" tabindex="0" class="raw-line-number" aria-label="第 7026 行">7026</a><span></span></div>
+<div class="raw-line" id="L7027"><a href="#L7027" tabindex="0" class="raw-line-number" aria-label="第 7027 行">7027</a><span>yeah, so I think in general,</span></div>
+<div class="raw-line" id="L7028"><a href="#L7028" tabindex="0" class="raw-line-number" aria-label="第 7028 行">7028</a><span>对，我认为总体来说，</span></div>
+<div class="raw-line" id="L7029"><a href="#L7029" tabindex="0" class="raw-line-number" aria-label="第 7029 行">7029</a><span></span></div>
+<div class="raw-line" id="L7030"><a href="#L7030" tabindex="0" class="raw-line-number" aria-label="第 7030 行">7030</a><span>uh, uh, we, we, I want to start with some, some, some, uh, challenges we face for hardware devel, uh, development these days.</span></div>
+<div class="raw-line" id="L7031"><a href="#L7031" tabindex="0" class="raw-line-number" aria-label="第 7031 行">7031</a><span>呃，我想先谈谈如今我们在硬件开发中面临的一些挑战。</span></div>
+<div class="raw-line" id="L7032"><a href="#L7032" tabindex="0" class="raw-line-number" aria-label="第 7032 行">7032</a><span></span></div>
+<div class="raw-line" id="L7033"><a href="#L7033" tabindex="0" class="raw-line-number" aria-label="第 7033 行">7033</a><span>Uh, and I think one is the, uh, uh, different hardware priorities.</span></div>
+<div class="raw-line" id="L7034"><a href="#L7034" tabindex="0" class="raw-line-number" aria-label="第 7034 行">7034</a><span>我认为其中一个挑战是硬件开发的侧重点各不相同。</span></div>
+<div class="raw-line" id="L7035"><a href="#L7035" tabindex="0" class="raw-line-number" aria-label="第 7035 行">7035</a><span></span></div>
+<div class="raw-line" id="L7036"><a href="#L7036" tabindex="0" class="raw-line-number" aria-label="第 7036 行">7036</a><span>So I think robots are also considered as products, and products have, are beautiful purposes.</span></div>
+<div class="raw-line" id="L7037"><a href="#L7037" tabindex="0" class="raw-line-number" aria-label="第 7037 行">7037</a><span>我认为机器人也是一种产品，而产品都应兼具美观与实用性。</span></div>
+<div class="raw-line" id="L7038"><a href="#L7038" tabindex="0" class="raw-line-number" aria-label="第 7038 行">7038</a><span></span></div>
+<div class="raw-line" id="L7039"><a href="#L7039" tabindex="0" class="raw-line-number" aria-label="第 7039 行">7039</a><span>So I think traditionally there are two familiar purposes.</span></div>
+<div class="raw-line" id="L7040"><a href="#L7040" tabindex="0" class="raw-line-number" aria-label="第 7040 行">7040</a><span>所以我认为，传统上有两个我们比较熟悉的目标。</span></div>
+<div class="raw-line" id="L7041"><a href="#L7041" tabindex="0" class="raw-line-number" aria-label="第 7041 行">7041</a><span></span></div>
+<div class="raw-line" id="L7042"><a href="#L7042" tabindex="0" class="raw-line-number" aria-label="第 7042 行">7042</a><span>One is industrial robots.</span></div>
+<div class="raw-line" id="L7043"><a href="#L7043" tabindex="0" class="raw-line-number" aria-label="第 7043 行">7043</a><span>一个是工业机器人。</span></div>
+<div class="raw-line" id="L7044"><a href="#L7044" tabindex="0" class="raw-line-number" aria-label="第 7044 行">7044</a><span></span></div>
+<div class="raw-line" id="L7045"><a href="#L7045" tabindex="0" class="raw-line-number" aria-label="第 7045 行">7045</a><span>Um, so I think they are built, uh, for precision, for repeatability, for durability, uh, and for also for well-defined tasks such as, uh, you know, for, um, uh, production lines.</span></div>
+<div class="raw-line" id="L7046"><a href="#L7046" tabindex="0" class="raw-line-number" aria-label="第 7046 行">7046</a><span>工业机器人的设计目标是精确、可重复、耐用，并胜任生产线等场景中明确规定的任务。</span></div>
+<div class="raw-line" id="L7047"><a href="#L7047" tabindex="0" class="raw-line-number" aria-label="第 7047 行">7047</a><span></span></div>
+<div class="raw-line" id="L7048"><a href="#L7048" tabindex="0" class="raw-line-number" aria-label="第 7048 行">7048</a><span>Um, so, uh, there are mechanical design, well, uh,</span></div>
+<div class="raw-line" id="L7049"><a href="#L7049" tabindex="0" class="raw-line-number" aria-label="第 7049 行">7049</a><span>嗯，所以在机械设计方面，呃……</span></div>
+<div class="raw-line" id="L7050"><a href="#L7050" tabindex="0" class="raw-line-number" aria-label="第 7050 行">7050</a><span></span></div>
+<div class="raw-line" id="L7051"><a href="#L7051" tabindex="0" class="raw-line-number" aria-label="第 7051 行">7051</a><span>highly biased on the, uh, I think the, the, the stiffness and also, and, and that will result in, uh, I think for, for example, a very, uh, kind of, uh,</span></div>
+<div class="raw-line" id="L7052"><a href="#L7052" tabindex="0" class="raw-line-number" aria-label="第 7052 行">7052</a><span>会非常侧重刚性，而这会导致，比如说，形成一种非常……</span></div>
+<div class="raw-line" id="L7053"><a href="#L7053" tabindex="0" class="raw-line-number" aria-label="第 7053 行">7053</a><span></span></div>
+<div class="raw-line" id="L7054"><a href="#L7054" tabindex="0" class="raw-line-number" aria-label="第 7054 行">7054</a><span>lower, uh, payload to arm mass.</span></div>
+<div class="raw-line" id="L7055"><a href="#L7055" tabindex="0" class="raw-line-number" aria-label="第 7055 行">7055</a><span>较低的负载与机械臂自重之比。</span></div>
+<div class="raw-line" id="L7056"><a href="#L7056" tabindex="0" class="raw-line-number" aria-label="第 7056 行">7056</a><span></span></div>
+<div class="raw-line" id="L7057"><a href="#L7057" tabindex="0" class="raw-line-number" aria-label="第 7057 行">7057</a><span>So if you consider, say,</span></div>
+<div class="raw-line" id="L7058"><a href="#L7058" tabindex="0" class="raw-line-number" aria-label="第 7058 行">7058</a><span>所以，如果我们考虑一下，比如说……</span></div>
+<div class="raw-line" id="L7059"><a href="#L7059" tabindex="0" class="raw-line-number" aria-label="第 7059 行">7059</a><span></span></div>
+<div class="raw-line" id="L7060"><a href="#L7060" tabindex="0" class="raw-line-number" aria-label="第 7060 行">7060</a><span>a, a very, uh, like,</span></div>
+<div class="raw-line" id="L7061"><a href="#L7061" tabindex="0" class="raw-line-number" aria-label="第 7061 行">7061</a><span>一个非常……怎么说呢……</span></div>
+<div class="raw-line" id="L7062"><a href="#L7062" tabindex="0" class="raw-line-number" aria-label="第 7062 行">7062</a><span></span></div>
+<div class="raw-line" id="L7063"><a href="#L7063" tabindex="0" class="raw-line-number" aria-label="第 7063 行">7063</a><span>uh, uh, the KUKA arm that is, uh, widely used in,</span></div>
+<div class="raw-line" id="L7064"><a href="#L7064" tabindex="0" class="raw-line-number" aria-label="第 7064 行">7064</a><span>比如在……广泛使用的库卡机械臂。</span></div>
+<div class="raw-line" id="L7065"><a href="#L7065" tabindex="0" class="raw-line-number" aria-label="第 7065 行">7065</a><span></span></div>
+<div class="raw-line" id="L7066"><a href="#L7066" tabindex="0" class="raw-line-number" aria-label="第 7066 行">7066</a><span>in, in the, uh, research, in, in, uh, community, the payload ratio, uh, payload to arm mass ratio is normally in the range of, uh,</span></div>
+<div class="raw-line" id="L7067"><a href="#L7067" tabindex="0" class="raw-line-number" aria-label="第 7067 行">7067</a><span>在研究领域广泛使用的库卡机械臂，其负载与机械臂自重之比通常在……范围内。</span></div>
+<div class="raw-line" id="L7068"><a href="#L7068" tabindex="0" class="raw-line-number" aria-label="第 7068 行">7068</a><span></span></div>
+<div class="raw-line" id="L7069"><a href="#L7069" tabindex="0" class="raw-line-number" aria-label="第 7069 行">7069</a><span>say, 0.3 to 0.5, which is, uh, relatively, not very high compared to the, uh,</span></div>
+<div class="raw-line" id="L7070"><a href="#L7070" tabindex="0" class="raw-line-number" aria-label="第 7070 行">7070</a><span>比如说，0.3到0.5。与……相比，这个比值相对来说不算高。</span></div>
+<div class="raw-line" id="L7071"><a href="#L7071" tabindex="0" class="raw-line-number" aria-label="第 7071 行">7071</a><span></span></div>
+<div class="raw-line" id="L7072"><a href="#L7072" tabindex="0" class="raw-line-number" aria-label="第 7072 行">7072</a><span>uh, humanoid, uh, arms we use these days.</span></div>
+<div class="raw-line" id="L7073"><a href="#L7073" tabindex="0" class="raw-line-number" aria-label="第 7073 行">7073</a><span>如今我们使用的人形机器人手臂。</span></div>
+<div class="raw-line" id="L7074"><a href="#L7074" tabindex="0" class="raw-line-number" aria-label="第 7074 行">7074</a><span></span></div>
+<div class="raw-line" id="L7075"><a href="#L7075" tabindex="0" class="raw-line-number" aria-label="第 7075 行">7075</a><span>So I think the other thing, the other purpose for, uh,</span></div>
+<div class="raw-line" id="L7076"><a href="#L7076" tabindex="0" class="raw-line-number" aria-label="第 7076 行">7076</a><span>所以我认为，另一个方面，也就是另一个目的，是……</span></div>
+<div class="raw-line" id="L7077"><a href="#L7077" tabindex="0" class="raw-line-number" aria-label="第 7077 行">7077</a><span></span></div>
+<div class="raw-line" id="L7078"><a href="#L7078" tabindex="0" class="raw-line-number" aria-label="第 7078 行">7078</a><span>robots is robot hardware is for, uh, research platforms.</span></div>
+<div class="raw-line" id="L7079"><a href="#L7079" tabindex="0" class="raw-line-number" aria-label="第 7079 行">7079</a><span>这些机器人硬件是供研究使用的平台。</span></div>
+<div class="raw-line" id="L7080"><a href="#L7080" tabindex="0" class="raw-line-number" aria-label="第 7080 行">7080</a><span></span></div>
+<div class="raw-line" id="L7081"><a href="#L7081" tabindex="0" class="raw-line-number" aria-label="第 7081 行">7081</a><span>Um, and I think the, that, uh,</span></div>
+<div class="raw-line" id="L7082"><a href="#L7082" tabindex="0" class="raw-line-number" aria-label="第 7082 行">7082</a><span>嗯，我觉得这……</span></div>
+<div class="raw-line" id="L7083"><a href="#L7083" tabindex="0" class="raw-line-number" aria-label="第 7083 行">7083</a><span></span></div>
+<div class="raw-line" id="L7084"><a href="#L7084" tabindex="0" class="raw-line-number" aria-label="第 7084 行">7084</a><span>for research platform, the purpose is mainly for, uh, breakthroughs,</span></div>
+<div class="raw-line" id="L7085"><a href="#L7085" tabindex="0" class="raw-line-number" aria-label="第 7085 行">7085</a><span>作为研究平台，主要目的是推动技术突破。</span></div>
+<div class="raw-line" id="L7086"><a href="#L7086" tabindex="0" class="raw-line-number" aria-label="第 7086 行">7086</a><span></span></div>
+<div class="raw-line" id="L7087"><a href="#L7087" tabindex="0" class="raw-line-number" aria-label="第 7087 行">7087</a><span>like to, to enable capabilities that was not, uh, was very, very,</span></div>
+<div class="raw-line" id="L7088"><a href="#L7088" tabindex="0" class="raw-line-number" aria-label="第 7088 行">7088</a><span>就是为了实现一些过去非常、非常……的能力。</span></div>
+<div class="raw-line" id="L7089"><a href="#L7089" tabindex="0" class="raw-line-number" aria-label="第 7089 行">7089</a><span></span></div>
+<div class="raw-line" id="L7090"><a href="#L7090" tabindex="0" class="raw-line-number" aria-label="第 7090 行">7090</a><span>very difficult or was actually impossible before.</span></div>
+<div class="raw-line" id="L7091"><a href="#L7091" tabindex="0" class="raw-line-number" aria-label="第 7091 行">7091</a><span>突破过去非常困难、甚至根本不可能实现的技术难题。</span></div>
+<div class="raw-line" id="L7092"><a href="#L7092" tabindex="0" class="raw-line-number" aria-label="第 7092 行">7092</a><span></span></div>
+<div class="raw-line" id="L7093"><a href="#L7093" tabindex="0" class="raw-line-number" aria-label="第 7093 行">7093</a><span>Um, I think one example would be the, uh, you know, this, this humanoid robots built by, uh, NASA back in 2016.</span></div>
+<div class="raw-line" id="L7094"><a href="#L7094" tabindex="0" class="raw-line-number" aria-label="第 7094 行">7094</a><span>嗯，我想到的一个例子是NASA在2016年制造的那款人形机器人。</span></div>
+<div class="raw-line" id="L7095"><a href="#L7095" tabindex="0" class="raw-line-number" aria-label="第 7095 行">7095</a><span></span></div>
+<div class="raw-line" id="L7096"><a href="#L7096" tabindex="0" class="raw-line-number" aria-label="第 7096 行">7096</a><span>So it, it is reported the cost will be around, uh, 2 million US dollars, which is, uh, quite, quite high.</span></div>
+<div class="raw-line" id="L7097"><a href="#L7097" tabindex="0" class="raw-line-number" aria-label="第 7097 行">7097</a><span>据报道，它的造价约为200万美元，确实相当高。</span></div>
+<div class="raw-line" id="L7098"><a href="#L7098" tabindex="0" class="raw-line-number" aria-label="第 7098 行">7098</a><span></span></div>
+<div class="raw-line" id="L7099"><a href="#L7099" tabindex="0" class="raw-line-number" aria-label="第 7099 行">7099</a><span>I, I think, I think, uh,</span></div>
+<div class="raw-line" id="L7100"><a href="#L7100" tabindex="0" class="raw-line-number" aria-label="第 7100 行">7100</a><span>我觉得，我觉得，嗯……</span></div>
+<div class="raw-line" id="L7101"><a href="#L7101" tabindex="0" class="raw-line-number" aria-label="第 7101 行">7101</a><span></span></div>
+<div class="raw-line" id="L7102"><a href="#L7102" tabindex="0" class="raw-line-number" aria-label="第 7102 行">7102</a><span>this not, uh, the robot cost these days has dropped significantly.</span></div>
+<div class="raw-line" id="L7103"><a href="#L7103" tabindex="0" class="raw-line-number" aria-label="第 7103 行">7103</a><span>不过，如今机器人的成本已经大幅下降。</span></div>
+<div class="raw-line" id="L7104"><a href="#L7104" tabindex="0" class="raw-line-number" aria-label="第 7104 行">7104</a><span></span></div>
+<div class="raw-line" id="L7105"><a href="#L7105" tabindex="0" class="raw-line-number" aria-label="第 7105 行">7105</a><span></span></div>
+<div class="raw-line" id="L7106"><a href="#L7106" tabindex="0" class="raw-line-number" aria-label="第 7106 行">7106</a><span>you know, due to the fast booming,</span></div>
+<div class="raw-line" id="L7107"><a href="#L7107" tabindex="0" class="raw-line-number" aria-label="第 7107 行">7107</a><span>你知道，得益于相关技术的迅猛发展，</span></div>
+<div class="raw-line" id="L7108"><a href="#L7108" tabindex="0" class="raw-line-number" aria-label="第 7108 行">7108</a><span></span></div>
+<div class="raw-line" id="L7109"><a href="#L7109" tabindex="0" class="raw-line-number" aria-label="第 7109 行">7109</a><span>uh, field.</span></div>
+<div class="raw-line" id="L7110"><a href="#L7110" tabindex="0" class="raw-line-number" aria-label="第 7110 行">7110</a><span>这个领域……</span></div>
+<div class="raw-line" id="L7111"><a href="#L7111" tabindex="0" class="raw-line-number" aria-label="第 7111 行">7111</a><span></span></div>
+<div class="raw-line" id="L7112"><a href="#L7112" tabindex="0" class="raw-line-number" aria-label="第 7112 行">7112</a><span>But I think the assumption still holds that, uh, you know, research platforms,</span></div>
+<div class="raw-line" id="L7113"><a href="#L7113" tabindex="0" class="raw-line-number" aria-label="第 7113 行">7113</a><span>但我认为，这个判断仍然成立：科研平台……</span></div>
+<div class="raw-line" id="L7114"><a href="#L7114" tabindex="0" class="raw-line-number" aria-label="第 7114 行">7114</a><span></span></div>
+<div class="raw-line" id="L7115"><a href="#L7115" tabindex="0" class="raw-line-number" aria-label="第 7115 行">7115</a><span>uh, uh, prioritize the, uh, you know, uh, break, uh, research breakthroughs instead of, uh,</span></div>
+<div class="raw-line" id="L7116"><a href="#L7116" tabindex="0" class="raw-line-number" aria-label="第 7116 行">7116</a><span>呃，优先追求科研突破，而不是……</span></div>
+<div class="raw-line" id="L7117"><a href="#L7117" tabindex="0" class="raw-line-number" aria-label="第 7117 行">7117</a><span></span></div>
+<div class="raw-line" id="L7118"><a href="#L7118" tabindex="0" class="raw-line-number" aria-label="第 7118 行">7118</a><span>robustness and cost.</span></div>
+<div class="raw-line" id="L7119"><a href="#L7119" tabindex="0" class="raw-line-number" aria-label="第 7119 行">7119</a><span>可靠性和成本。</span></div>
+<div class="raw-line" id="L7120"><a href="#L7120" tabindex="0" class="raw-line-number" aria-label="第 7120 行">7120</a><span></span></div>
+<div class="raw-line" id="L7121"><a href="#L7121" tabindex="0" class="raw-line-number" aria-label="第 7121 行">7121</a><span>So I think for, for, for our case, for general purpose robots, it&#39;s, it&#39;s a bit of both worlds.</span></div>
+<div class="raw-line" id="L7122"><a href="#L7122" tabindex="0" class="raw-line-number" aria-label="第 7122 行">7122</a><span>所以我认为，对我们研发的通用机器人来说，需要兼顾这两方面。</span></div>
+<div class="raw-line" id="L7123"><a href="#L7123" tabindex="0" class="raw-line-number" aria-label="第 7123 行">7123</a><span></span></div>
+<div class="raw-line" id="L7124"><a href="#L7124" tabindex="0" class="raw-line-number" aria-label="第 7124 行">7124</a><span>So one, one side we, we, we do need to en-enable, uh, new capabilities so that we could unlock new, uh, uh, uh, applications and also deployments.</span></div>
+<div class="raw-line" id="L7125"><a href="#L7125" tabindex="0" class="raw-line-number" aria-label="第 7125 行">7125</a><span>一方面，我们确实需要让机器人具备新能力，从而开拓新的应用场景，并推动实际部署。</span></div>
+<div class="raw-line" id="L7126"><a href="#L7126" tabindex="0" class="raw-line-number" aria-label="第 7126 行">7126</a><span></span></div>
+<div class="raw-line" id="L7127"><a href="#L7127" tabindex="0" class="raw-line-number" aria-label="第 7127 行">7127</a><span>And on the other, the other side,</span></div>
+<div class="raw-line" id="L7128"><a href="#L7128" tabindex="0" class="raw-line-number" aria-label="第 7128 行">7128</a><span>而另一方面，</span></div>
+<div class="raw-line" id="L7129"><a href="#L7129" tabindex="0" class="raw-line-number" aria-label="第 7129 行">7129</a><span></span></div>
+<div class="raw-line" id="L7130"><a href="#L7130" tabindex="0" class="raw-line-number" aria-label="第 7130 行">7130</a><span>we do need to care a lot about the, uh, durability and also the cost of the robot so that we can deploy robots, uh, in the real world.</span></div>
+<div class="raw-line" id="L7131"><a href="#L7131" tabindex="0" class="raw-line-number" aria-label="第 7131 行">7131</a><span>我们也必须高度重视机器人的耐用性和成本，才能让它们真正走进现实场景。</span></div>
+<div class="raw-line" id="L7132"><a href="#L7132" tabindex="0" class="raw-line-number" aria-label="第 7132 行">7132</a><span></span></div>
+<div class="raw-line" id="L7133"><a href="#L7133" tabindex="0" class="raw-line-number" aria-label="第 7133 行">7133</a><span></span></div>
+<div class="raw-line" id="L7134"><a href="#L7134" tabindex="0" class="raw-line-number" aria-label="第 7134 行">7134</a><span>so another, uh, challenge I think is the mismatch on, uh, kind of, uh, model iteration speed and also, uh, hardware iteration speed.</span></div>
+<div class="raw-line" id="L7135"><a href="#L7135" tabindex="0" class="raw-line-number" aria-label="第 7135 行">7135</a><span>我认为，另一个挑战是模型和硬件的迭代速度不匹配。</span></div>
+<div class="raw-line" id="L7136"><a href="#L7136" tabindex="0" class="raw-line-number" aria-label="第 7136 行">7136</a><span></span></div>
+<div class="raw-line" id="L7137"><a href="#L7137" tabindex="0" class="raw-line-number" aria-label="第 7137 行">7137</a><span>I think this is a similar challenge we have for, for example, hardware and software.</span></div>
+<div class="raw-line" id="L7138"><a href="#L7138" tabindex="0" class="raw-line-number" aria-label="第 7138 行">7138</a><span>我认为，这和我们在软硬件协同上遇到的挑战类似。</span></div>
+<div class="raw-line" id="L7139"><a href="#L7139" tabindex="0" class="raw-line-number" aria-label="第 7139 行">7139</a><span></span></div>
+<div class="raw-line" id="L7140"><a href="#L7140" tabindex="0" class="raw-line-number" aria-label="第 7140 行">7140</a><span>So, uh,</span></div>
+<div class="raw-line" id="L7141"><a href="#L7141" tabindex="0" class="raw-line-number" aria-label="第 7141 行">7141</a><span></span></div>
+<div class="raw-line" id="L7142"><a href="#L7142" tabindex="0" class="raw-line-number" aria-label="第 7142 行">7142</a><span>but I think for traditional products, um, like we, uh, even if they have different pace on, uh, developing,</span></div>
+<div class="raw-line" id="L7143"><a href="#L7143" tabindex="0" class="raw-line-number" aria-label="第 7143 行">7143</a><span>但我觉得，对于传统产品来说，即使软硬件的开发节奏不同，</span></div>
+<div class="raw-line" id="L7144"><a href="#L7144" tabindex="0" class="raw-line-number" aria-label="第 7144 行">7144</a><span></span></div>
+<div class="raw-line" id="L7145"><a href="#L7145" tabindex="0" class="raw-line-number" aria-label="第 7145 行">7145</a><span>like, uh, we could actually, uh,</span></div>
+<div class="raw-line" id="L7146"><a href="#L7146" tabindex="0" class="raw-line-number" aria-label="第 7146 行">7146</a><span>我们其实可以……</span></div>
+<div class="raw-line" id="L7147"><a href="#L7147" tabindex="0" class="raw-line-number" aria-label="第 7147 行">7147</a><span></span></div>
+<div class="raw-line" id="L7148"><a href="#L7148" tabindex="0" class="raw-line-number" aria-label="第 7148 行">7148</a><span>normally we have a very, very well-defined, uh, product requirements.</span></div>
+<div class="raw-line" id="L7149"><a href="#L7149" tabindex="0" class="raw-line-number" aria-label="第 7149 行">7149</a><span>通常我们会有非常明确的产品需求。</span></div>
+<div class="raw-line" id="L7150"><a href="#L7150" tabindex="0" class="raw-line-number" aria-label="第 7150 行">7150</a><span></span></div>
+<div class="raw-line" id="L7151"><a href="#L7151" tabindex="0" class="raw-line-number" aria-label="第 7151 行">7151</a><span>So for example, if a research, uh, if a hardware team and software team,</span></div>
+<div class="raw-line" id="L7152"><a href="#L7152" tabindex="0" class="raw-line-number" aria-label="第 7152 行">7152</a><span>比如，如果硬件团队和软件团队……</span></div>
+<div class="raw-line" id="L7153"><a href="#L7153" tabindex="0" class="raw-line-number" aria-label="第 7153 行">7153</a><span></span></div>
+<div class="raw-line" id="L7154"><a href="#L7154" tabindex="0" class="raw-line-number" aria-label="第 7154 行">7154</a><span>they, they cannot be aligned on the, uh, iteration speed, they actually can align on the product requirements, uh, even before the project starts.</span></div>
+<div class="raw-line" id="L7155"><a href="#L7155" tabindex="0" class="raw-line-number" aria-label="第 7155 行">7155</a><span>即使双方的迭代速度无法同步，也可以在项目启动前就产品需求达成一致。</span></div>
+<div class="raw-line" id="L7156"><a href="#L7156" tabindex="0" class="raw-line-number" aria-label="第 7156 行">7156</a><span></span></div>
+<div class="raw-line" id="L7157"><a href="#L7157" tabindex="0" class="raw-line-number" aria-label="第 7157 行">7157</a><span>But, but this is more challenging for general purpose robots because it&#39;s really, uh,</span></div>
+<div class="raw-line" id="L7158"><a href="#L7158" tabindex="0" class="raw-line-number" aria-label="第 7158 行">7158</a><span>但对于通用机器人来说，这就更难了，因为它确实……</span></div>
+<div class="raw-line" id="L7159"><a href="#L7159" tabindex="0" class="raw-line-number" aria-label="第 7159 行">7159</a><span></span></div>
+<div class="raw-line" id="L7160"><a href="#L7160" tabindex="0" class="raw-line-number" aria-label="第 7160 行">7160</a><span>hard to define, uh, uh,</span></div>
+<div class="raw-line" id="L7161"><a href="#L7161" tabindex="0" class="raw-line-number" aria-label="第 7161 行">7161</a><span>很难界定……</span></div>
+<div class="raw-line" id="L7162"><a href="#L7162" tabindex="0" class="raw-line-number" aria-label="第 7162 行">7162</a><span></span></div>
+<div class="raw-line" id="L7163"><a href="#L7163" tabindex="0" class="raw-line-number" aria-label="第 7163 行">7163</a><span>long-lasting, not changing, uh, requirements because we are aiming for so many different applications.</span></div>
+<div class="raw-line" id="L7164"><a href="#L7164" tabindex="0" class="raw-line-number" aria-label="第 7164 行">7164</a><span>很难制定长期稳定不变的需求，因为我们面向的应用场景太多了。</span></div>
+<div class="raw-line" id="L7165"><a href="#L7165" tabindex="0" class="raw-line-number" aria-label="第 7165 行">7165</a><span></span></div>
+<div class="raw-line" id="L7166"><a href="#L7166" tabindex="0" class="raw-line-number" aria-label="第 7166 行">7166</a><span></span></div>
+<div class="raw-line" id="L7167"><a href="#L7167" tabindex="0" class="raw-line-number" aria-label="第 7167 行">7167</a><span>so here just for, for example, if we assume, uh, we have a weekly, uh,</span></div>
+<div class="raw-line" id="L7168"><a href="#L7168" tabindex="0" class="raw-line-number" aria-label="第 7168 行">7168</a><span>比如，假设我们每周都有一次……</span></div>
+<div class="raw-line" id="L7169"><a href="#L7169" tabindex="0" class="raw-line-number" aria-label="第 7169 行">7169</a><span></span></div>
+<div class="raw-line" id="L7170"><a href="#L7170" tabindex="0" class="raw-line-number" aria-label="第 7170 行">7170</a><span>uh, updated model, uh, for 24 weeks, um,</span></div>
+<div class="raw-line" id="L7171"><a href="#L7171" tabindex="0" class="raw-line-number" aria-label="第 7171 行">7171</a><span>连续 24 周，每周更新一次模型，嗯……</span></div>
+<div class="raw-line" id="L7172"><a href="#L7172" tabindex="0" class="raw-line-number" aria-label="第 7172 行">7172</a><span></span></div>
+<div class="raw-line" id="L7173"><a href="#L7173" tabindex="0" class="raw-line-number" aria-label="第 7173 行">7173</a><span>and that means we have 24, uh, kind of, uh,</span></div>
+<div class="raw-line" id="L7174"><a href="#L7174" tabindex="0" class="raw-line-number" aria-label="第 7174 行">7174</a><span>这意味着我们会有 24 个……</span></div>
+<div class="raw-line" id="L7175"><a href="#L7175" tabindex="0" class="raw-line-number" aria-label="第 7175 行">7175</a><span></span></div>
+<div class="raw-line" id="L7176"><a href="#L7176" tabindex="0" class="raw-line-number" aria-label="第 7176 行">7176</a><span>at least 24, uh, opportunities to, to change set model setup to, to try new ideas.</span></div>
+<div class="raw-line" id="L7177"><a href="#L7177" tabindex="0" class="raw-line-number" aria-label="第 7177 行">7177</a><span>至少有 24 次机会调整模型配置、尝试新想法。</span></div>
+<div class="raw-line" id="L7178"><a href="#L7178" tabindex="0" class="raw-line-number" aria-label="第 7178 行">7178</a><span></span></div>
+<div class="raw-line" id="L7179"><a href="#L7179" tabindex="0" class="raw-line-number" aria-label="第 7179 行">7179</a><span>Uh, but at the same time, uh, I think we can only afford one or two major hardware iterations.</span></div>
+<div class="raw-line" id="L7180"><a href="#L7180" tabindex="0" class="raw-line-number" aria-label="第 7180 行">7180</a><span>但与此同时，我觉得我们最多只能进行一两次重大的硬件迭代。</span></div>
+<div class="raw-line" id="L7181"><a href="#L7181" tabindex="0" class="raw-line-number" aria-label="第 7181 行">7181</a><span></span></div>
+<div class="raw-line" id="L7182"><a href="#L7182" tabindex="0" class="raw-line-number" aria-label="第 7182 行">7182</a><span>So assuming, like for the, for the model team has a brilliant idea and, and validated, uh, in, in 12, in week 12 and want to do some hardware feature change,</span></div>
+<div class="raw-line" id="L7183"><a href="#L7183" tabindex="0" class="raw-line-number" aria-label="第 7183 行">7183</a><span>所以，假设模型团队有了一个绝妙的想法，并在第 12 周完成了验证，想要调整某项硬件功能，</span></div>
+<div class="raw-line" id="L7184"><a href="#L7184" tabindex="0" class="raw-line-number" aria-label="第 7184 行">7184</a><span></span></div>
+<div class="raw-line" id="L7185"><a href="#L7185" tabindex="0" class="raw-line-number" aria-label="第 7185 行">7185</a><span>that&#39;s kind of impossible.</span></div>
+<div class="raw-line" id="L7186"><a href="#L7186" tabindex="0" class="raw-line-number" aria-label="第 7186 行">7186</a><span>那基本上是不可能的。</span></div>
+<div class="raw-line" id="L7187"><a href="#L7187" tabindex="0" class="raw-line-number" aria-label="第 7187 行">7187</a><span></span></div>
+<div class="raw-line" id="L7188"><a href="#L7188" tabindex="0" class="raw-line-number" aria-label="第 7188 行">7188</a><span>So I think for this,</span></div>
+<div class="raw-line" id="L7189"><a href="#L7189" tabindex="0" class="raw-line-number" aria-label="第 7189 行">7189</a><span>所以我觉得，针对这种情况，</span></div>
+<div class="raw-line" id="L7190"><a href="#L7190" tabindex="0" class="raw-line-number" aria-label="第 7190 行">7190</a><span></span></div>
+<div class="raw-line" id="L7191"><a href="#L7191" tabindex="0" class="raw-line-number" aria-label="第 7191 行">7191</a><span>uh, the, uh, the solution for that for, for, for Dyna is we, we, we want to have a hardware defini-, uh, hardware, uh, kind of, uh,</span></div>
+<div class="raw-line" id="L7192"><a href="#L7192" tabindex="0" class="raw-line-number" aria-label="第 7192 行">7192</a><span>嗯，对 Dyna 来说，解决办法是，我们希望硬件在设计上……</span></div>
+<div class="raw-line" id="L7193"><a href="#L7193" tabindex="0" class="raw-line-number" aria-label="第 7193 行">7193</a><span></span></div>
+<div class="raw-line" id="L7194"><a href="#L7194" tabindex="0" class="raw-line-number" aria-label="第 7194 行">7194</a><span>requirement definition that is clear enough and also can be re-, uh, still, still relevant across, uh, years of model iteration.</span></div>
+<div class="raw-line" id="L7195"><a href="#L7195" tabindex="0" class="raw-line-number" aria-label="第 7195 行">7195</a><span>把硬件需求定义得足够清晰，同时让它在模型经过多年迭代后仍然适用。</span></div>
+<div class="raw-line" id="L7196"><a href="#L7196" tabindex="0" class="raw-line-number" aria-label="第 7196 行">7196</a><span></span></div>
+<div class="raw-line" id="L7197"><a href="#L7197" tabindex="0" class="raw-line-number" aria-label="第 7197 行">7197</a><span>And I think, uh, in Dyna, the answer for that is to have, uh,</span></div>
+<div class="raw-line" id="L7198"><a href="#L7198" tabindex="0" class="raw-line-number" aria-label="第 7198 行">7198</a><span>我认为，对 Dyna 来说，解决这个问题的办法是……</span></div>
+<div class="raw-line" id="L7199"><a href="#L7199" tabindex="0" class="raw-line-number" aria-label="第 7199 行">7199</a><span></span></div>
+<div class="raw-line" id="L7200"><a href="#L7200" tabindex="0" class="raw-line-number" aria-label="第 7200 行">7200</a><span>predictable hardware design.</span></div>
+<div class="raw-line" id="L7201"><a href="#L7201" tabindex="0" class="raw-line-number" aria-label="第 7201 行">7201</a><span>可预测的硬件设计。</span></div>
+<div class="raw-line" id="L7202"><a href="#L7202" tabindex="0" class="raw-line-number" aria-label="第 7202 行">7202</a><span></span></div>
+<div class="raw-line" id="L7203"><a href="#L7203" tabindex="0" class="raw-line-number" aria-label="第 7203 行">7203</a><span>So by predictability, I mean, uh, actually two,</span></div>
+<div class="raw-line" id="L7204"><a href="#L7204" tabindex="0" class="raw-line-number" aria-label="第 7204 行">7204</a><span>我说的“可预测性”，其实包含两个方面，</span></div>
+<div class="raw-line" id="L7205"><a href="#L7205" tabindex="0" class="raw-line-number" aria-label="第 7205 行">7205</a><span></span></div>
+<div class="raw-line" id="L7206"><a href="#L7206" tabindex="0" class="raw-line-number" aria-label="第 7206 行">7206</a><span>two aspects.</span></div>
+<div class="raw-line" id="L7207"><a href="#L7207" tabindex="0" class="raw-line-number" aria-label="第 7207 行">7207</a><span>两个方面。</span></div>
+<div class="raw-line" id="L7208"><a href="#L7208" tabindex="0" class="raw-line-number" aria-label="第 7208 行">7208</a><span></span></div>
+<div class="raw-line" id="L7209"><a href="#L7209" tabindex="0" class="raw-line-number" aria-label="第 7209 行">7209</a><span>One is, um, we want the hardware platform to, to move, to behave so that models can pre-predict, uh, and also alongside, uh, robustness and cost.</span></div>
+<div class="raw-line" id="L7210"><a href="#L7210" tabindex="0" class="raw-line-number" aria-label="第 7210 行">7210</a><span>一方面，我们希望硬件平台的运动和行为具有可预测性，让模型能够提前预测；同时还要兼顾可靠性和成本。</span></div>
+<div class="raw-line" id="L7211"><a href="#L7211" tabindex="0" class="raw-line-number" aria-label="第 7211 行">7211</a><span></span></div>
+<div class="raw-line" id="L7212"><a href="#L7212" tabindex="0" class="raw-line-number" aria-label="第 7212 行">7212</a><span>And the other side is we want the hardware platform to be a stable interface so that, uh, fast-evolving models actually can, can, can reuse this, uh, physical platform, uh, as it evolves.</span></div>
+<div class="raw-line" id="L7213"><a href="#L7213" tabindex="0" class="raw-line-number" aria-label="第 7213 行">7213</a><span>另一方面，我们希望硬件平台提供一个稳定的接口，让快速迭代的模型在不断演进的过程中，仍能复用同一个实体平台。</span></div>
+<div class="raw-line" id="L7214"><a href="#L7214" tabindex="0" class="raw-line-number" aria-label="第 7214 行">7214</a><span></span></div>
+<div class="raw-line" id="L7215"><a href="#L7215" tabindex="0" class="raw-line-number" aria-label="第 7215 行">7215</a><span>So, um, and, and for hardware, I think we can, uh,</span></div>
+<div class="raw-line" id="L7216"><a href="#L7216" tabindex="0" class="raw-line-number" aria-label="第 7216 行">7216</a><span>所以，在硬件方面，我觉得我们可以……</span></div>
+<div class="raw-line" id="L7217"><a href="#L7217" tabindex="0" class="raw-line-number" aria-label="第 7217 行">7217</a><span></span></div>
+<div class="raw-line" id="L7218"><a href="#L7218" tabindex="0" class="raw-line-number" aria-label="第 7218 行">7218</a><span>like split that into two, two kind of problems, problems.</span></div>
+<div class="raw-line" id="L7219"><a href="#L7219" tabindex="0" class="raw-line-number" aria-label="第 7219 行">7219</a><span>把它分成两类问题。</span></div>
+<div class="raw-line" id="L7220"><a href="#L7220" tabindex="0" class="raw-line-number" aria-label="第 7220 行">7220</a><span></span></div>
+<div class="raw-line" id="L7221"><a href="#L7221" tabindex="0" class="raw-line-number" aria-label="第 7221 行">7221</a><span>One is the, uh, motion and,</span></div>
+<div class="raw-line" id="L7222"><a href="#L7222" tabindex="0" class="raw-line-number" aria-label="第 7222 行">7222</a><span>一类是运动和……</span></div>
+<div class="raw-line" id="L7223"><a href="#L7223" tabindex="0" class="raw-line-number" aria-label="第 7223 行">7223</a><span></span></div>
+<div class="raw-line" id="L7224"><a href="#L7224" tabindex="0" class="raw-line-number" aria-label="第 7224 行">7224</a><span>uh, which means we want the robot to physically respond,</span></div>
+<div class="raw-line" id="L7225"><a href="#L7225" tabindex="0" class="raw-line-number" aria-label="第 7225 行">7225</a><span>也就是说，我们希望机器人在物理层面作出响应，</span></div>
+<div class="raw-line" id="L7226"><a href="#L7226" tabindex="0" class="raw-line-number" aria-label="第 7226 行">7226</a><span></span></div>
+<div class="raw-line" id="L7227"><a href="#L7227" tabindex="0" class="raw-line-number" aria-label="第 7227 行">7227</a><span>uh, uh,</span></div>
+<div class="raw-line" id="L7228"><a href="#L7228" tabindex="0" class="raw-line-number" aria-label="第 7228 行">7228</a><span>呃……</span></div>
+<div class="raw-line" id="L7229"><a href="#L7229" tabindex="0" class="raw-line-number" aria-label="第 7229 行">7229</a><span></span></div>
+<div class="raw-line" id="L7230"><a href="#L7230" tabindex="0" class="raw-line-number" aria-label="第 7230 行">7230</a><span>sorry, we want the, uh, uh,</span></div>
+<div class="raw-line" id="L7231"><a href="#L7231" tabindex="0" class="raw-line-number" aria-label="第 7231 行">7231</a><span>抱歉，我们希望……</span></div>
+<div class="raw-line" id="L7232"><a href="#L7232" tabindex="0" class="raw-line-number" aria-label="第 7232 行">7232</a><span></span></div>
+<div class="raw-line" id="L7233"><a href="#L7233" tabindex="0" class="raw-line-number" aria-label="第 7233 行">7233</a><span>the, the hardware to, uh, to physically move and, uh, uh, the also the response that the models actually can, can predict. And the other one is the sensing.</span></div>
+<div class="raw-line" id="L7234"><a href="#L7234" tabindex="0" class="raw-line-number" aria-label="第 7234 行">7234</a><span>硬件的物理运动及其响应，都要能让模型预测。另一类是感知。</span></div>
+<div class="raw-line" id="L7235"><a href="#L7235" tabindex="0" class="raw-line-number" aria-label="第 7235 行">7235</a><span></span></div>
+<div class="raw-line" id="L7236"><a href="#L7236" tabindex="0" class="raw-line-number" aria-label="第 7236 行">7236</a><span>So we, we, we want the hardware platform to actually have reliable feedbacks, uh, that can reflect the actual physical state, uh, in the real world and, and the, the,</span></div>
+<div class="raw-line" id="L7237"><a href="#L7237" tabindex="0" class="raw-line-number" aria-label="第 7237 行">7237</a><span>所以，我们希望硬件平台能提供可靠的反馈，准确反映现实世界中的物理状态，以及……</span></div>
+<div class="raw-line" id="L7238"><a href="#L7238" tabindex="0" class="raw-line-number" aria-label="第 7238 行">7238</a><span></span></div>
+<div class="raw-line" id="L7239"><a href="#L7239" tabindex="0" class="raw-line-number" aria-label="第 7239 行">7239</a><span>the model can learn.</span></div>
+<div class="raw-line" id="L7240"><a href="#L7240" tabindex="0" class="raw-line-number" aria-label="第 7240 行">7240</a><span>让模型能够从中学习。</span></div>
+<div class="raw-line" id="L7241"><a href="#L7241" tabindex="0" class="raw-line-number" aria-label="第 7241 行">7241</a><span></span></div>
+<div class="raw-line" id="L7242"><a href="#L7242" tabindex="0" class="raw-line-number" aria-label="第 7242 行">7242</a><span>Um, so to, to do this, I think, for example, uh,</span></div>
+<div class="raw-line" id="L7243"><a href="#L7243" tabindex="0" class="raw-line-number" aria-label="第 7243 行">7243</a><span>嗯，为了做到这一点，我觉得，比如说……</span></div>
+<div class="raw-line" id="L7244"><a href="#L7244" tabindex="0" class="raw-line-number" aria-label="第 7244 行">7244</a><span></span></div>
+<div class="raw-line" id="L7245"><a href="#L7245" tabindex="0" class="raw-line-number" aria-label="第 7245 行">7245</a><span>uh, like the transmission, uh, joint actuator transmission choice will be, uh, have significant effects on both, uh, motion and sensing.</span></div>
+<div class="raw-line" id="L7246"><a href="#L7246" tabindex="0" class="raw-line-number" aria-label="第 7246 行">7246</a><span>比如，关节执行器的传动方案会对运动和感知产生显著影响。</span></div>
+<div class="raw-line" id="L7247"><a href="#L7247" tabindex="0" class="raw-line-number" aria-label="第 7247 行">7247</a><span></span></div>
+<div class="raw-line" id="L7248"><a href="#L7248" tabindex="0" class="raw-line-number" aria-label="第 7248 行">7248</a><span>So I will use that as an example, uh, to, to explain how we use this design principles, uh, for, uh,</span></div>
+<div class="raw-line" id="L7249"><a href="#L7249" tabindex="0" class="raw-line-number" aria-label="第 7249 行">7249</a><span>所以我会以此为例，说明我们如何运用这些设计原则来……</span></div>
+<div class="raw-line" id="L7250"><a href="#L7250" tabindex="0" class="raw-line-number" aria-label="第 7250 行">7250</a><span></span></div>
+<div class="raw-line" id="L7251"><a href="#L7251" tabindex="0" class="raw-line-number" aria-label="第 7251 行">7251</a><span>hardware development.</span></div>
+<div class="raw-line" id="L7252"><a href="#L7252" tabindex="0" class="raw-line-number" aria-label="第 7252 行">7252</a><span>硬件开发。</span></div>
+<div class="raw-line" id="L7253"><a href="#L7253" tabindex="0" class="raw-line-number" aria-label="第 7253 行">7253</a><span></span></div>
+<div class="raw-line" id="L7254"><a href="#L7254" tabindex="0" class="raw-line-number" aria-label="第 7254 行">7254</a><span>So for example, for the motion side,</span></div>
+<div class="raw-line" id="L7255"><a href="#L7255" tabindex="0" class="raw-line-number" aria-label="第 7255 行">7255</a><span>比如，在运动方面，</span></div>
+<div class="raw-line" id="L7256"><a href="#L7256" tabindex="0" class="raw-line-number" aria-label="第 7256 行">7256</a><span></span></div>
+<div class="raw-line" id="L7257"><a href="#L7257" tabindex="0" class="raw-line-number" aria-label="第 7257 行">7257</a><span>um, actually if, uh, we, we actually just released our Dyna 2.1, um, and if you have seen our demo, I think you probably already noticed that we actually use, uh, planetary, uh,</span></div>
+<div class="raw-line" id="L7258"><a href="#L7258" tabindex="0" class="raw-line-number" aria-label="第 7258 行">7258</a><span>嗯，我们刚刚发布了 Dyna 2.1。如果你看过演示，可能已经注意到，我们采用了行星……</span></div>
+<div class="raw-line" id="L7259"><a href="#L7259" tabindex="0" class="raw-line-number" aria-label="第 7259 行">7259</a><span></span></div>
+<div class="raw-line" id="L7260"><a href="#L7260" tabindex="0" class="raw-line-number" aria-label="第 7260 行">7260</a><span>actuators over, uh, harmonic.</span></div>
+<div class="raw-line" id="L7261"><a href="#L7261" tabindex="0" class="raw-line-number" aria-label="第 7261 行">7261</a><span>执行器，而不是谐波传动执行器。</span></div>
+<div class="raw-line" id="L7262"><a href="#L7262" tabindex="0" class="raw-line-number" aria-label="第 7262 行">7262</a><span></span></div>
+<div class="raw-line" id="L7263"><a href="#L7263" tabindex="0" class="raw-line-number" aria-label="第 7263 行">7263</a><span>And, uh, the, the rationale behind that actually, uh, uh, have two, uh, two parts.</span></div>
+<div class="raw-line" id="L7264"><a href="#L7264" tabindex="0" class="raw-line-number" aria-label="第 7264 行">7264</a><span>这样选择背后的原因，其实有两个方面。</span></div>
+<div class="raw-line" id="L7265"><a href="#L7265" tabindex="0" class="raw-line-number" aria-label="第 7265 行">7265</a><span></span></div>
+<div class="raw-line" id="L7266"><a href="#L7266" tabindex="0" class="raw-line-number" aria-label="第 7266 行">7266</a><span>One is, uh, we want to actually minimize internal resistance of the, uh,</span></div>
+<div class="raw-line" id="L7267"><a href="#L7267" tabindex="0" class="raw-line-number" aria-label="第 7267 行">7267</a><span>一是我们希望尽量减小内部阻力，</span></div>
+<div class="raw-line" id="L7268"><a href="#L7268" tabindex="0" class="raw-line-number" aria-label="第 7268 行">7268</a><span></span></div>
+<div class="raw-line" id="L7269"><a href="#L7269" tabindex="0" class="raw-line-number" aria-label="第 7269 行">7269</a><span>transmission loss, and the other one is we want to have a simpler and eas-, uh, uh, uh, straightforward, uh, actuator model so that the models can, can be adapted to.</span></div>
+<div class="raw-line" id="L7270"><a href="#L7270" tabindex="0" class="raw-line-number" aria-label="第 7270 行">7270</a><span>也就是传动损耗；另一个原因是，我们希望执行器模型更简单、更直观，便于模型适配。</span></div>
+<div class="raw-line" id="L7271"><a href="#L7271" tabindex="0" class="raw-line-number" aria-label="第 7271 行">7271</a><span></span></div>
+<div class="raw-line" id="L7272"><a href="#L7272" tabindex="0" class="raw-line-number" aria-label="第 7272 行">7272</a><span></span></div>
+<div class="raw-line" id="L7273"><a href="#L7273" tabindex="0" class="raw-line-number" aria-label="第 7273 行">7273</a><span>so, uh, if you look at the, uh, left side of the plot, this is a published, uh, result from previous, uh, researchers that actually we&#39;re giving the same motor and similar gear ratios, um,</span></div>
+<div class="raw-line" id="L7274"><a href="#L7274" tabindex="0" class="raw-line-number" aria-label="第 7274 行">7274</a><span>所以，如果看图的左侧，这是其他研究人员此前发表的结果。他们使用了相同的电机和相近的减速比，嗯……</span></div>
+<div class="raw-line" id="L7275"><a href="#L7275" tabindex="0" class="raw-line-number" aria-label="第 7275 行">7275</a><span></span></div>
+<div class="raw-line" id="L7276"><a href="#L7276" tabindex="0" class="raw-line-number" aria-label="第 7276 行">7276</a><span>harmonica drives will have approximately two times, uh,</span></div>
+<div class="raw-line" id="L7277"><a href="#L7277" tabindex="0" class="raw-line-number" aria-label="第 7277 行">7277</a><span>谐波传动的损耗大约会高出一倍，嗯……</span></div>
+<div class="raw-line" id="L7278"><a href="#L7278" tabindex="0" class="raw-line-number" aria-label="第 7278 行">7278</a><span></span></div>
+<div class="raw-line" id="L7279"><a href="#L7279" tabindex="0" class="raw-line-number" aria-label="第 7279 行">7279</a><span>uh, internal resistance compared to, uh, uh, planetary gearbox.</span></div>
+<div class="raw-line" id="L7280"><a href="#L7280" tabindex="0" class="raw-line-number" aria-label="第 7280 行">7280</a><span>其内部阻力大约是行星齿轮箱的两倍。</span></div>
+<div class="raw-line" id="L7281"><a href="#L7281" tabindex="0" class="raw-line-number" aria-label="第 7281 行">7281</a><span></span></div>
+<div class="raw-line" id="L7282"><a href="#L7282" tabindex="0" class="raw-line-number" aria-label="第 7282 行">7282</a><span>So yeah, so and the second part is the, uh, the actuator model.</span></div>
+<div class="raw-line" id="L7283"><a href="#L7283" tabindex="0" class="raw-line-number" aria-label="第 7283 行">7283</a><span>对，第二个方面是执行器模型。</span></div>
+<div class="raw-line" id="L7284"><a href="#L7284" tabindex="0" class="raw-line-number" aria-label="第 7284 行">7284</a><span></span></div>
+<div class="raw-line" id="L7285"><a href="#L7285" tabindex="0" class="raw-line-number" aria-label="第 7285 行">7285</a><span>I think, uh, for harmonic drives, the modeling demands is actually more complex.</span></div>
+<div class="raw-line" id="L7286"><a href="#L7286" tabindex="0" class="raw-line-number" aria-label="第 7286 行">7286</a><span>我认为，谐波传动的建模要求其实更复杂。</span></div>
+<div class="raw-line" id="L7287"><a href="#L7287" tabindex="0" class="raw-line-number" aria-label="第 7287 行">7287</a><span></span></div>
+<div class="raw-line" id="L7288"><a href="#L7288" tabindex="0" class="raw-line-number" aria-label="第 7288 行">7288</a><span>Uh, we will require more, uh, detailed and complex model to actually, uh, reflect the, the performance of, of harmonica drives.</span></div>
+<div class="raw-line" id="L7289"><a href="#L7289" tabindex="0" class="raw-line-number" aria-label="第 7289 行">7289</a><span>我们需要更精细、更复杂的模型，才能准确反映谐波传动的性能。</span></div>
+<div class="raw-line" id="L7290"><a href="#L7290" tabindex="0" class="raw-line-number" aria-label="第 7290 行">7290</a><span></span></div>
+<div class="raw-line" id="L7291"><a href="#L7291" tabindex="0" class="raw-line-number" aria-label="第 7291 行">7291</a><span></span></div>
+<div class="raw-line" id="L7292"><a href="#L7292" tabindex="0" class="raw-line-number" aria-label="第 7292 行">7292</a><span>uh, here are some, uh, two examples.</span></div>
+<div class="raw-line" id="L7293"><a href="#L7293" tabindex="0" class="raw-line-number" aria-label="第 7293 行">7293</a><span>这里有两个例子。</span></div>
+<div class="raw-line" id="L7294"><a href="#L7294" tabindex="0" class="raw-line-number" aria-label="第 7294 行">7294</a><span></span></div>
+<div class="raw-line" id="L7295"><a href="#L7295" tabindex="0" class="raw-line-number" aria-label="第 7295 行">7295</a><span>One is the hysteresis.</span></div>
+<div class="raw-line" id="L7296"><a href="#L7296" tabindex="0" class="raw-line-number" aria-label="第 7296 行">7296</a><span>其中一个是滞后现象。</span></div>
+<div class="raw-line" id="L7297"><a href="#L7297" tabindex="0" class="raw-line-number" aria-label="第 7297 行">7297</a><span></span></div>
+<div class="raw-line" id="L7298"><a href="#L7298" tabindex="0" class="raw-line-number" aria-label="第 7298 行">7298</a><span>So, uh, as we know, there are soft gears inside the harmonic drive and, uh, the deformation will actually depend not only on the current torque, uh, input, but also the previous loadings,</span></div>
+<div class="raw-line" id="L7299"><a href="#L7299" tabindex="0" class="raw-line-number" aria-label="第 7299 行">7299</a><span>我们知道，谐波传动内部有柔性齿轮，其变形不仅取决于当前输入的扭矩，还与之前的受载情况有关。</span></div>
+<div class="raw-line" id="L7300"><a href="#L7300" tabindex="0" class="raw-line-number" aria-label="第 7300 行">7300</a><span></span></div>
+<div class="raw-line" id="L7301"><a href="#L7301" tabindex="0" class="raw-line-number" aria-label="第 7301 行">7301</a><span>and which will make the, uh, model, which will make modeling the, uh, harmonic drive quite complex.</span></div>
+<div class="raw-line" id="L7302"><a href="#L7302" tabindex="0" class="raw-line-number" aria-label="第 7302 行">7302</a><span>这会使谐波传动的建模变得相当复杂。</span></div>
+<div class="raw-line" id="L7303"><a href="#L7303" tabindex="0" class="raw-line-number" aria-label="第 7303 行">7303</a><span></span></div>
+<div class="raw-line" id="L7304"><a href="#L7304" tabindex="0" class="raw-line-number" aria-label="第 7304 行">7304</a><span>And the second one is the, uh, in-internal resistance actually changes with the, uh, dynamic loading conditions and temperature conditions.</span></div>
+<div class="raw-line" id="L7305"><a href="#L7305" tabindex="0" class="raw-line-number" aria-label="第 7305 行">7305</a><span>第二个是内部阻力，它实际上会随动态载荷条件和温度变化而变化。</span></div>
+<div class="raw-line" id="L7306"><a href="#L7306" tabindex="0" class="raw-line-number" aria-label="第 7306 行">7306</a><span></span></div>
+<div class="raw-line" id="L7307"><a href="#L7307" tabindex="0" class="raw-line-number" aria-label="第 7307 行">7307</a><span>So all, uh, altogether, this will make, uh, uh, modeling a harmonica joint, uh, joint actuator not impossible, but much more complex compared to a simpler planetary, uh, transmission.</span></div>
+<div class="raw-line" id="L7308"><a href="#L7308" tabindex="0" class="raw-line-number" aria-label="第 7308 行">7308</a><span>所以，总的来说，谐波传动关节执行器并非无法建模，但相比结构较简单的行星齿轮传动，建模要复杂得多。</span></div>
+<div class="raw-line" id="L7309"><a href="#L7309" tabindex="0" class="raw-line-number" aria-label="第 7309 行">7309</a><span></span></div>
+<div class="raw-line" id="L7310"><a href="#L7310" tabindex="0" class="raw-line-number" aria-label="第 7310 行">7310</a><span>So, uh, based on that, our, our rationale is to reduce the resistance and simplify the actuator model, uh,</span></div>
+<div class="raw-line" id="L7311"><a href="#L7311" tabindex="0" class="raw-line-number" aria-label="第 7311 行">7311</a><span>因此，基于这些考虑，我们的思路是降低内部阻力，简化执行器模型。</span></div>
+<div class="raw-line" id="L7312"><a href="#L7312" tabindex="0" class="raw-line-number" aria-label="第 7312 行">7312</a><span></span></div>
+<div class="raw-line" id="L7313"><a href="#L7313" tabindex="0" class="raw-line-number" aria-label="第 7313 行">7313</a><span>with planetary transmissions.</span></div>
+<div class="raw-line" id="L7314"><a href="#L7314" tabindex="0" class="raw-line-number" aria-label="第 7314 行">7314</a><span>采用行星齿轮传动的情况。</span></div>
+<div class="raw-line" id="L7315"><a href="#L7315" tabindex="0" class="raw-line-number" aria-label="第 7315 行">7315</a><span></span></div>
+<div class="raw-line" id="L7316"><a href="#L7316" tabindex="0" class="raw-line-number" aria-label="第 7316 行">7316</a><span>Um, just to show one of our internal testing results, basically we,</span></div>
+<div class="raw-line" id="L7317"><a href="#L7317" tabindex="0" class="raw-line-number" aria-label="第 7317 行">7317</a><span>这里展示一项我们的内部测试结果。基本上，我们……</span></div>
+<div class="raw-line" id="L7318"><a href="#L7318" tabindex="0" class="raw-line-number" aria-label="第 7318 行">7318</a><span></span></div>
+<div class="raw-line" id="L7319"><a href="#L7319" tabindex="0" class="raw-line-number" aria-label="第 7319 行">7319</a><span>uh, we just use, uh, we let the robot, uh, to follow a very simple, uh, uh,</span></div>
+<div class="raw-line" id="L7320"><a href="#L7320" tabindex="0" class="raw-line-number" aria-label="第 7320 行">7320</a><span>我们让机器人执行一个非常简单的……</span></div>
+<div class="raw-line" id="L7321"><a href="#L7321" tabindex="0" class="raw-line-number" aria-label="第 7321 行">7321</a><span></span></div>
+<div class="raw-line" id="L7322"><a href="#L7322" tabindex="0" class="raw-line-number" aria-label="第 7322 行">7322</a><span>circular, circular motion,</span></div>
+<div class="raw-line" id="L7323"><a href="#L7323" tabindex="0" class="raw-line-number" aria-label="第 7323 行">7323</a><span>圆周运动。</span></div>
+<div class="raw-line" id="L7324"><a href="#L7324" tabindex="0" class="raw-line-number" aria-label="第 7324 行">7324</a><span></span></div>
+<div class="raw-line" id="L7325"><a href="#L7325" tabindex="0" class="raw-line-number" aria-label="第 7325 行">7325</a><span>uh, and with the same I/O policy.</span></div>
+<div class="raw-line" id="L7326"><a href="#L7326" tabindex="0" class="raw-line-number" aria-label="第 7326 行">7326</a><span>并且采用相同的输入输出策略。</span></div>
+<div class="raw-line" id="L7327"><a href="#L7327" tabindex="0" class="raw-line-number" aria-label="第 7327 行">7327</a><span></span></div>
+<div class="raw-line" id="L7328"><a href="#L7328" tabindex="0" class="raw-line-number" aria-label="第 7328 行">7328</a><span>Um, so the left one is we actually do that in the module environment and, uh,</span></div>
+<div class="raw-line" id="L7329"><a href="#L7329" tabindex="0" class="raw-line-number" aria-label="第 7329 行">7329</a><span>嗯，左边这个是在仿真环境中做的，而……</span></div>
+<div class="raw-line" id="L7330"><a href="#L7330" tabindex="0" class="raw-line-number" aria-label="第 7330 行">7330</a><span></span></div>
+<div class="raw-line" id="L7331"><a href="#L7331" tabindex="0" class="raw-line-number" aria-label="第 7331 行">7331</a><span>uh, the, the, uh, the two plots down, uh, at the below are, are the, uh, position tracking arrows.</span></div>
+<div class="raw-line" id="L7332"><a href="#L7332" tabindex="0" class="raw-line-number" aria-label="第 7332 行">7332</a><span>下面两张图显示的是位置跟踪误差。</span></div>
+<div class="raw-line" id="L7333"><a href="#L7333" tabindex="0" class="raw-line-number" aria-label="第 7333 行">7333</a><span></span></div>
+<div class="raw-line" id="L7334"><a href="#L7334" tabindex="0" class="raw-line-number" aria-label="第 7334 行">7334</a><span>The middle one is the our robot Taku,</span></div>
+<div class="raw-line" id="L7335"><a href="#L7335" tabindex="0" class="raw-line-number" aria-label="第 7335 行">7335</a><span>中间的是我们的机器人 Taku，</span></div>
+<div class="raw-line" id="L7336"><a href="#L7336" tabindex="0" class="raw-line-number" aria-label="第 7336 行">7336</a><span></span></div>
+<div class="raw-line" id="L7337"><a href="#L7337" tabindex="0" class="raw-line-number" aria-label="第 7337 行">7337</a><span>uh, doing the same motions and also, uh,</span></div>
+<div class="raw-line" id="L7338"><a href="#L7338" tabindex="0" class="raw-line-number" aria-label="第 7338 行">7338</a><span>也在做同样的动作，而且……</span></div>
+<div class="raw-line" id="L7339"><a href="#L7339" tabindex="0" class="raw-line-number" aria-label="第 7339 行">7339</a><span></span></div>
+<div class="raw-line" id="L7340"><a href="#L7340" tabindex="0" class="raw-line-number" aria-label="第 7340 行">7340</a><span>with the same I/O policy.</span></div>
+<div class="raw-line" id="L7341"><a href="#L7341" tabindex="0" class="raw-line-number" aria-label="第 7341 行">7341</a><span>采用相同的输入输出策略。</span></div>
+<div class="raw-line" id="L7342"><a href="#L7342" tabindex="0" class="raw-line-number" aria-label="第 7342 行">7342</a><span></span></div>
+<div class="raw-line" id="L7343"><a href="#L7343" tabindex="0" class="raw-line-number" aria-label="第 7343 行">7343</a><span>And the right one is basically the trajectory difference on the left and right, uh,</span></div>
+<div class="raw-line" id="L7344"><a href="#L7344" tabindex="0" class="raw-line-number" aria-label="第 7344 行">7344</a><span>右边这张图展示的主要是左边和中间两种情况下的轨迹差异。</span></div>
+<div class="raw-line" id="L7345"><a href="#L7345" tabindex="0" class="raw-line-number" aria-label="第 7345 行">7345</a><span></span></div>
+<div class="raw-line" id="L7346"><a href="#L7346" tabindex="0" class="raw-line-number" aria-label="第 7346 行">7346</a><span>hands.</span></div>
+<div class="raw-line" id="L7347"><a href="#L7347" tabindex="0" class="raw-line-number" aria-label="第 7347 行">7347</a><span>双手。</span></div>
+<div class="raw-line" id="L7348"><a href="#L7348" tabindex="0" class="raw-line-number" aria-label="第 7348 行">7348</a><span></span></div>
+<div class="raw-line" id="L7349"><a href="#L7349" tabindex="0" class="raw-line-number" aria-label="第 7349 行">7349</a><span>So one thing I want to emphasize here is actually the, uh, increase in tracking, uh,</span></div>
+<div class="raw-line" id="L7350"><a href="#L7350" tabindex="0" class="raw-line-number" aria-label="第 7350 行">7350</a><span>这里我想强调的一点是，跟踪……有所提升。</span></div>
+<div class="raw-line" id="L7351"><a href="#L7351" tabindex="0" class="raw-line-number" aria-label="第 7351 行">7351</a><span></span></div>
+<div class="raw-line" id="L7352"><a href="#L7352" tabindex="0" class="raw-line-number" aria-label="第 7352 行">7352</a><span>rooming square arrow for simulation to hardware.</span></div>
+<div class="raw-line" id="L7353"><a href="#L7353" tabindex="0" class="raw-line-number" aria-label="第 7353 行">7353</a><span>从仿真迁移到实体机器人时，均方根跟踪误差会增大。</span></div>
+<div class="raw-line" id="L7354"><a href="#L7354" tabindex="0" class="raw-line-number" aria-label="第 7354 行">7354</a><span></span></div>
+<div class="raw-line" id="L7355"><a href="#L7355" tabindex="0" class="raw-line-number" aria-label="第 7355 行">7355</a><span>So this is, uh, from our,</span></div>
+<div class="raw-line" id="L7356"><a href="#L7356" tabindex="0" class="raw-line-number" aria-label="第 7356 行">7356</a><span>所以，这个是来自我们的……</span></div>
+<div class="raw-line" id="L7357"><a href="#L7357" tabindex="0" class="raw-line-number" aria-label="第 7357 行">7357</a><span></span></div>
+<div class="raw-line" id="L7358"><a href="#L7358" tabindex="0" class="raw-line-number" aria-label="第 7358 行">7358</a><span>uh, testing results, this is only 0.3 mm.</span></div>
+<div class="raw-line" id="L7359"><a href="#L7359" tabindex="0" class="raw-line-number" aria-label="第 7359 行">7359</a><span>呃，根据我们的测试结果，这个误差只有 0.3 毫米。</span></div>
+<div class="raw-line" id="L7360"><a href="#L7360" tabindex="0" class="raw-line-number" aria-label="第 7360 行">7360</a><span></span></div>
+<div class="raw-line" id="L7361"><a href="#L7361" tabindex="0" class="raw-line-number" aria-label="第 7361 行">7361</a><span>So I think this is a kind of proof that with this, uh, planetary gearbox trans- transmission, we can actually achieve quite good, uh,</span></div>
+<div class="raw-line" id="L7362"><a href="#L7362" tabindex="0" class="raw-line-number" aria-label="第 7362 行">7362</a><span>所以我认为，这在一定程度上证明，采用这种行星齿轮传动装置，我们确实可以实现相当好的……</span></div>
+<div class="raw-line" id="L7363"><a href="#L7363" tabindex="0" class="raw-line-number" aria-label="第 7363 行">7363</a><span></span></div>
+<div class="raw-line" id="L7364"><a href="#L7364" tabindex="0" class="raw-line-number" aria-label="第 7364 行">7364</a><span>results from, uh, simulation to, uh, real robot.</span></div>
+<div class="raw-line" id="L7365"><a href="#L7365" tabindex="0" class="raw-line-number" aria-label="第 7365 行">7365</a><span>这是从仿真迁移到真实机器人上的结果。</span></div>
+<div class="raw-line" id="L7366"><a href="#L7366" tabindex="0" class="raw-line-number" aria-label="第 7366 行">7366</a><span></span></div>
+<div class="raw-line" id="L7367"><a href="#L7367" tabindex="0" class="raw-line-number" aria-label="第 7367 行">7367</a><span></span></div>
+<div class="raw-line" id="L7368"><a href="#L7368" tabindex="0" class="raw-line-number" aria-label="第 7368 行">7368</a><span>Yeah, the second part is sensing.</span></div>
+<div class="raw-line" id="L7369"><a href="#L7369" tabindex="0" class="raw-line-number" aria-label="第 7369 行">7369</a><span>对，第二部分是感知。</span></div>
+<div class="raw-line" id="L7370"><a href="#L7370" tabindex="0" class="raw-line-number" aria-label="第 7370 行">7370</a><span></span></div>
+<div class="raw-line" id="L7371"><a href="#L7371" tabindex="0" class="raw-line-number" aria-label="第 7371 行">7371</a><span>所以，呃……</span></div>
+<div class="raw-line" id="L7372"><a href="#L7372" tabindex="0" class="raw-line-number" aria-label="第 7372 行">7372</a><span></span></div>
+<div class="raw-line" id="L7373"><a href="#L7373" tabindex="0" class="raw-line-number" aria-label="第 7373 行">7373</a><span>I think, uh,</span></div>
+<div class="raw-line" id="L7374"><a href="#L7374" tabindex="0" class="raw-line-number" aria-label="第 7374 行">7374</a><span>我认为，呃……</span></div>
+<div class="raw-line" id="L7375"><a href="#L7375" tabindex="0" class="raw-line-number" aria-label="第 7375 行">7375</a><span></span></div>
+<div class="raw-line" id="L7376"><a href="#L7376" tabindex="0" class="raw-line-number" aria-label="第 7376 行">7376</a><span>the, the biggest, uh,</span></div>
+<div class="raw-line" id="L7377"><a href="#L7377" tabindex="0" class="raw-line-number" aria-label="第 7377 行">7377</a><span>最……最大的，呃……</span></div>
+<div class="raw-line" id="L7378"><a href="#L7378" tabindex="0" class="raw-line-number" aria-label="第 7378 行">7378</a><span></span></div>
+<div class="raw-line" id="L7379"><a href="#L7379" tabindex="0" class="raw-line-number" aria-label="第 7379 行">7379</a><span>influence on, on, uh, trans-, uh, transmission selection is the,</span></div>
+<div class="raw-line" id="L7380"><a href="#L7380" tabindex="0" class="raw-line-number" aria-label="第 7380 行">7380</a><span>对传动方案选择影响最大的是……</span></div>
+<div class="raw-line" id="L7381"><a href="#L7381" tabindex="0" class="raw-line-number" aria-label="第 7381 行">7381</a><span></span></div>
+<div class="raw-line" id="L7382"><a href="#L7382" tabindex="0" class="raw-line-number" aria-label="第 7382 行">7382</a><span>uh, current to torque transparency.</span></div>
+<div class="raw-line" id="L7383"><a href="#L7383" tabindex="0" class="raw-line-number" aria-label="第 7383 行">7383</a><span>电流到扭矩的映射关系是否清晰。</span></div>
+<div class="raw-line" id="L7384"><a href="#L7384" tabindex="0" class="raw-line-number" aria-label="第 7384 行">7384</a><span></span></div>
+<div class="raw-line" id="L7385"><a href="#L7385" tabindex="0" class="raw-line-number" aria-label="第 7385 行">7385</a><span>So, uh, I think in general, uh, most ro-, uh, robot applications are contact-rich, uh, manipulations and also we will need, uh, like for, for contact-rich, uh, manipulations, the arms and,</span></div>
+<div class="raw-line" id="L7386"><a href="#L7386" tabindex="0" class="raw-line-number" aria-label="第 7386 行">7386</a><span>所以我认为，总的来说，大多数机器人应用都涉及大量接触操作。要完成这类操作，机械臂和……</span></div>
+<div class="raw-line" id="L7387"><a href="#L7387" tabindex="0" class="raw-line-number" aria-label="第 7387 行">7387</a><span></span></div>
+<div class="raw-line" id="L7388"><a href="#L7388" tabindex="0" class="raw-line-number" aria-label="第 7388 行">7388</a><span>uh, end effectors, uh, will be central to the interaction with the physical world.</span></div>
+<div class="raw-line" id="L7389"><a href="#L7389" tabindex="0" class="raw-line-number" aria-label="第 7389 行">7389</a><span>呃，末端执行器将是机器人与物理世界交互的关键。</span></div>
+<div class="raw-line" id="L7390"><a href="#L7390" tabindex="0" class="raw-line-number" aria-label="第 7390 行">7390</a><span></span></div>
+<div class="raw-line" id="L7391"><a href="#L7391" tabindex="0" class="raw-line-number" aria-label="第 7391 行">7391</a><span>而且，呃……</span></div>
+<div class="raw-line" id="L7392"><a href="#L7392" tabindex="0" class="raw-line-number" aria-label="第 7392 行">7392</a><span></span></div>
+<div class="raw-line" id="L7393"><a href="#L7393" tabindex="0" class="raw-line-number" aria-label="第 7393 行">7393</a><span>uh, we also need,</span></div>
+<div class="raw-line" id="L7394"><a href="#L7394" tabindex="0" class="raw-line-number" aria-label="第 7394 行">7394</a><span>呃，我们还需要……</span></div>
+<div class="raw-line" id="L7395"><a href="#L7395" tabindex="0" class="raw-line-number" aria-label="第 7395 行">7395</a><span></span></div>
+<div class="raw-line" id="L7396"><a href="#L7396" tabindex="0" class="raw-line-number" aria-label="第 7396 行">7396</a><span>uh, kind of force feed-feedback to, uh, guide the, uh, uh, mo-, uh,</span></div>
+<div class="raw-line" id="L7397"><a href="#L7397" tabindex="0" class="raw-line-number" aria-label="第 7397 行">7397</a><span>通过力反馈来引导运动……</span></div>
+<div class="raw-line" id="L7398"><a href="#L7398" tabindex="0" class="raw-line-number" aria-label="第 7398 行">7398</a><span></span></div>
+<div class="raw-line" id="L7399"><a href="#L7399" tabindex="0" class="raw-line-number" aria-label="第 7399 行">7399</a><span>robot behaviors.</span></div>
+<div class="raw-line" id="L7400"><a href="#L7400" tabindex="0" class="raw-line-number" aria-label="第 7400 行">7400</a><span>机器人的行为。</span></div>
+<div class="raw-line" id="L7401"><a href="#L7401" tabindex="0" class="raw-line-number" aria-label="第 7401 行">7401</a><span></span></div>
+<div class="raw-line" id="L7402"><a href="#L7402" tabindex="0" class="raw-line-number" aria-label="第 7402 行">7402</a><span>So, uh, I think, uh, well, there are, there are ways, for example, to, uh, like adding, uh, joint torque sensors to, to the robot, but, uh, uh, the reason why we, we choose a different, uh, way, uh,</span></div>
+<div class="raw-line" id="L7403"><a href="#L7403" tabindex="0" class="raw-line-number" aria-label="第 7403 行">7403</a><span>我想，当然也有其他方法，比如给机器人加装关节扭矩传感器。但我们之所以选择另一种方式，是因为……</span></div>
+<div class="raw-line" id="L7404"><a href="#L7404" tabindex="0" class="raw-line-number" aria-label="第 7404 行">7404</a><span></span></div>
+<div class="raw-line" id="L7405"><a href="#L7405" tabindex="0" class="raw-line-number" aria-label="第 7405 行">7405</a><span>is will, will be, I mean,</span></div>
+<div class="raw-line" id="L7406"><a href="#L7406" tabindex="0" class="raw-line-number" aria-label="第 7406 行">7406</a><span>就是，这将会，我的意思是……</span></div>
+<div class="raw-line" id="L7407"><a href="#L7407" tabindex="0" class="raw-line-number" aria-label="第 7407 行">7407</a><span></span></div>
+<div class="raw-line" id="L7408"><a href="#L7408" tabindex="0" class="raw-line-number" aria-label="第 7408 行">7408</a><span>beyond the scope of this talk.</span></div>
+<div class="raw-line" id="L7409"><a href="#L7409" tabindex="0" class="raw-line-number" aria-label="第 7409 行">7409</a><span>这超出了本次报告的讨论范围。</span></div>
+<div class="raw-line" id="L7410"><a href="#L7410" tabindex="0" class="raw-line-number" aria-label="第 7410 行">7410</a><span></span></div>
+<div class="raw-line" id="L7411"><a href="#L7411" tabindex="0" class="raw-line-number" aria-label="第 7411 行">7411</a><span>So I will just focus on the, uh, uh,</span></div>
+<div class="raw-line" id="L7412"><a href="#L7412" tabindex="0" class="raw-line-number" aria-label="第 7412 行">7412</a><span>所以我就重点讲一下……</span></div>
+<div class="raw-line" id="L7413"><a href="#L7413" tabindex="0" class="raw-line-number" aria-label="第 7413 行">7413</a><span></span></div>
+<div class="raw-line" id="L7414"><a href="#L7414" tabindex="0" class="raw-line-number" aria-label="第 7414 行">7414</a><span>current to torque transparency.</span></div>
+<div class="raw-line" id="L7415"><a href="#L7415" tabindex="0" class="raw-line-number" aria-label="第 7415 行">7415</a><span>电流到扭矩的转换透明性。</span></div>
+<div class="raw-line" id="L7416"><a href="#L7416" tabindex="0" class="raw-line-number" aria-label="第 7416 行">7416</a><span></span></div>
+<div class="raw-line" id="L7417"><a href="#L7417" tabindex="0" class="raw-line-number" aria-label="第 7417 行">7417</a><span>So from the bottom, uh,</span></div>
+<div class="raw-line" id="L7418"><a href="#L7418" tabindex="0" class="raw-line-number" aria-label="第 7418 行">7418</a><span>那么，从底部开始……</span></div>
+<div class="raw-line" id="L7419"><a href="#L7419" tabindex="0" class="raw-line-number" aria-label="第 7419 行">7419</a><span></span></div>
+<div class="raw-line" id="L7420"><a href="#L7420" tabindex="0" class="raw-line-number" aria-label="第 7420 行">7420</a><span>uh, diagram, it&#39;s, it&#39;s quite clear that if we, if we want to get the external force estimation,</span></div>
+<div class="raw-line" id="L7421"><a href="#L7421" tabindex="0" class="raw-line-number" aria-label="第 7421 行">7421</a><span>从下面的示意图可以清楚地看到，如果我们想估算外力，</span></div>
+<div class="raw-line" id="L7422"><a href="#L7422" tabindex="0" class="raw-line-number" aria-label="第 7422 行">7422</a><span></span></div>
+<div class="raw-line" id="L7423"><a href="#L7423" tabindex="0" class="raw-line-number" aria-label="第 7423 行">7423</a><span>we need a, uh, we need both a, a, a very ac-ac-accurate actuator model to get the joint torque estimation first.</span></div>
+<div class="raw-line" id="L7424"><a href="#L7424" tabindex="0" class="raw-line-number" aria-label="第 7424 行">7424</a><span>我们首先需要一个非常精确的执行器模型，才能估算出关节扭矩。</span></div>
+<div class="raw-line" id="L7425"><a href="#L7425" tabindex="0" class="raw-line-number" aria-label="第 7425 行">7425</a><span></span></div>
+<div class="raw-line" id="L7426"><a href="#L7426" tabindex="0" class="raw-line-number" aria-label="第 7426 行">7426</a><span>So if we, uh, by having a very simple and easier to model, uh, uh, actuator, uh, transmission method, we can actually have a, a ac-, uh, accurate enough actuator model to give us a very joint,</span></div>
+<div class="raw-line" id="L7427"><a href="#L7427" tabindex="0" class="raw-line-number" aria-label="第 7427 行">7427</a><span>因此，如果采用结构简单、更容易建模的执行器传动方式，我们就能建立足够精确的执行器模型，从而获得非常准确的关节……</span></div>
+<div class="raw-line" id="L7428"><a href="#L7428" tabindex="0" class="raw-line-number" aria-label="第 7428 行">7428</a><span></span></div>
+<div class="raw-line" id="L7429"><a href="#L7429" tabindex="0" class="raw-line-number" aria-label="第 7429 行">7429</a><span>a very accurate joint torque estimation and thus to give us a very good, uh,</span></div>
+<div class="raw-line" id="L7430"><a href="#L7430" tabindex="0" class="raw-line-number" aria-label="第 7430 行">7430</a><span>非常精确的关节扭矩估计，进而让我们能够很好地……</span></div>
+<div class="raw-line" id="L7431"><a href="#L7431" tabindex="0" class="raw-line-number" aria-label="第 7431 行">7431</a><span></span></div>
+<div class="raw-line" id="L7432"><a href="#L7432" tabindex="0" class="raw-line-number" aria-label="第 7432 行">7432</a><span>external force estimation.</span></div>
+<div class="raw-line" id="L7433"><a href="#L7433" tabindex="0" class="raw-line-number" aria-label="第 7433 行">7433</a><span>外力估计。</span></div>
+<div class="raw-line" id="L7434"><a href="#L7434" tabindex="0" class="raw-line-number" aria-label="第 7434 行">7434</a><span></span></div>
+<div class="raw-line" id="L7435"><a href="#L7435" tabindex="0" class="raw-line-number" aria-label="第 7435 行">7435</a><span>Uh, yeah,</span></div>
+<div class="raw-line" id="L7436"><a href="#L7436" tabindex="0" class="raw-line-number" aria-label="第 7436 行">7436</a><span>嗯，对。</span></div>
+<div class="raw-line" id="L7437"><a href="#L7437" tabindex="0" class="raw-line-number" aria-label="第 7437 行">7437</a><span></span></div>
+<div class="raw-line" id="L7438"><a href="#L7438" tabindex="0" class="raw-line-number" aria-label="第 7438 行">7438</a><span>so, so to, to prove that, I think we did some, uh, simulations, uh, in-house.</span></div>
+<div class="raw-line" id="L7439"><a href="#L7439" tabindex="0" class="raw-line-number" aria-label="第 7439 行">7439</a><span>所以，为了验证这一点，我们在内部做了一些仿真。</span></div>
+<div class="raw-line" id="L7440"><a href="#L7440" tabindex="0" class="raw-line-number" aria-label="第 7440 行">7440</a><span></span></div>
+<div class="raw-line" id="L7441"><a href="#L7441" tabindex="0" class="raw-line-number" aria-label="第 7441 行">7441</a><span>Uh, so one, one, uh,</span></div>
+<div class="raw-line" id="L7442"><a href="#L7442" tabindex="0" class="raw-line-number" aria-label="第 7442 行">7442</a><span>呃，首先，……</span></div>
+<div class="raw-line" id="L7443"><a href="#L7443" tabindex="0" class="raw-line-number" aria-label="第 7443 行">7443</a><span></span></div>
+<div class="raw-line" id="L7444"><a href="#L7444" tabindex="0" class="raw-line-number" aria-label="第 7444 行">7444</a><span>one of the tests we did is actually to apply, uh, external force on both the, uh, the wrist and also the, the elbow, uh, for, uh, for our robot.</span></div>
+<div class="raw-line" id="L7445"><a href="#L7445" tabindex="0" class="raw-line-number" aria-label="第 7445 行">7445</a><span>我们做的一项测试，是在机器人的手腕和肘部同时施加外力。</span></div>
+<div class="raw-line" id="L7446"><a href="#L7446" tabindex="0" class="raw-line-number" aria-label="第 7446 行">7446</a><span></span></div>
+<div class="raw-line" id="L7447"><a href="#L7447" tabindex="0" class="raw-line-number" aria-label="第 7447 行">7447</a><span>And, uh, uh, like it&#39;s a 15 N, uh, force,</span></div>
+<div class="raw-line" id="L7448"><a href="#L7448" tabindex="0" class="raw-line-number" aria-label="第 7448 行">7448</a><span>施加的力大约是15牛顿。</span></div>
+<div class="raw-line" id="L7449"><a href="#L7449" tabindex="0" class="raw-line-number" aria-label="第 7449 行">7449</a><span></span></div>
+<div class="raw-line" id="L7450"><a href="#L7450" tabindex="0" class="raw-line-number" aria-label="第 7450 行">7450</a><span>uh, applied on the y-axis.</span></div>
+<div class="raw-line" id="L7451"><a href="#L7451" tabindex="0" class="raw-line-number" aria-label="第 7451 行">7451</a><span>沿Y轴方向施加。</span></div>
+<div class="raw-line" id="L7452"><a href="#L7452" tabindex="0" class="raw-line-number" aria-label="第 7452 行">7452</a><span></span></div>
+<div class="raw-line" id="L7453"><a href="#L7453" tabindex="0" class="raw-line-number" aria-label="第 7453 行">7453</a><span>Uh, so at from, from plot, you could see that for the, uh, mean absolute arrow for the, uh,</span></div>
+<div class="raw-line" id="L7454"><a href="#L7454" tabindex="0" class="raw-line-number" aria-label="第 7454 行">7454</a><span>从图中可以看到，……的平均绝对误差……</span></div>
+<div class="raw-line" id="L7455"><a href="#L7455" tabindex="0" class="raw-line-number" aria-label="第 7455 行">7455</a><span></span></div>
+<div class="raw-line" id="L7456"><a href="#L7456" tabindex="0" class="raw-line-number" aria-label="第 7456 行">7456</a><span>uh, for the wrist is around 1.39 N and for the elbow is about 0.8 N.</span></div>
+<div class="raw-line" id="L7457"><a href="#L7457" tabindex="0" class="raw-line-number" aria-label="第 7457 行">7457</a><span>手腕处的平均绝对误差约为1.39牛顿，肘部约为0.8牛顿。</span></div>
+<div class="raw-line" id="L7458"><a href="#L7458" tabindex="0" class="raw-line-number" aria-label="第 7458 行">7458</a><span></span></div>
+<div class="raw-line" id="L7459"><a href="#L7459" tabindex="0" class="raw-line-number" aria-label="第 7459 行">7459</a><span>Um, yeah, so,</span></div>
+<div class="raw-line" id="L7460"><a href="#L7460" tabindex="0" class="raw-line-number" aria-label="第 7460 行">7460</a><span>嗯，对，所以……</span></div>
+<div class="raw-line" id="L7461"><a href="#L7461" tabindex="0" class="raw-line-number" aria-label="第 7461 行">7461</a><span></span></div>
+<div class="raw-line" id="L7462"><a href="#L7462" tabindex="0" class="raw-line-number" aria-label="第 7462 行">7462</a><span>uh, this is only the sim-, uh, just for context, this is only the simulation results, but, uh, we have some, uh, very la-latest literature baseline, which is about 1.05, uh,</span></div>
+<div class="raw-line" id="L7463"><a href="#L7463" tabindex="0" class="raw-line-number" aria-label="第 7463 行">7463</a><span>补充说明一下，这些只是仿真结果。不过，最新文献中的基线结果大约是1.05……</span></div>
+<div class="raw-line" id="L7464"><a href="#L7464" tabindex="0" class="raw-line-number" aria-label="第 7464 行">7464</a><span></span></div>
+<div class="raw-line" id="L7465"><a href="#L7465" tabindex="0" class="raw-line-number" aria-label="第 7465 行">7465</a><span>N from, uh, arc&#39;s arm, which is, uh, 6th of arc, uh, robotic arm.</span></div>
+<div class="raw-line" id="L7466"><a href="#L7466" tabindex="0" class="raw-line-number" aria-label="第 7466 行">7466</a><span>牛顿，这一结果来自一款六自由度机械臂。</span></div>
+<div class="raw-line" id="L7467"><a href="#L7467" tabindex="0" class="raw-line-number" aria-label="第 7467 行">7467</a><span></span></div>
+<div class="raw-line" id="L7468"><a href="#L7468" tabindex="0" class="raw-line-number" aria-label="第 7468 行">7468</a><span>That also use, uh,</span></div>
+<div class="raw-line" id="L7469"><a href="#L7469" tabindex="0" class="raw-line-number" aria-label="第 7469 行">7469</a><span>那项研究也采用了……</span></div>
+<div class="raw-line" id="L7470"><a href="#L7470" tabindex="0" class="raw-line-number" aria-label="第 7470 行">7470</a><span></span></div>
+<div class="raw-line" id="L7471"><a href="#L7471" tabindex="0" class="raw-line-number" aria-label="第 7471 行">7471</a><span>uh, planetary solutions.</span></div>
+<div class="raw-line" id="L7472"><a href="#L7472" tabindex="0" class="raw-line-number" aria-label="第 7472 行">7472</a><span>行星传动方案。</span></div>
+<div class="raw-line" id="L7473"><a href="#L7473" tabindex="0" class="raw-line-number" aria-label="第 7473 行">7473</a><span></span></div>
+<div class="raw-line" id="L7474"><a href="#L7474" tabindex="0" class="raw-line-number" aria-label="第 7474 行">7474</a><span>So yeah,</span></div>
+<div class="raw-line" id="L7475"><a href="#L7475" tabindex="0" class="raw-line-number" aria-label="第 7475 行">7475</a><span>对，所以……</span></div>
+<div class="raw-line" id="L7476"><a href="#L7476" tabindex="0" class="raw-line-number" aria-label="第 7476 行">7476</a><span></span></div>
+<div class="raw-line" id="L7477"><a href="#L7477" tabindex="0" class="raw-line-number" aria-label="第 7477 行">7477</a><span>uh, and I think to conclude, uh, uh, the, the, the way we solve, uh, uh, hardware for fast evolving, uh, uh,</span></div>
+<div class="raw-line" id="L7478"><a href="#L7478" tabindex="0" class="raw-line-number" aria-label="第 7478 行">7478</a><span>最后，我想总结一下，我们是如何解决硬件难以跟上快速发展步伐的问题的……</span></div>
+<div class="raw-line" id="L7479"><a href="#L7479" tabindex="0" class="raw-line-number" aria-label="第 7479 行">7479</a><span></span></div>
+<div class="raw-line" id="L7480"><a href="#L7480" tabindex="0" class="raw-line-number" aria-label="第 7480 行">7480</a><span>models is to have predictable hardware for evolving, uh, intelligence and, uh, by that we mean for, uh, we want the, uh, the hardware have the, to have motion that the model can,</span></div>
+<div class="raw-line" id="L7481"><a href="#L7481" tabindex="0" class="raw-line-number" aria-label="第 7481 行">7481</a><span>模型不断发展，我们的解决办法是让硬件的运动表现可预测，以适应持续进化的智能。也就是说，我们希望硬件的运动能够让模型……</span></div>
+<div class="raw-line" id="L7482"><a href="#L7482" tabindex="0" class="raw-line-number" aria-label="第 7482 行">7482</a><span></span></div>
+<div class="raw-line" id="L7483"><a href="#L7483" tabindex="0" class="raw-line-number" aria-label="第 7483 行">7483</a><span>can predict and also we want, uh, uh, hardware platform to provide reliable feedbacks that the models can trust.</span></div>
+<div class="raw-line" id="L7484"><a href="#L7484" tabindex="0" class="raw-line-number" aria-label="第 7484 行">7484</a><span>准确预测；同时，我们也希望硬件平台能提供模型可以信赖的可靠反馈。</span></div>
+<div class="raw-line" id="L7485"><a href="#L7485" tabindex="0" class="raw-line-number" aria-label="第 7485 行">7485</a><span></span></div>
+<div class="raw-line" id="L7486"><a href="#L7486" tabindex="0" class="raw-line-number" aria-label="第 7486 行">7486</a><span>So in short, we want to design the hardware to narrow the symmetrical gap so that the hardware can actually last long enough for, uh,</span></div>
+<div class="raw-line" id="L7487"><a href="#L7487" tabindex="0" class="raw-line-number" aria-label="第 7487 行">7487</a><span>简而言之，我们希望通过硬件设计缩小仿真与现实之间的差距，让硬件能够真正用得足够久，以便……</span></div>
+<div class="raw-line" id="L7488"><a href="#L7488" tabindex="0" class="raw-line-number" aria-label="第 7488 行">7488</a><span></span></div>
+<div class="raw-line" id="L7489"><a href="#L7489" tabindex="0" class="raw-line-number" aria-label="第 7489 行">7489</a><span>fast evolving, uh, models.</span></div>
+<div class="raw-line" id="L7490"><a href="#L7490" tabindex="0" class="raw-line-number" aria-label="第 7490 行">7490</a><span>快速迭代的模型。</span></div>
+<div class="raw-line" id="L7491"><a href="#L7491" tabindex="0" class="raw-line-number" aria-label="第 7491 行">7491</a><span></span></div>
+<div class="raw-line" id="L7492"><a href="#L7492" tabindex="0" class="raw-line-number" aria-label="第 7492 行">7492</a><span>Um, so last page is basically we, we are actually, uh, mass produce our current generation of robots and, uh, also exploring the next generation.</span></div>
+<div class="raw-line" id="L7493"><a href="#L7493" tabindex="0" class="raw-line-number" aria-label="第 7493 行">7493</a><span>最后一页主要是说，我们正在量产这一代机器人，同时也在探索下一代产品。</span></div>
+<div class="raw-line" id="L7494"><a href="#L7494" tabindex="0" class="raw-line-number" aria-label="第 7494 行">7494</a><span></span></div>
+<div class="raw-line" id="L7495"><a href="#L7495" tabindex="0" class="raw-line-number" aria-label="第 7495 行">7495</a><span>So, uh, we have a lot of jobs, uh, positions open, both in, in China and in the US.</span></div>
+<div class="raw-line" id="L7496"><a href="#L7496" tabindex="0" class="raw-line-number" aria-label="第 7496 行">7496</a><span>所以，我们在中国和美国都有很多职位空缺。</span></div>
+<div class="raw-line" id="L7497"><a href="#L7497" tabindex="0" class="raw-line-number" aria-label="第 7497 行">7497</a><span></span></div>
+<div class="raw-line" id="L7498"><a href="#L7498" tabindex="0" class="raw-line-number" aria-label="第 7498 行">7498</a><span>So feel free to take a look and, uh, get us a, uh, email if you&#39;re interested. Yeah, that&#39;s all. Thank you.</span></div>
+<div class="raw-line" id="L7499"><a href="#L7499" tabindex="0" class="raw-line-number" aria-label="第 7499 行">7499</a><span>欢迎了解一下。如果感兴趣，随时给我们发邮件。我的分享就到这里，谢谢大家。</span></div>
+<div class="raw-line" id="L7500"><a href="#L7500" tabindex="0" class="raw-line-number" aria-label="第 7500 行">7500</a><span></span></div></div><nav class="materials-links raw-pagination" aria-label="原文分段">
+          <a href="../part-14/" tabindex="0" rel="prev">上一段</a>
+          <span aria-current="page">第 15 / 19 段 · L7001–L7500</span>
+          <a href="../part-16/" tabindex="0" rel="next">下一段</a>
+          <a href="../all/" tabindex="0">查看全文</a>
+        </nav></div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>页面信息来自各活动公开资料，可能随时变更；出发前请以主办方官方公告为准。</p>
+  </div>
+</footer>
+<script src="../../../../assets/site.4c7b854f.js" defer></script>
+</body>
+</html>

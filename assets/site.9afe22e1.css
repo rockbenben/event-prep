@@ -17,7 +17,17 @@
 .material-page .content h4 { scroll-margin-top: 90px; }
 .toc .toc-depth-4 { padding-inline-start: 20px; }
 .raw-dates li { margin-block: 16px; }
+.raw-pagination { align-items: center; }
+.raw-pagination > span { font-size: 14px; color: var(--fg-muted); }
+.raw-sections { margin-block: 16px; }
+.raw-sections > summary { cursor: pointer; min-height: 44px; padding-block: 10px; }
+.raw-sections [aria-current="page"] { outline: 2px solid var(--accent); outline-offset: -2px; }
 .raw-transcript { margin-block: 24px; font-size: 15px; line-height: 1.7; }
+/* 首块正常排版；后续每块 100 行，锚点与键盘焦点所在块始终展开排版。 */
+.raw-chunk:not(:first-child):not(:has(:target)):not(:focus-within) {
+  content-visibility: auto;
+  contain-intrinsic-size: auto none auto 170em;
+}
 .raw-line { display: grid; grid-template-columns: 5ch minmax(0, 1fr); gap: 12px; min-height: 1.7em; scroll-margin-top: 90px; }
 .raw-line > span { white-space: pre-wrap; overflow-wrap: anywhere; min-width: 0; }
 .raw-line-number { color: var(--fg-muted); text-align: end; font-variant-numeric: tabular-nums; }
@@ -25,8 +35,12 @@
 @media print {
   .material-page .materials-links, .material-crumbs { display: none; }
   .raw-line { break-inside: avoid; }
+  .raw-chunk { content-visibility: visible !important; contain-intrinsic-size: none !important; }
+  .raw-sections { display: none; }
 }
 html.print-mode .material-page .materials-links, html.print-mode .material-crumbs { display: none; }
+html.print-mode .raw-chunk { content-visibility: visible !important; contain-intrinsic-size: none !important; }
+html.print-mode .raw-sections { display: none; }
 
 :root {
   color-scheme: light dark;

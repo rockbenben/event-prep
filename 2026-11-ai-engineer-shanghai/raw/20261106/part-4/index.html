@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2026-11-06 原始记录 · AI Engineer Shanghai 2026 · EventPrep</title>
+<meta name="description" content="AI Engineer Shanghai 2026 的2026-11-06 原始记录">
+<meta name="color-scheme" content="light dark">
+<!-- 地址栏/标签栏颜色跟着深浅色走，值就是 site.css 里的 --bg。
+     以前这里写死一个 #1f6feb —— 那个色号在 CSS 里根本不存在（--accent 是 #2563eb），
+     深色模式下也是蓝色地址栏配深色页面。两段 meta 各自带 media，浏览器自己选。 -->
+<meta name="theme-color" content="#f8fafc" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0b0f17" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://event.newzone.top/2026-11-ai-engineer-shanghai/raw/20261106/part-4/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="2026-11-06 原始记录 · AI Engineer Shanghai 2026 · EventPrep">
+<meta property="og:description" content="AI Engineer Shanghai 2026 的2026-11-06 原始记录">
+<meta property="og:url" content="https://event.newzone.top/2026-11-ai-engineer-shanghai/raw/20261106/part-4/">
+
+<script>(function(){try{var t=localStorage.getItem('eventprep:theme');if(t==='light'||t==='dark'){document.documentElement.setAttribute('data-theme',t);}}catch(e){}})();</script>
+<link rel="icon" type="image/svg+xml" href="../../../../assets/favicon.svg">
+<link rel="stylesheet" href="../../../../assets/site.9afe22e1.css">
+
+</head>
+<body>
+<!-- 打印版工具条：平时 display:none，进入打印模式（<html class="print-mode">）才出现。
+     打印到纸上时这条工具条自身要藏掉（见 site.css 的 @media print）——它是屏幕上的控件。 -->
+<div class="print-bar" id="print-bar" role="toolbar" aria-label="打印版工具条">
+  <span class="print-bar-title">EventPrep · 打印版 · 全部内容已展开</span>
+  <div class="print-bar-actions">
+    <button type="button" id="print-do" class="ghost-btn">打印 / 存 PDF</button>
+    <button type="button" id="print-exit" class="ghost-btn">退出打印版</button>
+  </div>
+</div>
+<a class="skip-link" href="#main" tabindex="0">跳到正文</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="site-name" href="../../../../index.html" tabindex="0">
+      <svg class="site-logo" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+        <rect x="3" y="3.5" width="18" height="18" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.8"/>
+        <rect x="9.5" y="5.5" width="5" height="1.8" rx="0.9" fill="currentColor" fill-opacity="0.4"/>
+        <path d="M6.5 11h5M6.5 14.5h3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        <circle cx="16" cy="15" r="4.2" fill="#16a34a"/>
+        <path d="M14.2 15l1.3 1.3 2.5-2.5" stroke="#ffffff" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span>EventPrep</span>
+    </a>
+    <div class="header-actions">
+      
+      
+      <a class="ghost-btn" href="https://github.com/rockbenben/event-prep" target="_blank" rel="noopener noreferrer" aria-label="GitHub 仓库" title="GitHub 仓库">
+        <svg class="theme-icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+          <path d="M12 .8a11.2 11.2 0 0 0-3.54 21.83c.56.1.77-.24.77-.54v-2.1c-3.12.68-3.78-1.33-3.78-1.33-.51-1.3-1.25-1.65-1.25-1.65-1.02-.7.08-.68.08-.68 1.13.08 1.72 1.16 1.72 1.16 1 1.72 2.63 1.22 3.27.95.1-.74.39-1.22.71-1.5-2.5-.28-5.12-1.25-5.12-5.56 0-1.23.44-2.23 1.16-3.02-.12-.28-.5-1.43.11-2.98 0 0 .95-.3 3.1 1.15a10.8 10.8 0 0 1 5.64 0c2.15-1.45 3.1-1.15 3.1-1.15.61 1.55.23 2.7.11 2.98.72.79 1.16 1.79 1.16 3.02 0 4.32-2.63 5.27-5.14 5.55.4.35.76 1.03.76 2.08v3.08c0 .3.2.65.78.54A11.2 11.2 0 0 0 12 .8Z"></path>
+        </svg>
+      </a>
+      <button type="button" id="theme-toggle" class="ghost-btn" aria-label="切换深浅色" title="切换深浅色">
+        <svg class="theme-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true" focusable="false">
+          <circle cx="12" cy="12" r="8.5" />
+          <path d="M12 3.5a8.5 8.5 0 0 0 0 17z" fill="currentColor" stroke="none" />
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+<dialog class="avatar-viewer" id="avatar-viewer" aria-label="放大照片">
+  <img id="avatar-viewer-img" src="" alt="">
+</dialog>
+<main id="main">
+<div class="wrap event material-page"><nav class="material-crumbs" aria-label="面包屑"><ol>
+      <li><a href="../../../../" tabindex="0">全部活动</a></li><li><a href="../../../" tabindex="0">AI Engineer Shanghai 2026</a></li>
+      <li><a href="../../" tabindex="0">原始记录</a></li>
+      <li><a href="./" tabindex="0" aria-current="page">2026-11-06 原始记录</a></li></ol></nav><header class="event-head"><h1 class="event-title">2026-11-06 原始记录</h1>
+        <p class="event-summary">AI Engineer Shanghai 2026</p></header><p class="notice">自动转写可能有误。以下内容保留双语原文，行号以原文件为准；下载文件保留原始字节。当前仅加载本段；搜索全部记录或打印全文请先选择「查看全文」。</p>
+          <nav class="materials-links" aria-label="资料操作"><a href="../../" tabindex="0">全部日期</a><a href="../../../summary/" tabindex="0">会后总结</a><a href="../../../20261106-raw.md" tabindex="0" download>下载原始 Markdown</a></nav>
+          <nav class="materials-links raw-pagination" aria-label="原文分段">
+          <a href="../part-3/" tabindex="0" rel="prev">上一段</a>
+          <span aria-current="page">第 4 / 19 段 · L1501–L2000</span>
+          <a href="../part-5/" tabindex="0" rel="next">下一段</a>
+          <a href="../all/" tabindex="0">查看全文</a>
+        </nav><details class="raw-sections"><summary>选择行号范围</summary><nav class="materials-links" aria-label="选择原文段落"><a href="../" tabindex="0">L1–L500</a><a href="../part-2/" tabindex="0">L501–L1000</a><a href="../part-3/" tabindex="0">L1001–L1500</a><a href="../part-4/" tabindex="0" aria-current="page">L1501–L2000</a><a href="../part-5/" tabindex="0">L2001–L2500</a><a href="../part-6/" tabindex="0">L2501–L3000</a><a href="../part-7/" tabindex="0">L3001–L3500</a><a href="../part-8/" tabindex="0">L3501–L4000</a><a href="../part-9/" tabindex="0">L4001–L4500</a><a href="../part-10/" tabindex="0">L4501–L5000</a><a href="../part-11/" tabindex="0">L5001–L5500</a><a href="../part-12/" tabindex="0">L5501–L6000</a><a href="../part-13/" tabindex="0">L6001–L6500</a><a href="../part-14/" tabindex="0">L6501–L7000</a><a href="../part-15/" tabindex="0">L7001–L7500</a><a href="../part-16/" tabindex="0">L7501–L8000</a><a href="../part-17/" tabindex="0">L8001–L8500</a><a href="../part-18/" tabindex="0">L8501–L9000</a><a href="../part-19/" tabindex="0">L9001–L9432</a></nav></details><details class="raw-sections"><summary>相关总结 · 1 节</summary><nav class="materials-links" aria-label="相关总结"><a href="../../../summary/#session-37" tabindex="0">37. 朱世辉 · 海普智联（HICAP）董事长｜制造业的 AI 转型</a></nav></details>
+          <div class="raw-transcript" data-raw-total="9432"><div class="raw-line" id="L1501"><a href="#L1501" tabindex="0" class="raw-line-number" aria-label="第 1501 行">1501</a><span></span></div>
+<div class="raw-line" id="L1502"><a href="#L1502" tabindex="0" class="raw-line-number" aria-label="第 1502 行">1502</a><span>decoder在编码区域最清晰的地方，是最厉害的。</span></div>
+<div class="raw-line" id="L1503"><a href="#L1503" tabindex="0" class="raw-line-number" aria-label="第 1503 行">1503</a><span></span></div>
+<div class="raw-line" id="L1504"><a href="#L1504" tabindex="0" class="raw-line-number" aria-label="第 1504 行">1504</a><span>啊，啊，这是我刚才讲的，就是我们有，有解码，就是所有的，所有你学的算法，所有你学的科技，你所有你学的工程，都是一种解码。而我们的AGI是人类历史上最厉害的解码器。</span></div>
+<div class="raw-line" id="L1505"><a href="#L1505" tabindex="0" class="raw-line-number" aria-label="第 1505 行">1505</a><span></span></div>
+<div class="raw-line" id="L1506"><a href="#L1506" tabindex="0" class="raw-line-number" aria-label="第 1506 行">1506</a><span>好，那说到这儿，我们就想，我们要找哪个领域，我们去做垂直性AI还有用。</span></div>
+<div class="raw-line" id="L1507"><a href="#L1507" tabindex="0" class="raw-line-number" aria-label="第 1507 行">1507</a><span></span></div>
+<div class="raw-line" id="L1508"><a href="#L1508" tabindex="0" class="raw-line-number" aria-label="第 1508 行">1508</a><span>呃，我想给大家讲，嗯，一个很小段的一段书啊，这段书是基辛格在去世之前，他跟那个谷歌，</span></div>
+<div class="raw-line" id="L1509"><a href="#L1509" tabindex="0" class="raw-line-number" aria-label="第 1509 行">1509</a><span></span></div>
+<div class="raw-line" id="L1510"><a href="#L1510" tabindex="0" class="raw-line-number" aria-label="第 1510 行">1510</a><span>谷歌的Eric Schmidt写了一本书，叫《Genesis》。</span></div>
+<div class="raw-line" id="L1511"><a href="#L1511" tabindex="0" class="raw-line-number" aria-label="第 1511 行">1511</a><span></span></div>
+<div class="raw-line" id="L1512"><a href="#L1512" tabindex="0" class="raw-line-number" aria-label="第 1512 行">1512</a><span>然后其中他描写了一个，一段，就是他怎么看这个人类的学科。</span></div>
+<div class="raw-line" id="L1513"><a href="#L1513" tabindex="0" class="raw-line-number" aria-label="第 1513 行">1513</a><span></span></div>
+<div class="raw-line" id="L1514"><a href="#L1514" tabindex="0" class="raw-line-number" aria-label="第 1514 行">1514</a><span>他说如果你想象把地球的海水全部抽干，那地球是什么样子？</span></div>
+<div class="raw-line" id="L1515"><a href="#L1515" tabindex="0" class="raw-line-number" aria-label="第 1515 行">1515</a><span></span></div>
+<div class="raw-line" id="L1516"><a href="#L1516" tabindex="0" class="raw-line-number" aria-label="第 1516 行">1516</a><span>然后你会想象它是一个连续的地壳，对吧？</span></div>
+<div class="raw-line" id="L1517"><a href="#L1517" tabindex="0" class="raw-line-number" aria-label="第 1517 行">1517</a><span></span></div>
+<div class="raw-line" id="L1518"><a href="#L1518" tabindex="0" class="raw-line-number" aria-label="第 1518 行">1518</a><span>不是说海水底下是空的，是一个连续的地壳。</span></div>
+<div class="raw-line" id="L1519"><a href="#L1519" tabindex="0" class="raw-line-number" aria-label="第 1519 行">1519</a><span></span></div>
+<div class="raw-line" id="L1520"><a href="#L1520" tabindex="0" class="raw-line-number" aria-label="第 1520 行">1520</a><span>他说这就是人类的学科的样子。</span></div>
+<div class="raw-line" id="L1521"><a href="#L1521" tabindex="0" class="raw-line-number" aria-label="第 1521 行">1521</a><span></span></div>
+<div class="raw-line" id="L1522"><a href="#L1522" tabindex="0" class="raw-line-number" aria-label="第 1522 行">1522</a><span>就是我们知道的东西都是大陆，我们不知道的东西是被海水盖着的，但是并不是说，呃，这个就是大陆就是原本是有这个清晰的学科的边界。</span></div>
+<div class="raw-line" id="L1523"><a href="#L1523" tabindex="0" class="raw-line-number" aria-label="第 1523 行">1523</a><span></span></div>
+<div class="raw-line" id="L1524"><a href="#L1524" tabindex="0" class="raw-line-number" aria-label="第 1524 行">1524</a><span>就像是我们，凭什么我们研究黑猩猩的心理，它就是动物行为学，我们研究人的心理，它就是psychology。</span></div>
+<div class="raw-line" id="L1525"><a href="#L1525" tabindex="0" class="raw-line-number" aria-label="第 1525 行">1525</a><span></span></div>
+<div class="raw-line" id="L1526"><a href="#L1526" tabindex="0" class="raw-line-number" aria-label="第 1526 行">1526</a><span>它没有这种，没有这种明确的界限，很有可能黑猩猩的某些心理跟人类的某些心理是很像的，只不过我们无知的那部分被海水给淹没了。</span></div>
+<div class="raw-line" id="L1527"><a href="#L1527" tabindex="0" class="raw-line-number" aria-label="第 1527 行">1527</a><span></span></div>
+<div class="raw-line" id="L1528"><a href="#L1528" tabindex="0" class="raw-line-number" aria-label="第 1528 行">1528</a><span>而我们研究的frontier就像海岸线一样，每天在我们知道一点，然后往前一点，一点一点推进，对吧？</span></div>
+<div class="raw-line" id="L1529"><a href="#L1529" tabindex="0" class="raw-line-number" aria-label="第 1529 行">1529</a><span></span></div>
+<div class="raw-line" id="L1530"><a href="#L1530" tabindex="0" class="raw-line-number" aria-label="第 1530 行">1530</a><span>所以说这个，因此我们发现就是，为什么AI攻克数学和编程是最快的呢？</span></div>
+<div class="raw-line" id="L1531"><a href="#L1531" tabindex="0" class="raw-line-number" aria-label="第 1531 行">1531</a><span></span></div>
+<div class="raw-line" id="L1532"><a href="#L1532" tabindex="0" class="raw-line-number" aria-label="第 1532 行">1532</a><span>因为这些都是编码非常清晰的领域。</span></div>
+<div class="raw-line" id="L1533"><a href="#L1533" tabindex="0" class="raw-line-number" aria-label="第 1533 行">1533</a><span></span></div>
+<div class="raw-line" id="L1534"><a href="#L1534" tabindex="0" class="raw-line-number" aria-label="第 1534 行">1534</a><span>最近有很多新闻，就是很多数学家说，哇，这个什么OpenAI解我们的数学定理解得太快了，我们真的受不了了，对吧？</span></div>
+<div class="raw-line" id="L1535"><a href="#L1535" tabindex="0" class="raw-line-number" aria-label="第 1535 行">1535</a><span></span></div>
+<div class="raw-line" id="L1536"><a href="#L1536" tabindex="0" class="raw-line-number" aria-label="第 1536 行">1536</a><span>就是因为数学、编程这些都是我们人类编码巨清晰，巨清晰的领域，它没有任何的模糊性，没有任何的ambiguity。</span></div>
+<div class="raw-line" id="L1537"><a href="#L1537" tabindex="0" class="raw-line-number" aria-label="第 1537 行">1537</a><span></span></div>
+<div class="raw-line" id="L1538"><a href="#L1538" tabindex="0" class="raw-line-number" aria-label="第 1538 行">1538</a><span>所以在编码的这个显性大陆，啊，做应用，它一定是又卷又贵的，而且一定会被这个AGI所吞没，因为它编码越清晰，它往前去推它的frontier就越容易。</span></div>
+<div class="raw-line" id="L1539"><a href="#L1539" tabindex="0" class="raw-line-number" aria-label="第 1539 行">1539</a><span></span></div>
+<div class="raw-line" id="L1540"><a href="#L1540" tabindex="0" class="raw-line-number" aria-label="第 1540 行">1540</a><span>所以我们认为，其实如果你做垂直领域的AI，它很难被AGI这些大公司吞没。</span></div>
+<div class="raw-line" id="L1541"><a href="#L1541" tabindex="0" class="raw-line-number" aria-label="第 1541 行">1541</a><span></span></div>
+<div class="raw-line" id="L1542"><a href="#L1542" tabindex="0" class="raw-line-number" aria-label="第 1542 行">1542</a><span>最重要的，它是在一个群岛的领域。</span></div>
+<div class="raw-line" id="L1543"><a href="#L1543" tabindex="0" class="raw-line-number" aria-label="第 1543 行">1543</a><span></span></div>
+<div class="raw-line" id="L1544"><a href="#L1544" tabindex="0" class="raw-line-number" aria-label="第 1544 行">1544</a><span>什么叫群岛，群岛领域呢？</span></div>
+<div class="raw-line" id="L1545"><a href="#L1545" tabindex="0" class="raw-line-number" aria-label="第 1545 行">1545</a><span></span></div>
+<div class="raw-line" id="L1546"><a href="#L1546" tabindex="0" class="raw-line-number" aria-label="第 1546 行">1546</a><span>就是说它有一部分陆地，有一部分的编码你是清楚的，而且呢，它四周都是大海，有很多的隐性知识，它没有被数据化。</span></div>
+<div class="raw-line" id="L1547"><a href="#L1547" tabindex="0" class="raw-line-number" aria-label="第 1547 行">1547</a><span></span></div>
+<div class="raw-line" id="L1548"><a href="#L1548" tabindex="0" class="raw-line-number" aria-label="第 1548 行">1548</a><span>然后呢，你这个就是你能自己填海，你知道这些隐性知识，这个隐性知识还在你的范围之内，或者这个有隐性知识的这个产业链你比较熟悉。</span></div>
+<div class="raw-line" id="L1549"><a href="#L1549" tabindex="0" class="raw-line-number" aria-label="第 1549 行">1549</a><span></span></div>
+<div class="raw-line" id="L1550"><a href="#L1550" tabindex="0" class="raw-line-number" aria-label="第 1550 行">1550</a><span>然后呢，你可以选择你的岛，你的编码有门槛，对吧？</span></div>
+<div class="raw-line" id="L1551"><a href="#L1551" tabindex="0" class="raw-line-number" aria-label="第 1551 行">1551</a><span></span></div>
+<div class="raw-line" id="L1552"><a href="#L1552" tabindex="0" class="raw-line-number" aria-label="第 1552 行">1552</a><span>然后呢，你自己知道，而且这个市场你熟悉。</span></div>
+<div class="raw-line" id="L1553"><a href="#L1553" tabindex="0" class="raw-line-number" aria-label="第 1553 行">1553</a><span></span></div>
+<div class="raw-line" id="L1554"><a href="#L1554" tabindex="0" class="raw-line-number" aria-label="第 1554 行">1554</a><span>最重要的是，这个行业它能够盈利。</span></div>
+<div class="raw-line" id="L1555"><a href="#L1555" tabindex="0" class="raw-line-number" aria-label="第 1555 行">1555</a><span></span></div>
+<div class="raw-line" id="L1556"><a href="#L1556" tabindex="0" class="raw-line-number" aria-label="第 1556 行">1556</a><span>那所以说我们认为，就是编码就是填海，就是我，我这个行业，我把它数字化，化了就是我在填海。那填海之后，这个东西就是我的壁垒。</span></div>
+<div class="raw-line" id="L1557"><a href="#L1557" tabindex="0" class="raw-line-number" aria-label="第 1557 行">1557</a><span></span></div>
+<div class="raw-line" id="L1558"><a href="#L1558" tabindex="0" class="raw-line-number" aria-label="第 1558 行">1558</a><span>所以我们选择编码这个美妆行业，为什么编码美妆护肤品行业？</span></div>
+<div class="raw-line" id="L1559"><a href="#L1559" tabindex="0" class="raw-line-number" aria-label="第 1559 行">1559</a><span></span></div>
+<div class="raw-line" id="L1560"><a href="#L1560" tabindex="0" class="raw-line-number" aria-label="第 1560 行">1560</a><span>因为光在中国市场，它现在已经是万亿市值的这个一个行业，而且美妆护肤品这个行业是过去人类100年以来最盈利的行业，没有之一。</span></div>
+<div class="raw-line" id="L1561"><a href="#L1561" tabindex="0" class="raw-line-number" aria-label="第 1561 行">1561</a><span></span></div>
+<div class="raw-line" id="L1562"><a href="#L1562" tabindex="0" class="raw-line-number" aria-label="第 1562 行">1562</a><span>啊，</span></div>
+<div class="raw-line" id="L1563"><a href="#L1563" tabindex="0" class="raw-line-number" aria-label="第 1563 行">1563</a><span></span></div>
+<div class="raw-line" id="L1564"><a href="#L1564" tabindex="0" class="raw-line-number" aria-label="第 1564 行">1564</a><span>与之相匹配的只有烟草行业，但是烟草是专卖。</span></div>
+<div class="raw-line" id="L1565"><a href="#L1565" tabindex="0" class="raw-line-number" aria-label="第 1565 行">1565</a><span></span></div>
+<div class="raw-line" id="L1566"><a href="#L1566" tabindex="0" class="raw-line-number" aria-label="第 1566 行">1566</a><span>美妆是所有非专卖领域里人类投资回报率最高的行业，就没有之一。</span></div>
+<div class="raw-line" id="L1567"><a href="#L1567" tabindex="0" class="raw-line-number" aria-label="第 1567 行">1567</a><span></span></div>
+<div class="raw-line" id="L1568"><a href="#L1568" tabindex="0" class="raw-line-number" aria-label="第 1568 行">1568</a><span>如果你把过去100年的数据去看的话，而且它的软性经验非常多，就是什么包装女生喜欢，什么样的这个精华液，我肤感好，</span></div>
+<div class="raw-line" id="L1569"><a href="#L1569" tabindex="0" class="raw-line-number" aria-label="第 1569 行">1569</a><span></span></div>
+<div class="raw-line" id="L1570"><a href="#L1570" tabindex="0" class="raw-line-number" aria-label="第 1570 行">1570</a><span>这种软性经验特别多，它没有，它们，它不是这个数字化的硬性经验。</span></div>
+<div class="raw-line" id="L1571"><a href="#L1571" tabindex="0" class="raw-line-number" aria-label="第 1571 行">1571</a><span></span></div>
+<div class="raw-line" id="L1572"><a href="#L1572" tabindex="0" class="raw-line-number" aria-label="第 1572 行">1572</a><span>而且交易成本特别高，因为我是美妆行业的品牌的老板，我知道交易成本有多高，就是我们一般来说，</span></div>
+<div class="raw-line" id="L1573"><a href="#L1573" tabindex="0" class="raw-line-number" aria-label="第 1573 行">1573</a><span></span></div>
+<div class="raw-line" id="L1574"><a href="#L1574" tabindex="0" class="raw-line-number" aria-label="第 1574 行">1574</a><span>销售费比在50%左右的企业都在美妆行业是优秀企业。</span></div>
+<div class="raw-line" id="L1575"><a href="#L1575" tabindex="0" class="raw-line-number" aria-label="第 1575 行">1575</a><span></span></div>
+<div class="raw-line" id="L1576"><a href="#L1576" tabindex="0" class="raw-line-number" aria-label="第 1576 行">1576</a><span>啊，销售费比占50%，也就是说，如果你买100块钱的化妆品，50块钱要给渠道做费用。</span></div>
+<div class="raw-line" id="L1577"><a href="#L1577" tabindex="0" class="raw-line-number" aria-label="第 1577 行">1577</a><span></span></div>
+<div class="raw-line" id="L1578"><a href="#L1578" tabindex="0" class="raw-line-number" aria-label="第 1578 行">1578</a><span>那好，交易成本越高的行业，它越好，因为你要降低交易成本，它里头的钱就越多。</span></div>
+<div class="raw-line" id="L1579"><a href="#L1579" tabindex="0" class="raw-line-number" aria-label="第 1579 行">1579</a><span></span></div>
+<div class="raw-line" id="L1580"><a href="#L1580" tabindex="0" class="raw-line-number" aria-label="第 1580 行">1580</a><span>所以我们就决定填这个海。</span></div>
+<div class="raw-line" id="L1581"><a href="#L1581" tabindex="0" class="raw-line-number" aria-label="第 1581 行">1581</a><span></span></div>
+<div class="raw-line" id="L1582"><a href="#L1582" tabindex="0" class="raw-line-number" aria-label="第 1582 行">1582</a><span>那好，我们填海有四个步骤。</span></div>
+<div class="raw-line" id="L1583"><a href="#L1583" tabindex="0" class="raw-line-number" aria-label="第 1583 行">1583</a><span></span></div>
+<div class="raw-line" id="L1584"><a href="#L1584" tabindex="0" class="raw-line-number" aria-label="第 1584 行">1584</a><span>第一步就是从消费者开始填，第二步是小品牌，第三步是大品牌，最后一个是整个产业链。</span></div>
+<div class="raw-line" id="L1585"><a href="#L1585" tabindex="0" class="raw-line-number" aria-label="第 1585 行">1585</a><span></span></div>
+<div class="raw-line" id="L1586"><a href="#L1586" tabindex="0" class="raw-line-number" aria-label="第 1586 行">1586</a><span>啊，为什么从小品，这个从消费者，呃，切入？</span></div>
+<div class="raw-line" id="L1587"><a href="#L1587" tabindex="0" class="raw-line-number" aria-label="第 1587 行">1587</a><span></span></div>
+<div class="raw-line" id="L1588"><a href="#L1588" tabindex="0" class="raw-line-number" aria-label="第 1588 行">1588</a><span>因为当你有足够多的消费者在你这儿去问美妆知识，哪怕他们不买，他们只是问商业性的问题，就会有很多很多品牌愿意给你交他的数据，</span></div>
+<div class="raw-line" id="L1589"><a href="#L1589" tabindex="0" class="raw-line-number" aria-label="第 1589 行">1589</a><span></span></div>
+<div class="raw-line" id="L1590"><a href="#L1590" tabindex="0" class="raw-line-number" aria-label="第 1590 行">1590</a><span>因为他们需要降自己的交易成本。</span></div>
+<div class="raw-line" id="L1591"><a href="#L1591" tabindex="0" class="raw-line-number" aria-label="第 1591 行">1591</a><span></span></div>
+<div class="raw-line" id="L1592"><a href="#L1592" tabindex="0" class="raw-line-number" aria-label="第 1592 行">1592</a><span>有很多品牌交易成本已经到了90%，已经没有钱去做研发和生产了。</span></div>
+<div class="raw-line" id="L1593"><a href="#L1593" tabindex="0" class="raw-line-number" aria-label="第 1593 行">1593</a><span></span></div>
+<div class="raw-line" id="L1594"><a href="#L1594" tabindex="0" class="raw-line-number" aria-label="第 1594 行">1594</a><span>好，那消费者面临什么问题呢？</span></div>
+<div class="raw-line" id="L1595"><a href="#L1595" tabindex="0" class="raw-line-number" aria-label="第 1595 行">1595</a><span></span></div>
+<div class="raw-line" id="L1596"><a href="#L1596" tabindex="0" class="raw-line-number" aria-label="第 1596 行">1596</a><span>消费者面临问题很有意思，就是说你所有的美妆和护肤品、护发这些产品，它特别有意思，</span></div>
+<div class="raw-line" id="L1597"><a href="#L1597" tabindex="0" class="raw-line-number" aria-label="第 1597 行">1597</a><span></span></div>
+<div class="raw-line" id="L1598"><a href="#L1598" tabindex="0" class="raw-line-number" aria-label="第 1598 行">1598</a><span>就是它并不是一个所见即所得的东西，它并不像一件衣服，你穿上去就知道好看不好看，或者一、一个食品你吃下去就知道好吃还是不好吃。</span></div>
+<div class="raw-line" id="L1599"><a href="#L1599" tabindex="0" class="raw-line-number" aria-label="第 1599 行">1599</a><span></span></div>
+<div class="raw-line" id="L1600"><a href="#L1600" tabindex="0" class="raw-line-number" aria-label="第 1600 行">1600</a><span>它是一个非常需要专业知识的东西。</span></div>
+<div class="raw-line" id="L1601"><a href="#L1601" tabindex="0" class="raw-line-number" aria-label="第 1601 行">1601</a><span></span></div>
+<div class="raw-line" id="L1602"><a href="#L1602" tabindex="0" class="raw-line-number" aria-label="第 1602 行">1602</a><span>所以消费者有很多问题，第一，他们信息量过载。</span></div>
+<div class="raw-line" id="L1603"><a href="#L1603" tabindex="0" class="raw-line-number" aria-label="第 1603 行">1603</a><span></span></div>
+<div class="raw-line" id="L1604"><a href="#L1604" tabindex="0" class="raw-line-number" aria-label="第 1604 行">1604</a><span>啊，他们有很多碎片化的知识，有很多女生浪费成分。</span></div>
+<div class="raw-line" id="L1605"><a href="#L1605" tabindex="0" class="raw-line-number" aria-label="第 1605 行">1605</a><span></span></div>
+<div class="raw-line" id="L1606"><a href="#L1606" tabindex="0" class="raw-line-number" aria-label="第 1606 行">1606</a><span>还有就是他们面临的是这个内容是不客观的，有很多大V、</span></div>
+<div class="raw-line" id="L1607"><a href="#L1607" tabindex="0" class="raw-line-number" aria-label="第 1607 行">1607</a><span></span></div>
+<div class="raw-line" id="L1608"><a href="#L1608" tabindex="0" class="raw-line-number" aria-label="第 1608 行">1608</a><span>种草博主、influencer，他们说的东西是因为他们接了广告，所以它内容并不客观。</span></div>
+<div class="raw-line" id="L1609"><a href="#L1609" tabindex="0" class="raw-line-number" aria-label="第 1609 行">1609</a><span></span></div>
+<div class="raw-line" id="L1610"><a href="#L1610" tabindex="0" class="raw-line-number" aria-label="第 1610 行">1610</a><span>而有很多测评的博主，他一开始测、测评，后来他们为了活下去，他们也得结弊端广告。</span></div>
+<div class="raw-line" id="L1611"><a href="#L1611" tabindex="0" class="raw-line-number" aria-label="第 1611 行">1611</a><span></span></div>
+<div class="raw-line" id="L1612"><a href="#L1612" tabindex="0" class="raw-line-number" aria-label="第 1612 行">1612</a><span>第三个就是，知识不专业，有大量的网红并不是生物或者化学专业的，他们其实知道的并不多，并不是说他们有意欺骗消费者，</span></div>
+<div class="raw-line" id="L1613"><a href="#L1613" tabindex="0" class="raw-line-number" aria-label="第 1613 行">1613</a><span></span></div>
+<div class="raw-line" id="L1614"><a href="#L1614" tabindex="0" class="raw-line-number" aria-label="第 1614 行">1614</a><span>但是他自己也没有能力分辨。</span></div>
+<div class="raw-line" id="L1615"><a href="#L1615" tabindex="0" class="raw-line-number" aria-label="第 1615 行">1615</a><span></span></div>
+<div class="raw-line" id="L1616"><a href="#L1616" tabindex="0" class="raw-line-number" aria-label="第 1616 行">1616</a><span>最后一个就是通用模型还有缺陷，为什么通用模型有缺陷？</span></div>
+<div class="raw-line" id="L1617"><a href="#L1617" tabindex="0" class="raw-line-number" aria-label="第 1617 行">1617</a><span></span></div>
+<div class="raw-line" id="L1618"><a href="#L1618" tabindex="0" class="raw-line-number" aria-label="第 1618 行">1618</a><span>因为通用模型收的都是网上这些营销的信息，它没有专业的信息，而且它有很多地方它没有进行这个填海，它没有足够的编码，</span></div>
+<div class="raw-line" id="L1619"><a href="#L1619" tabindex="0" class="raw-line-number" aria-label="第 1619 行">1619</a><span></span></div>
+<div class="raw-line" id="L1620"><a href="#L1620" tabindex="0" class="raw-line-number" aria-label="第 1620 行">1620</a><span>所以它们有缺陷，对吧？</span></div>
+<div class="raw-line" id="L1621"><a href="#L1621" tabindex="0" class="raw-line-number" aria-label="第 1621 行">1621</a><span></span></div>
+<div class="raw-line" id="L1622"><a href="#L1622" tabindex="0" class="raw-line-number" aria-label="第 1622 行">1622</a><span>我们要做的事情，就是永久地改变消费者的习惯。</span></div>
+<div class="raw-line" id="L1623"><a href="#L1623" tabindex="0" class="raw-line-number" aria-label="第 1623 行">1623</a><span></span></div>
+<div class="raw-line" id="L1624"><a href="#L1624" tabindex="0" class="raw-line-number" aria-label="第 1624 行">1624</a><span>啊，就是我们希望第一，我们到武装他们的大脑，从我们的这个agent上面去看自己的这个就是选品的这个信息，</span></div>
+<div class="raw-line" id="L1625"><a href="#L1625" tabindex="0" class="raw-line-number" aria-label="第 1625 行">1625</a><span></span></div>
+<div class="raw-line" id="L1626"><a href="#L1626" tabindex="0" class="raw-line-number" aria-label="第 1626 行">1626</a><span>然后这个我们有很多很多的论文，也有很多很多的美妆信息，我们实际上来说，做了全球上千万个备案信息，</span></div>
+<div class="raw-line" id="L1627"><a href="#L1627" tabindex="0" class="raw-line-number" aria-label="第 1627 行">1627</a><span></span></div>
+<div class="raw-line" id="L1628"><a href="#L1628" tabindex="0" class="raw-line-number" aria-label="第 1628 行">1628</a><span>而且上千篇就是跟美妆行业相关的论文，包括皮肤生理啊、制剂学啊、生物化学啊，这些论文都在上面，然后它就会集成，把海量信息，</span></div>
+<div class="raw-line" id="L1629"><a href="#L1629" tabindex="0" class="raw-line-number" aria-label="第 1629 行">1629</a><span></span></div>
+<div class="raw-line" id="L1630"><a href="#L1630" tabindex="0" class="raw-line-number" aria-label="第 1630 行">1630</a><span>海量信息变成一小段，</span></div>
+<div class="raw-line" id="L1631"><a href="#L1631" tabindex="0" class="raw-line-number" aria-label="第 1631 行">1631</a><span></span></div>
+<div class="raw-line" id="L1632"><a href="#L1632" tabindex="0" class="raw-line-number" aria-label="第 1632 行">1632</a><span>推到这个消费者面前，让他哦，明白这个事是怎么回事，这是武装他的大脑。</span></div>
+<div class="raw-line" id="L1633"><a href="#L1633" tabindex="0" class="raw-line-number" aria-label="第 1633 行">1633</a><span></span></div>
+<div class="raw-line" id="L1634"><a href="#L1634" tabindex="0" class="raw-line-number" aria-label="第 1634 行">1634</a><span>第二，通过他问什么问题，我就知道他个性化需求了。</span></div>
+<div class="raw-line" id="L1635"><a href="#L1635" tabindex="0" class="raw-line-number" aria-label="第 1635 行">1635</a><span></span></div>
+<div class="raw-line" id="L1636"><a href="#L1636" tabindex="0" class="raw-line-number" aria-label="第 1636 行">1636</a><span>他一定问他感兴趣的问题。这样的话，后边我给他推荐品牌和产品就会很容易。</span></div>
+<div class="raw-line" id="L1637"><a href="#L1637" tabindex="0" class="raw-line-number" aria-label="第 1637 行">1637</a><span></span></div>
+<div class="raw-line" id="L1638"><a href="#L1638" tabindex="0" class="raw-line-number" aria-label="第 1638 行">1638</a><span>所以说我们改变习惯是覆盖全场景的，第一个就是他购买前的决策，对吧？</span></div>
+<div class="raw-line" id="L1639"><a href="#L1639" tabindex="0" class="raw-line-number" aria-label="第 1639 行">1639</a><span></span></div>
+<div class="raw-line" id="L1640"><a href="#L1640" tabindex="0" class="raw-line-number" aria-label="第 1640 行">1640</a><span>他问我买A品还是买B品呢？</span></div>
+<div class="raw-line" id="L1641"><a href="#L1641" tabindex="0" class="raw-line-number" aria-label="第 1641 行">1641</a><span></span></div>
+<div class="raw-line" id="L1642"><a href="#L1642" tabindex="0" class="raw-line-number" aria-label="第 1642 行">1642</a><span>这是一种。</span></div>
+<div class="raw-line" id="L1643"><a href="#L1643" tabindex="0" class="raw-line-number" aria-label="第 1643 行">1643</a><span></span></div>
+<div class="raw-line" id="L1644"><a href="#L1644" tabindex="0" class="raw-line-number" aria-label="第 1644 行">1644</a><span>还有一种是我给他就是说盘，他现在有的库存，说我现在有这些这些东西，我应该怎么改，怎么样去痘，对吧？</span></div>
+<div class="raw-line" id="L1645"><a href="#L1645" tabindex="0" class="raw-line-number" aria-label="第 1645 行">1645</a><span></span></div>
+<div class="raw-line" id="L1646"><a href="#L1646" tabindex="0" class="raw-line-number" aria-label="第 1646 行">1646</a><span>我们给他进行一些他的这个习惯的这个目标规划。最后就是知识学习，啊，我们会带着他进行一些知识学习。</span></div>
+<div class="raw-line" id="L1647"><a href="#L1647" tabindex="0" class="raw-line-number" aria-label="第 1647 行">1647</a><span></span></div>
+<div class="raw-line" id="L1648"><a href="#L1648" tabindex="0" class="raw-line-number" aria-label="第 1648 行">1648</a><span>好，说起美妆AI，我们调研了很多竞品，很多竞品，大多数竞品都是男工程师写的。</span></div>
+<div class="raw-line" id="L1649"><a href="#L1649" tabindex="0" class="raw-line-number" aria-label="第 1649 行">1649</a><span></span></div>
+<div class="raw-line" id="L1650"><a href="#L1650" tabindex="0" class="raw-line-number" aria-label="第 1650 行">1650</a><span>男工程师写的竞品有一个什么问题呢？</span></div>
+<div class="raw-line" id="L1651"><a href="#L1651" tabindex="0" class="raw-line-number" aria-label="第 1651 行">1651</a><span></span></div>
+<div class="raw-line" id="L1652"><a href="#L1652" tabindex="0" class="raw-line-number" aria-label="第 1652 行">1652</a><span>就是他们特别喜欢拍照测肤，然后给你推产品，对吧？</span></div>
+<div class="raw-line" id="L1653"><a href="#L1653" tabindex="0" class="raw-line-number" aria-label="第 1653 行">1653</a><span></span></div>
+<div class="raw-line" id="L1654"><a href="#L1654" tabindex="0" class="raw-line-number" aria-label="第 1654 行">1654</a><span>可能很多女生都见过，拍照测肤给、给我推产品。</span></div>
+<div class="raw-line" id="L1655"><a href="#L1655" tabindex="0" class="raw-line-number" aria-label="第 1655 行">1655</a><span></span></div>
+<div class="raw-line" id="L1656"><a href="#L1656" tabindex="0" class="raw-line-number" aria-label="第 1656 行">1656</a><span>然后呢，有很多的投资人也跟我说，哎，谁谁谁做了一个拍照测肤，这个推产品的APP，让我去学他们。</span></div>
+<div class="raw-line" id="L1657"><a href="#L1657" tabindex="0" class="raw-line-number" aria-label="第 1657 行">1657</a><span></span></div>
+<div class="raw-line" id="L1658"><a href="#L1658" tabindex="0" class="raw-line-number" aria-label="第 1658 行">1658</a><span>啊，但是我觉得这个就是男工程师对女生的行业不懂的这个原因。啊，为什么？</span></div>
+<div class="raw-line" id="L1659"><a href="#L1659" tabindex="0" class="raw-line-number" aria-label="第 1659 行">1659</a><span></span></div>
+<div class="raw-line" id="L1660"><a href="#L1660" tabindex="0" class="raw-line-number" aria-label="第 1660 行">1660</a><span>我告诉你们不行，就是拍照测肤，上来就拍照测肤推产品，这就相当于什么？</span></div>
+<div class="raw-line" id="L1661"><a href="#L1661" tabindex="0" class="raw-line-number" aria-label="第 1661 行">1661</a><span></span></div>
+<div class="raw-line" id="L1662"><a href="#L1662" tabindex="0" class="raw-line-number" aria-label="第 1662 行">1662</a><span>相当于你做自动驾驶，上来直接让车就驾驶，没有一点辅助驾驶。</span></div>
+<div class="raw-line" id="L1663"><a href="#L1663" tabindex="0" class="raw-line-number" aria-label="第 1663 行">1663</a><span></span></div>
+<div class="raw-line" id="L1664"><a href="#L1664" tabindex="0" class="raw-line-number" aria-label="第 1664 行">1664</a><span>大多数女生，就是这么多年购买美妆品、护肤品、化妆品，</span></div>
+<div class="raw-line" id="L1665"><a href="#L1665" tabindex="0" class="raw-line-number" aria-label="第 1665 行">1665</a><span></span></div>
+<div class="raw-line" id="L1666"><a href="#L1666" tabindex="0" class="raw-line-number" aria-label="第 1666 行">1666</a><span>她会积累很多隐性的知识和经验。</span></div>
+<div class="raw-line" id="L1667"><a href="#L1667" tabindex="0" class="raw-line-number" aria-label="第 1667 行">1667</a><span></span></div>
+<div class="raw-line" id="L1668"><a href="#L1668" tabindex="0" class="raw-line-number" aria-label="第 1668 行">1668</a><span>她的能力会比你拍照测一下推荐东西好很多。</span></div>
+<div class="raw-line" id="L1669"><a href="#L1669" tabindex="0" class="raw-line-number" aria-label="第 1669 行">1669</a><span></span></div>
+<div class="raw-line" id="L1670"><a href="#L1670" tabindex="0" class="raw-line-number" aria-label="第 1670 行">1670</a><span>如果你拍照测一下给她推的东西，基本上来说是低于她现在水平的，因为照片受光线影响太严重，受光线影响太严重。</span></div>
+<div class="raw-line" id="L1671"><a href="#L1671" tabindex="0" class="raw-line-number" aria-label="第 1671 行">1671</a><span></span></div>
+<div class="raw-line" id="L1672"><a href="#L1672" tabindex="0" class="raw-line-number" aria-label="第 1672 行">1672</a><span>所以说相当于你开始做自动驾驶的时候，你没有构建在这个driver他自己原本的经验之上。</span></div>
+<div class="raw-line" id="L1673"><a href="#L1673" tabindex="0" class="raw-line-number" aria-label="第 1673 行">1673</a><span></span></div>
+<div class="raw-line" id="L1674"><a href="#L1674" tabindex="0" class="raw-line-number" aria-label="第 1674 行">1674</a><span>所以我们要做的是，不是去除女生她这么多年购买的经验，而是构建在她已经有的这个经验之上。</span></div>
+<div class="raw-line" id="L1675"><a href="#L1675" tabindex="0" class="raw-line-number" aria-label="第 1675 行">1675</a><span></span></div>
+<div class="raw-line" id="L1676"><a href="#L1676" tabindex="0" class="raw-line-number" aria-label="第 1676 行">1676</a><span>所以我们做了很多有意思的东西。</span></div>
+<div class="raw-line" id="L1677"><a href="#L1677" tabindex="0" class="raw-line-number" aria-label="第 1677 行">1677</a><span></span></div>
+<div class="raw-line" id="L1678"><a href="#L1678" tabindex="0" class="raw-line-number" aria-label="第 1678 行">1678</a><span>一个东西我们叫绝地三尺，绝地三尺是什么呢？</span></div>
+<div class="raw-line" id="L1679"><a href="#L1679" tabindex="0" class="raw-line-number" aria-label="第 1679 行">1679</a><span></span></div>
+<div class="raw-line" id="L1680"><a href="#L1680" tabindex="0" class="raw-line-number" aria-label="第 1680 行">1680</a><span>就是你不是拍你自己的脸，你拍一个产品，你家里有的，或者你逛街看到的，然后你告诉这个APP，你有它，</span></div>
+<div class="raw-line" id="L1681"><a href="#L1681" tabindex="0" class="raw-line-number" aria-label="第 1681 行">1681</a><span></span></div>
+<div class="raw-line" id="L1682"><a href="#L1682" tabindex="0" class="raw-line-number" aria-label="第 1682 行">1682</a><span>你感觉是你使用的感受是什么。</span></div>
+<div class="raw-line" id="L1683"><a href="#L1683" tabindex="0" class="raw-line-number" aria-label="第 1683 行">1683</a><span></span></div>
+<div class="raw-line" id="L1684"><a href="#L1684" tabindex="0" class="raw-line-number" aria-label="第 1684 行">1684</a><span>你没有它，然后呢，你种草了。</span></div>
+<div class="raw-line" id="L1685"><a href="#L1685" tabindex="0" class="raw-line-number" aria-label="第 1685 行">1685</a><span></span></div>
+<div class="raw-line" id="L1686"><a href="#L1686" tabindex="0" class="raw-line-number" aria-label="第 1686 行">1686</a><span>这样的话，所有产品的成分我们都知道，然后呢，你的感受我们也知道，我们就会告诉你这个产品适合你还是不适合你，</span></div>
+<div class="raw-line" id="L1687"><a href="#L1687" tabindex="0" class="raw-line-number" aria-label="第 1687 行">1687</a><span></span></div>
+<div class="raw-line" id="L1688"><a href="#L1688" tabindex="0" class="raw-line-number" aria-label="第 1688 行">1688</a><span>或者你应该买它的柜体或者瓶体。</span></div>
+<div class="raw-line" id="L1689"><a href="#L1689" tabindex="0" class="raw-line-number" aria-label="第 1689 行">1689</a><span></span></div>
+<div class="raw-line" id="L1690"><a href="#L1690" tabindex="0" class="raw-line-number" aria-label="第 1690 行">1690</a><span>啊，这是一个，就是你等于把你家所有的库存，你对这些库存的感、观感都告诉我了。</span></div>
+<div class="raw-line" id="L1691"><a href="#L1691" tabindex="0" class="raw-line-number" aria-label="第 1691 行">1691</a><span></span></div>
+<div class="raw-line" id="L1692"><a href="#L1692" tabindex="0" class="raw-line-number" aria-label="第 1692 行">1692</a><span>第二个就是我们会给他们做一些小测试，像小游戏一样，来看他们的类型和他们的这个行为。</span></div>
+<div class="raw-line" id="L1693"><a href="#L1693" tabindex="0" class="raw-line-number" aria-label="第 1693 行">1693</a><span></span></div>
+<div class="raw-line" id="L1694"><a href="#L1694" tabindex="0" class="raw-line-number" aria-label="第 1694 行">1694</a><span>最后我们还有一些社交圈子，就是大家可以把他们自己的问题放到社、社交圈子去找同类。</span></div>
+<div class="raw-line" id="L1695"><a href="#L1695" tabindex="0" class="raw-line-number" aria-label="第 1695 行">1695</a><span></span></div>
+<div class="raw-line" id="L1696"><a href="#L1696" tabindex="0" class="raw-line-number" aria-label="第 1696 行">1696</a><span>啊，好，这是第一步。</span></div>
+<div class="raw-line" id="L1697"><a href="#L1697" tabindex="0" class="raw-line-number" aria-label="第 1697 行">1697</a><span></span></div>
+<div class="raw-line" id="L1698"><a href="#L1698" tabindex="0" class="raw-line-number" aria-label="第 1698 行">1698</a><span>如当我们有了很多粉丝之后，啊，我们现在是已经有几万人了，但是我们想再攒一攒。</span></div>
+<div class="raw-line" id="L1699"><a href="#L1699" tabindex="0" class="raw-line-number" aria-label="第 1699 行">1699</a><span></span></div>
+<div class="raw-line" id="L1700"><a href="#L1700" tabindex="0" class="raw-line-number" aria-label="第 1700 行">1700</a><span>等我们有了这个很多粉丝之后，我们要做第二步就是填中小品牌。</span></div>
+<div class="raw-line" id="L1701"><a href="#L1701" tabindex="0" class="raw-line-number" aria-label="第 1701 行">1701</a><span></span></div>
+<div class="raw-line" id="L1702"><a href="#L1702" tabindex="0" class="raw-line-number" aria-label="第 1702 行">1702</a><span>中小品牌我们找了一个很典型的案例，就是冰寒老师。</span></div>
+<div class="raw-line" id="L1703"><a href="#L1703" tabindex="0" class="raw-line-number" aria-label="第 1703 行">1703</a><span></span></div>
+<div class="raw-line" id="L1704"><a href="#L1704" tabindex="0" class="raw-line-number" aria-label="第 1704 行">1704</a><span>啊，冰寒老师他是一个皮肤学的博士，然后他的领域是治疗痘痘，然后他有自己的论文，有自己的书，然后呢，</span></div>
+<div class="raw-line" id="L1705"><a href="#L1705" tabindex="0" class="raw-line-number" aria-label="第 1705 行">1705</a><span></span></div>
+<div class="raw-line" id="L1706"><a href="#L1706" tabindex="0" class="raw-line-number" aria-label="第 1706 行">1706</a><span>也做了一个自己的品牌，自己的产品。</span></div>
+<div class="raw-line" id="L1707"><a href="#L1707" tabindex="0" class="raw-line-number" aria-label="第 1707 行">1707</a><span></span></div>
+<div class="raw-line" id="L1708"><a href="#L1708" tabindex="0" class="raw-line-number" aria-label="第 1708 行">1708</a><span>这就是一般来说美妆行业的中小品牌的这个现状，就是专家本人是配方师，配方师本人也会跟大家交流，然后他自己也卖货，这就是中小品牌。</span></div>
+<div class="raw-line" id="L1709"><a href="#L1709" tabindex="0" class="raw-line-number" aria-label="第 1709 行">1709</a><span></span></div>
+<div class="raw-line" id="L1710"><a href="#L1710" tabindex="0" class="raw-line-number" aria-label="第 1710 行">1710</a><span>所以呢，我们把他的知识做成了一个agent，由他告诉消费者这个事儿应该怎么做。</span></div>
+<div class="raw-line" id="L1711"><a href="#L1711" tabindex="0" class="raw-line-number" aria-label="第 1711 行">1711</a><span></span></div>
+<div class="raw-line" id="L1712"><a href="#L1712" tabindex="0" class="raw-line-number" aria-label="第 1712 行">1712</a><span>他是内嵌在这个小程序里头的，我们整个的general的问题都是完全依靠文献的，不接、不接任何广告。</span></div>
+<div class="raw-line" id="L1713"><a href="#L1713" tabindex="0" class="raw-line-number" aria-label="第 1713 行">1713</a><span></span></div>
+<div class="raw-line" id="L1714"><a href="#L1714" tabindex="0" class="raw-line-number" aria-label="第 1714 行">1714</a><span>然后每一个品牌的自己的配方师需要，大中就是像网红一样，像大众说我的这些东西为什么好，这里边接的是他自己的论文和他自己出过的书。</span></div>
+<div class="raw-line" id="L1715"><a href="#L1715" tabindex="0" class="raw-line-number" aria-label="第 1715 行">1715</a><span></span></div>
+<div class="raw-line" id="L1716"><a href="#L1716" tabindex="0" class="raw-line-number" aria-label="第 1716 行">1716</a><span>然后他推销自己的产品。</span></div>
+<div class="raw-line" id="L1717"><a href="#L1717" tabindex="0" class="raw-line-number" aria-label="第 1717 行">1717</a><span></span></div>
+<div class="raw-line" id="L1718"><a href="#L1718" tabindex="0" class="raw-line-number" aria-label="第 1718 行">1718</a><span>那大品牌很简单，大品牌就是把中小品牌的这个角色分散化了。</span></div>
+<div class="raw-line" id="L1719"><a href="#L1719" tabindex="0" class="raw-line-number" aria-label="第 1719 行">1719</a><span></span></div>
+<div class="raw-line" id="L1720"><a href="#L1720" tabindex="0" class="raw-line-number" aria-label="第 1720 行">1720</a><span>中小品牌就是专家自己做研发，专家自己做配方，</span></div>
+<div class="raw-line" id="L1721"><a href="#L1721" tabindex="0" class="raw-line-number" aria-label="第 1721 行">1721</a><span></span></div>
+<div class="raw-line" id="L1722"><a href="#L1722" tabindex="0" class="raw-line-number" aria-label="第 1722 行">1722</a><span>专家自己出产品。</span></div>
+<div class="raw-line" id="L1723"><a href="#L1723" tabindex="0" class="raw-line-number" aria-label="第 1723 行">1723</a><span></span></div>
+<div class="raw-line" id="L1724"><a href="#L1724" tabindex="0" class="raw-line-number" aria-label="第 1724 行">1724</a><span>大品牌呢，就是做研发的、</span></div>
+<div class="raw-line" id="L1725"><a href="#L1725" tabindex="0" class="raw-line-number" aria-label="第 1725 行">1725</a><span></span></div>
+<div class="raw-line" id="L1726"><a href="#L1726" tabindex="0" class="raw-line-number" aria-label="第 1726 行">1726</a><span>做配方的、做产品的是不同的人，然后我们就把不同的这些人的知识放到大品牌的agent里头。</span></div>
+<div class="raw-line" id="L1727"><a href="#L1727" tabindex="0" class="raw-line-number" aria-label="第 1727 行">1727</a><span></span></div>
+<div class="raw-line" id="L1728"><a href="#L1728" tabindex="0" class="raw-line-number" aria-label="第 1728 行">1728</a><span>这样的话，直接面对消费者的就不再是一线的这些sales。</span></div>
+<div class="raw-line" id="L1729"><a href="#L1729" tabindex="0" class="raw-line-number" aria-label="第 1729 行">1729</a><span></span></div>
+<div class="raw-line" id="L1730"><a href="#L1730" tabindex="0" class="raw-line-number" aria-label="第 1730 行">1730</a><span>一般sales他都不是皮肤科专家，也不是配方师，他回答不了很多问题。</span></div>
+<div class="raw-line" id="L1731"><a href="#L1731" tabindex="0" class="raw-line-number" aria-label="第 1731 行">1731</a><span></span></div>
+<div class="raw-line" id="L1732"><a href="#L1732" tabindex="0" class="raw-line-number" aria-label="第 1732 行">1732</a><span>我们就把这些这个非常品牌顶端的这些人放进去了。</span></div>
+<div class="raw-line" id="L1733"><a href="#L1733" tabindex="0" class="raw-line-number" aria-label="第 1733 行">1733</a><span></span></div>
+<div class="raw-line" id="L1734"><a href="#L1734" tabindex="0" class="raw-line-number" aria-label="第 1734 行">1734</a><span>啊，那好，有人就说那、那品牌为什么要入驻你呢？</span></div>
+<div class="raw-line" id="L1735"><a href="#L1735" tabindex="0" class="raw-line-number" aria-label="第 1735 行">1735</a><span></span></div>
+<div class="raw-line" id="L1736"><a href="#L1736" tabindex="0" class="raw-line-number" aria-label="第 1736 行">1736</a><span>他为什么就要帮助你呢？</span></div>
+<div class="raw-line" id="L1737"><a href="#L1737" tabindex="0" class="raw-line-number" aria-label="第 1737 行">1737</a><span></span></div>
+<div class="raw-line" id="L1738"><a href="#L1738" tabindex="0" class="raw-line-number" aria-label="第 1738 行">1738</a><span>为什么他要把这么多数据给你呢？</span></div>
+<div class="raw-line" id="L1739"><a href="#L1739" tabindex="0" class="raw-line-number" aria-label="第 1739 行">1739</a><span></span></div>
+<div class="raw-line" id="L1740"><a href="#L1740" tabindex="0" class="raw-line-number" aria-label="第 1740 行">1740</a><span>因为我们能给品牌提供的是消费者每天在这儿搜什么问题。</span></div>
+<div class="raw-line" id="L1741"><a href="#L1741" tabindex="0" class="raw-line-number" aria-label="第 1741 行">1741</a><span></span></div>
+<div class="raw-line" id="L1742"><a href="#L1742" tabindex="0" class="raw-line-number" aria-label="第 1742 行">1742</a><span>啊，他们是什么样的人，以及消费者想要的东西，他们社区的东西前沿。</span></div>
+<div class="raw-line" id="L1743"><a href="#L1743" tabindex="0" class="raw-line-number" aria-label="第 1743 行">1743</a><span></span></div>
+<div class="raw-line" id="L1744"><a href="#L1744" tabindex="0" class="raw-line-number" aria-label="第 1744 行">1744</a><span>我们要做一个品牌看板，品牌进来以后就会说，哦，今天涌入了新的5万个用户，其中3000个有痘痘，2000个有敏感，啊，1000个是什么样的。</span></div>
+<div class="raw-line" id="L1745"><a href="#L1745" tabindex="0" class="raw-line-number" aria-label="第 1745 行">1745</a><span></span></div>
+<div class="raw-line" id="L1746"><a href="#L1746" tabindex="0" class="raw-line-number" aria-label="第 1746 行">1746</a><span>这样的话，他们对未来的产品研发是一个非常强的推动作用。</span></div>
+<div class="raw-line" id="L1747"><a href="#L1747" tabindex="0" class="raw-line-number" aria-label="第 1747 行">1747</a><span></span></div>
+<div class="raw-line" id="L1748"><a href="#L1748" tabindex="0" class="raw-line-number" aria-label="第 1748 行">1748</a><span>因为在这之前，整个行业的产品研发一般需要24、22个月到24个月。</span></div>
+<div class="raw-line" id="L1749"><a href="#L1749" tabindex="0" class="raw-line-number" aria-label="第 1749 行">1749</a><span></span></div>
+<div class="raw-line" id="L1750"><a href="#L1750" tabindex="0" class="raw-line-number" aria-label="第 1750 行">1750</a><span>欧莱雅的流程是24个月，资生堂的流程是22个月。</span></div>
+<div class="raw-line" id="L1751"><a href="#L1751" tabindex="0" class="raw-line-number" aria-label="第 1751 行">1751</a><span></span></div>
+<div class="raw-line" id="L1752"><a href="#L1752" tabindex="0" class="raw-line-number" aria-label="第 1752 行">1752</a><span>而这个我们有这个就是消费者涌入给品牌看的话，AI就可以赋能他们，把整个的供应链变成了柔性和缩短。</span></div>
+<div class="raw-line" id="L1753"><a href="#L1753" tabindex="0" class="raw-line-number" aria-label="第 1753 行">1753</a><span></span></div>
+<div class="raw-line" id="L1754"><a href="#L1754" tabindex="0" class="raw-line-number" aria-label="第 1754 行">1754</a><span>啊，最后呢，我们希望它能成为这个整个AI这个产业链，美妆护肤品这个产业链的一个底座的基础设施。</span></div>
+<div class="raw-line" id="L1755"><a href="#L1755" tabindex="0" class="raw-line-number" aria-label="第 1755 行">1755</a><span></span></div>
+<div class="raw-line" id="L1756"><a href="#L1756" tabindex="0" class="raw-line-number" aria-label="第 1756 行">1756</a><span>原料商也在这儿找信息。</span></div>
+<div class="raw-line" id="L1757"><a href="#L1757" tabindex="0" class="raw-line-number" aria-label="第 1757 行">1757</a><span></span></div>
+<div class="raw-line" id="L1758"><a href="#L1758" tabindex="0" class="raw-line-number" aria-label="第 1758 行">1758</a><span>啊，我们卖这个化妆品的外包商，就是外包装的这些，</span></div>
+<div class="raw-line" id="L1759"><a href="#L1759" tabindex="0" class="raw-line-number" aria-label="第 1759 行">1759</a><span></span></div>
+<div class="raw-line" id="L1760"><a href="#L1760" tabindex="0" class="raw-line-number" aria-label="第 1760 行">1760</a><span>啊，包材商也在这儿找信息。</span></div>
+<div class="raw-line" id="L1761"><a href="#L1761" tabindex="0" class="raw-line-number" aria-label="第 1761 行">1761</a><span></span></div>
+<div class="raw-line" id="L1762"><a href="#L1762" tabindex="0" class="raw-line-number" aria-label="第 1762 行">1762</a><span>这样所有的人都在这儿对信息的话，那么就可以催生一个东西，就是自品牌。</span></div>
+<div class="raw-line" id="L1763"><a href="#L1763" tabindex="0" class="raw-line-number" aria-label="第 1763 行">1763</a><span></span></div>
+<div class="raw-line" id="L1764"><a href="#L1764" tabindex="0" class="raw-line-number" aria-label="第 1764 行">1764</a><span></span></div>
+<div class="raw-line" id="L1765"><a href="#L1765" tabindex="0" class="raw-line-number" aria-label="第 1765 行">1765</a><span>大家看以前我们看电视、媒体都是由上到下的，对吧？</span></div>
+<div class="raw-line" id="L1766"><a href="#L1766" tabindex="0" class="raw-line-number" aria-label="第 1766 行">1766</a><span></span></div>
+<div class="raw-line" id="L1767"><a href="#L1767" tabindex="0" class="raw-line-number" aria-label="第 1767 行">1767</a><span>现在我们有自媒体，每个人都可以就是说自己的opinion。</span></div>
+<div class="raw-line" id="L1768"><a href="#L1768" tabindex="0" class="raw-line-number" aria-label="第 1768 行">1768</a><span></span></div>
+<div class="raw-line" id="L1769"><a href="#L1769" tabindex="0" class="raw-line-number" aria-label="第 1769 行">1769</a><span>那同样的，我觉得实体产业链也会如此。</span></div>
+<div class="raw-line" id="L1770"><a href="#L1770" tabindex="0" class="raw-line-number" aria-label="第 1770 行">1770</a><span></span></div>
+<div class="raw-line" id="L1771"><a href="#L1771" tabindex="0" class="raw-line-number" aria-label="第 1771 行">1771</a><span>后边当供应链都对接好的时候，我们就可以产生自品牌。</span></div>
+<div class="raw-line" id="L1772"><a href="#L1772" tabindex="0" class="raw-line-number" aria-label="第 1772 行">1772</a><span></span></div>
+<div class="raw-line" id="L1773"><a href="#L1773" tabindex="0" class="raw-line-number" aria-label="第 1773 行">1773</a><span>配方师有一个好的配方，他的粉丝就可以弄。</span></div>
+<div class="raw-line" id="L1774"><a href="#L1774" tabindex="0" class="raw-line-number" aria-label="第 1774 行">1774</a><span></span></div>
+<div class="raw-line" id="L1775"><a href="#L1775" tabindex="0" class="raw-line-number" aria-label="第 1775 行">1775</a><span>然后这样的话，整个供应链就可以协助他生产，帮助这个，呃，我们的整个美妆供应链行业进行一场自下而上的革命，而不是自上而下。</span></div>
+<div class="raw-line" id="L1776"><a href="#L1776" tabindex="0" class="raw-line-number" aria-label="第 1776 行">1776</a><span></span></div>
+<div class="raw-line" id="L1777"><a href="#L1777" tabindex="0" class="raw-line-number" aria-label="第 1777 行">1777</a><span>过去，过去都是很多大品牌，他们养了两三百人的叫预测团队，预测两三年之后会发生什么事情，然后一群人做了一大堆研究，</span></div>
+<div class="raw-line" id="L1778"><a href="#L1778" tabindex="0" class="raw-line-number" aria-label="第 1778 行">1778</a><span></span></div>
+<div class="raw-line" id="L1779"><a href="#L1779" tabindex="0" class="raw-line-number" aria-label="第 1779 行">1779</a><span>自上而下的产生了一些品，我们消费者只能被动选择。</span></div>
+<div class="raw-line" id="L1780"><a href="#L1780" tabindex="0" class="raw-line-number" aria-label="第 1780 行">1780</a><span></span></div>
+<div class="raw-line" id="L1781"><a href="#L1781" tabindex="0" class="raw-line-number" aria-label="第 1781 行">1781</a><span>而且有很多品，</span></div>
+<div class="raw-line" id="L1782"><a href="#L1782" tabindex="0" class="raw-line-number" aria-label="第 1782 行">1782</a><span></span></div>
+<div class="raw-line" id="L1783"><a href="#L1783" tabindex="0" class="raw-line-number" aria-label="第 1783 行">1783</a><span>它是跟风的。</span></div>
+<div class="raw-line" id="L1784"><a href="#L1784" tabindex="0" class="raw-line-number" aria-label="第 1784 行">1784</a><span></span></div>
+<div class="raw-line" id="L1785"><a href="#L1785" tabindex="0" class="raw-line-number" aria-label="第 1785 行">1785</a><span>啊，当玻尿酸火的时候，大家都做玻尿酸；当胶原蛋白火的时候，大家都做胶原蛋白；当PDRN火的时候，</span></div>
+<div class="raw-line" id="L1786"><a href="#L1786" tabindex="0" class="raw-line-number" aria-label="第 1786 行">1786</a><span></span></div>
+<div class="raw-line" id="L1787"><a href="#L1787" tabindex="0" class="raw-line-number" aria-label="第 1787 行">1787</a><span>大家都做PDRN。</span></div>
+<div class="raw-line" id="L1788"><a href="#L1788" tabindex="0" class="raw-line-number" aria-label="第 1788 行">1788</a><span></span></div>
+<div class="raw-line" id="L1789"><a href="#L1789" tabindex="0" class="raw-line-number" aria-label="第 1789 行">1789</a><span>这它是一种跟风的，我们只能去，消费者只能去选择。</span></div>
+<div class="raw-line" id="L1790"><a href="#L1790" tabindex="0" class="raw-line-number" aria-label="第 1790 行">1790</a><span></span></div>
+<div class="raw-line" id="L1791"><a href="#L1791" tabindex="0" class="raw-line-number" aria-label="第 1791 行">1791</a><span>而后续我希望能成为一个消费者从功效上，从质地上去要求进行一个自下而上的产业链。</span></div>
+<div class="raw-line" id="L1792"><a href="#L1792" tabindex="0" class="raw-line-number" aria-label="第 1792 行">1792</a><span></span></div>
+<div class="raw-line" id="L1793"><a href="#L1793" tabindex="0" class="raw-line-number" aria-label="第 1793 行">1793</a><span>啊，好，感谢大家。</span></div>
+<div class="raw-line" id="L1794"><a href="#L1794" tabindex="0" class="raw-line-number" aria-label="第 1794 行">1794</a><span></span></div>
+<div class="raw-line" id="L1795"><a href="#L1795" tabindex="0" class="raw-line-number" aria-label="第 1795 行">1795</a><span>所以我、</span></div>
+<div class="raw-line" id="L1796"><a href="#L1796" tabindex="0" class="raw-line-number" aria-label="第 1796 行">1796</a><span></span></div>
+<div class="raw-line" id="L1797"><a href="#L1797" tabindex="0" class="raw-line-number" aria-label="第 1797 行">1797</a><span>我希望我今天跟大家说清楚的就是，未来我希望有更多人进入那些编码还不清晰、有很多隐性知识的实体产业领域，</span></div>
+<div class="raw-line" id="L1798"><a href="#L1798" tabindex="0" class="raw-line-number" aria-label="第 1798 行">1798</a><span></span></div>
+<div class="raw-line" id="L1799"><a href="#L1799" tabindex="0" class="raw-line-number" aria-label="第 1799 行">1799</a><span>那能够帮助AI在这个进行扩散，</span></div>
+<div class="raw-line" id="L1800"><a href="#L1800" tabindex="0" class="raw-line-number" aria-label="第 1800 行">1800</a><span></span></div>
+<div class="raw-line" id="L1801"><a href="#L1801" tabindex="0" class="raw-line-number" aria-label="第 1801 行">1801</a><span>扩散到实体产业，能够帮助AI进行这个增值，以及服务实体产业。谢谢大家。</span></div>
+<div class="raw-line" id="L1802"><a href="#L1802" tabindex="0" class="raw-line-number" aria-label="第 1802 行">1802</a><span></span></div>
+<div class="raw-line" id="L1803"><a href="#L1803" tabindex="0" class="raw-line-number" aria-label="第 1803 行">1803</a><span>呃，谢谢杨颖老师给我们带来的激动的讲解。</span></div>
+<div class="raw-line" id="L1804"><a href="#L1804" tabindex="0" class="raw-line-number" aria-label="第 1804 行">1804</a><span></span></div>
+<div class="raw-line" id="L1805"><a href="#L1805" tabindex="0" class="raw-line-number" aria-label="第 1805 行">1805</a><span></span></div>
+<div class="raw-line" id="L1806"><a href="#L1806" tabindex="0" class="raw-line-number" aria-label="第 1806 行">1806</a><span>我看全场的女孩子们听得眼、眼睛都是亮晶晶的。 杨颖老师太有魅力了。 谢谢。</span></div>
+<div class="raw-line" id="L1807"><a href="#L1807" tabindex="0" class="raw-line-number" aria-label="第 1807 行">1807</a><span></span></div>
+<div class="raw-line" id="L1808"><a href="#L1808" tabindex="0" class="raw-line-number" aria-label="第 1808 行">1808</a><span>好，那我们现在休息5分钟。</span></div>
+<div class="raw-line" id="L1809"><a href="#L1809" tabindex="0" class="raw-line-number" aria-label="第 1809 行">1809</a><span></span></div>
+<div class="raw-line" id="L1810"><a href="#L1810" tabindex="0" class="raw-line-number" aria-label="第 1810 行">1810</a><span>啊，大家，呃，可以中场休息5分钟，然后我们11点10分之前回来落座，我们继续今天的分享。谢谢大家。</span></div>
+<div class="raw-line" id="L1811"><a href="#L1811" tabindex="0" class="raw-line-number" aria-label="第 1811 行">1811</a><span></span></div>
+<div class="raw-line" id="L1812"><a href="#L1812" tabindex="0" class="raw-line-number" aria-label="第 1812 行">1812</a><span>The girls.</span></div>
+<div class="raw-line" id="L1813"><a href="#L1813" tabindex="0" class="raw-line-number" aria-label="第 1813 行">1813</a><span>女孩们。</span></div>
+<div class="raw-line" id="L1814"><a href="#L1814" tabindex="0" class="raw-line-number" aria-label="第 1814 行">1814</a><span></span></div>
+<div class="raw-line" id="L1815"><a href="#L1815" tabindex="0" class="raw-line-number" aria-label="第 1815 行">1815</a><span></span></div>
+<div class="raw-line" id="L1816"><a href="#L1816" tabindex="0" class="raw-line-number" aria-label="第 1816 行">1816</a><span>好，下个路。</span></div>
+<div class="raw-line" id="L1817"><a href="#L1817" tabindex="0" class="raw-line-number" aria-label="第 1817 行">1817</a><span></span></div>
+<div class="raw-line" id="L1818"><a href="#L1818" tabindex="0" class="raw-line-number" aria-label="第 1818 行">1818</a><span>好，大家，我们准备开始下一场。请大家入座。</span></div>
+<div class="raw-line" id="L1819"><a href="#L1819" tabindex="0" class="raw-line-number" aria-label="第 1819 行">1819</a><span></span></div>
+<div class="raw-line" id="L1820"><a href="#L1820" tabindex="0" class="raw-line-number" aria-label="第 1820 行">1820</a><span>好的，那大家，我们现在把集中、集中精神，把注意力转向我们的制造业，让海浦智联的朱世辉总经理给我们讲解一下AI在制造业的转型。</span></div>
+<div class="raw-line" id="L1821"><a href="#L1821" tabindex="0" class="raw-line-number" aria-label="第 1821 行">1821</a><span></span></div>
+<div class="raw-line" id="L1822"><a href="#L1822" tabindex="0" class="raw-line-number" aria-label="第 1822 行">1822</a><span>请大家欢迎。</span></div>
+<div class="raw-line" id="L1823"><a href="#L1823" tabindex="0" class="raw-line-number" aria-label="第 1823 行">1823</a><span></span></div>
+<div class="raw-line" id="L1824"><a href="#L1824" tabindex="0" class="raw-line-number" aria-label="第 1824 行">1824</a><span>哎。</span></div>
+<div class="raw-line" id="L1825"><a href="#L1825" tabindex="0" class="raw-line-number" aria-label="第 1825 行">1825</a><span></span></div>
+<div class="raw-line" id="L1826"><a href="#L1826" tabindex="0" class="raw-line-number" aria-label="第 1826 行">1826</a><span>那个，刚才那个屠龙老师讲得太好了哈。</span></div>
+<div class="raw-line" id="L1827"><a href="#L1827" tabindex="0" class="raw-line-number" aria-label="第 1827 行">1827</a><span></span></div>
+<div class="raw-line" id="L1828"><a href="#L1828" tabindex="0" class="raw-line-number" aria-label="第 1828 行">1828</a><span>那个，有一个观点其实我非常赞同哈，就是说AI要进入实业。</span></div>
+<div class="raw-line" id="L1829"><a href="#L1829" tabindex="0" class="raw-line-number" aria-label="第 1829 行">1829</a><span></span></div>
+<div class="raw-line" id="L1830"><a href="#L1830" tabindex="0" class="raw-line-number" aria-label="第 1830 行">1830</a><span>那作为制造业呢，我能够来参加这场AI这个大会，说实话还挺兴奋的。这不就是圈外的人又自己主动来了吗，是吧？</span></div>
+<div class="raw-line" id="L1831"><a href="#L1831" tabindex="0" class="raw-line-number" aria-label="第 1831 行">1831</a><span></span></div>
+<div class="raw-line" id="L1832"><a href="#L1832" tabindex="0" class="raw-line-number" aria-label="第 1832 行">1832</a><span>那接下来呢，我给大家分享一下制造业在AI落地，还有哪些海哟天。</span></div>
+<div class="raw-line" id="L1833"><a href="#L1833" tabindex="0" class="raw-line-number" aria-label="第 1833 行">1833</a><span></span></div>
+<div class="raw-line" id="L1834"><a href="#L1834" tabindex="0" class="raw-line-number" aria-label="第 1834 行">1834</a><span>那在2000多年前呢，有这么一句话，叫&quot;行百里者半九十&quot;。</span></div>
+<div class="raw-line" id="L1835"><a href="#L1835" tabindex="0" class="raw-line-number" aria-label="第 1835 行">1835</a><span></span></div>
+<div class="raw-line" id="L1836"><a href="#L1836" tabindex="0" class="raw-line-number" aria-label="第 1836 行">1836</a><span>那很像我们现在当前这个这种现状哈，AI能帮我们快速地产生这种demo，但是真正到落地的时候，发现还有很多的那种工作要做。</span></div>
+<div class="raw-line" id="L1837"><a href="#L1837" tabindex="0" class="raw-line-number" aria-label="第 1837 行">1837</a><span></span></div>
+<div class="raw-line" id="L1838"><a href="#L1838" tabindex="0" class="raw-line-number" aria-label="第 1838 行">1838</a><span>那我们呢，是来自国内的一家瓶盖企业，在做的可能多少都会用过我们的产品，因为在这个细分赛道上，我们的客户覆盖了几乎国内所有的知名品牌。</span></div>
+<div class="raw-line" id="L1839"><a href="#L1839" tabindex="0" class="raw-line-number" aria-label="第 1839 行">1839</a><span></span></div>
+<div class="raw-line" id="L1840"><a href="#L1840" tabindex="0" class="raw-line-number" aria-label="第 1840 行">1840</a><span>啊，在国内有6个智能工厂。</span></div>
+<div class="raw-line" id="L1841"><a href="#L1841" tabindex="0" class="raw-line-number" aria-label="第 1841 行">1841</a><span></span></div>
+<div class="raw-line" id="L1842"><a href="#L1842" tabindex="0" class="raw-line-number" aria-label="第 1842 行">1842</a><span>那大家肯定都比我懂AI，但是工厂里边每天在发生什么，相信我可能看到的会比较多。</span></div>
+<div class="raw-line" id="L1843"><a href="#L1843" tabindex="0" class="raw-line-number" aria-label="第 1843 行">1843</a><span></span></div>
+<div class="raw-line" id="L1844"><a href="#L1844" tabindex="0" class="raw-line-number" aria-label="第 1844 行">1844</a><span>那这两年呢，看到这个整个世界是日新月异的一个变化。</span></div>
+<div class="raw-line" id="L1845"><a href="#L1845" tabindex="0" class="raw-line-number" aria-label="第 1845 行">1845</a><span></span></div>
+<div class="raw-line" id="L1846"><a href="#L1846" tabindex="0" class="raw-line-number" aria-label="第 1846 行">1846</a><span>那技术呢，也是那个突飞猛进，那我们也在思考，一个20多年的这么一个瓶盖工厂，AI能帮我们做什么？</span></div>
+<div class="raw-line" id="L1847"><a href="#L1847" tabindex="0" class="raw-line-number" aria-label="第 1847 行">1847</a><span></span></div>
+<div class="raw-line" id="L1848"><a href="#L1848" tabindex="0" class="raw-line-number" aria-label="第 1848 行">1848</a><span>所以我们在不断地尝试。</span></div>
+<div class="raw-line" id="L1849"><a href="#L1849" tabindex="0" class="raw-line-number" aria-label="第 1849 行">1849</a><span></span></div>
+<div class="raw-line" id="L1850"><a href="#L1850" tabindex="0" class="raw-line-number" aria-label="第 1850 行">1850</a><span>那一直在，现在呢，也开发了一个Hiwork企业AI工作台，把我们过去所有的这种数字化系统都整合到了这个工作台。</span></div>
+<div class="raw-line" id="L1851"><a href="#L1851" tabindex="0" class="raw-line-number" aria-label="第 1851 行">1851</a><span></span></div>
+<div class="raw-line" id="L1852"><a href="#L1852" tabindex="0" class="raw-line-number" aria-label="第 1852 行">1852</a><span>那在这个底座基础之上呢，我们又搭建了很多的应用，前后也搭建了50多个智能体。</span></div>
+<div class="raw-line" id="L1853"><a href="#L1853" tabindex="0" class="raw-line-number" aria-label="第 1853 行">1853</a><span></span></div>
+<div class="raw-line" id="L1854"><a href="#L1854" tabindex="0" class="raw-line-number" aria-label="第 1854 行">1854</a><span>现在呢，也是每个月大约1000亿左右的token消耗量。</span></div>
+<div class="raw-line" id="L1855"><a href="#L1855" tabindex="0" class="raw-line-number" aria-label="第 1855 行">1855</a><span></span></div>
+<div class="raw-line" id="L1856"><a href="#L1856" tabindex="0" class="raw-line-number" aria-label="第 1856 行">1856</a><span>但是这个量用起来了，我们还要问一下自己，钱可以花，但是我们要花在花在哪儿？</span></div>
+<div class="raw-line" id="L1857"><a href="#L1857" tabindex="0" class="raw-line-number" aria-label="第 1857 行">1857</a><span></span></div>
+<div class="raw-line" id="L1858"><a href="#L1858" tabindex="0" class="raw-line-number" aria-label="第 1858 行">1858</a><span>因为我们就越往下做，会发现企业进入AI要天的海实在是太多了。</span></div>
+<div class="raw-line" id="L1859"><a href="#L1859" tabindex="0" class="raw-line-number" aria-label="第 1859 行">1859</a><span></span></div>
+<div class="raw-line" id="L1860"><a href="#L1860" tabindex="0" class="raw-line-number" aria-label="第 1860 行">1860</a><span>那我给AI进入企业打了一个比喻哈，叫改造一栋楼。</span></div>
+<div class="raw-line" id="L1861"><a href="#L1861" tabindex="0" class="raw-line-number" aria-label="第 1861 行">1861</a><span></span></div>
+<div class="raw-line" id="L1862"><a href="#L1862" tabindex="0" class="raw-line-number" aria-label="第 1862 行">1862</a><span>不是说买一个模型，上一堆智能体就可以了。</span></div>
+<div class="raw-line" id="L1863"><a href="#L1863" tabindex="0" class="raw-line-number" aria-label="第 1863 行">1863</a><span></span></div>
+<div class="raw-line" id="L1864"><a href="#L1864" tabindex="0" class="raw-line-number" aria-label="第 1864 行">1864</a><span>因为每一个企业过去几十年里边，都已经有了很多的基础建设，像什么ERP、MS啊，或者是这种数据、数据中台。</span></div>
+<div class="raw-line" id="L1865"><a href="#L1865" tabindex="0" class="raw-line-number" aria-label="第 1865 行">1865</a><span></span></div>
+<div class="raw-line" id="L1866"><a href="#L1866" tabindex="0" class="raw-line-number" aria-label="第 1866 行">1866</a><span>那这些系统现在还能不能用？</span></div>
+<div class="raw-line" id="L1867"><a href="#L1867" tabindex="0" class="raw-line-number" aria-label="第 1867 行">1867</a><span></span></div>
+<div class="raw-line" id="L1868"><a href="#L1868" tabindex="0" class="raw-line-number" aria-label="第 1868 行">1868</a><span>是否要改造？</span></div>
+<div class="raw-line" id="L1869"><a href="#L1869" tabindex="0" class="raw-line-number" aria-label="第 1869 行">1869</a><span></span></div>
+<div class="raw-line" id="L1870"><a href="#L1870" tabindex="0" class="raw-line-number" aria-label="第 1870 行">1870</a><span>这些都要好好地思考思考。</span></div>
+<div class="raw-line" id="L1871"><a href="#L1871" tabindex="0" class="raw-line-number" aria-label="第 1871 行">1871</a><span></span></div>
+<div class="raw-line" id="L1872"><a href="#L1872" tabindex="0" class="raw-line-number" aria-label="第 1872 行">1872</a><span>那再往上呢，就是要对我们的对象、流程、指标、规则去认真梳理。</span></div>
+<div class="raw-line" id="L1873"><a href="#L1873" tabindex="0" class="raw-line-number" aria-label="第 1873 行">1873</a><span></span></div>
+<div class="raw-line" id="L1874"><a href="#L1874" tabindex="0" class="raw-line-number" aria-label="第 1874 行">1874</a><span>也就是企业的本体。</span></div>
+<div class="raw-line" id="L1875"><a href="#L1875" tabindex="0" class="raw-line-number" aria-label="第 1875 行">1875</a><span></span></div>
+<div class="raw-line" id="L1876"><a href="#L1876" tabindex="0" class="raw-line-number" aria-label="第 1876 行">1876</a><span>那只有把这个梳理清楚了，才能去接模型，去做智能体，然后才是落地。</span></div>
+<div class="raw-line" id="L1877"><a href="#L1877" tabindex="0" class="raw-line-number" aria-label="第 1877 行">1877</a><span></span></div>
+<div class="raw-line" id="L1878"><a href="#L1878" tabindex="0" class="raw-line-number" aria-label="第 1878 行">1878</a><span>那这里第二场也是最难的这一场哈，因为目前市面上还没有什么可以非常好的产品。</span></div>
+<div class="raw-line" id="L1879"><a href="#L1879" tabindex="0" class="raw-line-number" aria-label="第 1879 行">1879</a><span></span></div>
+<div class="raw-line" id="L1880"><a href="#L1880" tabindex="0" class="raw-line-number" aria-label="第 1880 行">1880</a><span>这块未来也是一个非常大的这么一个市场。</span></div>
+<div class="raw-line" id="L1881"><a href="#L1881" tabindex="0" class="raw-line-number" aria-label="第 1881 行">1881</a><span></span></div>
+<div class="raw-line" id="L1882"><a href="#L1882" tabindex="0" class="raw-line-number" aria-label="第 1882 行">1882</a><span>那过去两年呢，很多这种科技公司来给我讲过，什么是企业的本体，讲得都非常有道理。</span></div>
+<div class="raw-line" id="L1883"><a href="#L1883" tabindex="0" class="raw-line-number" aria-label="第 1883 行">1883</a><span></span></div>
+<div class="raw-line" id="L1884"><a href="#L1884" tabindex="0" class="raw-line-number" aria-label="第 1884 行">1884</a><span>但是呢，我就想说的是，还是要先去工厂里边看一看。</span></div>
+<div class="raw-line" id="L1885"><a href="#L1885" tabindex="0" class="raw-line-number" aria-label="第 1885 行">1885</a><span></span></div>
+<div class="raw-line" id="L1886"><a href="#L1886" tabindex="0" class="raw-line-number" aria-label="第 1886 行">1886</a><span>因为一旦进入了工厂，就会发现设备是老的，那旧的设备呢，能不能读取数据？</span></div>
+<div class="raw-line" id="L1887"><a href="#L1887" tabindex="0" class="raw-line-number" aria-label="第 1887 行">1887</a><span></span></div>
+<div class="raw-line" id="L1888"><a href="#L1888" tabindex="0" class="raw-line-number" aria-label="第 1888 行">1888</a><span>能不能控制系统，能不能接收指令？</span></div>
+<div class="raw-line" id="L1889"><a href="#L1889" tabindex="0" class="raw-line-number" aria-label="第 1889 行">1889</a><span></span></div>
+<div class="raw-line" id="L1890"><a href="#L1890" tabindex="0" class="raw-line-number" aria-label="第 1890 行">1890</a><span>那如果不能，那就要加传感器，去改造设备，去培训人员。那如果为了接入AI，去改造设备，改工艺，那可能这个成本就是深不见底。</span></div>
+<div class="raw-line" id="L1891"><a href="#L1891" tabindex="0" class="raw-line-number" aria-label="第 1891 行">1891</a><span></span></div>
+<div class="raw-line" id="L1892"><a href="#L1892" tabindex="0" class="raw-line-number" aria-label="第 1892 行">1892</a><span>而且像如果说你的企业利润又比较薄，那可能会整个拖垮整个企业。</span></div>
+<div class="raw-line" id="L1893"><a href="#L1893" tabindex="0" class="raw-line-number" aria-label="第 1893 行">1893</a><span></span></div>
+<div class="raw-line" id="L1894"><a href="#L1894" tabindex="0" class="raw-line-number" aria-label="第 1894 行">1894</a><span>而且工人呢，很多的这种中小型制造业，一线工人已经超过了40岁，高级技工达到了48岁。</span></div>
+<div class="raw-line" id="L1895"><a href="#L1895" tabindex="0" class="raw-line-number" aria-label="第 1895 行">1895</a><span></span></div>
+<div class="raw-line" id="L1896"><a href="#L1896" tabindex="0" class="raw-line-number" aria-label="第 1896 行">1896</a><span>那这些人呢，过去几、几十年有了一个非常固定的工作习惯，要怎么来改变？</span></div>
+<div class="raw-line" id="L1897"><a href="#L1897" tabindex="0" class="raw-line-number" aria-label="第 1897 行">1897</a><span></span></div>
+<div class="raw-line" id="L1898"><a href="#L1898" tabindex="0" class="raw-line-number" aria-label="第 1898 行">1898</a><span>因为不是所有的制造业都像我们汽车工业那样，能百亿、千亿地投资建新厂。</span></div>
+<div class="raw-line" id="L1899"><a href="#L1899" tabindex="0" class="raw-line-number" aria-label="第 1899 行">1899</a><span></span></div>
+<div class="raw-line" id="L1900"><a href="#L1900" tabindex="0" class="raw-line-number" aria-label="第 1900 行">1900</a><span>那真正对于我们这种全、全国几百万的中小型制造业，他们最大的问题是什么？</span></div>
+<div class="raw-line" id="L1901"><a href="#L1901" tabindex="0" class="raw-line-number" aria-label="第 1901 行">1901</a><span></span></div>
+<div class="raw-line" id="L1902"><a href="#L1902" tabindex="0" class="raw-line-number" aria-label="第 1902 行">1902</a><span>是还有正在发生的大部分事实还没有变成数据。</span></div>
+<div class="raw-line" id="L1903"><a href="#L1903" tabindex="0" class="raw-line-number" aria-label="第 1903 行">1903</a><span></span></div>
+<div class="raw-line" id="L1904"><a href="#L1904" tabindex="0" class="raw-line-number" aria-label="第 1904 行">1904</a><span>我说一个场景哈，因为在制造业里边不学系统，像这种MS啊、ERP啊、QMS啊，</span></div>
+<div class="raw-line" id="L1905"><a href="#L1905" tabindex="0" class="raw-line-number" aria-label="第 1905 行">1905</a><span></span></div>
+<div class="raw-line" id="L1906"><a href="#L1906" tabindex="0" class="raw-line-number" aria-label="第 1906 行">1906</a><span>都有。但是呢，有时候往往支撑车间里边工作的还是线下的一个动作。</span></div>
+<div class="raw-line" id="L1907"><a href="#L1907" tabindex="0" class="raw-line-number" aria-label="第 1907 行">1907</a><span></span></div>
+<div class="raw-line" id="L1908"><a href="#L1908" tabindex="0" class="raw-line-number" aria-label="第 1908 行">1908</a><span>为什么？</span></div>
+<div class="raw-line" id="L1909"><a href="#L1909" tabindex="0" class="raw-line-number" aria-label="第 1909 行">1909</a><span></span></div>
+<div class="raw-line" id="L1910"><a href="#L1910" tabindex="0" class="raw-line-number" aria-label="第 1910 行">1910</a><span>不是说系统不好用，而是说车间里边每天发生的事情，它是不固定的。</span></div>
+<div class="raw-line" id="L1911"><a href="#L1911" tabindex="0" class="raw-line-number" aria-label="第 1911 行">1911</a><span></span></div>
+<div class="raw-line" id="L1912"><a href="#L1912" tabindex="0" class="raw-line-number" aria-label="第 1912 行">1912</a><span>例如供应商今天少来了两条料，或者某个客户突然要提前交货，</span></div>
+<div class="raw-line" id="L1913"><a href="#L1913" tabindex="0" class="raw-line-number" aria-label="第 1913 行">1913</a><span></span></div>
+<div class="raw-line" id="L1914"><a href="#L1914" tabindex="0" class="raw-line-number" aria-label="第 1914 行">1914</a><span>某个设备突然坏了，这种事情天天都在发生。</span></div>
+<div class="raw-line" id="L1915"><a href="#L1915" tabindex="0" class="raw-line-number" aria-label="第 1915 行">1915</a><span></span></div>
+<div class="raw-line" id="L1916"><a href="#L1916" tabindex="0" class="raw-line-number" aria-label="第 1916 行">1916</a><span>那员工不可能马上放下手下的工作，</span></div>
+<div class="raw-line" id="L1917"><a href="#L1917" tabindex="0" class="raw-line-number" aria-label="第 1917 行">1917</a><span></span></div>
+<div class="raw-line" id="L1918"><a href="#L1918" tabindex="0" class="raw-line-number" aria-label="第 1918 行">1918</a><span>去录入系统。</span></div>
+<div class="raw-line" id="L1919"><a href="#L1919" tabindex="0" class="raw-line-number" aria-label="第 1919 行">1919</a><span></span></div>
+<div class="raw-line" id="L1920"><a href="#L1920" tabindex="0" class="raw-line-number" aria-label="第 1920 行">1920</a><span>那更麻烦的是，如果说这种突发事件，系统里连那个字段都没有，那更是没有办法录。</span></div>
+<div class="raw-line" id="L1921"><a href="#L1921" tabindex="0" class="raw-line-number" aria-label="第 1921 行">1921</a><span></span></div>
+<div class="raw-line" id="L1922"><a href="#L1922" tabindex="0" class="raw-line-number" aria-label="第 1922 行">1922</a><span>那所有的呢，这种情况最终都会变成一条消息，或者是一张图片，发到了群、群里边。</span></div>
+<div class="raw-line" id="L1923"><a href="#L1923" tabindex="0" class="raw-line-number" aria-label="第 1923 行">1923</a><span></span></div>
+<div class="raw-line" id="L1924"><a href="#L1924" tabindex="0" class="raw-line-number" aria-label="第 1924 行">1924</a><span>那系统里边记录的呢，永远都是计划要发生的事情，而真正发生的事情往往都在线下。</span></div>
+<div class="raw-line" id="L1925"><a href="#L1925" tabindex="0" class="raw-line-number" aria-label="第 1925 行">1925</a><span></span></div>
+<div class="raw-line" id="L1926"><a href="#L1926" tabindex="0" class="raw-line-number" aria-label="第 1926 行">1926</a><span>当然还不止这一点哈，像设备的联网，异常的样本，系统的打、打通，这些还都好办。</span></div>
+<div class="raw-line" id="L1927"><a href="#L1927" tabindex="0" class="raw-line-number" aria-label="第 1927 行">1927</a><span></span></div>
+<div class="raw-line" id="L1928"><a href="#L1928" tabindex="0" class="raw-line-number" aria-label="第 1928 行">1928</a><span>那更难的是口径是否统一，一个交付这个词，在营销，在财务，在工厂，都不是一个意思。</span></div>
+<div class="raw-line" id="L1929"><a href="#L1929" tabindex="0" class="raw-line-number" aria-label="第 1929 行">1929</a><span></span></div>
+<div class="raw-line" id="L1930"><a href="#L1930" tabindex="0" class="raw-line-number" aria-label="第 1930 行">1930</a><span>那AI给出的数据是否准确，给出的决策谁敢签字？</span></div>
+<div class="raw-line" id="L1931"><a href="#L1931" tabindex="0" class="raw-line-number" aria-label="第 1931 行">1931</a><span></span></div>
+<div class="raw-line" id="L1932"><a href="#L1932" tabindex="0" class="raw-line-number" aria-label="第 1932 行">1932</a><span>那老师的经验，怎么来沉淀？</span></div>
+<div class="raw-line" id="L1933"><a href="#L1933" tabindex="0" class="raw-line-number" aria-label="第 1933 行">1933</a><span></span></div>
+<div class="raw-line" id="L1934"><a href="#L1934" tabindex="0" class="raw-line-number" aria-label="第 1934 行">1934</a><span>那这两天呢，其实我也聊到很多的一些新技术哈，能帮我们解决这些困扰。</span></div>
+<div class="raw-line" id="L1935"><a href="#L1935" tabindex="0" class="raw-line-number" aria-label="第 1935 行">1935</a><span></span></div>
+<div class="raw-line" id="L1936"><a href="#L1936" tabindex="0" class="raw-line-number" aria-label="第 1936 行">1936</a><span>但是这些新的突破，首先带来的肯定不是收益，对我来讲可能是一笔昂贵的账单。</span></div>
+<div class="raw-line" id="L1937"><a href="#L1937" tabindex="0" class="raw-line-number" aria-label="第 1937 行">1937</a><span></span></div>
+<div class="raw-line" id="L1938"><a href="#L1938" tabindex="0" class="raw-line-number" aria-label="第 1938 行">1938</a><span>那所以我就要考虑，这个钱该不该投，投了之后能不能赚回来。</span></div>
+<div class="raw-line" id="L1939"><a href="#L1939" tabindex="0" class="raw-line-number" aria-label="第 1939 行">1939</a><span></span></div>
+<div class="raw-line" id="L1940"><a href="#L1940" tabindex="0" class="raw-line-number" aria-label="第 1940 行">1940</a><span>我们有这么一个工具哈，横向去看它对财务的影响，</span></div>
+<div class="raw-line" id="L1941"><a href="#L1941" tabindex="0" class="raw-line-number" aria-label="第 1941 行">1941</a><span></span></div>
+<div class="raw-line" id="L1942"><a href="#L1942" tabindex="0" class="raw-line-number" aria-label="第 1942 行">1942</a><span>纵向去看它的见效快慢。</span></div>
+<div class="raw-line" id="L1943"><a href="#L1943" tabindex="0" class="raw-line-number" aria-label="第 1943 行">1943</a><span></span></div>
+<div class="raw-line" id="L1944"><a href="#L1944" tabindex="0" class="raw-line-number" aria-label="第 1944 行">1944</a><span>那把我们所有的AI需求扔到这张表里边，自动它就归好类。</span></div>
+<div class="raw-line" id="L1945"><a href="#L1945" tabindex="0" class="raw-line-number" aria-label="第 1945 行">1945</a><span></span></div>
+<div class="raw-line" id="L1946"><a href="#L1946" tabindex="0" class="raw-line-number" aria-label="第 1946 行">1946</a><span>什么该做，什么不该做，</span></div>
+<div class="raw-line" id="L1947"><a href="#L1947" tabindex="0" class="raw-line-number" aria-label="第 1947 行">1947</a><span></span></div>
+<div class="raw-line" id="L1948"><a href="#L1948" tabindex="0" class="raw-line-number" aria-label="第 1948 行">1948</a><span>哪些先做，哪些后做，一目了然。</span></div>
+<div class="raw-line" id="L1949"><a href="#L1949" tabindex="0" class="raw-line-number" aria-label="第 1949 行">1949</a><span></span></div>
+<div class="raw-line" id="L1950"><a href="#L1950" tabindex="0" class="raw-line-number" aria-label="第 1950 行">1950</a><span>可以看到，像这个营销和客户相关的这种需求呢，占了三成。为什么？</span></div>
+<div class="raw-line" id="L1951"><a href="#L1951" tabindex="0" class="raw-line-number" aria-label="第 1951 行">1951</a><span></span></div>
+<div class="raw-line" id="L1952"><a href="#L1952" tabindex="0" class="raw-line-number" aria-label="第 1952 行">1952</a><span>因为这些直接关乎企业的经营，而且市面上已经有了很多的这种通用化的产品。</span></div>
+<div class="raw-line" id="L1953"><a href="#L1953" tabindex="0" class="raw-line-number" aria-label="第 1953 行">1953</a><span></span></div>
+<div class="raw-line" id="L1954"><a href="#L1954" tabindex="0" class="raw-line-number" aria-label="第 1954 行">1954</a><span>但是对于一个ToB企业来讲，一个。</span></div>
+<div class="raw-line" id="L1955"><a href="#L1955" tabindex="0" class="raw-line-number" aria-label="第 1955 行">1955</a><span></span></div>
+<div class="raw-line" id="L1956"><a href="#L1956" tabindex="0" class="raw-line-number" aria-label="第 1956 行">1956</a><span>智能体能给销售带来多大的增幅，谁也说不清楚。</span></div>
+<div class="raw-line" id="L1957"><a href="#L1957" tabindex="0" class="raw-line-number" aria-label="第 1957 行">1957</a><span></span></div>
+<div class="raw-line" id="L1958"><a href="#L1958" tabindex="0" class="raw-line-number" aria-label="第 1958 行">1958</a><span>所以这也是很多AI项目到企业里边，很难去立项的这么一个原因。</span></div>
+<div class="raw-line" id="L1959"><a href="#L1959" tabindex="0" class="raw-line-number" aria-label="第 1959 行">1959</a><span></span></div>
+<div class="raw-line" id="L1960"><a href="#L1960" tabindex="0" class="raw-line-number" aria-label="第 1960 行">1960</a><span>那做起来真正能够在当即就看到这种收益的，往往是这种最简单，</span></div>
+<div class="raw-line" id="L1961"><a href="#L1961" tabindex="0" class="raw-line-number" aria-label="第 1961 行">1961</a><span></span></div>
+<div class="raw-line" id="L1962"><a href="#L1962" tabindex="0" class="raw-line-number" aria-label="第 1962 行">1962</a><span>甚至是有些土的这些项目。</span></div>
+<div class="raw-line" id="L1963"><a href="#L1963" tabindex="0" class="raw-line-number" aria-label="第 1963 行">1963</a><span></span></div>
+<div class="raw-line" id="L1964"><a href="#L1964" tabindex="0" class="raw-line-number" aria-label="第 1964 行">1964</a><span>像这种财务报销的智能体，那每个月可以帮我们集团节省500多个报销所用的工时。</span></div>
+<div class="raw-line" id="L1965"><a href="#L1965" tabindex="0" class="raw-line-number" aria-label="第 1965 行">1965</a><span></span></div>
+<div class="raw-line" id="L1966"><a href="#L1966" tabindex="0" class="raw-line-number" aria-label="第 1966 行">1966</a><span>像这种，呃，合同审查的智能体，对吧，可以把我们的法务工作从几小时缩短到几分钟。</span></div>
+<div class="raw-line" id="L1967"><a href="#L1967" tabindex="0" class="raw-line-number" aria-label="第 1967 行">1967</a><span></span></div>
+<div class="raw-line" id="L1968"><a href="#L1968" tabindex="0" class="raw-line-number" aria-label="第 1968 行">1968</a><span>这里稍难一点的，像这种视觉检测，这种设备，这个投入可能相对大一点，但是它能实实在在地帮我们把这个车间里的人力释放出来。</span></div>
+<div class="raw-line" id="L1969"><a href="#L1969" tabindex="0" class="raw-line-number" aria-label="第 1969 行">1969</a><span></span></div>
+<div class="raw-line" id="L1970"><a href="#L1970" tabindex="0" class="raw-line-number" aria-label="第 1970 行">1970</a><span>而且这些项目呢，都可以时、</span></div>
+<div class="raw-line" id="L1971"><a href="#L1971" tabindex="0" class="raw-line-number" aria-label="第 1971 行">1971</a><span></span></div>
+<div class="raw-line" id="L1972"><a href="#L1972" tabindex="0" class="raw-line-number" aria-label="第 1972 行">1972</a><span>从数字上真真确确地看见我们在降本。那当然这种项目能不能给企业带来质的飞跃？</span></div>
+<div class="raw-line" id="L1973"><a href="#L1973" tabindex="0" class="raw-line-number" aria-label="第 1973 行">1973</a><span></span></div>
+<div class="raw-line" id="L1974"><a href="#L1974" tabindex="0" class="raw-line-number" aria-label="第 1974 行">1974</a><span>在这个高德拉特目标这本书里边有提到过哈，说得很明确，在非瓶颈上省下来的时间，都是海市蜃楼。</span></div>
+<div class="raw-line" id="L1975"><a href="#L1975" tabindex="0" class="raw-line-number" aria-label="第 1975 行">1975</a><span></span></div>
+<div class="raw-line" id="L1976"><a href="#L1976" tabindex="0" class="raw-line-number" aria-label="第 1976 行">1976</a><span>局部的改良，动不了瓶颈。</span></div>
+<div class="raw-line" id="L1977"><a href="#L1977" tabindex="0" class="raw-line-number" aria-label="第 1977 行">1977</a><span></span></div>
+<div class="raw-line" id="L1978"><a href="#L1978" tabindex="0" class="raw-line-number" aria-label="第 1978 行">1978</a><span>而且刚才说降本这个词，现在降本这个词八成等同于裁员，没有任何一个企业希望通过裁员来换取自己的发展。</span></div>
+<div class="raw-line" id="L1979"><a href="#L1979" tabindex="0" class="raw-line-number" aria-label="第 1979 行">1979</a><span></span></div>
+<div class="raw-line" id="L1980"><a href="#L1980" tabindex="0" class="raw-line-number" aria-label="第 1980 行">1980</a><span>所以我们真正要做的是什么？</span></div>
+<div class="raw-line" id="L1981"><a href="#L1981" tabindex="0" class="raw-line-number" aria-label="第 1981 行">1981</a><span></span></div>
+<div class="raw-line" id="L1982"><a href="#L1982" tabindex="0" class="raw-line-number" aria-label="第 1982 行">1982</a><span>我们真正做、真正要做的是这种提效的项目。</span></div>
+<div class="raw-line" id="L1983"><a href="#L1983" tabindex="0" class="raw-line-number" aria-label="第 1983 行">1983</a><span></span></div>
+<div class="raw-line" id="L1984"><a href="#L1984" tabindex="0" class="raw-line-number" aria-label="第 1984 行">1984</a><span>例如智能排产，在有限的资源内，做大，呃，把产出做大。</span></div>
+<div class="raw-line" id="L1985"><a href="#L1985" tabindex="0" class="raw-line-number" aria-label="第 1985 行">1985</a><span></span></div>
+<div class="raw-line" id="L1986"><a href="#L1986" tabindex="0" class="raw-line-number" aria-label="第 1986 行">1986</a><span>那排得好，同一批工人，同一批设备，就能做出更大的产出。</span></div>
+<div class="raw-line" id="L1987"><a href="#L1987" tabindex="0" class="raw-line-number" aria-label="第 1987 行">1987</a><span></span></div>
+<div class="raw-line" id="L1988"><a href="#L1988" tabindex="0" class="raw-line-number" aria-label="第 1988 行">1988</a><span>当然这个事儿相当难，在这个智能制造能力模型报告里边，对中国6万家的制造业进行了一个评估，</span></div>
+<div class="raw-line" id="L1989"><a href="#L1989" tabindex="0" class="raw-line-number" aria-label="第 1989 行">1989</a><span></span></div>
+<div class="raw-line" id="L1990"><a href="#L1990" tabindex="0" class="raw-line-number" aria-label="第 1990 行">1990</a><span>有60%以上的制造业还不到一级，只有4%达到了四级的深度智能化。</span></div>
+<div class="raw-line" id="L1991"><a href="#L1991" tabindex="0" class="raw-line-number" aria-label="第 1991 行">1991</a><span></span></div>
+<div class="raw-line" id="L1992"><a href="#L1992" tabindex="0" class="raw-line-number" aria-label="第 1992 行">1992</a><span>那放到我们这种多品种、小批次、按单生产的这种零散型制造业，能跑通这个逻辑的更是凤毛麟角。</span></div>
+<div class="raw-line" id="L1993"><a href="#L1993" tabindex="0" class="raw-line-number" aria-label="第 1993 行">1993</a><span></span></div>
+<div class="raw-line" id="L1994"><a href="#L1994" tabindex="0" class="raw-line-number" aria-label="第 1994 行">1994</a><span>那这个数据反映的不是模型它聪不聪明，而是在模型之前的每一步，它都有自己的一个数。</span></div>
+<div class="raw-line" id="L1995"><a href="#L1995" tabindex="0" class="raw-line-number" aria-label="第 1995 行">1995</a><span></span></div>
+<div class="raw-line" id="L1996"><a href="#L1996" tabindex="0" class="raw-line-number" aria-label="第 1996 行">1996</a><span>像交期，这口头承诺的，还是系统算出来的。</span></div>
+<div class="raw-line" id="L1997"><a href="#L1997" tabindex="0" class="raw-line-number" aria-label="第 1997 行">1997</a><span></span></div>
+<div class="raw-line" id="L1998"><a href="#L1998" tabindex="0" class="raw-line-number" aria-label="第 1998 行">1998</a><span>客户突然说就给你20天的时间，那关键物料要多少天才能到？</span></div>
+<div class="raw-line" id="L1999"><a href="#L1999" tabindex="0" class="raw-line-number" aria-label="第 1999 行">1999</a><span></span></div>
+<div class="raw-line" id="L2000"><a href="#L2000" tabindex="0" class="raw-line-number" aria-label="第 2000 行">2000</a><span>有些模具不能通用，不是说设备有空了，我们就能生产。</span></div></div><nav class="materials-links raw-pagination" aria-label="原文分段">
+          <a href="../part-3/" tabindex="0" rel="prev">上一段</a>
+          <span aria-current="page">第 4 / 19 段 · L1501–L2000</span>
+          <a href="../part-5/" tabindex="0" rel="next">下一段</a>
+          <a href="../all/" tabindex="0">查看全文</a>
+        </nav></div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>页面信息来自各活动公开资料，可能随时变更；出发前请以主办方官方公告为准。</p>
+  </div>
+</footer>
+<script src="../../../../assets/site.4c7b854f.js" defer></script>
+</body>
+</html>

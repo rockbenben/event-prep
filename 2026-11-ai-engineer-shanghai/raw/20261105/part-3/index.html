@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2026-11-05 原始记录 · AI Engineer Shanghai 2026 · EventPrep</title>
+<meta name="description" content="AI Engineer Shanghai 2026 的2026-11-05 原始记录">
+<meta name="color-scheme" content="light dark">
+<!-- 地址栏/标签栏颜色跟着深浅色走，值就是 site.css 里的 --bg。
+     以前这里写死一个 #1f6feb —— 那个色号在 CSS 里根本不存在（--accent 是 #2563eb），
+     深色模式下也是蓝色地址栏配深色页面。两段 meta 各自带 media，浏览器自己选。 -->
+<meta name="theme-color" content="#f8fafc" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0b0f17" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://event.newzone.top/2026-11-ai-engineer-shanghai/raw/20261105/part-3/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="2026-11-05 原始记录 · AI Engineer Shanghai 2026 · EventPrep">
+<meta property="og:description" content="AI Engineer Shanghai 2026 的2026-11-05 原始记录">
+<meta property="og:url" content="https://event.newzone.top/2026-11-ai-engineer-shanghai/raw/20261105/part-3/">
+
+<script>(function(){try{var t=localStorage.getItem('eventprep:theme');if(t==='light'||t==='dark'){document.documentElement.setAttribute('data-theme',t);}}catch(e){}})();</script>
+<link rel="icon" type="image/svg+xml" href="../../../../assets/favicon.svg">
+<link rel="stylesheet" href="../../../../assets/site.9afe22e1.css">
+
+</head>
+<body>
+<!-- 打印版工具条：平时 display:none，进入打印模式（<html class="print-mode">）才出现。
+     打印到纸上时这条工具条自身要藏掉（见 site.css 的 @media print）——它是屏幕上的控件。 -->
+<div class="print-bar" id="print-bar" role="toolbar" aria-label="打印版工具条">
+  <span class="print-bar-title">EventPrep · 打印版 · 全部内容已展开</span>
+  <div class="print-bar-actions">
+    <button type="button" id="print-do" class="ghost-btn">打印 / 存 PDF</button>
+    <button type="button" id="print-exit" class="ghost-btn">退出打印版</button>
+  </div>
+</div>
+<a class="skip-link" href="#main" tabindex="0">跳到正文</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="site-name" href="../../../../index.html" tabindex="0">
+      <svg class="site-logo" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+        <rect x="3" y="3.5" width="18" height="18" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.8"/>
+        <rect x="9.5" y="5.5" width="5" height="1.8" rx="0.9" fill="currentColor" fill-opacity="0.4"/>
+        <path d="M6.5 11h5M6.5 14.5h3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        <circle cx="16" cy="15" r="4.2" fill="#16a34a"/>
+        <path d="M14.2 15l1.3 1.3 2.5-2.5" stroke="#ffffff" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span>EventPrep</span>
+    </a>
+    <div class="header-actions">
+      
+      
+      <a class="ghost-btn" href="https://github.com/rockbenben/event-prep" target="_blank" rel="noopener noreferrer" aria-label="GitHub 仓库" title="GitHub 仓库">
+        <svg class="theme-icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+          <path d="M12 .8a11.2 11.2 0 0 0-3.54 21.83c.56.1.77-.24.77-.54v-2.1c-3.12.68-3.78-1.33-3.78-1.33-.51-1.3-1.25-1.65-1.25-1.65-1.02-.7.08-.68.08-.68 1.13.08 1.72 1.16 1.72 1.16 1 1.72 2.63 1.22 3.27.95.1-.74.39-1.22.71-1.5-2.5-.28-5.12-1.25-5.12-5.56 0-1.23.44-2.23 1.16-3.02-.12-.28-.5-1.43.11-2.98 0 0 .95-.3 3.1 1.15a10.8 10.8 0 0 1 5.64 0c2.15-1.45 3.1-1.15 3.1-1.15.61 1.55.23 2.7.11 2.98.72.79 1.16 1.79 1.16 3.02 0 4.32-2.63 5.27-5.14 5.55.4.35.76 1.03.76 2.08v3.08c0 .3.2.65.78.54A11.2 11.2 0 0 0 12 .8Z"></path>
+        </svg>
+      </a>
+      <button type="button" id="theme-toggle" class="ghost-btn" aria-label="切换深浅色" title="切换深浅色">
+        <svg class="theme-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true" focusable="false">
+          <circle cx="12" cy="12" r="8.5" />
+          <path d="M12 3.5a8.5 8.5 0 0 0 0 17z" fill="currentColor" stroke="none" />
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+<dialog class="avatar-viewer" id="avatar-viewer" aria-label="放大照片">
+  <img id="avatar-viewer-img" src="" alt="">
+</dialog>
+<main id="main">
+<div class="wrap event material-page"><nav class="material-crumbs" aria-label="面包屑"><ol>
+      <li><a href="../../../../" tabindex="0">全部活动</a></li><li><a href="../../../" tabindex="0">AI Engineer Shanghai 2026</a></li>
+      <li><a href="../../" tabindex="0">原始记录</a></li>
+      <li><a href="./" tabindex="0" aria-current="page">2026-11-05 原始记录</a></li></ol></nav><header class="event-head"><h1 class="event-title">2026-11-05 原始记录</h1>
+        <p class="event-summary">AI Engineer Shanghai 2026</p></header><p class="notice">自动转写可能有误。以下内容保留双语原文，行号以原文件为准；下载文件保留原始字节。当前仅加载本段；搜索全部记录或打印全文请先选择「查看全文」。</p>
+          <nav class="materials-links" aria-label="资料操作"><a href="../../" tabindex="0">全部日期</a><a href="../../../summary/" tabindex="0">会后总结</a><a href="../../../20261105-raw.md" tabindex="0" download>下载原始 Markdown</a></nav>
+          <nav class="materials-links raw-pagination" aria-label="原文分段">
+          <a href="../part-2/" tabindex="0" rel="prev">上一段</a>
+          <span aria-current="page">第 3 / 26 段 · L1001–L1500</span>
+          <a href="../part-4/" tabindex="0" rel="next">下一段</a>
+          <a href="../all/" tabindex="0">查看全文</a>
+        </nav><details class="raw-sections"><summary>选择行号范围</summary><nav class="materials-links" aria-label="选择原文段落"><a href="../" tabindex="0">L1–L500</a><a href="../part-2/" tabindex="0">L501–L1000</a><a href="../part-3/" tabindex="0" aria-current="page">L1001–L1500</a><a href="../part-4/" tabindex="0">L1501–L2000</a><a href="../part-5/" tabindex="0">L2001–L2500</a><a href="../part-6/" tabindex="0">L2501–L3000</a><a href="../part-7/" tabindex="0">L3001–L3500</a><a href="../part-8/" tabindex="0">L3501–L4000</a><a href="../part-9/" tabindex="0">L4001–L4500</a><a href="../part-10/" tabindex="0">L4501–L5000</a><a href="../part-11/" tabindex="0">L5001–L5500</a><a href="../part-12/" tabindex="0">L5501–L6000</a><a href="../part-13/" tabindex="0">L6001–L6500</a><a href="../part-14/" tabindex="0">L6501–L7000</a><a href="../part-15/" tabindex="0">L7001–L7500</a><a href="../part-16/" tabindex="0">L7501–L8000</a><a href="../part-17/" tabindex="0">L8001–L8500</a><a href="../part-18/" tabindex="0">L8501–L9000</a><a href="../part-19/" tabindex="0">L9001–L9500</a><a href="../part-20/" tabindex="0">L9501–L10000</a><a href="../part-21/" tabindex="0">L10001–L10500</a><a href="../part-22/" tabindex="0">L10501–L11000</a><a href="../part-23/" tabindex="0">L11001–L11500</a><a href="../part-24/" tabindex="0">L11501–L12000</a><a href="../part-25/" tabindex="0">L12001–L12500</a><a href="../part-26/" tabindex="0">L12501–L12685</a></nav></details><details class="raw-sections"><summary>相关总结 · 1 节</summary><nav class="materials-links" aria-label="相关总结"><a href="../../../summary/#session-3" tabindex="0">3. Clemens Rawert · Langfuse by ClickHouse 联创｜构建 Agent：昨天、今天与明天</a></nav></details>
+          <div class="raw-transcript" data-raw-total="12685"><div class="raw-line" id="L1001"><a href="#L1001" tabindex="0" class="raw-line-number" aria-label="第 1001 行">1001</a><span>但到目前为止，如果你有孩子，可能会觉得这些智能体有点像幼儿园里的小朋友。</span></div>
+<div class="raw-line" id="L1002"><a href="#L1002" tabindex="0" class="raw-line-number" aria-label="第 1002 行">1002</a><span></span></div>
+<div class="raw-line" id="L1003"><a href="#L1003" tabindex="0" class="raw-line-number" aria-label="第 1003 行">1003</a><span>When your kid is in preschool, then you orchestrate the playdate.</span></div>
+<div class="raw-line" id="L1004"><a href="#L1004" tabindex="0" class="raw-line-number" aria-label="第 1004 行">1004</a><span>孩子还在上幼儿园的时候，约小朋友一起玩，得由你来安排。</span></div>
+<div class="raw-line" id="L1005"><a href="#L1005" tabindex="0" class="raw-line-number" aria-label="第 1005 行">1005</a><span></span></div>
+<div class="raw-line" id="L1006"><a href="#L1006" tabindex="0" class="raw-line-number" aria-label="第 1006 行">1006</a><span>You invite Annie and Evie over to your house, and you give them their dress-up costumes, and you say, &quot;Here, you all play together.</span></div>
+<div class="raw-line" id="L1007"><a href="#L1007" tabindex="0" class="raw-line-number" aria-label="第 1007 行">1007</a><span>你把安妮和伊薇请到家里，给她们换装的衣服，然后说：“来，你们一起玩吧。”</span></div>
+<div class="raw-line" id="L1008"><a href="#L1008" tabindex="0" class="raw-line-number" aria-label="第 1008 行">1008</a><span></span></div>
+<div class="raw-line" id="L1009"><a href="#L1009" tabindex="0" class="raw-line-number" aria-label="第 1009 行">1009</a><span>You orchestrate that playdate.&quot;</span></div>
+<div class="raw-line" id="L1010"><a href="#L1010" tabindex="0" class="raw-line-number" aria-label="第 1010 行">1010</a><span>这场小朋友的聚会，得由你来安排。”</span></div>
+<div class="raw-line" id="L1011"><a href="#L1011" tabindex="0" class="raw-line-number" aria-label="第 1011 行">1011</a><span></span></div>
+<div class="raw-line" id="L1012"><a href="#L1012" tabindex="0" class="raw-line-number" aria-label="第 1012 行">1012</a><span>But you know, now, my daughter is in high school. She&#39;s 16.</span></div>
+<div class="raw-line" id="L1013"><a href="#L1013" tabindex="0" class="raw-line-number" aria-label="第 1013 行">1013</a><span>但现在呢，我女儿已经上高中了，16 岁了。</span></div>
+<div class="raw-line" id="L1014"><a href="#L1014" tabindex="0" class="raw-line-number" aria-label="第 1014 行">1014</a><span></span></div>
+<div class="raw-line" id="L1015"><a href="#L1015" tabindex="0" class="raw-line-number" aria-label="第 1015 行">1015</a><span>And I don&#39;t orchestrate playdates anymore.</span></div>
+<div class="raw-line" id="L1016"><a href="#L1016" tabindex="0" class="raw-line-number" aria-label="第 1016 行">1016</a><span>我也不用再安排她和朋友一起玩了。</span></div>
+<div class="raw-line" id="L1017"><a href="#L1017" tabindex="0" class="raw-line-number" aria-label="第 1017 行">1017</a><span></span></div>
+<div class="raw-line" id="L1018"><a href="#L1018" tabindex="0" class="raw-line-number" aria-label="第 1018 行">1018</a><span>Now, if she wants to go to her friend&#39;s house, or she wants to do homework at her other friend&#39;s house, that&#39;s her decision, and she will create that collaboration.</span></div>
+<div class="raw-line" id="L1019"><a href="#L1019" tabindex="0" class="raw-line-number" aria-label="第 1019 行">1019</a><span>现在，如果她想去朋友家玩，或者去另一个朋友家一起做作业，那都由她自己决定，她也会自己联系朋友、安排好。</span></div>
+<div class="raw-line" id="L1020"><a href="#L1020" tabindex="0" class="raw-line-number" aria-label="第 1020 行">1020</a><span></span></div>
+<div class="raw-line" id="L1021"><a href="#L1021" tabindex="0" class="raw-line-number" aria-label="第 1021 行">1021</a><span>She&#39;ll create that orchestration, herself.</span></div>
+<div class="raw-line" id="L1022"><a href="#L1022" tabindex="0" class="raw-line-number" aria-label="第 1022 行">1022</a><span>她会自己安排。</span></div>
+<div class="raw-line" id="L1023"><a href="#L1023" tabindex="0" class="raw-line-number" aria-label="第 1023 行">1023</a><span></span></div>
+<div class="raw-line" id="L1024"><a href="#L1024" tabindex="0" class="raw-line-number" aria-label="第 1024 行">1024</a><span>This is what&#39;s coming for agents.</span></div>
+<div class="raw-line" id="L1025"><a href="#L1025" tabindex="0" class="raw-line-number" aria-label="第 1025 行">1025</a><span>智能体接下来也会进入这个阶段。</span></div>
+<div class="raw-line" id="L1026"><a href="#L1026" tabindex="0" class="raw-line-number" aria-label="第 1026 行">1026</a><span></span></div>
+<div class="raw-line" id="L1027"><a href="#L1027" tabindex="0" class="raw-line-number" aria-label="第 1027 行">1027</a><span>And I call it ad hoc collaboration, or unorchestrated collaboration.</span></div>
+<div class="raw-line" id="L1028"><a href="#L1028" tabindex="0" class="raw-line-number" aria-label="第 1028 行">1028</a><span>我把它叫作“临时协作”，或者“自主协作”。</span></div>
+<div class="raw-line" id="L1029"><a href="#L1029" tabindex="0" class="raw-line-number" aria-label="第 1029 行">1029</a><span></span></div>
+<div class="raw-line" id="L1030"><a href="#L1030" tabindex="0" class="raw-line-number" aria-label="第 1030 行">1030</a><span>Because what will happen now, as I said, soon,</span></div>
+<div class="raw-line" id="L1031"><a href="#L1031" tabindex="0" class="raw-line-number" aria-label="第 1031 行">1031</a><span>因为正如我刚才说的，接下来很快就会发生这样的事：</span></div>
+<div class="raw-line" id="L1032"><a href="#L1032" tabindex="0" class="raw-line-number" aria-label="第 1032 行">1032</a><span></span></div>
+<div class="raw-line" id="L1033"><a href="#L1033" tabindex="0" class="raw-line-number" aria-label="第 1033 行">1033</a><span>it&#39;ll be my colleague&#39;s agent talking to my agent, and these agents may bring in still other agents.</span></div>
+<div class="raw-line" id="L1034"><a href="#L1034" tabindex="0" class="raw-line-number" aria-label="第 1034 行">1034</a><span>我同事的智能体会和我的智能体对话，而它们可能还会拉来其他智能体一起协作。</span></div>
+<div class="raw-line" id="L1035"><a href="#L1035" tabindex="0" class="raw-line-number" aria-label="第 1035 行">1035</a><span></span></div>
+<div class="raw-line" id="L1036"><a href="#L1036" tabindex="0" class="raw-line-number" aria-label="第 1036 行">1036</a><span>So what I would be showing you, if the internet was working, is that I can make multiple different agents invoke each other now.</span></div>
+<div class="raw-line" id="L1037"><a href="#L1037" tabindex="0" class="raw-line-number" aria-label="第 1037 行">1037</a><span>所以，如果网络正常，我本来要给大家演示的是：现在我可以让多个不同的智能体相互调用。</span></div>
+<div class="raw-line" id="L1038"><a href="#L1038" tabindex="0" class="raw-line-number" aria-label="第 1038 行">1038</a><span></span></div>
+<div class="raw-line" id="L1039"><a href="#L1039" tabindex="0" class="raw-line-number" aria-label="第 1039 行">1039</a><span>I can— for example, let&#39;s say that I want to fund my payroll for the week. Let&#39;s say I&#39;m running this hotel.</span></div>
+<div class="raw-line" id="L1040"><a href="#L1040" tabindex="0" class="raw-line-number" aria-label="第 1040 行">1040</a><span>比如说，我要支付这周的员工工资。假设我是这家酒店的经营者。</span></div>
+<div class="raw-line" id="L1041"><a href="#L1041" tabindex="0" class="raw-line-number" aria-label="第 1041 行">1041</a><span></span></div>
+<div class="raw-line" id="L1042"><a href="#L1042" tabindex="0" class="raw-line-number" aria-label="第 1042 行">1042</a><span>And I want to fund my payroll.</span></div>
+<div class="raw-line" id="L1043"><a href="#L1043" tabindex="0" class="raw-line-number" aria-label="第 1043 行">1043</a><span>我想筹集资金，支付员工工资。</span></div>
+<div class="raw-line" id="L1044"><a href="#L1044" tabindex="0" class="raw-line-number" aria-label="第 1044 行">1044</a><span></span></div>
+<div class="raw-line" id="L1045"><a href="#L1045" tabindex="0" class="raw-line-number" aria-label="第 1045 行">1045</a><span>And I have my hotel finance agent.</span></div>
+<div class="raw-line" id="L1046"><a href="#L1046" tabindex="0" class="raw-line-number" aria-label="第 1046 行">1046</a><span>我还有一个负责酒店财务的智能体。</span></div>
+<div class="raw-line" id="L1047"><a href="#L1047" tabindex="0" class="raw-line-number" aria-label="第 1047 行">1047</a><span></span></div>
+<div class="raw-line" id="L1048"><a href="#L1048" tabindex="0" class="raw-line-number" aria-label="第 1048 行">1048</a><span>And then I have my banking operations agent.</span></div>
+<div class="raw-line" id="L1049"><a href="#L1049" tabindex="0" class="raw-line-number" aria-label="第 1049 行">1049</a><span>然后，我还有一个负责银行业务操作的智能体。</span></div>
+<div class="raw-line" id="L1050"><a href="#L1050" tabindex="0" class="raw-line-number" aria-label="第 1050 行">1050</a><span></span></div>
+<div class="raw-line" id="L1051"><a href="#L1051" tabindex="0" class="raw-line-number" aria-label="第 1051 行">1051</a><span>Which is managing my bank accounts and things like that.</span></div>
+<div class="raw-line" id="L1052"><a href="#L1052" tabindex="0" class="raw-line-number" aria-label="第 1052 行">1052</a><span>它负责管理我的银行账户之类的事务。</span></div>
+<div class="raw-line" id="L1053"><a href="#L1053" tabindex="0" class="raw-line-number" aria-label="第 1053 行">1053</a><span></span></div>
+<div class="raw-line" id="L1054"><a href="#L1054" tabindex="0" class="raw-line-number" aria-label="第 1054 行">1054</a><span>And so my hotel finance agent says to the other agent, to the banking operations agent, &quot;I need to move money from this account to this account.&quot;</span></div>
+<div class="raw-line" id="L1055"><a href="#L1055" tabindex="0" class="raw-line-number" aria-label="第 1055 行">1055</a><span>于是，我的酒店财务智能体对银行业务智能体说：“我需要把钱从这个账户转到那个账户。”</span></div>
+<div class="raw-line" id="L1056"><a href="#L1056" tabindex="0" class="raw-line-number" aria-label="第 1056 行">1056</a><span></span></div>
+<div class="raw-line" id="L1057"><a href="#L1057" tabindex="0" class="raw-line-number" aria-label="第 1057 行">1057</a><span>And the banking operations agent comes back to me and says, &quot;Do you approve moving money from this account to this other account?&quot;</span></div>
+<div class="raw-line" id="L1058"><a href="#L1058" tabindex="0" class="raw-line-number" aria-label="第 1058 行">1058</a><span>然后，银行业务智能体会来问我：“你是否批准把钱从这个账户转到另一个账户？”</span></div>
+<div class="raw-line" id="L1059"><a href="#L1059" tabindex="0" class="raw-line-number" aria-label="第 1059 行">1059</a><span></span></div>
+<div class="raw-line" id="L1060"><a href="#L1060" tabindex="0" class="raw-line-number" aria-label="第 1060 行">1060</a><span>This is not something that I orchestrate.</span></div>
+<div class="raw-line" id="L1061"><a href="#L1061" tabindex="0" class="raw-line-number" aria-label="第 1061 行">1061</a><span>这不是由我来安排的。</span></div>
+<div class="raw-line" id="L1062"><a href="#L1062" tabindex="0" class="raw-line-number" aria-label="第 1062 行">1062</a><span></span></div>
+<div class="raw-line" id="L1063"><a href="#L1063" tabindex="0" class="raw-line-number" aria-label="第 1063 行">1063</a><span>This is an organic process that these agents will collaborate with each other.</span></div>
+<div class="raw-line" id="L1064"><a href="#L1064" tabindex="0" class="raw-line-number" aria-label="第 1064 行">1064</a><span>这是一个自发的过程，这些智能体会彼此协作。</span></div>
+<div class="raw-line" id="L1065"><a href="#L1065" tabindex="0" class="raw-line-number" aria-label="第 1065 行">1065</a><span></span></div>
+<div class="raw-line" id="L1066"><a href="#L1066" tabindex="0" class="raw-line-number" aria-label="第 1066 行">1066</a><span>And what that means is that the burden of testing rises.</span></div>
+<div class="raw-line" id="L1067"><a href="#L1067" tabindex="0" class="raw-line-number" aria-label="第 1067 行">1067</a><span>这意味着测试工作会更加繁重。</span></div>
+<div class="raw-line" id="L1068"><a href="#L1068" tabindex="0" class="raw-line-number" aria-label="第 1068 行">1068</a><span></span></div>
+<div class="raw-line" id="L1069"><a href="#L1069" tabindex="0" class="raw-line-number" aria-label="第 1069 行">1069</a><span>So, you know, up to this point, we have all been doing relatively simplistic evaluations.</span></div>
+<div class="raw-line" id="L1070"><a href="#L1070" tabindex="0" class="raw-line-number" aria-label="第 1070 行">1070</a><span>所以，到目前为止，我们做的评估都比较简单。</span></div>
+<div class="raw-line" id="L1071"><a href="#L1071" tabindex="0" class="raw-line-number" aria-label="第 1071 行">1071</a><span></span></div>
+<div class="raw-line" id="L1072"><a href="#L1072" tabindex="0" class="raw-line-number" aria-label="第 1072 行">1072</a><span>With these kinds of generic evals, like groundedness and coherence and relevance and fluency.</span></div>
+<div class="raw-line" id="L1073"><a href="#L1073" tabindex="0" class="raw-line-number" aria-label="第 1073 行">1073</a><span>用的都是一些通用的评估指标，比如内容是否有依据、是否连贯、是否切题，以及表达是否流畅。</span></div>
+<div class="raw-line" id="L1074"><a href="#L1074" tabindex="0" class="raw-line-number" aria-label="第 1074 行">1074</a><span></span></div>
+<div class="raw-line" id="L1075"><a href="#L1075" tabindex="0" class="raw-line-number" aria-label="第 1075 行">1075</a><span>But these things are super generic. They&#39;re not wonderful.</span></div>
+<div class="raw-line" id="L1076"><a href="#L1076" tabindex="0" class="raw-line-number" aria-label="第 1076 行">1076</a><span>但这些指标太笼统了，效果也不太理想。</span></div>
+<div class="raw-line" id="L1077"><a href="#L1077" tabindex="0" class="raw-line-number" aria-label="第 1077 行">1077</a><span></span></div>
+<div class="raw-line" id="L1078"><a href="#L1078" tabindex="0" class="raw-line-number" aria-label="第 1078 行">1078</a><span>At really testing what an agent is supposed to do.</span></div>
+<div class="raw-line" id="L1079"><a href="#L1079" tabindex="0" class="raw-line-number" aria-label="第 1079 行">1079</a><span>并不能真正检验智能体是否完成了它该做的事。</span></div>
+<div class="raw-line" id="L1080"><a href="#L1080" tabindex="0" class="raw-line-number" aria-label="第 1080 行">1080</a><span></span></div>
+<div class="raw-line" id="L1081"><a href="#L1081" tabindex="0" class="raw-line-number" aria-label="第 1081 行">1081</a><span>Now, we, and the whole industry,</span></div>
+<div class="raw-line" id="L1082"><a href="#L1082" tabindex="0" class="raw-line-number" aria-label="第 1082 行">1082</a><span>现在，我们乃至整个行业，</span></div>
+<div class="raw-line" id="L1083"><a href="#L1083" tabindex="0" class="raw-line-number" aria-label="第 1083 行">1083</a><span></span></div>
+<div class="raw-line" id="L1084"><a href="#L1084" tabindex="0" class="raw-line-number" aria-label="第 1084 行">1084</a><span>is moving to this.</span></div>
+<div class="raw-line" id="L1085"><a href="#L1085" tabindex="0" class="raw-line-number" aria-label="第 1085 行">1085</a><span>都在朝这个方向发展。</span></div>
+<div class="raw-line" id="L1086"><a href="#L1086" tabindex="0" class="raw-line-number" aria-label="第 1086 行">1086</a><span></span></div>
+<div class="raw-line" id="L1087"><a href="#L1087" tabindex="0" class="raw-line-number" aria-label="第 1087 行">1087</a><span>Rubric-based evaluations.</span></div>
+<div class="raw-line" id="L1088"><a href="#L1088" tabindex="0" class="raw-line-number" aria-label="第 1088 行">1088</a><span>基于评分标准的评估。</span></div>
+<div class="raw-line" id="L1089"><a href="#L1089" tabindex="0" class="raw-line-number" aria-label="第 1089 行">1089</a><span></span></div>
+<div class="raw-line" id="L1090"><a href="#L1090" tabindex="0" class="raw-line-number" aria-label="第 1090 行">1090</a><span>And these types of evaluations— and I would imagine many of you in this room are familiar with it— are much more specific to what the agent is supposed to do.</span></div>
+<div class="raw-line" id="L1091"><a href="#L1091" tabindex="0" class="raw-line-number" aria-label="第 1091 行">1091</a><span>这类评估——我想在座很多人都很熟悉——会更有针对性地检验智能体是否完成了它应当完成的任务。</span></div>
+<div class="raw-line" id="L1092"><a href="#L1092" tabindex="0" class="raw-line-number" aria-label="第 1092 行">1092</a><span></span></div>
+<div class="raw-line" id="L1093"><a href="#L1093" tabindex="0" class="raw-line-number" aria-label="第 1093 行">1093</a><span>And so, for example, I have— here, I have recruited— so this is my mic— for my banking agent— refused cross-customer access.</span></div>
+<div class="raw-line" id="L1094"><a href="#L1094" tabindex="0" class="raw-line-number" aria-label="第 1094 行">1094</a><span>比如，针对我的银行业务智能体，我制定了一条评估标准：拒绝跨客户访问。</span></div>
+<div class="raw-line" id="L1095"><a href="#L1095" tabindex="0" class="raw-line-number" aria-label="第 1095 行">1095</a><span></span></div>
+<div class="raw-line" id="L1096"><a href="#L1096" tabindex="0" class="raw-line-number" aria-label="第 1096 行">1096</a><span>So this is a test that says, if somebody says, &quot;Hey, tell me how much money is in John Smith&#39;s account.&quot;</span></div>
+<div class="raw-line" id="L1097"><a href="#L1097" tabindex="0" class="raw-line-number" aria-label="第 1097 行">1097</a><span>这个测试是说，如果有人问：“嘿，告诉我约翰·史密斯的账户里有多少钱。”</span></div>
+<div class="raw-line" id="L1098"><a href="#L1098" tabindex="0" class="raw-line-number" aria-label="第 1098 行">1098</a><span></span></div>
+<div class="raw-line" id="L1099"><a href="#L1099" tabindex="0" class="raw-line-number" aria-label="第 1099 行">1099</a><span>It should say, &quot;No, I can&#39;t tell you how much money is in John Smith&#39;s account.</span></div>
+<div class="raw-line" id="L1100"><a href="#L1100" tabindex="0" class="raw-line-number" aria-label="第 1100 行">1100</a><span>它应该回答：“不行，我不能告诉你约翰·史密斯的账户里有多少钱。</span></div>
+<div class="raw-line" id="L1101"><a href="#L1101" tabindex="0" class="raw-line-number" aria-label="第 1101 行">1101</a><span></span></div>
+<div class="raw-line" id="L1102"><a href="#L1102" tabindex="0" class="raw-line-number" aria-label="第 1102 行">1102</a><span>We don&#39;t do that.&quot;</span></div>
+<div class="raw-line" id="L1103"><a href="#L1103" tabindex="0" class="raw-line-number" aria-label="第 1103 行">1103</a><span>我们不能提供这类信息。”</span></div>
+<div class="raw-line" id="L1104"><a href="#L1104" tabindex="0" class="raw-line-number" aria-label="第 1104 行">1104</a><span></span></div>
+<div class="raw-line" id="L1105"><a href="#L1105" tabindex="0" class="raw-line-number" aria-label="第 1105 行">1105</a><span>So I have security rubrics.</span></div>
+<div class="raw-line" id="L1106"><a href="#L1106" tabindex="0" class="raw-line-number" aria-label="第 1106 行">1106</a><span>所以，我制定了安全方面的评估标准。</span></div>
+<div class="raw-line" id="L1107"><a href="#L1107" tabindex="0" class="raw-line-number" aria-label="第 1107 行">1107</a><span></span></div>
+<div class="raw-line" id="L1108"><a href="#L1108" tabindex="0" class="raw-line-number" aria-label="第 1108 行">1108</a><span>I have compliance rubrics, like regulation E and regulation P.</span></div>
+<div class="raw-line" id="L1109"><a href="#L1109" tabindex="0" class="raw-line-number" aria-label="第 1109 行">1109</a><span>我还制定了合规方面的评估标准，比如针对《E条例》和《P条例》的标准。</span></div>
+<div class="raw-line" id="L1110"><a href="#L1110" tabindex="0" class="raw-line-number" aria-label="第 1110 行">1110</a><span></span></div>
+<div class="raw-line" id="L1111"><a href="#L1111" tabindex="0" class="raw-line-number" aria-label="第 1111 行">1111</a><span>And I have correctness rubrics. In here.</span></div>
+<div class="raw-line" id="L1112"><a href="#L1112" tabindex="0" class="raw-line-number" aria-label="第 1112 行">1112</a><span>这里还有准确性方面的评估标准。</span></div>
+<div class="raw-line" id="L1113"><a href="#L1113" tabindex="0" class="raw-line-number" aria-label="第 1113 行">1113</a><span></span></div>
+<div class="raw-line" id="L1114"><a href="#L1114" tabindex="0" class="raw-line-number" aria-label="第 1114 行">1114</a><span>Like, if somebody says they want a refund for a fee, don&#39;t just assume that it&#39;s true. You have to go look it up.</span></div>
+<div class="raw-line" id="L1115"><a href="#L1115" tabindex="0" class="raw-line-number" aria-label="第 1115 行">1115</a><span>比如，如果有人说想退还一笔手续费，不能直接认定这笔费用确实存在，得先查证。</span></div>
+<div class="raw-line" id="L1116"><a href="#L1116" tabindex="0" class="raw-line-number" aria-label="第 1116 行">1116</a><span></span></div>
+<div class="raw-line" id="L1117"><a href="#L1117" tabindex="0" class="raw-line-number" aria-label="第 1117 行">1117</a><span>Look up. Did we charge them the fee?</span></div>
+<div class="raw-line" id="L1118"><a href="#L1118" tabindex="0" class="raw-line-number" aria-label="第 1118 行">1118</a><span>查一下，我们有没有向他们收取这笔费用？</span></div>
+<div class="raw-line" id="L1119"><a href="#L1119" tabindex="0" class="raw-line-number" aria-label="第 1119 行">1119</a><span></span></div>
+<div class="raw-line" id="L1120"><a href="#L1120" tabindex="0" class="raw-line-number" aria-label="第 1120 行">1120</a><span>Is that fee refundable?</span></div>
+<div class="raw-line" id="L1121"><a href="#L1121" tabindex="0" class="raw-line-number" aria-label="第 1121 行">1121</a><span>那笔费用可以退还吗？</span></div>
+<div class="raw-line" id="L1122"><a href="#L1122" tabindex="0" class="raw-line-number" aria-label="第 1122 行">1122</a><span></span></div>
+<div class="raw-line" id="L1123"><a href="#L1123" tabindex="0" class="raw-line-number" aria-label="第 1123 行">1123</a><span>And all of this.</span></div>
+<div class="raw-line" id="L1124"><a href="#L1124" tabindex="0" class="raw-line-number" aria-label="第 1124 行">1124</a><span>以及所有这些。</span></div>
+<div class="raw-line" id="L1125"><a href="#L1125" tabindex="0" class="raw-line-number" aria-label="第 1125 行">1125</a><span></span></div>
+<div class="raw-line" id="L1126"><a href="#L1126" tabindex="0" class="raw-line-number" aria-label="第 1126 行">1126</a><span>So, now, we are going to be moving to these much more specific rubric-based evaluations.</span></div>
+<div class="raw-line" id="L1127"><a href="#L1127" tabindex="0" class="raw-line-number" aria-label="第 1127 行">1127</a><span>所以，接下来我们会转向更具体的、基于评估标准的评测。</span></div>
+<div class="raw-line" id="L1128"><a href="#L1128" tabindex="0" class="raw-line-number" aria-label="第 1128 行">1128</a><span></span></div>
+<div class="raw-line" id="L1129"><a href="#L1129" tabindex="0" class="raw-line-number" aria-label="第 1129 行">1129</a><span>That are much more about what this agent is supposed to be doing.</span></div>
+<div class="raw-line" id="L1130"><a href="#L1130" tabindex="0" class="raw-line-number" aria-label="第 1130 行">1130</a><span>这些评测会更聚焦于这个智能体应该做什么。</span></div>
+<div class="raw-line" id="L1131"><a href="#L1131" tabindex="0" class="raw-line-number" aria-label="第 1131 行">1131</a><span></span></div>
+<div class="raw-line" id="L1132"><a href="#L1132" tabindex="0" class="raw-line-number" aria-label="第 1132 行">1132</a><span>And furthermore, as the agent starts to collaborate with each other, what we&#39;re going to have to do— and this is one potential way that we might do it— is create a world around them.</span></div>
+<div class="raw-line" id="L1133"><a href="#L1133" tabindex="0" class="raw-line-number" aria-label="第 1133 行">1133</a><span>此外，随着这些智能体开始相互协作，我们需要做的一件事——这也是一种可能的做法——就是为它们构建一个模拟世界。</span></div>
+<div class="raw-line" id="L1134"><a href="#L1134" tabindex="0" class="raw-line-number" aria-label="第 1134 行">1134</a><span></span></div>
+<div class="raw-line" id="L1135"><a href="#L1135" tabindex="0" class="raw-line-number" aria-label="第 1135 行">1135</a><span>Like the movie The Matrix.</span></div>
+<div class="raw-line" id="L1136"><a href="#L1136" tabindex="0" class="raw-line-number" aria-label="第 1136 行">1136</a><span>就像电影《黑客帝国》那样。</span></div>
+<div class="raw-line" id="L1137"><a href="#L1137" tabindex="0" class="raw-line-number" aria-label="第 1137 行">1137</a><span></span></div>
+<div class="raw-line" id="L1138"><a href="#L1138" tabindex="0" class="raw-line-number" aria-label="第 1138 行">1138</a><span>We&#39;re going to have to create a simulated world around each of our agents that simulates the other agents that they might be talking to.</span></div>
+<div class="raw-line" id="L1139"><a href="#L1139" tabindex="0" class="raw-line-number" aria-label="第 1139 行">1139</a><span>我们得为每个智能体构建一个模拟环境，模拟它可能会与之交流的其他智能体。</span></div>
+<div class="raw-line" id="L1140"><a href="#L1140" tabindex="0" class="raw-line-number" aria-label="第 1140 行">1140</a><span></span></div>
+<div class="raw-line" id="L1141"><a href="#L1141" tabindex="0" class="raw-line-number" aria-label="第 1141 行">1141</a><span>That simulates the other people that they might be talking to.</span></div>
+<div class="raw-line" id="L1142"><a href="#L1142" tabindex="0" class="raw-line-number" aria-label="第 1142 行">1142</a><span>模拟它们可能会与之交流的其他人。</span></div>
+<div class="raw-line" id="L1143"><a href="#L1143" tabindex="0" class="raw-line-number" aria-label="第 1143 行">1143</a><span></span></div>
+<div class="raw-line" id="L1144"><a href="#L1144" tabindex="0" class="raw-line-number" aria-label="第 1144 行">1144</a><span>Simulates emails. Teams messages.</span></div>
+<div class="raw-line" id="L1145"><a href="#L1145" tabindex="0" class="raw-line-number" aria-label="第 1145 行">1145</a><span>模拟电子邮件和 Teams 消息。</span></div>
+<div class="raw-line" id="L1146"><a href="#L1146" tabindex="0" class="raw-line-number" aria-label="第 1146 行">1146</a><span></span></div>
+<div class="raw-line" id="L1147"><a href="#L1147" tabindex="0" class="raw-line-number" aria-label="第 1147 行">1147</a><span>Slack messages.</span></div>
+<div class="raw-line" id="L1148"><a href="#L1148" tabindex="0" class="raw-line-number" aria-label="第 1148 行">1148</a><span>Slack 消息。</span></div>
+<div class="raw-line" id="L1149"><a href="#L1149" tabindex="0" class="raw-line-number" aria-label="第 1149 行">1149</a><span></span></div>
+<div class="raw-line" id="L1150"><a href="#L1150" tabindex="0" class="raw-line-number" aria-label="第 1150 行">1150</a><span>Anything that this agent might call for in a tool call.</span></div>
+<div class="raw-line" id="L1151"><a href="#L1151" tabindex="0" class="raw-line-number" aria-label="第 1151 行">1151</a><span>以及这个智能体通过工具调用可能用到的任何东西。</span></div>
+<div class="raw-line" id="L1152"><a href="#L1152" tabindex="0" class="raw-line-number" aria-label="第 1152 行">1152</a><span></span></div>
+<div class="raw-line" id="L1153"><a href="#L1153" tabindex="0" class="raw-line-number" aria-label="第 1153 行">1153</a><span>We&#39;re going to have to simulate a whole world around it, so that we can test each agent in isolation.</span></div>
+<div class="raw-line" id="L1154"><a href="#L1154" tabindex="0" class="raw-line-number" aria-label="第 1154 行">1154</a><span>我们得为每个智能体模拟出一整个世界，才能单独测试它们。</span></div>
+<div class="raw-line" id="L1155"><a href="#L1155" tabindex="0" class="raw-line-number" aria-label="第 1155 行">1155</a><span></span></div>
+<div class="raw-line" id="L1156"><a href="#L1156" tabindex="0" class="raw-line-number" aria-label="第 1156 行">1156</a><span>When agents have their own identity, they can begin to communicate with each other,</span></div>
+<div class="raw-line" id="L1157"><a href="#L1157" tabindex="0" class="raw-line-number" aria-label="第 1157 行">1157</a><span>当智能体有了自己的身份，就可以开始相互交流。</span></div>
+<div class="raw-line" id="L1158"><a href="#L1158" tabindex="0" class="raw-line-number" aria-label="第 1158 行">1158</a><span></span></div>
+<div class="raw-line" id="L1159"><a href="#L1159" tabindex="0" class="raw-line-number" aria-label="第 1159 行">1159</a><span>over standard channels, over Teams, over email, over Slack, over WeChat.</span></div>
+<div class="raw-line" id="L1160"><a href="#L1160" tabindex="0" class="raw-line-number" aria-label="第 1160 行">1160</a><span>通过常规渠道，比如 Teams、电子邮件、Slack 和微信。</span></div>
+<div class="raw-line" id="L1161"><a href="#L1161" tabindex="0" class="raw-line-number" aria-label="第 1161 行">1161</a><span></span></div>
+<div class="raw-line" id="L1162"><a href="#L1162" tabindex="0" class="raw-line-number" aria-label="第 1162 行">1162</a><span>And that means that we will have to test them in isolation.</span></div>
+<div class="raw-line" id="L1163"><a href="#L1163" tabindex="0" class="raw-line-number" aria-label="第 1163 行">1163</a><span>这意味着我们必须对它们逐一进行单独测试。</span></div>
+<div class="raw-line" id="L1164"><a href="#L1164" tabindex="0" class="raw-line-number" aria-label="第 1164 行">1164</a><span></span></div>
+<div class="raw-line" id="L1165"><a href="#L1165" tabindex="0" class="raw-line-number" aria-label="第 1165 行">1165</a><span>And this— or something like it— is how we&#39;re going to do it.</span></div>
+<div class="raw-line" id="L1166"><a href="#L1166" tabindex="0" class="raw-line-number" aria-label="第 1166 行">1166</a><span>而这——或者类似的方法——就是我们将采用的测试方式。</span></div>
+<div class="raw-line" id="L1167"><a href="#L1167" tabindex="0" class="raw-line-number" aria-label="第 1167 行">1167</a><span></span></div>
+<div class="raw-line" id="L1168"><a href="#L1168" tabindex="0" class="raw-line-number" aria-label="第 1168 行">1168</a><span>So, now, this is what we&#39;re talking about. This is called OpenEnd.</span></div>
+<div class="raw-line" id="L1169"><a href="#L1169" tabindex="0" class="raw-line-number" aria-label="第 1169 行">1169</a><span>那么，这就是我们现在要讲的。它叫 OpenEnd。</span></div>
+<div class="raw-line" id="L1170"><a href="#L1170" tabindex="0" class="raw-line-number" aria-label="第 1170 行">1170</a><span></span></div>
+<div class="raw-line" id="L1171"><a href="#L1171" tabindex="0" class="raw-line-number" aria-label="第 1171 行">1171</a><span>This is a kind of a joint venture between Hugging Face and us and a bunch of other companies.</span></div>
+<div class="raw-line" id="L1172"><a href="#L1172" tabindex="0" class="raw-line-number" aria-label="第 1172 行">1172</a><span>这是 Hugging Face、我们以及其他一些公司共同开展的一个合作项目。</span></div>
+<div class="raw-line" id="L1173"><a href="#L1173" tabindex="0" class="raw-line-number" aria-label="第 1173 行">1173</a><span></span></div>
+<div class="raw-line" id="L1174"><a href="#L1174" tabindex="0" class="raw-line-number" aria-label="第 1174 行">1174</a><span>I don&#39;t know if this is going to end up being it.</span></div>
+<div class="raw-line" id="L1175"><a href="#L1175" tabindex="0" class="raw-line-number" aria-label="第 1175 行">1175</a><span>我不知道最终会不会就是它。</span></div>
+<div class="raw-line" id="L1176"><a href="#L1176" tabindex="0" class="raw-line-number" aria-label="第 1176 行">1176</a><span></span></div>
+<div class="raw-line" id="L1177"><a href="#L1177" tabindex="0" class="raw-line-number" aria-label="第 1177 行">1177</a><span>This is just one of the ways that we create these simulated environments.</span></div>
+<div class="raw-line" id="L1178"><a href="#L1178" tabindex="0" class="raw-line-number" aria-label="第 1178 行">1178</a><span>这只是我们构建这些模拟环境的方法之一。</span></div>
+<div class="raw-line" id="L1179"><a href="#L1179" tabindex="0" class="raw-line-number" aria-label="第 1179 行">1179</a><span></span></div>
+<div class="raw-line" id="L1180"><a href="#L1180" tabindex="0" class="raw-line-number" aria-label="第 1180 行">1180</a><span>But my point remains, that my challenge to many of you in this room— because many of you here are, in fact,</span></div>
+<div class="raw-line" id="L1181"><a href="#L1181" tabindex="0" class="raw-line-number" aria-label="第 1181 行">1181</a><span>但我的观点不变。我想向在座的许多人提出一个挑战——因为你们当中有不少人实际上就是……</span></div>
+<div class="raw-line" id="L1182"><a href="#L1182" tabindex="0" class="raw-line-number" aria-label="第 1182 行">1182</a><span></span></div>
+<div class="raw-line" id="L1183"><a href="#L1183" tabindex="0" class="raw-line-number" aria-label="第 1183 行">1183</a><span>AI engineers— is that we collectively are going to have to develop ways that we can test these agents rigorously.</span></div>
+<div class="raw-line" id="L1184"><a href="#L1184" tabindex="0" class="raw-line-number" aria-label="第 1184 行">1184</a><span>AI 工程师——我们必须共同开发出严格测试这些智能体的方法。</span></div>
+<div class="raw-line" id="L1185"><a href="#L1185" tabindex="0" class="raw-line-number" aria-label="第 1185 行">1185</a><span></span></div>
+<div class="raw-line" id="L1186"><a href="#L1186" tabindex="0" class="raw-line-number" aria-label="第 1186 行">1186</a><span>So that we can come to trust them.</span></div>
+<div class="raw-line" id="L1187"><a href="#L1187" tabindex="0" class="raw-line-number" aria-label="第 1187 行">1187</a><span>这样我们才能逐渐信任它们。</span></div>
+<div class="raw-line" id="L1188"><a href="#L1188" tabindex="0" class="raw-line-number" aria-label="第 1188 行">1188</a><span></span></div>
+<div class="raw-line" id="L1189"><a href="#L1189" tabindex="0" class="raw-line-number" aria-label="第 1189 行">1189</a><span>Responsible AI is a cocktail of things.</span></div>
+<div class="raw-line" id="L1190"><a href="#L1190" tabindex="0" class="raw-line-number" aria-label="第 1190 行">1190</a><span>负责任的人工智能涉及多方面因素。</span></div>
+<div class="raw-line" id="L1191"><a href="#L1191" tabindex="0" class="raw-line-number" aria-label="第 1191 行">1191</a><span></span></div>
+<div class="raw-line" id="L1192"><a href="#L1192" tabindex="0" class="raw-line-number" aria-label="第 1192 行">1192</a><span>It&#39;s a cocktail of permissions, of testing, of approvals, of trust.</span></div>
+<div class="raw-line" id="L1193"><a href="#L1193" tabindex="0" class="raw-line-number" aria-label="第 1193 行">1193</a><span>这需要权限管理、测试、审批和信任等多方面共同发挥作用。</span></div>
+<div class="raw-line" id="L1194"><a href="#L1194" tabindex="0" class="raw-line-number" aria-label="第 1194 行">1194</a><span></span></div>
+<div class="raw-line" id="L1195"><a href="#L1195" tabindex="0" class="raw-line-number" aria-label="第 1195 行">1195</a><span>And we, together, need to foster this environment where we can trust that these agents will do what it is we want them to do.</span></div>
+<div class="raw-line" id="L1196"><a href="#L1196" tabindex="0" class="raw-line-number" aria-label="第 1196 行">1196</a><span>我们需要共同营造一个环境，让我们能够相信这些智能体会按照我们的意愿行事。</span></div>
+<div class="raw-line" id="L1197"><a href="#L1197" tabindex="0" class="raw-line-number" aria-label="第 1197 行">1197</a><span></span></div>
+<div class="raw-line" id="L1198"><a href="#L1198" tabindex="0" class="raw-line-number" aria-label="第 1198 行">1198</a><span>And that is the near future of AI. Thank you all very much.</span></div>
+<div class="raw-line" id="L1199"><a href="#L1199" tabindex="0" class="raw-line-number" aria-label="第 1199 行">1199</a><span>这就是人工智能不久后的未来。非常感谢大家。</span></div>
+<div class="raw-line" id="L1200"><a href="#L1200" tabindex="0" class="raw-line-number" aria-label="第 1200 行">1200</a><span></span></div>
+<div class="raw-line" id="L1201"><a href="#L1201" tabindex="0" class="raw-line-number" aria-label="第 1201 行">1201</a><span>And have a good day.</span></div>
+<div class="raw-line" id="L1202"><a href="#L1202" tabindex="0" class="raw-line-number" aria-label="第 1202 行">1202</a><span>祝大家今天愉快。</span></div>
+<div class="raw-line" id="L1203"><a href="#L1203" tabindex="0" class="raw-line-number" aria-label="第 1203 行">1203</a><span></span></div>
+<div class="raw-line" id="L1204"><a href="#L1204" tabindex="0" class="raw-line-number" aria-label="第 1204 行">1204</a><span>Thank you, Marco, for the</span></div>
+<div class="raw-line" id="L1205"><a href="#L1205" tabindex="0" class="raw-line-number" aria-label="第 1205 行">1205</a><span>谢谢你，马可，感谢你的……</span></div>
+<div class="raw-line" id="L1206"><a href="#L1206" tabindex="0" class="raw-line-number" aria-label="第 1206 行">1206</a><span></span></div>
+<div class="raw-line" id="L1207"><a href="#L1207" tabindex="0" class="raw-line-number" aria-label="第 1207 行">1207</a><span>speech.</span></div>
+<div class="raw-line" id="L1208"><a href="#L1208" tabindex="0" class="raw-line-number" aria-label="第 1208 行">1208</a><span>演讲。</span></div>
+<div class="raw-line" id="L1209"><a href="#L1209" tabindex="0" class="raw-line-number" aria-label="第 1209 行">1209</a><span></span></div>
+<div class="raw-line" id="L1210"><a href="#L1210" tabindex="0" class="raw-line-number" aria-label="第 1210 行">1210</a><span>And 谢谢Marco的这个精彩的分享。</span></div>
+<div class="raw-line" id="L1211"><a href="#L1211" tabindex="0" class="raw-line-number" aria-label="第 1211 行">1211</a><span></span></div>
+<div class="raw-line" id="L1212"><a href="#L1212" tabindex="0" class="raw-line-number" aria-label="第 1212 行">1212</a><span>然后下一位， let&#39;s welcome</span></div>
+<div class="raw-line" id="L1213"><a href="#L1213" tabindex="0" class="raw-line-number" aria-label="第 1213 行">1213</a><span></span></div>
+<div class="raw-line" id="L1214"><a href="#L1214" tabindex="0" class="raw-line-number" aria-label="第 1214 行">1214</a><span>Clemens from Landfield.</span></div>
+<div class="raw-line" id="L1215"><a href="#L1215" tabindex="0" class="raw-line-number" aria-label="第 1215 行">1215</a><span>来自兰德菲尔德的克莱门斯。</span></div>
+<div class="raw-line" id="L1216"><a href="#L1216" tabindex="0" class="raw-line-number" aria-label="第 1216 行">1216</a><span></span></div>
+<div class="raw-line" id="L1217"><a href="#L1217" tabindex="0" class="raw-line-number" aria-label="第 1217 行">1217</a><span>By ClickHouse.</span></div>
+<div class="raw-line" id="L1218"><a href="#L1218" tabindex="0" class="raw-line-number" aria-label="第 1218 行">1218</a><span>由 ClickHouse 提供。</span></div>
+<div class="raw-line" id="L1219"><a href="#L1219" tabindex="0" class="raw-line-number" aria-label="第 1219 行">1219</a><span></span></div>
+<div class="raw-line" id="L1220"><a href="#L1220" tabindex="0" class="raw-line-number" aria-label="第 1220 行">1220</a><span>下一位，欢迎ClickHouse的Clemens。</span></div>
+<div class="raw-line" id="L1221"><a href="#L1221" tabindex="0" class="raw-line-number" aria-label="第 1221 行">1221</a><span></span></div>
+<div class="raw-line" id="L1222"><a href="#L1222" tabindex="0" class="raw-line-number" aria-label="第 1222 行">1222</a><span>大家大家掌声欢迎。</span></div>
+<div class="raw-line" id="L1223"><a href="#L1223" tabindex="0" class="raw-line-number" aria-label="第 1223 行">1223</a><span></span></div>
+<div class="raw-line" id="L1224"><a href="#L1224" tabindex="0" class="raw-line-number" aria-label="第 1224 行">1224</a><span>Thank you for the mic.</span></div>
+<div class="raw-line" id="L1225"><a href="#L1225" tabindex="0" class="raw-line-number" aria-label="第 1225 行">1225</a><span>谢谢你把麦克风递给我。</span></div>
+<div class="raw-line" id="L1226"><a href="#L1226" tabindex="0" class="raw-line-number" aria-label="第 1226 行">1226</a><span></span></div>
+<div class="raw-line" id="L1227"><a href="#L1227" tabindex="0" class="raw-line-number" aria-label="第 1227 行">1227</a><span>All right. Hi, everyone.</span></div>
+<div class="raw-line" id="L1228"><a href="#L1228" tabindex="0" class="raw-line-number" aria-label="第 1228 行">1228</a><span>好的，大家好。</span></div>
+<div class="raw-line" id="L1229"><a href="#L1229" tabindex="0" class="raw-line-number" aria-label="第 1229 行">1229</a><span></span></div>
+<div class="raw-line" id="L1230"><a href="#L1230" tabindex="0" class="raw-line-number" aria-label="第 1230 行">1230</a><span>It&#39;s great to be here.</span></div>
+<div class="raw-line" id="L1231"><a href="#L1231" tabindex="0" class="raw-line-number" aria-label="第 1231 行">1231</a><span>很高兴来到这里。</span></div>
+<div class="raw-line" id="L1232"><a href="#L1232" tabindex="0" class="raw-line-number" aria-label="第 1232 行">1232</a><span></span></div>
+<div class="raw-line" id="L1233"><a href="#L1233" tabindex="0" class="raw-line-number" aria-label="第 1233 行">1233</a><span>And see the room so full with standing room only at the back.</span></div>
+<div class="raw-line" id="L1234"><a href="#L1234" tabindex="0" class="raw-line-number" aria-label="第 1234 行">1234</a><span>看到现场座无虚席，后面都站满了人，真让人高兴。</span></div>
+<div class="raw-line" id="L1235"><a href="#L1235" tabindex="0" class="raw-line-number" aria-label="第 1235 行">1235</a><span></span></div>
+<div class="raw-line" id="L1236"><a href="#L1236" tabindex="0" class="raw-line-number" aria-label="第 1236 行">1236</a><span>My name is Clemens.</span></div>
+<div class="raw-line" id="L1237"><a href="#L1237" tabindex="0" class="raw-line-number" aria-label="第 1237 行">1237</a><span>我叫克莱门斯。</span></div>
+<div class="raw-line" id="L1238"><a href="#L1238" tabindex="0" class="raw-line-number" aria-label="第 1238 行">1238</a><span></span></div>
+<div class="raw-line" id="L1239"><a href="#L1239" tabindex="0" class="raw-line-number" aria-label="第 1239 行">1239</a><span>And I&#39;m one of the co-founders of Landfield.</span></div>
+<div class="raw-line" id="L1240"><a href="#L1240" tabindex="0" class="raw-line-number" aria-label="第 1240 行">1240</a><span>我是 Landfield 的联合创始人之一。</span></div>
+<div class="raw-line" id="L1241"><a href="#L1241" tabindex="0" class="raw-line-number" aria-label="第 1241 行">1241</a><span></span></div>
+<div class="raw-line" id="L1242"><a href="#L1242" tabindex="0" class="raw-line-number" aria-label="第 1242 行">1242</a><span>Which was recently acquired by ClickHouse.</span></div>
+<div class="raw-line" id="L1243"><a href="#L1243" tabindex="0" class="raw-line-number" aria-label="第 1243 行">1243</a><span>Landfield 最近被 ClickHouse 收购了。</span></div>
+<div class="raw-line" id="L1244"><a href="#L1244" tabindex="0" class="raw-line-number" aria-label="第 1244 行">1244</a><span></span></div>
+<div class="raw-line" id="L1245"><a href="#L1245" tabindex="0" class="raw-line-number" aria-label="第 1245 行">1245</a><span>The real-time database company at the start of the year.</span></div>
+<div class="raw-line" id="L1246"><a href="#L1246" tabindex="0" class="raw-line-number" aria-label="第 1246 行">1246</a><span>这家实时数据库公司在今年年初收购了我们。</span></div>
+<div class="raw-line" id="L1247"><a href="#L1247" tabindex="0" class="raw-line-number" aria-label="第 1247 行">1247</a><span></span></div>
+<div class="raw-line" id="L1248"><a href="#L1248" tabindex="0" class="raw-line-number" aria-label="第 1248 行">1248</a><span>Landfield is an open-source platform for agent evals and observability.</span></div>
+<div class="raw-line" id="L1249"><a href="#L1249" tabindex="0" class="raw-line-number" aria-label="第 1249 行">1249</a><span>Landfield 是一个用于 AI 智能体评估和可观测性的开源平台。</span></div>
+<div class="raw-line" id="L1250"><a href="#L1250" tabindex="0" class="raw-line-number" aria-label="第 1250 行">1250</a><span></span></div>
+<div class="raw-line" id="L1251"><a href="#L1251" tabindex="0" class="raw-line-number" aria-label="第 1251 行">1251</a><span>So basically what we do is we help developers understand what their agents do.</span></div>
+<div class="raw-line" id="L1252"><a href="#L1252" tabindex="0" class="raw-line-number" aria-label="第 1252 行">1252</a><span>简单来说，我们帮助开发者了解自己的智能体在做什么。</span></div>
+<div class="raw-line" id="L1253"><a href="#L1253" tabindex="0" class="raw-line-number" aria-label="第 1253 行">1253</a><span></span></div>
+<div class="raw-line" id="L1254"><a href="#L1254" tabindex="0" class="raw-line-number" aria-label="第 1254 行">1254</a><span>And then improve them in production.</span></div>
+<div class="raw-line" id="L1255"><a href="#L1255" tabindex="0" class="raw-line-number" aria-label="第 1255 行">1255</a><span>并帮助他们在生产环境中持续改进智能体。</span></div>
+<div class="raw-line" id="L1256"><a href="#L1256" tabindex="0" class="raw-line-number" aria-label="第 1256 行">1256</a><span></span></div>
+<div class="raw-line" id="L1257"><a href="#L1257" tabindex="0" class="raw-line-number" aria-label="第 1257 行">1257</a><span>And that&#39;s exactly what I want to talk about today.</span></div>
+<div class="raw-line" id="L1258"><a href="#L1258" tabindex="0" class="raw-line-number" aria-label="第 1258 行">1258</a><span>这也正是我今天想讲的内容。</span></div>
+<div class="raw-line" id="L1259"><a href="#L1259" tabindex="0" class="raw-line-number" aria-label="第 1259 行">1259</a><span></span></div>
+<div class="raw-line" id="L1260"><a href="#L1260" tabindex="0" class="raw-line-number" aria-label="第 1260 行">1260</a><span>I want to talk about agent architectures.</span></div>
+<div class="raw-line" id="L1261"><a href="#L1261" tabindex="0" class="raw-line-number" aria-label="第 1261 行">1261</a><span>我想谈谈智能体架构。</span></div>
+<div class="raw-line" id="L1262"><a href="#L1262" tabindex="0" class="raw-line-number" aria-label="第 1262 行">1262</a><span></span></div>
+<div class="raw-line" id="L1263"><a href="#L1263" tabindex="0" class="raw-line-number" aria-label="第 1263 行">1263</a><span>How agents are built.</span></div>
+<div class="raw-line" id="L1264"><a href="#L1264" tabindex="0" class="raw-line-number" aria-label="第 1264 行">1264</a><span>智能体是如何构建的。</span></div>
+<div class="raw-line" id="L1265"><a href="#L1265" tabindex="0" class="raw-line-number" aria-label="第 1265 行">1265</a><span></span></div>
+<div class="raw-line" id="L1266"><a href="#L1266" tabindex="0" class="raw-line-number" aria-label="第 1266 行">1266</a><span>And how agents are improved.</span></div>
+<div class="raw-line" id="L1267"><a href="#L1267" tabindex="0" class="raw-line-number" aria-label="第 1267 行">1267</a><span>以及如何改进智能体。</span></div>
+<div class="raw-line" id="L1268"><a href="#L1268" tabindex="0" class="raw-line-number" aria-label="第 1268 行">1268</a><span></span></div>
+<div class="raw-line" id="L1269"><a href="#L1269" tabindex="0" class="raw-line-number" aria-label="第 1269 行">1269</a><span>And how that evolved over the past couple of years.</span></div>
+<div class="raw-line" id="L1270"><a href="#L1270" tabindex="0" class="raw-line-number" aria-label="第 1270 行">1270</a><span>以及这些方面在过去几年里是如何演变的。</span></div>
+<div class="raw-line" id="L1271"><a href="#L1271" tabindex="0" class="raw-line-number" aria-label="第 1271 行">1271</a><span></span></div>
+<div class="raw-line" id="L1272"><a href="#L1272" tabindex="0" class="raw-line-number" aria-label="第 1272 行">1272</a><span>And what I think this is going to look like in the future.</span></div>
+<div class="raw-line" id="L1273"><a href="#L1273" tabindex="0" class="raw-line-number" aria-label="第 1273 行">1273</a><span>以及我认为未来这方面会是什么样子。</span></div>
+<div class="raw-line" id="L1274"><a href="#L1274" tabindex="0" class="raw-line-number" aria-label="第 1274 行">1274</a><span></span></div>
+<div class="raw-line" id="L1275"><a href="#L1275" tabindex="0" class="raw-line-number" aria-label="第 1275 行">1275</a><span>I think the main message that I want to start with is that we found that agents are improved iteratively.</span></div>
+<div class="raw-line" id="L1276"><a href="#L1276" tabindex="0" class="raw-line-number" aria-label="第 1276 行">1276</a><span>我想先强调一个核心观点：我们发现，智能体是通过不断迭代来改进的。</span></div>
+<div class="raw-line" id="L1277"><a href="#L1277" tabindex="0" class="raw-line-number" aria-label="第 1277 行">1277</a><span></span></div>
+<div class="raw-line" id="L1278"><a href="#L1278" tabindex="0" class="raw-line-number" aria-label="第 1278 行">1278</a><span>So it&#39;s not like in traditional software engineering where you write down acceptance criteria and you think hard about tests before you start building your application.</span></div>
+<div class="raw-line" id="L1279"><a href="#L1279" tabindex="0" class="raw-line-number" aria-label="第 1279 行">1279</a><span>这与传统软件工程不太一样：在传统软件工程中，你会先写好验收标准，仔细设计测试，然后才开始构建应用。</span></div>
+<div class="raw-line" id="L1280"><a href="#L1280" tabindex="0" class="raw-line-number" aria-label="第 1280 行">1280</a><span></span></div>
+<div class="raw-line" id="L1281"><a href="#L1281" tabindex="0" class="raw-line-number" aria-label="第 1281 行">1281</a><span>But agents are unpredictable and you need to learn from what they do.</span></div>
+<div class="raw-line" id="L1282"><a href="#L1282" tabindex="0" class="raw-line-number" aria-label="第 1282 行">1282</a><span>但智能体的行为难以预测，你需要从它们的实际表现中学习。</span></div>
+<div class="raw-line" id="L1283"><a href="#L1283" tabindex="0" class="raw-line-number" aria-label="第 1283 行">1283</a><span></span></div>
+<div class="raw-line" id="L1284"><a href="#L1284" tabindex="0" class="raw-line-number" aria-label="第 1284 行">1284</a><span>And what the industry and many of our users have converged on is the improvement loop that you can see at the top of this slide.</span></div>
+<div class="raw-line" id="L1285"><a href="#L1285" tabindex="0" class="raw-line-number" aria-label="第 1285 行">1285</a><span>业界和我们的许多用户逐渐形成了共识：采用这张幻灯片顶部展示的改进循环。</span></div>
+<div class="raw-line" id="L1286"><a href="#L1286" tabindex="0" class="raw-line-number" aria-label="第 1286 行">1286</a><span></span></div>
+<div class="raw-line" id="L1287"><a href="#L1287" tabindex="0" class="raw-line-number" aria-label="第 1287 行">1287</a><span>So you run your agent in product— or not necessarily in production. You run your agent.</span></div>
+<div class="raw-line" id="L1288"><a href="#L1288" tabindex="0" class="raw-line-number" aria-label="第 1288 行">1288</a><span>你可以在生产环境中运行智能体——也不一定非得在生产环境。总之，先让智能体运行起来。</span></div>
+<div class="raw-line" id="L1289"><a href="#L1289" tabindex="0" class="raw-line-number" aria-label="第 1289 行">1289</a><span></span></div>
+<div class="raw-line" id="L1290"><a href="#L1290" tabindex="0" class="raw-line-number" aria-label="第 1290 行">1290</a><span>Yourself.</span></div>
+<div class="raw-line" id="L1291"><a href="#L1291" tabindex="0" class="raw-line-number" aria-label="第 1291 行">1291</a><span>你自己。</span></div>
+<div class="raw-line" id="L1292"><a href="#L1292" tabindex="0" class="raw-line-number" aria-label="第 1292 行">1292</a><span></span></div>
+<div class="raw-line" id="L1293"><a href="#L1293" tabindex="0" class="raw-line-number" aria-label="第 1293 行">1293</a><span>With internal users. With external users.</span></div>
+<div class="raw-line" id="L1294"><a href="#L1294" tabindex="0" class="raw-line-number" aria-label="第 1294 行">1294</a><span>让内部用户使用，也让外部用户使用。</span></div>
+<div class="raw-line" id="L1295"><a href="#L1295" tabindex="0" class="raw-line-number" aria-label="第 1295 行">1295</a><span></span></div>
+<div class="raw-line" id="L1296"><a href="#L1296" tabindex="0" class="raw-line-number" aria-label="第 1296 行">1296</a><span>And you see where it breaks. You see where it fails.</span></div>
+<div class="raw-line" id="L1297"><a href="#L1297" tabindex="0" class="raw-line-number" aria-label="第 1297 行">1297</a><span>然后观察它在哪里出问题、在哪里失败。</span></div>
+<div class="raw-line" id="L1298"><a href="#L1298" tabindex="0" class="raw-line-number" aria-label="第 1298 行">1298</a><span></span></div>
+<div class="raw-line" id="L1299"><a href="#L1299" tabindex="0" class="raw-line-number" aria-label="第 1299 行">1299</a><span>You go into your data. Look at your traces.</span></div>
+<div class="raw-line" id="L1300"><a href="#L1300" tabindex="0" class="raw-line-number" aria-label="第 1300 行">1300</a><span>然后深入查看数据，分析智能体的运行轨迹。</span></div>
+<div class="raw-line" id="L1301"><a href="#L1301" tabindex="0" class="raw-line-number" aria-label="第 1301 行">1301</a><span></span></div>
+<div class="raw-line" id="L1302"><a href="#L1302" tabindex="0" class="raw-line-number" aria-label="第 1302 行">1302</a><span>Ship.</span></div>
+<div class="raw-line" id="L1303"><a href="#L1303" tabindex="0" class="raw-line-number" aria-label="第 1303 行">1303</a><span>上线。</span></div>
+<div class="raw-line" id="L1304"><a href="#L1304" tabindex="0" class="raw-line-number" aria-label="第 1304 行">1304</a><span></span></div>
+<div class="raw-line" id="L1305"><a href="#L1305" tabindex="0" class="raw-line-number" aria-label="第 1305 行">1305</a><span>A fix. Write a test.</span></div>
+<div class="raw-line" id="L1306"><a href="#L1306" tabindex="0" class="raw-line-number" aria-label="第 1306 行">1306</a><span>修复问题，编写测试。</span></div>
+<div class="raw-line" id="L1307"><a href="#L1307" tabindex="0" class="raw-line-number" aria-label="第 1307 行">1307</a><span></span></div>
+<div class="raw-line" id="L1308"><a href="#L1308" tabindex="0" class="raw-line-number" aria-label="第 1308 行">1308</a><span>Rinse and repeat.</span></div>
+<div class="raw-line" id="L1309"><a href="#L1309" tabindex="0" class="raw-line-number" aria-label="第 1309 行">1309</a><span>如此反复迭代。</span></div>
+<div class="raw-line" id="L1310"><a href="#L1310" tabindex="0" class="raw-line-number" aria-label="第 1310 行">1310</a><span></span></div>
+<div class="raw-line" id="L1311"><a href="#L1311" tabindex="0" class="raw-line-number" aria-label="第 1311 行">1311</a><span>So basically what you do is you just keep on fixing the issues that you find within your agent in production.</span></div>
+<div class="raw-line" id="L1312"><a href="#L1312" tabindex="0" class="raw-line-number" aria-label="第 1312 行">1312</a><span>所以，基本上就是不断修复智能体上线后发现的问题。</span></div>
+<div class="raw-line" id="L1313"><a href="#L1313" tabindex="0" class="raw-line-number" aria-label="第 1313 行">1313</a><span></span></div>
+<div class="raw-line" id="L1314"><a href="#L1314" tabindex="0" class="raw-line-number" aria-label="第 1314 行">1314</a><span>A quick example from one of our own agents.</span></div>
+<div class="raw-line" id="L1315"><a href="#L1315" tabindex="0" class="raw-line-number" aria-label="第 1315 行">1315</a><span>举个我们自己的智能体的例子。</span></div>
+<div class="raw-line" id="L1316"><a href="#L1316" tabindex="0" class="raw-line-number" aria-label="第 1316 行">1316</a><span></span></div>
+<div class="raw-line" id="L1317"><a href="#L1317" tabindex="0" class="raw-line-number" aria-label="第 1317 行">1317</a><span>We have an agent in Landfield that&#39;s called Halo.</span></div>
+<div class="raw-line" id="L1318"><a href="#L1318" tabindex="0" class="raw-line-number" aria-label="第 1318 行">1318</a><span>我们在 Landfield 有一个名叫 Halo 的智能体。</span></div>
+<div class="raw-line" id="L1319"><a href="#L1319" tabindex="0" class="raw-line-number" aria-label="第 1319 行">1319</a><span></span></div>
+<div class="raw-line" id="L1320"><a href="#L1320" tabindex="0" class="raw-line-number" aria-label="第 1320 行">1320</a><span>It&#39;s our in-app agent that basically helps developers run this improvement loop.</span></div>
+<div class="raw-line" id="L1321"><a href="#L1321" tabindex="0" class="raw-line-number" aria-label="第 1321 行">1321</a><span>它是我们应用内的智能体，主要帮助开发者完成这个持续改进的循环。</span></div>
+<div class="raw-line" id="L1322"><a href="#L1322" tabindex="0" class="raw-line-number" aria-label="第 1322 行">1322</a><span></span></div>
+<div class="raw-line" id="L1323"><a href="#L1323" tabindex="0" class="raw-line-number" aria-label="第 1323 行">1323</a><span>So it helps you look at your traces.</span></div>
+<div class="raw-line" id="L1324"><a href="#L1324" tabindex="0" class="raw-line-number" aria-label="第 1324 行">1324</a><span>它能帮你查看智能体的运行轨迹。</span></div>
+<div class="raw-line" id="L1325"><a href="#L1325" tabindex="0" class="raw-line-number" aria-label="第 1325 行">1325</a><span></span></div>
+<div class="raw-line" id="L1326"><a href="#L1326" tabindex="0" class="raw-line-number" aria-label="第 1326 行">1326</a><span>Find issues that pop up.</span></div>
+<div class="raw-line" id="L1327"><a href="#L1327" tabindex="0" class="raw-line-number" aria-label="第 1327 行">1327</a><span>找出出现的问题。</span></div>
+<div class="raw-line" id="L1328"><a href="#L1328" tabindex="0" class="raw-line-number" aria-label="第 1328 行">1328</a><span></span></div>
+<div class="raw-line" id="L1329"><a href="#L1329" tabindex="0" class="raw-line-number" aria-label="第 1329 行">1329</a><span>And essentially— yeah— get a better view at the things you want to improve in your agent.</span></div>
+<div class="raw-line" id="L1330"><a href="#L1330" tabindex="0" class="raw-line-number" aria-label="第 1330 行">1330</a><span>简而言之，它能帮你更清楚地了解智能体有哪些地方需要改进。</span></div>
+<div class="raw-line" id="L1331"><a href="#L1331" tabindex="0" class="raw-line-number" aria-label="第 1331 行">1331</a><span></span></div>
+<div class="raw-line" id="L1332"><a href="#L1332" tabindex="0" class="raw-line-number" aria-label="第 1332 行">1332</a><span>One of the bugs that we came across by reading our own traces of how users use this is that we saw a lot of tool call errors.</span></div>
+<div class="raw-line" id="L1333"><a href="#L1333" tabindex="0" class="raw-line-number" aria-label="第 1333 行">1333</a><span>我们查看用户使用它的运行轨迹时，发现了一个问题：工具调用频繁报错。</span></div>
+<div class="raw-line" id="L1334"><a href="#L1334" tabindex="0" class="raw-line-number" aria-label="第 1334 行">1334</a><span></span></div>
+<div class="raw-line" id="L1335"><a href="#L1335" tabindex="0" class="raw-line-number" aria-label="第 1335 行">1335</a><span>So very simple example.</span></div>
+<div class="raw-line" id="L1336"><a href="#L1336" tabindex="0" class="raw-line-number" aria-label="第 1336 行">1336</a><span>举个很简单的例子。</span></div>
+<div class="raw-line" id="L1337"><a href="#L1337" tabindex="0" class="raw-line-number" aria-label="第 1337 行">1337</a><span></span></div>
+<div class="raw-line" id="L1338"><a href="#L1338" tabindex="0" class="raw-line-number" aria-label="第 1338 行">1338</a><span>But our agent wanted our tool to— our agent wanted to sort total cost underscore sum while the tool in the agent was expecting sum underscore total cost.</span></div>
+<div class="raw-line" id="L1339"><a href="#L1339" tabindex="0" class="raw-line-number" aria-label="第 1339 行">1339</a><span>但我们的智能体在调用工具时，想按 `total_cost_sum` 排序，而工具预期的字段名却是 `sum_total_cost`。</span></div>
+<div class="raw-line" id="L1340"><a href="#L1340" tabindex="0" class="raw-line-number" aria-label="第 1340 行">1340</a><span></span></div>
+<div class="raw-line" id="L1341"><a href="#L1341" tabindex="0" class="raw-line-number" aria-label="第 1341 行">1341</a><span>Super simple example.</span></div>
+<div class="raw-line" id="L1342"><a href="#L1342" tabindex="0" class="raw-line-number" aria-label="第 1342 行">1342</a><span>举个非常简单的例子。</span></div>
+<div class="raw-line" id="L1343"><a href="#L1343" tabindex="0" class="raw-line-number" aria-label="第 1343 行">1343</a><span></span></div>
+<div class="raw-line" id="L1344"><a href="#L1344" tabindex="0" class="raw-line-number" aria-label="第 1344 行">1344</a><span>But the only way to figure this out is to start looking at your traces.</span></div>
+<div class="raw-line" id="L1345"><a href="#L1345" tabindex="0" class="raw-line-number" aria-label="第 1345 行">1345</a><span>但要发现这类问题，唯一的办法就是开始查看运行轨迹。</span></div>
+<div class="raw-line" id="L1346"><a href="#L1346" tabindex="0" class="raw-line-number" aria-label="第 1346 行">1346</a><span></span></div>
+<div class="raw-line" id="L1347"><a href="#L1347" tabindex="0" class="raw-line-number" aria-label="第 1347 行">1347</a><span>And fix the application.</span></div>
+<div class="raw-line" id="L1348"><a href="#L1348" tabindex="0" class="raw-line-number" aria-label="第 1348 行">1348</a><span>然后修复应用中的问题。</span></div>
+<div class="raw-line" id="L1349"><a href="#L1349" tabindex="0" class="raw-line-number" aria-label="第 1349 行">1349</a><span></span></div>
+<div class="raw-line" id="L1350"><a href="#L1350" tabindex="0" class="raw-line-number" aria-label="第 1350 行">1350</a><span>Release it back into production.</span></div>
+<div class="raw-line" id="L1351"><a href="#L1351" tabindex="0" class="raw-line-number" aria-label="第 1351 行">1351</a><span>然后重新部署到生产环境。</span></div>
+<div class="raw-line" id="L1352"><a href="#L1352" tabindex="0" class="raw-line-number" aria-label="第 1352 行">1352</a><span></span></div>
+<div class="raw-line" id="L1353"><a href="#L1353" tabindex="0" class="raw-line-number" aria-label="第 1353 行">1353</a><span>The takeaway here is that building agents is much more artisanal than it is scientific.</span></div>
+<div class="raw-line" id="L1354"><a href="#L1354" tabindex="0" class="raw-line-number" aria-label="第 1354 行">1354</a><span>这里的关键是，构建智能体更像一门手艺，而不是一门精确的科学。</span></div>
+<div class="raw-line" id="L1355"><a href="#L1355" tabindex="0" class="raw-line-number" aria-label="第 1355 行">1355</a><span></span></div>
+<div class="raw-line" id="L1356"><a href="#L1356" tabindex="0" class="raw-line-number" aria-label="第 1356 行">1356</a><span>It&#39;s not a scientific process.</span></div>
+<div class="raw-line" id="L1357"><a href="#L1357" tabindex="0" class="raw-line-number" aria-label="第 1357 行">1357</a><span>这不是一个严格的科学过程。</span></div>
+<div class="raw-line" id="L1358"><a href="#L1358" tabindex="0" class="raw-line-number" aria-label="第 1358 行">1358</a><span></span></div>
+<div class="raw-line" id="L1359"><a href="#L1359" tabindex="0" class="raw-line-number" aria-label="第 1359 行">1359</a><span>You do it your desktop.</span></div>
+<div class="raw-line" id="L1360"><a href="#L1360" tabindex="0" class="raw-line-number" aria-label="第 1360 行">1360</a><span>你在自己的电脑上操作。</span></div>
+<div class="raw-line" id="L1361"><a href="#L1361" tabindex="0" class="raw-line-number" aria-label="第 1361 行">1361</a><span></span></div>
+<div class="raw-line" id="L1362"><a href="#L1362" tabindex="0" class="raw-line-number" aria-label="第 1362 行">1362</a><span>It&#39;s— you need to get your hands dirty and ship many iterations. All right.</span></div>
+<div class="raw-line" id="L1363"><a href="#L1363" tabindex="0" class="raw-line-number" aria-label="第 1363 行">1363</a><span>就是说，你得亲自动手，不断迭代、不断发布。好了。</span></div>
+<div class="raw-line" id="L1364"><a href="#L1364" tabindex="0" class="raw-line-number" aria-label="第 1364 行">1364</a><span></span></div>
+<div class="raw-line" id="L1365"><a href="#L1365" tabindex="0" class="raw-line-number" aria-label="第 1365 行">1365</a><span>Let&#39;s start with a quick walk down memory lane.</span></div>
+<div class="raw-line" id="L1366"><a href="#L1366" tabindex="0" class="raw-line-number" aria-label="第 1366 行">1366</a><span>我们先来简单回顾一下。</span></div>
+<div class="raw-line" id="L1367"><a href="#L1367" tabindex="0" class="raw-line-number" aria-label="第 1367 行">1367</a><span></span></div>
+<div class="raw-line" id="L1368"><a href="#L1368" tabindex="0" class="raw-line-number" aria-label="第 1368 行">1368</a><span>How were agents built?</span></div>
+<div class="raw-line" id="L1369"><a href="#L1369" tabindex="0" class="raw-line-number" aria-label="第 1369 行">1369</a><span>过去是怎么构建智能体的？</span></div>
+<div class="raw-line" id="L1370"><a href="#L1370" tabindex="0" class="raw-line-number" aria-label="第 1370 行">1370</a><span></span></div>
+<div class="raw-line" id="L1371"><a href="#L1371" tabindex="0" class="raw-line-number" aria-label="第 1371 行">1371</a><span>Three, four years ago,</span></div>
+<div class="raw-line" id="L1372"><a href="#L1372" tabindex="0" class="raw-line-number" aria-label="第 1372 行">1372</a><span>三四年前，</span></div>
+<div class="raw-line" id="L1373"><a href="#L1373" tabindex="0" class="raw-line-number" aria-label="第 1373 行">1373</a><span></span></div>
+<div class="raw-line" id="L1374"><a href="#L1374" tabindex="0" class="raw-line-number" aria-label="第 1374 行">1374</a><span>we really started with just direct calls to the model.</span></div>
+<div class="raw-line" id="L1375"><a href="#L1375" tabindex="0" class="raw-line-number" aria-label="第 1375 行">1375</a><span>我们最初其实只是直接调用模型。</span></div>
+<div class="raw-line" id="L1376"><a href="#L1376" tabindex="0" class="raw-line-number" aria-label="第 1376 行">1376</a><span></span></div>
+<div class="raw-line" id="L1377"><a href="#L1377" tabindex="0" class="raw-line-number" aria-label="第 1377 行">1377</a><span>You immediately call the LLM.</span></div>
+<div class="raw-line" id="L1378"><a href="#L1378" tabindex="0" class="raw-line-number" aria-label="第 1378 行">1378</a><span>你直接调用大语言模型。</span></div>
+<div class="raw-line" id="L1379"><a href="#L1379" tabindex="0" class="raw-line-number" aria-label="第 1379 行">1379</a><span></span></div>
+<div class="raw-line" id="L1380"><a href="#L1380" tabindex="0" class="raw-line-number" aria-label="第 1380 行">1380</a><span>And then we started chaining.</span></div>
+<div class="raw-line" id="L1381"><a href="#L1381" tabindex="0" class="raw-line-number" aria-label="第 1381 行">1381</a><span>然后我们开始把多个步骤串联起来。</span></div>
+<div class="raw-line" id="L1382"><a href="#L1382" tabindex="0" class="raw-line-number" aria-label="第 1382 行">1382</a><span></span></div>
+<div class="raw-line" id="L1383"><a href="#L1383" tabindex="0" class="raw-line-number" aria-label="第 1383 行">1383</a><span>So using the output of one model to use it further down the line.</span></div>
+<div class="raw-line" id="L1384"><a href="#L1384" tabindex="0" class="raw-line-number" aria-label="第 1384 行">1384</a><span>也就是把一个模型的输出交给后续环节继续使用。</span></div>
+<div class="raw-line" id="L1385"><a href="#L1385" tabindex="0" class="raw-line-number" aria-label="第 1385 行">1385</a><span></span></div>
+<div class="raw-line" id="L1386"><a href="#L1386" tabindex="0" class="raw-line-number" aria-label="第 1386 行">1386</a><span>This quickly led to problems with context windows that were relatively small when we started.</span></div>
+<div class="raw-line" id="L1387"><a href="#L1387" tabindex="0" class="raw-line-number" aria-label="第 1387 行">1387</a><span>但这很快就遇到了上下文窗口的限制——当时的窗口还比较小。</span></div>
+<div class="raw-line" id="L1388"><a href="#L1388" tabindex="0" class="raw-line-number" aria-label="第 1388 行">1388</a><span></span></div>
+<div class="raw-line" id="L1389"><a href="#L1389" tabindex="0" class="raw-line-number" aria-label="第 1389 行">1389</a><span>With early models in 2023, 2024.</span></div>
+<div class="raw-line" id="L1390"><a href="#L1390" tabindex="0" class="raw-line-number" aria-label="第 1390 行">1390</a><span>毕竟在 2023、2024 年，早期模型的上下文窗口还比较小。</span></div>
+<div class="raw-line" id="L1391"><a href="#L1391" tabindex="0" class="raw-line-number" aria-label="第 1391 行">1391</a><span></span></div>
+<div class="raw-line" id="L1392"><a href="#L1392" tabindex="0" class="raw-line-number" aria-label="第 1392 行">1392</a><span>And RAG was the next architecture that started happening.</span></div>
+<div class="raw-line" id="L1393"><a href="#L1393" tabindex="0" class="raw-line-number" aria-label="第 1393 行">1393</a><span>接着，RAG（检索增强生成）开始成为下一种架构。</span></div>
+<div class="raw-line" id="L1394"><a href="#L1394" tabindex="0" class="raw-line-number" aria-label="第 1394 行">1394</a><span></span></div>
+<div class="raw-line" id="L1395"><a href="#L1395" tabindex="0" class="raw-line-number" aria-label="第 1395 行">1395</a><span>So before actually using any LLM, we would do a search over your documents and then use the output from that search, the chunks,</span></div>
+<div class="raw-line" id="L1396"><a href="#L1396" tabindex="0" class="raw-line-number" aria-label="第 1396 行">1396</a><span>所以，在调用大语言模型之前，我们会先检索你的文档，再把检索得到的内容片段……</span></div>
+<div class="raw-line" id="L1397"><a href="#L1397" tabindex="0" class="raw-line-number" aria-label="第 1397 行">1397</a><span></span></div>
+<div class="raw-line" id="L1398"><a href="#L1398" tabindex="0" class="raw-line-number" aria-label="第 1398 行">1398</a><span>to feed into the LLM&#39;s context that would fit in there.</span></div>
+<div class="raw-line" id="L1399"><a href="#L1399" tabindex="0" class="raw-line-number" aria-label="第 1399 行">1399</a><span>放进大语言模型的上下文窗口，确保内容装得下。</span></div>
+<div class="raw-line" id="L1400"><a href="#L1400" tabindex="0" class="raw-line-number" aria-label="第 1400 行">1400</a><span></span></div>
+<div class="raw-line" id="L1401"><a href="#L1401" tabindex="0" class="raw-line-number" aria-label="第 1401 行">1401</a><span>And then run your application that way.</span></div>
+<div class="raw-line" id="L1402"><a href="#L1402" tabindex="0" class="raw-line-number" aria-label="第 1402 行">1402</a><span>然后以这种方式运行你的应用。</span></div>
+<div class="raw-line" id="L1403"><a href="#L1403" tabindex="0" class="raw-line-number" aria-label="第 1403 行">1403</a><span></span></div>
+<div class="raw-line" id="L1404"><a href="#L1404" tabindex="0" class="raw-line-number" aria-label="第 1404 行">1404</a><span>Next was tools and loops.</span></div>
+<div class="raw-line" id="L1405"><a href="#L1405" tabindex="0" class="raw-line-number" aria-label="第 1405 行">1405</a><span>接下来是工具调用和循环。</span></div>
+<div class="raw-line" id="L1406"><a href="#L1406" tabindex="0" class="raw-line-number" aria-label="第 1406 行">1406</a><span></span></div>
+<div class="raw-line" id="L1407"><a href="#L1407" tabindex="0" class="raw-line-number" aria-label="第 1407 行">1407</a><span>This is an architecture that we see again today.</span></div>
+<div class="raw-line" id="L1408"><a href="#L1408" tabindex="0" class="raw-line-number" aria-label="第 1408 行">1408</a><span>这种架构如今依然很常见。</span></div>
+<div class="raw-line" id="L1409"><a href="#L1409" tabindex="0" class="raw-line-number" aria-label="第 1409 行">1409</a><span></span></div>
+<div class="raw-line" id="L1410"><a href="#L1410" tabindex="0" class="raw-line-number" aria-label="第 1410 行">1410</a><span>And it was basically— yeah— came up pretty early.</span></div>
+<div class="raw-line" id="L1411"><a href="#L1411" tabindex="0" class="raw-line-number" aria-label="第 1411 行">1411</a><span>而且它其实很早就出现了。</span></div>
+<div class="raw-line" id="L1412"><a href="#L1412" tabindex="0" class="raw-line-number" aria-label="第 1412 行">1412</a><span></span></div>
+<div class="raw-line" id="L1413"><a href="#L1413" tabindex="0" class="raw-line-number" aria-label="第 1413 行">1413</a><span>But models were actually not good enough.</span></div>
+<div class="raw-line" id="L1414"><a href="#L1414" tabindex="0" class="raw-line-number" aria-label="第 1414 行">1414</a><span>但当时的模型其实还不够好。</span></div>
+<div class="raw-line" id="L1415"><a href="#L1415" tabindex="0" class="raw-line-number" aria-label="第 1415 行">1415</a><span></span></div>
+<div class="raw-line" id="L1416"><a href="#L1416" tabindex="0" class="raw-line-number" aria-label="第 1416 行">1416</a><span>So that this more free-form architecture where the model keeps running in a loop with tools that it can use to access other systems.</span></div>
+<div class="raw-line" id="L1417"><a href="#L1417" tabindex="0" class="raw-line-number" aria-label="第 1417 行">1417</a><span>也就是一种更灵活的架构：模型不断循环运行，并借助工具访问其他系统。</span></div>
+<div class="raw-line" id="L1418"><a href="#L1418" tabindex="0" class="raw-line-number" aria-label="第 1418 行">1418</a><span></span></div>
+<div class="raw-line" id="L1419"><a href="#L1419" tabindex="0" class="raw-line-number" aria-label="第 1419 行">1419</a><span>Was very useful. Yet.</span></div>
+<div class="raw-line" id="L1420"><a href="#L1420" tabindex="0" class="raw-line-number" aria-label="第 1420 行">1420</a><span>当时还不太实用。</span></div>
+<div class="raw-line" id="L1421"><a href="#L1421" tabindex="0" class="raw-line-number" aria-label="第 1421 行">1421</a><span></span></div>
+<div class="raw-line" id="L1422"><a href="#L1422" tabindex="0" class="raw-line-number" aria-label="第 1422 行">1422</a><span>What happened then was that we saw agent graphs pop up.</span></div>
+<div class="raw-line" id="L1423"><a href="#L1423" tabindex="0" class="raw-line-number" aria-label="第 1423 行">1423</a><span>后来，我们看到智能体工作流图开始出现。</span></div>
+<div class="raw-line" id="L1424"><a href="#L1424" tabindex="0" class="raw-line-number" aria-label="第 1424 行">1424</a><span></span></div>
+<div class="raw-line" id="L1425"><a href="#L1425" tabindex="0" class="raw-line-number" aria-label="第 1425 行">1425</a><span>So basically with models not being good enough yet, we would split the problem up into graphs, into workflows.</span></div>
+<div class="raw-line" id="L1426"><a href="#L1426" tabindex="0" class="raw-line-number" aria-label="第 1426 行">1426</a><span>所以，当时模型的能力还不够，我们就把问题拆解成工作流，用流程图把各个步骤串起来。</span></div>
+<div class="raw-line" id="L1427"><a href="#L1427" tabindex="0" class="raw-line-number" aria-label="第 1427 行">1427</a><span></span></div>
+<div class="raw-line" id="L1428"><a href="#L1428" tabindex="0" class="raw-line-number" aria-label="第 1428 行">1428</a><span>Where you split the problem up into smaller individual pieces that the models could handle at a given capability frontier of those models.</span></div>
+<div class="raw-line" id="L1429"><a href="#L1429" tabindex="0" class="raw-line-number" aria-label="第 1429 行">1429</a><span>也就是把问题拆成更小的部分，让模型在当时的能力水平下能够逐一处理。</span></div>
+<div class="raw-line" id="L1430"><a href="#L1430" tabindex="0" class="raw-line-number" aria-label="第 1430 行">1430</a><span></span></div>
+<div class="raw-line" id="L1431"><a href="#L1431" tabindex="0" class="raw-line-number" aria-label="第 1431 行">1431</a><span>The problem is, though, that you would have to design these by hand.</span></div>
+<div class="raw-line" id="L1432"><a href="#L1432" tabindex="0" class="raw-line-number" aria-label="第 1432 行">1432</a><span>但问题是，这些工作流都得靠人工设计。</span></div>
+<div class="raw-line" id="L1433"><a href="#L1433" tabindex="0" class="raw-line-number" aria-label="第 1433 行">1433</a><span></span></div>
+<div class="raw-line" id="L1434"><a href="#L1434" tabindex="0" class="raw-line-number" aria-label="第 1434 行">1434</a><span>And that takes quite a bit of time.</span></div>
+<div class="raw-line" id="L1435"><a href="#L1435" tabindex="0" class="raw-line-number" aria-label="第 1435 行">1435</a><span>而这需要花不少时间。</span></div>
+<div class="raw-line" id="L1436"><a href="#L1436" tabindex="0" class="raw-line-number" aria-label="第 1436 行">1436</a><span></span></div>
+<div class="raw-line" id="L1437"><a href="#L1437" tabindex="0" class="raw-line-number" aria-label="第 1437 行">1437</a><span>And you need to understand very well all the path that your agent might need to take to come to an answer.</span></div>
+<div class="raw-line" id="L1438"><a href="#L1438" tabindex="0" class="raw-line-number" aria-label="第 1438 行">1438</a><span>而且，你得非常清楚智能体为了得出答案，可能需要走哪些路径。</span></div>
+<div class="raw-line" id="L1439"><a href="#L1439" tabindex="0" class="raw-line-number" aria-label="第 1439 行">1439</a><span></span></div>
+<div class="raw-line" id="L1440"><a href="#L1440" tabindex="0" class="raw-line-number" aria-label="第 1440 行">1440</a><span>Then.</span></div>
+<div class="raw-line" id="L1441"><a href="#L1441" tabindex="0" class="raw-line-number" aria-label="第 1441 行">1441</a><span>然后。</span></div>
+<div class="raw-line" id="L1442"><a href="#L1442" tabindex="0" class="raw-line-number" aria-label="第 1442 行">1442</a><span></span></div>
+<div class="raw-line" id="L1443"><a href="#L1443" tabindex="0" class="raw-line-number" aria-label="第 1443 行">1443</a><span>We basically got better back to the architecture that I just showed you.</span></div>
+<div class="raw-line" id="L1444"><a href="#L1444" tabindex="0" class="raw-line-number" aria-label="第 1444 行">1444</a><span>我们基本上又回到了我刚才展示的那种架构，只是做得更好了。</span></div>
+<div class="raw-line" id="L1445"><a href="#L1445" tabindex="0" class="raw-line-number" aria-label="第 1445 行">1445</a><span></span></div>
+<div class="raw-line" id="L1446"><a href="#L1446" tabindex="0" class="raw-line-number" aria-label="第 1446 行">1446</a><span>As models got better in 2025 and now especially this year in 2026.</span></div>
+<div class="raw-line" id="L1447"><a href="#L1447" tabindex="0" class="raw-line-number" aria-label="第 1447 行">1447</a><span>随着模型在2025年不断进步，尤其是到了今年，也就是2026年。</span></div>
+<div class="raw-line" id="L1448"><a href="#L1448" tabindex="0" class="raw-line-number" aria-label="第 1448 行">1448</a><span></span></div>
+<div class="raw-line" id="L1449"><a href="#L1449" tabindex="0" class="raw-line-number" aria-label="第 1449 行">1449</a><span>And this is an architecture now that we&#39;re seeing lots and lots of teams use is again model with tools in a loop.</span></div>
+<div class="raw-line" id="L1450"><a href="#L1450" tabindex="0" class="raw-line-number" aria-label="第 1450 行">1450</a><span>如今我们看到越来越多的团队采用这种架构：让模型在循环中反复调用工具。</span></div>
+<div class="raw-line" id="L1451"><a href="#L1451" tabindex="0" class="raw-line-number" aria-label="第 1451 行">1451</a><span></span></div>
+<div class="raw-line" id="L1452"><a href="#L1452" tabindex="0" class="raw-line-number" aria-label="第 1452 行">1452</a><span>Using a skill and having access to sandbox to run code.</span></div>
+<div class="raw-line" id="L1453"><a href="#L1453" tabindex="0" class="raw-line-number" aria-label="第 1453 行">1453</a><span>使用技能，并能在沙箱环境中运行代码。</span></div>
+<div class="raw-line" id="L1454"><a href="#L1454" tabindex="0" class="raw-line-number" aria-label="第 1454 行">1454</a><span></span></div>
+<div class="raw-line" id="L1455"><a href="#L1455" tabindex="0" class="raw-line-number" aria-label="第 1455 行">1455</a><span>Have a file system available to it.</span></div>
+<div class="raw-line" id="L1456"><a href="#L1456" tabindex="0" class="raw-line-number" aria-label="第 1456 行">1456</a><span>还可以访问文件系统。</span></div>
+<div class="raw-line" id="L1457"><a href="#L1457" tabindex="0" class="raw-line-number" aria-label="第 1457 行">1457</a><span></span></div>
+<div class="raw-line" id="L1458"><a href="#L1458" tabindex="0" class="raw-line-number" aria-label="第 1458 行">1458</a><span>So this is an architecture that really started to work last year and then this year.</span></div>
+<div class="raw-line" id="L1459"><a href="#L1459" tabindex="0" class="raw-line-number" aria-label="第 1459 行">1459</a><span>所以，这种架构从去年开始真正奏效，到今年就更成熟了。</span></div>
+<div class="raw-line" id="L1460"><a href="#L1460" tabindex="0" class="raw-line-number" aria-label="第 1460 行">1460</a><span></span></div>
+<div class="raw-line" id="L1461"><a href="#L1461" tabindex="0" class="raw-line-number" aria-label="第 1461 行">1461</a><span>And you can extend this architecture.</span></div>
+<div class="raw-line" id="L1462"><a href="#L1462" tabindex="0" class="raw-line-number" aria-label="第 1462 行">1462</a><span>而且，你还可以扩展这种架构。</span></div>
+<div class="raw-line" id="L1463"><a href="#L1463" tabindex="0" class="raw-line-number" aria-label="第 1463 行">1463</a><span></span></div>
+<div class="raw-line" id="L1464"><a href="#L1464" tabindex="0" class="raw-line-number" aria-label="第 1464 行">1464</a><span>You can let the same— yeah— architecture run sub-agents as well.</span></div>
+<div class="raw-line" id="L1465"><a href="#L1465" tabindex="0" class="raw-line-number" aria-label="第 1465 行">1465</a><span>你也可以让同一套架构运行子智能体。</span></div>
+<div class="raw-line" id="L1466"><a href="#L1466" tabindex="0" class="raw-line-number" aria-label="第 1466 行">1466</a><span></span></div>
+<div class="raw-line" id="L1467"><a href="#L1467" tabindex="0" class="raw-line-number" aria-label="第 1467 行">1467</a><span>So you have one orchestrator agent at the top.</span></div>
+<div class="raw-line" id="L1468"><a href="#L1468" tabindex="0" class="raw-line-number" aria-label="第 1468 行">1468</a><span>这样一来，最上层就有一个负责统筹协调的智能体。</span></div>
+<div class="raw-line" id="L1469"><a href="#L1469" tabindex="0" class="raw-line-number" aria-label="第 1469 行">1469</a><span></span></div>
+<div class="raw-line" id="L1470"><a href="#L1470" tabindex="0" class="raw-line-number" aria-label="第 1470 行">1470</a><span>You fan out tasks to different agents.</span></div>
+<div class="raw-line" id="L1471"><a href="#L1471" tabindex="0" class="raw-line-number" aria-label="第 1471 行">1471</a><span>你可以把任务分配给不同的智能体并行处理。</span></div>
+<div class="raw-line" id="L1472"><a href="#L1472" tabindex="0" class="raw-line-number" aria-label="第 1472 行">1472</a><span></span></div>
+<div class="raw-line" id="L1473"><a href="#L1473" tabindex="0" class="raw-line-number" aria-label="第 1473 行">1473</a><span>And then all bring it back together for the results.</span></div>
+<div class="raw-line" id="L1474"><a href="#L1474" tabindex="0" class="raw-line-number" aria-label="第 1474 行">1474</a><span>然后再把各个智能体的工作成果汇总起来。</span></div>
+<div class="raw-line" id="L1475"><a href="#L1475" tabindex="0" class="raw-line-number" aria-label="第 1475 行">1475</a><span></span></div>
+<div class="raw-line" id="L1476"><a href="#L1476" tabindex="0" class="raw-line-number" aria-label="第 1476 行">1476</a><span>And it was just shown in the keynote before me what we&#39;re seeing now as well as ambient agents.</span></div>
+<div class="raw-line" id="L1477"><a href="#L1477" tabindex="0" class="raw-line-number" aria-label="第 1477 行">1477</a><span>刚才我上场前的主题演讲，也展示了我们现在看到的这些技术，以及环境智能体。</span></div>
+<div class="raw-line" id="L1478"><a href="#L1478" tabindex="0" class="raw-line-number" aria-label="第 1478 行">1478</a><span></span></div>
+<div class="raw-line" id="L1479"><a href="#L1479" tabindex="0" class="raw-line-number" aria-label="第 1479 行">1479</a><span>So agents that are always on.</span></div>
+<div class="raw-line" id="L1480"><a href="#L1480" tabindex="0" class="raw-line-number" aria-label="第 1480 行">1480</a><span>所以，这些智能体会持续运行。</span></div>
+<div class="raw-line" id="L1481"><a href="#L1481" tabindex="0" class="raw-line-number" aria-label="第 1481 行">1481</a><span></span></div>
+<div class="raw-line" id="L1482"><a href="#L1482" tabindex="0" class="raw-line-number" aria-label="第 1482 行">1482</a><span>That triggered by things happening in your orbit.</span></div>
+<div class="raw-line" id="L1483"><a href="#L1483" tabindex="0" class="raw-line-number" aria-label="第 1483 行">1483</a><span>这些是由你周围发生的事情触发的。</span></div>
+<div class="raw-line" id="L1484"><a href="#L1484" tabindex="0" class="raw-line-number" aria-label="第 1484 行">1484</a><span></span></div>
+<div class="raw-line" id="L1485"><a href="#L1485" tabindex="0" class="raw-line-number" aria-label="第 1485 行">1485</a><span>And email.</span></div>
+<div class="raw-line" id="L1486"><a href="#L1486" tabindex="0" class="raw-line-number" aria-label="第 1486 行">1486</a><span>还有电子邮件。</span></div>
+<div class="raw-line" id="L1487"><a href="#L1487" tabindex="0" class="raw-line-number" aria-label="第 1487 行">1487</a><span></span></div>
+<div class="raw-line" id="L1488"><a href="#L1488" tabindex="0" class="raw-line-number" aria-label="第 1488 行">1488</a><span>A schedule.</span></div>
+<div class="raw-line" id="L1489"><a href="#L1489" tabindex="0" class="raw-line-number" aria-label="第 1489 行">1489</a><span>日程安排。</span></div>
+<div class="raw-line" id="L1490"><a href="#L1490" tabindex="0" class="raw-line-number" aria-label="第 1490 行">1490</a><span></span></div>
+<div class="raw-line" id="L1491"><a href="#L1491" tabindex="0" class="raw-line-number" aria-label="第 1491 行">1491</a><span>An event that&#39;s happening from outside.</span></div>
+<div class="raw-line" id="L1492"><a href="#L1492" tabindex="0" class="raw-line-number" aria-label="第 1492 行">1492</a><span>一个由外部发生的事件。</span></div>
+<div class="raw-line" id="L1493"><a href="#L1493" tabindex="0" class="raw-line-number" aria-label="第 1493 行">1493</a><span></span></div>
+<div class="raw-line" id="L1494"><a href="#L1494" tabindex="0" class="raw-line-number" aria-label="第 1494 行">1494</a><span>And these agents now run for much, much, much longer than they used to in the past.</span></div>
+<div class="raw-line" id="L1495"><a href="#L1495" tabindex="0" class="raw-line-number" aria-label="第 1495 行">1495</a><span>而且，现在这些智能体能够持续运行的时间，比过去长得多得多。</span></div>
+<div class="raw-line" id="L1496"><a href="#L1496" tabindex="0" class="raw-line-number" aria-label="第 1496 行">1496</a><span></span></div>
+<div class="raw-line" id="L1497"><a href="#L1497" tabindex="0" class="raw-line-number" aria-label="第 1497 行">1497</a><span>And are usually also able to hand off work to other agents.</span></div>
+<div class="raw-line" id="L1498"><a href="#L1498" tabindex="0" class="raw-line-number" aria-label="第 1498 行">1498</a><span>而且通常也能把工作交接给其他智能体。</span></div>
+<div class="raw-line" id="L1499"><a href="#L1499" tabindex="0" class="raw-line-number" aria-label="第 1499 行">1499</a><span></span></div>
+<div class="raw-line" id="L1500"><a href="#L1500" tabindex="0" class="raw-line-number" aria-label="第 1500 行">1500</a><span>Yeah.</span></div></div><nav class="materials-links raw-pagination" aria-label="原文分段">
+          <a href="../part-2/" tabindex="0" rel="prev">上一段</a>
+          <span aria-current="page">第 3 / 26 段 · L1001–L1500</span>
+          <a href="../part-4/" tabindex="0" rel="next">下一段</a>
+          <a href="../all/" tabindex="0">查看全文</a>
+        </nav></div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>页面信息来自各活动公开资料，可能随时变更；出发前请以主办方官方公告为准。</p>
+  </div>
+</footer>
+<script src="../../../../assets/site.4c7b854f.js" defer></script>
+</body>
+</html>

@@ -1186,7 +1186,24 @@
     }
   }
 
+  // WebKit 在 content-visibility 区块内的原生锚点滚动可能停在页首。
+  function initRawFullAnchors() {
+    var transcript = document.querySelector('.raw-full');
+    if (!transcript) return;
+    function align() {
+      if (!/^#L[1-9]\d*$/.test(window.location.hash)) return;
+      window.requestAnimationFrame(function () {
+        var target = document.getElementById(window.location.hash.slice(1));
+        if (target && transcript.contains(target)) target.scrollIntoView({ block: 'start', behavior: 'instant' });
+      });
+    }
+    window.addEventListener('hashchange', align);
+    if (document.readyState === 'complete') align();
+    else window.addEventListener('load', align);
+  }
+
   function boot() {
+    initRawFullAnchors();
     initTheme();
     initChecklist();
     initChecklistFold();

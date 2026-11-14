@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2026-11-05 原始记录 · AI Engineer Shanghai 2026 · EventPrep</title>
+<meta name="description" content="AI Engineer Shanghai 2026 的2026-11-05 原始记录">
+<meta name="color-scheme" content="light dark">
+<!-- 地址栏/标签栏颜色跟着深浅色走，值就是 site.css 里的 --bg。
+     以前这里写死一个 #1f6feb —— 那个色号在 CSS 里根本不存在（--accent 是 #2563eb），
+     深色模式下也是蓝色地址栏配深色页面。两段 meta 各自带 media，浏览器自己选。 -->
+<meta name="theme-color" content="#f8fafc" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0b0f17" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://event.newzone.top/2026-11-ai-engineer-shanghai/raw/20261105/part-4/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="2026-11-05 原始记录 · AI Engineer Shanghai 2026 · EventPrep">
+<meta property="og:description" content="AI Engineer Shanghai 2026 的2026-11-05 原始记录">
+<meta property="og:url" content="https://event.newzone.top/2026-11-ai-engineer-shanghai/raw/20261105/part-4/">
+
+<script>(function(){try{var t=localStorage.getItem('eventprep:theme');if(t==='light'||t==='dark'){document.documentElement.setAttribute('data-theme',t);}}catch(e){}})();</script>
+<link rel="icon" type="image/svg+xml" href="../../../../assets/favicon.svg">
+<link rel="stylesheet" href="../../../../assets/site.9afe22e1.css">
+
+</head>
+<body>
+<!-- 打印版工具条：平时 display:none，进入打印模式（<html class="print-mode">）才出现。
+     打印到纸上时这条工具条自身要藏掉（见 site.css 的 @media print）——它是屏幕上的控件。 -->
+<div class="print-bar" id="print-bar" role="toolbar" aria-label="打印版工具条">
+  <span class="print-bar-title">EventPrep · 打印版 · 全部内容已展开</span>
+  <div class="print-bar-actions">
+    <button type="button" id="print-do" class="ghost-btn">打印 / 存 PDF</button>
+    <button type="button" id="print-exit" class="ghost-btn">退出打印版</button>
+  </div>
+</div>
+<a class="skip-link" href="#main" tabindex="0">跳到正文</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="site-name" href="../../../../index.html" tabindex="0">
+      <svg class="site-logo" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+        <rect x="3" y="3.5" width="18" height="18" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.8"/>
+        <rect x="9.5" y="5.5" width="5" height="1.8" rx="0.9" fill="currentColor" fill-opacity="0.4"/>
+        <path d="M6.5 11h5M6.5 14.5h3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        <circle cx="16" cy="15" r="4.2" fill="#16a34a"/>
+        <path d="M14.2 15l1.3 1.3 2.5-2.5" stroke="#ffffff" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span>EventPrep</span>
+    </a>
+    <div class="header-actions">
+      
+      
+      <a class="ghost-btn" href="https://github.com/rockbenben/event-prep" target="_blank" rel="noopener noreferrer" aria-label="GitHub 仓库" title="GitHub 仓库">
+        <svg class="theme-icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+          <path d="M12 .8a11.2 11.2 0 0 0-3.54 21.83c.56.1.77-.24.77-.54v-2.1c-3.12.68-3.78-1.33-3.78-1.33-.51-1.3-1.25-1.65-1.25-1.65-1.02-.7.08-.68.08-.68 1.13.08 1.72 1.16 1.72 1.16 1 1.72 2.63 1.22 3.27.95.1-.74.39-1.22.71-1.5-2.5-.28-5.12-1.25-5.12-5.56 0-1.23.44-2.23 1.16-3.02-.12-.28-.5-1.43.11-2.98 0 0 .95-.3 3.1 1.15a10.8 10.8 0 0 1 5.64 0c2.15-1.45 3.1-1.15 3.1-1.15.61 1.55.23 2.7.11 2.98.72.79 1.16 1.79 1.16 3.02 0 4.32-2.63 5.27-5.14 5.55.4.35.76 1.03.76 2.08v3.08c0 .3.2.65.78.54A11.2 11.2 0 0 0 12 .8Z"></path>
+        </svg>
+      </a>
+      <button type="button" id="theme-toggle" class="ghost-btn" aria-label="切换深浅色" title="切换深浅色">
+        <svg class="theme-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true" focusable="false">
+          <circle cx="12" cy="12" r="8.5" />
+          <path d="M12 3.5a8.5 8.5 0 0 0 0 17z" fill="currentColor" stroke="none" />
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+<dialog class="avatar-viewer" id="avatar-viewer" aria-label="放大照片">
+  <img id="avatar-viewer-img" src="" alt="">
+</dialog>
+<main id="main">
+<div class="wrap event material-page"><nav class="material-crumbs" aria-label="面包屑"><ol>
+      <li><a href="../../../../" tabindex="0">全部活动</a></li><li><a href="../../../" tabindex="0">AI Engineer Shanghai 2026</a></li>
+      <li><a href="../../" tabindex="0">原始记录</a></li>
+      <li><a href="./" tabindex="0" aria-current="page">2026-11-05 原始记录</a></li></ol></nav><header class="event-head"><h1 class="event-title">2026-11-05 原始记录</h1>
+        <p class="event-summary">AI Engineer Shanghai 2026</p></header><p class="notice">自动转写可能有误。以下内容保留双语原文，行号以原文件为准；下载文件保留原始字节。当前仅加载本段；搜索全部记录或打印全文请先选择「查看全文」。</p>
+          <nav class="materials-links" aria-label="资料操作"><a href="../../" tabindex="0">全部日期</a><a href="../../../summary/" tabindex="0">会后总结</a><a href="../../../20261105-raw.md" tabindex="0" download>下载原始 Markdown</a></nav>
+          <nav class="materials-links raw-pagination" aria-label="原文分段">
+          <a href="../part-3/" tabindex="0" rel="prev">上一段</a>
+          <span aria-current="page">第 4 / 26 段 · L1501–L2000</span>
+          <a href="../part-5/" tabindex="0" rel="next">下一段</a>
+          <a href="../all/" tabindex="0">查看全文</a>
+        </nav><details class="raw-sections"><summary>选择行号范围</summary><nav class="materials-links" aria-label="选择原文段落"><a href="../" tabindex="0">L1–L500</a><a href="../part-2/" tabindex="0">L501–L1000</a><a href="../part-3/" tabindex="0">L1001–L1500</a><a href="../part-4/" tabindex="0" aria-current="page">L1501–L2000</a><a href="../part-5/" tabindex="0">L2001–L2500</a><a href="../part-6/" tabindex="0">L2501–L3000</a><a href="../part-7/" tabindex="0">L3001–L3500</a><a href="../part-8/" tabindex="0">L3501–L4000</a><a href="../part-9/" tabindex="0">L4001–L4500</a><a href="../part-10/" tabindex="0">L4501–L5000</a><a href="../part-11/" tabindex="0">L5001–L5500</a><a href="../part-12/" tabindex="0">L5501–L6000</a><a href="../part-13/" tabindex="0">L6001–L6500</a><a href="../part-14/" tabindex="0">L6501–L7000</a><a href="../part-15/" tabindex="0">L7001–L7500</a><a href="../part-16/" tabindex="0">L7501–L8000</a><a href="../part-17/" tabindex="0">L8001–L8500</a><a href="../part-18/" tabindex="0">L8501–L9000</a><a href="../part-19/" tabindex="0">L9001–L9500</a><a href="../part-20/" tabindex="0">L9501–L10000</a><a href="../part-21/" tabindex="0">L10001–L10500</a><a href="../part-22/" tabindex="0">L10501–L11000</a><a href="../part-23/" tabindex="0">L11001–L11500</a><a href="../part-24/" tabindex="0">L11501–L12000</a><a href="../part-25/" tabindex="0">L12001–L12500</a><a href="../part-26/" tabindex="0">L12501–L12685</a></nav></details><details class="raw-sections"><summary>相关总结 · 1 节</summary><nav class="materials-links" aria-label="相关总结"><a href="../../../summary/#session-4" tabindex="0">4. Ryo Lu · 前 Cursor 交互设计核心｜当我们什么都能做，还知道自己想做什么吗？</a></nav></details>
+          <div class="raw-transcript" data-raw-total="12685"><div class="raw-line" id="L1501"><a href="#L1501" tabindex="0" class="raw-line-number" aria-label="第 1501 行">1501</a><span>对。</span></div>
+<div class="raw-line" id="L1502"><a href="#L1502" tabindex="0" class="raw-line-number" aria-label="第 1502 行">1502</a><span></span></div>
+<div class="raw-line" id="L1503"><a href="#L1503" tabindex="0" class="raw-line-number" aria-label="第 1503 行">1503</a><span>I want to talk a tiny bit about what we are using internally.</span></div>
+<div class="raw-line" id="L1504"><a href="#L1504" tabindex="0" class="raw-line-number" aria-label="第 1504 行">1504</a><span>我想简单聊聊我们内部在用什么。</span></div>
+<div class="raw-line" id="L1505"><a href="#L1505" tabindex="0" class="raw-line-number" aria-label="第 1505 行">1505</a><span></span></div>
+<div class="raw-line" id="L1506"><a href="#L1506" tabindex="0" class="raw-line-number" aria-label="第 1506 行">1506</a><span>Which might be— an example for reference architecture that works today.</span></div>
+<div class="raw-line" id="L1507"><a href="#L1507" tabindex="0" class="raw-line-number" aria-label="第 1507 行">1507</a><span>这或许可以作为一个当前可行的参考架构示例。</span></div>
+<div class="raw-line" id="L1508"><a href="#L1508" tabindex="0" class="raw-line-number" aria-label="第 1508 行">1508</a><span></span></div>
+<div class="raw-line" id="L1509"><a href="#L1509" tabindex="0" class="raw-line-number" aria-label="第 1509 行">1509</a><span>Halo as said is our agent that we use to run the improvement loop for our users.</span></div>
+<div class="raw-line" id="L1510"><a href="#L1510" tabindex="0" class="raw-line-number" aria-label="第 1510 行">1510</a><span>如前所述，Halo 是我们的智能体，用来为用户运行持续改进的闭环。</span></div>
+<div class="raw-line" id="L1511"><a href="#L1511" tabindex="0" class="raw-line-number" aria-label="第 1511 行">1511</a><span></span></div>
+<div class="raw-line" id="L1512"><a href="#L1512" tabindex="0" class="raw-line-number" aria-label="第 1512 行">1512</a><span>And what does the Halo agent look like?</span></div>
+<div class="raw-line" id="L1513"><a href="#L1513" tabindex="0" class="raw-line-number" aria-label="第 1513 行">1513</a><span>那么，Halo 智能体是什么样的呢？</span></div>
+<div class="raw-line" id="L1514"><a href="#L1514" tabindex="0" class="raw-line-number" aria-label="第 1514 行">1514</a><span></span></div>
+<div class="raw-line" id="L1515"><a href="#L1515" tabindex="0" class="raw-line-number" aria-label="第 1515 行">1515</a><span>It actually looks a lot like a coding agent. It runs in a loop.</span></div>
+<div class="raw-line" id="L1516"><a href="#L1516" tabindex="0" class="raw-line-number" aria-label="第 1516 行">1516</a><span>它其实很像一个编程智能体，会循环运行。</span></div>
+<div class="raw-line" id="L1517"><a href="#L1517" tabindex="0" class="raw-line-number" aria-label="第 1517 行">1517</a><span></span></div>
+<div class="raw-line" id="L1518"><a href="#L1518" tabindex="0" class="raw-line-number" aria-label="第 1518 行">1518</a><span>It has access to a lot of tools.</span></div>
+<div class="raw-line" id="L1519"><a href="#L1519" tabindex="0" class="raw-line-number" aria-label="第 1519 行">1519</a><span>它可以调用很多工具。</span></div>
+<div class="raw-line" id="L1520"><a href="#L1520" tabindex="0" class="raw-line-number" aria-label="第 1520 行">1520</a><span></span></div>
+<div class="raw-line" id="L1521"><a href="#L1521" tabindex="0" class="raw-line-number" aria-label="第 1521 行">1521</a><span>And one of those tools being a sandbox with a file system and bash.</span></div>
+<div class="raw-line" id="L1522"><a href="#L1522" tabindex="0" class="raw-line-number" aria-label="第 1522 行">1522</a><span>其中一个工具是配有文件系统和 Bash 的沙箱环境。</span></div>
+<div class="raw-line" id="L1523"><a href="#L1523" tabindex="0" class="raw-line-number" aria-label="第 1523 行">1523</a><span></span></div>
+<div class="raw-line" id="L1524"><a href="#L1524" tabindex="0" class="raw-line-number" aria-label="第 1524 行">1524</a><span>It also runs with a skill in which we feed it a lot of context about how Landfield works and the actions that are available to this. Agent.</span></div>
+<div class="raw-line" id="L1525"><a href="#L1525" tabindex="0" class="raw-line-number" aria-label="第 1525 行">1525</a><span>它还会加载一项技能。我们通过这项技能向它提供大量背景信息，说明 Landfield 如何运作，以及这个智能体可以执行哪些操作。</span></div>
+<div class="raw-line" id="L1526"><a href="#L1526" tabindex="0" class="raw-line-number" aria-label="第 1526 行">1526</a><span></span></div>
+<div class="raw-line" id="L1527"><a href="#L1527" tabindex="0" class="raw-line-number" aria-label="第 1527 行">1527</a><span>And this loop actually runs in our backend workers. Which might be interesting.</span></div>
+<div class="raw-line" id="L1528"><a href="#L1528" tabindex="0" class="raw-line-number" aria-label="第 1528 行">1528</a><span>这个循环实际上是在我们的后端工作进程中运行的，这一点可能挺有意思。</span></div>
+<div class="raw-line" id="L1529"><a href="#L1529" tabindex="0" class="raw-line-number" aria-label="第 1529 行">1529</a><span></span></div>
+<div class="raw-line" id="L1530"><a href="#L1530" tabindex="0" class="raw-line-number" aria-label="第 1530 行">1530</a><span>And not in a sandbox.</span></div>
+<div class="raw-line" id="L1531"><a href="#L1531" tabindex="0" class="raw-line-number" aria-label="第 1531 行">1531</a><span>而不是在沙箱里运行。</span></div>
+<div class="raw-line" id="L1532"><a href="#L1532" tabindex="0" class="raw-line-number" aria-label="第 1532 行">1532</a><span></span></div>
+<div class="raw-line" id="L1533"><a href="#L1533" tabindex="0" class="raw-line-number" aria-label="第 1533 行">1533</a><span>The sandbox is just one tool that&#39;s available to it.</span></div>
+<div class="raw-line" id="L1534"><a href="#L1534" tabindex="0" class="raw-line-number" aria-label="第 1534 行">1534</a><span>沙箱只是它可以使用的工具之一。</span></div>
+<div class="raw-line" id="L1535"><a href="#L1535" tabindex="0" class="raw-line-number" aria-label="第 1535 行">1535</a><span></span></div>
+<div class="raw-line" id="L1536"><a href="#L1536" tabindex="0" class="raw-line-number" aria-label="第 1536 行">1536</a><span>Which we would usually recommend folks to do.</span></div>
+<div class="raw-line" id="L1537"><a href="#L1537" tabindex="0" class="raw-line-number" aria-label="第 1537 行">1537</a><span>这也是我们通常建议大家采用的做法。</span></div>
+<div class="raw-line" id="L1538"><a href="#L1538" tabindex="0" class="raw-line-number" aria-label="第 1538 行">1538</a><span></span></div>
+<div class="raw-line" id="L1539"><a href="#L1539" tabindex="0" class="raw-line-number" aria-label="第 1539 行">1539</a><span>Because you save on a lot of compute time cost for the sandbox.</span></div>
+<div class="raw-line" id="L1540"><a href="#L1540" tabindex="0" class="raw-line-number" aria-label="第 1540 行">1540</a><span>因为这样可以节省大量沙箱计算时间和成本。</span></div>
+<div class="raw-line" id="L1541"><a href="#L1541" tabindex="0" class="raw-line-number" aria-label="第 1541 行">1541</a><span></span></div>
+<div class="raw-line" id="L1542"><a href="#L1542" tabindex="0" class="raw-line-number" aria-label="第 1542 行">1542</a><span>If you only use it when you actually need it.</span></div>
+<div class="raw-line" id="L1543"><a href="#L1543" tabindex="0" class="raw-line-number" aria-label="第 1543 行">1543</a><span>只在真正需要时才使用沙箱。</span></div>
+<div class="raw-line" id="L1544"><a href="#L1544" tabindex="0" class="raw-line-number" aria-label="第 1544 行">1544</a><span></span></div>
+<div class="raw-line" id="L1545"><a href="#L1545" tabindex="0" class="raw-line-number" aria-label="第 1545 行">1545</a><span>And have the agent run outside it at first.</span></div>
+<div class="raw-line" id="L1546"><a href="#L1546" tabindex="0" class="raw-line-number" aria-label="第 1546 行">1546</a><span>并让智能体一开始在沙箱外运行。</span></div>
+<div class="raw-line" id="L1547"><a href="#L1547" tabindex="0" class="raw-line-number" aria-label="第 1547 行">1547</a><span></span></div>
+<div class="raw-line" id="L1548"><a href="#L1548" tabindex="0" class="raw-line-number" aria-label="第 1548 行">1548</a><span>So this is not the only design that we see working for agent architectures.</span></div>
+<div class="raw-line" id="L1549"><a href="#L1549" tabindex="0" class="raw-line-number" aria-label="第 1549 行">1549</a><span>所以，对于智能体架构来说，这并不是我们见过的唯一行之有效的设计。</span></div>
+<div class="raw-line" id="L1550"><a href="#L1550" tabindex="0" class="raw-line-number" aria-label="第 1550 行">1550</a><span></span></div>
+<div class="raw-line" id="L1551"><a href="#L1551" tabindex="0" class="raw-line-number" aria-label="第 1551 行">1551</a><span>But it&#39;s one that we really see repeatedly within our user base and then also within ourselves.</span></div>
+<div class="raw-line" id="L1552"><a href="#L1552" tabindex="0" class="raw-line-number" aria-label="第 1552 行">1552</a><span>但我们确实一再看到，用户和我们自己都在采用这种设计。</span></div>
+<div class="raw-line" id="L1553"><a href="#L1553" tabindex="0" class="raw-line-number" aria-label="第 1553 行">1553</a><span></span></div>
+<div class="raw-line" id="L1554"><a href="#L1554" tabindex="0" class="raw-line-number" aria-label="第 1554 行">1554</a><span>And now we come to the question of how do we improve these agent architectures that get more and more difficult over time. More and more complex.</span></div>
+<div class="raw-line" id="L1555"><a href="#L1555" tabindex="0" class="raw-line-number" aria-label="第 1555 行">1555</a><span>接下来就要谈到一个问题：这些智能体架构越来越复杂，我们该如何改进它们？</span></div>
+<div class="raw-line" id="L1556"><a href="#L1556" tabindex="0" class="raw-line-number" aria-label="第 1556 行">1556</a><span></span></div>
+<div class="raw-line" id="L1557"><a href="#L1557" tabindex="0" class="raw-line-number" aria-label="第 1557 行">1557</a><span>In the past, especially when agent architectures were more simple, humans could eyeball everything.</span></div>
+<div class="raw-line" id="L1558"><a href="#L1558" tabindex="0" class="raw-line-number" aria-label="第 1558 行">1558</a><span>过去，尤其是在智能体架构还比较简单的时候，人们凭肉眼就能检查所有环节。</span></div>
+<div class="raw-line" id="L1559"><a href="#L1559" tabindex="0" class="raw-line-number" aria-label="第 1559 行">1559</a><span></span></div>
+<div class="raw-line" id="L1560"><a href="#L1560" tabindex="0" class="raw-line-number" aria-label="第 1560 行">1560</a><span>You could look at your traces.</span></div>
+<div class="raw-line" id="L1561"><a href="#L1561" tabindex="0" class="raw-line-number" aria-label="第 1561 行">1561</a><span>你可以查看运行轨迹。</span></div>
+<div class="raw-line" id="L1562"><a href="#L1562" tabindex="0" class="raw-line-number" aria-label="第 1562 行">1562</a><span></span></div>
+<div class="raw-line" id="L1563"><a href="#L1563" tabindex="0" class="raw-line-number" aria-label="第 1563 行">1563</a><span>They were generally pretty short.</span></div>
+<div class="raw-line" id="L1564"><a href="#L1564" tabindex="0" class="raw-line-number" aria-label="第 1564 行">1564</a><span>它们通常都比较简短。</span></div>
+<div class="raw-line" id="L1565"><a href="#L1565" tabindex="0" class="raw-line-number" aria-label="第 1565 行">1565</a><span></span></div>
+<div class="raw-line" id="L1566"><a href="#L1566" tabindex="0" class="raw-line-number" aria-label="第 1566 行">1566</a><span>You can read them. See where things break.</span></div>
+<div class="raw-line" id="L1567"><a href="#L1567" tabindex="0" class="raw-line-number" aria-label="第 1567 行">1567</a><span>你可以通读它们，看看哪里出了问题。</span></div>
+<div class="raw-line" id="L1568"><a href="#L1568" tabindex="0" class="raw-line-number" aria-label="第 1568 行">1568</a><span></span></div>
+<div class="raw-line" id="L1569"><a href="#L1569" tabindex="0" class="raw-line-number" aria-label="第 1569 行">1569</a><span>Fix your application.</span></div>
+<div class="raw-line" id="L1570"><a href="#L1570" tabindex="0" class="raw-line-number" aria-label="第 1570 行">1570</a><span>修复你的应用程序。</span></div>
+<div class="raw-line" id="L1571"><a href="#L1571" tabindex="0" class="raw-line-number" aria-label="第 1571 行">1571</a><span></span></div>
+<div class="raw-line" id="L1572"><a href="#L1572" tabindex="0" class="raw-line-number" aria-label="第 1572 行">1572</a><span>Today,</span></div>
+<div class="raw-line" id="L1573"><a href="#L1573" tabindex="0" class="raw-line-number" aria-label="第 1573 行">1573</a><span>如今，</span></div>
+<div class="raw-line" id="L1574"><a href="#L1574" tabindex="0" class="raw-line-number" aria-label="第 1574 行">1574</a><span></span></div>
+<div class="raw-line" id="L1575"><a href="#L1575" tabindex="0" class="raw-line-number" aria-label="第 1575 行">1575</a><span>that&#39;s a little bit harder as agents get bigger.</span></div>
+<div class="raw-line" id="L1576"><a href="#L1576" tabindex="0" class="raw-line-number" aria-label="第 1576 行">1576</a><span>但随着智能体变得越来越复杂，这就没那么容易了。</span></div>
+<div class="raw-line" id="L1577"><a href="#L1577" tabindex="0" class="raw-line-number" aria-label="第 1577 行">1577</a><span></span></div>
+<div class="raw-line" id="L1578"><a href="#L1578" tabindex="0" class="raw-line-number" aria-label="第 1578 行">1578</a><span>Traffic that runs on these systems increases.</span></div>
+<div class="raw-line" id="L1579"><a href="#L1579" tabindex="0" class="raw-line-number" aria-label="第 1579 行">1579</a><span>这些系统上的流量不断增加。</span></div>
+<div class="raw-line" id="L1580"><a href="#L1580" tabindex="0" class="raw-line-number" aria-label="第 1580 行">1580</a><span></span></div>
+<div class="raw-line" id="L1581"><a href="#L1581" tabindex="0" class="raw-line-number" aria-label="第 1581 行">1581</a><span>And basically what we&#39;ve seen is that the industry has converged on this improvement loop for agents.</span></div>
+<div class="raw-line" id="L1582"><a href="#L1582" tabindex="0" class="raw-line-number" aria-label="第 1582 行">1582</a><span>基本上，我们看到整个行业逐渐形成了一套改进智能体的闭环。</span></div>
+<div class="raw-line" id="L1583"><a href="#L1583" tabindex="0" class="raw-line-number" aria-label="第 1583 行">1583</a><span></span></div>
+<div class="raw-line" id="L1584"><a href="#L1584" tabindex="0" class="raw-line-number" aria-label="第 1584 行">1584</a><span>You find failures in the application.</span></div>
+<div class="raw-line" id="L1585"><a href="#L1585" tabindex="0" class="raw-line-number" aria-label="第 1585 行">1585</a><span>找出应用程序中的故障。</span></div>
+<div class="raw-line" id="L1586"><a href="#L1586" tabindex="0" class="raw-line-number" aria-label="第 1586 行">1586</a><span></span></div>
+<div class="raw-line" id="L1587"><a href="#L1587" tabindex="0" class="raw-line-number" aria-label="第 1587 行">1587</a><span>You write evals for these failures.</span></div>
+<div class="raw-line" id="L1588"><a href="#L1588" tabindex="0" class="raw-line-number" aria-label="第 1588 行">1588</a><span>针对这些故障编写评估用例。</span></div>
+<div class="raw-line" id="L1589"><a href="#L1589" tabindex="0" class="raw-line-number" aria-label="第 1589 行">1589</a><span></span></div>
+<div class="raw-line" id="L1590"><a href="#L1590" tabindex="0" class="raw-line-number" aria-label="第 1590 行">1590</a><span>You change your application.</span></div>
+<div class="raw-line" id="L1591"><a href="#L1591" tabindex="0" class="raw-line-number" aria-label="第 1591 行">1591</a><span>然后修改应用程序。</span></div>
+<div class="raw-line" id="L1592"><a href="#L1592" tabindex="0" class="raw-line-number" aria-label="第 1592 行">1592</a><span></span></div>
+<div class="raw-line" id="L1593"><a href="#L1593" tabindex="0" class="raw-line-number" aria-label="第 1593 行">1593</a><span>You backtest the application against these evals.</span></div>
+<div class="raw-line" id="L1594"><a href="#L1594" tabindex="0" class="raw-line-number" aria-label="第 1594 行">1594</a><span>再用这些评估用例回测应用程序。</span></div>
+<div class="raw-line" id="L1595"><a href="#L1595" tabindex="0" class="raw-line-number" aria-label="第 1595 行">1595</a><span></span></div>
+<div class="raw-line" id="L1596"><a href="#L1596" tabindex="0" class="raw-line-number" aria-label="第 1596 行">1596</a><span>And then you release to production.</span></div>
+<div class="raw-line" id="L1597"><a href="#L1597" tabindex="0" class="raw-line-number" aria-label="第 1597 行">1597</a><span>然后将应用程序部署到生产环境。</span></div>
+<div class="raw-line" id="L1598"><a href="#L1598" tabindex="0" class="raw-line-number" aria-label="第 1598 行">1598</a><span></span></div>
+<div class="raw-line" id="L1599"><a href="#L1599" tabindex="0" class="raw-line-number" aria-label="第 1599 行">1599</a><span>And then you start all over again.</span></div>
+<div class="raw-line" id="L1600"><a href="#L1600" tabindex="0" class="raw-line-number" aria-label="第 1600 行">1600</a><span>然后再从头开始，重复这一流程。</span></div>
+<div class="raw-line" id="L1601"><a href="#L1601" tabindex="0" class="raw-line-number" aria-label="第 1601 行">1601</a><span></span></div>
+<div class="raw-line" id="L1602"><a href="#L1602" tabindex="0" class="raw-line-number" aria-label="第 1602 行">1602</a><span>This process is mostly run by humans today.</span></div>
+<div class="raw-line" id="L1603"><a href="#L1603" tabindex="0" class="raw-line-number" aria-label="第 1603 行">1603</a><span>目前，这个流程主要由人工完成。</span></div>
+<div class="raw-line" id="L1604"><a href="#L1604" tabindex="0" class="raw-line-number" aria-label="第 1604 行">1604</a><span></span></div>
+<div class="raw-line" id="L1605"><a href="#L1605" tabindex="0" class="raw-line-number" aria-label="第 1605 行">1605</a><span>And that means that there&#39;s a lot of judgment calls involved.</span></div>
+<div class="raw-line" id="L1606"><a href="#L1606" tabindex="0" class="raw-line-number" aria-label="第 1606 行">1606</a><span>这意味着其中有很多环节需要人为判断。</span></div>
+<div class="raw-line" id="L1607"><a href="#L1607" tabindex="0" class="raw-line-number" aria-label="第 1607 行">1607</a><span></span></div>
+<div class="raw-line" id="L1608"><a href="#L1608" tabindex="0" class="raw-line-number" aria-label="第 1608 行">1608</a><span>Which failures do you care about in your application?</span></div>
+<div class="raw-line" id="L1609"><a href="#L1609" tabindex="0" class="raw-line-number" aria-label="第 1609 行">1609</a><span>你最关注应用程序中的哪些故障？</span></div>
+<div class="raw-line" id="L1610"><a href="#L1610" tabindex="0" class="raw-line-number" aria-label="第 1610 行">1610</a><span></span></div>
+<div class="raw-line" id="L1611"><a href="#L1611" tabindex="0" class="raw-line-number" aria-label="第 1611 行">1611</a><span>Which do you need to turn into evals?</span></div>
+<div class="raw-line" id="L1612"><a href="#L1612" tabindex="0" class="raw-line-number" aria-label="第 1612 行">1612</a><span>哪些故障需要转化为评估用例？</span></div>
+<div class="raw-line" id="L1613"><a href="#L1613" tabindex="0" class="raw-line-number" aria-label="第 1613 行">1613</a><span></span></div>
+<div class="raw-line" id="L1614"><a href="#L1614" tabindex="0" class="raw-line-number" aria-label="第 1614 行">1614</a><span>What do these evals look like?</span></div>
+<div class="raw-line" id="L1615"><a href="#L1615" tabindex="0" class="raw-line-number" aria-label="第 1615 行">1615</a><span>这些评估用例具体是什么样的？</span></div>
+<div class="raw-line" id="L1616"><a href="#L1616" tabindex="0" class="raw-line-number" aria-label="第 1616 行">1616</a><span></span></div>
+<div class="raw-line" id="L1617"><a href="#L1617" tabindex="0" class="raw-line-number" aria-label="第 1617 行">1617</a><span>When do you release these evals?</span></div>
+<div class="raw-line" id="L1618"><a href="#L1618" tabindex="0" class="raw-line-number" aria-label="第 1618 行">1618</a><span>什么时候发布这些评估用例？</span></div>
+<div class="raw-line" id="L1619"><a href="#L1619" tabindex="0" class="raw-line-number" aria-label="第 1619 行">1619</a><span></span></div>
+<div class="raw-line" id="L1620"><a href="#L1620" tabindex="0" class="raw-line-number" aria-label="第 1620 行">1620</a><span>So you can see that in the diagram here, everything that&#39;s orange is still run by humans.</span></div>
+<div class="raw-line" id="L1621"><a href="#L1621" tabindex="0" class="raw-line-number" aria-label="第 1621 行">1621</a><span>所以你可以看到，这张图中所有橙色的部分，目前仍然由人工完成。</span></div>
+<div class="raw-line" id="L1622"><a href="#L1622" tabindex="0" class="raw-line-number" aria-label="第 1622 行">1622</a><span></span></div>
+<div class="raw-line" id="L1623"><a href="#L1623" tabindex="0" class="raw-line-number" aria-label="第 1623 行">1623</a><span>And that&#39;s all of it right now.</span></div>
+<div class="raw-line" id="L1624"><a href="#L1624" tabindex="0" class="raw-line-number" aria-label="第 1624 行">1624</a><span>而目前，整个流程都是如此。</span></div>
+<div class="raw-line" id="L1625"><a href="#L1625" tabindex="0" class="raw-line-number" aria-label="第 1625 行">1625</a><span></span></div>
+<div class="raw-line" id="L1626"><a href="#L1626" tabindex="0" class="raw-line-number" aria-label="第 1626 行">1626</a><span>And there&#39;s a good news is, or there&#39;s a good news and the good news is that this process works.</span></div>
+<div class="raw-line" id="L1627"><a href="#L1627" tabindex="0" class="raw-line-number" aria-label="第 1627 行">1627</a><span>好消息是，这套流程确实有效。</span></div>
+<div class="raw-line" id="L1628"><a href="#L1628" tabindex="0" class="raw-line-number" aria-label="第 1628 行">1628</a><span></span></div>
+<div class="raw-line" id="L1629"><a href="#L1629" tabindex="0" class="raw-line-number" aria-label="第 1629 行">1629</a><span>And we&#39;ve seen it really— yeah— take hold as a best practice in the industry.</span></div>
+<div class="raw-line" id="L1630"><a href="#L1630" tabindex="0" class="raw-line-number" aria-label="第 1630 行">1630</a><span>我们也看到，它确实已成为行业内广泛采用的最佳实践。</span></div>
+<div class="raw-line" id="L1631"><a href="#L1631" tabindex="0" class="raw-line-number" aria-label="第 1631 行">1631</a><span></span></div>
+<div class="raw-line" id="L1632"><a href="#L1632" tabindex="0" class="raw-line-number" aria-label="第 1632 行">1632</a><span>But the bad news is it&#39;s slow and expensive.</span></div>
+<div class="raw-line" id="L1633"><a href="#L1633" tabindex="0" class="raw-line-number" aria-label="第 1633 行">1633</a><span>但坏消息是，这套流程耗时又费钱。</span></div>
+<div class="raw-line" id="L1634"><a href="#L1634" tabindex="0" class="raw-line-number" aria-label="第 1634 行">1634</a><span></span></div>
+<div class="raw-line" id="L1635"><a href="#L1635" tabindex="0" class="raw-line-number" aria-label="第 1635 行">1635</a><span>Because it uses the one resource that you probably can&#39;t scale in your organization.</span></div>
+<div class="raw-line" id="L1636"><a href="#L1636" tabindex="0" class="raw-line-number" aria-label="第 1636 行">1636</a><span>因为它依赖的资源，恰恰是你的组织里最难扩充的：人力。</span></div>
+<div class="raw-line" id="L1637"><a href="#L1637" tabindex="0" class="raw-line-number" aria-label="第 1637 行">1637</a><span></span></div>
+<div class="raw-line" id="L1638"><a href="#L1638" tabindex="0" class="raw-line-number" aria-label="第 1638 行">1638</a><span>Which is the engineers that you have that are working on your agents.</span></div>
+<div class="raw-line" id="L1639"><a href="#L1639" tabindex="0" class="raw-line-number" aria-label="第 1639 行">1639</a><span>也就是负责开发智能体的工程师。</span></div>
+<div class="raw-line" id="L1640"><a href="#L1640" tabindex="0" class="raw-line-number" aria-label="第 1640 行">1640</a><span></span></div>
+<div class="raw-line" id="L1641"><a href="#L1641" tabindex="0" class="raw-line-number" aria-label="第 1641 行">1641</a><span>And there&#39;s another problem.</span></div>
+<div class="raw-line" id="L1642"><a href="#L1642" tabindex="0" class="raw-line-number" aria-label="第 1642 行">1642</a><span>还有一个问题。</span></div>
+<div class="raw-line" id="L1643"><a href="#L1643" tabindex="0" class="raw-line-number" aria-label="第 1643 行">1643</a><span></span></div>
+<div class="raw-line" id="L1644"><a href="#L1644" tabindex="0" class="raw-line-number" aria-label="第 1644 行">1644</a><span>Agent traces and the amount of data you use also increases a lot.</span></div>
+<div class="raw-line" id="L1645"><a href="#L1645" tabindex="0" class="raw-line-number" aria-label="第 1645 行">1645</a><span>智能体的运行轨迹数量和数据用量也会大幅增加。</span></div>
+<div class="raw-line" id="L1646"><a href="#L1646" tabindex="0" class="raw-line-number" aria-label="第 1646 行">1646</a><span></span></div>
+<div class="raw-line" id="L1647"><a href="#L1647" tabindex="0" class="raw-line-number" aria-label="第 1647 行">1647</a><span>So while in the past you were able with a simpler agent architecture that you can see at the top left, you were usually able to read the entire trace and just follow everything the agent was doing.</span></div>
+<div class="raw-line" id="L1648"><a href="#L1648" tabindex="0" class="raw-line-number" aria-label="第 1648 行">1648</a><span>过去，面对左上角那种较简单的智能体架构，你通常能读完整条运行轨迹，弄清智能体的每一步操作。</span></div>
+<div class="raw-line" id="L1649"><a href="#L1649" tabindex="0" class="raw-line-number" aria-label="第 1649 行">1649</a><span></span></div>
+<div class="raw-line" id="L1650"><a href="#L1650" tabindex="0" class="raw-line-number" aria-label="第 1650 行">1650</a><span>Increasingly, with tool loop agents and sub-agents, et cetera, it&#39;s not possible anymore to read everything that&#39;s happening in your agent.</span></div>
+<div class="raw-line" id="L1651"><a href="#L1651" tabindex="0" class="raw-line-number" aria-label="第 1651 行">1651</a><span>但随着工具循环型智能体、子智能体等架构越来越普遍，你已经不可能再逐一读完智能体运行过程中发生的所有事情了。</span></div>
+<div class="raw-line" id="L1652"><a href="#L1652" tabindex="0" class="raw-line-number" aria-label="第 1652 行">1652</a><span></span></div>
+<div class="raw-line" id="L1653"><a href="#L1653" tabindex="0" class="raw-line-number" aria-label="第 1653 行">1653</a><span>And then, I mean, as you go to production, lots of you will know the amount of traffic you get really explodes.</span></div>
+<div class="raw-line" id="L1654"><a href="#L1654" tabindex="0" class="raw-line-number" aria-label="第 1654 行">1654</a><span>而且，等系统正式上线后，很多人都知道，流量会猛增。</span></div>
+<div class="raw-line" id="L1655"><a href="#L1655" tabindex="0" class="raw-line-number" aria-label="第 1655 行">1655</a><span></span></div>
+<div class="raw-line" id="L1656"><a href="#L1656" tabindex="0" class="raw-line-number" aria-label="第 1656 行">1656</a><span>So that means no one can actually read all traces by hand anymore. So how do you improve agents with that much traffic?</span></div>
+<div class="raw-line" id="L1657"><a href="#L1657" tabindex="0" class="raw-line-number" aria-label="第 1657 行">1657</a><span>这意味着，已经没人能靠人工读完所有运行轨迹了。那么，面对这么大的流量，该怎么改进智能体呢？</span></div>
+<div class="raw-line" id="L1658"><a href="#L1658" tabindex="0" class="raw-line-number" aria-label="第 1658 行">1658</a><span></span></div>
+<div class="raw-line" id="L1659"><a href="#L1659" tabindex="0" class="raw-line-number" aria-label="第 1659 行">1659</a><span>The good news is you can at this point already hand off a lot of the improvement loop to agents.</span></div>
+<div class="raw-line" id="L1660"><a href="#L1660" tabindex="0" class="raw-line-number" aria-label="第 1660 行">1660</a><span>好消息是，到这一步，改进流程中的很多工作已经可以交给智能体了。</span></div>
+<div class="raw-line" id="L1661"><a href="#L1661" tabindex="0" class="raw-line-number" aria-label="第 1661 行">1661</a><span></span></div>
+<div class="raw-line" id="L1662"><a href="#L1662" tabindex="0" class="raw-line-number" aria-label="第 1662 行">1662</a><span>Agents have gotten a lot— or coding agents.</span></div>
+<div class="raw-line" id="L1663"><a href="#L1663" tabindex="0" class="raw-line-number" aria-label="第 1663 行">1663</a><span>智能体已经进步了很多——我是说编程智能体。</span></div>
+<div class="raw-line" id="L1664"><a href="#L1664" tabindex="0" class="raw-line-number" aria-label="第 1664 行">1664</a><span></span></div>
+<div class="raw-line" id="L1665"><a href="#L1665" tabindex="0" class="raw-line-number" aria-label="第 1665 行">1665</a><span>Coding agents have gotten a lot better at helping you traverse your data.</span></div>
+<div class="raw-line" id="L1666"><a href="#L1666" tabindex="0" class="raw-line-number" aria-label="第 1666 行">1666</a><span>编程智能体现在更擅长帮你梳理和分析数据了。</span></div>
+<div class="raw-line" id="L1667"><a href="#L1667" tabindex="0" class="raw-line-number" aria-label="第 1667 行">1667</a><span></span></div>
+<div class="raw-line" id="L1668"><a href="#L1668" tabindex="0" class="raw-line-number" aria-label="第 1668 行">1668</a><span>Find failures.</span></div>
+<div class="raw-line" id="L1669"><a href="#L1669" tabindex="0" class="raw-line-number" aria-label="第 1669 行">1669</a><span>找出失败案例。</span></div>
+<div class="raw-line" id="L1670"><a href="#L1670" tabindex="0" class="raw-line-number" aria-label="第 1670 行">1670</a><span></span></div>
+<div class="raw-line" id="L1671"><a href="#L1671" tabindex="0" class="raw-line-number" aria-label="第 1671 行">1671</a><span>Propose fixes to your prompts. To your evals.</span></div>
+<div class="raw-line" id="L1672"><a href="#L1672" tabindex="0" class="raw-line-number" aria-label="第 1672 行">1672</a><span>针对提示词和评测提出改进建议。</span></div>
+<div class="raw-line" id="L1673"><a href="#L1673" tabindex="0" class="raw-line-number" aria-label="第 1673 行">1673</a><span></span></div>
+<div class="raw-line" id="L1674"><a href="#L1674" tabindex="0" class="raw-line-number" aria-label="第 1674 行">1674</a><span>In your datasets.</span></div>
+<div class="raw-line" id="L1675"><a href="#L1675" tabindex="0" class="raw-line-number" aria-label="第 1675 行">1675</a><span>还有数据集。</span></div>
+<div class="raw-line" id="L1676"><a href="#L1676" tabindex="0" class="raw-line-number" aria-label="第 1676 行">1676</a><span></span></div>
+<div class="raw-line" id="L1677"><a href="#L1677" tabindex="0" class="raw-line-number" aria-label="第 1677 行">1677</a><span>And backtest your application against these evals that you&#39;ve set.</span></div>
+<div class="raw-line" id="L1678"><a href="#L1678" tabindex="0" class="raw-line-number" aria-label="第 1678 行">1678</a><span>再用你设定的这些评测，对应用进行回测。</span></div>
+<div class="raw-line" id="L1679"><a href="#L1679" tabindex="0" class="raw-line-number" aria-label="第 1679 行">1679</a><span></span></div>
+<div class="raw-line" id="L1680"><a href="#L1680" tabindex="0" class="raw-line-number" aria-label="第 1680 行">1680</a><span>So good news is you can use AI to basically get a hold on all the data that is being produced by your AI systems.</span></div>
+<div class="raw-line" id="L1681"><a href="#L1681" tabindex="0" class="raw-line-number" aria-label="第 1681 行">1681</a><span>所以好消息是，你可以利用 AI，基本掌握自己的 AI 系统产生的所有数据。</span></div>
+<div class="raw-line" id="L1682"><a href="#L1682" tabindex="0" class="raw-line-number" aria-label="第 1682 行">1682</a><span></span></div>
+<div class="raw-line" id="L1683"><a href="#L1683" tabindex="0" class="raw-line-number" aria-label="第 1683 行">1683</a><span>It&#39;s important that you&#39;re able to connect all of your application data.</span></div>
+<div class="raw-line" id="L1684"><a href="#L1684" tabindex="0" class="raw-line-number" aria-label="第 1684 行">1684</a><span>重要的是，你要能把应用中的所有数据关联起来。</span></div>
+<div class="raw-line" id="L1685"><a href="#L1685" tabindex="0" class="raw-line-number" aria-label="第 1685 行">1685</a><span></span></div>
+<div class="raw-line" id="L1686"><a href="#L1686" tabindex="0" class="raw-line-number" aria-label="第 1686 行">1686</a><span>Your traces to coding agents via MCP, API, or CLI.</span></div>
+<div class="raw-line" id="L1687"><a href="#L1687" tabindex="0" class="raw-line-number" aria-label="第 1687 行">1687</a><span>通过 MCP、API 或命令行工具，把应用的追踪数据接入编程智能体。</span></div>
+<div class="raw-line" id="L1688"><a href="#L1688" tabindex="0" class="raw-line-number" aria-label="第 1688 行">1688</a><span></span></div>
+<div class="raw-line" id="L1689"><a href="#L1689" tabindex="0" class="raw-line-number" aria-label="第 1689 行">1689</a><span>But there is a catch.</span></div>
+<div class="raw-line" id="L1690"><a href="#L1690" tabindex="0" class="raw-line-number" aria-label="第 1690 行">1690</a><span>但这里有个问题。</span></div>
+<div class="raw-line" id="L1691"><a href="#L1691" tabindex="0" class="raw-line-number" aria-label="第 1691 行">1691</a><span></span></div>
+<div class="raw-line" id="L1692"><a href="#L1692" tabindex="0" class="raw-line-number" aria-label="第 1692 行">1692</a><span>An.</span></div>
+<div class="raw-line" id="L1693"><a href="#L1693" tabindex="0" class="raw-line-number" aria-label="第 1693 行">1693</a><span>一个。</span></div>
+<div class="raw-line" id="L1694"><a href="#L1694" tabindex="0" class="raw-line-number" aria-label="第 1694 行">1694</a><span></span></div>
+<div class="raw-line" id="L1695"><a href="#L1695" tabindex="0" class="raw-line-number" aria-label="第 1695 行">1695</a><span>Agent&#39;s context usually doesn&#39;t fit millions of traces.</span></div>
+<div class="raw-line" id="L1696"><a href="#L1696" tabindex="0" class="raw-line-number" aria-label="第 1696 行">1696</a><span>智能体的上下文窗口通常容纳不了数百万条追踪记录。</span></div>
+<div class="raw-line" id="L1697"><a href="#L1697" tabindex="0" class="raw-line-number" aria-label="第 1697 行">1697</a><span></span></div>
+<div class="raw-line" id="L1698"><a href="#L1698" tabindex="0" class="raw-line-number" aria-label="第 1698 行">1698</a><span>So as the data explodes that you want to analyze, you can&#39;t just feed everything into a coding agent.</span></div>
+<div class="raw-line" id="L1699"><a href="#L1699" tabindex="0" class="raw-line-number" aria-label="第 1699 行">1699</a><span>所以，随着待分析的数据量激增，你不能把所有数据一股脑儿地塞给编程智能体。</span></div>
+<div class="raw-line" id="L1700"><a href="#L1700" tabindex="0" class="raw-line-number" aria-label="第 1700 行">1700</a><span></span></div>
+<div class="raw-line" id="L1701"><a href="#L1701" tabindex="0" class="raw-line-number" aria-label="第 1701 行">1701</a><span>At most, you need maybe hundreds, dozens, thousands of traces depending on how large they are that you can actually analyze within your coding agent.</span></div>
+<div class="raw-line" id="L1702"><a href="#L1702" tabindex="0" class="raw-line-number" aria-label="第 1702 行">1702</a><span>你最多只能让编程智能体分析几十、几百，或几千条追踪记录，具体取决于每条记录的大小。</span></div>
+<div class="raw-line" id="L1703"><a href="#L1703" tabindex="0" class="raw-line-number" aria-label="第 1703 行">1703</a><span></span></div>
+<div class="raw-line" id="L1704"><a href="#L1704" tabindex="0" class="raw-line-number" aria-label="第 1704 行">1704</a><span>So you need to shape your data first.</span></div>
+<div class="raw-line" id="L1705"><a href="#L1705" tabindex="0" class="raw-line-number" aria-label="第 1705 行">1705</a><span>所以，你得先整理好数据。</span></div>
+<div class="raw-line" id="L1706"><a href="#L1706" tabindex="0" class="raw-line-number" aria-label="第 1706 行">1706</a><span></span></div>
+<div class="raw-line" id="L1707"><a href="#L1707" tabindex="0" class="raw-line-number" aria-label="第 1707 行">1707</a><span>And what that means is you are basically have to summarize— you need to start from all the data that you have.</span></div>
+<div class="raw-line" id="L1708"><a href="#L1708" tabindex="0" class="raw-line-number" aria-label="第 1708 行">1708</a><span>这意味着，你基本上得先从手头的全部数据入手，再进行汇总。</span></div>
+<div class="raw-line" id="L1709"><a href="#L1709" tabindex="0" class="raw-line-number" aria-label="第 1709 行">1709</a><span></span></div>
+<div class="raw-line" id="L1710"><a href="#L1710" tabindex="0" class="raw-line-number" aria-label="第 1710 行">1710</a><span>And then summarize it down to the things that you really care about that your agent should look at and should reference.</span></div>
+<div class="raw-line" id="L1711"><a href="#L1711" tabindex="0" class="raw-line-number" aria-label="第 1711 行">1711</a><span>然后把数据提炼成你真正关心、需要智能体查看和参考的内容。</span></div>
+<div class="raw-line" id="L1712"><a href="#L1712" tabindex="0" class="raw-line-number" aria-label="第 1712 行">1712</a><span></span></div>
+<div class="raw-line" id="L1713"><a href="#L1713" tabindex="0" class="raw-line-number" aria-label="第 1713 行">1713</a><span>And how we see this play out in the industry right now is basically progressive disclosure.</span></div>
+<div class="raw-line" id="L1714"><a href="#L1714" tabindex="0" class="raw-line-number" aria-label="第 1714 行">1714</a><span>而目前业界的做法，基本上就是渐进式地呈现信息。</span></div>
+<div class="raw-line" id="L1715"><a href="#L1715" tabindex="0" class="raw-line-number" aria-label="第 1715 行">1715</a><span></span></div>
+<div class="raw-line" id="L1716"><a href="#L1716" tabindex="0" class="raw-line-number" aria-label="第 1716 行">1716</a><span>But for data. What does that mean?</span></div>
+<div class="raw-line" id="L1717"><a href="#L1717" tabindex="0" class="raw-line-number" aria-label="第 1717 行">1717</a><span>只不过，这里说的是数据。什么意思呢？</span></div>
+<div class="raw-line" id="L1718"><a href="#L1718" tabindex="0" class="raw-line-number" aria-label="第 1718 行">1718</a><span></span></div>
+<div class="raw-line" id="L1719"><a href="#L1719" tabindex="0" class="raw-line-number" aria-label="第 1719 行">1719</a><span>You take traces.</span></div>
+<div class="raw-line" id="L1720"><a href="#L1720" tabindex="0" class="raw-line-number" aria-label="第 1720 行">1720</a><span>先拿到追踪记录。</span></div>
+<div class="raw-line" id="L1721"><a href="#L1721" tabindex="0" class="raw-line-number" aria-label="第 1721 行">1721</a><span></span></div>
+<div class="raw-line" id="L1722"><a href="#L1722" tabindex="0" class="raw-line-number" aria-label="第 1722 行">1722</a><span>You summarize these traces as trajectories which are basically short textual representations of your traces.</span></div>
+<div class="raw-line" id="L1723"><a href="#L1723" tabindex="0" class="raw-line-number" aria-label="第 1723 行">1723</a><span>然后把这些追踪记录概括成“轨迹”，也就是对追踪过程的简短文字描述。</span></div>
+<div class="raw-line" id="L1724"><a href="#L1724" tabindex="0" class="raw-line-number" aria-label="第 1724 行">1724</a><span></span></div>
+<div class="raw-line" id="L1725"><a href="#L1725" tabindex="0" class="raw-line-number" aria-label="第 1725 行">1725</a><span>And then you use smaller language models, less expensive language models to summarize these trajectories.</span></div>
+<div class="raw-line" id="L1726"><a href="#L1726" tabindex="0" class="raw-line-number" aria-label="第 1726 行">1726</a><span>接着，用规模更小、成本更低的语言模型来总结这些轨迹。</span></div>
+<div class="raw-line" id="L1727"><a href="#L1727" tabindex="0" class="raw-line-number" aria-label="第 1727 行">1727</a><span></span></div>
+<div class="raw-line" id="L1728"><a href="#L1728" tabindex="0" class="raw-line-number" aria-label="第 1728 行">1728</a><span>A long dimensions that you care about.</span></div>
+<div class="raw-line" id="L1729"><a href="#L1729" tabindex="0" class="raw-line-number" aria-label="第 1729 行">1729</a><span>按你关心的维度来总结。</span></div>
+<div class="raw-line" id="L1730"><a href="#L1730" tabindex="0" class="raw-line-number" aria-label="第 1730 行">1730</a><span></span></div>
+<div class="raw-line" id="L1731"><a href="#L1731" tabindex="0" class="raw-line-number" aria-label="第 1731 行">1731</a><span>And that&#39;s basically coming from your domain expertise, what you know about your agents,</span></div>
+<div class="raw-line" id="L1732"><a href="#L1732" tabindex="0" class="raw-line-number" aria-label="第 1732 行">1732</a><span>而这些维度，基本上取决于你的领域专业知识，以及你对自己智能体的了解。</span></div>
+<div class="raw-line" id="L1733"><a href="#L1733" tabindex="0" class="raw-line-number" aria-label="第 1733 行">1733</a><span></span></div>
+<div class="raw-line" id="L1734"><a href="#L1734" tabindex="0" class="raw-line-number" aria-label="第 1734 行">1734</a><span>where they break, what things you care about, how do you want them to be summarized, where do you expect things to fail,</span></div>
+<div class="raw-line" id="L1735"><a href="#L1735" tabindex="0" class="raw-line-number" aria-label="第 1735 行">1735</a><span>比如智能体会在哪些环节出问题、你关注什么、希望如何总结，以及预期哪里可能出错。</span></div>
+<div class="raw-line" id="L1736"><a href="#L1736" tabindex="0" class="raw-line-number" aria-label="第 1736 行">1736</a><span></span></div>
+<div class="raw-line" id="L1737"><a href="#L1737" tabindex="0" class="raw-line-number" aria-label="第 1737 行">1737</a><span>what do you want to know about how your users use your application.</span></div>
+<div class="raw-line" id="L1738"><a href="#L1738" tabindex="0" class="raw-line-number" aria-label="第 1738 行">1738</a><span>你想了解用户是如何使用你的应用的哪些方面。</span></div>
+<div class="raw-line" id="L1739"><a href="#L1739" tabindex="0" class="raw-line-number" aria-label="第 1739 行">1739</a><span></span></div>
+<div class="raw-line" id="L1740"><a href="#L1740" tabindex="0" class="raw-line-number" aria-label="第 1740 行">1740</a><span>And then you take these summaries and you embed them and cluster them.</span></div>
+<div class="raw-line" id="L1741"><a href="#L1741" tabindex="0" class="raw-line-number" aria-label="第 1741 行">1741</a><span>然后，把这些摘要转换成向量表示，并进行聚类。</span></div>
+<div class="raw-line" id="L1742"><a href="#L1742" tabindex="0" class="raw-line-number" aria-label="第 1742 行">1742</a><span></span></div>
+<div class="raw-line" id="L1743"><a href="#L1743" tabindex="0" class="raw-line-number" aria-label="第 1743 行">1743</a><span>So you can take these clusters label them and then again use language models to rank these clusters.</span></div>
+<div class="raw-line" id="L1744"><a href="#L1744" tabindex="0" class="raw-line-number" aria-label="第 1744 行">1744</a><span>这样就可以给这些聚类打标签，再用语言模型对它们进行排序。</span></div>
+<div class="raw-line" id="L1745"><a href="#L1745" tabindex="0" class="raw-line-number" aria-label="第 1745 行">1745</a><span></span></div>
+<div class="raw-line" id="L1746"><a href="#L1746" tabindex="0" class="raw-line-number" aria-label="第 1746 行">1746</a><span>So if you have, for example,</span></div>
+<div class="raw-line" id="L1747"><a href="#L1747" tabindex="0" class="raw-line-number" aria-label="第 1747 行">1747</a><span>所以，举个例子，如果你有……</span></div>
+<div class="raw-line" id="L1748"><a href="#L1748" tabindex="0" class="raw-line-number" aria-label="第 1748 行">1748</a><span></span></div>
+<div class="raw-line" id="L1749"><a href="#L1749" tabindex="0" class="raw-line-number" aria-label="第 1749 行">1749</a><span>a class of failures where tool loops are tool calls fail,</span></div>
+<div class="raw-line" id="L1750"><a href="#L1750" tabindex="0" class="raw-line-number" aria-label="第 1750 行">1750</a><span>有一类故障是工具调用陷入循环，或者工具调用失败。</span></div>
+<div class="raw-line" id="L1751"><a href="#L1751" tabindex="0" class="raw-line-number" aria-label="第 1751 行">1751</a><span></span></div>
+<div class="raw-line" id="L1752"><a href="#L1752" tabindex="0" class="raw-line-number" aria-label="第 1752 行">1752</a><span>you can then use a model to rank these issues only look at the failures that are most egregious and then pass the full traces for these failures back to your model.</span></div>
+<div class="raw-line" id="L1753"><a href="#L1753" tabindex="0" class="raw-line-number" aria-label="第 1753 行">1753</a><span>你就可以用模型对这些问题排序，只查看最严重的故障，再把这些故障的完整执行轨迹交回模型。</span></div>
+<div class="raw-line" id="L1754"><a href="#L1754" tabindex="0" class="raw-line-number" aria-label="第 1754 行">1754</a><span></span></div>
+<div class="raw-line" id="L1755"><a href="#L1755" tabindex="0" class="raw-line-number" aria-label="第 1755 行">1755</a><span>And this is how you go from— yeah— millions of rows of traces and logs to a smaller amount that you can actually send back to your coding agent.</span></div>
+<div class="raw-line" id="L1756"><a href="#L1756" tabindex="0" class="raw-line-number" aria-label="第 1756 行">1756</a><span>这样一来，就能从数百万条执行轨迹和日志中筛选出少量真正值得交给编程智能体分析的内容。</span></div>
+<div class="raw-line" id="L1757"><a href="#L1757" tabindex="0" class="raw-line-number" aria-label="第 1757 行">1757</a><span></span></div>
+<div class="raw-line" id="L1758"><a href="#L1758" tabindex="0" class="raw-line-number" aria-label="第 1758 行">1758</a><span>So what we see happening next is that background agents take over this process.</span></div>
+<div class="raw-line" id="L1759"><a href="#L1759" tabindex="0" class="raw-line-number" aria-label="第 1759 行">1759</a><span>所以，我们认为接下来会由后台智能体接手这个流程。</span></div>
+<div class="raw-line" id="L1760"><a href="#L1760" tabindex="0" class="raw-line-number" aria-label="第 1760 行">1760</a><span></span></div>
+<div class="raw-line" id="L1761"><a href="#L1761" tabindex="0" class="raw-line-number" aria-label="第 1761 行">1761</a><span>Because LLM applications, agents that are running constantly produce traces.</span></div>
+<div class="raw-line" id="L1762"><a href="#L1762" tabindex="0" class="raw-line-number" aria-label="第 1762 行">1762</a><span>因为大语言模型应用和持续运行的智能体会不断产生执行轨迹。</span></div>
+<div class="raw-line" id="L1763"><a href="#L1763" tabindex="0" class="raw-line-number" aria-label="第 1763 行">1763</a><span></span></div>
+<div class="raw-line" id="L1764"><a href="#L1764" tabindex="0" class="raw-line-number" aria-label="第 1764 行">1764</a><span>And because they constantly produce traces, constantly come up with new failures and need to constantly evaluate and improve them.</span></div>
+<div class="raw-line" id="L1765"><a href="#L1765" tabindex="0" class="raw-line-number" aria-label="第 1765 行">1765</a><span>而且，由于它们不断产生执行轨迹，也会不断出现新的故障，因此需要持续评估和改进。</span></div>
+<div class="raw-line" id="L1766"><a href="#L1766" tabindex="0" class="raw-line-number" aria-label="第 1766 行">1766</a><span></span></div>
+<div class="raw-line" id="L1767"><a href="#L1767" tabindex="0" class="raw-line-number" aria-label="第 1767 行">1767</a><span>So what we see happening and what we think where the industry is going is that teams will use background agents.</span></div>
+<div class="raw-line" id="L1768"><a href="#L1768" tabindex="0" class="raw-line-number" aria-label="第 1768 行">1768</a><span>所以，我们看到的趋势，也是我们认为整个行业的发展方向，是团队会使用后台智能体。</span></div>
+<div class="raw-line" id="L1769"><a href="#L1769" tabindex="0" class="raw-line-number" aria-label="第 1769 行">1769</a><span></span></div>
+<div class="raw-line" id="L1770"><a href="#L1770" tabindex="0" class="raw-line-number" aria-label="第 1770 行">1770</a><span>Background agents that take the data that you ingest into the systems, maintain this data, and basically long running find failures, propose fixes,</span></div>
+<div class="raw-line" id="L1771"><a href="#L1771" tabindex="0" class="raw-line-number" aria-label="第 1771 行">1771</a><span>这些后台智能体会接收导入系统的数据、持续维护，并长期监测故障、提出修复方案。</span></div>
+<div class="raw-line" id="L1772"><a href="#L1772" tabindex="0" class="raw-line-number" aria-label="第 1772 行">1772</a><span></span></div>
+<div class="raw-line" id="L1773"><a href="#L1773" tabindex="0" class="raw-line-number" aria-label="第 1773 行">1773</a><span>backtest these changes to your applications. A couple of minutes left.</span></div>
+<div class="raw-line" id="L1774"><a href="#L1774" tabindex="0" class="raw-line-number" aria-label="第 1774 行">1774</a><span>再对应用中的这些改动进行回测。还剩几分钟。</span></div>
+<div class="raw-line" id="L1775"><a href="#L1775" tabindex="0" class="raw-line-number" aria-label="第 1775 行">1775</a><span></span></div>
+<div class="raw-line" id="L1776"><a href="#L1776" tabindex="0" class="raw-line-number" aria-label="第 1776 行">1776</a><span>Okay. I&#39;ll speed up a bit.</span></div>
+<div class="raw-line" id="L1777"><a href="#L1777" tabindex="0" class="raw-line-number" aria-label="第 1777 行">1777</a><span>好，我稍微讲快一点。</span></div>
+<div class="raw-line" id="L1778"><a href="#L1778" tabindex="0" class="raw-line-number" aria-label="第 1778 行">1778</a><span></span></div>
+<div class="raw-line" id="L1779"><a href="#L1779" tabindex="0" class="raw-line-number" aria-label="第 1779 行">1779</a><span>Once agents take over this loop, what remains for you?</span></div>
+<div class="raw-line" id="L1780"><a href="#L1780" tabindex="0" class="raw-line-number" aria-label="第 1780 行">1780</a><span>一旦智能体接手了这个闭环，你还需要做什么？</span></div>
+<div class="raw-line" id="L1781"><a href="#L1781" tabindex="0" class="raw-line-number" aria-label="第 1781 行">1781</a><span></span></div>
+<div class="raw-line" id="L1782"><a href="#L1782" tabindex="0" class="raw-line-number" aria-label="第 1782 行">1782</a><span>Humans to do.</span></div>
+<div class="raw-line" id="L1783"><a href="#L1783" tabindex="0" class="raw-line-number" aria-label="第 1783 行">1783</a><span>人类还需要做什么？</span></div>
+<div class="raw-line" id="L1784"><a href="#L1784" tabindex="0" class="raw-line-number" aria-label="第 1784 行">1784</a><span></span></div>
+<div class="raw-line" id="L1785"><a href="#L1785" tabindex="0" class="raw-line-number" aria-label="第 1785 行">1785</a><span>In our view, that&#39;s mostly quality.</span></div>
+<div class="raw-line" id="L1786"><a href="#L1786" tabindex="0" class="raw-line-number" aria-label="第 1786 行">1786</a><span>我们认为，主要还是把控质量。</span></div>
+<div class="raw-line" id="L1787"><a href="#L1787" tabindex="0" class="raw-line-number" aria-label="第 1787 行">1787</a><span></span></div>
+<div class="raw-line" id="L1788"><a href="#L1788" tabindex="0" class="raw-line-number" aria-label="第 1788 行">1788</a><span>So you need to own the outcome.</span></div>
+<div class="raw-line" id="L1789"><a href="#L1789" tabindex="0" class="raw-line-number" aria-label="第 1789 行">1789</a><span>所以，你需要对最终结果负责。</span></div>
+<div class="raw-line" id="L1790"><a href="#L1790" tabindex="0" class="raw-line-number" aria-label="第 1790 行">1790</a><span></span></div>
+<div class="raw-line" id="L1791"><a href="#L1791" tabindex="0" class="raw-line-number" aria-label="第 1791 行">1791</a><span>What is good look like for your application?</span></div>
+<div class="raw-line" id="L1792"><a href="#L1792" tabindex="0" class="raw-line-number" aria-label="第 1792 行">1792</a><span>你的应用做到什么程度才算好？</span></div>
+<div class="raw-line" id="L1793"><a href="#L1793" tabindex="0" class="raw-line-number" aria-label="第 1793 行">1793</a><span></span></div>
+<div class="raw-line" id="L1794"><a href="#L1794" tabindex="0" class="raw-line-number" aria-label="第 1794 行">1794</a><span>What are the feedback signals you use to determine what a good applic— what a good outcome is?</span></div>
+<div class="raw-line" id="L1795"><a href="#L1795" tabindex="0" class="raw-line-number" aria-label="第 1795 行">1795</a><span>你会根据哪些反馈信号来判断，什么样的结果才算好？</span></div>
+<div class="raw-line" id="L1796"><a href="#L1796" tabindex="0" class="raw-line-number" aria-label="第 1796 行">1796</a><span></span></div>
+<div class="raw-line" id="L1797"><a href="#L1797" tabindex="0" class="raw-line-number" aria-label="第 1797 行">1797</a><span>And then the decision to actually release fixes to your application.</span></div>
+<div class="raw-line" id="L1798"><a href="#L1798" tabindex="0" class="raw-line-number" aria-label="第 1798 行">1798</a><span>然后，你还要决定是否真正将修复方案发布到应用中。</span></div>
+<div class="raw-line" id="L1799"><a href="#L1799" tabindex="0" class="raw-line-number" aria-label="第 1799 行">1799</a><span></span></div>
+<div class="raw-line" id="L1800"><a href="#L1800" tabindex="0" class="raw-line-number" aria-label="第 1800 行">1800</a><span>I think I&#39;ll just skip over this here.</span></div>
+<div class="raw-line" id="L1801"><a href="#L1801" tabindex="0" class="raw-line-number" aria-label="第 1801 行">1801</a><span>这部分我就先略过了。</span></div>
+<div class="raw-line" id="L1802"><a href="#L1802" tabindex="0" class="raw-line-number" aria-label="第 1802 行">1802</a><span></span></div>
+<div class="raw-line" id="L1803"><a href="#L1803" tabindex="0" class="raw-line-number" aria-label="第 1803 行">1803</a><span>To basically get to the end where I will share some of my predictions and bets that we&#39;re making at Langviews as we are building for this transition into agentic improvement of applications.</span></div>
+<div class="raw-line" id="L1804"><a href="#L1804" tabindex="0" class="raw-line-number" aria-label="第 1804 行">1804</a><span>直接讲到最后吧。我会分享一些预测，以及我们在 Langviews 为推动应用向智能体自主改进转型所做的布局。</span></div>
+<div class="raw-line" id="L1805"><a href="#L1805" tabindex="0" class="raw-line-number" aria-label="第 1805 行">1805</a><span></span></div>
+<div class="raw-line" id="L1806"><a href="#L1806" tabindex="0" class="raw-line-number" aria-label="第 1806 行">1806</a><span>In general,</span></div>
+<div class="raw-line" id="L1807"><a href="#L1807" tabindex="0" class="raw-line-number" aria-label="第 1807 行">1807</a><span>总的来说，</span></div>
+<div class="raw-line" id="L1808"><a href="#L1808" tabindex="0" class="raw-line-number" aria-label="第 1808 行">1808</a><span></span></div>
+<div class="raw-line" id="L1809"><a href="#L1809" tabindex="0" class="raw-line-number" aria-label="第 1809 行">1809</a><span>at Langviews we think frontier intelligence is already very close to helping you solve many of the problems that are there and that reliability of your agents is generally the bigger issues.</span></div>
+<div class="raw-line" id="L1810"><a href="#L1810" tabindex="0" class="raw-line-number" aria-label="第 1810 行">1810</a><span>在 Langviews，我们认为前沿模型的智能水平已经很接近能够帮你解决许多现有问题了；眼下更大的挑战，通常是智能体的可靠性。</span></div>
+<div class="raw-line" id="L1811"><a href="#L1811" tabindex="0" class="raw-line-number" aria-label="第 1811 行">1811</a><span></span></div>
+<div class="raw-line" id="L1812"><a href="#L1812" tabindex="0" class="raw-line-number" aria-label="第 1812 行">1812</a><span>If your task has a default shape and it&#39;s not necessarily incredibly complex or custom, improvement will get a lot easier as you can get agents in the loop to automate it.</span></div>
+<div class="raw-line" id="L1813"><a href="#L1813" tabindex="0" class="raw-line-number" aria-label="第 1813 行">1813</a><span>如果你的任务有比较固定的模式，不算特别复杂，也不需要高度定制，那么一旦让智能体参与进来、实现自动化，改进起来就会容易得多。</span></div>
+<div class="raw-line" id="L1814"><a href="#L1814" tabindex="0" class="raw-line-number" aria-label="第 1814 行">1814</a><span></span></div>
+<div class="raw-line" id="L1815"><a href="#L1815" tabindex="0" class="raw-line-number" aria-label="第 1815 行">1815</a><span>If you have a custom shape of a problem or something that&#39;s way above the current intelligence frontier of models, you will need to continue running the loop, write evals, rewrite,</span></div>
+<div class="raw-line" id="L1816"><a href="#L1816" tabindex="0" class="raw-line-number" aria-label="第 1816 行">1816</a><span>如果你的问题比较特殊，或者难度远超当前模型的能力边界，你就仍然需要持续迭代：编写评估、修改方案，</span></div>
+<div class="raw-line" id="L1817"><a href="#L1817" tabindex="0" class="raw-line-number" aria-label="第 1817 行">1817</a><span></span></div>
+<div class="raw-line" id="L1818"><a href="#L1818" tabindex="0" class="raw-line-number" aria-label="第 1818 行">1818</a><span>rewrite the skills that you use for your application to give them the manual for the things they need to do and run backtests against your application.</span></div>
+<div class="raw-line" id="L1819"><a href="#L1819" tabindex="0" class="raw-line-number" aria-label="第 1819 行">1819</a><span>重写应用中使用的技能，为智能体提供完成任务所需的操作指南，并对应用进行回测。</span></div>
+<div class="raw-line" id="L1820"><a href="#L1820" tabindex="0" class="raw-line-number" aria-label="第 1820 行">1820</a><span></span></div>
+<div class="raw-line" id="L1821"><a href="#L1821" tabindex="0" class="raw-line-number" aria-label="第 1821 行">1821</a><span>The good news is that when you run this loop, and you write evals, you label data, you collect a lot of data that&#39;s incredibly valuable.</span></div>
+<div class="raw-line" id="L1822"><a href="#L1822" tabindex="0" class="raw-line-number" aria-label="第 1822 行">1822</a><span>好消息是，在持续迭代、编写评估用例和标注数据的过程中，你会积累大量极有价值的数据。</span></div>
+<div class="raw-line" id="L1823"><a href="#L1823" tabindex="0" class="raw-line-number" aria-label="第 1823 行">1823</a><span></span></div>
+<div class="raw-line" id="L1824"><a href="#L1824" tabindex="0" class="raw-line-number" aria-label="第 1824 行">1824</a><span>It&#39;s a unique application specific dataset that you can use to improve your application going forward.</span></div>
+<div class="raw-line" id="L1825"><a href="#L1825" tabindex="0" class="raw-line-number" aria-label="第 1825 行">1825</a><span>这是一套针对你应用的独有数据集，可以用来持续改进应用。</span></div>
+<div class="raw-line" id="L1826"><a href="#L1826" tabindex="0" class="raw-line-number" aria-label="第 1826 行">1826</a><span></span></div>
+<div class="raw-line" id="L1827"><a href="#L1827" tabindex="0" class="raw-line-number" aria-label="第 1827 行">1827</a><span>And the next step that we see the best teams starting to do right now is to basically build their own reinforcement learning environments.</span></div>
+<div class="raw-line" id="L1828"><a href="#L1828" tabindex="0" class="raw-line-number" aria-label="第 1828 行">1828</a><span>而我们看到，顶尖团队现在开始迈出的下一步，就是搭建自己的强化学习环境。</span></div>
+<div class="raw-line" id="L1829"><a href="#L1829" tabindex="0" class="raw-line-number" aria-label="第 1829 行">1829</a><span></span></div>
+<div class="raw-line" id="L1830"><a href="#L1830" tabindex="0" class="raw-line-number" aria-label="第 1830 行">1830</a><span>Because these labels that you get from running the improvement loop are signals that you can use to build tasks, build verifiers,</span></div>
+<div class="raw-line" id="L1831"><a href="#L1831" tabindex="0" class="raw-line-number" aria-label="第 1831 行">1831</a><span>因为在改进迭代中获得的这些标签，可以作为信号，用来设计任务、构建验证器，</span></div>
+<div class="raw-line" id="L1832"><a href="#L1832" tabindex="0" class="raw-line-number" aria-label="第 1832 行">1832</a><span></span></div>
+<div class="raw-line" id="L1833"><a href="#L1833" tabindex="0" class="raw-line-number" aria-label="第 1833 行">1833</a><span>and in the end train your own open source models that saturate on task quality for what you need. All right.</span></div>
+<div class="raw-line" id="L1834"><a href="#L1834" tabindex="0" class="raw-line-number" aria-label="第 1834 行">1834</a><span>最终训练出适合自身需求的开源模型，让它们在特定任务上的表现达到最优。好。</span></div>
+<div class="raw-line" id="L1835"><a href="#L1835" tabindex="0" class="raw-line-number" aria-label="第 1835 行">1835</a><span></span></div>
+<div class="raw-line" id="L1836"><a href="#L1836" tabindex="0" class="raw-line-number" aria-label="第 1836 行">1836</a><span>To wrap up, what do we find?</span></div>
+<div class="raw-line" id="L1837"><a href="#L1837" tabindex="0" class="raw-line-number" aria-label="第 1837 行">1837</a><span>最后总结一下，我们发现了什么？</span></div>
+<div class="raw-line" id="L1838"><a href="#L1838" tabindex="0" class="raw-line-number" aria-label="第 1838 行">1838</a><span></span></div>
+<div class="raw-line" id="L1839"><a href="#L1839" tabindex="0" class="raw-line-number" aria-label="第 1839 行">1839</a><span>Agent architectures are very much converging on a coding agent pattern is what we see.</span></div>
+<div class="raw-line" id="L1840"><a href="#L1840" tabindex="0" class="raw-line-number" aria-label="第 1840 行">1840</a><span>我们观察到，智能体架构正逐渐趋同，向编程智能体的模式靠拢。</span></div>
+<div class="raw-line" id="L1841"><a href="#L1841" tabindex="0" class="raw-line-number" aria-label="第 1841 行">1841</a><span></span></div>
+<div class="raw-line" id="L1842"><a href="#L1842" tabindex="0" class="raw-line-number" aria-label="第 1842 行">1842</a><span>The traces these generate really outpace anything that humans can read.</span></div>
+<div class="raw-line" id="L1843"><a href="#L1843" tabindex="0" class="raw-line-number" aria-label="第 1843 行">1843</a><span>这些智能体生成的运行轨迹，数量远远超出了人类能够逐一阅读的范围。</span></div>
+<div class="raw-line" id="L1844"><a href="#L1844" tabindex="0" class="raw-line-number" aria-label="第 1844 行">1844</a><span></span></div>
+<div class="raw-line" id="L1845"><a href="#L1845" tabindex="0" class="raw-line-number" aria-label="第 1845 行">1845</a><span>Which means that we need background agents and AI to automate the improvement loop that we&#39;ve seen take hold for AI agents.</span></div>
+<div class="raw-line" id="L1846"><a href="#L1846" tabindex="0" class="raw-line-number" aria-label="第 1846 行">1846</a><span>这意味着，我们需要后台智能体和 AI，把如今已成为 AI 智能体开发常态的改进迭代流程自动化。</span></div>
+<div class="raw-line" id="L1847"><a href="#L1847" tabindex="0" class="raw-line-number" aria-label="第 1847 行">1847</a><span></span></div>
+<div class="raw-line" id="L1848"><a href="#L1848" tabindex="0" class="raw-line-number" aria-label="第 1848 行">1848</a><span>But it&#39;s important that we as humans keep the big pieces to ourselves and that&#39;s mostly quality.</span></div>
+<div class="raw-line" id="L1849"><a href="#L1849" tabindex="0" class="raw-line-number" aria-label="第 1849 行">1849</a><span>但重要的是，我们人类要把握住大方向，尤其是质量这一关。</span></div>
+<div class="raw-line" id="L1850"><a href="#L1850" tabindex="0" class="raw-line-number" aria-label="第 1850 行">1850</a><span></span></div>
+<div class="raw-line" id="L1851"><a href="#L1851" tabindex="0" class="raw-line-number" aria-label="第 1851 行">1851</a><span>What does a good application look like?</span></div>
+<div class="raw-line" id="L1852"><a href="#L1852" tabindex="0" class="raw-line-number" aria-label="第 1852 行">1852</a><span>一个好的应用应该是什么样的？</span></div>
+<div class="raw-line" id="L1853"><a href="#L1853" tabindex="0" class="raw-line-number" aria-label="第 1853 行">1853</a><span></span></div>
+<div class="raw-line" id="L1854"><a href="#L1854" tabindex="0" class="raw-line-number" aria-label="第 1854 行">1854</a><span>What are the feedback signals you can trust?</span></div>
+<div class="raw-line" id="L1855"><a href="#L1855" tabindex="0" class="raw-line-number" aria-label="第 1855 行">1855</a><span>哪些反馈信号是值得信赖的？</span></div>
+<div class="raw-line" id="L1856"><a href="#L1856" tabindex="0" class="raw-line-number" aria-label="第 1856 行">1856</a><span></span></div>
+<div class="raw-line" id="L1857"><a href="#L1857" tabindex="0" class="raw-line-number" aria-label="第 1857 行">1857</a><span>Like user feedback, implicit or explicit you can collect from your product. Yeah.</span></div>
+<div class="raw-line" id="L1858"><a href="#L1858" tabindex="0" class="raw-line-number" aria-label="第 1858 行">1858</a><span>比如从产品中收集到的用户反馈，无论是隐性的还是显性的。对。</span></div>
+<div class="raw-line" id="L1859"><a href="#L1859" tabindex="0" class="raw-line-number" aria-label="第 1859 行">1859</a><span></span></div>
+<div class="raw-line" id="L1860"><a href="#L1860" tabindex="0" class="raw-line-number" aria-label="第 1860 行">1860</a><span>I think that&#39;s it. And I&#39;m out of time.</span></div>
+<div class="raw-line" id="L1861"><a href="#L1861" tabindex="0" class="raw-line-number" aria-label="第 1861 行">1861</a><span>我想就讲到这里。时间也到了。</span></div>
+<div class="raw-line" id="L1862"><a href="#L1862" tabindex="0" class="raw-line-number" aria-label="第 1862 行">1862</a><span></span></div>
+<div class="raw-line" id="L1863"><a href="#L1863" tabindex="0" class="raw-line-number" aria-label="第 1863 行">1863</a><span>Thank you so much, everyone. And looking forward to spending the next two days with you here at the conference.</span></div>
+<div class="raw-line" id="L1864"><a href="#L1864" tabindex="0" class="raw-line-number" aria-label="第 1864 行">1864</a><span>非常感谢大家！期待接下来两天在大会上与各位交流。</span></div>
+<div class="raw-line" id="L1865"><a href="#L1865" tabindex="0" class="raw-line-number" aria-label="第 1865 行">1865</a><span></span></div>
+<div class="raw-line" id="L1866"><a href="#L1866" tabindex="0" class="raw-line-number" aria-label="第 1866 行">1866</a><span>Thank you, Clemens, for your sh</span></div>
+<div class="raw-line" id="L1867"><a href="#L1867" tabindex="0" class="raw-line-number" aria-label="第 1867 行">1867</a><span>谢谢你，克莱门斯，感谢你的分享。</span></div>
+<div class="raw-line" id="L1868"><a href="#L1868" tabindex="0" class="raw-line-number" aria-label="第 1868 行">1868</a><span></span></div>
+<div class="raw-line" id="L1869"><a href="#L1869" tabindex="0" class="raw-line-number" aria-label="第 1869 行">1869</a><span>aring.</span></div>
+<div class="raw-line" id="L1870"><a href="#L1870" tabindex="0" class="raw-line-number" aria-label="第 1870 行">1870</a><span>……aring。</span></div>
+<div class="raw-line" id="L1871"><a href="#L1871" tabindex="0" class="raw-line-number" aria-label="第 1871 行">1871</a><span></span></div>
+<div class="raw-line" id="L1872"><a href="#L1872" tabindex="0" class="raw-line-number" aria-label="第 1872 行">1872</a><span>谢谢Clemens的分享。</span></div>
+<div class="raw-line" id="L1873"><a href="#L1873" tabindex="0" class="raw-line-number" aria-label="第 1873 行">1873</a><span></span></div>
+<div class="raw-line" id="L1874"><a href="#L1874" tabindex="0" class="raw-line-number" aria-label="第 1874 行">1874</a><span>然后</span></div>
+<div class="raw-line" id="L1875"><a href="#L1875" tabindex="0" class="raw-line-number" aria-label="第 1875 行">1875</a><span></span></div>
+<div class="raw-line" id="L1876"><a href="#L1876" tabindex="0" class="raw-line-number" aria-label="第 1876 行">1876</a><span>next, let&#39;s welcome Rio.</span></div>
+<div class="raw-line" id="L1877"><a href="#L1877" tabindex="0" class="raw-line-number" aria-label="第 1877 行">1877</a><span>接下来，让我们欢迎里奥。</span></div>
+<div class="raw-line" id="L1878"><a href="#L1878" tabindex="0" class="raw-line-number" aria-label="第 1878 行">1878</a><span></span></div>
+<div class="raw-line" id="L1879"><a href="#L1879" tabindex="0" class="raw-line-number" aria-label="第 1879 行">1879</a><span>He was the founding engineer at Cursor.</span></div>
+<div class="raw-line" id="L1880"><a href="#L1880" tabindex="0" class="raw-line-number" aria-label="第 1880 行">1880</a><span>他是 Cursor 的创始工程师。</span></div>
+<div class="raw-line" id="L1881"><a href="#L1881" tabindex="0" class="raw-line-number" aria-label="第 1881 行">1881</a><span></span></div>
+<div class="raw-line" id="L1882"><a href="#L1882" tabindex="0" class="raw-line-number" aria-label="第 1882 行">1882</a><span>下一位是这个Rio，他之前是这个Founding Engineer在Cursor的Founding Engineer。然后欢迎他。 我是Designer。</span></div>
+<div class="raw-line" id="L1883"><a href="#L1883" tabindex="0" class="raw-line-number" aria-label="第 1883 行">1883</a><span></span></div>
+<div class="raw-line" id="L1884"><a href="#L1884" tabindex="0" class="raw-line-number" aria-label="第 1884 行">1884</a><span>Designer. Sorry. Designer.</span></div>
+<div class="raw-line" id="L1885"><a href="#L1885" tabindex="0" class="raw-line-number" aria-label="第 1885 行">1885</a><span>设计师。抱歉，是设计师。</span></div>
+<div class="raw-line" id="L1886"><a href="#L1886" tabindex="0" class="raw-line-number" aria-label="第 1886 行">1886</a><span></span></div>
+<div class="raw-line" id="L1887"><a href="#L1887" tabindex="0" class="raw-line-number" aria-label="第 1887 行">1887</a><span>设计师。然后欢迎他。</span></div>
+<div class="raw-line" id="L1888"><a href="#L1888" tabindex="0" class="raw-line-number" aria-label="第 1888 行">1888</a><span></span></div>
+<div class="raw-line" id="L1889"><a href="#L1889" tabindex="0" class="raw-line-number" aria-label="第 1889 行">1889</a><span>然后你要。</span></div>
+<div class="raw-line" id="L1890"><a href="#L1890" tabindex="0" class="raw-line-number" aria-label="第 1890 行">1890</a><span></span></div>
+<div class="raw-line" id="L1891"><a href="#L1891" tabindex="0" class="raw-line-number" aria-label="第 1891 行">1891</a><span>我要用这个。</span></div>
+<div class="raw-line" id="L1892"><a href="#L1892" tabindex="0" class="raw-line-number" aria-label="第 1892 行">1892</a><span></span></div>
+<div class="raw-line" id="L1893"><a href="#L1893" tabindex="0" class="raw-line-number" aria-label="第 1893 行">1893</a><span>好的。手那边比较好玩。</span></div>
+<div class="raw-line" id="L1894"><a href="#L1894" tabindex="0" class="raw-line-number" aria-label="第 1894 行">1894</a><span></span></div>
+<div class="raw-line" id="L1895"><a href="#L1895" tabindex="0" class="raw-line-number" aria-label="第 1895 行">1895</a><span>我有点紧张。请大家关照。</span></div>
+<div class="raw-line" id="L1896"><a href="#L1896" tabindex="0" class="raw-line-number" aria-label="第 1896 行">1896</a><span></span></div>
+<div class="raw-line" id="L1897"><a href="#L1897" tabindex="0" class="raw-line-number" aria-label="第 1897 行">1897</a><span>Oh.</span></div>
+<div class="raw-line" id="L1898"><a href="#L1898" tabindex="0" class="raw-line-number" aria-label="第 1898 行">1898</a><span>哦。</span></div>
+<div class="raw-line" id="L1899"><a href="#L1899" tabindex="0" class="raw-line-number" aria-label="第 1899 行">1899</a><span></span></div>
+<div class="raw-line" id="L1900"><a href="#L1900" tabindex="0" class="raw-line-number" aria-label="第 1900 行">1900</a><span>Cool.</span></div>
+<div class="raw-line" id="L1901"><a href="#L1901" tabindex="0" class="raw-line-number" aria-label="第 1901 行">1901</a><span></span></div>
+<div class="raw-line" id="L1902"><a href="#L1902" tabindex="0" class="raw-line-number" aria-label="第 1902 行">1902</a><span>你。</span></div>
+<div class="raw-line" id="L1903"><a href="#L1903" tabindex="0" class="raw-line-number" aria-label="第 1903 行">1903</a><span></span></div>
+<div class="raw-line" id="L1904"><a href="#L1904" tabindex="0" class="raw-line-number" aria-label="第 1904 行">1904</a><span>大家好，我是Rio。</span></div>
+<div class="raw-line" id="L1905"><a href="#L1905" tabindex="0" class="raw-line-number" aria-label="第 1905 行">1905</a><span></span></div>
+<div class="raw-line" id="L1906"><a href="#L1906" tabindex="0" class="raw-line-number" aria-label="第 1906 行">1906</a><span>今天我想演讲的题目是，当我们什么都能做，还知道自己想做什么吗？</span></div>
+<div class="raw-line" id="L1907"><a href="#L1907" tabindex="0" class="raw-line-number" aria-label="第 1907 行">1907</a><span></span></div>
+<div class="raw-line" id="L1908"><a href="#L1908" tabindex="0" class="raw-line-number" aria-label="第 1908 行">1908</a><span>那我们开始吧。</span></div>
+<div class="raw-line" id="L1909"><a href="#L1909" tabindex="0" class="raw-line-number" aria-label="第 1909 行">1909</a><span></span></div>
+<div class="raw-line" id="L1910"><a href="#L1910" tabindex="0" class="raw-line-number" aria-label="第 1910 行">1910</a><span>开幕。工具更强，为何我们更加不安？</span></div>
+<div class="raw-line" id="L1911"><a href="#L1911" tabindex="0" class="raw-line-number" aria-label="第 1911 行">1911</a><span></span></div>
+<div class="raw-line" id="L1912"><a href="#L1912" tabindex="0" class="raw-line-number" aria-label="第 1912 行">1912</a><span>我今天不想讲AI有多厉害，因为大家已经看过用过很多了。</span></div>
+<div class="raw-line" id="L1913"><a href="#L1913" tabindex="0" class="raw-line-number" aria-label="第 1913 行">1913</a><span></span></div>
+<div class="raw-line" id="L1914"><a href="#L1914" tabindex="0" class="raw-line-number" aria-label="第 1914 行">1914</a><span>一句话做出一个网站，几分钟做一个功能，睡醒以后机器已经替你完成了一晚上的工作，甚至已经把你没有想过的事情做完了。</span></div>
+<div class="raw-line" id="L1915"><a href="#L1915" tabindex="0" class="raw-line-number" aria-label="第 1915 行">1915</a><span></span></div>
+<div class="raw-line" id="L1916"><a href="#L1916" tabindex="0" class="raw-line-number" aria-label="第 1916 行">1916</a><span>这一切开始的时候我也很兴奋。</span></div>
+<div class="raw-line" id="L1917"><a href="#L1917" tabindex="0" class="raw-line-number" aria-label="第 1917 行">1917</a><span></span></div>
+<div class="raw-line" id="L1918"><a href="#L1918" tabindex="0" class="raw-line-number" aria-label="第 1918 行">1918</a><span>很多时候只能想想的东西，现在真的可以做了。</span></div>
+<div class="raw-line" id="L1919"><a href="#L1919" tabindex="0" class="raw-line-number" aria-label="第 1919 行">1919</a><span></span></div>
+<div class="raw-line" id="L1920"><a href="#L1920" tabindex="0" class="raw-line-number" aria-label="第 1920 行">1920</a><span>但不知道你们有没有另外一种感觉。</span></div>
+<div class="raw-line" id="L1921"><a href="#L1921" tabindex="0" class="raw-line-number" aria-label="第 1921 行">1921</a><span></span></div>
+<div class="raw-line" id="L1922"><a href="#L1922" tabindex="0" class="raw-line-number" aria-label="第 1922 行">1922</a><span>看到别人用新的模型做出点什么，第一个反应是，哇，好厉害。</span></div>
+<div class="raw-line" id="L1923"><a href="#L1923" tabindex="0" class="raw-line-number" aria-label="第 1923 行">1923</a><span></span></div>
+<div class="raw-line" id="L1924"><a href="#L1924" tabindex="0" class="raw-line-number" aria-label="第 1924 行">1924</a><span>第二个反应却是，我是不是又落后了。</span></div>
+<div class="raw-line" id="L1925"><a href="#L1925" tabindex="0" class="raw-line-number" aria-label="第 1925 行">1925</a><span></span></div>
+<div class="raw-line" id="L1926"><a href="#L1926" tabindex="0" class="raw-line-number" aria-label="第 1926 行">1926</a><span>好像每个人都变得聪明了，做的事情更多了。</span></div>
+<div class="raw-line" id="L1927"><a href="#L1927" tabindex="0" class="raw-line-number" aria-label="第 1927 行">1927</a><span></span></div>
+<div class="raw-line" id="L1928"><a href="#L1928" tabindex="0" class="raw-line-number" aria-label="第 1928 行">1928</a><span>你原本花很多时间积累的能力，现在好像就是任何人可以放在输入框里的一句话。</span></div>
+<div class="raw-line" id="L1929"><a href="#L1929" tabindex="0" class="raw-line-number" aria-label="第 1929 行">1929</a><span></span></div>
+<div class="raw-line" id="L1930"><a href="#L1930" tabindex="0" class="raw-line-number" aria-label="第 1930 行">1930</a><span>这个时候，很容易会觉得，我也应该更多产出，再多学几个工具，再多开几个agents。</span></div>
+<div class="raw-line" id="L1931"><a href="#L1931" tabindex="0" class="raw-line-number" aria-label="第 1931 行">1931</a><span></span></div>
+<div class="raw-line" id="L1932"><a href="#L1932" tabindex="0" class="raw-line-number" aria-label="第 1932 行">1932</a><span>但我想问，如果我们真的可以一直这样做下去，那什么时候才算够？</span></div>
+<div class="raw-line" id="L1933"><a href="#L1933" tabindex="0" class="raw-line-number" aria-label="第 1933 行">1933</a><span></span></div>
+<div class="raw-line" id="L1934"><a href="#L1934" tabindex="0" class="raw-line-number" aria-label="第 1934 行">1934</a><span>我一直很相信做工具。</span></div>
+<div class="raw-line" id="L1935"><a href="#L1935" tabindex="0" class="raw-line-number" aria-label="第 1935 行">1935</a><span></span></div>
+<div class="raw-line" id="L1936"><a href="#L1936" tabindex="0" class="raw-line-number" aria-label="第 1936 行">1936</a><span>从设计协作工具，让每个人可以搭建自己的系统，到设计帮助所有人做软件的工具。</span></div>
+<div class="raw-line" id="L1937"><a href="#L1937" tabindex="0" class="raw-line-number" aria-label="第 1937 行">1937</a><span></span></div>
+<div class="raw-line" id="L1938"><a href="#L1938" tabindex="0" class="raw-line-number" aria-label="第 1938 行">1938</a><span>我希望把想象与现实之间的距离缩短。这个相信没有病。</span></div>
+<div class="raw-line" id="L1939"><a href="#L1939" tabindex="0" class="raw-line-number" aria-label="第 1939 行">1939</a><span></span></div>
+<div class="raw-line" id="L1940"><a href="#L1940" tabindex="0" class="raw-line-number" aria-label="第 1940 行">1940</a><span>但我开始在意，工作让我能工具能让我做的更多的同时， 有没有让我更能了解自己在想做什么？</span></div>
+<div class="raw-line" id="L1941"><a href="#L1941" tabindex="0" class="raw-line-number" aria-label="第 1941 行">1941</a><span></span></div>
+<div class="raw-line" id="L1942"><a href="#L1942" tabindex="0" class="raw-line-number" aria-label="第 1942 行">1942</a><span>还是我们只是盲目的追赶别人的速度？</span></div>
+<div class="raw-line" id="L1943"><a href="#L1943" tabindex="0" class="raw-line-number" aria-label="第 1943 行">1943</a><span></span></div>
+<div class="raw-line" id="L1944"><a href="#L1944" tabindex="0" class="raw-line-number" aria-label="第 1944 行">1944</a><span>今天我想跟大家讲的，不是应不应该用AI，也不是慢一定比快好，而是当我们什么都能做，还知道自己想做什么吗？</span></div>
+<div class="raw-line" id="L1945"><a href="#L1945" tabindex="0" class="raw-line-number" aria-label="第 1945 行">1945</a><span></span></div>
+<div class="raw-line" id="L1946"><a href="#L1946" tabindex="0" class="raw-line-number" aria-label="第 1946 行">1946</a><span>以及在这些越来越强的工具旁边，我们要怎么才能继续长出自己的判断，自己的在乎和自己的生活？</span></div>
+<div class="raw-line" id="L1947"><a href="#L1947" tabindex="0" class="raw-line-number" aria-label="第 1947 行">1947</a><span></span></div>
+<div class="raw-line" id="L1948"><a href="#L1948" tabindex="0" class="raw-line-number" aria-label="第 1948 行">1948</a><span>一，当做事变成证明之前。</span></div>
+<div class="raw-line" id="L1949"><a href="#L1949" tabindex="0" class="raw-line-number" aria-label="第 1949 行">1949</a><span></span></div>
+<div class="raw-line" id="L1950"><a href="#L1950" tabindex="0" class="raw-line-number" aria-label="第 1950 行">1950</a><span>这种焦虑，有很大一部分来自我们太习惯用自己能做什么来证明自己是谁。</span></div>
+<div class="raw-line" id="L1951"><a href="#L1951" tabindex="0" class="raw-line-number" aria-label="第 1951 行">1951</a><span></span></div>
+<div class="raw-line" id="L1952"><a href="#L1952" tabindex="0" class="raw-line-number" aria-label="第 1952 行">1952</a><span>我是设计师，因为我懂设计。</span></div>
+<div class="raw-line" id="L1953"><a href="#L1953" tabindex="0" class="raw-line-number" aria-label="第 1953 行">1953</a><span></span></div>
+<div class="raw-line" id="L1954"><a href="#L1954" tabindex="0" class="raw-line-number" aria-label="第 1954 行">1954</a><span>我是工程师，因为我能手敲代码。</span></div>
+<div class="raw-line" id="L1955"><a href="#L1955" tabindex="0" class="raw-line-number" aria-label="第 1955 行">1955</a><span></span></div>
+<div class="raw-line" id="L1956"><a href="#L1956" tabindex="0" class="raw-line-number" aria-label="第 1956 行">1956</a><span>所以当机器也能做到的时候，不安就不只是关于工作。</span></div>
+<div class="raw-line" id="L1957"><a href="#L1957" tabindex="0" class="raw-line-number" aria-label="第 1957 行">1957</a><span></span></div>
+<div class="raw-line" id="L1958"><a href="#L1958" tabindex="0" class="raw-line-number" aria-label="第 1958 行">1958</a><span>还有一个比较私人的问题。如果我做的事情不再特别，那我特别在哪里？</span></div>
+<div class="raw-line" id="L1959"><a href="#L1959" tabindex="0" class="raw-line-number" aria-label="第 1959 行">1959</a><span></span></div>
+<div class="raw-line" id="L1960"><a href="#L1960" tabindex="0" class="raw-line-number" aria-label="第 1960 行">1960</a><span>我没有一个很漂亮的答案，但我会想起，在这些东西变成工作之前，我跟电脑是什么关系？</span></div>
+<div class="raw-line" id="L1961"><a href="#L1961" tabindex="0" class="raw-line-number" aria-label="第 1961 行">1961</a><span></span></div>
+<div class="raw-line" id="L1962"><a href="#L1962" tabindex="0" class="raw-line-number" aria-label="第 1962 行">1962</a><span>我小的时候搬到加拿大，看到那台荧幕浮在半空中的苹果电脑，我觉得，怎么可能有这么漂亮的东西？</span></div>
+<div class="raw-line" id="L1963"><a href="#L1963" tabindex="0" class="raw-line-number" aria-label="第 1963 行">1963</a><span></span></div>
+<div class="raw-line" id="L1964"><a href="#L1964" tabindex="0" class="raw-line-number" aria-label="第 1964 行">1964</a><span>我当时买不起，就把自己的电脑改得像它，换图标，换字体，研究那些让人想舔的按钮怎么做。</span></div>
+<div class="raw-line" id="L1965"><a href="#L1965" tabindex="0" class="raw-line-number" aria-label="第 1965 行">1965</a><span></span></div>
+<div class="raw-line" id="L1966"><a href="#L1966" tabindex="0" class="raw-line-number" aria-label="第 1966 行">1966</a><span>我不是先想成为设计师才做这些事，我只是喜欢，好奇，想靠近一点，想看看自己能不能也做出那种感觉。</span></div>
+<div class="raw-line" id="L1967"><a href="#L1967" tabindex="0" class="raw-line-number" aria-label="第 1967 行">1967</a><span></span></div>
+<div class="raw-line" id="L1968"><a href="#L1968" tabindex="0" class="raw-line-number" aria-label="第 1968 行">1968</a><span>后来喜欢真的变成了工作，这很幸运。</span></div>
+<div class="raw-line" id="L1969"><a href="#L1969" tabindex="0" class="raw-line-number" aria-label="第 1969 行">1969</a><span></span></div>
+<div class="raw-line" id="L1970"><a href="#L1970" tabindex="0" class="raw-line-number" aria-label="第 1970 行">1970</a><span>可以靠自己的在意的事情工作、生活，也可以遇到一群同样在意的人。</span></div>
+<div class="raw-line" id="L1971"><a href="#L1971" tabindex="0" class="raw-line-number" aria-label="第 1971 行">1971</a><span></span></div>
+<div class="raw-line" id="L1972"><a href="#L1972" tabindex="0" class="raw-line-number" aria-label="第 1972 行">1972</a><span>但慢慢的，好奇变成规划，游戏变成产出，品味变成了你必须替别人负责做出的决定。</span></div>
+<div class="raw-line" id="L1973"><a href="#L1973" tabindex="0" class="raw-line-number" aria-label="第 1973 行">1973</a><span></span></div>
+<div class="raw-line" id="L1974"><a href="#L1974" tabindex="0" class="raw-line-number" aria-label="第 1974 行">1974</a><span>你越来越能回答，这有没有价值，什么时候能上线。</span></div>
+<div class="raw-line" id="L1975"><a href="#L1975" tabindex="0" class="raw-line-number" aria-label="第 1975 行">1975</a><span></span></div>
+<div class="raw-line" id="L1976"><a href="#L1976" tabindex="0" class="raw-line-number" aria-label="第 1976 行">1976</a><span>却还不一定还记得，当没有人需要你做这些事的时候，你为什么已经想做了？</span></div>
+<div class="raw-line" id="L1977"><a href="#L1977" tabindex="0" class="raw-line-number" aria-label="第 1977 行">1977</a><span></span></div>
+<div class="raw-line" id="L1978"><a href="#L1978" tabindex="0" class="raw-line-number" aria-label="第 1978 行">1978</a><span>我不想用机器永远不会有某种能力来安慰自己，因为这个界限一直在变。我比较想保留的是我跟做东西这件事情的关系。</span></div>
+<div class="raw-line" id="L1979"><a href="#L1979" tabindex="0" class="raw-line-number" aria-label="第 1979 行">1979</a><span></span></div>
+<div class="raw-line" id="L1980"><a href="#L1980" tabindex="0" class="raw-line-number" aria-label="第 1980 行">1980</a><span>不必先证明自己做得比谁好，才有资格继续喜欢做东西。</span></div>
+<div class="raw-line" id="L1981"><a href="#L1981" tabindex="0" class="raw-line-number" aria-label="第 1981 行">1981</a><span></span></div>
+<div class="raw-line" id="L1982"><a href="#L1982" tabindex="0" class="raw-line-number" aria-label="第 1982 行">1982</a><span>就算机器可以很快做出10个版本，我还是可以在其中一个地方停下来，觉得这里不对，想自己亲手改一下。</span></div>
+<div class="raw-line" id="L1983"><a href="#L1983" tabindex="0" class="raw-line-number" aria-label="第 1983 行">1983</a><span></span></div>
+<div class="raw-line" id="L1984"><a href="#L1984" tabindex="0" class="raw-line-number" aria-label="第 1984 行">1984</a><span>那个感觉不一定立刻说得清楚，但它可能比我应该做的更多、更接近我想真正做的事。</span></div>
+<div class="raw-line" id="L1985"><a href="#L1985" tabindex="0" class="raw-line-number" aria-label="第 1985 行">1985</a><span></span></div>
+<div class="raw-line" id="L1986"><a href="#L1986" tabindex="0" class="raw-line-number" aria-label="第 1986 行">1986</a><span>但现在的问题是，工具会不会太快把这整个过程跳过了？</span></div>
+<div class="raw-line" id="L1987"><a href="#L1987" tabindex="0" class="raw-line-number" aria-label="第 1987 行">1987</a><span></span></div>
+<div class="raw-line" id="L1988"><a href="#L1988" tabindex="0" class="raw-line-number" aria-label="第 1988 行">1988</a><span>二，答案很完整，不代表我真的想过。</span></div>
+<div class="raw-line" id="L1989"><a href="#L1989" tabindex="0" class="raw-line-number" aria-label="第 1989 行">1989</a><span></span></div>
+<div class="raw-line" id="L1990"><a href="#L1990" tabindex="0" class="raw-line-number" aria-label="第 1990 行">1990</a><span>我想用一个很小的例子。</span></div>
+<div class="raw-line" id="L1991"><a href="#L1991" tabindex="0" class="raw-line-number" aria-label="第 1991 行">1991</a><span></span></div>
+<div class="raw-line" id="L1992"><a href="#L1992" tabindex="0" class="raw-line-number" aria-label="第 1992 行">1992</a><span>假设我说，帮我做一个记下生活的工具，等了2分钟，Groppa回答，做好了请过目。</span></div>
+<div class="raw-line" id="L1993"><a href="#L1993" tabindex="0" class="raw-line-number" aria-label="第 1993 行">1993</a><span></span></div>
+<div class="raw-line" id="L1994"><a href="#L1994" tabindex="0" class="raw-line-number" aria-label="第 1994 行">1994</a><span>然后它给我这个，还会解释为什么需要这些功能，心情分数可以看到趋势，每天提醒可以养成习惯，每周报告可以帮助反思。</span></div>
+<div class="raw-line" id="L1995"><a href="#L1995" tabindex="0" class="raw-line-number" aria-label="第 1995 行">1995</a><span></span></div>
+<div class="raw-line" id="L1996"><a href="#L1996" tabindex="0" class="raw-line-number" aria-label="第 1996 行">1996</a><span>听起来都很有道理。</span></div>
+<div class="raw-line" id="L1997"><a href="#L1997" tabindex="0" class="raw-line-number" aria-label="第 1997 行">1997</a><span></span></div>
+<div class="raw-line" id="L1998"><a href="#L1998" tabindex="0" class="raw-line-number" aria-label="第 1998 行">1998</a><span>我可能就说，</span></div>
+<div class="raw-line" id="L1999"><a href="#L1999" tabindex="0" class="raw-line-number" aria-label="第 1999 行">1999</a><span></span></div>
+<div class="raw-line" id="L2000"><a href="#L2000" tabindex="0" class="raw-line-number" aria-label="第 2000 行">2000</a><span>哦，那好吧就这样。</span></div></div><nav class="materials-links raw-pagination" aria-label="原文分段">
+          <a href="../part-3/" tabindex="0" rel="prev">上一段</a>
+          <span aria-current="page">第 4 / 26 段 · L1501–L2000</span>
+          <a href="../part-5/" tabindex="0" rel="next">下一段</a>
+          <a href="../all/" tabindex="0">查看全文</a>
+        </nav></div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>页面信息来自各活动公开资料，可能随时变更；出发前请以主办方官方公告为准。</p>
+  </div>
+</footer>
+<script src="../../../../assets/site.4c7b854f.js" defer></script>
+</body>
+</html>

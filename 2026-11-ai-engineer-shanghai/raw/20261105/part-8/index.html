@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2026-11-05 原始记录 · AI Engineer Shanghai 2026 · EventPrep</title>
+<meta name="description" content="AI Engineer Shanghai 2026 的2026-11-05 原始记录">
+<meta name="color-scheme" content="light dark">
+<!-- 地址栏/标签栏颜色跟着深浅色走，值就是 site.css 里的 --bg。
+     以前这里写死一个 #1f6feb —— 那个色号在 CSS 里根本不存在（--accent 是 #2563eb），
+     深色模式下也是蓝色地址栏配深色页面。两段 meta 各自带 media，浏览器自己选。 -->
+<meta name="theme-color" content="#f8fafc" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0b0f17" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://event.newzone.top/2026-11-ai-engineer-shanghai/raw/20261105/part-8/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="2026-11-05 原始记录 · AI Engineer Shanghai 2026 · EventPrep">
+<meta property="og:description" content="AI Engineer Shanghai 2026 的2026-11-05 原始记录">
+<meta property="og:url" content="https://event.newzone.top/2026-11-ai-engineer-shanghai/raw/20261105/part-8/">
+
+<script>(function(){try{var t=localStorage.getItem('eventprep:theme');if(t==='light'||t==='dark'){document.documentElement.setAttribute('data-theme',t);}}catch(e){}})();</script>
+<link rel="icon" type="image/svg+xml" href="../../../../assets/favicon.svg">
+<link rel="stylesheet" href="../../../../assets/site.9afe22e1.css">
+
+</head>
+<body>
+<!-- 打印版工具条：平时 display:none，进入打印模式（<html class="print-mode">）才出现。
+     打印到纸上时这条工具条自身要藏掉（见 site.css 的 @media print）——它是屏幕上的控件。 -->
+<div class="print-bar" id="print-bar" role="toolbar" aria-label="打印版工具条">
+  <span class="print-bar-title">EventPrep · 打印版 · 全部内容已展开</span>
+  <div class="print-bar-actions">
+    <button type="button" id="print-do" class="ghost-btn">打印 / 存 PDF</button>
+    <button type="button" id="print-exit" class="ghost-btn">退出打印版</button>
+  </div>
+</div>
+<a class="skip-link" href="#main" tabindex="0">跳到正文</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="site-name" href="../../../../index.html" tabindex="0">
+      <svg class="site-logo" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+        <rect x="3" y="3.5" width="18" height="18" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.8"/>
+        <rect x="9.5" y="5.5" width="5" height="1.8" rx="0.9" fill="currentColor" fill-opacity="0.4"/>
+        <path d="M6.5 11h5M6.5 14.5h3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        <circle cx="16" cy="15" r="4.2" fill="#16a34a"/>
+        <path d="M14.2 15l1.3 1.3 2.5-2.5" stroke="#ffffff" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span>EventPrep</span>
+    </a>
+    <div class="header-actions">
+      
+      
+      <a class="ghost-btn" href="https://github.com/rockbenben/event-prep" target="_blank" rel="noopener noreferrer" aria-label="GitHub 仓库" title="GitHub 仓库">
+        <svg class="theme-icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+          <path d="M12 .8a11.2 11.2 0 0 0-3.54 21.83c.56.1.77-.24.77-.54v-2.1c-3.12.68-3.78-1.33-3.78-1.33-.51-1.3-1.25-1.65-1.25-1.65-1.02-.7.08-.68.08-.68 1.13.08 1.72 1.16 1.72 1.16 1 1.72 2.63 1.22 3.27.95.1-.74.39-1.22.71-1.5-2.5-.28-5.12-1.25-5.12-5.56 0-1.23.44-2.23 1.16-3.02-.12-.28-.5-1.43.11-2.98 0 0 .95-.3 3.1 1.15a10.8 10.8 0 0 1 5.64 0c2.15-1.45 3.1-1.15 3.1-1.15.61 1.55.23 2.7.11 2.98.72.79 1.16 1.79 1.16 3.02 0 4.32-2.63 5.27-5.14 5.55.4.35.76 1.03.76 2.08v3.08c0 .3.2.65.78.54A11.2 11.2 0 0 0 12 .8Z"></path>
+        </svg>
+      </a>
+      <button type="button" id="theme-toggle" class="ghost-btn" aria-label="切换深浅色" title="切换深浅色">
+        <svg class="theme-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true" focusable="false">
+          <circle cx="12" cy="12" r="8.5" />
+          <path d="M12 3.5a8.5 8.5 0 0 0 0 17z" fill="currentColor" stroke="none" />
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+<dialog class="avatar-viewer" id="avatar-viewer" aria-label="放大照片">
+  <img id="avatar-viewer-img" src="" alt="">
+</dialog>
+<main id="main">
+<div class="wrap event material-page"><nav class="material-crumbs" aria-label="面包屑"><ol>
+      <li><a href="../../../../" tabindex="0">全部活动</a></li><li><a href="../../../" tabindex="0">AI Engineer Shanghai 2026</a></li>
+      <li><a href="../../" tabindex="0">原始记录</a></li>
+      <li><a href="./" tabindex="0" aria-current="page">2026-11-05 原始记录</a></li></ol></nav><header class="event-head"><h1 class="event-title">2026-11-05 原始记录</h1>
+        <p class="event-summary">AI Engineer Shanghai 2026</p></header><p class="notice">自动转写可能有误。以下内容保留双语原文，行号以原文件为准；下载文件保留原始字节。当前仅加载本段；搜索全部记录或打印全文请先选择「查看全文」。</p>
+          <nav class="materials-links" aria-label="资料操作"><a href="../../" tabindex="0">全部日期</a><a href="../../../summary/" tabindex="0">会后总结</a><a href="../../../20261105-raw.md" tabindex="0" download>下载原始 Markdown</a></nav>
+          <nav class="materials-links raw-pagination" aria-label="原文分段">
+          <a href="../part-7/" tabindex="0" rel="prev">上一段</a>
+          <span aria-current="page">第 8 / 26 段 · L3501–L4000</span>
+          <a href="../part-9/" tabindex="0" rel="next">下一段</a>
+          <a href="../all/" tabindex="0">查看全文</a>
+        </nav><details class="raw-sections"><summary>选择行号范围</summary><nav class="materials-links" aria-label="选择原文段落"><a href="../" tabindex="0">L1–L500</a><a href="../part-2/" tabindex="0">L501–L1000</a><a href="../part-3/" tabindex="0">L1001–L1500</a><a href="../part-4/" tabindex="0">L1501–L2000</a><a href="../part-5/" tabindex="0">L2001–L2500</a><a href="../part-6/" tabindex="0">L2501–L3000</a><a href="../part-7/" tabindex="0">L3001–L3500</a><a href="../part-8/" tabindex="0" aria-current="page">L3501–L4000</a><a href="../part-9/" tabindex="0">L4001–L4500</a><a href="../part-10/" tabindex="0">L4501–L5000</a><a href="../part-11/" tabindex="0">L5001–L5500</a><a href="../part-12/" tabindex="0">L5501–L6000</a><a href="../part-13/" tabindex="0">L6001–L6500</a><a href="../part-14/" tabindex="0">L6501–L7000</a><a href="../part-15/" tabindex="0">L7001–L7500</a><a href="../part-16/" tabindex="0">L7501–L8000</a><a href="../part-17/" tabindex="0">L8001–L8500</a><a href="../part-18/" tabindex="0">L8501–L9000</a><a href="../part-19/" tabindex="0">L9001–L9500</a><a href="../part-20/" tabindex="0">L9501–L10000</a><a href="../part-21/" tabindex="0">L10001–L10500</a><a href="../part-22/" tabindex="0">L10501–L11000</a><a href="../part-23/" tabindex="0">L11001–L11500</a><a href="../part-24/" tabindex="0">L11501–L12000</a><a href="../part-25/" tabindex="0">L12001–L12500</a><a href="../part-26/" tabindex="0">L12501–L12685</a></nav></details><details class="raw-sections"><summary>相关总结 · 1 节</summary><nav class="materials-links" aria-label="相关总结"><a href="../../../summary/#session-9" tabindex="0">9. 艾琳（Eileen）· 阶跃星辰（StepFun）副总裁｜从模型智能到 Agent Harness</a></nav></details>
+          <div class="raw-transcript" data-raw-total="12685"><div class="raw-line" id="L3501"><a href="#L3501" tabindex="0" class="raw-line-number" aria-label="第 3501 行">3501</a><span>就是想象你站在一条马路的正中间，然后对面开过来一辆坦克，尘土就是漫天。</span></div>
+<div class="raw-line" id="L3502"><a href="#L3502" tabindex="0" class="raw-line-number" aria-label="第 3502 行">3502</a><span></span></div>
+<div class="raw-line" id="L3503"><a href="#L3503" tabindex="0" class="raw-line-number" aria-label="第 3503 行">3503</a><span>那个坦克就是这个基础模型，基础模型今年还在这个非常快速的推进，并且它所到之处都是黄沙漫天。</span></div>
+<div class="raw-line" id="L3504"><a href="#L3504" tabindex="0" class="raw-line-number" aria-label="第 3504 行">3504</a><span></span></div>
+<div class="raw-line" id="L3505"><a href="#L3505" tabindex="0" class="raw-line-number" aria-label="第 3505 行">3505</a><span>呃，那在这个时候，如果你没有在做基础模型，你不是在开这个坦克的人，你能做什么？</span></div>
+<div class="raw-line" id="L3506"><a href="#L3506" tabindex="0" class="raw-line-number" aria-label="第 3506 行">3506</a><span></span></div>
+<div class="raw-line" id="L3507"><a href="#L3507" tabindex="0" class="raw-line-number" aria-label="第 3507 行">3507</a><span>呃，我自己的感觉是这个创业者能做的事情，首先你肯定不是站在这个马路的中间等着坦克碾过里，对吧？</span></div>
+<div class="raw-line" id="L3508"><a href="#L3508" tabindex="0" class="raw-line-number" aria-label="第 3508 行">3508</a><span></span></div>
+<div class="raw-line" id="L3509"><a href="#L3509" tabindex="0" class="raw-line-number" aria-label="第 3509 行">3509</a><span>那所以我发现现在大家开始呃，要么往天上去，要么往地下钻。</span></div>
+<div class="raw-line" id="L3510"><a href="#L3510" tabindex="0" class="raw-line-number" aria-label="第 3510 行">3510</a><span></span></div>
+<div class="raw-line" id="L3511"><a href="#L3511" tabindex="0" class="raw-line-number" aria-label="第 3511 行">3511</a><span>那往地下钻呢，是去做什么呢？</span></div>
+<div class="raw-line" id="L3512"><a href="#L3512" tabindex="0" class="raw-line-number" aria-label="第 3512 行">3512</a><span></span></div>
+<div class="raw-line" id="L3513"><a href="#L3513" tabindex="0" class="raw-line-number" aria-label="第 3513 行">3513</a><span>是去比如说FDE，呃，是去交易数据，呃，是去做infra，是去做芯片，或者或者去做推理加速，呃，或者做中转站，</span></div>
+<div class="raw-line" id="L3514"><a href="#L3514" tabindex="0" class="raw-line-number" aria-label="第 3514 行">3514</a><span></span></div>
+<div class="raw-line" id="L3515"><a href="#L3515" tabindex="0" class="raw-line-number" aria-label="第 3515 行">3515</a><span>呃，然后往天上飞的是做什么呢？</span></div>
+<div class="raw-line" id="L3516"><a href="#L3516" tabindex="0" class="raw-line-number" aria-label="第 3516 行">3516</a><span></span></div>
+<div class="raw-line" id="L3517"><a href="#L3517" tabindex="0" class="raw-line-number" aria-label="第 3517 行">3517</a><span>是比如说做AI for science。</span></div>
+<div class="raw-line" id="L3518"><a href="#L3518" tabindex="0" class="raw-line-number" aria-label="第 3518 行">3518</a><span></span></div>
+<div class="raw-line" id="L3519"><a href="#L3519" tabindex="0" class="raw-line-number" aria-label="第 3519 行">3519</a><span>呃，所以呃，我的感觉是在今年站在马路中间的AI的应用创业者，其实日子是过得最艰难的。</span></div>
+<div class="raw-line" id="L3520"><a href="#L3520" tabindex="0" class="raw-line-number" aria-label="第 3520 行">3520</a><span></span></div>
+<div class="raw-line" id="L3521"><a href="#L3521" tabindex="0" class="raw-line-number" aria-label="第 3521 行">3521</a><span>就有一种物理看花，水中望月，就是借我一说慧眼吧，</span></div>
+<div class="raw-line" id="L3522"><a href="#L3522" tabindex="0" class="raw-line-number" aria-label="第 3522 行">3522</a><span></span></div>
+<div class="raw-line" id="L3523"><a href="#L3523" tabindex="0" class="raw-line-number" aria-label="第 3523 行">3523</a><span>到底这个我们的这个vertical agent到底会不会被模型吞食掉。我觉得这个答案在风中飘。</span></div>
+<div class="raw-line" id="L3524"><a href="#L3524" tabindex="0" class="raw-line-number" aria-label="第 3524 行">3524</a><span></span></div>
+<div class="raw-line" id="L3525"><a href="#L3525" tabindex="0" class="raw-line-number" aria-label="第 3525 行">3525</a><span>呃，但是就是比较practical，比较practical的这个创业者们往地下钻的，或者这个就是呃，今年很多教授创业，</span></div>
+<div class="raw-line" id="L3526"><a href="#L3526" tabindex="0" class="raw-line-number" aria-label="第 3526 行">3526</a><span></span></div>
+<div class="raw-line" id="L3527"><a href="#L3527" tabindex="0" class="raw-line-number" aria-label="第 3527 行">3527</a><span>PhD创业，做science，做生物，呃，做这个AI EDA，我觉得这个开始呃，非常的多。</span></div>
+<div class="raw-line" id="L3528"><a href="#L3528" tabindex="0" class="raw-line-number" aria-label="第 3528 行">3528</a><span></span></div>
+<div class="raw-line" id="L3529"><a href="#L3529" tabindex="0" class="raw-line-number" aria-label="第 3529 行">3529</a><span>所所以这是如果有一个这个比较简单的画面感来描述我对这一年的这个创业市场的感受，大概是这样的。</span></div>
+<div class="raw-line" id="L3530"><a href="#L3530" tabindex="0" class="raw-line-number" aria-label="第 3530 行">3530</a><span></span></div>
+<div class="raw-line" id="L3531"><a href="#L3531" tabindex="0" class="raw-line-number" aria-label="第 3531 行">3531</a><span>我觉得去开也可以分享一下，因为呃，你应该接触了不同的这样的投资机构，比如说FA这件事情，不管是从创业者的角度，</span></div>
+<div class="raw-line" id="L3532"><a href="#L3532" tabindex="0" class="raw-line-number" aria-label="第 3532 行">3532</a><span></span></div>
+<div class="raw-line" id="L3533"><a href="#L3533" tabindex="0" class="raw-line-number" aria-label="第 3533 行">3533</a><span>或你观察到的投资人就是今年最大的变化，分别是什么。</span></div>
+<div class="raw-line" id="L3534"><a href="#L3534" tabindex="0" class="raw-line-number" aria-label="第 3534 行">3534</a><span></span></div>
+<div class="raw-line" id="L3535"><a href="#L3535" tabindex="0" class="raw-line-number" aria-label="第 3535 行">3535</a><span>嗯，呃，我觉得我们接触的所有人，包括投资人、创业者、投资人甚至包括一二级的创业者，一二级的投资人，</span></div>
+<div class="raw-line" id="L3536"><a href="#L3536" tabindex="0" class="raw-line-number" aria-label="第 3536 行">3536</a><span></span></div>
+<div class="raw-line" id="L3537"><a href="#L3537" tabindex="0" class="raw-line-number" aria-label="第 3537 行">3537</a><span>大家其实现在都是很焦虑的一个状态。</span></div>
+<div class="raw-line" id="L3538"><a href="#L3538" tabindex="0" class="raw-line-number" aria-label="第 3538 行">3538</a><span></span></div>
+<div class="raw-line" id="L3539"><a href="#L3539" tabindex="0" class="raw-line-number" aria-label="第 3539 行">3539</a><span>我觉得过去几年大家都跑得太快了啊，就是拿钱多的，比如很后期的他焦虑的是说，哎，我资本市场怎么变化，</span></div>
+<div class="raw-line" id="L3540"><a href="#L3540" tabindex="0" class="raw-line-number" aria-label="第 3540 行">3540</a><span></span></div>
+<div class="raw-line" id="L3541"><a href="#L3541" tabindex="0" class="raw-line-number" aria-label="第 3541 行">3541</a><span>我还能不能上市敲钟，对吧？</span></div>
+<div class="raw-line" id="L3542"><a href="#L3542" tabindex="0" class="raw-line-number" aria-label="第 3542 行">3542</a><span></span></div>
+<div class="raw-line" id="L3543"><a href="#L3543" tabindex="0" class="raw-line-number" aria-label="第 3543 行">3543</a><span>然后然后中型的公司可能也有很多拿钱很多的，但是他焦虑的说，哎，这个热点过去了，我这个模型还去不去，然后我产品还出不出得来，我要不要转型，</span></div>
+<div class="raw-line" id="L3544"><a href="#L3544" tabindex="0" class="raw-line-number" aria-label="第 3544 行">3544</a><span></span></div>
+<div class="raw-line" id="L3545"><a href="#L3545" tabindex="0" class="raw-line-number" aria-label="第 3545 行">3545</a><span>拿钱更少的就更焦虑了。</span></div>
+<div class="raw-line" id="L3546"><a href="#L3546" tabindex="0" class="raw-line-number" aria-label="第 3546 行">3546</a><span></span></div>
+<div class="raw-line" id="L3547"><a href="#L3547" tabindex="0" class="raw-line-number" aria-label="第 3547 行">3547</a><span>这个产品更做不出来，deliver不出来结果，那后面怎么办啊？</span></div>
+<div class="raw-line" id="L3548"><a href="#L3548" tabindex="0" class="raw-line-number" aria-label="第 3548 行">3548</a><span></span></div>
+<div class="raw-line" id="L3549"><a href="#L3549" tabindex="0" class="raw-line-number" aria-label="第 3549 行">3549</a><span>投资人呢，也焦虑，对吧？</span></div>
+<div class="raw-line" id="L3550"><a href="#L3550" tabindex="0" class="raw-line-number" aria-label="第 3550 行">3550</a><span></span></div>
+<div class="raw-line" id="L3551"><a href="#L3551" tabindex="0" class="raw-line-number" aria-label="第 3551 行">3551</a><span>到底投什么好，是吧？</span></div>
+<div class="raw-line" id="L3552"><a href="#L3552" tabindex="0" class="raw-line-number" aria-label="第 3552 行">3552</a><span></span></div>
+<div class="raw-line" id="L3553"><a href="#L3553" tabindex="0" class="raw-line-number" aria-label="第 3553 行">3553</a><span>大家跟着很多市场热点走，那二级市场也焦虑，对吧？</span></div>
+<div class="raw-line" id="L3554"><a href="#L3554" tabindex="0" class="raw-line-number" aria-label="第 3554 行">3554</a><span></span></div>
+<div class="raw-line" id="L3555"><a href="#L3555" tabindex="0" class="raw-line-number" aria-label="第 3555 行">3555</a><span>就是总觉得好像AI泡沫，总动不动就要破，对吧？</span></div>
+<div class="raw-line" id="L3556"><a href="#L3556" tabindex="0" class="raw-line-number" aria-label="第 3556 行">3556</a><span></span></div>
+<div class="raw-line" id="L3557"><a href="#L3557" tabindex="0" class="raw-line-number" aria-label="第 3557 行">3557</a><span>那最后到底破不破啊？</span></div>
+<div class="raw-line" id="L3558"><a href="#L3558" tabindex="0" class="raw-line-number" aria-label="第 3558 行">3558</a><span></span></div>
+<div class="raw-line" id="L3559"><a href="#L3559" tabindex="0" class="raw-line-number" aria-label="第 3559 行">3559</a><span>所以我觉得大家都是非常焦虑的状态。</span></div>
+<div class="raw-line" id="L3560"><a href="#L3560" tabindex="0" class="raw-line-number" aria-label="第 3560 行">3560</a><span></span></div>
+<div class="raw-line" id="L3561"><a href="#L3561" tabindex="0" class="raw-line-number" aria-label="第 3561 行">3561</a><span>然后包括像刚才科技讲的，就是创创业者很多时候不知道该做什么，或者做完了他要不断转型。</span></div>
+<div class="raw-line" id="L3562"><a href="#L3562" tabindex="0" class="raw-line-number" aria-label="第 3562 行">3562</a><span></span></div>
+<div class="raw-line" id="L3563"><a href="#L3563" tabindex="0" class="raw-line-number" aria-label="第 3563 行">3563</a><span>我觉得这个是一个我我我自己会觉得是一个挺不好的状态。</span></div>
+<div class="raw-line" id="L3564"><a href="#L3564" tabindex="0" class="raw-line-number" aria-label="第 3564 行">3564</a><span></span></div>
+<div class="raw-line" id="L3565"><a href="#L3565" tabindex="0" class="raw-line-number" aria-label="第 3565 行">3565</a><span>说实话，我自己甚至于会更怀念23、24年，那个时候虽然市场有非常多的非共识，然后大家也有点不知道能做什么，但但我觉得那时候大家更纯粹，更单纯，</span></div>
+<div class="raw-line" id="L3566"><a href="#L3566" tabindex="0" class="raw-line-number" aria-label="第 3566 行">3566</a><span></span></div>
+<div class="raw-line" id="L3567"><a href="#L3567" tabindex="0" class="raw-line-number" aria-label="第 3567 行">3567</a><span>大家劲往一起使啊。</span></div>
+<div class="raw-line" id="L3568"><a href="#L3568" tabindex="0" class="raw-line-number" aria-label="第 3568 行">3568</a><span></span></div>
+<div class="raw-line" id="L3569"><a href="#L3569" tabindex="0" class="raw-line-number" aria-label="第 3569 行">3569</a><span>在今天的我们听的最多的是模型解锁了什么能力，呃，然后大家呢说我讲个什么故事是最新的模型带来的能力。</span></div>
+<div class="raw-line" id="L3570"><a href="#L3570" tabindex="0" class="raw-line-number" aria-label="第 3570 行">3570</a><span></span></div>
+<div class="raw-line" id="L3571"><a href="#L3571" tabindex="0" class="raw-line-number" aria-label="第 3571 行">3571</a><span>但因为我我们都在市场里非常多年了，对吧？</span></div>
+<div class="raw-line" id="L3572"><a href="#L3572" tabindex="0" class="raw-line-number" aria-label="第 3572 行">3572</a><span></span></div>
+<div class="raw-line" id="L3573"><a href="#L3573" tabindex="0" class="raw-line-number" aria-label="第 3573 行">3573</a><span>基本上都是我最早10年前做VC的时候，大家聊第一反应难道不是应该聊用户的需求是什么？</span></div>
+<div class="raw-line" id="L3574"><a href="#L3574" tabindex="0" class="raw-line-number" aria-label="第 3574 行">3574</a><span></span></div>
+<div class="raw-line" id="L3575"><a href="#L3575" tabindex="0" class="raw-line-number" aria-label="第 3575 行">3575</a><span>我怎么解决用户的某个需求？</span></div>
+<div class="raw-line" id="L3576"><a href="#L3576" tabindex="0" class="raw-line-number" aria-label="第 3576 行">3576</a><span></span></div>
+<div class="raw-line" id="L3577"><a href="#L3577" tabindex="0" class="raw-line-number" aria-label="第 3577 行">3577</a><span>我觉得现在真的很少听到这些东西啊。</span></div>
+<div class="raw-line" id="L3578"><a href="#L3578" tabindex="0" class="raw-line-number" aria-label="第 3578 行">3578</a><span></span></div>
+<div class="raw-line" id="L3579"><a href="#L3579" tabindex="0" class="raw-line-number" aria-label="第 3579 行">3579</a><span>我所以我还是觉得，呃，最后其实还是第一性原理，对吧？</span></div>
+<div class="raw-line" id="L3580"><a href="#L3580" tabindex="0" class="raw-line-number" aria-label="第 3580 行">3580</a><span></span></div>
+<div class="raw-line" id="L3581"><a href="#L3581" tabindex="0" class="raw-line-number" aria-label="第 3581 行">3581</a><span>还是仍然是你解决的问题是最关键的，而不是去跟着很多现在市场的噪音去讲很多的故事吧。</span></div>
+<div class="raw-line" id="L3582"><a href="#L3582" tabindex="0" class="raw-line-number" aria-label="第 3582 行">3582</a><span></span></div>
+<div class="raw-line" id="L3583"><a href="#L3583" tabindex="0" class="raw-line-number" aria-label="第 3583 行">3583</a><span>谢谢，谢谢。</span></div>
+<div class="raw-line" id="L3584"><a href="#L3584" tabindex="0" class="raw-line-number" aria-label="第 3584 行">3584</a><span></span></div>
+<div class="raw-line" id="L3585"><a href="#L3585" tabindex="0" class="raw-line-number" aria-label="第 3585 行">3585</a><span>然后我第二第二个问题，其实想回到社区，因为其实跟AJ其实今年聊的比较多的，就在于我们会发现呃，不管是在湾区还是在日本，</span></div>
+<div class="raw-line" id="L3586"><a href="#L3586" tabindex="0" class="raw-line-number" aria-label="第 3586 行">3586</a><span></span></div>
+<div class="raw-line" id="L3587"><a href="#L3587" tabindex="0" class="raw-line-number" aria-label="第 3587 行">3587</a><span>真的是就是越来越多的创业者，他们的产品真的非常紧密的跟呃第三方的社区平台或组织做很多的交流。</span></div>
+<div class="raw-line" id="L3588"><a href="#L3588" tabindex="0" class="raw-line-number" aria-label="第 3588 行">3588</a><span></span></div>
+<div class="raw-line" id="L3589"><a href="#L3589" tabindex="0" class="raw-line-number" aria-label="第 3589 行">3589</a><span>其实这里面尤其是线下的，我觉得大家可能能看到很多线上搞很多呃这种爆炸性的go viral病毒式的营销，但是往往忽略线下。</span></div>
+<div class="raw-line" id="L3590"><a href="#L3590" tabindex="0" class="raw-line-number" aria-label="第 3590 行">3590</a><span></span></div>
+<div class="raw-line" id="L3591"><a href="#L3591" tabindex="0" class="raw-line-number" aria-label="第 3591 行">3591</a><span>但是我们其实反而发现线下的效果，有的时候比线上还好，因为你能真实的面对你的用户。</span></div>
+<div class="raw-line" id="L3592"><a href="#L3592" tabindex="0" class="raw-line-number" aria-label="第 3592 行">3592</a><span></span></div>
+<div class="raw-line" id="L3593"><a href="#L3593" tabindex="0" class="raw-line-number" aria-label="第 3593 行">3593</a><span>所以其实从也是从AJ开始，我觉得可以跟大家分享一下，就是如果作为一个创业者，或你今年看到比较好的一些案例，</span></div>
+<div class="raw-line" id="L3594"><a href="#L3594" tabindex="0" class="raw-line-number" aria-label="第 3594 行">3594</a><span></span></div>
+<div class="raw-line" id="L3595"><a href="#L3595" tabindex="0" class="raw-line-number" aria-label="第 3595 行">3595</a><span>是怎么利用了就是应该是跟呃自己的社区合作，什么样的方式实际上是产生了特别好的效果的。</span></div>
+<div class="raw-line" id="L3596"><a href="#L3596" tabindex="0" class="raw-line-number" aria-label="第 3596 行">3596</a><span></span></div>
+<div class="raw-line" id="L3597"><a href="#L3597" tabindex="0" class="raw-line-number" aria-label="第 3597 行">3597</a><span>我相信AJ这边其实应该有挺多的这样有趣的故事，然后可以挑一个跟大家分享一下，给一些很多在台下也在创业的呃同学们分享一下。</span></div>
+<div class="raw-line" id="L3598"><a href="#L3598" tabindex="0" class="raw-line-number" aria-label="第 3598 行">3598</a><span></span></div>
+<div class="raw-line" id="L3599"><a href="#L3599" tabindex="0" class="raw-line-number" aria-label="第 3599 行">3599</a><span>对，我觉得我们还挺典型的，因为最早的时候就是一个文档，然后文档以后大家觉得是一个静态的东西，怎么能更好的交流。</span></div>
+<div class="raw-line" id="L3600"><a href="#L3600" tabindex="0" class="raw-line-number" aria-label="第 3600 行">3600</a><span></span></div>
+<div class="raw-line" id="L3601"><a href="#L3601" tabindex="0" class="raw-line-number" aria-label="第 3601 行">3601</a><span>所以我们有了微信群、飞书群，现在有上千个大家在里面很活跃在交流。</span></div>
+<div class="raw-line" id="L3602"><a href="#L3602" tabindex="0" class="raw-line-number" aria-label="第 3602 行">3602</a><span></span></div>
+<div class="raw-line" id="L3603"><a href="#L3603" tabindex="0" class="raw-line-number" aria-label="第 3603 行">3603</a><span>后来觉得光在微信上打字还不够，所以我们就开了这种呃会议直播，</span></div>
+<div class="raw-line" id="L3604"><a href="#L3604" tabindex="0" class="raw-line-number" aria-label="第 3604 行">3604</a><span></span></div>
+<div class="raw-line" id="L3605"><a href="#L3605" tabindex="0" class="raw-line-number" aria-label="第 3605 行">3605</a><span>大家上面一起来聊聊天，然后呢，聊多了以后我们都是网友，那最需要的就是线下见面。</span></div>
+<div class="raw-line" id="L3606"><a href="#L3606" tabindex="0" class="raw-line-number" aria-label="第 3606 行">3606</a><span></span></div>
+<div class="raw-line" id="L3607"><a href="#L3607" tabindex="0" class="raw-line-number" aria-label="第 3607 行">3607</a><span>所以我们就开始了一个城市、两个城市、五个城市，到现在52个城市，大家会同时一起在线下见见面和聚会。</span></div>
+<div class="raw-line" id="L3608"><a href="#L3608" tabindex="0" class="raw-line-number" aria-label="第 3608 行">3608</a><span></span></div>
+<div class="raw-line" id="L3609"><a href="#L3609" tabindex="0" class="raw-line-number" aria-label="第 3609 行">3609</a><span>有了线下的这个真挚的碰撞之后，很多人就开始互相之间结对子，不管是搞创业还是说自己做了一个什么业务，</span></div>
+<div class="raw-line" id="L3610"><a href="#L3610" tabindex="0" class="raw-line-number" aria-label="第 3610 行">3610</a><span></span></div>
+<div class="raw-line" id="L3611"><a href="#L3611" tabindex="0" class="raw-line-number" aria-label="第 3611 行">3611</a><span>就可以不用有这种雇佣制。</span></div>
+<div class="raw-line" id="L3612"><a href="#L3612" tabindex="0" class="raw-line-number" aria-label="第 3612 行">3612</a><span></span></div>
+<div class="raw-line" id="L3613"><a href="#L3613" tabindex="0" class="raw-line-number" aria-label="第 3613 行">3613</a><span>我们现在其实在社区里有个好玩的点是，所有的这些伙伴们联系在一起，他到每一个城市的时候都感觉背后有人啊。</span></div>
+<div class="raw-line" id="L3614"><a href="#L3614" tabindex="0" class="raw-line-number" aria-label="第 3614 行">3614</a><span></span></div>
+<div class="raw-line" id="L3615"><a href="#L3615" tabindex="0" class="raw-line-number" aria-label="第 3615 行">3615</a><span>我我接了一个订单，或者是一个需求，他是商务能力比较强，我可以让我去接了订单以后分拨给其他社区里边信任的伙伴。</span></div>
+<div class="raw-line" id="L3616"><a href="#L3616" tabindex="0" class="raw-line-number" aria-label="第 3616 行">3616</a><span></span></div>
+<div class="raw-line" id="L3617"><a href="#L3617" tabindex="0" class="raw-line-number" aria-label="第 3617 行">3617</a><span>那这些信任的伙伴大部分都是在社区里很活跃，或者是在线下有过见面，有过知根知底。</span></div>
+<div class="raw-line" id="L3618"><a href="#L3618" tabindex="0" class="raw-line-number" aria-label="第 3618 行">3618</a><span></span></div>
+<div class="raw-line" id="L3619"><a href="#L3619" tabindex="0" class="raw-line-number" aria-label="第 3619 行">3619</a><span>所以真的社群就是一个大家认识和交往的一个过程啊。</span></div>
+<div class="raw-line" id="L3620"><a href="#L3620" tabindex="0" class="raw-line-number" aria-label="第 3620 行">3620</a><span></span></div>
+<div class="raw-line" id="L3621"><a href="#L3621" tabindex="0" class="raw-line-number" aria-label="第 3621 行">3621</a><span>然后我知道你的性格、品性，或者是你的交付能力到底怎么样，大家在一次两次的见面和呃过程中，就会陆陆续续产生这样的化学反应。</span></div>
+<div class="raw-line" id="L3622"><a href="#L3622" tabindex="0" class="raw-line-number" aria-label="第 3622 行">3622</a><span></span></div>
+<div class="raw-line" id="L3623"><a href="#L3623" tabindex="0" class="raw-line-number" aria-label="第 3623 行">3623</a><span>所以我们也嗅到了这个趋势，我们不只是搞线下的活动，我们也搞真正的今年我们的重点就是在搞这个线下的实体空间啊。</span></div>
+<div class="raw-line" id="L3624"><a href="#L3624" tabindex="0" class="raw-line-number" aria-label="第 3624 行">3624</a><span></span></div>
+<div class="raw-line" id="L3625"><a href="#L3625" tabindex="0" class="raw-line-number" aria-label="第 3625 行">3625</a><span>从每个月见面到每一天，我们都可以大家住在一起，然后来一栋楼，大家来创业上班，减少了很多信息差，</span></div>
+<div class="raw-line" id="L3626"><a href="#L3626" tabindex="0" class="raw-line-number" aria-label="第 3626 行">3626</a><span></span></div>
+<div class="raw-line" id="L3627"><a href="#L3627" tabindex="0" class="raw-line-number" aria-label="第 3627 行">3627</a><span>以及并且有非常多的机会是直接找到整个来到园区参观，然后说哎，我这有一个需求，一个机会来给到大家。</span></div>
+<div class="raw-line" id="L3628"><a href="#L3628" tabindex="0" class="raw-line-number" aria-label="第 3628 行">3628</a><span></span></div>
+<div class="raw-line" id="L3629"><a href="#L3629" tabindex="0" class="raw-line-number" aria-label="第 3629 行">3629</a><span>所以有一个这个集群的效果，我觉得这种氛围还是慢慢可以通过线下见面来做一些打造的。</span></div>
+<div class="raw-line" id="L3630"><a href="#L3630" tabindex="0" class="raw-line-number" aria-label="第 3630 行">3630</a><span></span></div>
+<div class="raw-line" id="L3631"><a href="#L3631" tabindex="0" class="raw-line-number" aria-label="第 3631 行">3631</a><span>就另外还有一个点是，我觉得社区有一个好处，很多我们在社区里面挖挖掘和发现，他们有做了一些好的项目，然后呢，</span></div>
+<div class="raw-line" id="L3632"><a href="#L3632" tabindex="0" class="raw-line-number" aria-label="第 3632 行">3632</a><span></span></div>
+<div class="raw-line" id="L3633"><a href="#L3633" tabindex="0" class="raw-line-number" aria-label="第 3633 行">3633</a><span>他们在做自己的产品发布的第一时间，就会想到说我能不能来社区发布啊。</span></div>
+<div class="raw-line" id="L3634"><a href="#L3634" tabindex="0" class="raw-line-number" aria-label="第 3634 行">3634</a><span></span></div>
+<div class="raw-line" id="L3635"><a href="#L3635" tabindex="0" class="raw-line-number" aria-label="第 3635 行">3635</a><span>比如说我们有一个小伙伴，他就做了一个短漫剧的一个工具，来社区以后做了一场直播啊，当天就有200个新增用户，</span></div>
+<div class="raw-line" id="L3636"><a href="#L3636" tabindex="0" class="raw-line-number" aria-label="第 3636 行">3636</a><span></span></div>
+<div class="raw-line" id="L3637"><a href="#L3637" tabindex="0" class="raw-line-number" aria-label="第 3637 行">3637</a><span>每那个月就卖出去了十几万的呃很不错的这个业绩。</span></div>
+<div class="raw-line" id="L3638"><a href="#L3638" tabindex="0" class="raw-line-number" aria-label="第 3638 行">3638</a><span></span></div>
+<div class="raw-line" id="L3639"><a href="#L3639" tabindex="0" class="raw-line-number" aria-label="第 3639 行">3639</a><span>所以他就得到了一个正反馈，因为社区的小伙伴互相之间都认识了啊，所以很容易达到最好的呃第一时间找到自己的种子用户，</span></div>
+<div class="raw-line" id="L3640"><a href="#L3640" tabindex="0" class="raw-line-number" aria-label="第 3640 行">3640</a><span></span></div>
+<div class="raw-line" id="L3641"><a href="#L3641" tabindex="0" class="raw-line-number" aria-label="第 3641 行">3641</a><span>并且他们会非常真心实意的提出自己的需求和问题。我觉得这是在社区里边混的好处。</span></div>
+<div class="raw-line" id="L3642"><a href="#L3642" tabindex="0" class="raw-line-number" aria-label="第 3642 行">3642</a><span></span></div>
+<div class="raw-line" id="L3643"><a href="#L3643" tabindex="0" class="raw-line-number" aria-label="第 3643 行">3643</a><span>好的，然后我知道这个十字路口其实有这个黑客松哦，有开放麦，有拍开放麦，其实也组织了不同的黑客松。</span></div>
+<div class="raw-line" id="L3644"><a href="#L3644" tabindex="0" class="raw-line-number" aria-label="第 3644 行">3644</a><span></span></div>
+<div class="raw-line" id="L3645"><a href="#L3645" tabindex="0" class="raw-line-number" aria-label="第 3645 行">3645</a><span>当时然后我觉得就是这几场活动当中，</span></div>
+<div class="raw-line" id="L3646"><a href="#L3646" tabindex="0" class="raw-line-number" aria-label="第 3646 行">3646</a><span></span></div>
+<div class="raw-line" id="L3647"><a href="#L3647" tabindex="0" class="raw-line-number" aria-label="第 3647 行">3647</a><span>有没有感觉到就是实际上初创公司跟你们的一些合作，在今年有些好的一些案例，或者一些呃故事可以跟大家分享一下。</span></div>
+<div class="raw-line" id="L3648"><a href="#L3648" tabindex="0" class="raw-line-number" aria-label="第 3648 行">3648</a><span></span></div>
+<div class="raw-line" id="L3649"><a href="#L3649" tabindex="0" class="raw-line-number" aria-label="第 3649 行">3649</a><span>就首先我觉得我们最重要的呃内容是内容，我们最重要的东西是内容，所以我们呃这个呃，但为什么还是做了很多线下活动呢？</span></div>
+<div class="raw-line" id="L3650"><a href="#L3650" tabindex="0" class="raw-line-number" aria-label="第 3650 行">3650</a><span></span></div>
+<div class="raw-line" id="L3651"><a href="#L3651" tabindex="0" class="raw-line-number" aria-label="第 3651 行">3651</a><span>呃可能一个是因为我自己这个比较喜欢组织活动，</span></div>
+<div class="raw-line" id="L3652"><a href="#L3652" tabindex="0" class="raw-line-number" aria-label="第 3652 行">3652</a><span></span></div>
+<div class="raw-line" id="L3653"><a href="#L3653" tabindex="0" class="raw-line-number" aria-label="第 3653 行">3653</a><span>然后第二个是我觉得这个呃大家在线下见面能够发生的chemistry是线上取代不了的。</span></div>
+<div class="raw-line" id="L3654"><a href="#L3654" tabindex="0" class="raw-line-number" aria-label="第 3654 行">3654</a><span></span></div>
+<div class="raw-line" id="L3655"><a href="#L3655" tabindex="0" class="raw-line-number" aria-label="第 3655 行">3655</a><span>呃所以就是每次做线下活动，就就是会有很多人给我们鼓励啊，就觉得哎，组织这样的活动让我有收获。</span></div>
+<div class="raw-line" id="L3656"><a href="#L3656" tabindex="0" class="raw-line-number" aria-label="第 3656 行">3656</a><span></span></div>
+<div class="raw-line" id="L3657"><a href="#L3657" tabindex="0" class="raw-line-number" aria-label="第 3657 行">3657</a><span>所以这样的鼓励就让我们就坚持一直在往下做。</span></div>
+<div class="raw-line" id="L3658"><a href="#L3658" tabindex="0" class="raw-line-number" aria-label="第 3658 行">3658</a><span></span></div>
+<div class="raw-line" id="L3659"><a href="#L3659" tabindex="0" class="raw-line-number" aria-label="第 3659 行">3659</a><span>呃最近我们做了一个很有趣的活动，之后应该也会做第二场，大家可以听一听，感兴趣可以来参加。</span></div>
+<div class="raw-line" id="L3660"><a href="#L3660" tabindex="0" class="raw-line-number" aria-label="第 3660 行">3660</a><span></span></div>
+<div class="raw-line" id="L3661"><a href="#L3661" tabindex="0" class="raw-line-number" aria-label="第 3661 行">3661</a><span>就我们之前觉得，比如说像这样的活动，呃到了现场可能呃能够和原来熟悉的人认识，呃和熟悉的人聊聊天，</span></div>
+<div class="raw-line" id="L3662"><a href="#L3662" tabindex="0" class="raw-line-number" aria-label="第 3662 行">3662</a><span></span></div>
+<div class="raw-line" id="L3663"><a href="#L3663" tabindex="0" class="raw-line-number" aria-label="第 3663 行">3663</a><span>但是你能认识的陌生人的数量可能不多啊，</span></div>
+<div class="raw-line" id="L3664"><a href="#L3664" tabindex="0" class="raw-line-number" aria-label="第 3664 行">3664</a><span></span></div>
+<div class="raw-line" id="L3665"><a href="#L3665" tabindex="0" class="raw-line-number" aria-label="第 3665 行">3665</a><span>或者你得通过朋友介绍，对吧？</span></div>
+<div class="raw-line" id="L3666"><a href="#L3666" tabindex="0" class="raw-line-number" aria-label="第 3666 行">3666</a><span></span></div>
+<div class="raw-line" id="L3667"><a href="#L3667" tabindex="0" class="raw-line-number" aria-label="第 3667 行">3667</a><span>呃所以最近我们和有一个呃公司叫做Table for Six一起发发起了一个联联名的活动，那是什么呢？</span></div>
+<div class="raw-line" id="L3668"><a href="#L3668" tabindex="0" class="raw-line-number" aria-label="第 3668 行">3668</a><span></span></div>
+<div class="raw-line" id="L3669"><a href="#L3669" tabindex="0" class="raw-line-number" aria-label="第 3669 行">3669</a><span>就你报名之后，然后他会把6个人分成一个小组，然后告诉你们今天晚上比如说在上海静安区某一个酒吧的某一个桌子啊，</span></div>
+<div class="raw-line" id="L3670"><a href="#L3670" tabindex="0" class="raw-line-number" aria-label="第 3670 行">3670</a><span></span></div>
+<div class="raw-line" id="L3671"><a href="#L3671" tabindex="0" class="raw-line-number" aria-label="第 3671 行">3671</a><span>那就是你们的据点。</span></div>
+<div class="raw-line" id="L3672"><a href="#L3672" tabindex="0" class="raw-line-number" aria-label="第 3672 行">3672</a><span></span></div>
+<div class="raw-line" id="L3673"><a href="#L3673" tabindex="0" class="raw-line-number" aria-label="第 3673 行">3673</a><span>然后呃我们做这场活动，呃当时就是第一次，我们可能有300多人报名吧，对，所以就可以想象大概有50多桌，</span></div>
+<div class="raw-line" id="L3674"><a href="#L3674" tabindex="0" class="raw-line-number" aria-label="第 3674 行">3674</a><span></span></div>
+<div class="raw-line" id="L3675"><a href="#L3675" tabindex="0" class="raw-line-number" aria-label="第 3675 行">3675</a><span>然后在全国的6个5个城市，然后大家线下6个人一桌，全是陌生人，</span></div>
+<div class="raw-line" id="L3676"><a href="#L3676" tabindex="0" class="raw-line-number" aria-label="第 3676 行">3676</a><span></span></div>
+<div class="raw-line" id="L3677"><a href="#L3677" tabindex="0" class="raw-line-number" aria-label="第 3677 行">3677</a><span>但是都是AI行业的人啊，</span></div>
+<div class="raw-line" id="L3678"><a href="#L3678" tabindex="0" class="raw-line-number" aria-label="第 3678 行">3678</a><span></span></div>
+<div class="raw-line" id="L3679"><a href="#L3679" tabindex="0" class="raw-line-number" aria-label="第 3679 行">3679</a><span>大家可以用这种方式来这个认识新朋友，来扩列。</span></div>
+<div class="raw-line" id="L3680"><a href="#L3680" tabindex="0" class="raw-line-number" aria-label="第 3680 行">3680</a><span></span></div>
+<div class="raw-line" id="L3681"><a href="#L3681" tabindex="0" class="raw-line-number" aria-label="第 3681 行">3681</a><span>呃所以这个是一个这个呃我觉得挺好玩的模式啊，</span></div>
+<div class="raw-line" id="L3682"><a href="#L3682" tabindex="0" class="raw-line-number" aria-label="第 3682 行">3682</a><span></span></div>
+<div class="raw-line" id="L3683"><a href="#L3683" tabindex="0" class="raw-line-number" aria-label="第 3683 行">3683</a><span>我们刚做了第一次，也收到了一些不错的反馈，之后也打算做更多。嗯，第二次有什么计划，在什么时候吗？</span></div>
+<div class="raw-line" id="L3684"><a href="#L3684" tabindex="0" class="raw-line-number" aria-label="第 3684 行">3684</a><span></span></div>
+<div class="raw-line" id="L3685"><a href="#L3685" tabindex="0" class="raw-line-number" aria-label="第 3685 行">3685</a><span>哦，</span></div>
+<div class="raw-line" id="L3686"><a href="#L3686" tabindex="0" class="raw-line-number" aria-label="第 3686 行">3686</a><span></span></div>
+<div class="raw-line" id="L3687"><a href="#L3687" tabindex="0" class="raw-line-number" aria-label="第 3687 行">3687</a><span>目前还没有定时间。</span></div>
+<div class="raw-line" id="L3688"><a href="#L3688" tabindex="0" class="raw-line-number" aria-label="第 3688 行">3688</a><span></span></div>
+<div class="raw-line" id="L3689"><a href="#L3689" tabindex="0" class="raw-line-number" aria-label="第 3689 行">3689</a><span>好的，</span></div>
+<div class="raw-line" id="L3690"><a href="#L3690" tabindex="0" class="raw-line-number" aria-label="第 3690 行">3690</a><span></span></div>
+<div class="raw-line" id="L3691"><a href="#L3691" tabindex="0" class="raw-line-number" aria-label="第 3691 行">3691</a><span>等大家可以关注那个十字路口的公众号。好，谢谢。</span></div>
+<div class="raw-line" id="L3692"><a href="#L3692" tabindex="0" class="raw-line-number" aria-label="第 3692 行">3692</a><span></span></div>
+<div class="raw-line" id="L3693"><a href="#L3693" tabindex="0" class="raw-line-number" aria-label="第 3693 行">3693</a><span>然后哎，那呃去开老师就是这个，我知道就是你肯定内容是你最核心的一块，跟创业者建立联系的，不管是媒体啊、博客啊，</span></div>
+<div class="raw-line" id="L3694"><a href="#L3694" tabindex="0" class="raw-line-number" aria-label="第 3694 行">3694</a><span></span></div>
+<div class="raw-line" id="L3695"><a href="#L3695" tabindex="0" class="raw-line-number" aria-label="第 3695 行">3695</a><span>然后第二块是我看到也会根据每期博客的内容，其实组织线下的探讨，还有线下的线上和线下的探讨都有。</span></div>
+<div class="raw-line" id="L3696"><a href="#L3696" tabindex="0" class="raw-line-number" aria-label="第 3696 行">3696</a><span></span></div>
+<div class="raw-line" id="L3697"><a href="#L3697" tabindex="0" class="raw-line-number" aria-label="第 3697 行">3697</a><span>我觉得在这个过程当中，其实你会看到的是说，对于你服务的，不管是创业者还是这个观众来说，这里面你觉得可能最大价值是什么？</span></div>
+<div class="raw-line" id="L3698"><a href="#L3698" tabindex="0" class="raw-line-number" aria-label="第 3698 行">3698</a><span></span></div>
+<div class="raw-line" id="L3699"><a href="#L3699" tabindex="0" class="raw-line-number" aria-label="第 3699 行">3699</a><span>然后二是说话，其实大家一般来说，创业者会从你这里得到的一些呃受益又会在哪里？</span></div>
+<div class="raw-line" id="L3700"><a href="#L3700" tabindex="0" class="raw-line-number" aria-label="第 3700 行">3700</a><span></span></div>
+<div class="raw-line" id="L3701"><a href="#L3701" tabindex="0" class="raw-line-number" aria-label="第 3701 行">3701</a><span>呃我我觉得分两方面来讲啊，首先对于我们自己来讲，包括刚才其他的嘉宾也提到，他们做了很多活动，</span></div>
+<div class="raw-line" id="L3702"><a href="#L3702" tabindex="0" class="raw-line-number" aria-label="第 3702 行">3702</a><span></span></div>
+<div class="raw-line" id="L3703"><a href="#L3703" tabindex="0" class="raw-line-number" aria-label="第 3703 行">3703</a><span>对我们来讲，他其实就是你的一个工具箱啊，就是我们会做线上活动，会做线下活动，</span></div>
+<div class="raw-line" id="L3704"><a href="#L3704" tabindex="0" class="raw-line-number" aria-label="第 3704 行">3704</a><span></span></div>
+<div class="raw-line" id="L3705"><a href="#L3705" tabindex="0" class="raw-line-number" aria-label="第 3705 行">3705</a><span>会做多人的，会做人少的啊，但关键是每个活动其实他都有自己清晰的局限，他的优点和缺点啊，</span></div>
+<div class="raw-line" id="L3706"><a href="#L3706" tabindex="0" class="raw-line-number" aria-label="第 3706 行">3706</a><span></span></div>
+<div class="raw-line" id="L3707"><a href="#L3707" tabindex="0" class="raw-line-number" aria-label="第 3707 行">3707</a><span>就是我们用更运营的思路去想清楚每个活动，我们想要的是什么，他可能能带来的是什么。</span></div>
+<div class="raw-line" id="L3708"><a href="#L3708" tabindex="0" class="raw-line-number" aria-label="第 3708 行">3708</a><span></span></div>
+<div class="raw-line" id="L3709"><a href="#L3709" tabindex="0" class="raw-line-number" aria-label="第 3709 行">3709</a><span>呃然后从创业者角度来讲，他来参加我们的活动，</span></div>
+<div class="raw-line" id="L3710"><a href="#L3710" tabindex="0" class="raw-line-number" aria-label="第 3710 行">3710</a><span></span></div>
+<div class="raw-line" id="L3711"><a href="#L3711" tabindex="0" class="raw-line-number" aria-label="第 3711 行">3711</a><span>呃我觉得大家可能可能跟大家想的不一样，我们这么多博客的嘉宾，呃可能很多人会觉得他是为了来做PR的，实际上我们跟大家交流下来，</span></div>
+<div class="raw-line" id="L3712"><a href="#L3712" tabindex="0" class="raw-line-number" aria-label="第 3712 行">3712</a><span></span></div>
+<div class="raw-line" id="L3713"><a href="#L3713" tabindex="0" class="raw-line-number" aria-label="第 3713 行">3713</a><span>所有的嘉宾来最多的占比是他想招人啊，招聘反而是大家最核心的诉求，来至少是来我们博客去讲东西的人。</span></div>
+<div class="raw-line" id="L3714"><a href="#L3714" tabindex="0" class="raw-line-number" aria-label="第 3714 行">3714</a><span></span></div>
+<div class="raw-line" id="L3715"><a href="#L3715" tabindex="0" class="raw-line-number" aria-label="第 3715 行">3715</a><span>呃再有呢，就是创业者们，他希望说有些新的输入，认识些新的人，甚至于说是有些情感上的这种位阶，</span></div>
+<div class="raw-line" id="L3716"><a href="#L3716" tabindex="0" class="raw-line-number" aria-label="第 3716 行">3716</a><span></span></div>
+<div class="raw-line" id="L3717"><a href="#L3717" tabindex="0" class="raw-line-number" aria-label="第 3717 行">3717</a><span>就像我们小时候可能大家如果参加过像新东方的那个英语培训一样，对吧？</span></div>
+<div class="raw-line" id="L3718"><a href="#L3718" tabindex="0" class="raw-line-number" aria-label="第 3718 行">3718</a><span></span></div>
+<div class="raw-line" id="L3719"><a href="#L3719" tabindex="0" class="raw-line-number" aria-label="第 3719 行">3719</a><span>你回去想一想，好像一周也没讲什么东西，但是就打了鸡血，对吧？</span></div>
+<div class="raw-line" id="L3720"><a href="#L3720" tabindex="0" class="raw-line-number" aria-label="第 3720 行">3720</a><span></span></div>
+<div class="raw-line" id="L3721"><a href="#L3721" tabindex="0" class="raw-line-number" aria-label="第 3721 行">3721</a><span>后面更有干劲啊，我觉得这个也是很重要的一方面嘛。</span></div>
+<div class="raw-line" id="L3722"><a href="#L3722" tabindex="0" class="raw-line-number" aria-label="第 3722 行">3722</a><span></span></div>
+<div class="raw-line" id="L3723"><a href="#L3723" tabindex="0" class="raw-line-number" aria-label="第 3723 行">3723</a><span>对，然后那其实我呃就还有一个问题，可能是作为很多创业者，我们也经常会被问到的，</span></div>
+<div class="raw-line" id="L3724"><a href="#L3724" tabindex="0" class="raw-line-number" aria-label="第 3724 行">3724</a><span></span></div>
+<div class="raw-line" id="L3725"><a href="#L3725" tabindex="0" class="raw-line-number" aria-label="第 3725 行">3725</a><span>就是呃怎么样的形式算是一个比较好的，不管是PR的形式，或者跟媒体合作的形式。</span></div>
+<div class="raw-line" id="L3726"><a href="#L3726" tabindex="0" class="raw-line-number" aria-label="第 3726 行">3726</a><span></span></div>
+<div class="raw-line" id="L3727"><a href="#L3727" tabindex="0" class="raw-line-number" aria-label="第 3727 行">3727</a><span>那就是这一块中的话，其实你刚才曲凯讲到了，就是不管是这是为了招聘，或者是为了融资，那什么样的一个节奏啊，</span></div>
+<div class="raw-line" id="L3728"><a href="#L3728" tabindex="0" class="raw-line-number" aria-label="第 3728 行">3728</a><span></span></div>
+<div class="raw-line" id="L3729"><a href="#L3729" tabindex="0" class="raw-line-number" aria-label="第 3729 行">3729</a><span>什么时候该去，可能是跟大家联系去做一些呃这个呃这个播客合作也好啊，内容合作也好，是一个比较好的一个时间点。</span></div>
+<div class="raw-line" id="L3730"><a href="#L3730" tabindex="0" class="raw-line-number" aria-label="第 3730 行">3730</a><span></span></div>
+<div class="raw-line" id="L3731"><a href="#L3731" tabindex="0" class="raw-line-number" aria-label="第 3731 行">3731</a><span>我觉得这个可能也是我刚才想到的，其实挺多创业者在今年会问到的。</span></div>
+<div class="raw-line" id="L3732"><a href="#L3732" tabindex="0" class="raw-line-number" aria-label="第 3732 行">3732</a><span></span></div>
+<div class="raw-line" id="L3733"><a href="#L3733" tabindex="0" class="raw-line-number" aria-label="第 3733 行">3733</a><span>我就觉得可以可以这个啊，曲凯可以顺着问题啊，给很多的创业者，或者是哎，就是准备创业的人一些建议。</span></div>
+<div class="raw-line" id="L3734"><a href="#L3734" tabindex="0" class="raw-line-number" aria-label="第 3734 行">3734</a><span></span></div>
+<div class="raw-line" id="L3735"><a href="#L3735" tabindex="0" class="raw-line-number" aria-label="第 3735 行">3735</a><span>嗯嗯，呃我觉得从PR和媒体的角度来讲，我们一直跟所有的想做PR的人会提一个点，就是你要保持你的势能。</span></div>
+<div class="raw-line" id="L3736"><a href="#L3736" tabindex="0" class="raw-line-number" aria-label="第 3736 行">3736</a><span></span></div>
+<div class="raw-line" id="L3737"><a href="#L3737" tabindex="0" class="raw-line-number" aria-label="第 3737 行">3737</a><span>我觉得势能这个点是特别重要的，就有的创业者，他经常我觉得包括投资人说实话，就是他经常出来聊，对吧？</span></div>
+<div class="raw-line" id="L3738"><a href="#L3738" tabindex="0" class="raw-line-number" aria-label="第 3738 行">3738</a><span></span></div>
+<div class="raw-line" id="L3739"><a href="#L3739" tabindex="0" class="raw-line-number" aria-label="第 3739 行">3739</a><span>你发现说哎，这周聊完，下周他又出来聊，</span></div>
+<div class="raw-line" id="L3740"><a href="#L3740" tabindex="0" class="raw-line-number" aria-label="第 3740 行">3740</a><span></span></div>
+<div class="raw-line" id="L3741"><a href="#L3741" tabindex="0" class="raw-line-number" aria-label="第 3741 行">3741</a><span>那你慢慢的就他一个人在有干货，也经不起这么聊，对，那慢慢的这个人大家的感受就是说哎，</span></div>
+<div class="raw-line" id="L3742"><a href="#L3742" tabindex="0" class="raw-line-number" aria-label="第 3742 行">3742</a><span></span></div>
+<div class="raw-line" id="L3743"><a href="#L3743" tabindex="0" class="raw-line-number" aria-label="第 3743 行">3743</a><span>好像聊的内容重复率很高啊之类的啊。</span></div>
+<div class="raw-line" id="L3744"><a href="#L3744" tabindex="0" class="raw-line-number" aria-label="第 3744 行">3744</a><span></span></div>
+<div class="raw-line" id="L3745"><a href="#L3745" tabindex="0" class="raw-line-number" aria-label="第 3745 行">3745</a><span>所以我觉得有的创始人，他一年出来一次，已经很不容易了。</span></div>
+<div class="raw-line" id="L3746"><a href="#L3746" tabindex="0" class="raw-line-number" aria-label="第 3746 行">3746</a><span></span></div>
+<div class="raw-line" id="L3747"><a href="#L3747" tabindex="0" class="raw-line-number" aria-label="第 3747 行">3747</a><span>从我们自己的播客嘉宾来讲啊，你会发现很多人是他积累了10年的职业经历，他能聊一期特别精彩的播客啊，然后他可能要下一期的话，</span></div>
+<div class="raw-line" id="L3748"><a href="#L3748" tabindex="0" class="raw-line-number" aria-label="第 3748 行">3748</a><span></span></div>
+<div class="raw-line" id="L3749"><a href="#L3749" tabindex="0" class="raw-line-number" aria-label="第 3749 行">3749</a><span>他可得再积累个三五年起码。</span></div>
+<div class="raw-line" id="L3750"><a href="#L3750" tabindex="0" class="raw-line-number" aria-label="第 3750 行">3750</a><span></span></div>
+<div class="raw-line" id="L3751"><a href="#L3751" tabindex="0" class="raw-line-number" aria-label="第 3751 行">3751</a><span>哎，所以我的建议就是说，你要看你的势能到底准备在什么时候释放啊，然后释放的话怎么样能够针对你不同的人群和渠道去释放。</span></div>
+<div class="raw-line" id="L3752"><a href="#L3752" tabindex="0" class="raw-line-number" aria-label="第 3752 行">3752</a><span></span></div>
+<div class="raw-line" id="L3753"><a href="#L3753" tabindex="0" class="raw-line-number" aria-label="第 3753 行">3753</a><span>哎，因为可能你比如说你有一篇你是要发在这个行业的，你想招的一些researcher相关的这个渠道里面的，有一篇呢，</span></div>
+<div class="raw-line" id="L3754"><a href="#L3754" tabindex="0" class="raw-line-number" aria-label="第 3754 行">3754</a><span></span></div>
+<div class="raw-line" id="L3755"><a href="#L3755" tabindex="0" class="raw-line-number" aria-label="第 3755 行">3755</a><span>你是面向你的终端的C端的用户的，还有一篇呢，你可能是为了给投资人看的，对吧？</span></div>
+<div class="raw-line" id="L3756"><a href="#L3756" tabindex="0" class="raw-line-number" aria-label="第 3756 行">3756</a><span></span></div>
+<div class="raw-line" id="L3757"><a href="#L3757" tabindex="0" class="raw-line-number" aria-label="第 3757 行">3757</a><span>这些我觉得是一个是可以分开的，但总之就是节奏跟势能要把握好。</span></div>
+<div class="raw-line" id="L3758"><a href="#L3758" tabindex="0" class="raw-line-number" aria-label="第 3758 行">3758</a><span></span></div>
+<div class="raw-line" id="L3759"><a href="#L3759" tabindex="0" class="raw-line-number" aria-label="第 3759 行">3759</a><span>然后可能科举也可以分享一下， 因为你肯定也接触了，应该是更多的，不管是早期的创业者，还是很成熟阶段的researcher这些，</span></div>
+<div class="raw-line" id="L3760"><a href="#L3760" tabindex="0" class="raw-line-number" aria-label="第 3760 行">3760</a><span></span></div>
+<div class="raw-line" id="L3761"><a href="#L3761" tabindex="0" class="raw-line-number" aria-label="第 3761 行">3761</a><span>那你觉得可能跟一个社区跟一个媒体合作比较好的节奏，或者给他们什么建议？</span></div>
+<div class="raw-line" id="L3762"><a href="#L3762" tabindex="0" class="raw-line-number" aria-label="第 3762 行">3762</a><span></span></div>
+<div class="raw-line" id="L3763"><a href="#L3763" tabindex="0" class="raw-line-number" aria-label="第 3763 行">3763</a><span>呃我觉得曲凯讲这个非常好啊，就是呃每一次出来都是要精心的准备，要确定你讲的东西是有价值的，呃我就补充一点，</span></div>
+<div class="raw-line" id="L3764"><a href="#L3764" tabindex="0" class="raw-line-number" aria-label="第 3764 行">3764</a><span></span></div>
+<div class="raw-line" id="L3765"><a href="#L3765" tabindex="0" class="raw-line-number" aria-label="第 3765 行">3765</a><span>就是怎么确定自己讲的东西是有价值的。</span></div>
+<div class="raw-line" id="L3766"><a href="#L3766" tabindex="0" class="raw-line-number" aria-label="第 3766 行">3766</a><span></span></div>
+<div class="raw-line" id="L3767"><a href="#L3767" tabindex="0" class="raw-line-number" aria-label="第 3767 行">3767</a><span>所以我觉得其实做PR也可以和做产品一样，就是把做产品的一些方法放到做PR上面来，比如第一是灰度发布，</span></div>
+<div class="raw-line" id="L3768"><a href="#L3768" tabindex="0" class="raw-line-number" aria-label="第 3768 行">3768</a><span></span></div>
+<div class="raw-line" id="L3769"><a href="#L3769" tabindex="0" class="raw-line-number" aria-label="第 3769 行">3769</a><span>你可以先这个找几个朋友，你讲给他们听，你准备讲的叙事是什么，然后请他们给你这个feedback啊，然后就像做产品一样，做灰度发布，</span></div>
+<div class="raw-line" id="L3770"><a href="#L3770" tabindex="0" class="raw-line-number" aria-label="第 3770 行">3770</a><span></span></div>
+<div class="raw-line" id="L3771"><a href="#L3771" tabindex="0" class="raw-line-number" aria-label="第 3771 行">3771</a><span>然后第二呢，是我觉得像做产品一样去做用户调研啊，就是呃找到你的这个目标受众，比如说我这一次是发这个PR是ToVC的，</span></div>
+<div class="raw-line" id="L3772"><a href="#L3772" tabindex="0" class="raw-line-number" aria-label="第 3772 行">3772</a><span></span></div>
+<div class="raw-line" id="L3773"><a href="#L3773" tabindex="0" class="raw-line-number" aria-label="第 3773 行">3773</a><span>或下一个PR是To用户的，那这个VC和用户就是你的目标用户，然后提前找到他们，然后听听他们的这个反馈是什么，</span></div>
+<div class="raw-line" id="L3774"><a href="#L3774" tabindex="0" class="raw-line-number" aria-label="第 3774 行">3774</a><span></span></div>
+<div class="raw-line" id="L3775"><a href="#L3775" tabindex="0" class="raw-line-number" aria-label="第 3775 行">3775</a><span>然后第三就是我觉得还是要相信专业的人做专业的事情啊，所以我觉得如果你要做一个比较重要的PR之前，</span></div>
+<div class="raw-line" id="L3776"><a href="#L3776" tabindex="0" class="raw-line-number" aria-label="第 3776 行">3776</a><span></span></div>
+<div class="raw-line" id="L3777"><a href="#L3777" tabindex="0" class="raw-line-number" aria-label="第 3777 行">3777</a><span>呃我觉得可以尽量找到身边有过PR经验的创始人朋友，或者这个操盘过PR的这个呃事件的PR的专家，然后听听他们的建议，</span></div>
+<div class="raw-line" id="L3778"><a href="#L3778" tabindex="0" class="raw-line-number" aria-label="第 3778 行">3778</a><span></span></div>
+<div class="raw-line" id="L3779"><a href="#L3779" tabindex="0" class="raw-line-number" aria-label="第 3779 行">3779</a><span>呃我觉得还是这个呃1,000次PR可能是1,000个不同的case，要非常case by case的看，</span></div>
+<div class="raw-line" id="L3780"><a href="#L3780" tabindex="0" class="raw-line-number" aria-label="第 3780 行">3780</a><span></span></div>
+<div class="raw-line" id="L3781"><a href="#L3781" tabindex="0" class="raw-line-number" aria-label="第 3781 行">3781</a><span>所以找到经历过的类似PR的人给到的这个建议，可能是这个最符合情况的，可以可能可能想到这些吧。</span></div>
+<div class="raw-line" id="L3782"><a href="#L3782" tabindex="0" class="raw-line-number" aria-label="第 3782 行">3782</a><span></span></div>
+<div class="raw-line" id="L3783"><a href="#L3783" tabindex="0" class="raw-line-number" aria-label="第 3783 行">3783</a><span>嗯嗯，谢谢啊，谢谢。</span></div>
+<div class="raw-line" id="L3784"><a href="#L3784" tabindex="0" class="raw-line-number" aria-label="第 3784 行">3784</a><span></span></div>
+<div class="raw-line" id="L3785"><a href="#L3785" tabindex="0" class="raw-line-number" aria-label="第 3785 行">3785</a><span>然后呃AJ其实我我可以换一个角度，因为其实很多的公司和我们一起办过很多的活动，大大小小的，</span></div>
+<div class="raw-line" id="L3786"><a href="#L3786" tabindex="0" class="raw-line-number" aria-label="第 3786 行">3786</a><span></span></div>
+<div class="raw-line" id="L3787"><a href="#L3787" tabindex="0" class="raw-line-number" aria-label="第 3787 行">3787</a><span>那我也看到很多初创公司其实不管也在自己办黑客松啊，办这样的活动，其实你怎么定义，其实说应该一个好的准备春风充分的活动是怎么样的，</span></div>
+<div class="raw-line" id="L3788"><a href="#L3788" tabindex="0" class="raw-line-number" aria-label="第 3788 行">3788</a><span></span></div>
+<div class="raw-line" id="L3789"><a href="#L3789" tabindex="0" class="raw-line-number" aria-label="第 3789 行">3789</a><span>然后对于可能不管是开发者工具还是想要办活动的创始人，或者是这个团队来说的话，就是怎么筹备会是一个好的准备工作，然后呃给大家一些怎么样的一些建议。</span></div>
+<div class="raw-line" id="L3790"><a href="#L3790" tabindex="0" class="raw-line-number" aria-label="第 3790 行">3790</a><span></span></div>
+<div class="raw-line" id="L3791"><a href="#L3791" tabindex="0" class="raw-line-number" aria-label="第 3791 行">3791</a><span>对，我真的是参加了无数无数的黑客松，就基本上每一个周末都在参加，我有参加别人的，也有自己host的过的一些，</span></div>
+<div class="raw-line" id="L3792"><a href="#L3792" tabindex="0" class="raw-line-number" aria-label="第 3792 行">3792</a><span></span></div>
+<div class="raw-line" id="L3793"><a href="#L3793" tabindex="0" class="raw-line-number" aria-label="第 3793 行">3793</a><span>我觉得这里最重要的就是如何找到一个很好的PM，他可以把组织工作做得非常好啊，非常尊重所有来的选手，然后让他们没有太多的负担，</span></div>
+<div class="raw-line" id="L3794"><a href="#L3794" tabindex="0" class="raw-line-number" aria-label="第 3794 行">3794</a><span></span></div>
+<div class="raw-line" id="L3795"><a href="#L3795" tabindex="0" class="raw-line-number" aria-label="第 3795 行">3795</a><span>他们专注在做自己的这些项目和作品上，实际上创业也是一样的，嗯啊，我刚才call back一下，</span></div>
+<div class="raw-line" id="L3796"><a href="#L3796" tabindex="0" class="raw-line-number" aria-label="第 3796 行">3796</a><span></span></div>
+<div class="raw-line" id="L3797"><a href="#L3797" tabindex="0" class="raw-line-number" aria-label="第 3797 行">3797</a><span>我是42张金和十字路口的忠实听众啊，我甚至把他们都做成了工作台，然后在里面挖掘一些信息和情报，因为我特别爱听他们，</span></div>
+<div class="raw-line" id="L3798"><a href="#L3798" tabindex="0" class="raw-line-number" aria-label="第 3798 行">3798</a><span></span></div>
+<div class="raw-line" id="L3799"><a href="#L3799" tabindex="0" class="raw-line-number" aria-label="第 3799 行">3799</a><span>因为他们讲的特别有活人味，能够挖掘出来这些创始人们真正的knowhow，我的很多信息真的是来自于这些，</span></div>
+<div class="raw-line" id="L3800"><a href="#L3800" tabindex="0" class="raw-line-number" aria-label="第 3800 行">3800</a><span></span></div>
+<div class="raw-line" id="L3801"><a href="#L3801" tabindex="0" class="raw-line-number" aria-label="第 3801 行">3801</a><span>我觉得大家在讲东西的过程中，可能比真的写一篇稿子要来，就是来的生动的多，而且有一些内容是聊出来的，不是他们准备出来的，嗯哎呦，</span></div>
+<div class="raw-line" id="L3802"><a href="#L3802" tabindex="0" class="raw-line-number" aria-label="第 3802 行">3802</a><span></span></div>
+<div class="raw-line" id="L3803"><a href="#L3803" tabindex="0" class="raw-line-number" aria-label="第 3803 行">3803</a><span>我是忠实听众啊，哈哈哈，特别好，嗯呃，然后呃我我这里边也有一个点，是就是这些创始人或者是自己是产品的founder，</span></div>
+<div class="raw-line" id="L3804"><a href="#L3804" tabindex="0" class="raw-line-number" aria-label="第 3804 行">3804</a><span></span></div>
+<div class="raw-line" id="L3805"><a href="#L3805" tabindex="0" class="raw-line-number" aria-label="第 3805 行">3805</a><span>呃要更多的把自己干货抛出来，因为现在其实从去年到今年，我感觉信息差缩短了特别的特别大，</span></div>
+<div class="raw-line" id="L3806"><a href="#L3806" tabindex="0" class="raw-line-number" aria-label="第 3806 行">3806</a><span></span></div>
+<div class="raw-line" id="L3807"><a href="#L3807" tabindex="0" class="raw-line-number" aria-label="第 3807 行">3807</a><span>就没有太多的信息差了，大家可能被铺天盖地的这些AI产生的内容，或者是大家的这些信息淹没了，</span></div>
+<div class="raw-line" id="L3808"><a href="#L3808" tabindex="0" class="raw-line-number" aria-label="第 3808 行">3808</a><span></span></div>
+<div class="raw-line" id="L3809"><a href="#L3809" tabindex="0" class="raw-line-number" aria-label="第 3809 行">3809</a><span>怎么能够让你亮眼却是越来越难，还有这个产品的差异化太难了，再加上大厂的免费的token，</span></div>
+<div class="raw-line" id="L3810"><a href="#L3810" tabindex="0" class="raw-line-number" aria-label="第 3810 行">3810</a><span></span></div>
+<div class="raw-line" id="L3811"><a href="#L3811" tabindex="0" class="raw-line-number" aria-label="第 3811 行">3811</a><span>各种work agent都都能完成，这种通用的事情，那你怎么能够在这个时代出现更多的亮点，</span></div>
+<div class="raw-line" id="L3812"><a href="#L3812" tabindex="0" class="raw-line-number" aria-label="第 3812 行">3812</a><span></span></div>
+<div class="raw-line" id="L3813"><a href="#L3813" tabindex="0" class="raw-line-number" aria-label="第 3813 行">3813</a><span>我觉得还有一个点是呃稍微可以再独特一点，特立独行一点，然后我们像现在办线下的这些活动，</span></div>
+<div class="raw-line" id="L3814"><a href="#L3814" tabindex="0" class="raw-line-number" aria-label="第 3814 行">3814</a><span></span></div>
+<div class="raw-line" id="L3815"><a href="#L3815" tabindex="0" class="raw-line-number" aria-label="第 3815 行">3815</a><span>我觉得有时候这些产品同学上去路演的时候啊，我我一个感受就是呃中国的这些小伙伴们去presentation的能力稍微弱了点，</span></div>
+<div class="raw-line" id="L3816"><a href="#L3816" tabindex="0" class="raw-line-number" aria-label="第 3816 行">3816</a><span></span></div>
+<div class="raw-line" id="L3817"><a href="#L3817" tabindex="0" class="raw-line-number" aria-label="第 3817 行">3817</a><span>因为我也参加过OpenAI的这种啊dive day的这种路演，他们有那个叫T轮融资，叫token轮融资啊，</span></div>
+<div class="raw-line" id="L3818"><a href="#L3818" tabindex="0" class="raw-line-number" aria-label="第 3818 行">3818</a><span></span></div>
+<div class="raw-line" id="L3819"><a href="#L3819" tabindex="0" class="raw-line-number" aria-label="第 3819 行">3819</a><span>然后去日本参加过，然后去YC的那种，他们路演，我觉得他们就是演讲能力特别强，并且增加了很多用视频化的来表达，</span></div>
+<div class="raw-line" id="L3820"><a href="#L3820" tabindex="0" class="raw-line-number" aria-label="第 3820 行">3820</a><span></span></div>
+<div class="raw-line" id="L3821"><a href="#L3821" tabindex="0" class="raw-line-number" aria-label="第 3821 行">3821</a><span>因为我今天看Manus的同学也在吗，前两天看到张涛发了一篇文章，就说自己的产品团队做的事情是先不叫PRD，叫PRV，</span></div>
+<div class="raw-line" id="L3822"><a href="#L3822" tabindex="0" class="raw-line-number" aria-label="第 3822 行">3822</a><span></span></div>
+<div class="raw-line" id="L3823"><a href="#L3823" tabindex="0" class="raw-line-number" aria-label="第 3823 行">3823</a><span>V是video，就是我可以把一个想要发布的功能和产品先用video的形式来把它launch出来，让很多人能够真用户的角度，</span></div>
+<div class="raw-line" id="L3824"><a href="#L3824" tabindex="0" class="raw-line-number" aria-label="第 3824 行">3824</a><span></span></div>
+<div class="raw-line" id="L3825"><a href="#L3825" tabindex="0" class="raw-line-number" aria-label="第 3825 行">3825</a><span>或者是把所有周边的同事变成用户的角度来看你这场发布到底可不可以，</span></div>
+<div class="raw-line" id="L3826"><a href="#L3826" tabindex="0" class="raw-line-number" aria-label="第 3826 行">3826</a><span></span></div>
+<div class="raw-line" id="L3827"><a href="#L3827" tabindex="0" class="raw-line-number" aria-label="第 3827 行">3827</a><span>你这个产品到底行不行，然后再去反向去做，我觉得这个也是一个很好的手段，大家可以把自己的表达能力提升的更强，</span></div>
+<div class="raw-line" id="L3828"><a href="#L3828" tabindex="0" class="raw-line-number" aria-label="第 3828 行">3828</a><span></span></div>
+<div class="raw-line" id="L3829"><a href="#L3829" tabindex="0" class="raw-line-number" aria-label="第 3829 行">3829</a><span>更呃更好的去go to market的这件事情，可能呃产品也很重要啊，但是这个go to market的这个事情也同等重要，</span></div>
+<div class="raw-line" id="L3830"><a href="#L3830" tabindex="0" class="raw-line-number" aria-label="第 3830 行">3830</a><span></span></div>
+<div class="raw-line" id="L3831"><a href="#L3831" tabindex="0" class="raw-line-number" aria-label="第 3831 行">3831</a><span>所以也可以多多上十字路口跟42金唱金的播客，拿出你的干货，拿出你的很好的产品和作品，以及锻炼一下表达能力。</span></div>
+<div class="raw-line" id="L3832"><a href="#L3832" tabindex="0" class="raw-line-number" aria-label="第 3832 行">3832</a><span></span></div>
+<div class="raw-line" id="L3833"><a href="#L3833" tabindex="0" class="raw-line-number" aria-label="第 3833 行">3833</a><span>好的，我觉得这点非常的同意，可能大家都在点头，我们觉得时间最后3分钟，我觉得可能大家就最后一句话，</span></div>
+<div class="raw-line" id="L3834"><a href="#L3834" tabindex="0" class="raw-line-number" aria-label="第 3834 行">3834</a><span></span></div>
+<div class="raw-line" id="L3835"><a href="#L3835" tabindex="0" class="raw-line-number" aria-label="第 3835 行">3835</a><span>呃但是顺着AJ的问题可以说是给到呃现场的，不管是呃发产品的或者创始人，或者是OPC也好，就是呃有什么样的建议，</span></div>
+<div class="raw-line" id="L3836"><a href="#L3836" tabindex="0" class="raw-line-number" aria-label="第 3836 行">3836</a><span></span></div>
+<div class="raw-line" id="L3837"><a href="#L3837" tabindex="0" class="raw-line-number" aria-label="第 3837 行">3837</a><span>其实在这个时代下能让大家更好的在这个时代发声，就是能让更多的人最快时间的看到，如果一句话给建议的话，你们会是什么，要不先从曲老师开始。</span></div>
+<div class="raw-line" id="L3838"><a href="#L3838" tabindex="0" class="raw-line-number" aria-label="第 3838 行">3838</a><span></span></div>
+<div class="raw-line" id="L3839"><a href="#L3839" tabindex="0" class="raw-line-number" aria-label="第 3839 行">3839</a><span>呃我们我们之前发过一个，我发过一句话，就是媒体最重要的要要能做到的事情，就是热点加干货，或者说热点加深度，</span></div>
+<div class="raw-line" id="L3840"><a href="#L3840" tabindex="0" class="raw-line-number" aria-label="第 3840 行">3840</a><span></span></div>
+<div class="raw-line" id="L3841"><a href="#L3841" tabindex="0" class="raw-line-number" aria-label="第 3841 行">3841</a><span>有的人光追热点没有深度是留存不下来的，但你光有深度没有热点也是起不来的，所以我觉得创业者呢，</span></div>
+<div class="raw-line" id="L3842"><a href="#L3842" tabindex="0" class="raw-line-number" aria-label="第 3842 行">3842</a><span></span></div>
+<div class="raw-line" id="L3843"><a href="#L3843" tabindex="0" class="raw-line-number" aria-label="第 3843 行">3843</a><span>现在做事情也是一样的，对吧，你既要讲故事，也要真的解决用户需求。好的，然后靠近。</span></div>
+<div class="raw-line" id="L3844"><a href="#L3844" tabindex="0" class="raw-line-number" aria-label="第 3844 行">3844</a><span></span></div>
+<div class="raw-line" id="L3845"><a href="#L3845" tabindex="0" class="raw-line-number" aria-label="第 3845 行">3845</a><span>呃我说两句话吧，三句话，呃就是一个是我自己一直特别喜欢的一句话，叫做这个悲观者往往正确，乐观者才能成功，</span></div>
+<div class="raw-line" id="L3846"><a href="#L3846" tabindex="0" class="raw-line-number" aria-label="第 3846 行">3846</a><span></span></div>
+<div class="raw-line" id="L3847"><a href="#L3847" tabindex="0" class="raw-line-number" aria-label="第 3847 行">3847</a><span>尤其是我觉得在最近这几个月，我觉得这个市场还是弥漫着虚无主义的悲观情绪的，呃所以这个给自己打气，也给大家打气，</span></div>
+<div class="raw-line" id="L3848"><a href="#L3848" tabindex="0" class="raw-line-number" aria-label="第 3848 行">3848</a><span></span></div>
+<div class="raw-line" id="L3849"><a href="#L3849" tabindex="0" class="raw-line-number" aria-label="第 3849 行">3849</a><span>然后第二句话是呃因为乐观，我觉得才能一直build，那好的运气一定是在一直build的过程中，</span></div>
+<div class="raw-line" id="L3850"><a href="#L3850" tabindex="0" class="raw-line-number" aria-label="第 3850 行">3850</a><span></span></div>
+<div class="raw-line" id="L3851"><a href="#L3851" tabindex="0" class="raw-line-number" aria-label="第 3851 行">3851</a><span>才会发生的，呃所以大家也要坚持一直build，嗯谢谢。</span></div>
+<div class="raw-line" id="L3852"><a href="#L3852" tabindex="0" class="raw-line-number" aria-label="第 3852 行">3852</a><span></span></div>
+<div class="raw-line" id="L3853"><a href="#L3853" tabindex="0" class="raw-line-number" aria-label="第 3853 行">3853</a><span>我太认同了，我觉得跟你的这个真的完全一致，一我就觉得我自己就是一个非常乐观主义的人，</span></div>
+<div class="raw-line" id="L3854"><a href="#L3854" tabindex="0" class="raw-line-number" aria-label="第 3854 行">3854</a><span></span></div>
+<div class="raw-line" id="L3855"><a href="#L3855" tabindex="0" class="raw-line-number" aria-label="第 3855 行">3855</a><span>所有的事情大家都可以非常开心和积极的去面对，然后另外一个就是wait to AGI，我们就一直在路上，就是不要落队，</span></div>
+<div class="raw-line" id="L3856"><a href="#L3856" tabindex="0" class="raw-line-number" aria-label="第 3856 行">3856</a><span></span></div>
+<div class="raw-line" id="L3857"><a href="#L3857" tabindex="0" class="raw-line-number" aria-label="第 3857 行">3857</a><span>就是你觉得可能现在这个呃做新的这些产品可能很容易被大厂覆盖，但是你可以继续做啊，就是不要就说放弃，</span></div>
+<div class="raw-line" id="L3858"><a href="#L3858" tabindex="0" class="raw-line-number" aria-label="第 3858 行">3858</a><span></span></div>
+<div class="raw-line" id="L3859"><a href="#L3859" tabindex="0" class="raw-line-number" aria-label="第 3859 行">3859</a><span>呃可以就是这么这么好的时代，大家一定要跟着一直在路上，所以一起wait to AGI。</span></div>
+<div class="raw-line" id="L3860"><a href="#L3860" tabindex="0" class="raw-line-number" aria-label="第 3860 行">3860</a><span></span></div>
+<div class="raw-line" id="L3861"><a href="#L3861" tabindex="0" class="raw-line-number" aria-label="第 3861 行">3861</a><span>好的，谢谢，就是如果我我我能想到一句话，或者是作为结尾，就是说如果当大家有迷茫，或者是有在这个这个感到有一些摇摆的时候，</span></div>
+<div class="raw-line" id="L3862"><a href="#L3862" tabindex="0" class="raw-line-number" aria-label="第 3862 行">3862</a><span></span></div>
+<div class="raw-line" id="L3863"><a href="#L3863" tabindex="0" class="raw-line-number" aria-label="第 3863 行">3863</a><span>可以真的多加入不同的社区，wait to AGI的十字路口的42张金的，或者呃我们自己link cloud的活动，</span></div>
+<div class="raw-line" id="L3864"><a href="#L3864" tabindex="0" class="raw-line-number" aria-label="第 3864 行">3864</a><span></span></div>
+<div class="raw-line" id="L3865"><a href="#L3865" tabindex="0" class="raw-line-number" aria-label="第 3865 行">3865</a><span>因为看到同路人在做些什么事情，或在讨论什么样的事情，你真的会有很多意外的收获，会让你收获更多的信心，</span></div>
+<div class="raw-line" id="L3866"><a href="#L3866" tabindex="0" class="raw-line-number" aria-label="第 3866 行">3866</a><span></span></div>
+<div class="raw-line" id="L3867"><a href="#L3867" tabindex="0" class="raw-line-number" aria-label="第 3867 行">3867</a><span>然后看到同路人的坚持，那可能就有一些坚坚持下去的动力。好的，好，那我们这个圆桌就到这里，然后谢谢大家，谢谢。</span></div>
+<div class="raw-line" id="L3868"><a href="#L3868" tabindex="0" class="raw-line-number" aria-label="第 3868 行">3868</a><span></span></div>
+<div class="raw-line" id="L3869"><a href="#L3869" tabindex="0" class="raw-line-number" aria-label="第 3869 行">3869</a><span>好，谢谢，谢谢。</span></div>
+<div class="raw-line" id="L3870"><a href="#L3870" tabindex="0" class="raw-line-number" aria-label="第 3870 行">3870</a><span></span></div>
+<div class="raw-line" id="L3871"><a href="#L3871" tabindex="0" class="raw-line-number" aria-label="第 3871 行">3871</a><span>哦alright，</span></div>
+<div class="raw-line" id="L3872"><a href="#L3872" tabindex="0" class="raw-line-number" aria-label="第 3872 行">3872</a><span></span></div>
+<div class="raw-line" id="L3873"><a href="#L3873" tabindex="0" class="raw-line-number" aria-label="第 3873 行">3873</a><span>呃thank you for my panelist on the stage and this is the end of the this panel and uh so the next呃谢谢大家，</span></div>
+<div class="raw-line" id="L3874"><a href="#L3874" tabindex="0" class="raw-line-number" aria-label="第 3874 行">3874</a><span></span></div>
+<div class="raw-line" id="L3875"><a href="#L3875" tabindex="0" class="raw-line-number" aria-label="第 3875 行">3875</a><span>然后呃the next呃let&#39;s welcome艾琳呃from Stepfarm and she&#39;s gonna give her a speech。</span></div>
+<div class="raw-line" id="L3876"><a href="#L3876" tabindex="0" class="raw-line-number" aria-label="第 3876 行">3876</a><span></span></div>
+<div class="raw-line" id="L3877"><a href="#L3877" tabindex="0" class="raw-line-number" aria-label="第 3877 行">3877</a><span>下一个分享的是来自杰越新城Stepfarm的艾琳，然后大家掌声欢迎。</span></div>
+<div class="raw-line" id="L3878"><a href="#L3878" tabindex="0" class="raw-line-number" aria-label="第 3878 行">3878</a><span></span></div>
+<div class="raw-line" id="L3879"><a href="#L3879" tabindex="0" class="raw-line-number" aria-label="第 3879 行">3879</a><span>Good afternoon everyone,</span></div>
+<div class="raw-line" id="L3880"><a href="#L3880" tabindex="0" class="raw-line-number" aria-label="第 3880 行">3880</a><span>大家下午好。</span></div>
+<div class="raw-line" id="L3881"><a href="#L3881" tabindex="0" class="raw-line-number" aria-label="第 3881 行">3881</a><span></span></div>
+<div class="raw-line" id="L3882"><a href="#L3882" tabindex="0" class="raw-line-number" aria-label="第 3882 行">3882</a><span>I&#39;m Eileen.</span></div>
+<div class="raw-line" id="L3883"><a href="#L3883" tabindex="0" class="raw-line-number" aria-label="第 3883 行">3883</a><span>我是艾琳。</span></div>
+<div class="raw-line" id="L3884"><a href="#L3884" tabindex="0" class="raw-line-number" aria-label="第 3884 行">3884</a><span></span></div>
+<div class="raw-line" id="L3885"><a href="#L3885" tabindex="0" class="raw-line-number" aria-label="第 3885 行">3885</a><span>A general manager at Stepfarm and I lead the model product platform and ecosystem, uh and I&#39;m gonna use Marin to do my next speech, so please but keep the slides in English.</span></div>
+<div class="raw-line" id="L3886"><a href="#L3886" tabindex="0" class="raw-line-number" aria-label="第 3886 行">3886</a><span>我是 Stepfarm 的总经理，负责模型产品平台和生态。接下来的演讲我会用中文进行，但幻灯片会保留英文。</span></div>
+<div class="raw-line" id="L3887"><a href="#L3887" tabindex="0" class="raw-line-number" aria-label="第 3887 行">3887</a><span></span></div>
+<div class="raw-line" id="L3888"><a href="#L3888" tabindex="0" class="raw-line-number" aria-label="第 3888 行">3888</a><span>呃大家下午好，我是小狼，这是我在社区的名字，我经常讲说我是在开源社区里长大的，所以呃我觉得这是我的来时路，</span></div>
+<div class="raw-line" id="L3889"><a href="#L3889" tabindex="0" class="raw-line-number" aria-label="第 3889 行">3889</a><span></span></div>
+<div class="raw-line" id="L3890"><a href="#L3890" tabindex="0" class="raw-line-number" aria-label="第 3890 行">3890</a><span>嗯呃我在接月呢负责模型的产品平台和生态，也包括一些marketing的工作，</span></div>
+<div class="raw-line" id="L3891"><a href="#L3891" tabindex="0" class="raw-line-number" aria-label="第 3891 行">3891</a><span></span></div>
+<div class="raw-line" id="L3892"><a href="#L3892" tabindex="0" class="raw-line-number" aria-label="第 3892 行">3892</a><span>所以刚才前续的呃嘉宾分享的这些议题我们都在实际的工作当中真正的经历到了，也是很有体很有感受，</span></div>
+<div class="raw-line" id="L3893"><a href="#L3893" tabindex="0" class="raw-line-number" aria-label="第 3893 行">3893</a><span></span></div>
+<div class="raw-line" id="L3894"><a href="#L3894" tabindex="0" class="raw-line-number" aria-label="第 3894 行">3894</a><span>呃今天呢主要来跟大家分享一些我们在最近这一年里在做的一些呃实验，我刚讲说我们的team有几个新的drop code，</span></div>
+<div class="raw-line" id="L3895"><a href="#L3895" tabindex="0" class="raw-line-number" aria-label="第 3895 行">3895</a><span></span></div>
+<div class="raw-line" id="L3896"><a href="#L3896" tabindex="0" class="raw-line-number" aria-label="第 3896 行">3896</a><span>呃其中一个是model product模型产品，</span></div>
+<div class="raw-line" id="L3897"><a href="#L3897" tabindex="0" class="raw-line-number" aria-label="第 3897 行">3897</a><span></span></div>
+<div class="raw-line" id="L3898"><a href="#L3898" tabindex="0" class="raw-line-number" aria-label="第 3898 行">3898</a><span>模型产品呢它负责定义下一代的模型，参与每一代的模型演进，这件事情非常的有趣，</span></div>
+<div class="raw-line" id="L3899"><a href="#L3899" tabindex="0" class="raw-line-number" aria-label="第 3899 行">3899</a><span></span></div>
+<div class="raw-line" id="L3900"><a href="#L3900" tabindex="0" class="raw-line-number" aria-label="第 3900 行">3900</a><span>我们还有一个新的drop code叫产品工程师product engineer，</span></div>
+<div class="raw-line" id="L3901"><a href="#L3901" tabindex="0" class="raw-line-number" aria-label="第 3901 行">3901</a><span></span></div>
+<div class="raw-line" id="L3902"><a href="#L3902" tabindex="0" class="raw-line-number" aria-label="第 3902 行">3902</a><span>我觉得这个drop code可能跟我们今天的整个会场相对来说更契合一些，呃那在过去的这十几年里呢，</span></div>
+<div class="raw-line" id="L3903"><a href="#L3903" tabindex="0" class="raw-line-number" aria-label="第 3903 行">3903</a><span></span></div>
+<div class="raw-line" id="L3904"><a href="#L3904" tabindex="0" class="raw-line-number" aria-label="第 3904 行">3904</a><span>我个人一直在cloud native的技术站里面做相关的工作，也在infra的领域做了很多的探索，</span></div>
+<div class="raw-line" id="L3905"><a href="#L3905" tabindex="0" class="raw-line-number" aria-label="第 3905 行">3905</a><span></span></div>
+<div class="raw-line" id="L3906"><a href="#L3906" tabindex="0" class="raw-line-number" aria-label="第 3906 行">3906</a><span>那我们其实结合了过去的所有的这些实践，今天会来分享一下呃我们的一个思考，</span></div>
+<div class="raw-line" id="L3907"><a href="#L3907" tabindex="0" class="raw-line-number" aria-label="第 3907 行">3907</a><span></span></div>
+<div class="raw-line" id="L3908"><a href="#L3908" tabindex="0" class="raw-line-number" aria-label="第 3908 行">3908</a><span>我们知道模型演进到今天它可能是by two weeks两周一个迭代，每两周都会有新的模型出现，会有新的技术的边界不断的被探索，</span></div>
+<div class="raw-line" id="L3909"><a href="#L3909" tabindex="0" class="raw-line-number" aria-label="第 3909 行">3909</a><span></span></div>
+<div class="raw-line" id="L3910"><a href="#L3910" tabindex="0" class="raw-line-number" aria-label="第 3910 行">3910</a><span>但模型的迭代呢我认为是有两类的，一类呢是呃代际性的，它到了next generation它可能突破了一些呃新的能力，</span></div>
+<div class="raw-line" id="L3911"><a href="#L3911" tabindex="0" class="raw-line-number" aria-label="第 3911 行">3911</a><span></span></div>
+<div class="raw-line" id="L3912"><a href="#L3912" tabindex="0" class="raw-line-number" aria-label="第 3912 行">3912</a><span>获得了一些具体的新的泛化，另外一类呢我认为它是迭代式的，功能式的，</span></div>
+<div class="raw-line" id="L3913"><a href="#L3913" tabindex="0" class="raw-line-number" aria-label="第 3913 行">3913</a><span></span></div>
+<div class="raw-line" id="L3914"><a href="#L3914" tabindex="0" class="raw-line-number" aria-label="第 3914 行">3914</a><span>像这一类的迭代和演进呢我认为它对于每一个产品的发布来说要更近一些，呃我们今天的分享会围绕着第二类我讲的模型迭代来说，</span></div>
+<div class="raw-line" id="L3915"><a href="#L3915" tabindex="0" class="raw-line-number" aria-label="第 3915 行">3915</a><span></span></div>
+<div class="raw-line" id="L3916"><a href="#L3916" tabindex="0" class="raw-line-number" aria-label="第 3916 行">3916</a><span>然后再叠加大家在这样子的模型的技术的演进基础上，</span></div>
+<div class="raw-line" id="L3917"><a href="#L3917" tabindex="0" class="raw-line-number" aria-label="第 3917 行">3917</a><span></span></div>
+<div class="raw-line" id="L3918"><a href="#L3918" tabindex="0" class="raw-line-number" aria-label="第 3918 行">3918</a><span>我们对架构的演进、工程的实践以及产品形态的一点思考，呃这里有一个很具体的我们从一个很具体的topic开始，</span></div>
+<div class="raw-line" id="L3919"><a href="#L3919" tabindex="0" class="raw-line-number" aria-label="第 3919 行">3919</a><span></span></div>
+<div class="raw-line" id="L3920"><a href="#L3920" tabindex="0" class="raw-line-number" aria-label="第 3920 行">3920</a><span>当我们把一项需要持续推进的工作交给agent的时候，怎么样让它能够记得目标，根据反馈去做调整，</span></div>
+<div class="raw-line" id="L3921"><a href="#L3921" tabindex="0" class="raw-line-number" aria-label="第 3921 行">3921</a><span></span></div>
+<div class="raw-line" id="L3922"><a href="#L3922" tabindex="0" class="raw-line-number" aria-label="第 3922 行">3922</a><span>最后交付一个我们可以信任的结果，呃我打一个比方，大家都知道今年年初的时候open cloud的技术站非常的火，</span></div>
+<div class="raw-line" id="L3923"><a href="#L3923" tabindex="0" class="raw-line-number" aria-label="第 3923 行">3923</a><span></span></div>
+<div class="raw-line" id="L3924"><a href="#L3924" tabindex="0" class="raw-line-number" aria-label="第 3924 行">3924</a><span>那么在open cloud这个技术站里面呢，大家初步的体验到了一个任务可以被执行，</span></div>
+<div class="raw-line" id="L3925"><a href="#L3925" tabindex="0" class="raw-line-number" aria-label="第 3925 行">3925</a><span></span></div>
+<div class="raw-line" id="L3926"><a href="#L3926" tabindex="0" class="raw-line-number" aria-label="第 3926 行">3926</a><span>它可以结合模型的能力去放大模型再推理再思考再规划这些维度上的能力，但是你让它真正的去完成一个任务端到端的执行，</span></div>
+<div class="raw-line" id="L3927"><a href="#L3927" tabindex="0" class="raw-line-number" aria-label="第 3927 行">3927</a><span></span></div>
+<div class="raw-line" id="L3928"><a href="#L3928" tabindex="0" class="raw-line-number" aria-label="第 3928 行">3928</a><span>同时交付任务的完成度，交付任务的质量，还有一定的效率，呃almost the efficiency的这一类的任务，</span></div>
+<div class="raw-line" id="L3929"><a href="#L3929" tabindex="0" class="raw-line-number" aria-label="第 3929 行">3929</a><span></span></div>
+<div class="raw-line" id="L3930"><a href="#L3930" tabindex="0" class="raw-line-number" aria-label="第 3930 行">3930</a><span>其实是不太好的，那演进到今天呢，呃我们不能说它到了一个非常完整的落地的状态，但是它已经有了长足的进步，</span></div>
+<div class="raw-line" id="L3931"><a href="#L3931" tabindex="0" class="raw-line-number" aria-label="第 3931 行">3931</a><span></span></div>
+<div class="raw-line" id="L3932"><a href="#L3932" tabindex="0" class="raw-line-number" aria-label="第 3932 行">3932</a><span>所以后续的所有的topic是我们在做的每一个维度上的具体的最佳实践，我觉得这是我们作为工程人想要分享给大家的最重要的东西。</span></div>
+<div class="raw-line" id="L3933"><a href="#L3933" tabindex="0" class="raw-line-number" aria-label="第 3933 行">3933</a><span></span></div>
+<div class="raw-line" id="L3934"><a href="#L3934" tabindex="0" class="raw-line-number" aria-label="第 3934 行">3934</a><span>呃首先我们来看一下这张图，我会从这三个相互配合的层次展开，</span></div>
+<div class="raw-line" id="L3935"><a href="#L3935" tabindex="0" class="raw-line-number" aria-label="第 3935 行">3935</a><span></span></div>
+<div class="raw-line" id="L3936"><a href="#L3936" tabindex="0" class="raw-line-number" aria-label="第 3936 行">3936</a><span>呃first of all it&#39;s models always models step five preview呢它提供理解任务推理和选择行动的模型能力，</span></div>
+<div class="raw-line" id="L3937"><a href="#L3937" tabindex="0" class="raw-line-number" aria-label="第 3937 行">3937</a><span></span></div>
+<div class="raw-line" id="L3938"><a href="#L3938" tabindex="0" class="raw-line-number" aria-label="第 3938 行">3938</a><span>呃step code呢会实现agent harness，它把目标上下文工具调用和结果的检查verify这些结合起来，</span></div>
+<div class="raw-line" id="L3939"><a href="#L3939" tabindex="0" class="raw-line-number" aria-label="第 3939 行">3939</a><span></span></div>
+<div class="raw-line" id="L3940"><a href="#L3940" tabindex="0" class="raw-line-number" aria-label="第 3940 行">3940</a><span>最后我们最近发布了studio，</span></div>
+<div class="raw-line" id="L3941"><a href="#L3941" tabindex="0" class="raw-line-number" aria-label="第 3941 行">3941</a><span></span></div>
+<div class="raw-line" id="L3942"><a href="#L3942" tabindex="0" class="raw-line-number" aria-label="第 3942 行">3942</a><span>studio呢它会提供一些托管的执行体验，会承载云端的harness和远远端的工具，</span></div>
+<div class="raw-line" id="L3943"><a href="#L3943" tabindex="0" class="raw-line-number" aria-label="第 3943 行">3943</a><span></span></div>
+<div class="raw-line" id="L3944"><a href="#L3944" tabindex="0" class="raw-line-number" aria-label="第 3944 行">3944</a><span>就这个事情呢我觉得在当前大家自己手里的技术站当中，基本是雷同的，可能大家每个人都会有自己薪水的models，</span></div>
+<div class="raw-line" id="L3945"><a href="#L3945" tabindex="0" class="raw-line-number" aria-label="第 3945 行">3945</a><span></span></div>
+<div class="raw-line" id="L3946"><a href="#L3946" tabindex="0" class="raw-line-number" aria-label="第 3946 行">3946</a><span>你会有自己啊在采用的一些harness，同时你自己可能也在研究一些agent runtime sandbox这一系列的工具，</span></div>
+<div class="raw-line" id="L3947"><a href="#L3947" tabindex="0" class="raw-line-number" aria-label="第 3947 行">3947</a><span></span></div>
+<div class="raw-line" id="L3948"><a href="#L3948" tabindex="0" class="raw-line-number" aria-label="第 3948 行">3948</a><span>从而达到一个你自己的完整态的agent的持续的构建，呃这件事情我觉得是面向下一步always on这样子的一个基础的范式。</span></div>
+<div class="raw-line" id="L3949"><a href="#L3949" tabindex="0" class="raw-line-number" aria-label="第 3949 行">3949</a><span></span></div>
+<div class="raw-line" id="L3950"><a href="#L3950" tabindex="0" class="raw-line-number" aria-label="第 3950 行">3950</a><span>呃首先介绍一下step five preview，呃这是我们在9月份发布的一款旗舰模型，</span></div>
+<div class="raw-line" id="L3951"><a href="#L3951" tabindex="0" class="raw-line-number" aria-label="第 3951 行">3951</a><span></span></div>
+<div class="raw-line" id="L3952"><a href="#L3952" tabindex="0" class="raw-line-number" aria-label="第 3952 行">3952</a><span>它我会重点讲一下它的四类的基础能力，呃比如说它的激活的参数，呃我们每一次呢每个token是激活27B，</span></div>
+<div class="raw-line" id="L3953"><a href="#L3953" tabindex="0" class="raw-line-number" aria-label="第 3953 行">3953</a><span></span></div>
+<div class="raw-line" id="L3954"><a href="#L3954" tabindex="0" class="raw-line-number" aria-label="第 3954 行">3954</a><span>因为长的任务呢会需要反复的推理和调用工具，所以单步的开销会不断累积，在模型能力和计算效率是要一起考虑的，那第二个呢是EM的上下文，</span></div>
+<div class="raw-line" id="L3955"><a href="#L3955" tabindex="0" class="raw-line-number" aria-label="第 3955 行">3955</a><span></span></div>
+<div class="raw-line" id="L3956"><a href="#L3956" tabindex="0" class="raw-line-number" aria-label="第 3956 行">3956</a><span>我相信EM的上下文大家已经看了非常非常多的PR了，那么EM的上下文究竟代表了一些什么，</span></div>
+<div class="raw-line" id="L3957"><a href="#L3957" tabindex="0" class="raw-line-number" aria-label="第 3957 行">3957</a><span></span></div>
+<div class="raw-line" id="L3958"><a href="#L3958" tabindex="0" class="raw-line-number" aria-label="第 3958 行">3958</a><span>我们在所有的实践当中呢发现呃它最大的应用场景是容纳代码，呃容纳一些长的文档，容纳一些任务的记录，</span></div>
+<div class="raw-line" id="L3959"><a href="#L3959" tabindex="0" class="raw-line-number" aria-label="第 3959 行">3959</a><span></span></div>
+<div class="raw-line" id="L3960"><a href="#L3960" tabindex="0" class="raw-line-number" aria-label="第 3960 行">3960</a><span>所以如果说你的需求它不在这三个范围域内的话，其实呃过长的上下文它不一定能够是最好的效果，</span></div>
+<div class="raw-line" id="L3961"><a href="#L3961" tabindex="0" class="raw-line-number" aria-label="第 3961 行">3961</a><span></span></div>
+<div class="raw-line" id="L3962"><a href="#L3962" tabindex="0" class="raw-line-number" aria-label="第 3962 行">3962</a><span>呃但是我们认为未来agent会持续的运行，持续的构建，它会一步一步的向更复杂的深水区去探索，</span></div>
+<div class="raw-line" id="L3963"><a href="#L3963" tabindex="0" class="raw-line-number" aria-label="第 3963 行">3963</a><span></span></div>
+<div class="raw-line" id="L3964"><a href="#L3964" tabindex="0" class="raw-line-number" aria-label="第 3964 行">3964</a><span>所以长的上下文未来一定会是一个标配，</span></div>
+<div class="raw-line" id="L3965"><a href="#L3965" tabindex="0" class="raw-line-number" aria-label="第 3965 行">3965</a><span></span></div>
+<div class="raw-line" id="L3966"><a href="#L3966" tabindex="0" class="raw-line-number" aria-label="第 3966 行">3966</a><span>但是也需要结合大家各自的这个任务的需求和你比如说有sub agent这样一系列的架构的探索去做相应的适适配，</span></div>
+<div class="raw-line" id="L3967"><a href="#L3967" tabindex="0" class="raw-line-number" aria-label="第 3967 行">3967</a><span></span></div>
+<div class="raw-line" id="L3968"><a href="#L3968" tabindex="0" class="raw-line-number" aria-label="第 3968 行">3968</a><span>呃第三个呢是原生的视觉，原生视觉这件事呢我觉得在模型的演进的路径当中有过很多次的讨论，</span></div>
+<div class="raw-line" id="L3969"><a href="#L3969" tabindex="0" class="raw-line-number" aria-label="第 3969 行">3969</a><span></span></div>
+<div class="raw-line" id="L3970"><a href="#L3970" tabindex="0" class="raw-line-number" aria-label="第 3970 行">3970</a><span>比如说一个模型的原生视觉和纯的语言模型，它是不是有一些这个待计划的差异啊，或者说是不是所有的这个呃任务它都需要一个原生的视觉能力，</span></div>
+<div class="raw-line" id="L3971"><a href="#L3971" tabindex="0" class="raw-line-number" aria-label="第 3971 行">3971</a><span></span></div>
+<div class="raw-line" id="L3972"><a href="#L3972" tabindex="0" class="raw-line-number" aria-label="第 3972 行">3972</a><span>呃我们现在的观察是大家在绝大部分的任务当中，比如说啊理解截图、设计稿，还有渲染一些结果，呃再去verify，尤其是在agent当中，</span></div>
+<div class="raw-line" id="L3973"><a href="#L3973" tabindex="0" class="raw-line-number" aria-label="第 3973 行">3973</a><span></span></div>
+<div class="raw-line" id="L3974"><a href="#L3974" tabindex="0" class="raw-line-number" aria-label="第 3974 行">3974</a><span>你需要去verify你的产出物是不是符合预期，所以一个基模的原生视觉能力是必要的，嗯这是我们当前的最佳实践，最后是工具调用，</span></div>
+<div class="raw-line" id="L3975"><a href="#L3975" tabindex="0" class="raw-line-number" aria-label="第 3975 行">3975</a><span></span></div>
+<div class="raw-line" id="L3976"><a href="#L3976" tabindex="0" class="raw-line-number" aria-label="第 3976 行">3976</a><span>工具调用的这个能力呢其实已经很啊很通用了，呃这个方向呢我觉得是更多让模型能够发起一些操作啊，读取返回的结果，</span></div>
+<div class="raw-line" id="L3977"><a href="#L3977" tabindex="0" class="raw-line-number" aria-label="第 3977 行">3977</a><span></span></div>
+<div class="raw-line" id="L3978"><a href="#L3978" tabindex="0" class="raw-line-number" aria-label="第 3978 行">3978</a><span>然后再去决定接下来怎么做，呃所以任务才会有了持续或者反馈的可能，</span></div>
+<div class="raw-line" id="L3979"><a href="#L3979" tabindex="0" class="raw-line-number" aria-label="第 3979 行">3979</a><span></span></div>
+<div class="raw-line" id="L3980"><a href="#L3980" tabindex="0" class="raw-line-number" aria-label="第 3980 行">3980</a><span>这些基础的任务就是我没有在呃bluffing说这款模型的一些什么亮点之类的，</span></div>
+<div class="raw-line" id="L3981"><a href="#L3981" tabindex="0" class="raw-line-number" aria-label="第 3981 行">3981</a><span></span></div>
+<div class="raw-line" id="L3982"><a href="#L3982" tabindex="0" class="raw-line-number" aria-label="第 3982 行">3982</a><span>我认为这几个engineering维度的基础能力是大家在做一个agent架构当中需要去呃考虑的一些基础的技术点，</span></div>
+<div class="raw-line" id="L3983"><a href="#L3983" tabindex="0" class="raw-line-number" aria-label="第 3983 行">3983</a><span></span></div>
+<div class="raw-line" id="L3984"><a href="#L3984" tabindex="0" class="raw-line-number" aria-label="第 3984 行">3984</a><span>嗯大家在每一个模型的评估当中可能都需要把这几个点纳入进去，呃这些能力其实是为我们的整个的架构打下的基础，</span></div>
+<div class="raw-line" id="L3985"><a href="#L3985" tabindex="0" class="raw-line-number" aria-label="第 3985 行">3985</a><span></span></div>
+<div class="raw-line" id="L3986"><a href="#L3986" tabindex="0" class="raw-line-number" aria-label="第 3986 行">3986</a><span>当然如果要装下更多的信息和长期的去记住整个任务的进度是两个层面的问题，这是为什么我今天在讲的from model intelligence to agent harness这样子的一个原因。</span></div>
+<div class="raw-line" id="L3987"><a href="#L3987" tabindex="0" class="raw-line-number" aria-label="第 3987 行">3987</a><span></span></div>
+<div class="raw-line" id="L3988"><a href="#L3988" tabindex="0" class="raw-line-number" aria-label="第 3988 行">3988</a><span>接下来我们来讲呃这里有一个大家熟悉的场景coding，我们从工作修改几行代码变成完成一个项目呢需要处理的复杂的关系，</span></div>
+<div class="raw-line" id="L3989"><a href="#L3989" tabindex="0" class="raw-line-number" aria-label="第 3989 行">3989</a><span></span></div>
+<div class="raw-line" id="L3990"><a href="#L3990" tabindex="0" class="raw-line-number" aria-label="第 3990 行">3990</a><span>会复杂度很高，呃我们做了一些专家评测，呃我们认为有七层的评测者呢认为模型可以自主完成复杂coding的能力，</span></div>
+<div class="raw-line" id="L3991"><a href="#L3991" tabindex="0" class="raw-line-number" aria-label="第 3991 行">3991</a><span></span></div>
+<div class="raw-line" id="L3992"><a href="#L3992" tabindex="0" class="raw-line-number" aria-label="第 3992 行">3992</a><span>呃这件事情在比较知名的呃long horizon的实验机构当中呢它也在不断的迭代他们的观察，</span></div>
+<div class="raw-line" id="L3993"><a href="#L3993" tabindex="0" class="raw-line-number" aria-label="第 3993 行">3993</a><span></span></div>
+<div class="raw-line" id="L3994"><a href="#L3994" tabindex="0" class="raw-line-number" aria-label="第 3994 行">3994</a><span>呃据我所知呢当前一个agent的执行时长已经可以到26个小时甚至到48个小时，</span></div>
+<div class="raw-line" id="L3995"><a href="#L3995" tabindex="0" class="raw-line-number" aria-label="第 3995 行">3995</a><span></span></div>
+<div class="raw-line" id="L3996"><a href="#L3996" tabindex="0" class="raw-line-number" aria-label="第 3996 行">3996</a><span>那agent的执行的模型的执行的时长long horizon的能力决定了什么呢，</span></div>
+<div class="raw-line" id="L3997"><a href="#L3997" tabindex="0" class="raw-line-number" aria-label="第 3997 行">3997</a><span></span></div>
+<div class="raw-line" id="L3998"><a href="#L3998" tabindex="0" class="raw-line-number" aria-label="第 3998 行">3998</a><span>决定了它今天能够处理什么样子的复杂任务，决定了它能够去探索的复杂的场景有多少，</span></div>
+<div class="raw-line" id="L3999"><a href="#L3999" tabindex="0" class="raw-line-number" aria-label="第 3999 行">3999</a><span></span></div>
+<div class="raw-line" id="L4000"><a href="#L4000" tabindex="0" class="raw-line-number" aria-label="第 4000 行">4000</a><span>所以我觉得这是在技术点上每一个基模公司都要不断的持续的去探索的一个方向，</span></div></div><nav class="materials-links raw-pagination" aria-label="原文分段">
+          <a href="../part-7/" tabindex="0" rel="prev">上一段</a>
+          <span aria-current="page">第 8 / 26 段 · L3501–L4000</span>
+          <a href="../part-9/" tabindex="0" rel="next">下一段</a>
+          <a href="../all/" tabindex="0">查看全文</a>
+        </nav></div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>页面信息来自各活动公开资料，可能随时变更；出发前请以主办方官方公告为准。</p>
+  </div>
+</footer>
+<script src="../../../../assets/site.4c7b854f.js" defer></script>
+</body>
+</html>

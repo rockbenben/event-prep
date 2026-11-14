@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2026-11-05 原始记录 · AI Engineer Shanghai 2026 · EventPrep</title>
+<meta name="description" content="AI Engineer Shanghai 2026 的2026-11-05 原始记录">
+<meta name="color-scheme" content="light dark">
+<!-- 地址栏/标签栏颜色跟着深浅色走，值就是 site.css 里的 --bg。
+     以前这里写死一个 #1f6feb —— 那个色号在 CSS 里根本不存在（--accent 是 #2563eb），
+     深色模式下也是蓝色地址栏配深色页面。两段 meta 各自带 media，浏览器自己选。 -->
+<meta name="theme-color" content="#f8fafc" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0b0f17" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://event.newzone.top/2026-11-ai-engineer-shanghai/raw/20261105/part-6/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="2026-11-05 原始记录 · AI Engineer Shanghai 2026 · EventPrep">
+<meta property="og:description" content="AI Engineer Shanghai 2026 的2026-11-05 原始记录">
+<meta property="og:url" content="https://event.newzone.top/2026-11-ai-engineer-shanghai/raw/20261105/part-6/">
+
+<script>(function(){try{var t=localStorage.getItem('eventprep:theme');if(t==='light'||t==='dark'){document.documentElement.setAttribute('data-theme',t);}}catch(e){}})();</script>
+<link rel="icon" type="image/svg+xml" href="../../../../assets/favicon.svg">
+<link rel="stylesheet" href="../../../../assets/site.9afe22e1.css">
+
+</head>
+<body>
+<!-- 打印版工具条：平时 display:none，进入打印模式（<html class="print-mode">）才出现。
+     打印到纸上时这条工具条自身要藏掉（见 site.css 的 @media print）——它是屏幕上的控件。 -->
+<div class="print-bar" id="print-bar" role="toolbar" aria-label="打印版工具条">
+  <span class="print-bar-title">EventPrep · 打印版 · 全部内容已展开</span>
+  <div class="print-bar-actions">
+    <button type="button" id="print-do" class="ghost-btn">打印 / 存 PDF</button>
+    <button type="button" id="print-exit" class="ghost-btn">退出打印版</button>
+  </div>
+</div>
+<a class="skip-link" href="#main" tabindex="0">跳到正文</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="site-name" href="../../../../index.html" tabindex="0">
+      <svg class="site-logo" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+        <rect x="3" y="3.5" width="18" height="18" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.8"/>
+        <rect x="9.5" y="5.5" width="5" height="1.8" rx="0.9" fill="currentColor" fill-opacity="0.4"/>
+        <path d="M6.5 11h5M6.5 14.5h3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        <circle cx="16" cy="15" r="4.2" fill="#16a34a"/>
+        <path d="M14.2 15l1.3 1.3 2.5-2.5" stroke="#ffffff" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span>EventPrep</span>
+    </a>
+    <div class="header-actions">
+      
+      
+      <a class="ghost-btn" href="https://github.com/rockbenben/event-prep" target="_blank" rel="noopener noreferrer" aria-label="GitHub 仓库" title="GitHub 仓库">
+        <svg class="theme-icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+          <path d="M12 .8a11.2 11.2 0 0 0-3.54 21.83c.56.1.77-.24.77-.54v-2.1c-3.12.68-3.78-1.33-3.78-1.33-.51-1.3-1.25-1.65-1.25-1.65-1.02-.7.08-.68.08-.68 1.13.08 1.72 1.16 1.72 1.16 1 1.72 2.63 1.22 3.27.95.1-.74.39-1.22.71-1.5-2.5-.28-5.12-1.25-5.12-5.56 0-1.23.44-2.23 1.16-3.02-.12-.28-.5-1.43.11-2.98 0 0 .95-.3 3.1 1.15a10.8 10.8 0 0 1 5.64 0c2.15-1.45 3.1-1.15 3.1-1.15.61 1.55.23 2.7.11 2.98.72.79 1.16 1.79 1.16 3.02 0 4.32-2.63 5.27-5.14 5.55.4.35.76 1.03.76 2.08v3.08c0 .3.2.65.78.54A11.2 11.2 0 0 0 12 .8Z"></path>
+        </svg>
+      </a>
+      <button type="button" id="theme-toggle" class="ghost-btn" aria-label="切换深浅色" title="切换深浅色">
+        <svg class="theme-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true" focusable="false">
+          <circle cx="12" cy="12" r="8.5" />
+          <path d="M12 3.5a8.5 8.5 0 0 0 0 17z" fill="currentColor" stroke="none" />
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+<dialog class="avatar-viewer" id="avatar-viewer" aria-label="放大照片">
+  <img id="avatar-viewer-img" src="" alt="">
+</dialog>
+<main id="main">
+<div class="wrap event material-page"><nav class="material-crumbs" aria-label="面包屑"><ol>
+      <li><a href="../../../../" tabindex="0">全部活动</a></li><li><a href="../../../" tabindex="0">AI Engineer Shanghai 2026</a></li>
+      <li><a href="../../" tabindex="0">原始记录</a></li>
+      <li><a href="./" tabindex="0" aria-current="page">2026-11-05 原始记录</a></li></ol></nav><header class="event-head"><h1 class="event-title">2026-11-05 原始记录</h1>
+        <p class="event-summary">AI Engineer Shanghai 2026</p></header><p class="notice">自动转写可能有误。以下内容保留双语原文，行号以原文件为准；下载文件保留原始字节。当前仅加载本段；搜索全部记录或打印全文请先选择「查看全文」。</p>
+          <nav class="materials-links" aria-label="资料操作"><a href="../../" tabindex="0">全部日期</a><a href="../../../summary/" tabindex="0">会后总结</a><a href="../../../20261105-raw.md" tabindex="0" download>下载原始 Markdown</a></nav>
+          <nav class="materials-links raw-pagination" aria-label="原文分段">
+          <a href="../part-5/" tabindex="0" rel="prev">上一段</a>
+          <span aria-current="page">第 6 / 26 段 · L2501–L3000</span>
+          <a href="../part-7/" tabindex="0" rel="next">下一段</a>
+          <a href="../all/" tabindex="0">查看全文</a>
+        </nav><details class="raw-sections"><summary>选择行号范围</summary><nav class="materials-links" aria-label="选择原文段落"><a href="../" tabindex="0">L1–L500</a><a href="../part-2/" tabindex="0">L501–L1000</a><a href="../part-3/" tabindex="0">L1001–L1500</a><a href="../part-4/" tabindex="0">L1501–L2000</a><a href="../part-5/" tabindex="0">L2001–L2500</a><a href="../part-6/" tabindex="0" aria-current="page">L2501–L3000</a><a href="../part-7/" tabindex="0">L3001–L3500</a><a href="../part-8/" tabindex="0">L3501–L4000</a><a href="../part-9/" tabindex="0">L4001–L4500</a><a href="../part-10/" tabindex="0">L4501–L5000</a><a href="../part-11/" tabindex="0">L5001–L5500</a><a href="../part-12/" tabindex="0">L5501–L6000</a><a href="../part-13/" tabindex="0">L6001–L6500</a><a href="../part-14/" tabindex="0">L6501–L7000</a><a href="../part-15/" tabindex="0">L7001–L7500</a><a href="../part-16/" tabindex="0">L7501–L8000</a><a href="../part-17/" tabindex="0">L8001–L8500</a><a href="../part-18/" tabindex="0">L8501–L9000</a><a href="../part-19/" tabindex="0">L9001–L9500</a><a href="../part-20/" tabindex="0">L9501–L10000</a><a href="../part-21/" tabindex="0">L10001–L10500</a><a href="../part-22/" tabindex="0">L10501–L11000</a><a href="../part-23/" tabindex="0">L11001–L11500</a><a href="../part-24/" tabindex="0">L11501–L12000</a><a href="../part-25/" tabindex="0">L12001–L12500</a><a href="../part-26/" tabindex="0">L12501–L12685</a></nav></details><details class="raw-sections"><summary>相关总结 · 1 节</summary><nav class="materials-links" aria-label="相关总结"><a href="../../../summary/#session-6" tabindex="0">6. Chen Wang · Baseten 联合创始人｜开源模型推理的全栈工程：延迟、吞吐与成本</a></nav></details>
+          <div class="raw-transcript" data-raw-total="12685"><div class="raw-line" id="L2501"><a href="#L2501" tabindex="0" class="raw-line-number" aria-label="第 2501 行">2501</a><span></span></div>
+<div class="raw-line" id="L2502"><a href="#L2502" tabindex="0" class="raw-line-number" aria-label="第 2502 行">2502</a><span>Oftentimes the requirement is something called zero data retention, where we don&#39;t remember what your queries are. We don&#39;t train on your data, so you&#39;re safe with us.</span></div>
+<div class="raw-line" id="L2503"><a href="#L2503" tabindex="0" class="raw-line-number" aria-label="第 2503 行">2503</a><span>客户通常要求“零数据留存”：我们不会保留你的查询内容，也不会用你的数据训练模型，因此你的数据在我们这里是安全的。</span></div>
+<div class="raw-line" id="L2504"><a href="#L2504" tabindex="0" class="raw-line-number" aria-label="第 2504 行">2504</a><span></span></div>
+<div class="raw-line" id="L2505"><a href="#L2505" tabindex="0" class="raw-line-number" aria-label="第 2505 行">2505</a><span>And often the requirements are your ability to process billions of queries a month, your ability to have really good real-time SLAs and reliability. That&#39;s what we do.</span></div>
+<div class="raw-line" id="L2506"><a href="#L2506" tabindex="0" class="raw-line-number" aria-label="第 2506 行">2506</a><span>客户通常还要求我们具备每月处理数十亿次查询的能力，并能提供出色的实时服务水平保障和可靠性。这正是我们的专长。</span></div>
+<div class="raw-line" id="L2507"><a href="#L2507" tabindex="0" class="raw-line-number" aria-label="第 2507 行">2507</a><span></span></div>
+<div class="raw-line" id="L2508"><a href="#L2508" tabindex="0" class="raw-line-number" aria-label="第 2508 行">2508</a><span>We also focus on search labs.</span></div>
+<div class="raw-line" id="L2509"><a href="#L2509" tabindex="0" class="raw-line-number" aria-label="第 2509 行">2509</a><span>我们也专注于搜索实验室。</span></div>
+<div class="raw-line" id="L2510"><a href="#L2510" tabindex="0" class="raw-line-number" aria-label="第 2510 行">2510</a><span></span></div>
+<div class="raw-line" id="L2511"><a href="#L2511" tabindex="0" class="raw-line-number" aria-label="第 2511 行">2511</a><span>We focus on providing LLMs pre-training data, post-training data, and web search at inference.</span></div>
+<div class="raw-line" id="L2512"><a href="#L2512" tabindex="0" class="raw-line-number" aria-label="第 2512 行">2512</a><span>我们专注于为大语言模型提供预训练数据、后训练数据，以及推理阶段的网络搜索服务。</span></div>
+<div class="raw-line" id="L2513"><a href="#L2513" tabindex="0" class="raw-line-number" aria-label="第 2513 行">2513</a><span></span></div>
+<div class="raw-line" id="L2514"><a href="#L2514" tabindex="0" class="raw-line-number" aria-label="第 2514 行">2514</a><span>So we partner with these labs.</span></div>
+<div class="raw-line" id="L2515"><a href="#L2515" tabindex="0" class="raw-line-number" aria-label="第 2515 行">2515</a><span>因此，我们与这些实验室合作。</span></div>
+<div class="raw-line" id="L2516"><a href="#L2516" tabindex="0" class="raw-line-number" aria-label="第 2516 行">2516</a><span></span></div>
+<div class="raw-line" id="L2517"><a href="#L2517" tabindex="0" class="raw-line-number" aria-label="第 2517 行">2517</a><span>We are their search lab.</span></div>
+<div class="raw-line" id="L2518"><a href="#L2518" tabindex="0" class="raw-line-number" aria-label="第 2518 行">2518</a><span>我们就是他们的搜索实验室。</span></div>
+<div class="raw-line" id="L2519"><a href="#L2519" tabindex="0" class="raw-line-number" aria-label="第 2519 行">2519</a><span></span></div>
+<div class="raw-line" id="L2520"><a href="#L2520" tabindex="0" class="raw-line-number" aria-label="第 2520 行">2520</a><span>They are the model lab.</span></div>
+<div class="raw-line" id="L2521"><a href="#L2521" tabindex="0" class="raw-line-number" aria-label="第 2521 行">2521</a><span>他们负责模型研发。</span></div>
+<div class="raw-line" id="L2522"><a href="#L2522" tabindex="0" class="raw-line-number" aria-label="第 2522 行">2522</a><span></span></div>
+<div class="raw-line" id="L2523"><a href="#L2523" tabindex="0" class="raw-line-number" aria-label="第 2523 行">2523</a><span>And we have many, many relationships with many of the frontier models or the open weight models that you probably use today. That partner with us.</span></div>
+<div class="raw-line" id="L2524"><a href="#L2524" tabindex="0" class="raw-line-number" aria-label="第 2524 行">2524</a><span>如今你们常用的许多前沿模型和开放权重模型背后的团队，都是我们的合作伙伴；我们与他们有着广泛的合作关系。</span></div>
+<div class="raw-line" id="L2525"><a href="#L2525" tabindex="0" class="raw-line-number" aria-label="第 2525 行">2525</a><span></span></div>
+<div class="raw-line" id="L2526"><a href="#L2526" tabindex="0" class="raw-line-number" aria-label="第 2526 行">2526</a><span>And David will talk in a second about one of those experiences where we helped NVIDIA&#39;s Nematron post-train.</span></div>
+<div class="raw-line" id="L2527"><a href="#L2527" tabindex="0" class="raw-line-number" aria-label="第 2527 行">2527</a><span>稍后 David 会介绍一个合作案例：我们如何帮助英伟达的 Nemotron 模型完成后训练。</span></div>
+<div class="raw-line" id="L2528"><a href="#L2528" tabindex="0" class="raw-line-number" aria-label="第 2528 行">2528</a><span></span></div>
+<div class="raw-line" id="L2529"><a href="#L2529" tabindex="0" class="raw-line-number" aria-label="第 2529 行">2529</a><span>So simply put, we are the partner to most of the models: open weight or closed weight out there, to search the web. We are the partner to most of the leading AI agent companies to search the web. That&#39;s what we do.</span></div>
+<div class="raw-line" id="L2530"><a href="#L2530" tabindex="0" class="raw-line-number" aria-label="第 2530 行">2530</a><span>简单来说，无论是开放权重模型还是闭源模型，大多数模型进行网络搜索时都会与我们合作。许多领先的 AI 智能体公司也选择我们作为网络搜索合作伙伴。这就是我们所做的事。</span></div>
+<div class="raw-line" id="L2531"><a href="#L2531" tabindex="0" class="raw-line-number" aria-label="第 2531 行">2531</a><span></span></div>
+<div class="raw-line" id="L2532"><a href="#L2532" tabindex="0" class="raw-line-number" aria-label="第 2532 行">2532</a><span>I&#39;d like to now introduce Ryan Lee, our Head of APAC.</span></div>
+<div class="raw-line" id="L2533"><a href="#L2533" tabindex="0" class="raw-line-number" aria-label="第 2533 行">2533</a><span>接下来，我想介绍一下我们的亚太区负责人 Ryan Lee。</span></div>
+<div class="raw-line" id="L2534"><a href="#L2534" tabindex="0" class="raw-line-number" aria-label="第 2534 行">2534</a><span></span></div>
+<div class="raw-line" id="L2535"><a href="#L2535" tabindex="0" class="raw-line-number" aria-label="第 2535 行">2535</a><span>Hello, everyone. I am Ryan.</span></div>
+<div class="raw-line" id="L2536"><a href="#L2536" tabindex="0" class="raw-line-number" aria-label="第 2536 行">2536</a><span>大家好，我是 Ryan。</span></div>
+<div class="raw-line" id="L2537"><a href="#L2537" tabindex="0" class="raw-line-number" aria-label="第 2537 行">2537</a><span></span></div>
+<div class="raw-line" id="L2538"><a href="#L2538" tabindex="0" class="raw-line-number" aria-label="第 2538 行">2538</a><span>接下来我用中文说，我就说一分钟时间。</span></div>
+<div class="raw-line" id="L2539"><a href="#L2539" tabindex="0" class="raw-line-number" aria-label="第 2539 行">2539</a><span></span></div>
+<div class="raw-line" id="L2540"><a href="#L2540" tabindex="0" class="raw-line-number" aria-label="第 2540 行">2540</a><span>为什么you.com要设一个亚洲的总部，然后我们在这里布了我们专门的这个服务的各个的工程师，</span></div>
+<div class="raw-line" id="L2541"><a href="#L2541" tabindex="0" class="raw-line-number" aria-label="第 2541 行">2541</a><span></span></div>
+<div class="raw-line" id="L2542"><a href="#L2542" tabindex="0" class="raw-line-number" aria-label="第 2542 行">2542</a><span>还有所有的这个业务的团队？</span></div>
+<div class="raw-line" id="L2543"><a href="#L2543" tabindex="0" class="raw-line-number" aria-label="第 2543 行">2543</a><span></span></div>
+<div class="raw-line" id="L2544"><a href="#L2544" tabindex="0" class="raw-line-number" aria-label="第 2544 行">2544</a><span>因为我们知道中国的这个产品，它要在海外。</span></div>
+<div class="raw-line" id="L2545"><a href="#L2545" tabindex="0" class="raw-line-number" aria-label="第 2545 行">2545</a><span></span></div>
+<div class="raw-line" id="L2546"><a href="#L2546" tabindex="0" class="raw-line-number" aria-label="第 2546 行">2546</a><span>然后它要去搜索全球的信息，我们是需要在第一线给大家提供这样的服务。</span></div>
+<div class="raw-line" id="L2547"><a href="#L2547" tabindex="0" class="raw-line-number" aria-label="第 2547 行">2547</a><span></span></div>
+<div class="raw-line" id="L2548"><a href="#L2548" tabindex="0" class="raw-line-number" aria-label="第 2548 行">2548</a><span>我现在是负责这个you.com在APAC这边的业务。</span></div>
+<div class="raw-line" id="L2549"><a href="#L2549" tabindex="0" class="raw-line-number" aria-label="第 2549 行">2549</a><span></span></div>
+<div class="raw-line" id="L2550"><a href="#L2550" tabindex="0" class="raw-line-number" aria-label="第 2550 行">2550</a><span>我想说的是，我们的产品，首先在亚洲已经有非常多的公司在使用了，不管是中国的互联网大厂，</span></div>
+<div class="raw-line" id="L2551"><a href="#L2551" tabindex="0" class="raw-line-number" aria-label="第 2551 行">2551</a><span></span></div>
+<div class="raw-line" id="L2552"><a href="#L2552" tabindex="0" class="raw-line-number" aria-label="第 2552 行">2552</a><span>还是中国领先的AI model labs，他们都会在这个大模型的推理当中，或者在训练当中用到我们。</span></div>
+<div class="raw-line" id="L2553"><a href="#L2553" tabindex="0" class="raw-line-number" aria-label="第 2553 行">2553</a><span></span></div>
+<div class="raw-line" id="L2554"><a href="#L2554" tabindex="0" class="raw-line-number" aria-label="第 2554 行">2554</a><span>然后我们知道就是很多产品，它都有一个帕雷托的曲线。</span></div>
+<div class="raw-line" id="L2555"><a href="#L2555" tabindex="0" class="raw-line-number" aria-label="第 2555 行">2555</a><span></span></div>
+<div class="raw-line" id="L2556"><a href="#L2556" tabindex="0" class="raw-line-number" aria-label="第 2556 行">2556</a><span>你如果需要最好的性能，它的价格会有一些compromise，然后如果那个如果有性价比的问题，有的时候会带来性能的问题。</span></div>
+<div class="raw-line" id="L2557"><a href="#L2557" tabindex="0" class="raw-line-number" aria-label="第 2557 行">2557</a><span></span></div>
+<div class="raw-line" id="L2558"><a href="#L2558" tabindex="0" class="raw-line-number" aria-label="第 2558 行">2558</a><span>但是我们的产品在搜索这个领域当中，我们在帕雷托的曲线上面的各个部分都有很好的解决方案。</span></div>
+<div class="raw-line" id="L2559"><a href="#L2559" tabindex="0" class="raw-line-number" aria-label="第 2559 行">2559</a><span></span></div>
+<div class="raw-line" id="L2560"><a href="#L2560" tabindex="0" class="raw-line-number" aria-label="第 2560 行">2560</a><span>不管你是做大规模的推理、AI to C，还是对于一些非常需要这个高精尖或者是那个data zero retention的一些客户，</span></div>
+<div class="raw-line" id="L2561"><a href="#L2561" tabindex="0" class="raw-line-number" aria-label="第 2561 行">2561</a><span></span></div>
+<div class="raw-line" id="L2562"><a href="#L2562" tabindex="0" class="raw-line-number" aria-label="第 2562 行">2562</a><span>我们都有解决方案。</span></div>
+<div class="raw-line" id="L2563"><a href="#L2563" tabindex="0" class="raw-line-number" aria-label="第 2563 行">2563</a><span></span></div>
+<div class="raw-line" id="L2564"><a href="#L2564" tabindex="0" class="raw-line-number" aria-label="第 2564 行">2564</a><span>所以我们希望就是在中国的市场能够把这些面对面的带到你们的业务团队，从零搭建你们的产品，</span></div>
+<div class="raw-line" id="L2565"><a href="#L2565" tabindex="0" class="raw-line-number" aria-label="第 2565 行">2565</a><span></span></div>
+<div class="raw-line" id="L2566"><a href="#L2566" tabindex="0" class="raw-line-number" aria-label="第 2566 行">2566</a><span>然后帮助从产品的全生命周期去帮助你们的大模型，你们的基座和实时和全球数据进行实时的对接。</span></div>
+<div class="raw-line" id="L2567"><a href="#L2567" tabindex="0" class="raw-line-number" aria-label="第 2567 行">2567</a><span></span></div>
+<div class="raw-line" id="L2568"><a href="#L2568" tabindex="0" class="raw-line-number" aria-label="第 2568 行">2568</a><span>而且我们的服务意识和我们的服务的能力非常的强，我们能提供24小时的服务，能够覆盖整个欧美和亚洲的所有市区。</span></div>
+<div class="raw-line" id="L2569"><a href="#L2569" tabindex="0" class="raw-line-number" aria-label="第 2569 行">2569</a><span></span></div>
+<div class="raw-line" id="L2570"><a href="#L2570" tabindex="0" class="raw-line-number" aria-label="第 2570 行">2570</a><span>因此我希望有机会可以和大家在线下多聊聊，然后对于整个AI出海的所有话题，我也可以给大家提供很多想法或者情绪价值。非常感谢能够有机会和大家在这里见面，我们线下见。</span></div>
+<div class="raw-line" id="L2571"><a href="#L2571" tabindex="0" class="raw-line-number" aria-label="第 2571 行">2571</a><span></span></div>
+<div class="raw-line" id="L2572"><a href="#L2572" tabindex="0" class="raw-line-number" aria-label="第 2572 行">2572</a><span>Now next is our founding engineer, David, who will give us a really nice case study.</span></div>
+<div class="raw-line" id="L2573"><a href="#L2573" tabindex="0" class="raw-line-number" aria-label="第 2573 行">2573</a><span>接下来，有请我们的创始工程师 David，为大家分享一个精彩的案例。</span></div>
+<div class="raw-line" id="L2574"><a href="#L2574" tabindex="0" class="raw-line-number" aria-label="第 2574 行">2574</a><span></span></div>
+<div class="raw-line" id="L2575"><a href="#L2575" tabindex="0" class="raw-line-number" aria-label="第 2575 行">2575</a><span>Hi.</span></div>
+<div class="raw-line" id="L2576"><a href="#L2576" tabindex="0" class="raw-line-number" aria-label="第 2576 行">2576</a><span></span></div>
+<div class="raw-line" id="L2577"><a href="#L2577" tabindex="0" class="raw-line-number" aria-label="第 2577 行">2577</a><span>要是很想加Ryan的微信，这个就是让你们拍一下吧，我给你们一秒钟。</span></div>
+<div class="raw-line" id="L2578"><a href="#L2578" tabindex="0" class="raw-line-number" aria-label="第 2578 行">2578</a><span></span></div>
+<div class="raw-line" id="L2579"><a href="#L2579" tabindex="0" class="raw-line-number" aria-label="第 2579 行">2579</a><span>Alright, I&#39;ll quickly introduce myself while everyone is doing that.</span></div>
+<div class="raw-line" id="L2580"><a href="#L2580" tabindex="0" class="raw-line-number" aria-label="第 2580 行">2580</a><span>好，趁大家准备的时候，我先简单介绍一下自己。</span></div>
+<div class="raw-line" id="L2581"><a href="#L2581" tabindex="0" class="raw-line-number" aria-label="第 2581 行">2581</a><span></span></div>
+<div class="raw-line" id="L2582"><a href="#L2582" tabindex="0" class="raw-line-number" aria-label="第 2582 行">2582</a><span>大家好，我是David。</span></div>
+<div class="raw-line" id="L2583"><a href="#L2583" tabindex="0" class="raw-line-number" aria-label="第 2583 行">2583</a><span></span></div>
+<div class="raw-line" id="L2584"><a href="#L2584" tabindex="0" class="raw-line-number" aria-label="第 2584 行">2584</a><span>我在you.com， I</span></div>
+<div class="raw-line" id="L2585"><a href="#L2585" tabindex="0" class="raw-line-number" aria-label="第 2585 行">2585</a><span></span></div>
+<div class="raw-line" id="L2586"><a href="#L2586" tabindex="0" class="raw-line-number" aria-label="第 2586 行">2586</a><span>lead field engineering here, both worldwide and in Asia.</span></div>
+<div class="raw-line" id="L2587"><a href="#L2587" tabindex="0" class="raw-line-number" aria-label="第 2587 行">2587</a><span>我负责这里的现场工程团队，业务覆盖全球和亚洲。</span></div>
+<div class="raw-line" id="L2588"><a href="#L2588" tabindex="0" class="raw-line-number" aria-label="第 2588 行">2588</a><span></span></div>
+<div class="raw-line" id="L2589"><a href="#L2589" tabindex="0" class="raw-line-number" aria-label="第 2589 行">2589</a><span>我是在中国出生的，但是我现在是在纽约，所以我其实是24小时都可以给大家服务。</span></div>
+<div class="raw-line" id="L2590"><a href="#L2590" tabindex="0" class="raw-line-number" aria-label="第 2590 行">2590</a><span></span></div>
+<div class="raw-line" id="L2591"><a href="#L2591" tabindex="0" class="raw-line-number" aria-label="第 2591 行">2591</a><span>所以我现在就想讲一下我们跟NVIDIA和CoreWeave合作的一个case study。</span></div>
+<div class="raw-line" id="L2592"><a href="#L2592" tabindex="0" class="raw-line-number" aria-label="第 2592 行">2592</a><span></span></div>
+<div class="raw-line" id="L2593"><a href="#L2593" tabindex="0" class="raw-line-number" aria-label="第 2593 行">2593</a><span>所以我们就是跟NVIDIA一起合作，就是说怎么可能就是搞个open weight的这个30B的模型，</span></div>
+<div class="raw-line" id="L2594"><a href="#L2594" tabindex="0" class="raw-line-number" aria-label="第 2594 行">2594</a><span></span></div>
+<div class="raw-line" id="L2595"><a href="#L2595" tabindex="0" class="raw-line-number" aria-label="第 2595 行">2595</a><span>然后让它跟一个solid的NVIDIA solid的模型在web browsing和research和browsing是一样的performance。</span></div>
+<div class="raw-line" id="L2596"><a href="#L2596" tabindex="0" class="raw-line-number" aria-label="第 2596 行">2596</a><span></span></div>
+<div class="raw-line" id="L2597"><a href="#L2597" tabindex="0" class="raw-line-number" aria-label="第 2597 行">2597</a><span>所以为什么用这种open weight的model，是因为他们是特别token efficient，而且他们要是你在data center里面用，是特别inference efficient as well。</span></div>
+<div class="raw-line" id="L2598"><a href="#L2598" tabindex="0" class="raw-line-number" aria-label="第 2598 行">2598</a><span></span></div>
+<div class="raw-line" id="L2599"><a href="#L2599" tabindex="0" class="raw-line-number" aria-label="第 2599 行">2599</a><span>所以就大概看着这个stack吧，所以我们就是用了几个trainer这个policy，</span></div>
+<div class="raw-line" id="L2600"><a href="#L2600" tabindex="0" class="raw-line-number" aria-label="第 2600 行">2600</a><span></span></div>
+<div class="raw-line" id="L2601"><a href="#L2601" tabindex="0" class="raw-line-number" aria-label="第 2601 行">2601</a><span>第一个就是我们有这个NVIDIA做SFT和用他们的模型，这个NemoGen里面做RL，</span></div>
+<div class="raw-line" id="L2602"><a href="#L2602" tabindex="0" class="raw-line-number" aria-label="第 2602 行">2602</a><span></span></div>
+<div class="raw-line" id="L2603"><a href="#L2603" tabindex="0" class="raw-line-number" aria-label="第 2603 行">2603</a><span>然后在CoreWeave的platform上也在RL，然后最重要其实就是你这个RL的data set，</span></div>
+<div class="raw-line" id="L2604"><a href="#L2604" tabindex="0" class="raw-line-number" aria-label="第 2604 行">2604</a><span></span></div>
+<div class="raw-line" id="L2605"><a href="#L2605" tabindex="0" class="raw-line-number" aria-label="第 2605 行">2605</a><span>这个RL data set其实是你做这些后训练的时候是比那个tooling或者environment更重要的。</span></div>
+<div class="raw-line" id="L2606"><a href="#L2606" tabindex="0" class="raw-line-number" aria-label="第 2606 行">2606</a><span></span></div>
+<div class="raw-line" id="L2607"><a href="#L2607" tabindex="0" class="raw-line-number" aria-label="第 2607 行">2607</a><span>为什么？</span></div>
+<div class="raw-line" id="L2608"><a href="#L2608" tabindex="0" class="raw-line-number" aria-label="第 2608 行">2608</a><span></span></div>
+<div class="raw-line" id="L2609"><a href="#L2609" tabindex="0" class="raw-line-number" aria-label="第 2609 行">2609</a><span>是因为要是这个模型有够深难度的问题，</span></div>
+<div class="raw-line" id="L2610"><a href="#L2610" tabindex="0" class="raw-line-number" aria-label="第 2610 行">2610</a><span></span></div>
+<div class="raw-line" id="L2611"><a href="#L2611" tabindex="0" class="raw-line-number" aria-label="第 2611 行">2611</a><span>它可以自己做些后续训练的时候做些学习，然后可以improve它的overall performance。</span></div>
+<div class="raw-line" id="L2612"><a href="#L2612" tabindex="0" class="raw-line-number" aria-label="第 2612 行">2612</a><span></span></div>
+<div class="raw-line" id="L2613"><a href="#L2613" tabindex="0" class="raw-line-number" aria-label="第 2613 行">2613</a><span>所以看一下这个base model吧，所以这个base model在一个benchmark上，</span></div>
+<div class="raw-line" id="L2614"><a href="#L2614" tabindex="0" class="raw-line-number" aria-label="第 2614 行">2614</a><span></span></div>
+<div class="raw-line" id="L2615"><a href="#L2615" tabindex="0" class="raw-line-number" aria-label="第 2615 行">2615</a><span>我们用了Browsecom的benchmark，</span></div>
+<div class="raw-line" id="L2616"><a href="#L2616" tabindex="0" class="raw-line-number" aria-label="第 2616 行">2616</a><span></span></div>
+<div class="raw-line" id="L2617"><a href="#L2617" tabindex="0" class="raw-line-number" aria-label="第 2617 行">2617</a><span>Browsecom是大概1200多个问题是multi-hop这种browse web research的问题，</span></div>
+<div class="raw-line" id="L2618"><a href="#L2618" tabindex="0" class="raw-line-number" aria-label="第 2618 行">2618</a><span></span></div>
+<div class="raw-line" id="L2619"><a href="#L2619" tabindex="0" class="raw-line-number" aria-label="第 2619 行">2619</a><span>做了一些valuation。</span></div>
+<div class="raw-line" id="L2620"><a href="#L2620" tabindex="0" class="raw-line-number" aria-label="第 2620 行">2620</a><span></span></div>
+<div class="raw-line" id="L2621"><a href="#L2621" tabindex="0" class="raw-line-number" aria-label="第 2621 行">2621</a><span>所以这个base model在Browsecom是有37分，大概37分，</span></div>
+<div class="raw-line" id="L2622"><a href="#L2622" tabindex="0" class="raw-line-number" aria-label="第 2622 行">2622</a><span></span></div>
+<div class="raw-line" id="L2623"><a href="#L2623" tabindex="0" class="raw-line-number" aria-label="第 2623 行">2623</a><span>然后平均出来说每个问题是168个tool call，然后用了差不多3 to 5 million，</span></div>
+<div class="raw-line" id="L2624"><a href="#L2624" tabindex="0" class="raw-line-number" aria-label="第 2624 行">2624</a><span></span></div>
+<div class="raw-line" id="L2625"><a href="#L2625" tabindex="0" class="raw-line-number" aria-label="第 2625 行">2625</a><span>300万到500万的token，确实是很多的。</span></div>
+<div class="raw-line" id="L2626"><a href="#L2626" tabindex="0" class="raw-line-number" aria-label="第 2626 行">2626</a><span></span></div>
+<div class="raw-line" id="L2627"><a href="#L2627" tabindex="0" class="raw-line-number" aria-label="第 2627 行">2627</a><span>然后我们也看到一些，一个就是稍微小一点的model，就是不是特别强的model，会有很多不一样的failure mode。</span></div>
+<div class="raw-line" id="L2628"><a href="#L2628" tabindex="0" class="raw-line-number" aria-label="第 2628 行">2628</a><span></span></div>
+<div class="raw-line" id="L2629"><a href="#L2629" tabindex="0" class="raw-line-number" aria-label="第 2629 行">2629</a><span>所以要是说在做这些特别复杂的research问题时候，这些模型可能会有些东西就是叫death loop，所以这</span></div>
+<div class="raw-line" id="L2630"><a href="#L2630" tabindex="0" class="raw-line-number" aria-label="第 2630 行">2630</a><span></span></div>
+<div class="raw-line" id="L2631"><a href="#L2631" tabindex="0" class="raw-line-number" aria-label="第 2631 行">2631</a><span>是 this is when a model will search over and over and over again without finding the right inform</span></div>
+<div class="raw-line" id="L2632"><a href="#L2632" tabindex="0" class="raw-line-number" aria-label="第 2632 行">2632</a><span>这指的是模型反复搜索，却始终找不到正确的信息。</span></div>
+<div class="raw-line" id="L2633"><a href="#L2633" tabindex="0" class="raw-line-number" aria-label="第 2633 行">2633</a><span></span></div>
+<div class="raw-line" id="L2634"><a href="#L2634" tabindex="0" class="raw-line-number" aria-label="第 2634 行">2634</a><span>ation.</span></div>
+<div class="raw-line" id="L2635"><a href="#L2635" tabindex="0" class="raw-line-number" aria-label="第 2635 行">2635</a><span>……ation。</span></div>
+<div class="raw-line" id="L2636"><a href="#L2636" tabindex="0" class="raw-line-number" aria-label="第 2636 行">2636</a><span></span></div>
+<div class="raw-line" id="L2637"><a href="#L2637" tabindex="0" class="raw-line-number" aria-label="第 2637 行">2637</a><span>也会有一些东西就是weak tool use，因为这个模型不知道怎么用互联网搜索，不知道怎么用web browsing，</span></div>
+<div class="raw-line" id="L2638"><a href="#L2638" tabindex="0" class="raw-line-number" aria-label="第 2638 行">2638</a><span></span></div>
+<div class="raw-line" id="L2639"><a href="#L2639" tabindex="0" class="raw-line-number" aria-label="第 2639 行">2639</a><span>它其实是见到这些特别复杂的问题的时候，它 it doesn</span></div>
+<div class="raw-line" id="L2640"><a href="#L2640" tabindex="0" class="raw-line-number" aria-label="第 2640 行">2640</a><span></span></div>
+<div class="raw-line" id="L2641"><a href="#L2641" tabindex="0" class="raw-line-number" aria-label="第 2641 行">2641</a><span>&#39;t know how to react properly.</span></div>
+<div class="raw-line" id="L2642"><a href="#L2642" tabindex="0" class="raw-line-number" aria-label="第 2642 行">2642</a><span>不知道该如何恰当地回应。</span></div>
+<div class="raw-line" id="L2643"><a href="#L2643" tabindex="0" class="raw-line-number" aria-label="第 2643 行">2643</a><span></span></div>
+<div class="raw-line" id="L2644"><a href="#L2644" tabindex="0" class="raw-line-number" aria-label="第 2644 行">2644</a><span>然后最后其实有时候这模型可能也会查到对的答案，但是因为它自己不知道对的答案是怎么来到的，它可能会再去做更多搜索，做更多这些tool call，或者用更多token，这是特别inefficient。</span></div>
+<div class="raw-line" id="L2645"><a href="#L2645" tabindex="0" class="raw-line-number" aria-label="第 2645 行">2645</a><span></span></div>
+<div class="raw-line" id="L2646"><a href="#L2646" tabindex="0" class="raw-line-number" aria-label="第 2646 行">2646</a><span>所以刚才就是大概说了一下，就是做RL data set是其实是做后训练的时候是最重要的一个部分。</span></div>
+<div class="raw-line" id="L2647"><a href="#L2647" tabindex="0" class="raw-line-number" aria-label="第 2647 行">2647</a><span></span></div>
+<div class="raw-line" id="L2648"><a href="#L2648" tabindex="0" class="raw-line-number" aria-label="第 2648 行">2648</a><span>所以为什么？</span></div>
+<div class="raw-line" id="L2649"><a href="#L2649" tabindex="0" class="raw-line-number" aria-label="第 2649 行">2649</a><span></span></div>
+<div class="raw-line" id="L2650"><a href="#L2650" tabindex="0" class="raw-line-number" aria-label="第 2650 行">2650</a><span>因为要是你看个模型的pre-training的corpus，它都应该会在互联网上差不多全的token都有了，</span></div>
+<div class="raw-line" id="L2651"><a href="#L2651" tabindex="0" class="raw-line-number" aria-label="第 2651 行">2651</a><span></span></div>
+<div class="raw-line" id="L2652"><a href="#L2652" tabindex="0" class="raw-line-number" aria-label="第 2652 行">2652</a><span>它自己的internal knowledge都有很多这种facts。</span></div>
+<div class="raw-line" id="L2653"><a href="#L2653" tabindex="0" class="raw-line-number" aria-label="第 2653 行">2653</a><span></span></div>
+<div class="raw-line" id="L2654"><a href="#L2654" tabindex="0" class="raw-line-number" aria-label="第 2654 行">2654</a><span>所以你要找一些特别复杂的问题，一些问题不会在一个模型的knowledge里面来做后训练，</span></div>
+<div class="raw-line" id="L2655"><a href="#L2655" tabindex="0" class="raw-line-number" aria-label="第 2655 行">2655</a><span></span></div>
+<div class="raw-line" id="L2656"><a href="#L2656" tabindex="0" class="raw-line-number" aria-label="第 2656 行">2656</a><span>所以它不会直接去在它的weight里面拿一个答案出来，它会学习怎么用这些网络搜索的tool、网络browsing的tool和做更多reasoning。</span></div>
+<div class="raw-line" id="L2657"><a href="#L2657" tabindex="0" class="raw-line-number" aria-label="第 2657 行">2657</a><span></span></div>
+<div class="raw-line" id="L2658"><a href="#L2658" tabindex="0" class="raw-line-number" aria-label="第 2658 行">2658</a><span>所以因为you.com是有自己的一个互联网搜索的API，我们其实有一个东西就是叫个web graph，</span></div>
+<div class="raw-line" id="L2659"><a href="#L2659" tabindex="0" class="raw-line-number" aria-label="第 2659 行">2659</a><span></span></div>
+<div class="raw-line" id="L2660"><a href="#L2660" tabindex="0" class="raw-line-number" aria-label="第 2660 行">2660</a><span>这个web graph你可以想 it&#39;s just a</span></div>
+<div class="raw-line" id="L2661"><a href="#L2661" tabindex="0" class="raw-line-number" aria-label="第 2661 行">2661</a><span></span></div>
+<div class="raw-line" id="L2662"><a href="#L2662" tabindex="0" class="raw-line-number" aria-label="第 2662 行">2662</a><span>basically</span></div>
+<div class="raw-line" id="L2663"><a href="#L2663" tabindex="0" class="raw-line-number" aria-label="第 2663 行">2663</a><span>基本上</span></div>
+<div class="raw-line" id="L2664"><a href="#L2664" tabindex="0" class="raw-line-number" aria-label="第 2664 行">2664</a><span></span></div>
+<div class="raw-line" id="L2665"><a href="#L2665" tabindex="0" class="raw-line-number" aria-label="第 2665 行">2665</a><span>a cyclic graph 或者cyclic graph</span></div>
+<div class="raw-line" id="L2666"><a href="#L2666" tabindex="0" class="raw-line-number" aria-label="第 2666 行">2666</a><span></span></div>
+<div class="raw-line" id="L2667"><a href="#L2667" tabindex="0" class="raw-line-number" aria-label="第 2667 行">2667</a><span>of all of the web pages, hundreds of billions of web pages in the world, and then there&#39;s backlinks and links, so there&#39;s back edges and edges linking every web page.</span></div>
+<div class="raw-line" id="L2668"><a href="#L2668" tabindex="0" class="raw-line-number" aria-label="第 2668 行">2668</a><span>全球有数千亿个网页，网页之间还有反向链接和普通链接，也就是连接各个网页的反向边和正向边。</span></div>
+<div class="raw-line" id="L2669"><a href="#L2669" tabindex="0" class="raw-line-number" aria-label="第 2669 行">2669</a><span></span></div>
+<div class="raw-line" id="L2670"><a href="#L2670" tabindex="0" class="raw-line-number" aria-label="第 2670 行">2670</a><span>所以这样我们可以自己算一些，就像Google或者Bing的page rank，就是这些分数，</span></div>
+<div class="raw-line" id="L2671"><a href="#L2671" tabindex="0" class="raw-line-number" aria-label="第 2671 行">2671</a><span></span></div>
+<div class="raw-line" id="L2672"><a href="#L2672" tabindex="0" class="raw-line-number" aria-label="第 2672 行">2672</a><span>或者agentic的relevance的分数。</span></div>
+<div class="raw-line" id="L2673"><a href="#L2673" tabindex="0" class="raw-line-number" aria-label="第 2673 行">2673</a><span></span></div>
+<div class="raw-line" id="L2674"><a href="#L2674" tabindex="0" class="raw-line-number" aria-label="第 2674 行">2674</a><span>所以我们其实就是看哪些网站其实是稍微不是特别popular的网站，就是medium popularity的网站。为什么？</span></div>
+<div class="raw-line" id="L2675"><a href="#L2675" tabindex="0" class="raw-line-number" aria-label="第 2675 行">2675</a><span></span></div>
+<div class="raw-line" id="L2676"><a href="#L2676" tabindex="0" class="raw-line-number" aria-label="第 2676 行">2676</a><span>就是因为这些网站的这些信息就可能不会在这个模型的weight里面。</span></div>
+<div class="raw-line" id="L2677"><a href="#L2677" tabindex="0" class="raw-line-number" aria-label="第 2677 行">2677</a><span></span></div>
+<div class="raw-line" id="L2678"><a href="#L2678" tabindex="0" class="raw-line-number" aria-label="第 2678 行">2678</a><span>但是然后要是你看特别特别popular的网站，其实这些网站很多字就是其实是没用的，就像Google的homepage，</span></div>
+<div class="raw-line" id="L2679"><a href="#L2679" tabindex="0" class="raw-line-number" aria-label="第 2679 行">2679</a><span></span></div>
+<div class="raw-line" id="L2680"><a href="#L2680" tabindex="0" class="raw-line-number" aria-label="第 2680 行">2680</a><span>或者Vanta的SOC2 logo的这个URL，因为特别特别多网站都有它们。</span></div>
+<div class="raw-line" id="L2681"><a href="#L2681" tabindex="0" class="raw-line-number" aria-label="第 2681 行">2681</a><span></span></div>
+<div class="raw-line" id="L2682"><a href="#L2682" tabindex="0" class="raw-line-number" aria-label="第 2682 行">2682</a><span>然后要是你看特别rare或者unpopular的网站，这些很多字是long tail或者spam，所以这些也不是特别relevant，</span></div>
+<div class="raw-line" id="L2683"><a href="#L2683" tabindex="0" class="raw-line-number" aria-label="第 2683 行">2683</a><span></span></div>
+<div class="raw-line" id="L2684"><a href="#L2684" tabindex="0" class="raw-line-number" aria-label="第 2684 行">2684</a><span>你就要看中间popularity的网站来做这个data set。</span></div>
+<div class="raw-line" id="L2685"><a href="#L2685" tabindex="0" class="raw-line-number" aria-label="第 2685 行">2685</a><span></span></div>
+<div class="raw-line" id="L2686"><a href="#L2686" tabindex="0" class="raw-line-number" aria-label="第 2686 行">2686</a><span>然后你拿到这些网站的时候，我们是用了差不多几千个，你可以用个模型在它这个page content里面做一些Q&amp;A pair，</span></div>
+<div class="raw-line" id="L2687"><a href="#L2687" tabindex="0" class="raw-line-number" aria-label="第 2687 行">2687</a><span></span></div>
+<div class="raw-line" id="L2688"><a href="#L2688" tabindex="0" class="raw-line-number" aria-label="第 2688 行">2688</a><span>然后这样就可以有个特别复杂的RL data set来让这个模型做后训练。</span></div>
+<div class="raw-line" id="L2689"><a href="#L2689" tabindex="0" class="raw-line-number" aria-label="第 2689 行">2689</a><span></span></div>
+<div class="raw-line" id="L2690"><a href="#L2690" tabindex="0" class="raw-line-number" aria-label="第 2690 行">2690</a><span>所以我们拿我们自己的proprietary data，然后再加了一些open source的data，</span></div>
+<div class="raw-line" id="L2691"><a href="#L2691" tabindex="0" class="raw-line-number" aria-label="第 2691 行">2691</a><span></span></div>
+<div class="raw-line" id="L2692"><a href="#L2692" tabindex="0" class="raw-line-number" aria-label="第 2692 行">2692</a><span>像OpenSeeker或者A searcher的这些subset，来做了这个RL data的data set。</span></div>
+<div class="raw-line" id="L2693"><a href="#L2693" tabindex="0" class="raw-line-number" aria-label="第 2693 行">2693</a><span></span></div>
+<div class="raw-line" id="L2694"><a href="#L2694" tabindex="0" class="raw-line-number" aria-label="第 2694 行">2694</a><span>然后我们再做了另外一步骤，就是decontamination，你做RL的时候，</span></div>
+<div class="raw-line" id="L2695"><a href="#L2695" tabindex="0" class="raw-line-number" aria-label="第 2695 行">2695</a><span></span></div>
+<div class="raw-line" id="L2696"><a href="#L2696" tabindex="0" class="raw-line-number" aria-label="第 2696 行">2696</a><span>你不想你data set里面就是会有这些RL benchmark的答案，所以你要做decontamination。</span></div>
+<div class="raw-line" id="L2697"><a href="#L2697" tabindex="0" class="raw-line-number" aria-label="第 2697 行">2697</a><span></span></div>
+<div class="raw-line" id="L2698"><a href="#L2698" tabindex="0" class="raw-line-number" aria-label="第 2698 行">2698</a><span>做完decontamination之后，</span></div>
+<div class="raw-line" id="L2699"><a href="#L2699" tabindex="0" class="raw-line-number" aria-label="第 2699 行">2699</a><span></span></div>
+<div class="raw-line" id="L2700"><a href="#L2700" tabindex="0" class="raw-line-number" aria-label="第 2700 行">2700</a><span>我们就用这个base model NemoTron 3.5 Lightning来做一个pass at 8 square，</span></div>
+<div class="raw-line" id="L2701"><a href="#L2701" tabindex="0" class="raw-line-number" aria-label="第 2701 行">2701</a><span></span></div>
+<div class="raw-line" id="L2702"><a href="#L2702" tabindex="0" class="raw-line-number" aria-label="第 2702 行">2702</a><span>就是先给它做8个run。</span></div>
+<div class="raw-line" id="L2703"><a href="#L2703" tabindex="0" class="raw-line-number" aria-label="第 2703 行">2703</a><span></span></div>
+<div class="raw-line" id="L2704"><a href="#L2704" tabindex="0" class="raw-line-number" aria-label="第 2704 行">2704</a><span>为什么我们会做pass at 8？</span></div>
+<div class="raw-line" id="L2705"><a href="#L2705" tabindex="0" class="raw-line-number" aria-label="第 2705 行">2705</a><span></span></div>
+<div class="raw-line" id="L2706"><a href="#L2706" tabindex="0" class="raw-line-number" aria-label="第 2706 行">2706</a><span>就是因为你不想就是在RL这个data set里面做用太复杂或者太简单的问题。</span></div>
+<div class="raw-line" id="L2707"><a href="#L2707" tabindex="0" class="raw-line-number" aria-label="第 2707 行">2707</a><span></span></div>
+<div class="raw-line" id="L2708"><a href="#L2708" tabindex="0" class="raw-line-number" aria-label="第 2708 行">2708</a><span>要是一个问题100a database times，the model can answer the question，</span></div>
+<div class="raw-line" id="L2709"><a href="#L2709" tabindex="0" class="raw-line-number" aria-label="第 2709 行">2709</a><span></span></div>
+<div class="raw-line" id="L2710"><a href="#L2710" tabindex="0" class="raw-line-number" aria-label="第 2710 行">2710</a><span>那其实这个问题是没用的，这模型都已经会做这种东西了。</span></div>
+<div class="raw-line" id="L2711"><a href="#L2711" tabindex="0" class="raw-line-number" aria-label="第 2711 行">2711</a><span></span></div>
+<div class="raw-line" id="L2712"><a href="#L2712" tabindex="0" class="raw-line-number" aria-label="第 2712 行">2712</a><span>要是这个问题是太复杂的，就是说明0 out of 8 pass rate，那说明这个可能这模型可能不够复杂，</span></div>
+<div class="raw-line" id="L2713"><a href="#L2713" tabindex="0" class="raw-line-number" aria-label="第 2713 行">2713</a><span></span></div>
+<div class="raw-line" id="L2714"><a href="#L2714" tabindex="0" class="raw-line-number" aria-label="第 2714 行">2714</a><span>这个the model may not be capable enough to answer these questions。</span></div>
+<div class="raw-line" id="L2715"><a href="#L2715" tabindex="0" class="raw-line-number" aria-label="第 2715 行">2715</a><span></span></div>
+<div class="raw-line" id="L2716"><a href="#L2716" tabindex="0" class="raw-line-number" aria-label="第 2716 行">2716</a><span>So those are discarded as well.</span></div>
+<div class="raw-line" id="L2717"><a href="#L2717" tabindex="0" class="raw-line-number" aria-label="第 2717 行">2717</a><span>所以这些也会被丢弃。</span></div>
+<div class="raw-line" id="L2718"><a href="#L2718" tabindex="0" class="raw-line-number" aria-label="第 2718 行">2718</a><span></span></div>
+<div class="raw-line" id="L2719"><a href="#L2719" tabindex="0" class="raw-line-number" aria-label="第 2719 行">2719</a><span>所以留下来的问题就是说pass between 1 and 7，这些就可以用来当你的RL data set。</span></div>
+<div class="raw-line" id="L2720"><a href="#L2720" tabindex="0" class="raw-line-number" aria-label="第 2720 行">2720</a><span></span></div>
+<div class="raw-line" id="L2721"><a href="#L2721" tabindex="0" class="raw-line-number" aria-label="第 2721 行">2721</a><span>所以我想其实今天说的就是最重要的这个，就是你可以用小的data set来做一些很大的performance gains。</span></div>
+<div class="raw-line" id="L2722"><a href="#L2722" tabindex="0" class="raw-line-number" aria-label="第 2722 行">2722</a><span></span></div>
+<div class="raw-line" id="L2723"><a href="#L2723" tabindex="0" class="raw-line-number" aria-label="第 2723 行">2723</a><span>要是你跟另外一些data set比，像Web Sailor或者OpenSeeker和A searcher，</span></div>
+<div class="raw-line" id="L2724"><a href="#L2724" tabindex="0" class="raw-line-number" aria-label="第 2724 行">2724</a><span></span></div>
+<div class="raw-line" id="L2725"><a href="#L2725" tabindex="0" class="raw-line-number" aria-label="第 2725 行">2725</a><span>它们比我们的大几倍，但是它们我们做的performance gain其实是跟它们差不多一样的，用一个特别小的data set，</span></div>
+<div class="raw-line" id="L2726"><a href="#L2726" tabindex="0" class="raw-line-number" aria-label="第 2726 行">2726</a><span></span></div>
+<div class="raw-line" id="L2727"><a href="#L2727" tabindex="0" class="raw-line-number" aria-label="第 2727 行">2727</a><span>我们一共是有差不多5000个SFT trace，1500个RL task，然后一共只要花8个小时来做RL，来做后训练。</span></div>
+<div class="raw-line" id="L2728"><a href="#L2728" tabindex="0" class="raw-line-number" aria-label="第 2728 行">2728</a><span></span></div>
+<div class="raw-line" id="L2729"><a href="#L2729" tabindex="0" class="raw-line-number" aria-label="第 2729 行">2729</a><span>我们这些1500个RL task都是用我们这个web graph和搜索的API来做的，</span></div>
+<div class="raw-line" id="L2730"><a href="#L2730" tabindex="0" class="raw-line-number" aria-label="第 2730 行">2730</a><span></span></div>
+<div class="raw-line" id="L2731"><a href="#L2731" tabindex="0" class="raw-line-number" aria-label="第 2731 行">2731</a><span>所以其实不是跟另外一些RL的那些method那么复杂。</span></div>
+<div class="raw-line" id="L2732"><a href="#L2732" tabindex="0" class="raw-line-number" aria-label="第 2732 行">2732</a><span></span></div>
+<div class="raw-line" id="L2733"><a href="#L2733" tabindex="0" class="raw-line-number" aria-label="第 2733 行">2733</a><span>因为有时候做RL你可能要做用一些human来做这些task，或者做RLHF，</span></div>
+<div class="raw-line" id="L2734"><a href="#L2734" tabindex="0" class="raw-line-number" aria-label="第 2734 行">2734</a><span></span></div>
+<div class="raw-line" id="L2735"><a href="#L2735" tabindex="0" class="raw-line-number" aria-label="第 2735 行">2735</a><span>这全部是RLVR。所以从时间角度来说，其实是挺简单的。</span></div>
+<div class="raw-line" id="L2736"><a href="#L2736" tabindex="0" class="raw-line-number" aria-label="第 2736 行">2736</a><span></span></div>
+<div class="raw-line" id="L2737"><a href="#L2737" tabindex="0" class="raw-line-number" aria-label="第 2737 行">2737</a><span>所以最后就是结果是怎么样。</span></div>
+<div class="raw-line" id="L2738"><a href="#L2738" tabindex="0" class="raw-line-number" aria-label="第 2738 行">2738</a><span></span></div>
+<div class="raw-line" id="L2739"><a href="#L2739" tabindex="0" class="raw-line-number" aria-label="第 2739 行">2739</a><span>一共我们就是要是你记得，就是base model的performance是37分，</span></div>
+<div class="raw-line" id="L2740"><a href="#L2740" tabindex="0" class="raw-line-number" aria-label="第 2740 行">2740</a><span></span></div>
+<div class="raw-line" id="L2741"><a href="#L2741" tabindex="0" class="raw-line-number" aria-label="第 2741 行">2741</a><span>中文RL中文后训练时候我们在base model performance已经变成45.45分，</span></div>
+<div class="raw-line" id="L2742"><a href="#L2742" tabindex="0" class="raw-line-number" aria-label="第 2742 行">2742</a><span></span></div>
+<div class="raw-line" id="L2743"><a href="#L2743" tabindex="0" class="raw-line-number" aria-label="第 2743 行">2743</a><span>在browse comp这个benchmark上。</span></div>
+<div class="raw-line" id="L2744"><a href="#L2744" tabindex="0" class="raw-line-number" aria-label="第 2744 行">2744</a><span></span></div>
+<div class="raw-line" id="L2745"><a href="#L2745" tabindex="0" class="raw-line-number" aria-label="第 2745 行">2745</a><span>但是total是8点几，8.5分的performance gain，但是其实是23%的relevant，</span></div>
+<div class="raw-line" id="L2746"><a href="#L2746" tabindex="0" class="raw-line-number" aria-label="第 2746 行">2746</a><span></span></div>
+<div class="raw-line" id="L2747"><a href="#L2747" tabindex="0" class="raw-line-number" aria-label="第 2747 行">2747</a><span>22%的relative gain。</span></div>
+<div class="raw-line" id="L2748"><a href="#L2748" tabindex="0" class="raw-line-number" aria-label="第 2748 行">2748</a><span></span></div>
+<div class="raw-line" id="L2749"><a href="#L2749" tabindex="0" class="raw-line-number" aria-label="第 2749 行">2749</a><span>然后我们还看到就是个很interesting的behavior，你做后训练的时候，其实你就是看这个模型拿的答案是不是对的，</span></div>
+<div class="raw-line" id="L2750"><a href="#L2750" tabindex="0" class="raw-line-number" aria-label="第 2750 行">2750</a><span></span></div>
+<div class="raw-line" id="L2751"><a href="#L2751" tabindex="0" class="raw-line-number" aria-label="第 2751 行">2751</a><span>你不是说</span></div>
+<div class="raw-line" id="L2752"><a href="#L2752" tabindex="0" class="raw-line-number" aria-label="第 2752 行">2752</a><span></span></div>
+<div class="raw-line" id="L2753"><a href="#L2753" tabindex="0" class="raw-line-number" aria-label="第 2753 行">2753</a><span>you don&#39;t reward the model for efficiency but because the model learns more about how to use the relevant tools and your RL environment and it also learns how to solve the tasks that you give in the model it actually becomes more efficient as a side effect so you&#39;re actually seeing that you can both gain performance and efficiency when you&#39;re doing RL</span></div>
+<div class="raw-line" id="L2754"><a href="#L2754" tabindex="0" class="raw-line-number" aria-label="第 2754 行">2754</a><span>你并没有直接奖励模型提高效率，但随着模型更熟悉如何使用相关工具和强化学习环境，也更擅长完成你交给它的任务，效率就会随之提高。所以，做强化学习时，你会发现性能和效率可以同时提升。</span></div>
+<div class="raw-line" id="L2755"><a href="#L2755" tabindex="0" class="raw-line-number" aria-label="第 2755 行">2755</a><span></span></div>
+<div class="raw-line" id="L2756"><a href="#L2756" tabindex="0" class="raw-line-number" aria-label="第 2756 行">2756</a><span>所以最后就是看是SFT可能可以有3分的gain，然后后来的gain就是5点几分的gain就是在RL这部分。</span></div>
+<div class="raw-line" id="L2757"><a href="#L2757" tabindex="0" class="raw-line-number" aria-label="第 2757 行">2757</a><span></span></div>
+<div class="raw-line" id="L2758"><a href="#L2758" tabindex="0" class="raw-line-number" aria-label="第 2758 行">2758</a><span>To make it more concrete,</span></div>
+<div class="raw-line" id="L2759"><a href="#L2759" tabindex="0" class="raw-line-number" aria-label="第 2759 行">2759</a><span>具体来说，</span></div>
+<div class="raw-line" id="L2760"><a href="#L2760" tabindex="0" class="raw-line-number" aria-label="第 2760 行">2760</a><span></span></div>
+<div class="raw-line" id="L2761"><a href="#L2761" tabindex="0" class="raw-line-number" aria-label="第 2761 行">2761</a><span>I can give an example here.</span></div>
+<div class="raw-line" id="L2762"><a href="#L2762" tabindex="0" class="raw-line-number" aria-label="第 2762 行">2762</a><span>我可以在这里举个例子。</span></div>
+<div class="raw-line" id="L2763"><a href="#L2763" tabindex="0" class="raw-line-number" aria-label="第 2763 行">2763</a><span></span></div>
+<div class="raw-line" id="L2764"><a href="#L2764" tabindex="0" class="raw-line-number" aria-label="第 2764 行">2764</a><span>所以这个例子就是browse comp一个特别复杂的问题，</span></div>
+<div class="raw-line" id="L2765"><a href="#L2765" tabindex="0" class="raw-line-number" aria-label="第 2765 行">2765</a><span></span></div>
+<div class="raw-line" id="L2766"><a href="#L2766" tabindex="0" class="raw-line-number" aria-label="第 2766 行">2766</a><span>所以这个问题就是说一个公司是2013年和2023年之间被收购的，然后这CEO收购的时候是从一个加州大学毕业的，</span></div>
+<div class="raw-line" id="L2767"><a href="#L2767" tabindex="0" class="raw-line-number" aria-label="第 2767 行">2767</a><span></span></div>
+<div class="raw-line" id="L2768"><a href="#L2768" tabindex="0" class="raw-line-number" aria-label="第 2768 行">2768</a><span>然后他在大概说他车，他卖这个light bulb的时候他是开哪种车，这个问题其实从模型角度来说不是个特别简单的问题。</span></div>
+<div class="raw-line" id="L2769"><a href="#L2769" tabindex="0" class="raw-line-number" aria-label="第 2769 行">2769</a><span></span></div>
+<div class="raw-line" id="L2770"><a href="#L2770" tabindex="0" class="raw-line-number" aria-label="第 2770 行">2770</a><span>It needs multiple steps, multiple hops, and a long, quite a long amount of reasoning to accomplish and answer the question.</span></div>
+<div class="raw-line" id="L2771"><a href="#L2771" tabindex="0" class="raw-line-number" aria-label="第 2771 行">2771</a><span>要回答这个问题，需要经过多个步骤、多次跳转，并进行相当长的推理。</span></div>
+<div class="raw-line" id="L2772"><a href="#L2772" tabindex="0" class="raw-line-number" aria-label="第 2772 行">2772</a><span></span></div>
+<div class="raw-line" id="L2773"><a href="#L2773" tabindex="0" class="raw-line-number" aria-label="第 2773 行">2773</a><span>所以 if you look at the model 就是看这个模型就是后训练之前就是最基本这个model，</span></div>
+<div class="raw-line" id="L2774"><a href="#L2774" tabindex="0" class="raw-line-number" aria-label="第 2774 行">2774</a><span></span></div>
+<div class="raw-line" id="L2775"><a href="#L2775" tabindex="0" class="raw-line-number" aria-label="第 2775 行">2775</a><span>它来回答这个task，它用了313个tool call，所以一共用了150个搜索，118个web fetch，</span></div>
+<div class="raw-line" id="L2776"><a href="#L2776" tabindex="0" class="raw-line-number" aria-label="第 2776 行">2776</a><span></span></div>
+<div class="raw-line" id="L2777"><a href="#L2777" tabindex="0" class="raw-line-number" aria-label="第 2777 行">2777</a><span>然后用了buttons。</span></div>
+<div class="raw-line" id="L2778"><a href="#L2778" tabindex="0" class="raw-line-number" aria-label="第 2778 行">2778</a><span></span></div>
+<div class="raw-line" id="L2779"><a href="#L2779" tabindex="0" class="raw-line-number" aria-label="第 2779 行">2779</a><span>1.3 million</span></div>
+<div class="raw-line" id="L2780"><a href="#L2780" tabindex="0" class="raw-line-number" aria-label="第 2780 行">2780</a><span>130万</span></div>
+<div class="raw-line" id="L2781"><a href="#L2781" tabindex="0" class="raw-line-number" aria-label="第 2781 行">2781</a><span></span></div>
+<div class="raw-line" id="L2782"><a href="#L2782" tabindex="0" class="raw-line-number" aria-label="第 2782 行">2782</a><span>tokens 然后它还其实最后它答案还是错的，但是要是你看后训练后这个模型的behavior是怎么样，</span></div>
+<div class="raw-line" id="L2783"><a href="#L2783" tabindex="0" class="raw-line-number" aria-label="第 2783 行">2783</a><span></span></div>
+<div class="raw-line" id="L2784"><a href="#L2784" tabindex="0" class="raw-line-number" aria-label="第 2784 行">2784</a><span>这个模型就是看到用了一共这种7个tool call，3个互联网搜索，1个web fetch，</span></div>
+<div class="raw-line" id="L2785"><a href="#L2785" tabindex="0" class="raw-line-number" aria-label="第 2785 行">2785</a><span></span></div>
+<div class="raw-line" id="L2786"><a href="#L2786" tabindex="0" class="raw-line-number" aria-label="第 2786 行">2786</a><span>然后只用了7万多个token。</span></div>
+<div class="raw-line" id="L2787"><a href="#L2787" tabindex="0" class="raw-line-number" aria-label="第 2787 行">2787</a><span></span></div>
+<div class="raw-line" id="L2788"><a href="#L2788" tabindex="0" class="raw-line-number" aria-label="第 2788 行">2788</a><span>为什么这个模型后来会这么好，是因为这个模型第一次就拿到答案了，然后它就是做了verification，</span></div>
+<div class="raw-line" id="L2789"><a href="#L2789" tabindex="0" class="raw-line-number" aria-label="第 2789 行">2789</a><span></span></div>
+<div class="raw-line" id="L2790"><a href="#L2790" tabindex="0" class="raw-line-number" aria-label="第 2790 行">2790</a><span>它自己知道它学了就是说要是你拿到答案你可以做一些verification，你不用再continuously搜索。所以这个就是个very interesting case of model behavior improving after post-training.</span></div>
+<div class="raw-line" id="L2791"><a href="#L2791" tabindex="0" class="raw-line-number" aria-label="第 2791 行">2791</a><span></span></div>
+<div class="raw-line" id="L2792"><a href="#L2792" tabindex="0" class="raw-line-number" aria-label="第 2792 行">2792</a><span>我现在只有40几秒，所以很快就说吧，这个可能是最重要的部分</span></div>
+<div class="raw-line" id="L2793"><a href="#L2793" tabindex="0" class="raw-line-number" aria-label="第 2793 行">2793</a><span></span></div>
+<div class="raw-line" id="L2794"><a href="#L2794" tabindex="0" class="raw-line-number" aria-label="第 2794 行">2794</a><span>The generalized what your process might be for post-training or RL, one, start with strong tools, in this case we started with strong search,</span></div>
+<div class="raw-line" id="L2795"><a href="#L2795" tabindex="0" class="raw-line-number" aria-label="第 2795 行">2795</a><span>概括一下后训练或强化学习的流程：第一步，从强大的工具入手。在这个例子中，我们先用了强大的搜索工具。</span></div>
+<div class="raw-line" id="L2796"><a href="#L2796" tabindex="0" class="raw-line-number" aria-label="第 2796 行">2796</a><span></span></div>
+<div class="raw-line" id="L2797"><a href="#L2797" tabindex="0" class="raw-line-number" aria-label="第 2797 行">2797</a><span>but you want to start with the strong tool for anything that you&#39;re doing.</span></div>
+<div class="raw-line" id="L2798"><a href="#L2798" tabindex="0" class="raw-line-number" aria-label="第 2798 行">2798</a><span>但无论做什么，你都应该先用最强的工具。</span></div>
+<div class="raw-line" id="L2799"><a href="#L2799" tabindex="0" class="raw-line-number" aria-label="第 2799 行">2799</a><span></span></div>
+<div class="raw-line" id="L2800"><a href="#L2800" tabindex="0" class="raw-line-number" aria-label="第 2800 行">2800</a><span>Build questions, with representative datasets, or in this case build questions from the real web.</span></div>
+<div class="raw-line" id="L2801"><a href="#L2801" tabindex="0" class="raw-line-number" aria-label="第 2801 行">2801</a><span>构建问题时，可以使用有代表性的数据集；在这个例子中，问题则来自真实的互联网。</span></div>
+<div class="raw-line" id="L2802"><a href="#L2802" tabindex="0" class="raw-line-number" aria-label="第 2802 行">2802</a><span></span></div>
+<div class="raw-line" id="L2803"><a href="#L2803" tabindex="0" class="raw-line-number" aria-label="第 2803 行">2803</a><span>Filter by difficulty, that&#39;s very important for gRPO and RLVR.</span></div>
+<div class="raw-line" id="L2804"><a href="#L2804" tabindex="0" class="raw-line-number" aria-label="第 2804 行">2804</a><span>按难度筛选，这对 gRPO 和 RLVR 非常重要。</span></div>
+<div class="raw-line" id="L2805"><a href="#L2805" tabindex="0" class="raw-line-number" aria-label="第 2805 行">2805</a><span></span></div>
+<div class="raw-line" id="L2806"><a href="#L2806" tabindex="0" class="raw-line-number" aria-label="第 2806 行">2806</a><span>You can do SFT on your own traces, so rejection sampling, SFT, and then do gRPO.</span></div>
+<div class="raw-line" id="L2807"><a href="#L2807" tabindex="0" class="raw-line-number" aria-label="第 2807 行">2807</a><span>可以用模型自己生成的推理轨迹做监督微调（SFT）：先进行拒绝采样和监督微调，再做 gRPO。</span></div>
+<div class="raw-line" id="L2808"><a href="#L2808" tabindex="0" class="raw-line-number" aria-label="第 2808 行">2808</a><span></span></div>
+<div class="raw-line" id="L2809"><a href="#L2809" tabindex="0" class="raw-line-number" aria-label="第 2809 行">2809</a><span>And then finally, measure accuracy and efficiency you can kind of do a binary rubric or a multi-step rubric.</span></div>
+<div class="raw-line" id="L2810"><a href="#L2810" tabindex="0" class="raw-line-number" aria-label="第 2810 行">2810</a><span>最后，评估准确率和效率。评分标准可以是简单的二元标准，也可以是分步骤的标准。</span></div>
+<div class="raw-line" id="L2811"><a href="#L2811" tabindex="0" class="raw-line-number" aria-label="第 2811 行">2811</a><span></span></div>
+<div class="raw-line" id="L2812"><a href="#L2812" tabindex="0" class="raw-line-number" aria-label="第 2812 行">2812</a><span>Oh, I was supposed to finish on the thank you slide, but thank you, appreciate it.</span></div>
+<div class="raw-line" id="L2813"><a href="#L2813" tabindex="0" class="raw-line-number" aria-label="第 2813 行">2813</a><span>哦，我本来应该停在“谢谢”那页的。总之，谢谢大家！</span></div>
+<div class="raw-line" id="L2814"><a href="#L2814" tabindex="0" class="raw-line-number" aria-label="第 2814 行">2814</a><span></span></div>
+<div class="raw-line" id="L2815"><a href="#L2815" tabindex="0" class="raw-line-number" aria-label="第 2815 行">2815</a><span>Alright, thank you you dot</span></div>
+<div class="raw-line" id="L2816"><a href="#L2816" tabindex="0" class="raw-line-number" aria-label="第 2816 行">2816</a><span>好的，谢谢你，Dot。</span></div>
+<div class="raw-line" id="L2817"><a href="#L2817" tabindex="0" class="raw-line-number" aria-label="第 2817 行">2817</a><span></span></div>
+<div class="raw-line" id="L2818"><a href="#L2818" tabindex="0" class="raw-line-number" aria-label="第 2818 行">2818</a><span>coms team.</span></div>
+<div class="raw-line" id="L2819"><a href="#L2819" tabindex="0" class="raw-line-number" aria-label="第 2819 行">2819</a><span>传播团队。</span></div>
+<div class="raw-line" id="L2820"><a href="#L2820" tabindex="0" class="raw-line-number" aria-label="第 2820 行">2820</a><span></span></div>
+<div class="raw-line" id="L2821"><a href="#L2821" tabindex="0" class="raw-line-number" aria-label="第 2821 行">2821</a><span>然后谢谢you dot com</span></div>
+<div class="raw-line" id="L2822"><a href="#L2822" tabindex="0" class="raw-line-number" aria-label="第 2822 行">2822</a><span></span></div>
+<div class="raw-line" id="L2823"><a href="#L2823" tabindex="0" class="raw-line-number" aria-label="第 2823 行">2823</a><span>So next let&#39;s welcome Chen from base 10.</span></div>
+<div class="raw-line" id="L2824"><a href="#L2824" tabindex="0" class="raw-line-number" aria-label="第 2824 行">2824</a><span>接下来，让我们欢迎来自 Base10 的 Chen。</span></div>
+<div class="raw-line" id="L2825"><a href="#L2825" tabindex="0" class="raw-line-number" aria-label="第 2825 行">2825</a><span></span></div>
+<div class="raw-line" id="L2826"><a href="#L2826" tabindex="0" class="raw-line-number" aria-label="第 2826 行">2826</a><span>下一场是来自base 10王晨的分享，然后大家欢迎。</span></div>
+<div class="raw-line" id="L2827"><a href="#L2827" tabindex="0" class="raw-line-number" aria-label="第 2827 行">2827</a><span></span></div>
+<div class="raw-line" id="L2828"><a href="#L2828" tabindex="0" class="raw-line-number" aria-label="第 2828 行">2828</a><span>好，谢谢大家。大家上午好。</span></div>
+<div class="raw-line" id="L2829"><a href="#L2829" tabindex="0" class="raw-line-number" aria-label="第 2829 行">2829</a><span></span></div>
+<div class="raw-line" id="L2830"><a href="#L2830" tabindex="0" class="raw-line-number" aria-label="第 2830 行">2830</a><span>我这边可以连到我自己的电脑吗？</span></div>
+<div class="raw-line" id="L2831"><a href="#L2831" tabindex="0" class="raw-line-number" aria-label="第 2831 行">2831</a><span></span></div>
+<div class="raw-line" id="L2832"><a href="#L2832" tabindex="0" class="raw-line-number" aria-label="第 2832 行">2832</a><span>对，是这样。</span></div>
+<div class="raw-line" id="L2833"><a href="#L2833" tabindex="0" class="raw-line-number" aria-label="第 2833 行">2833</a><span></span></div>
+<div class="raw-line" id="L2834"><a href="#L2834" tabindex="0" class="raw-line-number" aria-label="第 2834 行">2834</a><span>因为我之前这边没有意识到我们今天可以讲中文在这边，所以我之后的那个报告是用英文来讲，但是之后欢迎大家来找我继续沟通。</span></div>
+<div class="raw-line" id="L2835"><a href="#L2835" tabindex="0" class="raw-line-number" aria-label="第 2835 行">2835</a><span></span></div>
+<div class="raw-line" id="L2836"><a href="#L2836" tabindex="0" class="raw-line-number" aria-label="第 2836 行">2836</a><span>这边也很感谢我们AIE的这个会议的发起人，然后把我。</span></div>
+<div class="raw-line" id="L2837"><a href="#L2837" tabindex="0" class="raw-line-number" aria-label="第 2837 行">2837</a><span></span></div>
+<div class="raw-line" id="L2838"><a href="#L2838" tabindex="0" class="raw-line-number" aria-label="第 2838 行">2838</a><span>大家都带到了这里来。</span></div>
+<div class="raw-line" id="L2839"><a href="#L2839" tabindex="0" class="raw-line-number" aria-label="第 2839 行">2839</a><span></span></div>
+<div class="raw-line" id="L2840"><a href="#L2840" tabindex="0" class="raw-line-number" aria-label="第 2840 行">2840</a><span>我请问一下，这个是我自己的，这不是我电脑，是吧？</span></div>
+<div class="raw-line" id="L2841"><a href="#L2841" tabindex="0" class="raw-line-number" aria-label="第 2841 行">2841</a><span></span></div>
+<div class="raw-line" id="L2842"><a href="#L2842" tabindex="0" class="raw-line-number" aria-label="第 2842 行">2842</a><span>这是那个。</span></div>
+<div class="raw-line" id="L2843"><a href="#L2843" tabindex="0" class="raw-line-number" aria-label="第 2843 行">2843</a><span></span></div>
+<div class="raw-line" id="L2844"><a href="#L2844" tabindex="0" class="raw-line-number" aria-label="第 2844 行">2844</a><span>哎，好的，谢谢。</span></div>
+<div class="raw-line" id="L2845"><a href="#L2845" tabindex="0" class="raw-line-number" aria-label="第 2845 行">2845</a><span></span></div>
+<div class="raw-line" id="L2846"><a href="#L2846" tabindex="0" class="raw-line-number" aria-label="第 2846 行">2846</a><span>Yeah,</span></div>
+<div class="raw-line" id="L2847"><a href="#L2847" tabindex="0" class="raw-line-number" aria-label="第 2847 行">2847</a><span>是的。</span></div>
+<div class="raw-line" id="L2848"><a href="#L2848" tabindex="0" class="raw-line-number" aria-label="第 2848 行">2848</a><span></span></div>
+<div class="raw-line" id="L2849"><a href="#L2849" tabindex="0" class="raw-line-number" aria-label="第 2849 行">2849</a><span>so full stack inference engineering, that&#39;s what we do at base 10.</span></div>
+<div class="raw-line" id="L2850"><a href="#L2850" tabindex="0" class="raw-line-number" aria-label="第 2850 行">2850</a><span>我们在 Base10 做的就是全栈推理工程。</span></div>
+<div class="raw-line" id="L2851"><a href="#L2851" tabindex="0" class="raw-line-number" aria-label="第 2851 行">2851</a><span></span></div>
+<div class="raw-line" id="L2852"><a href="#L2852" tabindex="0" class="raw-line-number" aria-label="第 2852 行">2852</a><span>And also the topic for you all for the next 15 minutes.</span></div>
+<div class="raw-line" id="L2853"><a href="#L2853" tabindex="0" class="raw-line-number" aria-label="第 2853 行">2853</a><span>这也是接下来 15 分钟我想和大家分享的主题。</span></div>
+<div class="raw-line" id="L2854"><a href="#L2854" tabindex="0" class="raw-line-number" aria-label="第 2854 行">2854</a><span></span></div>
+<div class="raw-line" id="L2855"><a href="#L2855" tabindex="0" class="raw-line-number" aria-label="第 2855 行">2855</a><span>But that&#39;s not all.</span></div>
+<div class="raw-line" id="L2856"><a href="#L2856" tabindex="0" class="raw-line-number" aria-label="第 2856 行">2856</a><span>但这还不是全部。</span></div>
+<div class="raw-line" id="L2857"><a href="#L2857" tabindex="0" class="raw-line-number" aria-label="第 2857 行">2857</a><span></span></div>
+<div class="raw-line" id="L2858"><a href="#L2858" tabindex="0" class="raw-line-number" aria-label="第 2858 行">2858</a><span>I also have a story for all of you.</span></div>
+<div class="raw-line" id="L2859"><a href="#L2859" tabindex="0" class="raw-line-number" aria-label="第 2859 行">2859</a><span>我还想给大家讲个故事。</span></div>
+<div class="raw-line" id="L2860"><a href="#L2860" tabindex="0" class="raw-line-number" aria-label="第 2860 行">2860</a><span></span></div>
+<div class="raw-line" id="L2861"><a href="#L2861" tabindex="0" class="raw-line-number" aria-label="第 2861 行">2861</a><span>I know we&#39;re all supposed to be talking technical content here, but hey, you know, we&#39;re all humans after all,</span></div>
+<div class="raw-line" id="L2862"><a href="#L2862" tabindex="0" class="raw-line-number" aria-label="第 2862 行">2862</a><span>我知道我们在这里本该聊技术内容，但毕竟大家都是人嘛。</span></div>
+<div class="raw-line" id="L2863"><a href="#L2863" tabindex="0" class="raw-line-number" aria-label="第 2863 行">2863</a><span></span></div>
+<div class="raw-line" id="L2864"><a href="#L2864" tabindex="0" class="raw-line-number" aria-label="第 2864 行">2864</a><span>right?</span></div>
+<div class="raw-line" id="L2865"><a href="#L2865" tabindex="0" class="raw-line-number" aria-label="第 2865 行">2865</a><span>对吧？</span></div>
+<div class="raw-line" id="L2866"><a href="#L2866" tabindex="0" class="raw-line-number" aria-label="第 2866 行">2866</a><span></span></div>
+<div class="raw-line" id="L2867"><a href="#L2867" tabindex="0" class="raw-line-number" aria-label="第 2867 行">2867</a><span>We start of the story. Can anyone guess or do anyone know who this is and where this picture is coming from?</span></div>
+<div class="raw-line" id="L2868"><a href="#L2868" tabindex="0" class="raw-line-number" aria-label="第 2868 行">2868</a><span>故事就从这里开始。有人知道这是谁、这张照片出自哪里吗？</span></div>
+<div class="raw-line" id="L2869"><a href="#L2869" tabindex="0" class="raw-line-number" aria-label="第 2869 行">2869</a><span></span></div>
+<div class="raw-line" id="L2870"><a href="#L2870" tabindex="0" class="raw-line-number" aria-label="第 2870 行">2870</a><span>Which media?</span></div>
+<div class="raw-line" id="L2871"><a href="#L2871" tabindex="0" class="raw-line-number" aria-label="第 2871 行">2871</a><span>哪家媒体？</span></div>
+<div class="raw-line" id="L2872"><a href="#L2872" tabindex="0" class="raw-line-number" aria-label="第 2872 行">2872</a><span></span></div>
+<div class="raw-line" id="L2873"><a href="#L2873" tabindex="0" class="raw-line-number" aria-label="第 2873 行">2873</a><span>Anyone?</span></div>
+<div class="raw-line" id="L2874"><a href="#L2874" tabindex="0" class="raw-line-number" aria-label="第 2874 行">2874</a><span>有人知道吗？</span></div>
+<div class="raw-line" id="L2875"><a href="#L2875" tabindex="0" class="raw-line-number" aria-label="第 2875 行">2875</a><span></span></div>
+<div class="raw-line" id="L2876"><a href="#L2876" tabindex="0" class="raw-line-number" aria-label="第 2876 行">2876</a><span>Alright,</span></div>
+<div class="raw-line" id="L2877"><a href="#L2877" tabindex="0" class="raw-line-number" aria-label="第 2877 行">2877</a><span>好吧，</span></div>
+<div class="raw-line" id="L2878"><a href="#L2878" tabindex="0" class="raw-line-number" aria-label="第 2878 行">2878</a><span></span></div>
+<div class="raw-line" id="L2879"><a href="#L2879" tabindex="0" class="raw-line-number" aria-label="第 2879 行">2879</a><span>cool.</span></div>
+<div class="raw-line" id="L2880"><a href="#L2880" tabindex="0" class="raw-line-number" aria-label="第 2880 行">2880</a><span></span></div>
+<div class="raw-line" id="L2881"><a href="#L2881" tabindex="0" class="raw-line-number" aria-label="第 2881 行">2881</a><span>So this is a Joseph Campbell.</span></div>
+<div class="raw-line" id="L2882"><a href="#L2882" tabindex="0" class="raw-line-number" aria-label="第 2882 行">2882</a><span>这位是约瑟夫·坎贝尔。</span></div>
+<div class="raw-line" id="L2883"><a href="#L2883" tabindex="0" class="raw-line-number" aria-label="第 2883 行">2883</a><span></span></div>
+<div class="raw-line" id="L2884"><a href="#L2884" tabindex="0" class="raw-line-number" aria-label="第 2884 行">2884</a><span>And this is his appearance in Rick and Morty.</span></div>
+<div class="raw-line" id="L2885"><a href="#L2885" tabindex="0" class="raw-line-number" aria-label="第 2885 行">2885</a><span>这是他在《瑞克和莫蒂》中的形象。</span></div>
+<div class="raw-line" id="L2886"><a href="#L2886" tabindex="0" class="raw-line-number" aria-label="第 2886 行">2886</a><span></span></div>
+<div class="raw-line" id="L2887"><a href="#L2887" tabindex="0" class="raw-line-number" aria-label="第 2887 行">2887</a><span>If you&#39;re a fan of both of them, please come find me later and we should be friends.</span></div>
+<div class="raw-line" id="L2888"><a href="#L2888" tabindex="0" class="raw-line-number" aria-label="第 2888 行">2888</a><span>如果你既喜欢约瑟夫·坎贝尔，也喜欢《瑞克和莫蒂》，待会儿来找我，我们交个朋友。</span></div>
+<div class="raw-line" id="L2889"><a href="#L2889" tabindex="0" class="raw-line-number" aria-label="第 2889 行">2889</a><span></span></div>
+<div class="raw-line" id="L2890"><a href="#L2890" tabindex="0" class="raw-line-number" aria-label="第 2890 行">2890</a><span>And if you&#39;re not familiar with Joseph Campbell,</span></div>
+<div class="raw-line" id="L2891"><a href="#L2891" tabindex="0" class="raw-line-number" aria-label="第 2891 行">2891</a><span>如果你不太了解约瑟夫·坎贝尔，</span></div>
+<div class="raw-line" id="L2892"><a href="#L2892" tabindex="0" class="raw-line-number" aria-label="第 2892 行">2892</a><span></span></div>
+<div class="raw-line" id="L2893"><a href="#L2893" tabindex="0" class="raw-line-number" aria-label="第 2893 行">2893</a><span>we can still be friends.</span></div>
+<div class="raw-line" id="L2894"><a href="#L2894" tabindex="0" class="raw-line-number" aria-label="第 2894 行">2894</a><span>我们还是可以做朋友的。</span></div>
+<div class="raw-line" id="L2895"><a href="#L2895" tabindex="0" class="raw-line-number" aria-label="第 2895 行">2895</a><span></span></div>
+<div class="raw-line" id="L2896"><a href="#L2896" tabindex="0" class="raw-line-number" aria-label="第 2896 行">2896</a><span>But what&#39;s important to know here is that he developed the theory of the hero&#39;s journey, right?</span></div>
+<div class="raw-line" id="L2897"><a href="#L2897" tabindex="0" class="raw-line-number" aria-label="第 2897 行">2897</a><span>但这里要知道的是，他提出了“英雄之旅”理论，对吧？</span></div>
+<div class="raw-line" id="L2898"><a href="#L2898" tabindex="0" class="raw-line-number" aria-label="第 2898 行">2898</a><span></span></div>
+<div class="raw-line" id="L2899"><a href="#L2899" tabindex="0" class="raw-line-number" aria-label="第 2899 行">2899</a><span>Which is the shared pattern of character development in mythology across different cultures.</span></div>
+<div class="raw-line" id="L2900"><a href="#L2900" tabindex="0" class="raw-line-number" aria-label="第 2900 行">2900</a><span>也就是不同文化的神话中，人物成长历程所共有的模式。</span></div>
+<div class="raw-line" id="L2901"><a href="#L2901" tabindex="0" class="raw-line-number" aria-label="第 2901 行">2901</a><span></span></div>
+<div class="raw-line" id="L2902"><a href="#L2902" tabindex="0" class="raw-line-number" aria-label="第 2902 行">2902</a><span>And the story behind the stories.</span></div>
+<div class="raw-line" id="L2903"><a href="#L2903" tabindex="0" class="raw-line-number" aria-label="第 2903 行">2903</a><span>也就是故事背后的故事。</span></div>
+<div class="raw-line" id="L2904"><a href="#L2904" tabindex="0" class="raw-line-number" aria-label="第 2904 行">2904</a><span></span></div>
+<div class="raw-line" id="L2905"><a href="#L2905" tabindex="0" class="raw-line-number" aria-label="第 2905 行">2905</a><span>The concept of a hero&#39;s journey has been best described in his work,</span></div>
+<div class="raw-line" id="L2906"><a href="#L2906" tabindex="0" class="raw-line-number" aria-label="第 2906 行">2906</a><span>“英雄之旅”这一概念，在他的著作中得到了最详尽的阐述，</span></div>
+<div class="raw-line" id="L2907"><a href="#L2907" tabindex="0" class="raw-line-number" aria-label="第 2907 行">2907</a><span></span></div>
+<div class="raw-line" id="L2908"><a href="#L2908" tabindex="0" class="raw-line-number" aria-label="第 2908 行">2908</a><span>such as The Masks of God and The Hero, with a thousand faces.</span></div>
+<div class="raw-line" id="L2909"><a href="#L2909" tabindex="0" class="raw-line-number" aria-label="第 2909 行">2909</a><span>比如《神之面具》和《千面英雄》。</span></div>
+<div class="raw-line" id="L2910"><a href="#L2910" tabindex="0" class="raw-line-number" aria-label="第 2910 行">2910</a><span></span></div>
+<div class="raw-line" id="L2911"><a href="#L2911" tabindex="0" class="raw-line-number" aria-label="第 2911 行">2911</a><span>So George Lucas created the Star Wars saga where the main protagonist Luke Skywalker followed the exact archetype of the hero&#39;s journey, right?</span></div>
+<div class="raw-line" id="L2912"><a href="#L2912" tabindex="0" class="raw-line-number" aria-label="第 2912 行">2912</a><span>所以，乔治·卢卡斯创作的《星球大战》系列中，主角卢克·天行者的成长历程，正是按照“英雄之旅”的原型展开的，对吧？</span></div>
+<div class="raw-line" id="L2913"><a href="#L2913" tabindex="0" class="raw-line-number" aria-label="第 2913 行">2913</a><span></span></div>
+<div class="raw-line" id="L2914"><a href="#L2914" tabindex="0" class="raw-line-number" aria-label="第 2914 行">2914</a><span>The hero Luke Skywalker starts with his ordinary life on the planet of Tatooine,</span></div>
+<div class="raw-line" id="L2915"><a href="#L2915" tabindex="0" class="raw-line-number" aria-label="第 2915 行">2915</a><span>英雄卢克·天行者起初在塔图因星球上过着平凡的生活，</span></div>
+<div class="raw-line" id="L2916"><a href="#L2916" tabindex="0" class="raw-line-number" aria-label="第 2916 行">2916</a><span></span></div>
+<div class="raw-line" id="L2917"><a href="#L2917" tabindex="0" class="raw-line-number" aria-label="第 2917 行">2917</a><span>and leaves home and embarks on an adventure, right?</span></div>
+<div class="raw-line" id="L2918"><a href="#L2918" tabindex="0" class="raw-line-number" aria-label="第 2918 行">2918</a><span>然后离开家乡，踏上冒险之旅，对吧？</span></div>
+<div class="raw-line" id="L2919"><a href="#L2919" tabindex="0" class="raw-line-number" aria-label="第 2919 行">2919</a><span></span></div>
+<div class="raw-line" id="L2920"><a href="#L2920" tabindex="0" class="raw-line-number" aria-label="第 2920 行">2920</a><span>Faces impossible challenges,</span></div>
+<div class="raw-line" id="L2921"><a href="#L2921" tabindex="0" class="raw-line-number" aria-label="第 2921 行">2921</a><span>面临看似不可能克服的挑战，</span></div>
+<div class="raw-line" id="L2922"><a href="#L2922" tabindex="0" class="raw-line-number" aria-label="第 2922 行">2922</a><span></span></div>
+<div class="raw-line" id="L2923"><a href="#L2923" tabindex="0" class="raw-line-number" aria-label="第 2923 行">2923</a><span>loses himself, goes through a transformation of consciousness, and return as a new self.</span></div>
+<div class="raw-line" id="L2924"><a href="#L2924" tabindex="0" class="raw-line-number" aria-label="第 2924 行">2924</a><span>迷失自我，经历意识的转变，最终以全新的自我归来。</span></div>
+<div class="raw-line" id="L2925"><a href="#L2925" tabindex="0" class="raw-line-number" aria-label="第 2925 行">2925</a><span></span></div>
+<div class="raw-line" id="L2926"><a href="#L2926" tabindex="0" class="raw-line-number" aria-label="第 2926 行">2926</a><span>So how does this hero&#39;s journey in a galaxy far, far away relate to inference engineering?</span></div>
+<div class="raw-line" id="L2927"><a href="#L2927" tabindex="0" class="raw-line-number" aria-label="第 2927 行">2927</a><span>那么，这段发生在遥远星系的“英雄之旅”，与推理工程有什么关系呢？</span></div>
+<div class="raw-line" id="L2928"><a href="#L2928" tabindex="0" class="raw-line-number" aria-label="第 2928 行">2928</a><span></span></div>
+<div class="raw-line" id="L2929"><a href="#L2929" tabindex="0" class="raw-line-number" aria-label="第 2929 行">2929</a><span>Well, that&#39;s a suspense.</span></div>
+<div class="raw-line" id="L2930"><a href="#L2930" tabindex="0" class="raw-line-number" aria-label="第 2930 行">2930</a><span>嗯，这里先卖个关子。</span></div>
+<div class="raw-line" id="L2931"><a href="#L2931" tabindex="0" class="raw-line-number" aria-label="第 2931 行">2931</a><span></span></div>
+<div class="raw-line" id="L2932"><a href="#L2932" tabindex="0" class="raw-line-number" aria-label="第 2932 行">2932</a><span>So don&#39;t blink in the next 12 minutes.</span></div>
+<div class="raw-line" id="L2933"><a href="#L2933" tabindex="0" class="raw-line-number" aria-label="第 2933 行">2933</a><span>所以，接下来的12分钟千万别走神。</span></div>
+<div class="raw-line" id="L2934"><a href="#L2934" tabindex="0" class="raw-line-number" aria-label="第 2934 行">2934</a><span></span></div>
+<div class="raw-line" id="L2935"><a href="#L2935" tabindex="0" class="raw-line-number" aria-label="第 2935 行">2935</a><span>I&#39;m closing my missed it.</span></div>
+<div class="raw-line" id="L2936"><a href="#L2936" tabindex="0" class="raw-line-number" aria-label="第 2936 行">2936</a><span>我差点错过了。</span></div>
+<div class="raw-line" id="L2937"><a href="#L2937" tabindex="0" class="raw-line-number" aria-label="第 2937 行">2937</a><span></span></div>
+<div class="raw-line" id="L2938"><a href="#L2938" tabindex="0" class="raw-line-number" aria-label="第 2938 行">2938</a><span>There&#39;s always a mythical and cosmic connection in the universe that links everything.</span></div>
+<div class="raw-line" id="L2939"><a href="#L2939" tabindex="0" class="raw-line-number" aria-label="第 2939 行">2939</a><span>宇宙中总有一种神秘而宏大的联系，将万物连接在一起。</span></div>
+<div class="raw-line" id="L2940"><a href="#L2940" tabindex="0" class="raw-line-number" aria-label="第 2940 行">2940</a><span></span></div>
+<div class="raw-line" id="L2941"><a href="#L2941" tabindex="0" class="raw-line-number" aria-label="第 2941 行">2941</a><span>To find the connection, first we have to understand the state of inference with open models.</span></div>
+<div class="raw-line" id="L2942"><a href="#L2942" tabindex="0" class="raw-line-number" aria-label="第 2942 行">2942</a><span>要找到其中的联系，我们得先了解开放模型的推理现状。</span></div>
+<div class="raw-line" id="L2943"><a href="#L2943" tabindex="0" class="raw-line-number" aria-label="第 2943 行">2943</a><span></span></div>
+<div class="raw-line" id="L2944"><a href="#L2944" tabindex="0" class="raw-line-number" aria-label="第 2944 行">2944</a><span>Over the past 18 months, we have seen a tremendous surge of open model adoption.</span></div>
+<div class="raw-line" id="L2945"><a href="#L2945" tabindex="0" class="raw-line-number" aria-label="第 2945 行">2945</a><span>过去18个月里，开放模型的采用率大幅攀升。</span></div>
+<div class="raw-line" id="L2946"><a href="#L2946" tabindex="0" class="raw-line-number" aria-label="第 2946 行">2946</a><span></span></div>
+<div class="raw-line" id="L2947"><a href="#L2947" tabindex="0" class="raw-line-number" aria-label="第 2947 行">2947</a><span>Enterprise customers at different levels of technical capabilities have been adopting open models in different ways.</span></div>
+<div class="raw-line" id="L2948"><a href="#L2948" tabindex="0" class="raw-line-number" aria-label="第 2948 行">2948</a><span>技术能力各不相同的企业客户，正以不同方式采用开放模型。</span></div>
+<div class="raw-line" id="L2949"><a href="#L2949" tabindex="0" class="raw-line-number" aria-label="第 2949 行">2949</a><span></span></div>
+<div class="raw-line" id="L2950"><a href="#L2950" tabindex="0" class="raw-line-number" aria-label="第 2950 行">2950</a><span>That works the best with their own business requirements.</span></div>
+<div class="raw-line" id="L2951"><a href="#L2951" tabindex="0" class="raw-line-number" aria-label="第 2951 行">2951</a><span>选择最符合自身业务需求的方式。</span></div>
+<div class="raw-line" id="L2952"><a href="#L2952" tabindex="0" class="raw-line-number" aria-label="第 2952 行">2952</a><span></span></div>
+<div class="raw-line" id="L2953"><a href="#L2953" tabindex="0" class="raw-line-number" aria-label="第 2953 行">2953</a><span>For someone who is more concerned about cost.</span></div>
+<div class="raw-line" id="L2954"><a href="#L2954" tabindex="0" class="raw-line-number" aria-label="第 2954 行">2954</a><span>对于更在意成本的客户来说。</span></div>
+<div class="raw-line" id="L2955"><a href="#L2955" tabindex="0" class="raw-line-number" aria-label="第 2955 行">2955</a><span></span></div>
+<div class="raw-line" id="L2956"><a href="#L2956" tabindex="0" class="raw-line-number" aria-label="第 2956 行">2956</a><span>Start with open model serverless API as a good alternative for closed model API can be a good solution.</span></div>
+<div class="raw-line" id="L2957"><a href="#L2957" tabindex="0" class="raw-line-number" aria-label="第 2957 行">2957</a><span>可以先使用开放模型的无服务器 API，作为闭源模型 API 的替代方案。</span></div>
+<div class="raw-line" id="L2958"><a href="#L2958" tabindex="0" class="raw-line-number" aria-label="第 2958 行">2958</a><span></span></div>
+<div class="raw-line" id="L2959"><a href="#L2959" tabindex="0" class="raw-line-number" aria-label="第 2959 行">2959</a><span>For customers who are running inference at scale,</span></div>
+<div class="raw-line" id="L2960"><a href="#L2960" tabindex="0" class="raw-line-number" aria-label="第 2960 行">2960</a><span>对于大规模运行模型推理的客户来说，</span></div>
+<div class="raw-line" id="L2961"><a href="#L2961" tabindex="0" class="raw-line-number" aria-label="第 2961 行">2961</a><span></span></div>
+<div class="raw-line" id="L2962"><a href="#L2962" tabindex="0" class="raw-line-number" aria-label="第 2962 行">2962</a><span>dedicated deployment,</span></div>
+<div class="raw-line" id="L2963"><a href="#L2963" tabindex="0" class="raw-line-number" aria-label="第 2963 行">2963</a><span>专属部署，</span></div>
+<div class="raw-line" id="L2964"><a href="#L2964" tabindex="0" class="raw-line-number" aria-label="第 2964 行">2964</a><span></span></div>
+<div class="raw-line" id="L2965"><a href="#L2965" tabindex="0" class="raw-line-number" aria-label="第 2965 行">2965</a><span>often it&#39;s the right solution to meet their performance requirements.</span></div>
+<div class="raw-line" id="L2966"><a href="#L2966" tabindex="0" class="raw-line-number" aria-label="第 2966 行">2966</a><span>往往是满足其性能要求的合适方案。</span></div>
+<div class="raw-line" id="L2967"><a href="#L2967" tabindex="0" class="raw-line-number" aria-label="第 2967 行">2967</a><span></span></div>
+<div class="raw-line" id="L2968"><a href="#L2968" tabindex="0" class="raw-line-number" aria-label="第 2968 行">2968</a><span>On throughput and latency, right?</span></div>
+<div class="raw-line" id="L2969"><a href="#L2969" tabindex="0" class="raw-line-number" aria-label="第 2969 行">2969</a><span>尤其是在吞吐量和延迟方面，对吧？</span></div>
+<div class="raw-line" id="L2970"><a href="#L2970" tabindex="0" class="raw-line-number" aria-label="第 2970 行">2970</a><span></span></div>
+<div class="raw-line" id="L2971"><a href="#L2971" tabindex="0" class="raw-line-number" aria-label="第 2971 行">2971</a><span>And if the customer data is their defensive mode,</span></div>
+<div class="raw-line" id="L2972"><a href="#L2972" tabindex="0" class="raw-line-number" aria-label="第 2972 行">2972</a><span>如果客户数据是他们的竞争壁垒，</span></div>
+<div class="raw-line" id="L2973"><a href="#L2973" tabindex="0" class="raw-line-number" aria-label="第 2973 行">2973</a><span></span></div>
+<div class="raw-line" id="L2974"><a href="#L2974" tabindex="0" class="raw-line-number" aria-label="第 2974 行">2974</a><span>they would fine-tune open models on their specific tasks to achieve higher quality compared to frontier closed models.</span></div>
+<div class="raw-line" id="L2975"><a href="#L2975" tabindex="0" class="raw-line-number" aria-label="第 2975 行">2975</a><span>他们会针对特定任务微调开放模型，从而获得比顶尖闭源模型更好的效果。</span></div>
+<div class="raw-line" id="L2976"><a href="#L2976" tabindex="0" class="raw-line-number" aria-label="第 2976 行">2976</a><span></span></div>
+<div class="raw-line" id="L2977"><a href="#L2977" tabindex="0" class="raw-line-number" aria-label="第 2977 行">2977</a><span>And the most importantly,</span></div>
+<div class="raw-line" id="L2978"><a href="#L2978" tabindex="0" class="raw-line-number" aria-label="第 2978 行">2978</a><span>最重要的是，</span></div>
+<div class="raw-line" id="L2979"><a href="#L2979" tabindex="0" class="raw-line-number" aria-label="第 2979 行">2979</a><span></span></div>
+<div class="raw-line" id="L2980"><a href="#L2980" tabindex="0" class="raw-line-number" aria-label="第 2980 行">2980</a><span>they&#39;re no longer handing their most valuable assets which is their customer signal on a silver platter to the model providers for them to improve their own product on the same set of use cases.</span></div>
+<div class="raw-line" id="L2981"><a href="#L2981" tabindex="0" class="raw-line-number" aria-label="第 2981 行">2981</a><span>他们不再把最宝贵的资产——客户使用数据——拱手交给模型提供商，让后者利用这些数据，针对同样的应用场景改进自己的产品。</span></div>
+<div class="raw-line" id="L2982"><a href="#L2982" tabindex="0" class="raw-line-number" aria-label="第 2982 行">2982</a><span></span></div>
+<div class="raw-line" id="L2983"><a href="#L2983" tabindex="0" class="raw-line-number" aria-label="第 2983 行">2983</a><span>And base 10 at the inference platform, we provide all these services on open models to customers, including serverless API, dedicated deployment,</span></div>
+<div class="raw-line" id="L2984"><a href="#L2984" tabindex="0" class="raw-line-number" aria-label="第 2984 行">2984</a><span>在推理平台 Baseten，我们基于开放模型为客户提供上述所有服务，包括无服务器 API 和专属部署，</span></div>
+<div class="raw-line" id="L2985"><a href="#L2985" tabindex="0" class="raw-line-number" aria-label="第 2985 行">2985</a><span></span></div>
+<div class="raw-line" id="L2986"><a href="#L2986" tabindex="0" class="raw-line-number" aria-label="第 2986 行">2986</a><span>and model fine-tuning.</span></div>
+<div class="raw-line" id="L2987"><a href="#L2987" tabindex="0" class="raw-line-number" aria-label="第 2987 行">2987</a><span>以及模型微调。</span></div>
+<div class="raw-line" id="L2988"><a href="#L2988" tabindex="0" class="raw-line-number" aria-label="第 2988 行">2988</a><span></span></div>
+<div class="raw-line" id="L2989"><a href="#L2989" tabindex="0" class="raw-line-number" aria-label="第 2989 行">2989</a><span>With.</span></div>
+<div class="raw-line" id="L2990"><a href="#L2990" tabindex="0" class="raw-line-number" aria-label="第 2990 行">2990</a><span>随着。</span></div>
+<div class="raw-line" id="L2991"><a href="#L2991" tabindex="0" class="raw-line-number" aria-label="第 2991 行">2991</a><span></span></div>
+<div class="raw-line" id="L2992"><a href="#L2992" tabindex="0" class="raw-line-number" aria-label="第 2992 行">2992</a><span>All these type of workload activated, we have seen the open model token consumption overtook closed models on open router since the beginning of the year.</span></div>
+<div class="raw-line" id="L2993"><a href="#L2993" tabindex="0" class="raw-line-number" aria-label="第 2993 行">2993</a><span>随着这些工作负载投入使用，我们看到，自今年年初以来，OpenRouter 上开放模型的 token 消耗量已超过闭源模型。</span></div>
+<div class="raw-line" id="L2994"><a href="#L2994" tabindex="0" class="raw-line-number" aria-label="第 2994 行">2994</a><span></span></div>
+<div class="raw-line" id="L2995"><a href="#L2995" tabindex="0" class="raw-line-number" aria-label="第 2995 行">2995</a><span>And the margin has continued to widen and that was the kind of common narrative on open model inference adoption, right?</span></div>
+<div class="raw-line" id="L2996"><a href="#L2996" tabindex="0" class="raw-line-number" aria-label="第 2996 行">2996</a><span>而且这个差距还在持续扩大。这就是大家谈到开放模型推理的普及时，常见的说法，对吧？</span></div>
+<div class="raw-line" id="L2997"><a href="#L2997" tabindex="0" class="raw-line-number" aria-label="第 2997 行">2997</a><span></span></div>
+<div class="raw-line" id="L2998"><a href="#L2998" tabindex="0" class="raw-line-number" aria-label="第 2998 行">2998</a><span>But I think there is one big picture item has been left out.</span></div>
+<div class="raw-line" id="L2999"><a href="#L2999" tabindex="0" class="raw-line-number" aria-label="第 2999 行">2999</a><span>但我认为，还有一个宏观层面的重要问题被忽略了。</span></div>
+<div class="raw-line" id="L3000"><a href="#L3000" tabindex="0" class="raw-line-number" aria-label="第 3000 行">3000</a><span></span></div></div><nav class="materials-links raw-pagination" aria-label="原文分段">
+          <a href="../part-5/" tabindex="0" rel="prev">上一段</a>
+          <span aria-current="page">第 6 / 26 段 · L2501–L3000</span>
+          <a href="../part-7/" tabindex="0" rel="next">下一段</a>
+          <a href="../all/" tabindex="0">查看全文</a>
+        </nav></div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>页面信息来自各活动公开资料，可能随时变更；出发前请以主办方官方公告为准。</p>
+  </div>
+</footer>
+<script src="../../../../assets/site.4c7b854f.js" defer></script>
+</body>
+</html>

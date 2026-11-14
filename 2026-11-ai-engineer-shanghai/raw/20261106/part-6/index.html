@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2026-11-06 原始记录 · AI Engineer Shanghai 2026 · EventPrep</title>
+<meta name="description" content="AI Engineer Shanghai 2026 的2026-11-06 原始记录">
+<meta name="color-scheme" content="light dark">
+<!-- 地址栏/标签栏颜色跟着深浅色走，值就是 site.css 里的 --bg。
+     以前这里写死一个 #1f6feb —— 那个色号在 CSS 里根本不存在（--accent 是 #2563eb），
+     深色模式下也是蓝色地址栏配深色页面。两段 meta 各自带 media，浏览器自己选。 -->
+<meta name="theme-color" content="#f8fafc" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0b0f17" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://event.newzone.top/2026-11-ai-engineer-shanghai/raw/20261106/part-6/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="2026-11-06 原始记录 · AI Engineer Shanghai 2026 · EventPrep">
+<meta property="og:description" content="AI Engineer Shanghai 2026 的2026-11-06 原始记录">
+<meta property="og:url" content="https://event.newzone.top/2026-11-ai-engineer-shanghai/raw/20261106/part-6/">
+
+<script>(function(){try{var t=localStorage.getItem('eventprep:theme');if(t==='light'||t==='dark'){document.documentElement.setAttribute('data-theme',t);}}catch(e){}})();</script>
+<link rel="icon" type="image/svg+xml" href="../../../../assets/favicon.svg">
+<link rel="stylesheet" href="../../../../assets/site.9afe22e1.css">
+
+</head>
+<body>
+<!-- 打印版工具条：平时 display:none，进入打印模式（<html class="print-mode">）才出现。
+     打印到纸上时这条工具条自身要藏掉（见 site.css 的 @media print）——它是屏幕上的控件。 -->
+<div class="print-bar" id="print-bar" role="toolbar" aria-label="打印版工具条">
+  <span class="print-bar-title">EventPrep · 打印版 · 全部内容已展开</span>
+  <div class="print-bar-actions">
+    <button type="button" id="print-do" class="ghost-btn">打印 / 存 PDF</button>
+    <button type="button" id="print-exit" class="ghost-btn">退出打印版</button>
+  </div>
+</div>
+<a class="skip-link" href="#main" tabindex="0">跳到正文</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="site-name" href="../../../../index.html" tabindex="0">
+      <svg class="site-logo" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+        <rect x="3" y="3.5" width="18" height="18" rx="4" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-width="1.8"/>
+        <rect x="9.5" y="5.5" width="5" height="1.8" rx="0.9" fill="currentColor" fill-opacity="0.4"/>
+        <path d="M6.5 11h5M6.5 14.5h3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        <circle cx="16" cy="15" r="4.2" fill="#16a34a"/>
+        <path d="M14.2 15l1.3 1.3 2.5-2.5" stroke="#ffffff" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span>EventPrep</span>
+    </a>
+    <div class="header-actions">
+      
+      
+      <a class="ghost-btn" href="https://github.com/rockbenben/event-prep" target="_blank" rel="noopener noreferrer" aria-label="GitHub 仓库" title="GitHub 仓库">
+        <svg class="theme-icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+          <path d="M12 .8a11.2 11.2 0 0 0-3.54 21.83c.56.1.77-.24.77-.54v-2.1c-3.12.68-3.78-1.33-3.78-1.33-.51-1.3-1.25-1.65-1.25-1.65-1.02-.7.08-.68.08-.68 1.13.08 1.72 1.16 1.72 1.16 1 1.72 2.63 1.22 3.27.95.1-.74.39-1.22.71-1.5-2.5-.28-5.12-1.25-5.12-5.56 0-1.23.44-2.23 1.16-3.02-.12-.28-.5-1.43.11-2.98 0 0 .95-.3 3.1 1.15a10.8 10.8 0 0 1 5.64 0c2.15-1.45 3.1-1.15 3.1-1.15.61 1.55.23 2.7.11 2.98.72.79 1.16 1.79 1.16 3.02 0 4.32-2.63 5.27-5.14 5.55.4.35.76 1.03.76 2.08v3.08c0 .3.2.65.78.54A11.2 11.2 0 0 0 12 .8Z"></path>
+        </svg>
+      </a>
+      <button type="button" id="theme-toggle" class="ghost-btn" aria-label="切换深浅色" title="切换深浅色">
+        <svg class="theme-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true" focusable="false">
+          <circle cx="12" cy="12" r="8.5" />
+          <path d="M12 3.5a8.5 8.5 0 0 0 0 17z" fill="currentColor" stroke="none" />
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+<dialog class="avatar-viewer" id="avatar-viewer" aria-label="放大照片">
+  <img id="avatar-viewer-img" src="" alt="">
+</dialog>
+<main id="main">
+<div class="wrap event material-page"><nav class="material-crumbs" aria-label="面包屑"><ol>
+      <li><a href="../../../../" tabindex="0">全部活动</a></li><li><a href="../../../" tabindex="0">AI Engineer Shanghai 2026</a></li>
+      <li><a href="../../" tabindex="0">原始记录</a></li>
+      <li><a href="./" tabindex="0" aria-current="page">2026-11-06 原始记录</a></li></ol></nav><header class="event-head"><h1 class="event-title">2026-11-06 原始记录</h1>
+        <p class="event-summary">AI Engineer Shanghai 2026</p></header><p class="notice">自动转写可能有误。以下内容保留双语原文，行号以原文件为准；下载文件保留原始字节。当前仅加载本段；搜索全部记录或打印全文请先选择「查看全文」。</p>
+          <nav class="materials-links" aria-label="资料操作"><a href="../../" tabindex="0">全部日期</a><a href="../../../summary/" tabindex="0">会后总结</a><a href="../../../20261106-raw.md" tabindex="0" download>下载原始 Markdown</a></nav>
+          <nav class="materials-links raw-pagination" aria-label="原文分段">
+          <a href="../part-5/" tabindex="0" rel="prev">上一段</a>
+          <span aria-current="page">第 6 / 19 段 · L2501–L3000</span>
+          <a href="../part-7/" tabindex="0" rel="next">下一段</a>
+          <a href="../all/" tabindex="0">查看全文</a>
+        </nav><details class="raw-sections"><summary>选择行号范围</summary><nav class="materials-links" aria-label="选择原文段落"><a href="../" tabindex="0">L1–L500</a><a href="../part-2/" tabindex="0">L501–L1000</a><a href="../part-3/" tabindex="0">L1001–L1500</a><a href="../part-4/" tabindex="0">L1501–L2000</a><a href="../part-5/" tabindex="0">L2001–L2500</a><a href="../part-6/" tabindex="0" aria-current="page">L2501–L3000</a><a href="../part-7/" tabindex="0">L3001–L3500</a><a href="../part-8/" tabindex="0">L3501–L4000</a><a href="../part-9/" tabindex="0">L4001–L4500</a><a href="../part-10/" tabindex="0">L4501–L5000</a><a href="../part-11/" tabindex="0">L5001–L5500</a><a href="../part-12/" tabindex="0">L5501–L6000</a><a href="../part-13/" tabindex="0">L6001–L6500</a><a href="../part-14/" tabindex="0">L6501–L7000</a><a href="../part-15/" tabindex="0">L7001–L7500</a><a href="../part-16/" tabindex="0">L7501–L8000</a><a href="../part-17/" tabindex="0">L8001–L8500</a><a href="../part-18/" tabindex="0">L8501–L9000</a><a href="../part-19/" tabindex="0">L9001–L9432</a></nav></details><details class="raw-sections"><summary>相关总结 · 2 节</summary><nav class="materials-links" aria-label="相关总结"><a href="../../../summary/#session-39" tabindex="0">39. Satvik · NUS（新加坡国立大学）研究员｜流式语音转写的血泪教训</a><a href="../../../summary/#session-40" tabindex="0">40. 创业投资圆桌：戴雨森（真格基金）、刘勇、王淮（线性资本）｜AI 创业的 PMF 与护城河</a></nav></details>
+          <div class="raw-transcript" data-raw-total="9432"><div class="raw-line" id="L2501"><a href="#L2501" tabindex="0" class="raw-line-number" aria-label="第 2501 行">2501</a><span>这就是第三个问题。</span></div>
+<div class="raw-line" id="L2502"><a href="#L2502" tabindex="0" class="raw-line-number" aria-label="第 2502 行">2502</a><span></span></div>
+<div class="raw-line" id="L2503"><a href="#L2503" tabindex="0" class="raw-line-number" aria-label="第 2503 行">2503</a><span>I don&#39;t have to speak the whole call every more.</span></div>
+<div class="raw-line" id="L2504"><a href="#L2504" tabindex="0" class="raw-line-number" aria-label="第 2504 行">2504</a><span>我不用再全程说话了。</span></div>
+<div class="raw-line" id="L2505"><a href="#L2505" tabindex="0" class="raw-line-number" aria-label="第 2505 行">2505</a><span></span></div>
+<div class="raw-line" id="L2506"><a href="#L2506" tabindex="0" class="raw-line-number" aria-label="第 2506 行">2506</a><span>I don&#39;t have to manually test this.</span></div>
+<div class="raw-line" id="L2507"><a href="#L2507" tabindex="0" class="raw-line-number" aria-label="第 2507 行">2507</a><span>我不用再手动测试这个了。</span></div>
+<div class="raw-line" id="L2508"><a href="#L2508" tabindex="0" class="raw-line-number" aria-label="第 2508 行">2508</a><span></span></div>
+<div class="raw-line" id="L2509"><a href="#L2509" tabindex="0" class="raw-line-number" aria-label="第 2509 行">2509</a><span>I can run 10, 20, 100 simulations all at the same time every time I make a small change and see if that&#39;s improved my voice agent.</span></div>
+<div class="raw-line" id="L2510"><a href="#L2510" tabindex="0" class="raw-line-number" aria-label="第 2510 行">2510</a><span>每次做一点小改动，我都可以同时运行 10 次、20 次甚至 100 次模拟，看看我的语音助手有没有变得更好。</span></div>
+<div class="raw-line" id="L2511"><a href="#L2511" tabindex="0" class="raw-line-number" aria-label="第 2511 行">2511</a><span></span></div>
+<div class="raw-line" id="L2512"><a href="#L2512" tabindex="0" class="raw-line-number" aria-label="第 2512 行">2512</a><span>So here&#39;s a clip of one of the simulations. Uh, to see what it sounds like.</span></div>
+<div class="raw-line" id="L2513"><a href="#L2513" tabindex="0" class="raw-line-number" aria-label="第 2513 行">2513</a><span>下面放一段模拟测试的录音，听听效果怎么样。</span></div>
+<div class="raw-line" id="L2514"><a href="#L2514" tabindex="0" class="raw-line-number" aria-label="第 2514 行">2514</a><span></span></div>
+<div class="raw-line" id="L2515"><a href="#L2515" tabindex="0" class="raw-line-number" aria-label="第 2515 行">2515</a><span>Hi Holly.</span></div>
+<div class="raw-line" id="L2516"><a href="#L2516" tabindex="0" class="raw-line-number" aria-label="第 2516 行">2516</a><span>嗨，霍莉。</span></div>
+<div class="raw-line" id="L2517"><a href="#L2517" tabindex="0" class="raw-line-number" aria-label="第 2517 行">2517</a><span></span></div>
+<div class="raw-line" id="L2518"><a href="#L2518" tabindex="0" class="raw-line-number" aria-label="第 2518 行">2518</a><span>今天想喝什么？</span></div>
+<div class="raw-line" id="L2519"><a href="#L2519" tabindex="0" class="raw-line-number" aria-label="第 2519 行">2519</a><span></span></div>
+<div class="raw-line" id="L2520"><a href="#L2520" tabindex="0" class="raw-line-number" aria-label="第 2520 行">2520</a><span>请问你刚刚说什么呢？</span></div>
+<div class="raw-line" id="L2521"><a href="#L2521" tabindex="0" class="raw-line-number" aria-label="第 2521 行">2521</a><span></span></div>
+<div class="raw-line" id="L2522"><a href="#L2522" tabindex="0" class="raw-line-number" aria-label="第 2522 行">2522</a><span>请问你有推荐的奶茶吗？</span></div>
+<div class="raw-line" id="L2523"><a href="#L2523" tabindex="0" class="raw-line-number" aria-label="第 2523 行">2523</a><span></span></div>
+<div class="raw-line" id="L2524"><a href="#L2524" tabindex="0" class="raw-line-number" aria-label="第 2524 行">2524</a><span>我们刚为你光临，推荐奶茶的话，精品奶茶名为乌龙奶茶或珍珠奶茶。</span></div>
+<div class="raw-line" id="L2525"><a href="#L2525" tabindex="0" class="raw-line-number" aria-label="第 2525 行">2525</a><span></span></div>
+<div class="raw-line" id="L2526"><a href="#L2526" tabindex="0" class="raw-line-number" aria-label="第 2526 行">2526</a><span>So this voice agent did a much better job than me, uh, on this.</span></div>
+<div class="raw-line" id="L2527"><a href="#L2527" tabindex="0" class="raw-line-number" aria-label="第 2527 行">2527</a><span>所以在这件事上，这个语音助手做得比我好多了。</span></div>
+<div class="raw-line" id="L2528"><a href="#L2528" tabindex="0" class="raw-line-number" aria-label="第 2528 行">2528</a><span></span></div>
+<div class="raw-line" id="L2529"><a href="#L2529" tabindex="0" class="raw-line-number" aria-label="第 2529 行">2529</a><span>And it could generate even more and more and more different scenarios.</span></div>
+<div class="raw-line" id="L2530"><a href="#L2530" tabindex="0" class="raw-line-number" aria-label="第 2530 行">2530</a><span>而且它还能生成越来越多不同的场景。</span></div>
+<div class="raw-line" id="L2531"><a href="#L2531" tabindex="0" class="raw-line-number" aria-label="第 2531 行">2531</a><span></span></div>
+<div class="raw-line" id="L2532"><a href="#L2532" tabindex="0" class="raw-line-number" aria-label="第 2532 行">2532</a><span>So as Claude builds the checks,</span></div>
+<div class="raw-line" id="L2533"><a href="#L2533" tabindex="0" class="raw-line-number" aria-label="第 2533 行">2533</a><span>所以，在 Claude 编写这些检查项的同时，</span></div>
+<div class="raw-line" id="L2534"><a href="#L2534" tabindex="0" class="raw-line-number" aria-label="第 2534 行">2534</a><span></span></div>
+<div class="raw-line" id="L2535"><a href="#L2535" tabindex="0" class="raw-line-number" aria-label="第 2535 行">2535</a><span>it adds new features and fixes bugs,</span></div>
+<div class="raw-line" id="L2536"><a href="#L2536" tabindex="0" class="raw-line-number" aria-label="第 2536 行">2536</a><span>它还会添加新功能、修复漏洞，</span></div>
+<div class="raw-line" id="L2537"><a href="#L2537" tabindex="0" class="raw-line-number" aria-label="第 2537 行">2537</a><span></span></div>
+<div class="raw-line" id="L2538"><a href="#L2538" tabindex="0" class="raw-line-number" aria-label="第 2538 行">2538</a><span>which produces more checks, which adds new features and fixes bugs, which produces more checks and adds new features and fixes bugs.</span></div>
+<div class="raw-line" id="L2539"><a href="#L2539" tabindex="0" class="raw-line-number" aria-label="第 2539 行">2539</a><span>这又会生成更多检查项，进而添加新功能、修复漏洞；然后再生成更多检查项，继续添加新功能、修复漏洞。</span></div>
+<div class="raw-line" id="L2540"><a href="#L2540" tabindex="0" class="raw-line-number" aria-label="第 2540 行">2540</a><span></span></div>
+<div class="raw-line" id="L2541"><a href="#L2541" tabindex="0" class="raw-line-number" aria-label="第 2541 行">2541</a><span>That&#39;s the loop.</span></div>
+<div class="raw-line" id="L2542"><a href="#L2542" tabindex="0" class="raw-line-number" aria-label="第 2542 行">2542</a><span>这就形成了一个循环。</span></div>
+<div class="raw-line" id="L2543"><a href="#L2543" tabindex="0" class="raw-line-number" aria-label="第 2543 行">2543</a><span></span></div>
+<div class="raw-line" id="L2544"><a href="#L2544" tabindex="0" class="raw-line-number" aria-label="第 2544 行">2544</a><span>So machines are doing the work, judges are checking the work, and then humans check the judges.</span></div>
+<div class="raw-line" id="L2545"><a href="#L2545" tabindex="0" class="raw-line-number" aria-label="第 2545 行">2545</a><span>所以，机器负责干活，评判模型负责检查成果，最后由人来核查评判模型。</span></div>
+<div class="raw-line" id="L2546"><a href="#L2546" tabindex="0" class="raw-line-number" aria-label="第 2546 行">2546</a><span></span></div>
+<div class="raw-line" id="L2547"><a href="#L2547" tabindex="0" class="raw-line-number" aria-label="第 2547 行">2547</a><span>So whatever you&#39;re building, I really challenge y&#39;all to start thinking in loops.</span></div>
+<div class="raw-line" id="L2548"><a href="#L2548" tabindex="0" class="raw-line-number" aria-label="第 2548 行">2548</a><span>所以，不管你们在打造什么，我都希望大家开始用循环的思维去思考。</span></div>
+<div class="raw-line" id="L2549"><a href="#L2549" tabindex="0" class="raw-line-number" aria-label="第 2549 行">2549</a><span></span></div>
+<div class="raw-line" id="L2550"><a href="#L2550" tabindex="0" class="raw-line-number" aria-label="第 2550 行">2550</a><span>So I&#39;ve already got the bubble tea voice agent handled, so you&#39;re probably not gonna be building that.</span></div>
+<div class="raw-line" id="L2551"><a href="#L2551" tabindex="0" class="raw-line-number" aria-label="第 2551 行">2551</a><span>奶茶语音助手这块我已经搞定了，所以你们大概不用再做这个了。</span></div>
+<div class="raw-line" id="L2552"><a href="#L2552" tabindex="0" class="raw-line-number" aria-label="第 2552 行">2552</a><span></span></div>
+<div class="raw-line" id="L2553"><a href="#L2553" tabindex="0" class="raw-line-number" aria-label="第 2553 行">2553</a><span>But the same ideas apply for any sort of agent where you don&#39;t have business domain expertise.</span></div>
+<div class="raw-line" id="L2554"><a href="#L2554" tabindex="0" class="raw-line-number" aria-label="第 2554 行">2554</a><span>但对于任何你不具备相关业务领域专业知识的智能体，这套思路同样适用。</span></div>
+<div class="raw-line" id="L2555"><a href="#L2555" tabindex="0" class="raw-line-number" aria-label="第 2555 行">2555</a><span></span></div>
+<div class="raw-line" id="L2556"><a href="#L2556" tabindex="0" class="raw-line-number" aria-label="第 2556 行">2556</a><span>So for example, you might be building an outbound sales agent selling insurance, but you don&#39;t know anything about insurance.</span></div>
+<div class="raw-line" id="L2557"><a href="#L2557" tabindex="0" class="raw-line-number" aria-label="第 2557 行">2557</a><span>比如，你可能在开发一个推销保险的外呼销售智能体，但你对保险一窍不通。</span></div>
+<div class="raw-line" id="L2558"><a href="#L2558" tabindex="0" class="raw-line-number" aria-label="第 2558 行">2558</a><span></span></div>
+<div class="raw-line" id="L2559"><a href="#L2559" tabindex="0" class="raw-line-number" aria-label="第 2559 行">2559</a><span>Uh, you could have, uh, you could tell the LLM to act like an insurance agent, agent.</span></div>
+<div class="raw-line" id="L2560"><a href="#L2560" tabindex="0" class="raw-line-number" aria-label="第 2560 行">2560</a><span>呃，你可以让大语言模型扮演一名保险代理人。</span></div>
+<div class="raw-line" id="L2561"><a href="#L2561" tabindex="0" class="raw-line-number" aria-label="第 2561 行">2561</a><span></span></div>
+<div class="raw-line" id="L2562"><a href="#L2562" tabindex="0" class="raw-line-number" aria-label="第 2562 行">2562</a><span>You might be doing inbound support for an auto shop, and you don&#39;t know anything about cars or being a mechanic.</span></div>
+<div class="raw-line" id="L2563"><a href="#L2563" tabindex="0" class="raw-line-number" aria-label="第 2563 行">2563</a><span>你可能在为一家汽车修理店开发来电客服，但你既不懂车，也不了解修车。</span></div>
+<div class="raw-line" id="L2564"><a href="#L2564" tabindex="0" class="raw-line-number" aria-label="第 2564 行">2564</a><span></span></div>
+<div class="raw-line" id="L2565"><a href="#L2565" tabindex="0" class="raw-line-number" aria-label="第 2565 行">2565</a><span>Again, you can give it, give the LLM a scenario to act like a mechanic.</span></div>
+<div class="raw-line" id="L2566"><a href="#L2566" tabindex="0" class="raw-line-number" aria-label="第 2566 行">2566</a><span>同样，你可以给大语言模型设定一个场景，让它扮演汽车维修技师。</span></div>
+<div class="raw-line" id="L2567"><a href="#L2567" tabindex="0" class="raw-line-number" aria-label="第 2567 行">2567</a><span></span></div>
+<div class="raw-line" id="L2568"><a href="#L2568" tabindex="0" class="raw-line-number" aria-label="第 2568 行">2568</a><span>Or you could even build a voice agent to control a robot and go through and test simulations with that.</span></div>
+<div class="raw-line" id="L2569"><a href="#L2569" tabindex="0" class="raw-line-number" aria-label="第 2569 行">2569</a><span>你甚至可以开发一个语音智能体来控制机器人，再用它运行模拟场景进行测试。</span></div>
+<div class="raw-line" id="L2570"><a href="#L2570" tabindex="0" class="raw-line-number" aria-label="第 2570 行">2570</a><span></span></div>
+<div class="raw-line" id="L2571"><a href="#L2571" tabindex="0" class="raw-line-number" aria-label="第 2571 行">2571</a><span>So as.</span></div>
+<div class="raw-line" id="L2572"><a href="#L2572" tabindex="0" class="raw-line-number" aria-label="第 2572 行">2572</a><span>所以，作为……</span></div>
+<div class="raw-line" id="L2573"><a href="#L2573" tabindex="0" class="raw-line-number" aria-label="第 2573 行">2573</a><span></span></div>
+<div class="raw-line" id="L2574"><a href="#L2574" tabindex="0" class="raw-line-number" aria-label="第 2574 行">2574</a><span>My bubble tea ordering skills, I am proud to say I no longer order just Jinju Naicha.</span></div>
+<div class="raw-line" id="L2575"><a href="#L2575" tabindex="0" class="raw-line-number" aria-label="第 2575 行">2575</a><span>说到点珍珠奶茶，我很自豪地说，现在我点单可不只是会说“珍珠奶茶”了。</span></div>
+<div class="raw-line" id="L2576"><a href="#L2576" tabindex="0" class="raw-line-number" aria-label="第 2576 行">2576</a><span></span></div>
+<div class="raw-line" id="L2577"><a href="#L2577" tabindex="0" class="raw-line-number" aria-label="第 2577 行">2577</a><span>I can no longer, I can now order Donghua Cha, Jia Qiu Qiu, Chubing,</span></div>
+<div class="raw-line" id="L2578"><a href="#L2578" tabindex="0" class="raw-line-number" aria-label="第 2578 行">2578</a><span>我现在还能点冬瓜茶，加QQ，去冰。</span></div>
+<div class="raw-line" id="L2579"><a href="#L2579" tabindex="0" class="raw-line-number" aria-label="第 2579 行">2579</a><span></span></div>
+<div class="raw-line" id="L2580"><a href="#L2580" tabindex="0" class="raw-line-number" aria-label="第 2580 行">2580</a><span>Weitang, Waidai.</span></div>
+<div class="raw-line" id="L2581"><a href="#L2581" tabindex="0" class="raw-line-number" aria-label="第 2581 行">2581</a><span>微糖，外带。</span></div>
+<div class="raw-line" id="L2582"><a href="#L2582" tabindex="0" class="raw-line-number" aria-label="第 2582 行">2582</a><span></span></div>
+<div class="raw-line" id="L2583"><a href="#L2583" tabindex="0" class="raw-line-number" aria-label="第 2583 行">2583</a><span>So I still.</span></div>
+<div class="raw-line" id="L2584"><a href="#L2584" tabindex="0" class="raw-line-number" aria-label="第 2584 行">2584</a><span>所以我还是……</span></div>
+<div class="raw-line" id="L2585"><a href="#L2585" tabindex="0" class="raw-line-number" aria-label="第 2585 行">2585</a><span></span></div>
+<div class="raw-line" id="L2586"><a href="#L2586" tabindex="0" class="raw-line-number" aria-label="第 2586 行">2586</a><span>Can&#39;t read the whole menu, but I can order this.</span></div>
+<div class="raw-line" id="L2587"><a href="#L2587" tabindex="0" class="raw-line-number" aria-label="第 2587 行">2587</a><span>虽然看不懂整份菜单，但至少我会点这个了。</span></div>
+<div class="raw-line" id="L2588"><a href="#L2588" tabindex="0" class="raw-line-number" aria-label="第 2588 行">2588</a><span></span></div>
+<div class="raw-line" id="L2589"><a href="#L2589" tabindex="0" class="raw-line-number" aria-label="第 2589 行">2589</a><span>So build what you can&#39;t check, and then check the checkers.</span></div>
+<div class="raw-line" id="L2590"><a href="#L2590" tabindex="0" class="raw-line-number" aria-label="第 2590 行">2590</a><span>所以，先构建那些你无法直接检验的东西，然后再检验负责检验它们的工具。</span></div>
+<div class="raw-line" id="L2591"><a href="#L2591" tabindex="0" class="raw-line-number" aria-label="第 2591 行">2591</a><span></span></div>
+<div class="raw-line" id="L2592"><a href="#L2592" tabindex="0" class="raw-line-number" aria-label="第 2592 行">2592</a><span>Thanks so much. My name&#39;s James Hush. If you wanna learn about voice agents, just scan the QR code. And have a great day.</span></div>
+<div class="raw-line" id="L2593"><a href="#L2593" tabindex="0" class="raw-line-number" aria-label="第 2593 行">2593</a><span>非常感谢大家！我叫詹姆斯·哈什。如果想了解语音智能体，扫一下二维码就行。祝大家今天愉快！</span></div>
+<div class="raw-line" id="L2594"><a href="#L2594" tabindex="0" class="raw-line-number" aria-label="第 2594 行">2594</a><span></span></div>
+<div class="raw-line" id="L2595"><a href="#L2595" tabindex="0" class="raw-line-number" aria-label="第 2595 行">2595</a><span>Thanks, James, for a very interesting sharing.</span></div>
+<div class="raw-line" id="L2596"><a href="#L2596" tabindex="0" class="raw-line-number" aria-label="第 2596 行">2596</a><span>谢谢詹姆斯带来的精彩分享。</span></div>
+<div class="raw-line" id="L2597"><a href="#L2597" tabindex="0" class="raw-line-number" aria-label="第 2597 行">2597</a><span></span></div>
+<div class="raw-line" id="L2598"><a href="#L2598" tabindex="0" class="raw-line-number" aria-label="第 2598 行">2598</a><span>I hope everyone knows that how to order bubble tea in different languages now.</span></div>
+<div class="raw-line" id="L2599"><a href="#L2599" tabindex="0" class="raw-line-number" aria-label="第 2599 行">2599</a><span>希望大家现在都学会用不同语言点珍珠奶茶了。</span></div>
+<div class="raw-line" id="L2600"><a href="#L2600" tabindex="0" class="raw-line-number" aria-label="第 2600 行">2600</a><span></span></div>
+<div class="raw-line" id="L2601"><a href="#L2601" tabindex="0" class="raw-line-number" aria-label="第 2601 行">2601</a><span>Okay, now let&#39;s welcome Satvik from the AI Center of National University of Singapore to give us a speech about the good, the bad, and the ugly.</span></div>
+<div class="raw-line" id="L2602"><a href="#L2602" tabindex="0" class="raw-line-number" aria-label="第 2602 行">2602</a><span>好，接下来有请新加坡国立大学人工智能中心的 Satvik，为我们带来题为《好、坏与丑》的演讲。</span></div>
+<div class="raw-line" id="L2603"><a href="#L2603" tabindex="0" class="raw-line-number" aria-label="第 2603 行">2603</a><span></span></div>
+<div class="raw-line" id="L2604"><a href="#L2604" tabindex="0" class="raw-line-number" aria-label="第 2604 行">2604</a><span>因为你在发现了这一幕。</span></div>
+<div class="raw-line" id="L2605"><a href="#L2605" tabindex="0" class="raw-line-number" aria-label="第 2605 行">2605</a><span></span></div>
+<div class="raw-line" id="L2606"><a href="#L2606" tabindex="0" class="raw-line-number" aria-label="第 2606 行">2606</a><span></span></div>
+<div class="raw-line" id="L2607"><a href="#L2607" tabindex="0" class="raw-line-number" aria-label="第 2607 行">2607</a><span>你只分成2026。</span></div>
+<div class="raw-line" id="L2608"><a href="#L2608" tabindex="0" class="raw-line-number" aria-label="第 2608 行">2608</a><span></span></div>
+<div class="raw-line" id="L2609"><a href="#L2609" tabindex="0" class="raw-line-number" aria-label="第 2609 行">2609</a><span></span></div>
+<div class="raw-line" id="L2610"><a href="#L2610" tabindex="0" class="raw-line-number" aria-label="第 2610 行">2610</a><span>You all must be wondering, what is this audio clip about?</span></div>
+<div class="raw-line" id="L2611"><a href="#L2611" tabindex="0" class="raw-line-number" aria-label="第 2611 行">2611</a><span>大家一定在想，这段音频讲的是什么？</span></div>
+<div class="raw-line" id="L2612"><a href="#L2612" tabindex="0" class="raw-line-number" aria-label="第 2612 行">2612</a><span></span></div>
+<div class="raw-line" id="L2613"><a href="#L2613" tabindex="0" class="raw-line-number" aria-label="第 2613 行">2613</a><span>And why is it the first thing that I played in my talk?</span></div>
+<div class="raw-line" id="L2614"><a href="#L2614" tabindex="0" class="raw-line-number" aria-label="第 2614 行">2614</a><span>为什么我一开场就播放了这段音频？</span></div>
+<div class="raw-line" id="L2615"><a href="#L2615" tabindex="0" class="raw-line-number" aria-label="第 2615 行">2615</a><span></span></div>
+<div class="raw-line" id="L2616"><a href="#L2616" tabindex="0" class="raw-line-number" aria-label="第 2616 行">2616</a><span>So this is one of our users who&#39;s trying to practice speak Chinese by talking to our voice agent.</span></div>
+<div class="raw-line" id="L2617"><a href="#L2617" tabindex="0" class="raw-line-number" aria-label="第 2617 行">2617</a><span>这是一位用户，正在通过和我们的语音智能体对话来练习说中文。</span></div>
+<div class="raw-line" id="L2618"><a href="#L2618" tabindex="0" class="raw-line-number" aria-label="第 2618 行">2618</a><span></span></div>
+<div class="raw-line" id="L2619"><a href="#L2619" tabindex="0" class="raw-line-number" aria-label="第 2619 行">2619</a><span>Now, if you&#39;re a native Chinese speaker, did you hear her say the word Shanghai?</span></div>
+<div class="raw-line" id="L2620"><a href="#L2620" tabindex="0" class="raw-line-number" aria-label="第 2620 行">2620</a><span>那么，如果你的母语是中文，你听到她说“上海”这个词了吗？</span></div>
+<div class="raw-line" id="L2621"><a href="#L2621" tabindex="0" class="raw-line-number" aria-label="第 2621 行">2621</a><span></span></div>
+<div class="raw-line" id="L2622"><a href="#L2622" tabindex="0" class="raw-line-number" aria-label="第 2622 行">2622</a><span>I believe no, right?</span></div>
+<div class="raw-line" id="L2623"><a href="#L2623" tabindex="0" class="raw-line-number" aria-label="第 2623 行">2623</a><span>我想没有，对吧？</span></div>
+<div class="raw-line" id="L2624"><a href="#L2624" tabindex="0" class="raw-line-number" aria-label="第 2624 行">2624</a><span></span></div>
+<div class="raw-line" id="L2625"><a href="#L2625" tabindex="0" class="raw-line-number" aria-label="第 2625 行">2625</a><span>Because she didn&#39;t. And I promise I didn&#39;t purposefully add in Shanghai here.</span></div>
+<div class="raw-line" id="L2626"><a href="#L2626" tabindex="0" class="raw-line-number" aria-label="第 2626 行">2626</a><span>因为她根本没说。而且我保证，我不是故意在这里加上“上海”的。</span></div>
+<div class="raw-line" id="L2627"><a href="#L2627" tabindex="0" class="raw-line-number" aria-label="第 2627 行">2627</a><span></span></div>
+<div class="raw-line" id="L2628"><a href="#L2628" tabindex="0" class="raw-line-number" aria-label="第 2628 行">2628</a><span>Apparently, the STT model knew I would be in Shanghai for this talk.</span></div>
+<div class="raw-line" id="L2629"><a href="#L2629" tabindex="0" class="raw-line-number" aria-label="第 2629 行">2629</a><span>看来，语音转文字模型早就知道我会来上海做这场演讲。</span></div>
+<div class="raw-line" id="L2630"><a href="#L2630" tabindex="0" class="raw-line-number" aria-label="第 2630 行">2630</a><span></span></div>
+<div class="raw-line" id="L2631"><a href="#L2631" tabindex="0" class="raw-line-number" aria-label="第 2631 行">2631</a><span>Uh, hello, everyone.</span></div>
+<div class="raw-line" id="L2632"><a href="#L2632" tabindex="0" class="raw-line-number" aria-label="第 2632 行">2632</a><span>呃，大家好。</span></div>
+<div class="raw-line" id="L2633"><a href="#L2633" tabindex="0" class="raw-line-number" aria-label="第 2633 行">2633</a><span></span></div>
+<div class="raw-line" id="L2634"><a href="#L2634" tabindex="0" class="raw-line-number" aria-label="第 2634 行">2634</a><span>I&#39;m Satvik, and I&#39;ve been building voice agents for more than two years now.</span></div>
+<div class="raw-line" id="L2635"><a href="#L2635" tabindex="0" class="raw-line-number" aria-label="第 2635 行">2635</a><span>我是萨特维克，开发语音智能体已经两年多了。</span></div>
+<div class="raw-line" id="L2636"><a href="#L2636" tabindex="0" class="raw-line-number" aria-label="第 2636 行">2636</a><span></span></div>
+<div class="raw-line" id="L2637"><a href="#L2637" tabindex="0" class="raw-line-number" aria-label="第 2637 行">2637</a><span>My agents deploy to production,</span></div>
+<div class="raw-line" id="L2638"><a href="#L2638" tabindex="0" class="raw-line-number" aria-label="第 2638 行">2638</a><span>我开发的智能体已经部署到了生产环境，</span></div>
+<div class="raw-line" id="L2639"><a href="#L2639" tabindex="0" class="raw-line-number" aria-label="第 2639 行">2639</a><span></span></div>
+<div class="raw-line" id="L2640"><a href="#L2640" tabindex="0" class="raw-line-number" aria-label="第 2640 行">2640</a><span>have run thousands of real sessions,</span></div>
+<div class="raw-line" id="L2641"><a href="#L2641" tabindex="0" class="raw-line-number" aria-label="第 2641 行">2641</a><span>已经完成了数千次真实用户会话，</span></div>
+<div class="raw-line" id="L2642"><a href="#L2642" tabindex="0" class="raw-line-number" aria-label="第 2642 行">2642</a><span></span></div>
+<div class="raw-line" id="L2643"><a href="#L2643" tabindex="0" class="raw-line-number" aria-label="第 2643 行">2643</a><span>and from my experience, I can say that speech-to-text is a very important component of voice agents.</span></div>
+<div class="raw-line" id="L2644"><a href="#L2644" tabindex="0" class="raw-line-number" aria-label="第 2644 行">2644</a><span>根据我的经验，语音转文字是语音智能体中非常重要的一环。</span></div>
+<div class="raw-line" id="L2645"><a href="#L2645" tabindex="0" class="raw-line-number" aria-label="第 2645 行">2645</a><span></span></div>
+<div class="raw-line" id="L2646"><a href="#L2646" tabindex="0" class="raw-line-number" aria-label="第 2646 行">2646</a><span>Speech-to-text models have been around for years, and people think they&#39;re the salt part.</span></div>
+<div class="raw-line" id="L2647"><a href="#L2647" tabindex="0" class="raw-line-number" aria-label="第 2647 行">2647</a><span>语音转文字模型已经问世多年，大家觉得它是比较简单的部分。</span></div>
+<div class="raw-line" id="L2648"><a href="#L2648" tabindex="0" class="raw-line-number" aria-label="第 2648 行">2648</a><span></span></div>
+<div class="raw-line" id="L2649"><a href="#L2649" tabindex="0" class="raw-line-number" aria-label="第 2649 行">2649</a><span>But here&#39;s what we see.</span></div>
+<div class="raw-line" id="L2650"><a href="#L2650" tabindex="0" class="raw-line-number" aria-label="第 2650 行">2650</a><span>但实际情况是这样的。</span></div>
+<div class="raw-line" id="L2651"><a href="#L2651" tabindex="0" class="raw-line-number" aria-label="第 2651 行">2651</a><span></span></div>
+<div class="raw-line" id="L2652"><a href="#L2652" tabindex="0" class="raw-line-number" aria-label="第 2652 行">2652</a><span>This is what the speaker was actually saying in this audio. But our speech-to-text model transcribes something entirely else.</span></div>
+<div class="raw-line" id="L2653"><a href="#L2653" tabindex="0" class="raw-line-number" aria-label="第 2653 行">2653</a><span>这才是演讲者在这段音频中实际说的话，但我们的语音转文字模型却转录出了完全不同的内容。</span></div>
+<div class="raw-line" id="L2654"><a href="#L2654" tabindex="0" class="raw-line-number" aria-label="第 2654 行">2654</a><span></span></div>
+<div class="raw-line" id="L2655"><a href="#L2655" tabindex="0" class="raw-line-number" aria-label="第 2655 行">2655</a><span>But let&#39;s go ahead and take a look at what went wrong here.</span></div>
+<div class="raw-line" id="L2656"><a href="#L2656" tabindex="0" class="raw-line-number" aria-label="第 2656 行">2656</a><span>不过，我们先来看看这里到底出了什么问题。</span></div>
+<div class="raw-line" id="L2657"><a href="#L2657" tabindex="0" class="raw-line-number" aria-label="第 2657 行">2657</a><span></span></div>
+<div class="raw-line" id="L2658"><a href="#L2658" tabindex="0" class="raw-line-number" aria-label="第 2658 行">2658</a><span>So in just two sentences, our speech-to-text model came up with different kinds of errors.</span></div>
+<div class="raw-line" id="L2659"><a href="#L2659" tabindex="0" class="raw-line-number" aria-label="第 2659 行">2659</a><span>短短两句话里，我们的语音转文字模型就犯了好几种不同的错误。</span></div>
+<div class="raw-line" id="L2660"><a href="#L2660" tabindex="0" class="raw-line-number" aria-label="第 2660 行">2660</a><span></span></div>
+<div class="raw-line" id="L2661"><a href="#L2661" tabindex="0" class="raw-line-number" aria-label="第 2661 行">2661</a><span>It added in foreign script, it wrote the wrong characters,</span></div>
+<div class="raw-line" id="L2662"><a href="#L2662" tabindex="0" class="raw-line-number" aria-label="第 2662 行">2662</a><span>它混入了外文字符，还把字写错了，</span></div>
+<div class="raw-line" id="L2663"><a href="#L2663" tabindex="0" class="raw-line-number" aria-label="第 2663 行">2663</a><span></span></div>
+<div class="raw-line" id="L2664"><a href="#L2664" tabindex="0" class="raw-line-number" aria-label="第 2664 行">2664</a><span>and then it dropped the words that it couldn&#39;t catch.</span></div>
+<div class="raw-line" id="L2665"><a href="#L2665" tabindex="0" class="raw-line-number" aria-label="第 2665 行">2665</a><span>然后，它漏掉了没听清的词。</span></div>
+<div class="raw-line" id="L2666"><a href="#L2666" tabindex="0" class="raw-line-number" aria-label="第 2666 行">2666</a><span></span></div>
+<div class="raw-line" id="L2667"><a href="#L2667" tabindex="0" class="raw-line-number" aria-label="第 2667 行">2667</a><span>Now, after looking.</span></div>
+<div class="raw-line" id="L2668"><a href="#L2668" tabindex="0" class="raw-line-number" aria-label="第 2668 行">2668</a><span>现在，看过之后。</span></div>
+<div class="raw-line" id="L2669"><a href="#L2669" tabindex="0" class="raw-line-number" aria-label="第 2669 行">2669</a><span></span></div>
+<div class="raw-line" id="L2670"><a href="#L2670" tabindex="0" class="raw-line-number" aria-label="第 2670 行">2670</a><span>At these errors,</span></div>
+<div class="raw-line" id="L2671"><a href="#L2671" tabindex="0" class="raw-line-number" aria-label="第 2671 行">2671</a><span>这些错误，</span></div>
+<div class="raw-line" id="L2672"><a href="#L2672" tabindex="0" class="raw-line-number" aria-label="第 2672 行">2672</a><span></span></div>
+<div class="raw-line" id="L2673"><a href="#L2673" tabindex="0" class="raw-line-number" aria-label="第 2673 行">2673</a><span>I wanted to see what is the frequency of such errors within our app. So we began to investigate, and this is what we found out.</span></div>
+<div class="raw-line" id="L2674"><a href="#L2674" tabindex="0" class="raw-line-number" aria-label="第 2674 行">2674</a><span>我想看看这类错误在我们的应用中出现得有多频繁。于是我们展开了调查，结果发现了这些情况。</span></div>
+<div class="raw-line" id="L2675"><a href="#L2675" tabindex="0" class="raw-line-number" aria-label="第 2675 行">2675</a><span></span></div>
+<div class="raw-line" id="L2676"><a href="#L2676" tabindex="0" class="raw-line-number" aria-label="第 2676 行">2676</a><span>Almost one in four of our practice sessions contained text that no one said.</span></div>
+<div class="raw-line" id="L2677"><a href="#L2677" tabindex="0" class="raw-line-number" aria-label="第 2677 行">2677</a><span>我们的练习中，近四分之一的场次都出现了没人说过的文字。</span></div>
+<div class="raw-line" id="L2678"><a href="#L2678" tabindex="0" class="raw-line-number" aria-label="第 2678 行">2678</a><span></span></div>
+<div class="raw-line" id="L2679"><a href="#L2679" tabindex="0" class="raw-line-number" aria-label="第 2679 行">2679</a><span>This is a big number, and it directly impacts the quality of our voice agent&#39;s replies.</span></div>
+<div class="raw-line" id="L2680"><a href="#L2680" tabindex="0" class="raw-line-number" aria-label="第 2680 行">2680</a><span>这个比例相当高，而且直接影响了我们语音助手的回复质量。</span></div>
+<div class="raw-line" id="L2681"><a href="#L2681" tabindex="0" class="raw-line-number" aria-label="第 2681 行">2681</a><span></span></div>
+<div class="raw-line" id="L2682"><a href="#L2682" tabindex="0" class="raw-line-number" aria-label="第 2682 行">2682</a><span>So before we see how does it impact our voice agent, we need to take a look at how a voice agent works first.</span></div>
+<div class="raw-line" id="L2683"><a href="#L2683" tabindex="0" class="raw-line-number" aria-label="第 2683 行">2683</a><span>所以，在看这些错误如何影响我们的语音助手之前，我们得先了解语音助手是怎么工作的。</span></div>
+<div class="raw-line" id="L2684"><a href="#L2684" tabindex="0" class="raw-line-number" aria-label="第 2684 行">2684</a><span></span></div>
+<div class="raw-line" id="L2685"><a href="#L2685" tabindex="0" class="raw-line-number" aria-label="第 2685 行">2685</a><span>So meet Lao Shi,</span></div>
+<div class="raw-line" id="L2686"><a href="#L2686" tabindex="0" class="raw-line-number" aria-label="第 2686 行">2686</a><span>那么，来认识一下老史吧。</span></div>
+<div class="raw-line" id="L2687"><a href="#L2687" tabindex="0" class="raw-line-number" aria-label="第 2687 行">2687</a><span></span></div>
+<div class="raw-line" id="L2688"><a href="#L2688" tabindex="0" class="raw-line-number" aria-label="第 2688 行">2688</a><span>who&#39;s our teacher and our voice agent within our app.</span></div>
+<div class="raw-line" id="L2689"><a href="#L2689" tabindex="0" class="raw-line-number" aria-label="第 2689 行">2689</a><span>他是我们应用里的老师，也是我们的语音助手。</span></div>
+<div class="raw-line" id="L2690"><a href="#L2690" tabindex="0" class="raw-line-number" aria-label="第 2690 行">2690</a><span></span></div>
+<div class="raw-line" id="L2691"><a href="#L2691" tabindex="0" class="raw-line-number" aria-label="第 2691 行">2691</a><span>She listens to our users,</span></div>
+<div class="raw-line" id="L2692"><a href="#L2692" tabindex="0" class="raw-line-number" aria-label="第 2692 行">2692</a><span>她会倾听用户说话，</span></div>
+<div class="raw-line" id="L2693"><a href="#L2693" tabindex="0" class="raw-line-number" aria-label="第 2693 行">2693</a><span></span></div>
+<div class="raw-line" id="L2694"><a href="#L2694" tabindex="0" class="raw-line-number" aria-label="第 2694 行">2694</a><span>she thinks about how to respond back, and then she speaks out the response back to the user.</span></div>
+<div class="raw-line" id="L2695"><a href="#L2695" tabindex="0" class="raw-line-number" aria-label="第 2695 行">2695</a><span>她会思考该如何回应，然后把回答说给用户听。</span></div>
+<div class="raw-line" id="L2696"><a href="#L2696" tabindex="0" class="raw-line-number" aria-label="第 2696 行">2696</a><span></span></div>
+<div class="raw-line" id="L2697"><a href="#L2697" tabindex="0" class="raw-line-number" aria-label="第 2697 行">2697</a><span>In this talk, we&#39;ll just be focusing on the listening part.</span></div>
+<div class="raw-line" id="L2698"><a href="#L2698" tabindex="0" class="raw-line-number" aria-label="第 2698 行">2698</a><span>这次演讲，我们只关注“听”这个环节。</span></div>
+<div class="raw-line" id="L2699"><a href="#L2699" tabindex="0" class="raw-line-number" aria-label="第 2699 行">2699</a><span></span></div>
+<div class="raw-line" id="L2700"><a href="#L2700" tabindex="0" class="raw-line-number" aria-label="第 2700 行">2700</a><span>So what happens when a user starts speaking?</span></div>
+<div class="raw-line" id="L2701"><a href="#L2701" tabindex="0" class="raw-line-number" aria-label="第 2701 行">2701</a><span>那么，用户开始说话时，会发生什么呢？</span></div>
+<div class="raw-line" id="L2702"><a href="#L2702" tabindex="0" class="raw-line-number" aria-label="第 2702 行">2702</a><span></span></div>
+<div class="raw-line" id="L2703"><a href="#L2703" tabindex="0" class="raw-line-number" aria-label="第 2703 行">2703</a><span>The audio.</span></div>
+<div class="raw-line" id="L2704"><a href="#L2704" tabindex="0" class="raw-line-number" aria-label="第 2704 行">2704</a><span>音频。</span></div>
+<div class="raw-line" id="L2705"><a href="#L2705" tabindex="0" class="raw-line-number" aria-label="第 2705 行">2705</a><span></span></div>
+<div class="raw-line" id="L2706"><a href="#L2706" tabindex="0" class="raw-line-number" aria-label="第 2706 行">2706</a><span>Is first passed on to a voice activity detector, which chunks the audio into segments based on the pauses the user is taking.</span></div>
+<div class="raw-line" id="L2707"><a href="#L2707" tabindex="0" class="raw-line-number" aria-label="第 2707 行">2707</a><span>音频会先经过语音活动检测器，它根据用户说话时的停顿，把音频切分成多个片段。</span></div>
+<div class="raw-line" id="L2708"><a href="#L2708" tabindex="0" class="raw-line-number" aria-label="第 2708 行">2708</a><span></span></div>
+<div class="raw-line" id="L2709"><a href="#L2709" tabindex="0" class="raw-line-number" aria-label="第 2709 行">2709</a><span>The audio segments are then passed on to the STT model, which transcribes the audio into text and passes it further down the agent pipeline.</span></div>
+<div class="raw-line" id="L2710"><a href="#L2710" tabindex="0" class="raw-line-number" aria-label="第 2710 行">2710</a><span>这些音频片段随后会传给语音转文字模型，由它将音频转写成文本，再传给智能体流程中的后续环节。</span></div>
+<div class="raw-line" id="L2711"><a href="#L2711" tabindex="0" class="raw-line-number" aria-label="第 2711 行">2711</a><span></span></div>
+<div class="raw-line" id="L2712"><a href="#L2712" tabindex="0" class="raw-line-number" aria-label="第 2712 行">2712</a><span>Now, a question to think about is, if your transcript contains text that no one said, which one of these components should you blame?</span></div>
+<div class="raw-line" id="L2713"><a href="#L2713" tabindex="0" class="raw-line-number" aria-label="第 2713 行">2713</a><span>现在请想一想：如果转写文本里出现了根本没人说过的内容，该怪哪个环节呢？</span></div>
+<div class="raw-line" id="L2714"><a href="#L2714" tabindex="0" class="raw-line-number" aria-label="第 2714 行">2714</a><span></span></div>
+<div class="raw-line" id="L2715"><a href="#L2715" tabindex="0" class="raw-line-number" aria-label="第 2715 行">2715</a><span>It should be the STT model, right?</span></div>
+<div class="raw-line" id="L2716"><a href="#L2716" tabindex="0" class="raw-line-number" aria-label="第 2716 行">2716</a><span>应该是语音转文字模型，对吧？</span></div>
+<div class="raw-line" id="L2717"><a href="#L2717" tabindex="0" class="raw-line-number" aria-label="第 2717 行">2717</a><span></span></div>
+<div class="raw-line" id="L2718"><a href="#L2718" tabindex="0" class="raw-line-number" aria-label="第 2718 行">2718</a><span>And how do you fix the errors in your transcript?</span></div>
+<div class="raw-line" id="L2719"><a href="#L2719" tabindex="0" class="raw-line-number" aria-label="第 2719 行">2719</a><span>又该如何修正转写文本中的错误呢？</span></div>
+<div class="raw-line" id="L2720"><a href="#L2720" tabindex="0" class="raw-line-number" aria-label="第 2720 行">2720</a><span></span></div>
+<div class="raw-line" id="L2721"><a href="#L2721" tabindex="0" class="raw-line-number" aria-label="第 2721 行">2721</a><span>You pick a model which shows the lowest error rate. And this is what we did.</span></div>
+<div class="raw-line" id="L2722"><a href="#L2722" tabindex="0" class="raw-line-number" aria-label="第 2722 行">2722</a><span>选择错误率最低的模型。我们当时就是这么做的。</span></div>
+<div class="raw-line" id="L2723"><a href="#L2723" tabindex="0" class="raw-line-number" aria-label="第 2723 行">2723</a><span></span></div>
+<div class="raw-line" id="L2724"><a href="#L2724" tabindex="0" class="raw-line-number" aria-label="第 2724 行">2724</a><span>So we went ahead to take a look at the benchmarks and find the model which shows the lowest error rate.</span></div>
+<div class="raw-line" id="L2725"><a href="#L2725" tabindex="0" class="raw-line-number" aria-label="第 2725 行">2725</a><span>于是我们查看了各项基准测试，找出错误率最低的模型。</span></div>
+<div class="raw-line" id="L2726"><a href="#L2726" tabindex="0" class="raw-line-number" aria-label="第 2726 行">2726</a><span></span></div>
+<div class="raw-line" id="L2727"><a href="#L2727" tabindex="0" class="raw-line-number" aria-label="第 2727 行">2727</a><span></span></div>
+<div class="raw-line" id="L2728"><a href="#L2728" tabindex="0" class="raw-line-number" aria-label="第 2728 行">2728</a><span>This is what we saw.</span></div>
+<div class="raw-line" id="L2729"><a href="#L2729" tabindex="0" class="raw-line-number" aria-label="第 2729 行">2729</a><span>结果我们看到了这样的情况。</span></div>
+<div class="raw-line" id="L2730"><a href="#L2730" tabindex="0" class="raw-line-number" aria-label="第 2730 行">2730</a><span></span></div>
+<div class="raw-line" id="L2731"><a href="#L2731" tabindex="0" class="raw-line-number" aria-label="第 2731 行">2731</a><span>All these models showed very low error rates, ranging from 2 to 7%.</span></div>
+<div class="raw-line" id="L2732"><a href="#L2732" tabindex="0" class="raw-line-number" aria-label="第 2732 行">2732</a><span>这些模型的错误率都很低，在 2% 到 7% 之间。</span></div>
+<div class="raw-line" id="L2733"><a href="#L2733" tabindex="0" class="raw-line-number" aria-label="第 2733 行">2733</a><span></span></div>
+<div class="raw-line" id="L2734"><a href="#L2734" tabindex="0" class="raw-line-number" aria-label="第 2734 行">2734</a><span>But when we ran these same models on our own audio datasets, we saw that they showed error rates that were 4 to 20 times worse compared to what the benchmarks were telling us.</span></div>
+<div class="raw-line" id="L2735"><a href="#L2735" tabindex="0" class="raw-line-number" aria-label="第 2735 行">2735</a><span>但当我们用自己的音频数据集测试同样的模型时，发现它们的错误率比基准测试显示的高出 4 到 20 倍。</span></div>
+<div class="raw-line" id="L2736"><a href="#L2736" tabindex="0" class="raw-line-number" aria-label="第 2736 行">2736</a><span></span></div>
+<div class="raw-line" id="L2737"><a href="#L2737" tabindex="0" class="raw-line-number" aria-label="第 2737 行">2737</a><span>So why was there a discrepancy here?</span></div>
+<div class="raw-line" id="L2738"><a href="#L2738" tabindex="0" class="raw-line-number" aria-label="第 2738 行">2738</a><span>那么，为什么会出现这样的差距呢？</span></div>
+<div class="raw-line" id="L2739"><a href="#L2739" tabindex="0" class="raw-line-number" aria-label="第 2739 行">2739</a><span></span></div>
+<div class="raw-line" id="L2740"><a href="#L2740" tabindex="0" class="raw-line-number" aria-label="第 2740 行">2740</a><span>Just to let you know, the numbers here come from the fluorous benchmark, which is one of the standards for STT models.</span></div>
+<div class="raw-line" id="L2741"><a href="#L2741" tabindex="0" class="raw-line-number" aria-label="第 2741 行">2741</a><span>补充说明一下，这里的数据来自 FLEURS 基准测试，它是评估语音转文字模型的标准之一。</span></div>
+<div class="raw-line" id="L2742"><a href="#L2742" tabindex="0" class="raw-line-number" aria-label="第 2742 行">2742</a><span></span></div>
+<div class="raw-line" id="L2743"><a href="#L2743" tabindex="0" class="raw-line-number" aria-label="第 2743 行">2743</a><span>So there are two key differences here.</span></div>
+<div class="raw-line" id="L2744"><a href="#L2744" tabindex="0" class="raw-line-number" aria-label="第 2744 行">2744</a><span>这里有两个关键的区别。</span></div>
+<div class="raw-line" id="L2745"><a href="#L2745" tabindex="0" class="raw-line-number" aria-label="第 2745 行">2745</a><span></span></div>
+<div class="raw-line" id="L2746"><a href="#L2746" tabindex="0" class="raw-line-number" aria-label="第 2746 行">2746</a><span>First, fluorous uses audio from native speakers who read prepared sentences aloud.</span></div>
+<div class="raw-line" id="L2747"><a href="#L2747" tabindex="0" class="raw-line-number" aria-label="第 2747 行">2747</a><span>首先，FLEURS 使用的是母语者朗读预先准备好的句子的录音。</span></div>
+<div class="raw-line" id="L2748"><a href="#L2748" tabindex="0" class="raw-line-number" aria-label="第 2748 行">2748</a><span></span></div>
+<div class="raw-line" id="L2749"><a href="#L2749" tabindex="0" class="raw-line-number" aria-label="第 2749 行">2749</a><span>Whereas in our case, our speakers are non-native speakers who think out loud while they&#39;re speaking.</span></div>
+<div class="raw-line" id="L2750"><a href="#L2750" tabindex="0" class="raw-line-number" aria-label="第 2750 行">2750</a><span>而我们这里的说话者并非母语者，他们是一边思考一边说话。</span></div>
+<div class="raw-line" id="L2751"><a href="#L2751" tabindex="0" class="raw-line-number" aria-label="第 2751 行">2751</a><span></span></div>
+<div class="raw-line" id="L2752"><a href="#L2752" tabindex="0" class="raw-line-number" aria-label="第 2752 行">2752</a><span>Secondly.</span></div>
+<div class="raw-line" id="L2753"><a href="#L2753" tabindex="0" class="raw-line-number" aria-label="第 2753 行">2753</a><span>其次。</span></div>
+<div class="raw-line" id="L2754"><a href="#L2754" tabindex="0" class="raw-line-number" aria-label="第 2754 行">2754</a><span></span></div>
+<div class="raw-line" id="L2755"><a href="#L2755" tabindex="0" class="raw-line-number" aria-label="第 2755 行">2755</a><span>Fluorous passes in the entire audio at once.</span></div>
+<div class="raw-line" id="L2756"><a href="#L2756" tabindex="0" class="raw-line-number" aria-label="第 2756 行">2756</a><span>FLEURS 会一次性将整段音频输入模型。</span></div>
+<div class="raw-line" id="L2757"><a href="#L2757" tabindex="0" class="raw-line-number" aria-label="第 2757 行">2757</a><span></span></div>
+<div class="raw-line" id="L2758"><a href="#L2758" tabindex="0" class="raw-line-number" aria-label="第 2758 行">2758</a><span>Whereas in our case, our audio flows through the pipeline that I showed you, where the VAD chunks it into segments before feeding it into the STT models.</span></div>
+<div class="raw-line" id="L2759"><a href="#L2759" tabindex="0" class="raw-line-number" aria-label="第 2759 行">2759</a><span>而我们这里，音频会经过刚才展示的处理流程：先由语音活动检测模块（VAD）切分成片段，再送入语音转文字模型。</span></div>
+<div class="raw-line" id="L2760"><a href="#L2760" tabindex="0" class="raw-line-number" aria-label="第 2760 行">2760</a><span></span></div>
+<div class="raw-line" id="L2761"><a href="#L2761" tabindex="0" class="raw-line-number" aria-label="第 2761 行">2761</a><span>So which factor was causing the discrepancy here?</span></div>
+<div class="raw-line" id="L2762"><a href="#L2762" tabindex="0" class="raw-line-number" aria-label="第 2762 行">2762</a><span>那么，究竟是哪个因素造成了这里的差异？</span></div>
+<div class="raw-line" id="L2763"><a href="#L2763" tabindex="0" class="raw-line-number" aria-label="第 2763 行">2763</a><span></span></div>
+<div class="raw-line" id="L2764"><a href="#L2764" tabindex="0" class="raw-line-number" aria-label="第 2764 行">2764</a><span>Was it our speakers, or was it the way we feed these audio to our models?</span></div>
+<div class="raw-line" id="L2765"><a href="#L2765" tabindex="0" class="raw-line-number" aria-label="第 2765 行">2765</a><span>是说话者的原因，还是我们向模型输入音频的方式造成的？</span></div>
+<div class="raw-line" id="L2766"><a href="#L2766" tabindex="0" class="raw-line-number" aria-label="第 2766 行">2766</a><span></span></div>
+<div class="raw-line" id="L2767"><a href="#L2767" tabindex="0" class="raw-line-number" aria-label="第 2767 行">2767</a><span>To answer this question, we did a few more things.</span></div>
+<div class="raw-line" id="L2768"><a href="#L2768" tabindex="0" class="raw-line-number" aria-label="第 2768 行">2768</a><span>为了回答这个问题，我们又做了几项测试。</span></div>
+<div class="raw-line" id="L2769"><a href="#L2769" tabindex="0" class="raw-line-number" aria-label="第 2769 行">2769</a><span></span></div>
+<div class="raw-line" id="L2770"><a href="#L2770" tabindex="0" class="raw-line-number" aria-label="第 2770 行">2770</a><span>So we kept our same speakers and the same models and this time fed the entire audio to these models as well. And any guesses on what the results were?</span></div>
+<div class="raw-line" id="L2771"><a href="#L2771" tabindex="0" class="raw-line-number" aria-label="第 2771 行">2771</a><span>于是，我们保持说话者和模型不变，这次也将整段音频一次性输入模型。大家猜猜结果如何？</span></div>
+<div class="raw-line" id="L2772"><a href="#L2772" tabindex="0" class="raw-line-number" aria-label="第 2772 行">2772</a><span></span></div>
+<div class="raw-line" id="L2773"><a href="#L2773" tabindex="0" class="raw-line-number" aria-label="第 2773 行">2773</a><span>The results agreed with what the benchmarks were telling us.</span></div>
+<div class="raw-line" id="L2774"><a href="#L2774" tabindex="0" class="raw-line-number" aria-label="第 2774 行">2774</a><span>结果与基准测试的结论一致。</span></div>
+<div class="raw-line" id="L2775"><a href="#L2775" tabindex="0" class="raw-line-number" aria-label="第 2775 行">2775</a><span></span></div>
+<div class="raw-line" id="L2776"><a href="#L2776" tabindex="0" class="raw-line-number" aria-label="第 2776 行">2776</a><span>All these models showed a sharp increase in accuracy and none of them had any foreign script now.</span></div>
+<div class="raw-line" id="L2777"><a href="#L2777" tabindex="0" class="raw-line-number" aria-label="第 2777 行">2777</a><span>所有这些模型的准确率都大幅提升，而且输出中再也没有出现外文文字。</span></div>
+<div class="raw-line" id="L2778"><a href="#L2778" tabindex="0" class="raw-line-number" aria-label="第 2778 行">2778</a><span></span></div>
+<div class="raw-line" id="L2779"><a href="#L2779" tabindex="0" class="raw-line-number" aria-label="第 2779 行">2779</a><span>So this made us conclude that nothing was wrong with our speakers.</span></div>
+<div class="raw-line" id="L2780"><a href="#L2780" tabindex="0" class="raw-line-number" aria-label="第 2780 行">2780</a><span>因此我们得出结论：我们的说话者并没有问题。</span></div>
+<div class="raw-line" id="L2781"><a href="#L2781" tabindex="0" class="raw-line-number" aria-label="第 2781 行">2781</a><span></span></div>
+<div class="raw-line" id="L2782"><a href="#L2782" tabindex="0" class="raw-line-number" aria-label="第 2782 行">2782</a><span>We did another thing.</span></div>
+<div class="raw-line" id="L2783"><a href="#L2783" tabindex="0" class="raw-line-number" aria-label="第 2783 行">2783</a><span>我们还做了另一项测试。</span></div>
+<div class="raw-line" id="L2784"><a href="#L2784" tabindex="0" class="raw-line-number" aria-label="第 2784 行">2784</a><span></span></div>
+<div class="raw-line" id="L2785"><a href="#L2785" tabindex="0" class="raw-line-number" aria-label="第 2785 行">2785</a><span>So we revisited the audio clip that I played in the first slide today. And we made it pass through our live pipeline where the VAD chunks it into segments.</span></div>
+<div class="raw-line" id="L2786"><a href="#L2786" tabindex="0" class="raw-line-number" aria-label="第 2786 行">2786</a><span>于是，我们重新拿出今天第一张幻灯片里播放的那段音频，让它经过我们的实时处理流程，由语音活动检测器（VAD）将其切分成片段。</span></div>
+<div class="raw-line" id="L2787"><a href="#L2787" tabindex="0" class="raw-line-number" aria-label="第 2787 行">2787</a><span></span></div>
+<div class="raw-line" id="L2788"><a href="#L2788" tabindex="0" class="raw-line-number" aria-label="第 2788 行">2788</a><span>Now,</span></div>
+<div class="raw-line" id="L2789"><a href="#L2789" tabindex="0" class="raw-line-number" aria-label="第 2789 行">2789</a><span>现在，</span></div>
+<div class="raw-line" id="L2790"><a href="#L2790" tabindex="0" class="raw-line-number" aria-label="第 2790 行">2790</a><span></span></div>
+<div class="raw-line" id="L2791"><a href="#L2791" tabindex="0" class="raw-line-number" aria-label="第 2791 行">2791</a><span>as you can see from the audio waveform,</span></div>
+<div class="raw-line" id="L2792"><a href="#L2792" tabindex="0" class="raw-line-number" aria-label="第 2792 行">2792</a><span>从音频波形中可以看到，</span></div>
+<div class="raw-line" id="L2793"><a href="#L2793" tabindex="0" class="raw-line-number" aria-label="第 2793 行">2793</a><span></span></div>
+<div class="raw-line" id="L2794"><a href="#L2794" tabindex="0" class="raw-line-number" aria-label="第 2794 行">2794</a><span>that because the speaker was not very fluent and took a lot of pauses, the VAD chunked it into very short segments.</span></div>
+<div class="raw-line" id="L2795"><a href="#L2795" tabindex="0" class="raw-line-number" aria-label="第 2795 行">2795</a><span>由于说话者不太流利，停顿也很多，VAD 就把音频切成了很短的片段。</span></div>
+<div class="raw-line" id="L2796"><a href="#L2796" tabindex="0" class="raw-line-number" aria-label="第 2796 行">2796</a><span></span></div>
+<div class="raw-line" id="L2797"><a href="#L2797" tabindex="0" class="raw-line-number" aria-label="第 2797 行">2797</a><span>Now, what happens when you feed these very short segments to different STT models?</span></div>
+<div class="raw-line" id="L2798"><a href="#L2798" tabindex="0" class="raw-line-number" aria-label="第 2798 行">2798</a><span>那么，把这些很短的片段输入不同的语音转文字模型，会发生什么呢？</span></div>
+<div class="raw-line" id="L2799"><a href="#L2799" tabindex="0" class="raw-line-number" aria-label="第 2799 行">2799</a><span></span></div>
+<div class="raw-line" id="L2800"><a href="#L2800" tabindex="0" class="raw-line-number" aria-label="第 2800 行">2800</a><span>You get transcriptions in different kinds of languages.</span></div>
+<div class="raw-line" id="L2801"><a href="#L2801" tabindex="0" class="raw-line-number" aria-label="第 2801 行">2801</a><span>转写结果会出现各种不同的语言。</span></div>
+<div class="raw-line" id="L2802"><a href="#L2802" tabindex="0" class="raw-line-number" aria-label="第 2802 行">2802</a><span></span></div>
+<div class="raw-line" id="L2803"><a href="#L2803" tabindex="0" class="raw-line-number" aria-label="第 2803 行">2803</a><span>But let&#39;s actually pick one of these segments and talk about it.</span></div>
+<div class="raw-line" id="L2804"><a href="#L2804" tabindex="0" class="raw-line-number" aria-label="第 2804 行">2804</a><span>不过，我们还是挑其中一个片段，具体看一看。</span></div>
+<div class="raw-line" id="L2805"><a href="#L2805" tabindex="0" class="raw-line-number" aria-label="第 2805 行">2805</a><span></span></div>
+<div class="raw-line" id="L2806"><a href="#L2806" tabindex="0" class="raw-line-number" aria-label="第 2806 行">2806</a><span>Say the segment where the speaker said, &quot;Ho,&quot; I hope that was pronounced correctly.</span></div>
+<div class="raw-line" id="L2807"><a href="#L2807" tabindex="0" class="raw-line-number" aria-label="第 2807 行">2807</a><span>比如说话者说“Ho”的那一段，希望我发音没错。</span></div>
+<div class="raw-line" id="L2808"><a href="#L2808" tabindex="0" class="raw-line-number" aria-label="第 2808 行">2808</a><span></span></div>
+<div class="raw-line" id="L2809"><a href="#L2809" tabindex="0" class="raw-line-number" aria-label="第 2809 行">2809</a><span>Now imagine I just play this segment in front of you without telling you the language the speaker was talking in or without giving you any context about what the speaker was talking about.</span></div>
+<div class="raw-line" id="L2810"><a href="#L2810" tabindex="0" class="raw-line-number" aria-label="第 2810 行">2810</a><span>现在想象一下，如果我只给你播放这段音频，不告诉你说话者说的是什么语言，也不提供谈话内容的任何背景信息。</span></div>
+<div class="raw-line" id="L2811"><a href="#L2811" tabindex="0" class="raw-line-number" aria-label="第 2811 行">2811</a><span></span></div>
+<div class="raw-line" id="L2812"><a href="#L2812" tabindex="0" class="raw-line-number" aria-label="第 2812 行">2812</a><span>Will you be able to predict what the speaker was saying?</span></div>
+<div class="raw-line" id="L2813"><a href="#L2813" tabindex="0" class="raw-line-number" aria-label="第 2813 行">2813</a><span>你能判断说话者说的是什么吗？</span></div>
+<div class="raw-line" id="L2814"><a href="#L2814" tabindex="0" class="raw-line-number" aria-label="第 2814 行">2814</a><span></span></div>
+<div class="raw-line" id="L2815"><a href="#L2815" tabindex="0" class="raw-line-number" aria-label="第 2815 行">2815</a><span>In fact, all these different words that the STT models predicted in different languages, they sound very similar to what the speaker was saying here in this segment.</span></div>
+<div class="raw-line" id="L2816"><a href="#L2816" tabindex="0" class="raw-line-number" aria-label="第 2816 行">2816</a><span>其实，语音转文字模型识别出的这些不同语言的词，听起来都和说话者在这一片段中说的内容非常相似。</span></div>
+<div class="raw-line" id="L2817"><a href="#L2817" tabindex="0" class="raw-line-number" aria-label="第 2817 行">2817</a><span></span></div>
+<div class="raw-line" id="L2818"><a href="#L2818" tabindex="0" class="raw-line-number" aria-label="第 2818 行">2818</a><span>So is the STT model really at fault here?</span></div>
+<div class="raw-line" id="L2819"><a href="#L2819" tabindex="0" class="raw-line-number" aria-label="第 2819 行">2819</a><span>所以，这真的是语音转文字模型的错吗？</span></div>
+<div class="raw-line" id="L2820"><a href="#L2820" tabindex="0" class="raw-line-number" aria-label="第 2820 行">2820</a><span></span></div>
+<div class="raw-line" id="L2821"><a href="#L2821" tabindex="0" class="raw-line-number" aria-label="第 2821 行">2821</a><span>It seems like language and the size of the audio segments, which means the context we are feeding to the models.</span></div>
+<div class="raw-line" id="L2822"><a href="#L2822" tabindex="0" class="raw-line-number" aria-label="第 2822 行">2822</a><span>看来，关键在于语言，以及音频片段的长度——也就是我们提供给模型的上下文信息量。</span></div>
+<div class="raw-line" id="L2823"><a href="#L2823" tabindex="0" class="raw-line-number" aria-label="第 2823 行">2823</a><span></span></div>
+<div class="raw-line" id="L2824"><a href="#L2824" tabindex="0" class="raw-line-number" aria-label="第 2824 行">2824</a><span>Are two key settings that affect the models.</span></div>
+<div class="raw-line" id="L2825"><a href="#L2825" tabindex="0" class="raw-line-number" aria-label="第 2825 行">2825</a><span>是影响模型的两个关键因素。</span></div>
+<div class="raw-line" id="L2826"><a href="#L2826" tabindex="0" class="raw-line-number" aria-label="第 2826 行">2826</a><span></span></div>
+<div class="raw-line" id="L2827"><a href="#L2827" tabindex="0" class="raw-line-number" aria-label="第 2827 行">2827</a><span>But a question to think about here is, why should these two settings matter at all?</span></div>
+<div class="raw-line" id="L2828"><a href="#L2828" tabindex="0" class="raw-line-number" aria-label="第 2828 行">2828</a><span>但这里有一个值得思考的问题：为什么这两个因素会产生影响？</span></div>
+<div class="raw-line" id="L2829"><a href="#L2829" tabindex="0" class="raw-line-number" aria-label="第 2829 行">2829</a><span></span></div>
+<div class="raw-line" id="L2830"><a href="#L2830" tabindex="0" class="raw-line-number" aria-label="第 2830 行">2830</a><span>This is what the theory tells us.</span></div>
+<div class="raw-line" id="L2831"><a href="#L2831" tabindex="0" class="raw-line-number" aria-label="第 2831 行">2831</a><span>理论是这么说的。</span></div>
+<div class="raw-line" id="L2832"><a href="#L2832" tabindex="0" class="raw-line-number" aria-label="第 2832 行">2832</a><span></span></div>
+<div class="raw-line" id="L2833"><a href="#L2833" tabindex="0" class="raw-line-number" aria-label="第 2833 行">2833</a><span>So STT models are made of two components, the encoder, which listens to our audio samples, and the decoder.</span></div>
+<div class="raw-line" id="L2834"><a href="#L2834" tabindex="0" class="raw-line-number" aria-label="第 2834 行">2834</a><span>语音转文字模型由两部分组成：负责处理输入音频的编码器，以及解码器。</span></div>
+<div class="raw-line" id="L2835"><a href="#L2835" tabindex="0" class="raw-line-number" aria-label="第 2835 行">2835</a><span></span></div>
+<div class="raw-line" id="L2836"><a href="#L2836" tabindex="0" class="raw-line-number" aria-label="第 2836 行">2836</a><span>The decoder is a language model that transcribes text token by token and the first token that it transcribes is the language.</span></div>
+<div class="raw-line" id="L2837"><a href="#L2837" tabindex="0" class="raw-line-number" aria-label="第 2837 行">2837</a><span>解码器是一个语言模型，会逐个词元地转写文本；它转写的第一个词元是语言标识。</span></div>
+<div class="raw-line" id="L2838"><a href="#L2838" tabindex="0" class="raw-line-number" aria-label="第 2838 行">2838</a><span></span></div>
+<div class="raw-line" id="L2839"><a href="#L2839" tabindex="0" class="raw-line-number" aria-label="第 2839 行">2839</a><span>So for a very short audio segment where the language guess is incorrect, all the tokens following this language will be predicted in the wrongly guessed language.</span></div>
+<div class="raw-line" id="L2840"><a href="#L2840" tabindex="0" class="raw-line-number" aria-label="第 2840 行">2840</a><span>所以，对于很短的音频片段，如果一开始判断错了语言，后续所有词元就都会按错误的语言来预测。</span></div>
+<div class="raw-line" id="L2841"><a href="#L2841" tabindex="0" class="raw-line-number" aria-label="第 2841 行">2841</a><span></span></div>
+<div class="raw-line" id="L2842"><a href="#L2842" tabindex="0" class="raw-line-number" aria-label="第 2842 行">2842</a><span>Secondly, every token that the decoder predicts depends on the previous tokens that it predicted and the audio segment it has access to.</span></div>
+<div class="raw-line" id="L2843"><a href="#L2843" tabindex="0" class="raw-line-number" aria-label="第 2843 行">2843</a><span>其次，解码器预测的每个词元，都取决于它此前预测出的词元，以及它能够获取的音频片段。</span></div>
+<div class="raw-line" id="L2844"><a href="#L2844" tabindex="0" class="raw-line-number" aria-label="第 2844 行">2844</a><span></span></div>
+<div class="raw-line" id="L2845"><a href="#L2845" tabindex="0" class="raw-line-number" aria-label="第 2845 行">2845</a><span>So if you feed the decoder a bigger audio segment size, it has more to- it has access to more tokens and hence more context and it should be able to transcribe the audio segment accurately.</span></div>
+<div class="raw-line" id="L2846"><a href="#L2846" tabindex="0" class="raw-line-number" aria-label="第 2846 行">2846</a><span>所以，如果给解码器输入更长的音频片段，它就能利用更多词元，获得更丰富的上下文，从而更准确地转写这段音频。</span></div>
+<div class="raw-line" id="L2847"><a href="#L2847" tabindex="0" class="raw-line-number" aria-label="第 2847 行">2847</a><span></span></div>
+<div class="raw-line" id="L2848"><a href="#L2848" tabindex="0" class="raw-line-number" aria-label="第 2848 行">2848</a><span>So this is what the theory tells us, that these two settings directly affect the accuracy of these models.</span></div>
+<div class="raw-line" id="L2849"><a href="#L2849" tabindex="0" class="raw-line-number" aria-label="第 2849 行">2849</a><span>因此，理论告诉我们，这两个设置会直接影响这些模型的准确率。</span></div>
+<div class="raw-line" id="L2850"><a href="#L2850" tabindex="0" class="raw-line-number" aria-label="第 2850 行">2850</a><span></span></div>
+<div class="raw-line" id="L2851"><a href="#L2851" tabindex="0" class="raw-line-number" aria-label="第 2851 行">2851</a><span>But let&#39;s go ahead and see them in action now.</span></div>
+<div class="raw-line" id="L2852"><a href="#L2852" tabindex="0" class="raw-line-number" aria-label="第 2852 行">2852</a><span>不过，接下来我们还是实际看看它们的效果吧。</span></div>
+<div class="raw-line" id="L2853"><a href="#L2853" tabindex="0" class="raw-line-number" aria-label="第 2853 行">2853</a><span></span></div>
+<div class="raw-line" id="L2854"><a href="#L2854" tabindex="0" class="raw-line-number" aria-label="第 2854 行">2854</a><span>So what we did was we varied the size of the audio segments that we had in an audio clip and see how does it affect the accuracy of these models.</span></div>
+<div class="raw-line" id="L2855"><a href="#L2855" tabindex="0" class="raw-line-number" aria-label="第 2855 行">2855</a><span>我们改变了一段音频中各个片段的长度，看看这会如何影响模型的准确率。</span></div>
+<div class="raw-line" id="L2856"><a href="#L2856" tabindex="0" class="raw-line-number" aria-label="第 2856 行">2856</a><span></span></div>
+<div class="raw-line" id="L2857"><a href="#L2857" tabindex="0" class="raw-line-number" aria-label="第 2857 行">2857</a><span>So we varied the size ranging from live segments all the way to the entire audio recording at once.</span></div>
+<div class="raw-line" id="L2858"><a href="#L2858" tabindex="0" class="raw-line-number" aria-label="第 2858 行">2858</a><span>我们调整了音频片段的长度，从实时处理的小片段，一直到一次输入整段录音。</span></div>
+<div class="raw-line" id="L2859"><a href="#L2859" tabindex="0" class="raw-line-number" aria-label="第 2859 行">2859</a><span></span></div>
+<div class="raw-line" id="L2860"><a href="#L2860" tabindex="0" class="raw-line-number" aria-label="第 2860 行">2860</a><span>And this is what we saw.</span></div>
+<div class="raw-line" id="L2861"><a href="#L2861" tabindex="0" class="raw-line-number" aria-label="第 2861 行">2861</a><span>结果是这样的。</span></div>
+<div class="raw-line" id="L2862"><a href="#L2862" tabindex="0" class="raw-line-number" aria-label="第 2862 行">2862</a><span></span></div>
+<div class="raw-line" id="L2863"><a href="#L2863" tabindex="0" class="raw-line-number" aria-label="第 2863 行">2863</a><span>The accuracy jumped from 62% in the case of live segments all the way to 82% in the case of whole recordings.</span></div>
+<div class="raw-line" id="L2864"><a href="#L2864" tabindex="0" class="raw-line-number" aria-label="第 2864 行">2864</a><span>准确率从实时处理小片段时的 62%，跃升至一次处理整段录音时的 82%。</span></div>
+<div class="raw-line" id="L2865"><a href="#L2865" tabindex="0" class="raw-line-number" aria-label="第 2865 行">2865</a><span></span></div>
+<div class="raw-line" id="L2866"><a href="#L2866" tabindex="0" class="raw-line-number" aria-label="第 2866 行">2866</a><span>That is a big 20% jump.</span></div>
+<div class="raw-line" id="L2867"><a href="#L2867" tabindex="0" class="raw-line-number" aria-label="第 2867 行">2867</a><span>这可是整整提高了 20 个百分点。</span></div>
+<div class="raw-line" id="L2868"><a href="#L2868" tabindex="0" class="raw-line-number" aria-label="第 2868 行">2868</a><span></span></div>
+<div class="raw-line" id="L2869"><a href="#L2869" tabindex="0" class="raw-line-number" aria-label="第 2869 行">2869</a><span>But we cannot wait for the entire audio recording to transcribe it, right?</span></div>
+<div class="raw-line" id="L2870"><a href="#L2870" tabindex="0" class="raw-line-number" aria-label="第 2870 行">2870</a><span>但我们不能等整段录音结束后才开始转写，对吧？</span></div>
+<div class="raw-line" id="L2871"><a href="#L2871" tabindex="0" class="raw-line-number" aria-label="第 2871 行">2871</a><span></span></div>
+<div class="raw-line" id="L2872"><a href="#L2872" tabindex="0" class="raw-line-number" aria-label="第 2872 行">2872</a><span>Because then our conversation no longer remains live.</span></div>
+<div class="raw-line" id="L2873"><a href="#L2873" tabindex="0" class="raw-line-number" aria-label="第 2873 行">2873</a><span>因为那样一来，我们的对话就无法实时进行了。</span></div>
+<div class="raw-line" id="L2874"><a href="#L2874" tabindex="0" class="raw-line-number" aria-label="第 2874 行">2874</a><span></span></div>
+<div class="raw-line" id="L2875"><a href="#L2875" tabindex="0" class="raw-line-number" aria-label="第 2875 行">2875</a><span>So how else can you increase the accuracy then?</span></div>
+<div class="raw-line" id="L2876"><a href="#L2876" tabindex="0" class="raw-line-number" aria-label="第 2876 行">2876</a><span>那么，还有什么办法能提高准确率呢？</span></div>
+<div class="raw-line" id="L2877"><a href="#L2877" tabindex="0" class="raw-line-number" aria-label="第 2877 行">2877</a><span></span></div>
+<div class="raw-line" id="L2878"><a href="#L2878" tabindex="0" class="raw-line-number" aria-label="第 2878 行">2878</a><span>Here comes the language part.</span></div>
+<div class="raw-line" id="L2879"><a href="#L2879" tabindex="0" class="raw-line-number" aria-label="第 2879 行">2879</a><span>接下来就要谈到语言方面了。</span></div>
+<div class="raw-line" id="L2880"><a href="#L2880" tabindex="0" class="raw-line-number" aria-label="第 2880 行">2880</a><span></span></div>
+<div class="raw-line" id="L2881"><a href="#L2881" tabindex="0" class="raw-line-number" aria-label="第 2881 行">2881</a><span>So when you tell the models the language they are supposed to transcribe in, you can regain 11% of that 20% gap.</span></div>
+<div class="raw-line" id="L2882"><a href="#L2882" tabindex="0" class="raw-line-number" aria-label="第 2882 行">2882</a><span>只要告诉模型要转写的是哪种语言，就能弥补那 20 个百分点差距中的 11 个百分点。</span></div>
+<div class="raw-line" id="L2883"><a href="#L2883" tabindex="0" class="raw-line-number" aria-label="第 2883 行">2883</a><span></span></div>
+<div class="raw-line" id="L2884"><a href="#L2884" tabindex="0" class="raw-line-number" aria-label="第 2884 行">2884</a><span>But what is the remaining 9% gap still left?</span></div>
+<div class="raw-line" id="L2885"><a href="#L2885" tabindex="0" class="raw-line-number" aria-label="第 2885 行">2885</a><span>但剩下的 9 个百分点差距又是怎么回事呢？</span></div>
+<div class="raw-line" id="L2886"><a href="#L2886" tabindex="0" class="raw-line-number" aria-label="第 2886 行">2886</a><span></span></div>
+<div class="raw-line" id="L2887"><a href="#L2887" tabindex="0" class="raw-line-number" aria-label="第 2887 行">2887</a><span>That gap is the context.</span></div>
+<div class="raw-line" id="L2888"><a href="#L2888" tabindex="0" class="raw-line-number" aria-label="第 2888 行">2888</a><span>剩下的差距，就在于上下文。</span></div>
+<div class="raw-line" id="L2889"><a href="#L2889" tabindex="0" class="raw-line-number" aria-label="第 2889 行">2889</a><span></span></div>
+<div class="raw-line" id="L2890"><a href="#L2890" tabindex="0" class="raw-line-number" aria-label="第 2890 行">2890</a><span>And we don&#39;t need to feed in the entire context to these models.</span></div>
+<div class="raw-line" id="L2891"><a href="#L2891" tabindex="0" class="raw-line-number" aria-label="第 2891 行">2891</a><span>而且我们不需要把全部上下文都输入模型。</span></div>
+<div class="raw-line" id="L2892"><a href="#L2892" tabindex="0" class="raw-line-number" aria-label="第 2892 行">2892</a><span></span></div>
+<div class="raw-line" id="L2893"><a href="#L2893" tabindex="0" class="raw-line-number" aria-label="第 2893 行">2893</a><span>If you see the shaded region within this graph, where the audio segment sizes range from 2 to 8 seconds, we still see a sharp increase in accuracy for STT models.</span></div>
+<div class="raw-line" id="L2894"><a href="#L2894" tabindex="0" class="raw-line-number" aria-label="第 2894 行">2894</a><span>如果看图中的阴影区域，也就是音频片段长度在 2 到 8 秒之间的部分，你会发现语音转文字模型的准确率仍在快速提升。</span></div>
+<div class="raw-line" id="L2895"><a href="#L2895" tabindex="0" class="raw-line-number" aria-label="第 2895 行">2895</a><span></span></div>
+<div class="raw-line" id="L2896"><a href="#L2896" tabindex="0" class="raw-line-number" aria-label="第 2896 行">2896</a><span>But how do we land within this shaded region to still gain higher accuracy?</span></div>
+<div class="raw-line" id="L2897"><a href="#L2897" tabindex="0" class="raw-line-number" aria-label="第 2897 行">2897</a><span>但我们怎样才能落在这个阴影区间内，进一步提高准确率呢？</span></div>
+<div class="raw-line" id="L2898"><a href="#L2898" tabindex="0" class="raw-line-number" aria-label="第 2898 行">2898</a><span></span></div>
+<div class="raw-line" id="L2899"><a href="#L2899" tabindex="0" class="raw-line-number" aria-label="第 2899 行">2899</a><span>Remember the voice accuracy detector from before?</span></div>
+<div class="raw-line" id="L2900"><a href="#L2900" tabindex="0" class="raw-line-number" aria-label="第 2900 行">2900</a><span>还记得前面提到的语音准确率检测器吗？</span></div>
+<div class="raw-line" id="L2901"><a href="#L2901" tabindex="0" class="raw-line-number" aria-label="第 2901 行">2901</a><span></span></div>
+<div class="raw-line" id="L2902"><a href="#L2902" tabindex="0" class="raw-line-number" aria-label="第 2902 行">2902</a><span>If you tune it in such a way that it waits for a longer pause before cutting the audio segment instead of cutting at the first short pause,</span></div>
+<div class="raw-line" id="L2903"><a href="#L2903" tabindex="0" class="raw-line-number" aria-label="第 2903 行">2903</a><span>如果把它调整成等到较长的停顿再切分音频，而不是一遇到短暂停顿就切分，</span></div>
+<div class="raw-line" id="L2904"><a href="#L2904" tabindex="0" class="raw-line-number" aria-label="第 2904 行">2904</a><span></span></div>
+<div class="raw-line" id="L2905"><a href="#L2905" tabindex="0" class="raw-line-number" aria-label="第 2905 行">2905</a><span>you&#39;ll be able to accumulate bigger audio segment sizes and hence provide more context to the models to transcribe your audio better.</span></div>
+<div class="raw-line" id="L2906"><a href="#L2906" tabindex="0" class="raw-line-number" aria-label="第 2906 行">2906</a><span>就能得到更长的音频片段，为模型提供更多上下文，从而提高语音转写的准确率。</span></div>
+<div class="raw-line" id="L2907"><a href="#L2907" tabindex="0" class="raw-line-number" aria-label="第 2907 行">2907</a><span></span></div>
+<div class="raw-line" id="L2908"><a href="#L2908" tabindex="0" class="raw-line-number" aria-label="第 2908 行">2908</a><span>And if you think about it, that is how we humans function as well.</span></div>
+<div class="raw-line" id="L2909"><a href="#L2909" tabindex="0" class="raw-line-number" aria-label="第 2909 行">2909</a><span>仔细想想，我们人类也是这样理解语音的。</span></div>
+<div class="raw-line" id="L2910"><a href="#L2910" tabindex="0" class="raw-line-number" aria-label="第 2910 行">2910</a><span></span></div>
+<div class="raw-line" id="L2911"><a href="#L2911" tabindex="0" class="raw-line-number" aria-label="第 2911 行">2911</a><span>If you miss a word in a noisy room, you fill it up with the rest of the sentence that you heard.</span></div>
+<div class="raw-line" id="L2912"><a href="#L2912" tabindex="0" class="raw-line-number" aria-label="第 2912 行">2912</a><span>在嘈杂的房间里，如果你没听清某个词，就会根据听到的句子其余部分把它补出来。</span></div>
+<div class="raw-line" id="L2913"><a href="#L2913" tabindex="0" class="raw-line-number" aria-label="第 2913 行">2913</a><span></span></div>
+<div class="raw-line" id="L2914"><a href="#L2914" tabindex="0" class="raw-line-number" aria-label="第 2914 行">2914</a><span>And that is how STT models behave as well.</span></div>
+<div class="raw-line" id="L2915"><a href="#L2915" tabindex="0" class="raw-line-number" aria-label="第 2915 行">2915</a><span>语音转文字模型也是这样工作的。</span></div>
+<div class="raw-line" id="L2916"><a href="#L2916" tabindex="0" class="raw-line-number" aria-label="第 2916 行">2916</a><span></span></div>
+<div class="raw-line" id="L2917"><a href="#L2917" tabindex="0" class="raw-line-number" aria-label="第 2917 行">2917</a><span>So if I simplify the talk into two key things that you can take away, they would be, run your models on your own users&#39; audio,</span></div>
+<div class="raw-line" id="L2918"><a href="#L2918" tabindex="0" class="raw-line-number" aria-label="第 2918 行">2918</a><span>所以，如果把这次分享归纳成两条最重要的建议，第一条就是：用你自己用户的音频来测试模型，</span></div>
+<div class="raw-line" id="L2919"><a href="#L2919" tabindex="0" class="raw-line-number" aria-label="第 2919 行">2919</a><span></span></div>
+<div class="raw-line" id="L2920"><a href="#L2920" tabindex="0" class="raw-line-number" aria-label="第 2920 行">2920</a><span>tell them the language they are supposed to transcribe in, and let it hear more of the audio.</span></div>
+<div class="raw-line" id="L2921"><a href="#L2921" tabindex="0" class="raw-line-number" aria-label="第 2921 行">2921</a><span>告诉模型应该用哪种语言转写，并让它听到更长的音频。</span></div>
+<div class="raw-line" id="L2922"><a href="#L2922" tabindex="0" class="raw-line-number" aria-label="第 2922 行">2922</a><span></span></div>
+<div class="raw-line" id="L2923"><a href="#L2923" tabindex="0" class="raw-line-number" aria-label="第 2923 行">2923</a><span>This is how we build and iterate at kosher. If you found the talk interesting, you can come and check us out at kosher.ai.</span></div>
+<div class="raw-line" id="L2924"><a href="#L2924" tabindex="0" class="raw-line-number" aria-label="第 2924 行">2924</a><span>这就是我们在 Kosher 开发产品并持续迭代的方式。如果你觉得这次分享有意思，欢迎访问 kosher.ai 了解我们。</span></div>
+<div class="raw-line" id="L2925"><a href="#L2925" tabindex="0" class="raw-line-number" aria-label="第 2925 行">2925</a><span></span></div>
+<div class="raw-line" id="L2926"><a href="#L2926" tabindex="0" class="raw-line-number" aria-label="第 2926 行">2926</a><span></span></div>
+<div class="raw-line" id="L2927"><a href="#L2927" tabindex="0" class="raw-line-number" aria-label="第 2927 行">2927</a><span></span></div>
+<div class="raw-line" id="L2928"><a href="#L2928" tabindex="0" class="raw-line-number" aria-label="第 2928 行">2928</a><span>Now we have wrapped up all the talks in the morning.</span></div>
+<div class="raw-line" id="L2929"><a href="#L2929" tabindex="0" class="raw-line-number" aria-label="第 2929 行">2929</a><span>上午的所有演讲到这里就结束了。</span></div>
+<div class="raw-line" id="L2930"><a href="#L2930" tabindex="0" class="raw-line-number" aria-label="第 2930 行">2930</a><span></span></div>
+<div class="raw-line" id="L2931"><a href="#L2931" tabindex="0" class="raw-line-number" aria-label="第 2931 行">2931</a><span>Uh, we&#39;re going to get into the, uh, l</span></div>
+<div class="raw-line" id="L2932"><a href="#L2932" tabindex="0" class="raw-line-number" aria-label="第 2932 行">2932</a><span>呃，接下来我们要进入……</span></div>
+<div class="raw-line" id="L2933"><a href="#L2933" tabindex="0" class="raw-line-number" aria-label="第 2933 行">2933</a><span></span></div>
+<div class="raw-line" id="L2934"><a href="#L2934" tabindex="0" class="raw-line-number" aria-label="第 2934 行">2934</a><span>unch break time.</span></div>
+<div class="raw-line" id="L2935"><a href="#L2935" tabindex="0" class="raw-line-number" aria-label="第 2935 行">2935</a><span>午餐休息时间到了。</span></div>
+<div class="raw-line" id="L2936"><a href="#L2936" tabindex="0" class="raw-line-number" aria-label="第 2936 行">2936</a><span></span></div>
+<div class="raw-line" id="L2937"><a href="#L2937" tabindex="0" class="raw-line-number" aria-label="第 2937 行">2937</a><span>现在我们进入午休时间，请大家1点15之前回来。我们会准时开始下午的分享。谢谢大家。</span></div>
+<div class="raw-line" id="L2938"><a href="#L2938" tabindex="0" class="raw-line-number" aria-label="第 2938 行">2938</a><span></span></div>
+<div class="raw-line" id="L2939"><a href="#L2939" tabindex="0" class="raw-line-number" aria-label="第 2939 行">2939</a><span>Enjoy your lunch.</span></div>
+<div class="raw-line" id="L2940"><a href="#L2940" tabindex="0" class="raw-line-number" aria-label="第 2940 行">2940</a><span>祝大家用餐愉快。</span></div>
+<div class="raw-line" id="L2941"><a href="#L2941" tabindex="0" class="raw-line-number" aria-label="第 2941 行">2941</a><span></span></div>
+<div class="raw-line" id="L2942"><a href="#L2942" tabindex="0" class="raw-line-number" aria-label="第 2942 行">2942</a><span>对不起，按照座位来说，</span></div>
+<div class="raw-line" id="L2943"><a href="#L2943" tabindex="0" class="raw-line-number" aria-label="第 2943 行">2943</a><span></span></div>
+<div class="raw-line" id="L2944"><a href="#L2944" tabindex="0" class="raw-line-number" aria-label="第 2944 行">2944</a><span>对，按照他这个数据来说，调整一下，不然按大家下面下面是。</span></div>
+<div class="raw-line" id="L2945"><a href="#L2945" tabindex="0" class="raw-line-number" aria-label="第 2945 行">2945</a><span></span></div>
+<div class="raw-line" id="L2946"><a href="#L2946" tabindex="0" class="raw-line-number" aria-label="第 2946 行">2946</a><span>看着都一样的。</span></div>
+<div class="raw-line" id="L2947"><a href="#L2947" tabindex="0" class="raw-line-number" aria-label="第 2947 行">2947</a><span></span></div>
+<div class="raw-line" id="L2948"><a href="#L2948" tabindex="0" class="raw-line-number" aria-label="第 2948 行">2948</a><span>那没事。</span></div>
+<div class="raw-line" id="L2949"><a href="#L2949" tabindex="0" class="raw-line-number" aria-label="第 2949 行">2949</a><span></span></div>
+<div class="raw-line" id="L2950"><a href="#L2950" tabindex="0" class="raw-line-number" aria-label="第 2950 行">2950</a><span>他把这个镜像的。</span></div>
+<div class="raw-line" id="L2951"><a href="#L2951" tabindex="0" class="raw-line-number" aria-label="第 2951 行">2951</a><span></span></div>
+<div class="raw-line" id="L2952"><a href="#L2952" tabindex="0" class="raw-line-number" aria-label="第 2952 行">2952</a><span>再算速度。</span></div>
+<div class="raw-line" id="L2953"><a href="#L2953" tabindex="0" class="raw-line-number" aria-label="第 2953 行">2953</a><span></span></div>
+<div class="raw-line" id="L2954"><a href="#L2954" tabindex="0" class="raw-line-number" aria-label="第 2954 行">2954</a><span>对，因为大厂好像就 minimax。</span></div>
+<div class="raw-line" id="L2955"><a href="#L2955" tabindex="0" class="raw-line-number" aria-label="第 2955 行">2955</a><span></span></div>
+<div class="raw-line" id="L2956"><a href="#L2956" tabindex="0" class="raw-line-number" aria-label="第 2956 行">2956</a><span>不错，赚钱，那个特别。</span></div>
+<div class="raw-line" id="L2957"><a href="#L2957" tabindex="0" class="raw-line-number" aria-label="第 2957 行">2957</a><span></span></div>
+<div class="raw-line" id="L2958"><a href="#L2958" tabindex="0" class="raw-line-number" aria-label="第 2958 行">2958</a><span>大家下午好。</span></div>
+<div class="raw-line" id="L2959"><a href="#L2959" tabindex="0" class="raw-line-number" aria-label="第 2959 行">2959</a><span></span></div>
+<div class="raw-line" id="L2960"><a href="#L2960" tabindex="0" class="raw-line-number" aria-label="第 2960 行">2960</a><span>我们下午的第一场会由一个一场非常精彩的对谈来开始。</span></div>
+<div class="raw-line" id="L2961"><a href="#L2961" tabindex="0" class="raw-line-number" aria-label="第 2961 行">2961</a><span></span></div>
+<div class="raw-line" id="L2962"><a href="#L2962" tabindex="0" class="raw-line-number" aria-label="第 2962 行">2962</a><span>我们会有真格基金的代语森老师、线性资本的王怀老师和 Tau Z Capital 的刘勇老师，</span></div>
+<div class="raw-line" id="L2963"><a href="#L2963" tabindex="0" class="raw-line-number" aria-label="第 2963 行">2963</a><span></span></div>
+<div class="raw-line" id="L2964"><a href="#L2964" tabindex="0" class="raw-line-number" aria-label="第 2964 行">2964</a><span>然后这场精彩的对谈会由小声比比第二次用火给我们 moderate。好，请大家热烈欢迎。</span></div>
+<div class="raw-line" id="L2965"><a href="#L2965" tabindex="0" class="raw-line-number" aria-label="第 2965 行">2965</a><span></span></div>
+<div class="raw-line" id="L2966"><a href="#L2966" tabindex="0" class="raw-line-number" aria-label="第 2966 行">2966</a><span>大家好，我是小声比比和第二次用火的创始人。今天我来主持。</span></div>
+<div class="raw-line" id="L2967"><a href="#L2967" tabindex="0" class="raw-line-number" aria-label="第 2967 行">2967</a><span></span></div>
+<div class="raw-line" id="L2968"><a href="#L2968" tabindex="0" class="raw-line-number" aria-label="第 2968 行">2968</a><span>那我相信这三位在投资圈都是相当有头有脸的这个算是大佬吧。</span></div>
+<div class="raw-line" id="L2969"><a href="#L2969" tabindex="0" class="raw-line-number" aria-label="第 2969 行">2969</a><span></span></div>
+<div class="raw-line" id="L2970"><a href="#L2970" tabindex="0" class="raw-line-number" aria-label="第 2970 行">2970</a><span>那你们要不要短暂的，因为我可能很多人是工业界的或者是工程界的，还可能不太了解你们是做什么。你们短暂的可以给大家 brief 一下你们是做什么。</span></div>
+<div class="raw-line" id="L2971"><a href="#L2971" tabindex="0" class="raw-line-number" aria-label="第 2971 行">2971</a><span></span></div>
+<div class="raw-line" id="L2972"><a href="#L2972" tabindex="0" class="raw-line-number" aria-label="第 2972 行">2972</a><span>大家好，我是真格基金的代语森。</span></div>
+<div class="raw-line" id="L2973"><a href="#L2973" tabindex="0" class="raw-line-number" aria-label="第 2973 行">2973</a><span></span></div>
+<div class="raw-line" id="L2974"><a href="#L2974" tabindex="0" class="raw-line-number" aria-label="第 2974 行">2974</a><span>真格基金是专门做早期投资，我们投了像小红书、Manus、Kimi 等一系列，还比较有意思的公司的第一笔 check，然后很高兴跟大家交流。</span></div>
+<div class="raw-line" id="L2975"><a href="#L2975" tabindex="0" class="raw-line-number" aria-label="第 2975 行">2975</a><span></span></div>
+<div class="raw-line" id="L2976"><a href="#L2976" tabindex="0" class="raw-line-number" aria-label="第 2976 行">2976</a><span>大家好，我是线性资本的创始人王怀 Harry。</span></div>
+<div class="raw-line" id="L2977"><a href="#L2977" tabindex="0" class="raw-line-number" aria-label="第 2977 行">2977</a><span></span></div>
+<div class="raw-line" id="L2978"><a href="#L2978" tabindex="0" class="raw-line-number" aria-label="第 2978 行">2978</a><span>我们主要也是聚焦在早期的科技投资，不过我们可能过去十年最多的是做这些软硬结合的，像早年的像地平线，像这些年的像踏实机器人这类的，可能是我们重点关注的。</span></div>
+<div class="raw-line" id="L2979"><a href="#L2979" tabindex="0" class="raw-line-number" aria-label="第 2979 行">2979</a><span></span></div>
+<div class="raw-line" id="L2980"><a href="#L2980" tabindex="0" class="raw-line-number" aria-label="第 2980 行">2980</a><span>大家好，我是 Patrick 刘勇，以前是在蓝池创投，也有幸参与投这一波 AI 的这个浪潮，然后去年年底从蓝池出来，</span></div>
+<div class="raw-line" id="L2981"><a href="#L2981" tabindex="0" class="raw-line-number" aria-label="第 2981 行">2981</a><span></span></div>
+<div class="raw-line" id="L2982"><a href="#L2982" tabindex="0" class="raw-line-number" aria-label="第 2982 行">2982</a><span>专注做一个小的小而美的基金。</span></div>
+<div class="raw-line" id="L2983"><a href="#L2983" tabindex="0" class="raw-line-number" aria-label="第 2983 行">2983</a><span></span></div>
+<div class="raw-line" id="L2984"><a href="#L2984" tabindex="0" class="raw-line-number" aria-label="第 2984 行">2984</a><span>这个是怎么小到什么程度呢？</span></div>
+<div class="raw-line" id="L2985"><a href="#L2985" tabindex="0" class="raw-line-number" aria-label="第 2985 行">2985</a><span></span></div>
+<div class="raw-line" id="L2986"><a href="#L2986" tabindex="0" class="raw-line-number" aria-label="第 2986 行">2986</a><span>是我们专注在北大投孵化室投资北大的老师和学生，因为我作为北大校友，</span></div>
+<div class="raw-line" id="L2987"><a href="#L2987" tabindex="0" class="raw-line-number" aria-label="第 2987 行">2987</a><span></span></div>
+<div class="raw-line" id="L2988"><a href="#L2988" tabindex="0" class="raw-line-number" aria-label="第 2988 行">2988</a><span>就是觉得北大的这个 AI 的创业相比这个语声他们实在太烂了，我想所以回馈一下母校，所以也在借那个机会了，</span></div>
+<div class="raw-line" id="L2989"><a href="#L2989" tabindex="0" class="raw-line-number" aria-label="第 2989 行">2989</a><span></span></div>
+<div class="raw-line" id="L2990"><a href="#L2990" tabindex="0" class="raw-line-number" aria-label="第 2990 行">2990</a><span>也在北大专门开了一门这个 AI 创意与投资这个课，也欢迎大家都去听听。</span></div>
+<div class="raw-line" id="L2991"><a href="#L2991" tabindex="0" class="raw-line-number" aria-label="第 2991 行">2991</a><span></span></div>
+<div class="raw-line" id="L2992"><a href="#L2992" tabindex="0" class="raw-line-number" aria-label="第 2992 行">2992</a><span>这门课呢，也不幸成为一门网课，所以我现在投资的时间特别少，每个星期都在上这课，但不是我上，也是请嘉宾来上。</span></div>
+<div class="raw-line" id="L2993"><a href="#L2993" tabindex="0" class="raw-line-number" aria-label="第 2993 行">2993</a><span></span></div>
+<div class="raw-line" id="L2994"><a href="#L2994" tabindex="0" class="raw-line-number" aria-label="第 2994 行">2994</a><span>好的，非常感谢。</span></div>
+<div class="raw-line" id="L2995"><a href="#L2995" tabindex="0" class="raw-line-number" aria-label="第 2995 行">2995</a><span></span></div>
+<div class="raw-line" id="L2996"><a href="#L2996" tabindex="0" class="raw-line-number" aria-label="第 2996 行">2996</a><span>我想先问一下有关于 AI 应用的事情，就是大家我记得今年年初的时候语森说的那个 the year of R 嘛，</span></div>
+<div class="raw-line" id="L2997"><a href="#L2997" tabindex="0" class="raw-line-number" aria-label="第 2997 行">2997</a><span></span></div>
+<div class="raw-line" id="L2998"><a href="#L2998" tabindex="0" class="raw-line-number" aria-label="第 2998 行">2998</a><span>就今年其实各大公司都要开始算账了，尤其这两天二级市场大家也看到，其实对模型公司，对他们在商业上取得回报能力，</span></div>
+<div class="raw-line" id="L2999"><a href="#L2999" tabindex="0" class="raw-line-number" aria-label="第 2999 行">2999</a><span></span></div>
+<div class="raw-line" id="L3000"><a href="#L3000" tabindex="0" class="raw-line-number" aria-label="第 3000 行">3000</a><span>市场在不断提出质疑，包括他们也有越来越多的变现压力。</span></div></div><nav class="materials-links raw-pagination" aria-label="原文分段">
+          <a href="../part-5/" tabindex="0" rel="prev">上一段</a>
+          <span aria-current="page">第 6 / 19 段 · L2501–L3000</span>
+          <a href="../part-7/" tabindex="0" rel="next">下一段</a>
+          <a href="../all/" tabindex="0">查看全文</a>
+        </nav></div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>页面信息来自各活动公开资料，可能随时变更；出发前请以主办方官方公告为准。</p>
+  </div>
+</footer>
+<script src="../../../../assets/site.4c7b854f.js" defer></script>
+</body>
+</html>
