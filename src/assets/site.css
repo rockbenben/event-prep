@@ -14,7 +14,7 @@
 .material-crumbs li + li::before { content: "/" / ""; margin-inline-end: 10px; color: var(--fg-muted); }
 .material-crumbs [aria-current="page"] { font-weight: 700; }
 .material-crumbs a:focus-visible { position: relative; z-index: 1; }
-.material-page .content h4 { scroll-margin-top: 90px; }
+.material-page .content h4 { scroll-margin-top: var(--heading-scroll-offset); }
 .toc .toc-depth-4 { padding-inline-start: 20px; }
 .raw-dates li { margin-block: 16px; }
 .raw-pagination { align-items: center; }
@@ -115,7 +115,9 @@ html.print-mode .raw-sections { display: none; }
   );
 
   --maxw: 980px;
+  --toc-maxw: 1280px;
   --header-h: 58px;
+  --heading-scroll-offset: calc(var(--header-h) + 18px);
 }
 
 :root[data-theme='light'] {
@@ -949,11 +951,15 @@ a:hover {
 .toc-sidebar { display: none; }
 
 @media (min-width: 1024px) {
+  /* 页头跟目录 + 正文共用外框；收起目录时保持稳定，避免工具按钮左右跳。 */
+  body:has(.toc-sidebar) .header-inner {
+    max-width: var(--toc-maxw);
+  }
   .page-with-toc:has(.toc-sidebar) {
     display: grid;
     grid-template-columns: 280px minmax(0, 940px);
     gap: 28px;
-    max-width: 1280px;
+    max-width: var(--toc-maxw);
     margin-inline: auto;
     padding-inline: 16px;
     align-items: start;
@@ -1227,7 +1233,7 @@ a:hover {
   font-weight: 750;
   line-height: 1.35;
   letter-spacing: -0.01em;
-  scroll-margin-top: calc(var(--header-h) + 18px);
+  scroll-margin-top: var(--heading-scroll-offset);
 }
 .content h2::before {
   content: '';
@@ -1246,7 +1252,7 @@ a:hover {
   margin: 28px 0 10px;
   font-size: 17.5px;
   font-weight: 700;
-  scroll-margin-top: calc(var(--header-h) + 18px);
+  scroll-margin-top: var(--heading-scroll-offset);
 }
 .content h4 {
   margin: 22px 0 8px;

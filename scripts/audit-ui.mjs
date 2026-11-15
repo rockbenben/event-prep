@@ -217,6 +217,38 @@ async function auditMaterials(browser, base) {
           await page.locator('.toc a[href^="#session-"]').first().click();
           await page.waitForFunction(() => location.hash.startsWith('#session-') && !document.querySelector('#toc-drawer').open);
           record(`${vp.name} · 总结目录可跳转到场次`, true);
+          // 真点目录（保留原生平滑滚动），不能用手工 scrollTo 替代：
+          // h4 曾有独立的 90px 留白，跳转成功却永远高亮上一节。
+          const tocTargets = await page.locator('.toc a[href^="#"]').evaluateAll(links => {
+            const targets = links.map(link => ({
+              href: link.getAttribute('href'),
+              tag: document.getElementById(decodeURIComponent(link.hash.slice(1)))?.tagName,
+            }));
+            const sessions = targets.filter(target => target.tag === 'H4');
+            return [...new Set([
+              sessions[6]?.href, sessions[5]?.href,
+              ...['H4', 'H3', 'H2'].map(tag => targets.find(target => target.tag === tag)?.href),
+            ].filter(Boolean))];
+          });
+          for (const href of tocTargets) {
+            if (await page.locator('#toc-open').isVisible()) await page.locator('#toc-open').click();
+            const link = page.locator(`.toc a[href="${href}"]`);
+            await link.evaluate(el => {
+              for (let parent = el.parentElement; parent; parent = parent.parentElement) {
+                if (parent.tagName === 'DETAILS') parent.open = true;
+              }
+            });
+            await link.click();
+            const matched = await page.waitForFunction(href => {
+              const target = document.getElementById(decodeURIComponent(href.slice(1)));
+              const current = document.querySelector('.toc a[aria-current="location"]');
+              const top = target.getBoundingClientRect().top;
+              const margin = parseFloat(getComputedStyle(target).scrollMarginTop);
+              return decodeURIComponent(location.hash) === decodeURIComponent(href) && current?.getAttribute('href') === href &&
+                !document.querySelector('#toc-drawer').open && Math.abs(top - margin) <= 2;
+            }, href, { timeout: 5000 }).then(() => true, () => false);
+            record(`${vp.name} · 总结目录点击与高亮一致 ${href}`, matched);
+          }
           const citation = page.locator('.content a[href*="/raw/"][href*="#L"]').first();
           if (await citation.count()) {
             await citation.click();
@@ -843,6 +875,12 @@ async function runChecks(browser, base) {
               getComputedStyle(side).position === 'sticky' && !document.querySelector('#toc-drawer').open;
           });
           record('目录 · 宽屏常驻正文旁边', wide && !(await openBtn.isVisible()));
+          const headerAligned = await page.evaluate(() => {
+            const header = document.querySelector('.header-inner').getBoundingClientRect();
+            const layout = document.querySelector('.page-with-toc').getBoundingClientRect();
+            return Math.abs(header.left - layout.left) <= 1 && Math.abs(header.right - layout.right) <= 1;
+          });
+          record('页头 · 宽屏与目录正文共用外框', headerAligned);
           await page.setViewportSize({ width: 390, height: 844 });
           await page.waitForFunction(() => !!document.querySelector('#toc-drawer .toc'));
           record('目录 · 缩窄后自动隐藏', !(await page.locator('.toc').isVisible()));
