@@ -678,7 +678,7 @@
     update();
   }
 
-  /* ---------- 目录导航（宽屏侧栏常驻，窄屏浮动圆钮点开抽屉） ---------- */
+  /* ---------- 目录导航（宽屏侧栏常驻且可手动隐藏，窄屏浮动圆钮点开抽屉） ---------- */
 
   function initTocDrawer() {
     var open = document.getElementById('toc-open');
@@ -691,15 +691,63 @@
     var body = drawer.querySelector('.toc-drawer-body');
     var toc = document.querySelector('.toc');
     var wide = window.matchMedia('(min-width: 1024px)');
+    var pageWithToc = document.querySelector('.page-with-toc');
+    var sidebarToggle = document.getElementById('toc-sidebar-toggle');
+    var eventEl = document.querySelector('.event[data-event-slug]');
+    var slug = eventEl ? eventEl.getAttribute('data-event-slug') : '';
+    var storageKey = slug ? 'eventprep:toc-collapsed:' + slug : 'eventprep:toc-collapsed';
+
+    function setCollapsed(collapsed, save) {
+      if (!pageWithToc) return;
+      var isCollapsed = Boolean(collapsed);
+      if (isCollapsed) {
+        pageWithToc.classList.add('toc-collapsed');
+        document.documentElement.setAttribute('data-toc-collapsed', 'true');
+        open.setAttribute('title', '展开目录');
+        open.setAttribute('aria-label', '展开目录');
+      } else {
+        pageWithToc.classList.remove('toc-collapsed');
+        document.documentElement.removeAttribute('data-toc-collapsed');
+        open.setAttribute('title', '本页目录');
+        open.setAttribute('aria-label', '本页目录');
+      }
+      if (save) {
+        try {
+          if (isCollapsed) localStorage.setItem(storageKey, 'true');
+          else localStorage.removeItem(storageKey);
+        } catch (e) {}
+      }
+    }
+
+    // 读取读者本机的隐藏偏好（宽屏下生效）
+    try {
+      if (wide.matches && localStorage.getItem(storageKey) === 'true') {
+        setCollapsed(true, false);
+      }
+    } catch (e) {}
+
     function syncLayout() {
       if (!sidebar || !body || !toc) return;
       var focused = document.activeElement;
-      var hadFocus = drawer.contains(focused) || sidebar.contains(focused);
+      var hadFocus = drawer.contains(focused) || (sidebar && sidebar.contains(focused));
       if (drawer.open) drawer.close();
       (wide.matches ? sidebar : body).appendChild(toc);
+      // 宽屏时恢复读者记忆的折叠偏好
+      if (wide.matches) {
+        try {
+          if (localStorage.getItem(storageKey) === 'true') setCollapsed(true, false);
+          else setCollapsed(false, false);
+        } catch (e) {}
+      } else {
+        // 窄屏一律清理宽屏折叠属性，由原生抽屉接管
+        document.documentElement.removeAttribute('data-toc-collapsed');
+        if (pageWithToc) pageWithToc.classList.remove('toc-collapsed');
+        open.setAttribute('title', '本页目录');
+        open.setAttribute('aria-label', '本页目录');
+      }
       // 切换布局时不能把焦点留在已隐藏的侧栏或按钮上。
       if (hadFocus || (wide.matches && focused === open)) {
-        var next = wide.matches ? toc.querySelector('a') : open;
+        var next = wide.matches ? (pageWithToc && pageWithToc.classList.contains('toc-collapsed') ? open : (sidebarToggle || toc.querySelector('a'))) : open;
         if (next) next.focus({ preventScroll: true });
       }
       open.setAttribute('aria-expanded', 'false');
@@ -707,10 +755,37 @@
     wide.addEventListener('change', syncLayout);
     syncLayout();
 
+    // 侧栏收起按钮：点击隐藏目录，焦点转到左下角展开按钮
+    if (sidebarToggle) {
+      sidebarToggle.addEventListener('click', function () {
+        setCollapsed(true, true);
+        open.focus({ preventScroll: true });
+      });
+    }
+
+    // 左下角浮动按钮：窄屏时打开抽屉，宽屏且收起时恢复展开侧栏
     open.addEventListener('click', function () {
-      if (!wide.matches && !drawer.open) {
+      if (wide.matches) {
+        setCollapsed(false, true);
+        if (sidebarToggle) sidebarToggle.focus({ preventScroll: true });
+      } else if (!drawer.open) {
         drawer.showModal();
         open.setAttribute('aria-expanded', 'true');
+      }
+    });
+
+    // 快捷键支持：按 \ 键在宽屏下快速切换目录显隐（非输入框时）
+    window.addEventListener('keydown', function (e) {
+      if (e.key === '\\' && !e.ctrlKey && !e.altKey && !e.metaKey) {
+        var tag = (document.activeElement && document.activeElement.tagName) || '';
+        if (tag === 'INPUT' || tag === 'TEXTAREA' || (document.activeElement && document.activeElement.isContentEditable)) return;
+        if (wide.matches && pageWithToc) {
+          e.preventDefault();
+          var willCollapse = !pageWithToc.classList.contains('toc-collapsed');
+          setCollapsed(willCollapse, true);
+          if (willCollapse) open.focus({ preventScroll: true });
+          else if (sidebarToggle) sidebarToggle.focus({ preventScroll: true });
+        }
       }
     });
     drawer.addEventListener('close', function () {
