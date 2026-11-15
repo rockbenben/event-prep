@@ -40,7 +40,7 @@ export function renderMaterials(ev: LoadedEvent, assets: SiteAssetNames, siteUrl
       title: `${title} · ${ev.meta.title} · EventPrep`, description: `${ev.meta.title} 的${title}`,
       rootPrefix: prefix, canonicalPath: `${ev.slug}/${relativePath.replace(/index\.html$/, '')}`,
       siteUrl, assets, showToc: Boolean(toc),
-      content: `<div class="page-with-toc">${renderTocDrawer(toc)}<div class="wrap event material-page">${crumbs}<header class="event-head"><h1 class="event-title">${escapeHtml(title)}</h1>
+      content: `<div class="page-with-toc">${renderTocDrawer(toc)}<div class="wrap event material-page" data-event-slug="${escapeHtml(ev.slug)}">${crumbs}<header class="event-head"><h1 class="event-title">${escapeHtml(title)}</h1>
         <p class="event-summary">${escapeHtml(ev.meta.title)}</p></header>${body}</div></div>`,
     }) });
   }

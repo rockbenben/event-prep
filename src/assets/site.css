@@ -951,9 +951,9 @@ a:hover {
 @media (min-width: 1024px) {
   .page-with-toc:has(.toc-sidebar) {
     display: grid;
-    grid-template-columns: 240px minmax(0, 940px);
+    grid-template-columns: 280px minmax(0, 940px);
     gap: 28px;
-    max-width: 1240px;
+    max-width: 1280px;
     margin-inline: auto;
     padding-inline: 16px;
     align-items: start;
@@ -972,11 +972,92 @@ a:hover {
     min-height: 0;
     overflow-y: auto;
     overscroll-behavior: contain;
+    padding-inline-end: 6px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-soft) transparent;
+  }
+  .toc-sidebar-body:hover {
+    scrollbar-color: var(--border) transparent;
   }
   #toc-open,
   .toc-fab {
     display: none !important;
   }
+
+  .page-with-toc:has(.toc-sidebar).toc-collapsed {
+    display: flex;
+    justify-content: center;
+    max-width: 972px;
+  }
+  .page-with-toc.toc-collapsed .toc-sidebar {
+    display: none !important;
+  }
+  .page-with-toc.toc-collapsed > .event {
+    width: 100%;
+    max-width: 940px;
+  }
+  html[data-toc-collapsed="true"] #toc-open,
+  html[data-toc-collapsed="true"] .toc-fab {
+    display: inline-flex !important;
+  }
+}
+
+.toc-sidebar-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  flex: none;
+  margin-bottom: 8px;
+  padding-inline-end: 6px;
+}
+.toc-sidebar-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  background: none;
+  color: var(--fg-muted);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.toc-sidebar-toggle:hover {
+  background: var(--bg-inset);
+  color: var(--fg);
+  border-color: var(--border-soft);
+}
+.toc-sidebar-toggle:focus-visible {
+  background: var(--bg-inset);
+  color: var(--fg);
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+/* 目录滚动条纤细化与低调化：去除粗厚的系统默认滚动条，避免干扰阅读视线 */
+.toc-sidebar-body::-webkit-scrollbar,
+.toc-drawer-body::-webkit-scrollbar {
+  width: 4px;
+}
+.toc-sidebar-body::-webkit-scrollbar-track,
+.toc-drawer-body::-webkit-scrollbar-track {
+  background: transparent;
+}
+.toc-sidebar-body::-webkit-scrollbar-thumb,
+.toc-drawer-body::-webkit-scrollbar-thumb {
+  background: var(--border-soft);
+  border-radius: 4px;
+}
+.toc-sidebar-body:hover::-webkit-scrollbar-thumb,
+.toc-drawer-body:hover::-webkit-scrollbar-thumb {
+  background: var(--border);
+}
+.toc-sidebar-body::-webkit-scrollbar-thumb:hover,
+.toc-drawer-body::-webkit-scrollbar-thumb:hover {
+  background: var(--fg-faint);
 }
 
 /* ---------- 目录抽屉 ----------
@@ -1046,6 +1127,11 @@ a:hover {
   overflow-y: auto;
   overscroll-behavior: contain;
   padding: 12px 16px 24px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-soft) transparent;
+}
+.toc-drawer-body:hover {
+  scrollbar-color: var(--border) transparent;
 }
 
 .toc-list {

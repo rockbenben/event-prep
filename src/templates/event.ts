@@ -143,7 +143,16 @@ ${bodyHtml}
 export function renderTocDrawer(tocHtml: string): string {
   if (!tocHtml) return '';
   return `<aside class="toc-sidebar" aria-label="本页目录">
-  <div class="toc-drawer-title">本页目录</div>
+  <div class="toc-sidebar-head">
+    <span class="toc-drawer-title">本页目录</span>
+    <button type="button" class="toc-sidebar-toggle" id="toc-sidebar-toggle" aria-label="隐藏目录" title="隐藏目录（快捷键：按 \\ 键切换）">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+        <line x1="9" y1="3" x2="9" y2="21"></line>
+        <path d="m14 9-3 3 3 3"></path>
+      </svg>
+    </button>
+  </div>
   <div class="toc-sidebar-body">${tocHtml}</div>
 </aside>
 <dialog class="toc-drawer" id="toc-drawer" aria-label="本页目录">
