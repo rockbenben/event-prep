@@ -304,8 +304,51 @@ a:hover {
   cursor: pointer;
   transition: all 0.15s ease;
 }
-.toc-button-label { margin-inline-start: 6px; font-size: 13px; font-weight: 600; }
-#toc-open { color: var(--accent); background: var(--accent-soft); border-color: transparent; }
+/* ---------- 目录浮动按钮 (窄屏左下角，与右下角回到顶部对称呼应) ----------
+   宽屏（>= 1024px）左侧有常驻粘性目录，自动隐藏；
+   窄屏（< 1024px）常驻左下角，单手拇指一触即达。 */
+.toc-fab {
+  position: fixed;
+  left: 20px;
+  bottom: 24px;
+  bottom: calc(24px + env(safe-area-inset-bottom, 0px));
+  z-index: 80;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: 40px;
+  padding: 0 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  background: var(--bg-card);
+  color: var(--accent);
+  background-color: var(--accent-soft);
+  font-family: inherit;
+  font-size: 13.5px;
+  font-weight: 600;
+  line-height: 1;
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  transition: all 0.18s ease;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.toc-fab:hover {
+  background-color: var(--accent);
+  color: #ffffff;
+  border-color: var(--accent);
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-1px);
+}
+.toc-fab:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+.toc-fab-label {
+  font-size: 13px;
+  font-weight: 600;
+}
 .ghost-btn:hover {
   background: var(--bg-inset);
   color: var(--fg);
@@ -899,13 +942,45 @@ a:hover {
 
 @media (min-width: 1024px) {
   .event {
-    /* 目录搬进抽屉之后，正文整列给内容——但一行别太长 */
     max-width: 940px;
   }
 }
 
+.toc-sidebar { display: none; }
+
+@media (min-width: 1024px) {
+  .page-with-toc:has(.toc-sidebar) {
+    display: grid;
+    grid-template-columns: 240px minmax(0, 940px);
+    gap: 28px;
+    max-width: 1240px;
+    margin-inline: auto;
+    padding-inline: 16px;
+    align-items: start;
+  }
+  .page-with-toc > .event { min-width: 0; }
+  .toc-sidebar {
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    top: calc(var(--header-h) + 24px);
+    max-height: calc(100dvh - var(--header-h) - 48px);
+    min-height: 0;
+    padding-block: 24px;
+  }
+  .toc-sidebar-body {
+    min-height: 0;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+  #toc-open,
+  .toc-fab {
+    display: none !important;
+  }
+}
+
 /* ---------- 目录抽屉 ----------
-   顶栏那个「目录」按钮点开的侧边抽屉：原生 <dialog>，
+   窄屏悬浮「目录」圆钮点开的侧边抽屉：原生 <dialog>，
    Esc 能关、点背景能关、焦点自己管，不用自己写一套。 */
 .toc-drawer {
   position: fixed;
@@ -1594,12 +1669,27 @@ a:hover {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
 }
-/* 窄屏收成一枚圆钮：手机上不占横向空间，点得中 */
+/* 窄屏浮动圆钮：左下角目录与右下角回到顶部对称，手机上单手拇指一触即达 */
 @media (max-width: 560px) {
+  .toc-fab {
+    left: 16px;
+    bottom: 20px;
+    bottom: calc(20px + env(safe-area-inset-bottom, 0px));
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border-radius: 50%;
+  }
+  .toc-fab-label {
+    display: none;
+  }
   .back-to-top {
     width: 44px;
     height: 44px;
     padding: 0;
+    right: 16px;
+    bottom: 20px;
+    bottom: calc(20px + env(safe-area-inset-bottom, 0px));
   }
   .back-to-top-label {
     display: none;
@@ -2084,7 +2174,7 @@ a:hover {
 
 @media (max-width: 360px) {
   .site-name .site-logo { display: none; }
-  .toc-button-label { display: none; }
+  .toc-fab-label { display: none; }
 }
 
 @media (max-width: 420px) {
@@ -2153,6 +2243,7 @@ html.print-mode .site-footer,
 html.print-mode .crumbs,
 html.print-mode .actions,
 html.print-mode .back-to-top,
+html.print-mode .toc-fab,
 html.print-mode .checklist-progress,
 html.print-mode .agenda-note-btn,
 html.print-mode .agenda-tip-btn,
@@ -2160,6 +2251,8 @@ html.print-mode .agenda-avatar-btn,
 html.print-mode .agenda-source,
 html.print-mode .export-note,
 html.print-mode .countdown,
+html.print-mode .toc-sidebar,
+html.print-mode .toc-drawer,
 html.print-mode .toc-sub-summary,
 html.print-mode .event-meta-summary,
 html.print-mode .agenda-abstract > summary,
@@ -2184,6 +2277,7 @@ html.print-mode .event {
 html.print-mode .event-body {
   display: block;
 }
+html.print-mode .page-with-toc { display: block; }
 /* 折叠块展开了：把「点开才看」的summary 压成普通小标题的样子 */
 html.print-mode .collapse > summary {
   border-bottom: 1px solid #ddd;
@@ -2291,9 +2385,11 @@ html.print-mode .agenda-day-block {
   .site-footer,
   .toc,
   .toc-drawer,
+  .toc-sidebar,
   .crumbs,
   .actions,
   .back-to-top,
+  .toc-fab,
   .print-bar,
   .checklist-progress,
   .agenda-note-btn,
@@ -2317,6 +2413,7 @@ html.print-mode .agenda-day-block {
   .event-body {
     display: block;
   }
+  .page-with-toc:has(.toc-sidebar) { display: block; }
   /* 手机上收起的头部信息：纸上摊开 */
   .event-meta {
     display: grid !important;

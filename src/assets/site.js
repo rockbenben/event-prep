@@ -632,7 +632,7 @@
       if (sub) sub.open = true;
       // 目录自己能滚时，把当前项滚进视野（只动目录的滚动条，不动页面）
       var scroller = link.closest
-        ? link.closest('.toc-drawer-body') || list
+        ? link.closest('.toc-drawer-body, .toc-sidebar-body') || list
         : list;
       if (!scroller || scroller.scrollHeight <= scroller.clientHeight) return;
       var lr = link.getBoundingClientRect();
@@ -678,7 +678,7 @@
     update();
   }
 
-  /* ---------- 目录抽屉（顶栏按钮点开） ---------- */
+  /* ---------- 目录导航（宽屏侧栏常驻，窄屏浮动圆钮点开抽屉） ---------- */
 
   function initTocDrawer() {
     var open = document.getElementById('toc-open');
@@ -687,8 +687,34 @@
     // 老浏览器没有 <dialog>：宁可不打开，也不要点一下没反应
     if (!drawer.showModal) return;
 
+    var sidebar = document.querySelector('.toc-sidebar-body');
+    var body = drawer.querySelector('.toc-drawer-body');
+    var toc = document.querySelector('.toc');
+    var wide = window.matchMedia('(min-width: 1024px)');
+    function syncLayout() {
+      if (!sidebar || !body || !toc) return;
+      var focused = document.activeElement;
+      var hadFocus = drawer.contains(focused) || sidebar.contains(focused);
+      if (drawer.open) drawer.close();
+      (wide.matches ? sidebar : body).appendChild(toc);
+      // 切换布局时不能把焦点留在已隐藏的侧栏或按钮上。
+      if (hadFocus || (wide.matches && focused === open)) {
+        var next = wide.matches ? toc.querySelector('a') : open;
+        if (next) next.focus({ preventScroll: true });
+      }
+      open.setAttribute('aria-expanded', 'false');
+    }
+    wide.addEventListener('change', syncLayout);
+    syncLayout();
+
     open.addEventListener('click', function () {
-      if (!drawer.open) drawer.showModal();
+      if (!wide.matches && !drawer.open) {
+        drawer.showModal();
+        open.setAttribute('aria-expanded', 'true');
+      }
+    });
+    drawer.addEventListener('close', function () {
+      open.setAttribute('aria-expanded', 'false');
     });
 
     var close = drawer.querySelector('.toc-drawer-close');
@@ -702,7 +728,7 @@
       if (e.target === drawer) drawer.close();
     });
     // 点目录里的条目 → 跳过去，顺手把抽屉收起来
-    drawer.addEventListener('click', function (e) {
+    toc.addEventListener('click', function (e) {
       var link = e.target && e.target.closest ? e.target.closest('a[href^="#"]') : null;
       if (!link) return;
       // 日程里的「Day N」锚点落在 <details class="agenda-day-block"> 上：
@@ -717,7 +743,7 @@
         }
         if (target && target.tagName === 'DETAILS') target.open = true;
       }
-      drawer.close();
+      if (drawer.open) drawer.close();
     });
   }
 

@@ -31,10 +31,9 @@ export interface LayoutOptions {
   /** JSON-LD 结构化数据（可选）。 */
   jsonLd?: unknown;
   /**
-   * 页头放一个「目录」按钮（活动页有目录时才放）。
+   * 页面渲染「目录」入口（活动页有目录时才渲染）。
    *
-   * 目录住在抽屉里而不是正文旁边：正文上方一列字会挤走版面，
-   * 而顶栏这个按钮是文档站的日常习惯——点开就是侧边目录。
+   * 宽屏目录常驻正文左侧，窄屏显示左下角浮动圆钮（.toc-fab）、点开目录抽屉。
    */
   showToc?: boolean;
   /**
@@ -138,19 +137,6 @@ ${jsonLd}
     <div class="header-actions">
       ${
         options.showToc
-          ? `<button type="button" id="toc-open" class="ghost-btn" aria-label="目录" title="目录" aria-haspopup="dialog" aria-controls="toc-drawer">
-        <svg class="theme-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true" focusable="false">
-          <path d="M9 6h11M9 12h11M9 18h11"></path>
-          <circle cx="4.5" cy="6" r="1.1" fill="currentColor" stroke="none"></circle>
-          <circle cx="4.5" cy="12" r="1.1" fill="currentColor" stroke="none"></circle>
-          <circle cx="4.5" cy="18" r="1.1" fill="currentColor" stroke="none"></circle>
-        </svg>
-        <span class="toc-button-label">目录</span>
-      </button>`
-          : ''
-      }
-      ${
-        options.showToc
           ? `<button type="button" id="print-open" class="ghost-btn" aria-label="打印版" title="打印版（展开全部内容）">
         <svg class="theme-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
           <path d="M6 9V3h12v6"></path>
@@ -181,6 +167,19 @@ ${jsonLd}
 <main id="main">
 ${options.content}
 </main>
+${
+  options.showToc
+    ? `<button type="button" id="toc-open" class="toc-fab" aria-label="本页目录" title="本页目录" aria-haspopup="dialog" aria-expanded="false" aria-controls="toc-drawer">
+  <svg class="theme-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true" focusable="false">
+    <path d="M9 6h11M9 12h11M9 18h11"></path>
+    <circle cx="4.5" cy="6" r="1.1" fill="currentColor" stroke="none"></circle>
+    <circle cx="4.5" cy="12" r="1.1" fill="currentColor" stroke="none"></circle>
+    <circle cx="4.5" cy="18" r="1.1" fill="currentColor" stroke="none"></circle>
+  </svg>
+  <span class="toc-fab-label">目录</span>
+</button>`
+    : ''
+}
 <footer class="site-footer">
   <div class="wrap">
     <p>页面信息来自各活动公开资料，可能随时变更；出发前请以主办方官方公告为准。</p>

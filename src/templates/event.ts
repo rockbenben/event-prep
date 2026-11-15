@@ -79,14 +79,16 @@ export function renderEventPage(options: EventPageOptions): string {
     : '';
 
   const tocHtml = renderToc(toc);
-  // 目录住在顶栏按钮点开的抽屉里，不占正文版面。
+  // 同一份目录：宽屏侧栏常驻，窄屏移入抽屉。
   const tocDrawer = renderTocDrawer(tocHtml);
 
   // site-data 的构造只有一处（home.ts 的 buildSitePayload）——活动页复用它，
   // 两边就不会各有一份手抄的字段清单，改了一边另一边不会悄悄漏掉
   const dataJson = escapeJsonForScript({ events: buildSitePayload([event]) });
 
-  return `<div class="wrap event" data-event-slug="${escapeHtml(event.slug)}">
+  return `<div class="page-with-toc">
+${tocDrawer}
+<div class="wrap event" data-event-slug="${escapeHtml(event.slug)}">
   <nav class="crumbs" aria-label="面包屑">
     <a href="../"${LINK_TABINDEX}>← 全部活动</a>
   </nav>
@@ -132,20 +134,24 @@ ${bodyHtml}
 
   ${exportNote(event.slug)}
 </div>
-${tocDrawer}
+</div>
 <script type="application/json" id="site-data">${dataJson}</script>
 `;
 }
 
-/** 准备页与资料页共用目录抽屉，开关行为由 site.js 统一管理。 */
+/** 准备页与资料页共用目录，site.js 按视口把导航移入侧栏或抽屉。 */
 export function renderTocDrawer(tocHtml: string): string {
   if (!tocHtml) return '';
-  return `<dialog class="toc-drawer" id="toc-drawer" aria-label="本页目录">
+  return `<aside class="toc-sidebar" aria-label="本页目录">
+  <div class="toc-drawer-title">本页目录</div>
+  <div class="toc-sidebar-body">${tocHtml}</div>
+</aside>
+<dialog class="toc-drawer" id="toc-drawer" aria-label="本页目录">
   <div class="toc-drawer-head">
     <span class="toc-drawer-title">本页目录</span>
     <button type="button" class="toc-drawer-close" aria-label="关闭目录" title="关闭目录">×</button>
   </div>
-  <div class="toc-drawer-body">${tocHtml}</div>
+  <div class="toc-drawer-body"></div>
 </dialog>`;
 }
 
@@ -159,8 +165,7 @@ export function renderTocDrawer(tocHtml: string): string {
  * ⚠️ 孤立的三级标题（前面没有二级标题）照样列出来，只是当顶层——
  *    丢掉它等于读者在目录里找不到那一节。
  *
- * ⚠️ 目录本身住在顶栏按钮点开的抽屉里（`renderEventPage` 的 tocDrawer），
- *    所以这里只出列表，不再套一层可折叠的 details——抽屉的开关就是那层折叠。
+ * 这里只出导航列表，宽屏侧栏与窄屏抽屉共用它。
  */
 export function renderToc(toc: TocEntry[]): string {
   if (toc.length === 0) return '';

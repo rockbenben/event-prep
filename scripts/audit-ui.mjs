@@ -213,7 +213,7 @@ async function auditMaterials(browser, base) {
           record(`${vp.name} · 资料 Markdown 可下载`, response.ok() && response.headers()['content-type']?.includes('text/markdown'));
         }
         if (target.endsWith('/summary/') && await page.locator('#toc-open').count() && await page.locator('.toc a[href^="#session-"]').count()) {
-          await page.locator('#toc-open').click();
+          if (await page.locator('#toc-open').isVisible()) await page.locator('#toc-open').click();
           await page.locator('.toc a[href^="#session-"]').first().click();
           await page.waitForFunction(() => location.hash.startsWith('#session-') && !document.querySelector('#toc-drawer').open);
           record(`${vp.name} · 总结目录可跳转到场次`, true);
@@ -818,7 +818,7 @@ async function runChecks(browser, base) {
         }
       }
 
-      // 5.9 目录：顶栏按钮点开就是侧边目录，并且标出「现在读到哪一节」
+      // 5.9 目录：宽屏常驻侧栏，窄屏浮动抽屉，并且标出「现在读到哪一节」
       //
       // ⚠️ 目录住在抽屉里，所以「看得见」的前提是**先把抽屉打开**——
       //    不开就量，量到的是关着的抽屉（尺寸为 0），测出来的是假象。
@@ -832,8 +832,20 @@ async function runChecks(browser, base) {
         })()`);
         const openBtn = page.locator('#toc-open');
         const hasBtn = (await openBtn.count()) > 0;
-        record('目录 · 顶栏有入口', hasBtn && tocInfo !== null && tocInfo.count > 0, `按钮=${hasBtn} 条目=${tocInfo ? tocInfo.count : 0}`);
+        record('目录 · 窄屏有入口', hasBtn && tocInfo !== null && tocInfo.count > 0, `按钮=${hasBtn} 条目=${tocInfo ? tocInfo.count : 0}`);
         if (hasBtn && tocInfo && tocInfo.count > 0) {
+          const wide = await page.evaluate(() => {
+            const side = document.querySelector('.toc-sidebar');
+            const content = document.querySelector('.event');
+            const a = side.getBoundingClientRect();
+            const b = content.getBoundingClientRect();
+            return a.width > 0 && a.right <= b.left && !!side.querySelector('.toc a') &&
+              getComputedStyle(side).position === 'sticky' && !document.querySelector('#toc-drawer').open;
+          });
+          record('目录 · 宽屏常驻正文旁边', wide && !(await openBtn.isVisible()));
+          await page.setViewportSize({ width: 390, height: 844 });
+          await page.waitForFunction(() => !!document.querySelector('#toc-drawer .toc'));
+          record('目录 · 缩窄后自动隐藏', !(await page.locator('.toc').isVisible()));
           await openBtn.click();
           await page.waitForTimeout(350);
           const drawer = await page.evaluate(`(() => {
@@ -899,6 +911,8 @@ async function runChecks(browser, base) {
           await page.waitForTimeout(250);
           const closed = await page.evaluate(`(() => { const d = document.getElementById('toc-drawer'); return d ? !d.open : false; })()`);
           record('目录 · Esc 能关掉', closed);
+          await page.setViewportSize({ width: 1280, height: 900 });
+          await page.waitForFunction(() => !!document.querySelector('.toc-sidebar .toc'));
         }
       }
 
@@ -1032,7 +1046,7 @@ async function runChecks(browser, base) {
           record('日程进目录 · 各天都在目录里', true, `${dayLinks.length} 天：${dayLinks.map((d) => d.text).join('、')}`);
           const href = dayLinks[0].href.slice(1);
           // 把目录抽屉打开再点（真实用法），点完检查目标 details 是展开的
-          await page.locator('#toc-open').click();
+          if (await page.locator('#toc-open').isVisible()) await page.locator('#toc-open').click();
           await page.waitForTimeout(200);
           await page.locator(`.toc a[href="${dayLinks[0].href}"]`).first().click();
           await page.waitForTimeout(200);
@@ -1517,6 +1531,13 @@ async function runChecks(browser, base) {
           JSON.stringify(narrow),
         );
         await page.setViewportSize({ width: 1280, height: 900 });
+        await page.waitForFunction(() => !!document.querySelector('.toc-sidebar .toc'));
+        await page.setViewportSize({ width: 390, height: 844 });
+        await page.waitForFunction(() => !!document.querySelector('#toc-drawer .toc'));
+        await page.locator('#toc-open').click();
+        await page.setViewportSize({ width: 1280, height: 900 });
+        await page.waitForFunction(() => !document.querySelector('#toc-drawer').open && !!document.querySelector('.toc-sidebar .toc'));
+        record('目录 · 抽屉打开时加宽会恢复侧栏并释放正文', await page.locator('.toc-sidebar .toc').isVisible() && await page.locator('.event-title').isVisible());
       }
 
       await context.close();
