@@ -146,6 +146,22 @@ function record(name, ok, detail) {
   console.log(`  ${mark} ${label}${detail ? ` — ${detail}` : ''}`);
 }
 
+/**
+ * 取一个「下载链接」指向的文件：只对传输层的 ECONNRESET 重试。
+ *
+ * ⚠️ 2026-11-15 的 firefox job 偶发 `read ECONNRESET`（GET .../20261106-raw.md）：
+ *    `context.request` / `page.request` 走 Playwright 的 APIRequestContext
+ *    （Node 的 keep-alive agent），两次探测之间常隔 5 秒以上，而本地静态服务器
+ *    默认 5 秒就关掉空闲连接——典型的 keep-alive 关/复用竞态。
+ *    本地复现不出来，只有 CI 撞上。这是验收自己这条链路的传输层抖动，不是产物的毛病
+ *    （线上是 EdgeOne 直出，浏览器自己会重试）。
+ *    用 Playwright 自带的 `maxRetries`：**只重试 ECONNRESET，不重试 HTTP 状态码**，
+ *    所以闸门没放松——4xx/5xx 照旧记失败。
+ */
+function getDownload(requestContext, url) {
+  return requestContext.get(url, { maxRetries: 2 });
+}
+
 async function main() {
   if (!existsSync(DIST)) {
     console.error('没有 dist/，先跑 npm run build。');
@@ -170,9 +186,12 @@ async function main() {
     }
   } finally {
     server.close();
+    // ⚠️ 中途抛错（比如探测请求连续失败）也要把已经跑完的结果落盘：
+    //    否则 CI 上只剩一行错误，前面几十条检查的结果一条都查不到——
+    //    2026-11-15 的 firefox job 就丢了整份 report.json。
+    await writeFile(path.join(OUT, 'report.json'), JSON.stringify(results, null, 2), 'utf8')
+      .catch((error) => console.error(`report.json 没写成：${error.message}`));
   }
-
-  await writeFile(path.join(OUT, 'report.json'), JSON.stringify(results, null, 2), 'utf8');
 
   console.log(`\n${results.length - failures}/${results.length} 项通过。截图在 ${OUT}`);
   if (failures > 0) {
@@ -209,7 +228,7 @@ async function auditMaterials(browser, base) {
         record(`${vp.name} · 资料页 ${target} 无横向溢出`, probe.scrollWidth <= probe.docWidth + 1 && probe.offenders.length === 0, JSON.stringify(probe.offenders));
         const download = page.locator('a[download]').first();
         if (await download.count()) {
-          const response = await context.request.get(await download.getAttribute('href').then((href) => new URL(href, page.url()).href));
+          const response = await getDownload(context.request, await download.getAttribute('href').then((href) => new URL(href, page.url()).href));
           record(`${vp.name} · 资料 Markdown 可下载`, response.ok() && response.headers()['content-type']?.includes('text/markdown'));
         }
         if (target.endsWith('/summary/') && await page.locator('#toc-open').count() && await page.locator('.toc a[href^="#session-"]').count()) {
@@ -813,7 +832,7 @@ async function runChecks(browser, base) {
         } else {
           const href = await links.first().getAttribute('href');
           record('导出 Markdown · 活动页有下载链接', href === 'event.md', `href=${href}`);
-          const res = await page.request.get(`${base}/${slug}/${href}`);
+          const res = await getDownload(page.request, `${base}/${slug}/${href}`);
           const text = await res.text();
           const looksLikeSource = text.startsWith('---') && /(^|\n)title:/.test(text);
           record(

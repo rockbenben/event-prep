@@ -386,6 +386,15 @@ EventPrep：把各种活动的公开日程，整理成手机上随时能查的�
     换个内容就点开**另一张卡**的图标。要按卡片定位，再在卡里找。
     ⚠️ 本地跑通 ≠ CI 跑通：这类时间敏感的检查要专门在 CI 上验。
     ⚠️ **验收不能押注访问日期或首页顺序**：活动结束后日程可能全部自动收起，首页第一张也可能变成没有清单的日期待定活动。布局检查先展开各天，交互检查选择组件齐全的活动并明确展开被测日程；原有断言照常保留。跨页跳转先等导航和资源完成，不能只看锚点出现就立刻返回，否则 Firefox 可能取消尚未完成的 favicon 请求。
+    ⚠️ **探测下载链接的请求只对 ECONNRESET 重试，而且中途抛错也要落盘 `report.json`**：
+    `context.request.get` / `page.request.get` 走 Playwright 的 APIRequestContext
+    （Node 的 keep-alive agent），和本地静态服务器之间偶发 `read ECONNRESET`
+    （2026-11-15 的 firefox job：两次探测隔了 6 秒，服务器默认 5 秒关空闲连接）。
+    本地复现不出来，只有 CI 撞上；这是验收自己这条链路的传输层抖动，不是产物的毛病
+    （线上是 EdgeOne 直出，浏览器自己会重试）。Playwright 的 `maxRetries`
+    **只重试 ECONNRESET、不重试 HTTP 状态码**，所以闸门没放松。
+    另外那次失败把整份 `report.json` 也带走了（异常直接冲出 `main()`，前面几十条检查的结果一条没留）；
+    现在 `main()` 的 `finally` 里先落盘再抛，CI 上至少能看到已经跑完的结果。
 
 23.5 **横向留白只有 `.wrap` 一个来源，别的类只准写纵向。**
     ⚠️ `.home` / `.event` / `.site-footer` 以前写的是 `padding: 22px 0 16px` 这种**简写**，
